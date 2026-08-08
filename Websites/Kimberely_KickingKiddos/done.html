@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're All Set! | Kicking Kiddos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #f0f4fa; color: #1a1a2e; }
+    :root { --blue: #0A7EF5; --green: #16a34a; --gold: #F5A623; --red: #dc2626; --muted: #64748b; }
+
+    .page-wrap { padding: 48px 20px 60px; max-width: 680px; margin: 0 auto; }
+
+    /* Hero */
+    .hero { text-align: center; margin-bottom: 36px; }
+    .hero-icon { font-size: 3.5rem; margin-bottom: 16px; }
+    .hero h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 900; letter-spacing: -.04em; color: #1a1a2e; line-height: 1.1; margin-bottom: 12px; }
+    .hero p { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 480px; margin: 0 auto; }
+
+    /* BAND urgent card */
+    .band-card { background: linear-gradient(135deg, #1a1a2e 0%, #0d1528 100%); border-radius: 20px; padding: 32px; margin-bottom: 24px; border-left: 6px solid var(--red); box-shadow: 0 8px 32px rgba(0,0,0,.22); }
+    .band-card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .band-card-icon { width: 44px; height: 44px; border-radius: 12px; background: rgba(220,38,38,.18); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .band-card-header h2 { font-size: 1.1rem; font-weight: 900; color: #f87171; letter-spacing: -.01em; line-height: 1.25; }
+    .band-rules { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+    .band-rule { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 12px; }
+    .band-rule-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+    .band-rule p { font-size: .88rem; color: rgba(255,255,255,.8); line-height: 1.6; font-weight: 500; }
+    .band-rule p strong { color: #fff; font-weight: 800; }
+    .band-rule p .highlight { color: #fbbf24; font-weight: 800; }
+
+    /* CTA button */
+    .btn-band { display: flex; align-items: center; justify-content: center; gap: 10px; background: linear-gradient(135deg, #f87171, #dc2626); color: #fff; font-family: inherit; font-size: 1rem; font-weight: 900; padding: 18px 32px; border-radius: 100px; border: none; cursor: pointer; text-decoration: none; box-shadow: 0 6px 24px rgba(220,38,38,.45); transition: transform .15s, box-shadow .15s; letter-spacing: -.01em; width: 100%; }
+    .btn-band:hover { transform: translateY(-2px); box-shadow: 0 10px 32px rgba(220,38,38,.55); }
+    .btn-band-sub { display: block; font-size: .75rem; font-weight: 600; opacity: .85; margin-top: 3px; letter-spacing: 0; }
+
+    /* Non-refundable notice */
+    .refund-notice { background: #fff; border: 2px solid #e2e8f0; border-radius: 14px; padding: 20px 24px; display: flex; align-items: flex-start; gap: 14px; }
+    .refund-notice-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .refund-notice p { font-size: .86rem; color: #475569; line-height: 1.6; }
+    .refund-notice p strong { color: #1a1a2e; font-weight: 800; }
+
+    /* Video section */
+    .video-section { margin-top: 28px; }
+    .video-label { font-size: .8rem; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .08em; margin-bottom: 10px; text-align: center; }
+    .video-wrap { border-radius: 16px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,.12); background: #000; }
+    .video-wrap video { display: block; width: 100%; }
+
+    .footer-note { text-align: center; font-size: .76rem; color: #94a3b8; margin-top: 32px; line-height: 1.7; }
+    .footer-note a { color: var(--blue); font-weight: 600; }
+  </style>
+</head>
+<body>
+<!-- BANNER-START: enrollment-paused [DISABLED, site open; re-enable steps in PROJECT.md]
+<div id="enrollment-paused-banner" style="position:fixed;inset:0;z-index:2147483647;background:#0b0b0b;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;display:flex;align-items:center;justify-content:center;padding:32px;text-align:center;">
+  <div style="max-width:640px;">
+    <div style="font-size:clamp(28px,5vw,44px);font-weight:700;line-height:1.15;margin-bottom:18px;">We're temporarily not accepting new students</div>
+    <div style="font-size:clamp(16px,2.2vw,20px);line-height:1.5;opacity:.85;">Please check back later, thank you for your patience!</div>
+  </div>
+</div>
+<style>html,body{overflow:hidden !important;}</style>
+BANNER-END -->
+  <div class="page-wrap">
+
+    <div class="hero">
+      <div class="hero-icon">🎉</div>
+      <h1>You're all signed up!</h1>
+      <p>There's one last, very important thing you need to do before your first class.</p>
+    </div>
+
+    <div class="band-card">
+      <div class="band-card-header">
+        <div class="band-card-icon">🚨</div>
+        <h2>You MUST join the BAND app for class updates &amp; cancellations</h2>
+      </div>
+      <div class="band-rules">
+        <div class="band-rule">
+          <div class="band-rule-icon">📵</div>
+          <p><span class="highlight">Do NOT email or message Kicking Kiddos staff</span> about class cancellations. That is not how cancellations are communicated.</p>
+        </div>
+        <div class="band-rule">
+          <div class="band-rule-icon">📲</div>
+          <p><strong>ALL important information (including cancellations) is posted on the BAND app.</strong> If you're not in the group, you will miss it.</p>
+        </div>
+        <div class="band-rule">
+          <div class="band-rule-icon">⚠️</div>
+          <p>Missing a class because you weren't in the BAND group is <strong>your responsibility.</strong> Join now so you never miss an update.</p>
+        </div>
+      </div>
+      <a href="https://www.band.us/band/94983565" target="_blank" rel="noopener" class="btn-band">
+        📣 Join the BAND Group Now
+        <span class="btn-band-sub">Tap here. It only takes 30 seconds.</span>
+      </a>
+    </div>
+
+    <div class="refund-notice">
+      <div class="refund-notice-icon">💳</div>
+      <p><strong>Non-refundable classes:</strong> Please note that all classes are non-refundable. Make sure you've joined the BAND app so you always know about any schedule changes before they happen.</p>
+    </div>
+
+    <div class="video-section">
+      <div class="video-label">First Day Instructions</div>
+      <div class="video-wrap">
+        <video controls playsinline>
+          <source src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69b35b9500505112834300b6.mp4" type="video/mp4" />
+        </video>
+      </div>
+    </div>
+
+    <p class="footer-note">Questions? Email Kicking Kiddos at <a target="_top" href="mailto:kickingkiddos@yahoo.com">kickingkiddos@yahoo.com</a></p>
+
+  </div>
+  <p style="text-align:center;font-size:.72rem;color:#94a3b8;padding:16px 0 24px;font-family:inherit;">Website &amp; marketing systems by <a href="https://nilsdigital.com" target="_blank" rel="noopener" style="color:#64748b;font-weight:600;">nilsdigital.com</a></p>
+</body>
+</html>

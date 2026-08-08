@@ -1,0 +1,89 @@
+{
+  "name": "free-camp",
+  "id": "3Z4E9y7WlWgkZDxViBUW",
+  "fields": [
+    {
+      "label": "Select School *",
+      "options": []
+    },
+    {
+      "label": "Camp Week Choices *",
+      "options": [
+        "June 1st–5th",
+        "June 8th–12th",
+        "June 15th–19th",
+        "June 22nd–26th",
+        "June 29th – July 3rd",
+        "July 6th–10th",
+        "July 13th–17th",
+        "July 20th–24th",
+        "July 27th–31st",
+        "August 3rd-7th"
+      ]
+    },
+    {
+      "label": "Student Full Name *",
+      "options": []
+    },
+    {
+      "label": "Child Grade (In School) *",
+      "options": []
+    },
+    {
+      "label": "Student's birthday *",
+      "options": []
+    },
+    {
+      "label": "Is this student potty trained?",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "label": "T-Shirt Size *",
+      "options": []
+    },
+    {
+      "label": "Need transportation? *",
+      "options": []
+    },
+    {
+      "label": "Address *",
+      "options": []
+    },
+    {
+      "label": "Free Breakfast *",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "label": "Free Lunch *",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "label": "Additional Care *",
+      "options": [
+        "Morning care (8:30–9 AM)",
+        "Afternoon care (3–4 PM)"
+      ]
+    },
+    {
+      "label": "Parent/Guardian Name *",
+      "options": []
+    },
+    {
+      "label": "Phone Number *",
+      "options": []
+    },
+    {
+      "label": "Email Address *",
+      "options": []
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Custom length — base 5 ft ($140)",
+        "selectedField": "garland",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide",
+      "type": "showHideFields",
+      "value": "garland"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Custom length — base 5 ft ($140)",
+        "selectedField": "garland",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "additional_feet_of_garland"
+    }
+  }
+]

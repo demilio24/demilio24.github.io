@@ -1,0 +1,5683 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AquaSquad Swim: Swim Lessons &amp; Water Safety | Wesley Chapel, FL</title>
+    <meta
+      name="description"
+      content="AquaSquad Swim is a full-service swim school in Wesley Chapel, FL: survival swim, mobile learn-to-swim, private and small group lessons, stroke development, and adult lessons. Every program is built on water safety first, taught by trained professionals. Call or text 813-320-9787."
+    />
+
+    <link rel="preconnect" href="https://assets.cdn.filesafe.space" crossorigin />
+    <link
+      rel="preload"
+      as="video"
+      href="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/60e4b741-7b55-4ba3-ad7a-67b62271a322.mp4"
+      type="video/mp4"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* =============================================
+       CSS CUSTOM PROPERTIES
+    ============================================= */
+      :root {
+        --primary: #1aa79d;
+        --primary-dark: #18494c;
+        --primary-light: #e8f7f6;
+        --secondary: #f8a28e;
+        --bg: #ffffff;
+        --surface: #f4fafa;
+        --text-primary: #18494c;
+        --text-secondary: #5a7a7b;
+        --text-on-primary: #ffffff;
+        --border: #d4ecea;
+        --success: #2ecc71;
+        --gradient: linear-gradient(135deg, #1aa79d 0%, #18494c 100%);
+
+        --space-xs: 8px;
+        --space-sm: 16px;
+        --space-md: 24px;
+        --space-lg: 32px;
+        --space-xl: 48px;
+        --space-2xl: 64px;
+        --space-3xl: 80px;
+
+        --radius-btn: 8px;
+        --radius-card: 12px;
+        --radius-img: 12px;
+        --radius-pill: 100px;
+
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+        --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+        --shadow-glow: 0 0 20px rgba(26, 167, 157, 0.25);
+
+        --font: "Jost", "Century Gothic", "Trebuchet MS", sans-serif;
+        --container: 1200px;
+      }
+
+      /* =============================================
+       RESET & BASE
+    ============================================= */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font);
+        color: var(--text-primary);
+        background: var(--bg);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      img,
+      video {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+
+      /* =============================================
+       TYPOGRAPHY
+    ============================================= */
+      h1 {
+        font-size: clamp(36px, 5vw, 56px);
+        font-weight: 700;
+        line-height: 1.1;
+        letter-spacing: -0.02em;
+      }
+      h2 {
+        font-size: clamp(28px, 4vw, 42px);
+        font-weight: 700;
+        line-height: 1.2;
+        letter-spacing: -0.01em;
+      }
+      h3 {
+        font-size: clamp(22px, 3vw, 28px);
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      h4 {
+        font-size: clamp(18px, 2.5vw, 22px);
+        font-weight: 600;
+        line-height: 1.3;
+      }
+      p {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .eyebrow {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-secondary);
+        display: block;
+        margin-bottom: var(--space-sm);
+      }
+      .accent {
+        color: var(--primary);
+      }
+
+      /* =============================================
+       LAYOUT UTILITIES
+    ============================================= */
+      .container {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .section-pad {
+        padding: var(--space-3xl) 0;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-max {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: var(--space-2xl);
+      }
+      .section-header h2 {
+        margin-bottom: var(--space-sm);
+      }
+      .section-header > p {
+        font-size: 18px;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      /* =============================================
+       BUTTONS
+    ============================================= */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary);
+        color: #fff;
+        font-family: var(--font);
+        font-size: 17px;
+        font-weight: 700;
+        padding: 16px 32px;
+        border-radius: var(--radius-btn);
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        min-width: 220px;
+        transition:
+          background 0.3s ease,
+          box-shadow 0.3s ease;
+        letter-spacing: 0.02em;
+      }
+      .btn-primary:hover {
+        background: var(--primary-dark);
+        box-shadow: var(--shadow-glow);
+        color: #fff;
+      }
+
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        color: var(--primary);
+        font-family: var(--font);
+        font-size: 17px;
+        font-weight: 700;
+        padding: 14px 28px;
+        border-radius: var(--radius-btn);
+        border: 2px solid var(--primary);
+        cursor: pointer;
+        text-decoration: none;
+        min-width: 200px;
+        transition: background 0.3s ease;
+      }
+      .btn-ghost:hover {
+        background: rgba(26, 167, 157, 0.1);
+        color: var(--primary);
+      }
+
+      .btn-white {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        color: var(--primary-dark);
+        font-family: var(--font);
+        font-size: 17px;
+        font-weight: 700;
+        padding: 16px 32px;
+        border-radius: var(--radius-btn);
+        border: none;
+        cursor: pointer;
+        text-decoration: none;
+        min-width: 220px;
+        transition:
+          background 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .btn-white:hover {
+        background: var(--primary-light);
+        box-shadow: var(--shadow-md);
+        color: var(--primary-dark);
+      }
+
+      .cta-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+        align-items: center;
+      }
+      .cta-subtext {
+        font-size: 13px;
+        color: var(--text-secondary);
+        margin-top: 8px;
+        display: block;
+      }
+
+      /* =============================================
+       BADGES
+    ============================================= */
+      .badge {
+        display: inline-block;
+        padding: 4px 14px;
+        border-radius: var(--radius-pill);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+      }
+      .badge-coral {
+        background: var(--secondary);
+        color: #fff;
+      }
+      .badge-teal {
+        background: var(--primary);
+        color: #fff;
+      }
+
+      /* =============================================
+       SCROLL ANIMATIONS
+    ============================================= */
+      .fade-up {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.6s ease,
+          transform 0.6s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .fade-up:nth-child(2) {
+        transition-delay: 0.08s;
+      }
+      .fade-up:nth-child(3) {
+        transition-delay: 0.16s;
+      }
+      .fade-up:nth-child(4) {
+        transition-delay: 0.24s;
+      }
+      .fade-up:nth-child(5) {
+        transition-delay: 0.32s;
+      }
+      .fade-up:nth-child(6) {
+        transition-delay: 0.4s;
+      }
+
+      /* =============================================
+       SECTION 1: NAV
+    ============================================= */
+      #nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: #fff;
+        transition: box-shadow 0.3s ease;
+      }
+      #nav.scrolled {
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+      }
+
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 24px;
+        max-width: var(--container);
+        margin: 0 auto;
+      }
+      .nav-logo {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+      }
+      .nav-logo img {
+        height: 92px;
+        width: auto;
+        flex-shrink: 0;
+      }
+      .nav-links {
+        display: flex;
+        gap: 3px;
+        list-style: none;
+        align-items: center;
+        flex-shrink: 1;
+        min-width: 0;
+      }
+      .nav-links a {
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: 14.5px;
+        padding: 8px 10px;
+        position: relative;
+        transition: color 0.22s ease-out;
+        white-space: nowrap;
+      }
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        left: 12px;
+        right: 12px;
+        height: 2px;
+        background: var(--secondary);
+        border-radius: 2px;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.25s ease-out;
+      }
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+      .nav-links a:hover::after {
+        transform: scaleX(1);
+      }
+      .nav-cta {
+        flex-shrink: 0;
+        margin-left: 8px;
+      }
+
+      /* Hamburger */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 6px;
+        cursor: pointer;
+        background: none;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        transition: background 0.2s;
+        z-index: 1001;
+        position: relative;
+      }
+      .hamburger:hover {
+        background: var(--primary-light);
+      }
+      .hamburger span {
+        display: block;
+        width: 26px;
+        height: 2px;
+        background: var(--text-primary);
+        border-radius: 2px;
+        transition: all 0.35s ease-out;
+        transform-origin: center;
+      }
+      /* Hamburger → X animation */
+      .hamburger.open span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+      .hamburger.open span:nth-child(2) {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+      .hamburger.open span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
+
+      /* Mobile backdrop */
+      .mobile-backdrop {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0);
+        z-index: 998;
+        pointer-events: none;
+        transition: background 0.35s ease-out;
+      }
+      .mobile-backdrop.open {
+        background: rgba(0, 0, 0, 0.55);
+        pointer-events: all;
+      }
+
+      /* Mobile menu — drops down flush below nav bar (top set by JS) */
+      .mobile-menu {
+        position: fixed;
+        top: 0; /* overridden by JS to match real nav height */
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: #ffffff;
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        transform: translateY(-110%);
+        transition: transform 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+        overflow-y: auto;
+        max-height: 80vh;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+        border-top: 2px solid var(--primary);
+      }
+      .mobile-menu.open {
+        transform: translateY(0);
+      }
+
+      /* Hide old drawer header — nav itself is now the header */
+      .mobile-menu-header {
+        display: none;
+      }
+      .mobile-menu-close {
+        display: none;
+      }
+
+      /* Nav links */
+      .mobile-menu-links {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 16px;
+        gap: 2px;
+      }
+      .mobile-menu-links a {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-primary);
+        padding: 13px 16px;
+        border-radius: 10px;
+        transition:
+          background 0.2s ease-out,
+          color 0.2s ease-out;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border-bottom: 1px solid var(--border);
+      }
+      .mobile-menu-links a:last-child {
+        border-bottom: none;
+      }
+      .mobile-menu-links a:hover,
+      .mobile-menu-links a:active {
+        background: var(--primary-light);
+        color: var(--primary);
+      }
+      .mobile-menu-links .nav-num {
+        font-size: 11px;
+        font-weight: 700;
+        color: var(--secondary);
+        width: 18px;
+        flex-shrink: 0;
+      }
+
+      /* CTA block at bottom of dropdown */
+      .mobile-menu-cta {
+        padding: 16px 16px 20px;
+      }
+      .mobile-menu-cta a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary);
+        color: #fff;
+        font-size: 16px;
+        font-weight: 700;
+        padding: 16px 24px;
+        border-radius: 12px;
+        text-align: center;
+        transition:
+          background 0.25s ease-out,
+          box-shadow 0.25s ease-out;
+      }
+      .mobile-menu-cta a:hover {
+        background: var(--primary-dark);
+        box-shadow: var(--shadow-glow);
+        color: #fff;
+      }
+      .mobile-menu-cta p {
+        text-align: center;
+        font-size: 12px;
+        color: var(--text-secondary);
+        margin-top: 8px;
+      }
+
+      .mobile-menu-divider {
+        display: none;
+      }
+
+      /* Below true-desktop width the 8 links won't fit alongside the phone
+         + CTA, so collapse them into the hamburger and keep phone + CTA. */
+      @media (max-width: 1200px) {
+        .nav-links {
+          display: none;
+        }
+        .hamburger {
+          display: flex;
+        }
+      }
+      @media (max-width: 900px) {
+        /* Phone moves into the mobile menu + hero here to save the row */
+        .nav-phone {
+          display: none !important;
+        }
+        /* CTA button — visible and readable on mobile */
+        .nav-cta {
+          padding: 13px 18px !important;
+          font-size: 14px !important;
+          min-width: unset !important;
+        }
+        .nav-logo img {
+          height: 76px;
+        }
+      }
+
+      /* =============================================
+       SECTION 2: HERO
+    ============================================= */
+      #hero {
+        position: relative;
+        padding-top: 126px; /* nav height */
+        padding-bottom: 0;
+        overflow: hidden;
+        background-color: var(--primary-dark);
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .hero-bg video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      .hero-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          105deg,
+          rgba(24, 73, 76, 0.88) 0%,
+          rgba(24, 73, 76, 0.75) 50%,
+          rgba(24, 73, 76, 0.35) 100%
+        );
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2xl);
+        align-items: center;
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: var(--space-3xl) 24px var(--space-3xl);
+        min-height: calc(100vh - 72px);
+      }
+      .hero-text .subheadline {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.6;
+        margin: var(--space-md) 0 var(--space-md);
+        max-width: 500px;
+      }
+      .hero-text h1 {
+        color: #fff;
+      }
+      .hero-text .eyebrow {
+        color: var(--secondary);
+      }
+      .hero-text p {
+        color: rgba(255, 255, 255, 0.75);
+        margin-bottom: var(--space-sm);
+      }
+
+      /* Hero form card */
+      .hero-form-card {
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        width: 100%;
+      }
+      .hero-form-header {
+        background: var(--primary);
+        padding: var(--space-md) var(--space-lg);
+        text-align: center;
+      }
+      .hero-form-header h3 {
+        color: #fff;
+        font-size: 20px;
+        margin: 0 0 4px;
+      }
+      .hero-form-header p {
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 13px;
+        margin: 0;
+      }
+      .hero-form-body {
+        padding: 0;
+        min-height: 520px;
+      }
+      .hero-form-body iframe {
+        display: block;
+        width: 100%;
+        min-height: 520px;
+        border: none;
+      }
+
+      /* Social Proof Bar */
+      #proof-bar {
+        background: var(--primary-dark);
+        padding: 26px 0;
+      }
+      .proof-inner {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      .proof-stat {
+        text-align: center;
+        padding: 8px 16px;
+        position: relative;
+      }
+      .proof-stat:not(:last-child)::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1px;
+        height: 40px;
+        background: var(--secondary);
+        opacity: 0.5;
+      }
+      .proof-stat .num {
+        display: block;
+        font-size: clamp(26px, 3vw, 36px);
+        font-weight: 700;
+        color: var(--primary);
+        line-height: 1.1;
+      }
+      .proof-stat .label {
+        display: block;
+        font-size: 13px;
+        color: #fff;
+        font-weight: 500;
+        margin-top: 4px;
+      }
+
+      @media (max-width: 900px) {
+        #hero {
+          padding-top: 80px;
+        }
+        .hero-inner {
+          grid-template-columns: 1fr;
+          min-height: unset;
+          padding-top: var(--space-md);
+        }
+        .hero-form-card {
+          order: 2;
+        }
+        .hero-text .subheadline {
+          max-width: 100%;
+        }
+      }
+      @media (max-width: 580px) {
+        .proof-inner {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 16px;
+        }
+        .proof-stat:not(:last-child)::after {
+          display: none;
+        }
+        .proof-stat:nth-child(-n + 2) {
+          border-bottom: 1px solid rgba(248, 162, 142, 0.25);
+          padding-bottom: 16px;
+        }
+      }
+
+      /* =============================================
+       SECTION 3: PROBLEM / ABOUT
+    ============================================= */
+      #problem {
+        background: var(--bg);
+      }
+
+      /* Becca intro — shared card wrapper */
+      .becca-card-wrap {
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow:
+          0 4px 16px rgba(0, 0, 0, 0.08),
+          0 16px 48px rgba(0, 0, 0, 0.1);
+        margin-bottom: var(--space-3xl);
+      }
+      .becca-intro-grid {
+        display: grid;
+        grid-template-columns: 380px 1fr;
+        gap: 0;
+        align-items: stretch;
+        background: #fff;
+      }
+      .becca-photo-wrap {
+        position: relative;
+        flex-shrink: 0;
+      }
+      .becca-photo-wrap img {
+        width: 100%;
+        height: 100%;
+        min-height: 520px;
+        object-fit: cover;
+        object-position: center 10%;
+        display: block;
+      }
+      .becca-photo-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(24, 73, 76, 0.97) 0%,
+          rgba(24, 73, 76, 0.85) 40%,
+          rgba(24, 73, 76, 0.4) 70%,
+          transparent 100%
+        );
+        padding: var(--space-lg) var(--space-md) var(--space-sm);
+      }
+      .becca-photo-overlay .becca-name {
+        color: #fff;
+        font-size: 18px;
+        font-weight: 700;
+        display: block;
+        margin-bottom: 2px;
+      }
+      .becca-photo-overlay .becca-title {
+        color: var(--secondary);
+        font-size: 15px;
+        font-weight: 800;
+        display: block;
+        margin-bottom: 10px;
+      }
+      .becca-creds {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .becca-creds li {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .becca-creds li::before {
+        content: "★";
+        color: var(--secondary);
+        font-size: 9px;
+        flex-shrink: 0;
+      }
+
+      .becca-intro-text {
+        padding: var(--space-lg) var(--space-lg);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .becca-intro-text h2 {
+        margin-bottom: var(--space-sm);
+      }
+      .becca-intro-text p {
+        color: var(--text-secondary);
+        margin-bottom: var(--space-sm);
+        font-size: 15px;
+        line-height: 1.65;
+      }
+
+      .becca-pull-quote {
+        border-left: 4px solid var(--primary);
+        background: var(--primary-light);
+        border-radius: 0 var(--radius-card) var(--radius-card) 0;
+        padding: 12px var(--space-md);
+        margin: var(--space-sm) 0;
+      }
+      .becca-pull-quote p {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--text-primary);
+        font-style: italic;
+        margin: 0;
+      }
+
+      /* 6+6 Certification Badge */
+      .cert-66-badge {
+        background: var(--gradient);
+        border-radius: var(--radius-card);
+        padding: 12px var(--space-md);
+        margin: var(--space-sm) 0;
+      }
+      .cert-66-inner {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        margin-bottom: 4px;
+      }
+      .cert-66-num {
+        font-size: 32px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+        flex-shrink: 0;
+      }
+      .cert-66-num span {
+        color: var(--secondary);
+        font-size: 22px;
+      }
+      .cert-66-text {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+      .cert-66-text strong {
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
+      }
+      .cert-66-text span {
+        color: rgba(255, 255, 255, 0.85);
+        font-size: 12px;
+      }
+      .cert-66-note {
+        color: #ffffff;
+        font-size: 12px;
+        font-style: italic;
+        margin: 0;
+        line-height: 1.4;
+      }
+
+      /* Alternatives comparison */
+      .vs-section-header {
+        text-align: center;
+        margin-bottom: var(--space-xl);
+        padding-top: var(--space-xl);
+        border-top: 1px solid var(--border);
+      }
+      .vs-section-header h2 {
+        margin-bottom: var(--space-sm);
+      }
+      .vs-section-header p {
+        color: var(--text-secondary);
+        font-size: 17px;
+        max-width: 580px;
+        margin: 0 auto;
+      }
+
+      .vs-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+        margin-bottom: var(--space-xl);
+      }
+      .vs-col {
+        border-radius: var(--radius-card);
+        padding: var(--space-lg);
+      }
+      .vs-col-bad {
+        background: #fff9f8;
+        border-top: 4px solid var(--secondary);
+      }
+      .vs-col-good {
+        background: var(--primary-light);
+        border-top: 4px solid var(--primary);
+      }
+      .vs-col-label {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: var(--space-md);
+        display: block;
+      }
+      .vs-col-bad .vs-col-label {
+        color: var(--secondary);
+      }
+      .vs-col-good .vs-col-label {
+        color: var(--primary);
+      }
+      .vs-col h4 {
+        margin-bottom: var(--space-md);
+        font-size: 18px;
+      }
+      .vs-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .vs-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 15px;
+        line-height: 1.5;
+      }
+      .vs-col-bad .vs-list li {
+        color: var(--text-primary);
+      }
+      .vs-col-good .vs-list li {
+        color: var(--text-primary);
+      }
+      .vs-col-bad .vs-list li::before {
+        content: "✕";
+        color: var(--secondary);
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .vs-col-good .vs-list li::before {
+        content: "✓";
+        color: var(--primary);
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      .problem-video-wrap {
+        position: relative;
+        border-radius: var(--radius-img);
+        overflow: hidden;
+        margin-bottom: var(--space-xl);
+      }
+      .problem-video-wrap video {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        display: block;
+      }
+      .problem-callout {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(14, 38, 40, 0.96) 0%,
+          rgba(14, 38, 40, 0.72) 55%,
+          transparent 100%
+        );
+        padding: var(--space-3xl) var(--space-xl) var(--space-xl);
+        text-align: center;
+      }
+      .problem-callout p {
+        font-size: 19px;
+        font-weight: 600;
+        color: #fff;
+        margin: 0;
+        line-height: 1.6;
+      }
+      .problem-callout p em {
+        color: var(--secondary);
+        font-style: normal;
+      }
+
+      @media (max-width: 900px) {
+        .becca-card-wrap {
+          border-radius: 16px;
+        }
+        .becca-intro-grid {
+          grid-template-columns: 1fr;
+        }
+        .becca-photo-wrap img {
+          height: 300px;
+          min-height: unset;
+        }
+        .becca-intro-text {
+          padding: var(--space-md) var(--space-md);
+        }
+        .vs-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* --- Becca: Accordion --- */
+      .becca-accordion {
+        margin-top: 0;
+      }
+      .becca-accordion-trigger {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-md);
+        padding: 14px var(--space-lg);
+        background: var(--primary-light);
+        cursor: pointer;
+        list-style: none;
+        user-select: none;
+      }
+      .becca-accordion-trigger::-webkit-details-marker { display: none; }
+      .bac-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .bac-icon { font-size: 20px; flex-shrink: 0; }
+      .bac-label { display: flex; flex-direction: column; gap: 1px; }
+      .bac-label strong { font-size: 14px; color: var(--primary-dark); line-height: 1.3; }
+      .bac-label span { font-size: 12px; color: var(--text-secondary); }
+      .bac-arrow {
+        flex-shrink: 0;
+        width: 18px;
+        height: 18px;
+        color: var(--primary);
+        transition: transform 0.3s ease;
+      }
+      .becca-accordion[open] .bac-arrow { transform: rotate(180deg); }
+      @keyframes bab-slide-in {
+        from { opacity: 0; transform: translateY(-6px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      .becca-accordion-body {
+        padding: var(--space-lg);
+        background: #fff;
+        animation: bab-slide-in 0.3s ease forwards;
+      }
+      .bab-grid {
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: var(--space-lg);
+        align-items: start;
+      }
+      .bab-img-wrap img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        border-radius: var(--radius-card);
+      }
+      .bab-content {
+        display: flex;
+        flex-direction: column;
+        gap: var(--space-md);
+      }
+      .conf-banner {
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+        background: var(--gradient);
+        border-radius: var(--radius-card);
+        padding: 12px var(--space-md);
+        color: #fff;
+      }
+      .conf-banner-icon { font-size: 22px; flex-shrink: 0; }
+      .conf-banner-text strong {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+      .conf-banner-text span { font-size: 12px; opacity: 0.88; }
+      .instructor-quote-card {
+        background: var(--primary-light);
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--primary);
+        border-radius: var(--radius-card);
+        padding: var(--space-md);
+      }
+      .iq-label {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 8px;
+      }
+      .instructor-quote-card p {
+        color: var(--text-primary);
+        line-height: 1.7;
+        font-style: italic;
+        font-size: 14px;
+        margin-bottom: var(--space-sm);
+      }
+      .iq-attribution { display: flex; flex-direction: column; gap: 1px; }
+      .iq-name { font-weight: 700; font-size: 13px; color: var(--primary-dark); }
+      .iq-org { font-size: 12px; color: var(--text-secondary); }
+      .becca-pquote-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-sm);
+      }
+      .becca-pquote-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-card);
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .bpq-stars { color: #f4a83a; font-size: 13px; letter-spacing: 1px; }
+      .becca-pquote-card p { color: var(--text-primary); line-height: 1.5; font-size: 13px; flex: 1; }
+      .bpq-name { font-weight: 700; font-size: 12px; color: var(--text-secondary); }
+      @media (max-width: 768px) {
+        .bab-grid { grid-template-columns: 1fr; }
+        .bab-img-wrap img { height: 200px; }
+        .becca-pquote-grid { grid-template-columns: 1fr; }
+        .conf-banner { flex-direction: column; text-align: center; }
+      }
+
+      /* =============================================
+       SECTION 4: SERVICES
+    ============================================= */
+      #services {
+        background: #f5fbfa;
+      }
+      #services .section-header h2 {
+        color: var(--text-primary);
+      }
+      #services .section-header .accent {
+        color: var(--primary);
+      }
+      #services .section-header .eyebrow {
+        color: #1765a6;
+      }
+      #services .section-header > p {
+        color: var(--text-secondary);
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        gap: var(--space-md);
+        align-items: stretch;
+      }
+      /* 3 cards per row, each spanning 2 of 6 columns */
+      .services-grid .service-card {
+        grid-column: span 2;
+      }
+
+      /* ---- Base card ---- */
+      .service-card {
+        background: #fff;
+        border: 1.5px solid #cbe9e7;
+        border-radius: 20px;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        transition:
+          transform 0.35s ease-out,
+          box-shadow 0.35s ease-out;
+        box-shadow:
+          0 2px 16px rgba(26, 167, 157, 0.07),
+          0 1px 4px rgba(0, 0, 0, 0.04);
+      }
+      .service-card:hover {
+        transform: translateY(-5px);
+        box-shadow:
+          0 12px 40px rgba(26, 167, 157, 0.14),
+          0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+
+      /* ---- Featured card (center, Most Popular) ---- */
+      .service-card.featured {
+        border: 2px solid var(--primary);
+        box-shadow:
+          0 8px 40px rgba(26, 167, 157, 0.2),
+          0 2px 12px rgba(26, 167, 157, 0.1);
+        z-index: 2;
+        position: relative;
+      }
+      .service-card.featured:hover {
+        transform: translateY(-7px);
+        box-shadow:
+          0 20px 60px rgba(26, 167, 157, 0.28),
+          0 4px 16px rgba(26, 167, 157, 0.14);
+      }
+
+      /* Popular ribbon */
+      .sc-ribbon {
+        background: var(--primary);
+        color: #fff;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        text-align: center;
+        padding: 7px 0;
+      }
+
+      /* Card icon */
+      .sc-icon {
+        font-size: 32px;
+        margin-bottom: 10px;
+        display: block;
+      }
+
+      /* Head */
+      .sc-head {
+        padding: var(--space-lg);
+      }
+      .sc-head .badge {
+        margin-bottom: 10px;
+        display: inline-block;
+      }
+      .sc-head h4 {
+        margin: 8px 0 var(--space-sm);
+        font-size: 20px;
+        color: var(--text-primary);
+      }
+      .sc-head .short-desc {
+        font-size: 15px;
+        line-height: 1.55;
+        color: var(--text-secondary);
+      }
+
+      /* Price block */
+      .sc-price-block {
+        padding: var(--space-md) var(--space-lg);
+        border-top: 1px solid #e0f0ee;
+        border-bottom: 1px solid #e0f0ee;
+        background: #eef9f8;
+      }
+
+      .sc-price {
+        font-size: 38px;
+        font-weight: 700;
+        line-height: 1;
+        display: block;
+        background: linear-gradient(135deg, #1aa79d 0%, #23c4b8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .sc-price .per {
+        font-size: 15px;
+        font-weight: 500;
+        background: none;
+        -webkit-text-fill-color: initial;
+        color: var(--text-secondary);
+      }
+
+      .sc-price-note {
+        font-size: 13px;
+        margin-top: 4px;
+        color: var(--text-secondary);
+      }
+
+      /* Features list */
+      .sc-features {
+        padding: var(--space-md) var(--space-lg);
+        flex: 1;
+      }
+      .sc-features ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+      }
+      .sc-features li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--text-secondary);
+      }
+      .sc-features li::before {
+        content: "✓";
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-top: 1px;
+        color: var(--primary);
+      }
+
+      .sc-note {
+        font-size: 12px;
+        background: #eef9f8;
+        border-radius: 8px;
+        padding: 9px 12px;
+        margin-top: var(--space-sm);
+        color: var(--text-secondary);
+      }
+
+      /* Packages sub-list */
+      .sc-packages {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-top: var(--space-sm);
+        padding-top: var(--space-sm);
+        border-top: 1px solid #e0f0ee;
+      }
+      .sc-packages li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 13px;
+        gap: 8px;
+        color: var(--text-secondary);
+      }
+      .sc-packages li::before {
+        display: none;
+      }
+      .sc-pkg-label {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+      .sc-pkg-price {
+        font-weight: 700;
+        color: var(--primary);
+        white-space: nowrap;
+      }
+
+      /* Footer CTA */
+      .sc-foot {
+        padding: var(--space-md) var(--space-lg) var(--space-lg);
+        margin-top: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .sc-foot .btn-primary {
+        width: 100%;
+        min-width: unset;
+        font-size: 16px;
+        padding: 15px 20px;
+        background: var(--primary);
+        box-shadow: 0 4px 16px rgba(26, 167, 157, 0.3);
+      }
+      .sc-foot .btn-primary:hover {
+        background: #17948b;
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 0 6px 24px rgba(26, 167, 157, 0.4);
+      }
+      .service-card.featured .sc-foot .btn-primary {
+        background: var(--secondary);
+        box-shadow: 0 4px 16px rgba(248, 162, 142, 0.4);
+      }
+      .service-card.featured .sc-foot .btn-primary:hover {
+        background: #f48d75;
+        box-shadow: 0 6px 24px rgba(248, 162, 142, 0.55);
+      }
+      .sc-foot .cta-subtext {
+        text-align: center;
+        font-size: 12px;
+        color: var(--text-secondary);
+      }
+
+      @media (max-width: 960px) {
+        .services-grid {
+          grid-template-columns: 1fr;
+          max-width: 480px;
+          margin-left: auto;
+          margin-right: auto;
+          align-items: stretch;
+        }
+        .services-grid .service-card {
+          grid-column: 1 / -1;
+        }
+        .service-card.featured {
+          margin-top: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      /* =============================================
+       SECTION 5: PROCESS
+    ============================================= */
+      #process {
+        background: var(--bg);
+      }
+
+      .process-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0;
+        margin-top: var(--space-2xl);
+        position: relative;
+      }
+      .process-grid::before {
+        content: "";
+        position: absolute;
+        top: 40px;
+        left: 12.5%;
+        right: 12.5%;
+        height: 2px;
+        background: var(--border);
+        z-index: 0;
+      }
+
+      .process-step {
+        text-align: center;
+        padding: 0 var(--space-md);
+        position: relative;
+        z-index: 1;
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .process-step.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .process-step:nth-child(2) {
+        transition-delay: 0.12s;
+      }
+      .process-step:nth-child(3) {
+        transition-delay: 0.24s;
+      }
+      .process-step:nth-child(4) {
+        transition-delay: 0.36s;
+      }
+
+      .step-num {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: var(--primary);
+        color: #fff;
+        font-size: 28px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto var(--space-md);
+        box-shadow: var(--shadow-md);
+      }
+      .step-timeframe {
+        display: inline-block;
+        background: var(--primary-light);
+        color: var(--primary);
+        font-size: 11px;
+        font-weight: 700;
+        padding: 4px 12px;
+        border-radius: var(--radius-pill);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-bottom: 10px;
+      }
+      .process-step h4 {
+        margin-bottom: 8px;
+      }
+      .process-step > p {
+        font-size: 14px;
+        color: var(--text-secondary);
+        margin-bottom: var(--space-sm);
+      }
+      .step-roles {
+        font-size: 13px;
+        color: var(--text-secondary);
+        text-align: left;
+      }
+      .step-roles span {
+        display: block;
+        padding: 3px 0;
+      }
+      .step-roles span strong {
+        color: var(--primary);
+      }
+
+      .process-media {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+        margin-top: var(--space-2xl);
+        align-items: center;
+      }
+      .process-media video,
+      .process-media img {
+        border-radius: var(--radius-img);
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+      }
+
+      .process-photo-pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-md);
+        margin-top: var(--space-2xl);
+      }
+      .process-photo-pair img,
+      .process-photo-pair video {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        border-radius: var(--radius-img);
+      }
+
+      @media (max-width: 900px) {
+        .process-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--space-xl);
+        }
+        .process-grid::before {
+          display: none;
+        }
+        .process-media {
+          grid-template-columns: 1fr;
+        }
+        .process-photo-pair {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 480px) {
+        .process-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* =============================================
+       SECTION 6: BENEFITS
+    ============================================= */
+      #benefits {
+        background: var(--primary-dark);
+      }
+      #benefits .eyebrow {
+        color: var(--secondary);
+      }
+      #benefits h2 {
+        color: #fff;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+        margin-top: var(--space-2xl);
+      }
+      .benefit-card {
+        background: #fff;
+        border-radius: var(--radius-card);
+        padding: var(--space-lg);
+        transition: background 0.3s;
+      }
+      .benefit-card:hover {
+        background: #fff;
+      }
+
+      .benefit-icon {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: rgba(26, 167, 157, 0.12);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: var(--space-md);
+        font-size: 26px;
+      }
+      .benefit-card h4 {
+        color: var(--text-primary);
+        margin-bottom: 8px;
+      }
+      .benefit-card p {
+        color: var(--text-secondary);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .benefits-banner {
+        margin-top: var(--space-2xl);
+        border-radius: var(--radius-img);
+        overflow: hidden;
+        position: relative;
+      }
+      .benefits-banner img {
+        width: 100%;
+        height: 70%;
+        max-height: 70%;
+        display: block;
+        object-fit: cover;
+        object-position: top;
+      }
+      .benefits-banner-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(24, 73, 76, 0.82) 0%,
+          transparent 55%
+        );
+        display: flex;
+        align-items: flex-end;
+        padding: var(--space-lg) var(--space-xl);
+      }
+      .benefits-quote {
+        color: #fff;
+        font-size: clamp(18px, 2.5vw, 24px);
+        font-weight: 700;
+        font-style: italic;
+      }
+
+      /* Community chips (compact horizontal items) */
+      .community-chips {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-md);
+        margin-bottom: var(--space-lg);
+      }
+      .community-chip {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        background: var(--primary-light);
+        border-radius: var(--radius-card);
+        padding: var(--space-md);
+        border: 1px solid var(--border);
+      }
+      .cc-icon {
+        font-size: 22px;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .cc-text {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+      }
+      .cc-text strong {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        line-height: 1.3;
+      }
+      .cc-text span {
+        font-size: 13px;
+        color: var(--text-secondary);
+        line-height: 1.4;
+      }
+
+      /* Divider between community chips and who-cols */
+      .combined-divider {
+        height: 1px;
+        background: var(--border);
+        margin: var(--space-lg) 0;
+      }
+
+      @media (max-width: 768px) {
+        .community-chips {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+        .community-chip {
+          flex-direction: row;
+          align-items: center;
+          padding: 12px var(--space-md);
+          cursor: pointer;
+          gap: 10px;
+        }
+        .cc-icon {
+          font-size: 20px;
+          margin-top: 0;
+        }
+        .cc-text strong {
+          font-size: 13px;
+        }
+        .cc-text span {
+          display: none;
+          font-size: 12px;
+          margin-top: 4px;
+        }
+        .community-chip.open .cc-text span {
+          display: block;
+        }
+        .community-chip.open {
+          border-color: var(--primary);
+          background: #d4eeed;
+        }
+        .cc-text {
+          gap: 0;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .benefits-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 560px) {
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* =============================================
+       SECTION 7: WHO WE HELP
+    ============================================= */
+      #who {
+        background: #2e9cb5;
+        position: relative;
+        overflow: hidden;
+      }
+      #who .container {
+        position: relative;
+        z-index: 1;
+      }
+      #who .section-header h2 {
+        color: #fff;
+      }
+      #who .section-header .eyebrow {
+        color: rgba(255, 255, 255, 0.85);
+      }
+      #who .section-header > p {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      /* Water ring decorations */
+
+      /* Bubbles */
+      .who-bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.22);
+        pointer-events: none;
+        animation: bubble-float 7s ease-in-out infinite;
+      }
+      .who-bubble-1 {
+        width: 10px;
+        height: 10px;
+        left: 4%;
+        top: 48%;
+        animation-delay: 0s;
+      }
+      .who-bubble-2 {
+        width: 6px;
+        height: 6px;
+        left: 15%;
+        top: 50%;
+        animation-delay: 1.2s;
+      }
+      .who-bubble-3 {
+        width: 14px;
+        height: 14px;
+        left: 38%;
+        top: 5%;
+        animation-delay: 2.4s;
+      }
+      .who-bubble-4 {
+        width: 8px;
+        height: 8px;
+        right: 4%;
+        top: 45%;
+        animation-delay: 0.8s;
+      }
+      .who-bubble-5 {
+        width: 12px;
+        height: 12px;
+        right: 16%;
+        top: 52%;
+        animation-delay: 3s;
+      }
+      .who-bubble-6 {
+        width: 6px;
+        height: 6px;
+        left: 60%;
+        top: 4%;
+        animation-delay: 1.6s;
+      }
+      .who-bubble-7 {
+        width: 16px;
+        height: 16px;
+        left: 46%;
+        bottom: 5%;
+        animation-delay: 0.4s;
+      }
+      .who-bubble-8 {
+        width: 8px;
+        height: 8px;
+        left: 25%;
+        bottom: 6%;
+        animation-delay: 2s;
+      }
+
+      @keyframes bubble-float {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+          opacity: 0.65;
+        }
+        50% {
+          transform: translateY(-14px) scale(1.15);
+          opacity: 1;
+        }
+      }
+
+      /* Frosted card columns */
+      .who-cols {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-xl);
+        margin-top: var(--space-2xl);
+      }
+      .who-col {
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        border-radius: var(--radius-card);
+        padding: var(--space-xl);
+      }
+      .who-col h3 {
+        margin-bottom: var(--space-lg);
+        font-size: 20px;
+      }
+      .who-col h3.good {
+        color: var(--primary);
+      }
+      .who-col h3.bad {
+        color: #c0392b;
+      }
+
+      .who-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .who-list li {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        font-size: 15px;
+        color: var(--text-primary);
+        line-height: 1.6;
+      }
+      .who-list.good li::before {
+        content: "✓";
+        color: var(--success);
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .who-list.bad li::before {
+        content: "✕";
+        color: #c0392b;
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .area-card {
+        margin: var(--space-2xl) 0 0;
+        background: rgba(255, 255, 255, 0.88);
+        backdrop-filter: blur(8px);
+        border-radius: var(--radius-card);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        padding: var(--space-lg) var(--space-xl);
+        display: flex;
+        align-items: center;
+        gap: var(--space-md);
+      }
+      .area-card-icon {
+        font-size: 30px;
+        flex-shrink: 0;
+      }
+      .area-card p {
+        color: var(--text-secondary);
+        font-size: 15px;
+      }
+
+      @media (max-width: 768px) {
+        .who-cols {
+          grid-template-columns: 1fr;
+        }
+        .area-card {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* =============================================
+       SECTION 8: GALLERY
+    ============================================= */
+      #gallery {
+        background: var(--bg);
+        border-top: 1px solid var(--border);
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 320px 320px 240px;
+        gap: 12px;
+        margin-top: var(--space-2xl);
+      }
+      .gallery-item {
+        border-radius: var(--radius-img);
+        overflow: hidden;
+        position: relative;
+      }
+      /* Explicit placement — perfect rectangle, no gaps */
+      .gallery-item:nth-child(1) { grid-column: 1 / 3; grid-row: 1; }
+      .gallery-item:nth-child(2) { grid-column: 3;     grid-row: 1; }
+      .gallery-item:nth-child(3) { grid-column: 1;     grid-row: 2; }
+      .gallery-item:nth-child(4) { grid-column: 2 / 4; grid-row: 2; }
+      .gallery-item:nth-child(5) { grid-column: 1 / -1; grid-row: 3; }
+
+      .gallery-item img,
+      .gallery-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .gallery-item:hover img,
+      .gallery-item:hover video {
+        transform: scale(1.04);
+      }
+
+      @media (max-width: 768px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: 220px 220px 180px 180px;
+          gap: 8px;
+        }
+        .gallery-item:nth-child(1) { grid-column: 1 / -1; grid-row: 1; }
+        .gallery-item:nth-child(2) { grid-column: 1;      grid-row: 2; }
+        .gallery-item:nth-child(3) { grid-column: 2;      grid-row: 2; }
+        .gallery-item:nth-child(4) { grid-column: 1 / -1; grid-row: 3; }
+        .gallery-item:nth-child(5) { grid-column: 1 / -1; grid-row: 4; }
+      }
+      @media (max-width: 480px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          grid-template-rows: repeat(5, 220px);
+        }
+        .gallery-item:nth-child(n) { grid-column: 1; }
+        .gallery-item:nth-child(1) { grid-row: 1; }
+        .gallery-item:nth-child(2) { grid-row: 2; }
+        .gallery-item:nth-child(3) { grid-row: 3; }
+        .gallery-item:nth-child(4) { grid-row: 4; }
+        .gallery-item:nth-child(5) { grid-row: 5; }
+      }
+
+      /* =============================================
+       SECTION 9: FAQ
+    ============================================= */
+      #faq {
+        background: var(--primary-light);
+      }
+
+      .faq-list {
+        max-width: 800px;
+        margin: var(--space-2xl) auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .faq-item {
+        background: #fff;
+        border-radius: var(--radius-card);
+        box-shadow: var(--shadow-sm);
+        overflow: hidden;
+      }
+
+      .faq-q {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-md);
+        padding: var(--space-md) var(--space-lg);
+        cursor: pointer;
+        user-select: none;
+        font-weight: 700;
+        font-size: 15px;
+        color: var(--text-primary);
+        transition: color 0.2s;
+      }
+      .faq-q:hover {
+        color: var(--primary);
+      }
+      .faq-item.open .faq-q {
+        color: var(--primary);
+      }
+
+      .faq-icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--primary-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        color: var(--primary);
+        font-size: 18px;
+        font-weight: 700;
+        transition:
+          transform 0.3s,
+          background 0.3s,
+          color 0.3s;
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+        background: var(--primary);
+        color: #fff;
+      }
+
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+      .faq-item.open .faq-a {
+        max-height: 500px;
+      }
+
+      .faq-a-inner {
+        padding: 0 var(--space-lg) var(--space-lg);
+        border-top: 1px solid var(--border);
+        padding-top: var(--space-md);
+        color: var(--text-secondary);
+        font-size: 15px;
+        line-height: 1.7;
+      }
+
+      /* =============================================
+       SECTION 10: FINAL CTA
+    ============================================= */
+      #final-cta {
+        background: linear-gradient(
+          180deg,
+          #0a7eb0 0%,
+          #065e88 40%,
+          #03405f 100%
+        );
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+      #final-cta .container {
+        position: relative;
+        z-index: 1;
+      }
+      #final-cta .eyebrow {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      #final-cta h2 {
+        color: #fff;
+      }
+
+      /* Pool decorative layer */
+      .pool-bg {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .pool-wave-line {
+        position: absolute;
+        left: -5%;
+        width: 110%;
+        opacity: 0.1;
+      }
+      .pool-wave-line-1 {
+        top: 6%;
+        animation: pool-drift 14s ease-in-out infinite;
+      }
+      .pool-wave-line-2 {
+        top: 24%;
+        animation: pool-drift 18s ease-in-out infinite reverse;
+        animation-delay: -5s;
+      }
+      .pool-wave-line-3 {
+        top: 46%;
+        animation: pool-drift 12s ease-in-out infinite;
+        animation-delay: -3s;
+      }
+      .pool-wave-line-4 {
+        top: 70%;
+        animation: pool-drift 16s ease-in-out infinite reverse;
+        animation-delay: -8s;
+      }
+      .pool-wave-line-5 {
+        top: 88%;
+        animation: pool-drift 15s ease-in-out infinite;
+        animation-delay: -2s;
+      }
+
+      @keyframes pool-drift {
+        0% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(4%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .pool-bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.11);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        pointer-events: none;
+        animation: pool-rise 9s ease-in-out infinite;
+      }
+      .pool-bubble-1 {
+        width: 22px;
+        height: 22px;
+        left: 4%;
+        bottom: 18%;
+        animation-delay: 0s;
+      }
+      .pool-bubble-2 {
+        width: 14px;
+        height: 14px;
+        left: 12%;
+        top: 32%;
+        animation-delay: -2s;
+      }
+      .pool-bubble-3 {
+        width: 32px;
+        height: 32px;
+        left: 2%;
+        top: 10%;
+        animation-delay: -5s;
+        animation-duration: 11s;
+      }
+      .pool-bubble-4 {
+        width: 10px;
+        height: 10px;
+        left: 22%;
+        bottom: 8%;
+        animation-delay: -1s;
+      }
+      .pool-bubble-5 {
+        width: 20px;
+        height: 20px;
+        right: 5%;
+        top: 38%;
+        animation-delay: -4s;
+        animation-duration: 12s;
+      }
+      .pool-bubble-6 {
+        width: 12px;
+        height: 12px;
+        right: 14%;
+        bottom: 22%;
+        animation-delay: -3s;
+      }
+      .pool-bubble-7 {
+        width: 8px;
+        height: 8px;
+        right: 27%;
+        top: 14%;
+        animation-delay: -6s;
+        animation-duration: 10s;
+      }
+      .pool-bubble-8 {
+        width: 26px;
+        height: 26px;
+        right: 2%;
+        bottom: 8%;
+        animation-delay: -1.5s;
+        animation-duration: 13s;
+      }
+      .pool-bubble-9 {
+        width: 6px;
+        height: 6px;
+        left: 46%;
+        top: 6%;
+        animation-delay: -7s;
+      }
+      .pool-bubble-10 {
+        width: 16px;
+        height: 16px;
+        right: 44%;
+        bottom: 4%;
+        animation-delay: -4s;
+      }
+
+      @keyframes pool-rise {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+          opacity: 0.65;
+        }
+        50% {
+          transform: translateY(-18px) scale(1.1);
+          opacity: 1;
+        }
+      }
+
+      .fcta-sub {
+        font-size: 18px;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 540px;
+        margin: var(--space-md) auto var(--space-xl);
+        line-height: 1.6;
+      }
+
+      .fcta-body {
+        max-width: 640px;
+        margin: 0 auto var(--space-xl);
+      }
+      .fcta-body p {
+        color: rgba(255, 255, 255, 0.78);
+        margin-bottom: var(--space-sm);
+      }
+
+      .fcta-cta-subtext {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: 13px;
+        margin-top: 10px;
+        display: block;
+      }
+
+      .trust-row {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: var(--space-lg);
+        margin-top: var(--space-xl);
+      }
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 13px;
+        font-weight: 600;
+      }
+      .trust-check {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        color: #fff;
+      }
+
+      /* =============================================
+       SECTION 11: FOOTER
+    ============================================= */
+      #footer {
+        background: #ffffff;
+        padding: var(--space-2xl) 0 var(--space-md);
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr;
+        gap: var(--space-2xl);
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: 0 24px var(--space-2xl);
+        border-bottom: 1px solid var(--border);
+      }
+      .footer-logo img {
+        height: 100px;
+        margin-bottom: var(--space-md);
+      }
+      .footer-logo p {
+        color: var(--text-secondary);
+        font-size: 16px;
+        line-height: 1.7;
+        max-width: 300px;
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 10px;
+        margin-top: var(--space-md);
+      }
+      .soc-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: var(--primary-light);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--primary);
+        text-decoration: none;
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .soc-icon:hover {
+        background: var(--primary);
+        color: #fff;
+        border-color: var(--primary);
+      }
+      .soc-icon svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .footer-col h5 {
+        color: var(--text-primary);
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: var(--space-md);
+        padding-bottom: 8px;
+        border-bottom: 1px solid var(--border);
+      }
+      .footer-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .footer-col a {
+        color: var(--text-secondary);
+        font-size: 16px;
+        transition: color 0.2s;
+      }
+      .footer-col a:hover {
+        color: var(--primary);
+      }
+      .footer-col p {
+        color: var(--text-secondary);
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .footer-bottom {
+        max-width: var(--container);
+        margin: 0 auto;
+        padding: var(--space-md) 24px 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .footer-bottom p,
+      .footer-bottom a {
+        color: var(--text-secondary);
+        font-size: 14px;
+      }
+      .footer-bottom a:hover {
+        color: var(--primary);
+      }
+      .footer-legal {
+        display: flex;
+        gap: var(--space-md);
+      }
+
+      .nils-credit {
+        width: 100%;
+        text-align: center;
+        color: var(--text-secondary);
+        font-size: 16px;
+        margin-top: var(--space-sm);
+        padding-top: var(--space-sm);
+        border-top: 1px solid var(--border);
+      }
+      .nils-credit a {
+        color: var(--text-secondary);
+        font-size: 16px;
+      }
+      .nils-credit a:hover {
+        color: var(--primary);
+      }
+
+      @media (max-width: 768px) {
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: var(--space-xl);
+        }
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* =============================================
+       PREMIUM EFFECTS
+    ============================================= */
+
+      /* --- 1. Enhanced shadow tokens --- */
+      :root {
+        --shadow-float:
+          0 2px 4px rgba(0, 0, 0, 0.06), 0 6px 16px rgba(0, 0, 0, 0.08),
+          0 16px 32px rgba(0, 0, 0, 0.06);
+        --shadow-float-hover:
+          0 6px 12px rgba(0, 0, 0, 0.1), 0 16px 32px rgba(0, 0, 0, 0.09),
+          0 32px 56px rgba(0, 0, 0, 0.07);
+        --glow-btn:
+          0 2px 8px rgba(26, 167, 157, 0.35),
+          0 6px 20px rgba(26, 167, 157, 0.25),
+          0 14px 40px rgba(26, 167, 157, 0.15);
+        --glow-card: 0 0 30px rgba(26, 167, 157, 0.1);
+      }
+
+      /* --- 2. CTA buttons: stacked glow + lift micro-interaction --- */
+      .btn-primary {
+        transition:
+          background 0.3s ease-out,
+          box-shadow 0.3s ease-out,
+          transform 0.3s ease-out;
+        box-shadow:
+          0 2px 6px rgba(26, 167, 157, 0.18),
+          0 4px 12px rgba(26, 167, 157, 0.1);
+      }
+      .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: var(--glow-btn);
+        color: #fff;
+      }
+      .btn-primary:active {
+        transform: translateY(0) scale(0.99);
+      }
+
+      /* --- 3. Hero form card: deep stacked shadows + ambient glow on hover --- */
+      .hero-form-card {
+        box-shadow:
+          0 4px 8px rgba(0, 0, 0, 0.12),
+          0 12px 28px rgba(0, 0, 0, 0.14),
+          0 28px 56px rgba(0, 0, 0, 0.12),
+          0 0 0 1px rgba(26, 167, 157, 0.06);
+        transition:
+          box-shadow 0.4s ease-out,
+          transform 0.4s ease-out;
+      }
+      .hero-form-card:hover {
+        box-shadow:
+          0 6px 12px rgba(0, 0, 0, 0.12),
+          0 16px 36px rgba(0, 0, 0, 0.12),
+          0 36px 72px rgba(0, 0, 0, 0.1),
+          0 0 40px rgba(26, 167, 157, 0.12),
+          0 0 0 1px rgba(26, 167, 157, 0.12);
+      }
+      .hero-form-header {
+        background: linear-gradient(135deg, #1aa79d 0%, #18494c 100%);
+      }
+
+      /* --- 4. Service cards: floating lift effect --- */
+      .service-card {
+        box-shadow: var(--shadow-float);
+        transition:
+          transform 0.35s ease-out,
+          box-shadow 0.35s ease-out;
+      }
+      .service-card:hover {
+        transform: translateY(-7px);
+        box-shadow: var(--shadow-float-hover), var(--glow-card);
+      }
+
+      /* --- 5. Benefit cards: white + lift --- */
+      .benefit-card {
+        background: #fff;
+        border: 1px solid rgba(26, 167, 157, 0.14);
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.06);
+        transition:
+          border-color 0.35s ease-out,
+          transform 0.35s ease-out,
+          box-shadow 0.35s ease-out;
+      }
+      .benefit-card:hover {
+        background: #fff;
+        border-color: rgba(26, 167, 157, 0.35);
+        transform: translateY(-5px);
+        box-shadow:
+          0 10px 28px rgba(0, 0, 0, 0.1),
+          0 0 20px rgba(26, 167, 157, 0.08);
+      }
+
+      /* --- 6. Benefit icons: soft teal glow --- */
+      .benefit-icon {
+        border: 1px solid rgba(26, 167, 157, 0.22);
+        transition:
+          filter 0.35s ease-out,
+          background 0.35s ease-out;
+        filter: drop-shadow(0 0 6px rgba(26, 167, 157, 0.28));
+      }
+      .benefit-card:hover .benefit-icon {
+        filter: drop-shadow(0 0 12px rgba(26, 167, 157, 0.55));
+        background: rgba(26, 167, 157, 0.28);
+      }
+
+      /* --- 7. Process step numbers: gradient fill + glow --- */
+      .step-num {
+        background: linear-gradient(
+          145deg,
+          #23c4b8 0%,
+          #1aa79d 45%,
+          #18494c 100%
+        );
+        box-shadow:
+          0 3px 8px rgba(0, 0, 0, 0.18),
+          0 0 18px rgba(26, 167, 157, 0.35),
+          0 0 40px rgba(26, 167, 157, 0.14);
+      }
+      .process-grid::before {
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--primary),
+          transparent
+        );
+        opacity: 0.35;
+      }
+
+      /* --- 8. Pricing numbers: gradient text --- */
+      .sc-price {
+        background: linear-gradient(135deg, #1aa79d 0%, #18494c 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        font-size: 26px;
+      }
+      .sc-price .per {
+        background: none;
+        -webkit-text-fill-color: var(--text-secondary);
+        color: var(--text-secondary);
+      }
+
+      /* --- 9. Pull quote: left glow accent --- */
+      .becca-pull-quote {
+        box-shadow:
+          -4px 0 24px rgba(26, 167, 157, 0.14),
+          inset 0 0 32px rgba(26, 167, 157, 0.04);
+      }
+
+      /* --- 10. Becca card: hover lifts the whole unified card --- */
+      .becca-card-wrap:hover {
+        box-shadow:
+          0 8px 24px rgba(0, 0, 0, 0.1),
+          0 24px 64px rgba(0, 0, 0, 0.12);
+      }
+
+      /* --- 11. Gallery items: enhanced hover --- */
+      .gallery-item {
+        transition:
+          transform 0.35s ease-out,
+          box-shadow 0.35s ease-out;
+      }
+      .gallery-item:hover {
+        transform: scale(1.015);
+        box-shadow:
+          0 10px 28px rgba(0, 0, 0, 0.18),
+          0 0 0 2px rgba(26, 167, 157, 0.25);
+      }
+      .gallery-item img,
+      .gallery-item video {
+        transition: transform 0.5s ease-out;
+      }
+
+      /* --- 12. FAQ items: subtle lift --- */
+      .faq-item {
+        box-shadow:
+          0 1px 4px rgba(0, 0, 0, 0.06),
+          0 3px 10px rgba(0, 0, 0, 0.04);
+        transition:
+          transform 0.3s ease-out,
+          box-shadow 0.3s ease-out;
+      }
+      .faq-item:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 4px 14px rgba(0, 0, 0, 0.09),
+          0 8px 24px rgba(0, 0, 0, 0.06);
+      }
+
+      /* --- 13. VS comparison cards: lift --- */
+      .vs-col {
+        transition:
+          transform 0.35s ease-out,
+          box-shadow 0.35s ease-out;
+      }
+      .vs-col:hover {
+        transform: translateY(-5px);
+        box-shadow:
+          0 8px 24px rgba(0, 0, 0, 0.08),
+          0 16px 40px rgba(0, 0, 0, 0.05);
+      }
+
+      /* --- 14. Problem video wrap shadow --- */
+      .problem-video-wrap {
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.14);
+      }
+
+      /* --- 15. Area card: teal glow border on hover --- */
+      .area-card {
+        transition:
+          transform 0.35s ease-out,
+          box-shadow 0.35s ease-out;
+        box-shadow: 0 2px 8px rgba(26, 167, 157, 0.07);
+      }
+      .area-card:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 8px 24px rgba(26, 167, 157, 0.14),
+          0 0 0 2px rgba(26, 167, 157, 0.18);
+      }
+
+      /* --- 16. Hero parallax: will-change hint --- */
+      .hero-bg {
+        will-change: transform;
+      }
+
+      /* --- Mobile: strip heavy transforms --- */
+      @media (max-width: 768px) {
+        .btn-primary:hover {
+          transform: scale(1.02);
+        }
+        .service-card:hover {
+          transform: translateY(-3px);
+        }
+        .benefit-card:hover {
+          transform: none;
+        }
+        .becca-card-wrap:hover {
+          box-shadow:
+            0 4px 16px rgba(0, 0, 0, 0.08),
+            0 16px 48px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item:hover {
+          transform: none;
+        }
+        .faq-item:hover {
+          transform: none;
+        }
+        .vs-col:hover {
+          transform: none;
+        }
+      }
+
+      /* =============================================
+       WAVE SECTION DIVIDERS
+    ============================================= */
+      .wave-divider {
+        display: block;
+        line-height: 0;
+        overflow: hidden;
+        margin-bottom: -2px; /* close any sub-pixel gap */
+      }
+      .wave-divider svg {
+        display: block;
+        width: 100%;
+        height: 72px;
+      }
+      @media (max-width: 768px) {
+        .wave-divider svg {
+          height: 44px;
+        }
+      }
+
+      /* =============================================
+       COLLAPSIBLE / SHOW-MORE PATTERNS
+    ============================================= */
+      /* Generic collapse container */
+      .collapse-body {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.38s ease;
+      }
+      .collapse-body.open {
+        max-height: 800px;
+      }
+
+      /* Show-more button (used in comparison & who-list) */
+      .show-more-btn {
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-pill);
+        padding: 6px 18px;
+        font-family: var(--font);
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--primary);
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 10px;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+      .show-more-btn:hover {
+        background: var(--primary-light);
+        border-color: var(--primary);
+      }
+      .show-more-btn .arrow {
+        display: inline-block;
+        transition: transform 0.3s;
+        font-style: normal;
+      }
+      .show-more-btn.open .arrow {
+        transform: rotate(180deg);
+      }
+
+      /* Service card features toggle */
+      .sc-feat-toggle {
+        width: 100%;
+        background: var(--primary-light);
+        border: 1.5px solid var(--border);
+        border-radius: 0;
+        padding: 12px 16px;
+        font-family: var(--font);
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--primary-dark);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        margin-bottom: 10px;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+      .sc-feat-toggle::before {
+        content: "✓";
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        background: var(--primary);
+        color: #fff;
+        border-radius: 50%;
+        font-size: 11px;
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-right: 2px;
+      }
+      .sc-feat-toggle .btn-label {
+        flex: 1;
+        text-align: left;
+      }
+      .sc-feat-toggle:hover {
+        background: #d4eeed;
+        border-color: var(--primary);
+      }
+      .sc-feat-toggle.open {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: #fff;
+      }
+      .sc-feat-toggle.open::before {
+        background: rgba(255, 255, 255, 0.25);
+        color: #fff;
+      }
+      .sc-feat-toggle .arrow {
+        display: inline-block;
+        transition: transform 0.3s;
+        font-style: normal;
+        font-size: 18px;
+        line-height: 1;
+      }
+      .sc-feat-toggle.open .arrow {
+        transform: rotate(90deg);
+      }
+      .service-card.featured .sc-feat-toggle {
+        background: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.35);
+        color: #fff;
+      }
+      .service-card.featured .sc-feat-toggle::before {
+        background: rgba(255, 255, 255, 0.3);
+      }
+      .service-card.featured .sc-feat-toggle:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+      .service-card.featured .sc-feat-toggle.open {
+        background: rgba(255, 255, 255, 0.25);
+      }
+
+      /* Process step collapsible */
+      .step-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        gap: 8px;
+      }
+      .step-header h4 {
+        margin: 0;
+        flex: 1;
+      }
+      .step-toggle-icon {
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background: var(--primary-light);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        flex-shrink: 0;
+        transition:
+          transform 0.3s,
+          background 0.2s;
+      }
+      .process-step.open .step-toggle-icon {
+        transform: rotate(180deg);
+        background: var(--primary);
+        color: #fff;
+      }
+
+      /* Benefit card collapsible */
+      .benefit-card {
+        cursor: pointer;
+        user-select: none;
+      }
+      .benefit-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+      }
+      .benefit-card-header h4 {
+        margin: 0;
+      }
+      .benefit-toggle-icon {
+        font-size: 16px;
+        color: var(--primary);
+        transition: transform 0.3s;
+        flex-shrink: 0;
+      }
+      .benefit-card.open .benefit-toggle-icon {
+        transform: rotate(180deg);
+      }
+
+      /* =============================================
+       MOBILE OPTIMIZATIONS  (max-width: 768px)
+    ============================================= */
+      @media (max-width: 768px) {
+        /* --- Global spacing reduction --- */
+        .section-pad {
+          padding: var(--space-2xl) 0;
+        } /* 80px → 48px */
+        .container {
+          padding: 0 16px;
+        } /* 24px → 16px */
+
+        /* --- Typography --- */
+        h2 {
+          font-size: clamp(22px, 6vw, 32px);
+        }
+        h3 {
+          font-size: clamp(18px, 5vw, 24px);
+        }
+        .eyebrow {
+          margin-bottom: 6px;
+        }
+        .section-header {
+          margin-bottom: var(--space-xl);
+        }
+
+        /* --- Hero --- */
+        .hero-text p {
+          font-size: 14px;
+          line-height: 1.6;
+        }
+        .hero-text .subheadline {
+          font-size: 16px;
+        }
+
+        /* --- 6+6 badge --- */
+        .cert-66-note {
+          color: #ffffff !important;
+          font-size: 13px;
+        }
+        .cert-66-badge {
+          padding: var(--space-sm) var(--space-md);
+        }
+
+        /* --- About Becca card --- */
+        .becca-card-wrap {
+          border-radius: 14px;
+        }
+        .becca-photo-wrap img {
+          height: 520px;
+          object-position: center 10%;
+        }
+        .becca-photo-overlay {
+          padding: var(--space-2xl) var(--space-md) var(--space-md);
+          background: linear-gradient(
+            to top,
+            rgba(24, 73, 76, 0.97) 0%,
+            rgba(24, 73, 76, 0.88) 40%,
+            rgba(24, 73, 76, 0.4) 70%,
+            transparent 100%
+          );
+        }
+        .becca-photo-overlay .becca-name {
+          font-size: 20px;
+          margin-bottom: 4px;
+        }
+        .becca-photo-overlay .becca-title {
+          font-size: 13px;
+          margin-bottom: 10px;
+        }
+        .becca-creds {
+          gap: 5px;
+        }
+        .becca-creds li {
+          font-size: 13px;
+          gap: 8px;
+        }
+        .becca-creds li::before {
+          font-size: 10px;
+        }
+
+        /* --- Comparison (vs-grid) --- */
+        .vs-section-header {
+          padding-top: var(--space-lg);
+        }
+        .vs-col {
+          padding: var(--space-md);
+        }
+
+        /* --- Problem video --- */
+        .problem-video-wrap video {
+          height: 220px;
+        }
+        .problem-callout {
+          padding: var(--space-2xl) var(--space-md) var(--space-md);
+        }
+        .problem-callout p {
+          font-size: 15px;
+        }
+
+        /* --- Service cards --- */
+        .sc-head {
+          padding: var(--space-md);
+        }
+        .sc-price-block {
+          padding: var(--space-sm) var(--space-md);
+        }
+        .sc-foot {
+          padding: var(--space-md);
+        }
+        .sc-feat-toggle {
+          padding: 8px var(--space-md);
+          font-size: 13px;
+        }
+
+        /* --- Process steps --- */
+        .process-photo-pair img {
+          height: 180px;
+        }
+        .process-step {
+          padding: var(--space-md);
+        }
+        .step-roles {
+          gap: 6px;
+        }
+        .step-roles span {
+          font-size: 13px;
+        }
+
+        /* --- Benefits --- */
+        .benefit-card {
+          padding: var(--space-md);
+        }
+        .benefit-icon {
+          font-size: 28px;
+          width: 48px;
+          height: 48px;
+        }
+        .benefits-banner img {
+          max-height: 240px;
+        }
+
+        /* --- Community --- */
+        .community-card {
+          padding: var(--space-md);
+        }
+        .community-card-icon {
+          font-size: 28px;
+          margin-bottom: 10px;
+        }
+
+        /* --- Who We Help --- */
+        .who-col {
+          padding: var(--space-md);
+        }
+        .who-col h3 {
+          font-size: 17px;
+          margin-bottom: var(--space-md);
+        }
+        .who-list li {
+          font-size: 14px;
+        }
+        .area-card {
+          padding: var(--space-md);
+          margin-top: var(--space-lg);
+        }
+
+        /* --- Gallery --- */
+        .gallery-grid {
+          gap: 6px;
+        }
+
+        /* --- FAQ --- */
+        .faq-q {
+          font-size: 15px;
+          padding: var(--space-md);
+          gap: var(--space-sm);
+        }
+        .faq-a-inner {
+          padding: var(--space-sm) var(--space-md) var(--space-md);
+          font-size: 14px;
+        }
+
+        /* --- Footer --- */
+        .footer-top {
+          gap: var(--space-xl);
+          padding-bottom: var(--space-xl);
+        }
+        .footer-col h5 {
+          font-size: 15px;
+        }
+        .footer-col p,
+        .footer-col a {
+          font-size: 14px;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          gap: 8px;
+          font-size: 13px;
+        }
+        .footer-legal {
+          gap: var(--space-sm);
+        }
+
+        /* --- Section inline CTA strips --- */
+        .section-inline-cta {
+          padding: var(--space-md) var(--space-lg);
+        }
+
+        /* --- Final CTA trust row --- */
+        .trust-row {
+          gap: 8px 16px;
+        }
+        .trust-item {
+          font-size: 13px;
+        }
+      }
+
+      /* =============================================
+       SMALL PHONE (max-width: 480px)
+    ============================================= */
+      @media (max-width: 480px) {
+        /* --- Global --- */
+        .section-pad {
+          padding: var(--space-xl) 0;
+        } /* 48px → 32px */
+        .container {
+          padding: 0 12px;
+        }
+
+        /* --- Typography --- */
+        h2 {
+          font-size: clamp(20px, 7vw, 28px);
+        }
+        p {
+          font-size: 14px;
+        }
+
+        /* --- Nav --- */
+        .nav-logo img {
+          height: 64px;
+        }
+        .nav-cta {
+          padding: 11px 18px !important;
+          font-size: 14px !important;
+        }
+
+        /* --- Hero --- */
+        .hero-text h1 {
+          font-size: clamp(28px, 8vw, 40px);
+        }
+
+        /* --- About Becca card --- */
+        .becca-photo-wrap img {
+          height: 500px;
+          object-position: center 10%;
+        }
+        .becca-creds {
+          display: flex;
+          gap: 4px;
+        }
+        .becca-creds li {
+          font-size: 12px;
+        }
+        .becca-photo-overlay .becca-name {
+          font-size: 18px;
+        }
+        .becca-photo-overlay .becca-title {
+          font-size: 12px;
+          margin-bottom: 8px;
+        }
+
+        /* --- Pull quote --- */
+        .becca-pull-quote p {
+          font-size: 14px;
+        }
+
+        /* --- Service cards --- */
+        .services-grid {
+          max-width: 100%;
+        }
+
+        /* --- Process --- */
+        .step-num {
+          width: 56px;
+          height: 56px;
+          font-size: 22px;
+        }
+        .process-photo-pair {
+          display: none;
+        } /* hide image pair, saves vertical space */
+
+        /* --- FAQ --- */
+        .faq-q {
+          font-size: 14px;
+        }
+
+        /* --- Who We Help --- */
+        .who-cols {
+          gap: var(--space-md);
+        }
+
+        /* --- Proof bar --- */
+        .proof-stat-value {
+          font-size: 26px;
+        }
+        .proof-stat-label {
+          font-size: 11px;
+        }
+
+        /* --- Final CTA --- */
+        .trust-row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* =============================================
+       SECTION INLINE CTA STRIPS
+    ============================================= */
+      .section-inline-cta {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-lg);
+        padding: var(--space-lg) var(--space-xl);
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: var(--radius-card);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        margin-top: var(--space-2xl);
+        text-align: center;
+      }
+      .section-inline-cta p {
+        margin: 0;
+        font-size: 17px;
+        font-weight: 600;
+        color: #fff;
+      }
+      /* Light variant (on white/light backgrounds) */
+      .section-inline-cta--light {
+        background: var(--primary-light);
+        border: 1px solid var(--border);
+      }
+      .section-inline-cta--light p {
+        color: var(--primary-dark);
+      }
+
+      @media (max-width: 600px) {
+        .section-inline-cta {
+          flex-direction: column;
+          gap: var(--space-md);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- MOBILE BACKDROP -->
+    <div class="mobile-backdrop" id="mobileBackdrop" aria-hidden="true"></div>
+
+    <!-- MOBILE MENU DRAWER (slides in from right) -->
+    <div
+      class="mobile-menu"
+      id="mobileMenu"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Navigation menu"
+    >
+      <!-- Header -->
+      <div class="mobile-menu-header">
+        <img
+          src="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/699767b83873af6718a31276.png"
+          alt="AquaSquad Swim"
+        />
+        <button
+          class="mobile-menu-close"
+          id="menuClose"
+          aria-label="Close menu"
+        >
+          &#x2715;
+        </button>
+      </div>
+
+      <!-- Links in section order -->
+      <nav class="mobile-menu-links">
+        <a href="#problem" onclick="closeMobileMenu()">
+          <span class="nav-num">01</span> About Becca
+        </a>
+        <a href="#services" onclick="closeMobileMenu()">
+          <span class="nav-num">02</span> Programs
+        </a>
+        <a href="#pricing" onclick="closeMobileMenu()">
+          <span class="nav-num">03</span> Pricing
+        </a>
+        <a href="#process" onclick="closeMobileMenu()">
+          <span class="nav-num">04</span> How It Works
+        </a>
+        <a href="#benefits" onclick="closeMobileMenu()">
+          <span class="nav-num">05</span> Why AquaSquad
+        </a>
+        <a href="#gallery" onclick="closeMobileMenu()">
+          <span class="nav-num">06</span> Gallery
+        </a>
+        <a href="#reviews" onclick="closeMobileMenu()">
+          <span class="nav-num">07</span> Reviews
+        </a>
+        <a href="#faq" onclick="closeMobileMenu()">
+          <span class="nav-num">08</span> FAQ
+        </a>
+      </nav>
+
+      <!-- CTA pinned to bottom -->
+      <div class="mobile-menu-cta">
+        <a href="#final-cta" onclick="closeMobileMenu()"
+          >Get a Free Consultation</a
+        >
+        <a target="_top"
+          href="tel:+18133209787"
+          onclick="closeMobileMenu()"
+          style="display: block; margin-top: 10px; text-align: center; font-weight: 700; color: var(--primary-dark)"
+          >📞 Call or Text: 813-320-9787</a
+        >
+        <p>No commitment required, just a conversation</p>
+      </div>
+    </div>
+
+    <!-- =============================================
+       SECTION 1: NAVIGATION
+  ============================================= -->
+    <nav id="nav" role="navigation" aria-label="Main navigation">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo" aria-label="AquaSquad Swim home">
+          <img
+            src="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/699767b83873af6718a31276.png"
+            alt="AquaSquad Swim"
+          />
+        </a>
+        <ul class="nav-links">
+          <li><a href="#problem">About Becca</a></li>
+          <li><a href="#services">Programs</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#benefits">Why AquaSquad</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+        <a target="_top"
+          href="tel:+18133209787"
+          class="nav-phone"
+          aria-label="Call or text AquaSquad Swim at 813-320-9787"
+          style="display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 14.5px; color: var(--primary-dark); margin-right: 6px; white-space: nowrap; flex-shrink: 0"
+          ><span aria-hidden="true" style="font-size: 15px">📞</span> 813-320-9787</a
+        >
+        <a
+          href="#hero"
+          class="btn-primary nav-cta"
+          style="min-width: unset; padding: 11px 16px; font-size: 14px"
+          >Get a Free Consultation</a
+        >
+        <button
+          class="hamburger"
+          id="hamburger"
+          aria-label="Open navigation menu"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- =============================================
+       SECTION 2: HERO
+  ============================================= -->
+    <section id="hero">
+      <div class="hero-bg" aria-hidden="true">
+        <video autoplay muted loop playsinline preload="auto">
+          <source
+            src="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/60e4b741-7b55-4ba3-ad7a-67b62271a322.mp4"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+      <div class="hero-inner">
+        <!-- LEFT: headline + trust signals -->
+        <div class="hero-text fade-up">
+          <span class="eyebrow"
+            >Wesley Chapel, FL &bull; Babies, Toddlers, Children &amp; Beginner
+            Adults</span
+          >
+          <h1>
+            Swim Lessons Built on
+            <span style="color: var(--secondary)">Water Safety First</span>
+          </h1>
+          <p class="subheadline">
+            AquaSquad is now a full-service swim school. Survival swim, mobile
+            learn-to-swim, private, small group, stroke development, and adult
+            lessons. Flexible options that fit busy family schedules, without
+            ever compromising on safety.
+          </p>
+          <p>
+            We teach self-rescue first and strokes second. Every swimmer builds
+            real water competency before moving on to stroke development, taught
+            by trained professionals who do this for a living.
+          </p>
+
+          <!-- Phone CTA -->
+          <a target="_top"
+            href="tel:+18133209787"
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 10px;
+              margin-top: var(--space-md);
+              padding: 12px 22px;
+              background: rgba(255, 255, 255, 0.16);
+              border: 1.5px solid rgba(255, 255, 255, 0.55);
+              border-radius: var(--radius-pill);
+              color: #fff;
+              font-weight: 700;
+              font-size: 17px;
+              backdrop-filter: blur(4px);
+            "
+            ><span aria-hidden="true">📞</span> Call or Text: 813-320-9787</a
+          >
+
+          <!-- Mini trust row -->
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+              margin-top: var(--space-lg);
+            "
+          >
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 600;
+              "
+            >
+              <span
+                style="
+                  width: 26px;
+                  height: 26px;
+                  border-radius: 50%;
+                  background: var(--secondary);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 13px;
+                  color: #fff;
+                  flex-shrink: 0;
+                "
+                >✓</span
+              >
+              Certified Survival Swim Instructor
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 600;
+              "
+            >
+              <span
+                style="
+                  width: 26px;
+                  height: 26px;
+                  border-radius: 50%;
+                  background: var(--secondary);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 13px;
+                  color: #fff;
+                  flex-shrink: 0;
+                "
+                >✓</span
+              >
+              200+ Families Served
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 600;
+              "
+            >
+              <span
+                style="
+                  width: 26px;
+                  height: 26px;
+                  border-radius: 50%;
+                  background: var(--secondary);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 13px;
+                  color: #fff;
+                  flex-shrink: 0;
+                "
+                >✓</span
+              >
+              CPR &amp; First Aid Certified
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 600;
+              "
+            >
+              <span
+                style="
+                  width: 26px;
+                  height: 26px;
+                  border-radius: 50%;
+                  background: var(--secondary);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 13px;
+                  color: #fff;
+                  flex-shrink: 0;
+                "
+                >✓</span
+              >
+              Fully Insured
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 600;
+              "
+            >
+              <span
+                style="
+                  width: 26px;
+                  height: 26px;
+                  border-radius: 50%;
+                  background: var(--secondary);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 13px;
+                  color: #fff;
+                  flex-shrink: 0;
+                "
+                >✓</span
+              >
+              Babies, Toddlers, Children &amp; Beginner Adults Welcome
+            </div>
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 600;
+              "
+            >
+              <span
+                style="
+                  width: 26px;
+                  height: 26px;
+                  border-radius: 50%;
+                  background: var(--secondary);
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                  font-size: 13px;
+                  color: #fff;
+                  flex-shrink: 0;
+                "
+                >✓</span
+              >
+              Approved Step Up for Students Direct Provider
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: embedded form card -->
+        <div class="hero-form-card fade-up">
+          <div class="hero-form-header">
+            <h3>Get a Free Consultation</h3>
+            <p>Submit your info and we'll call you back.</p>
+          </div>
+          <div class="hero-form-body">
+            <iframe
+              src="https://link.nilsdigital.com/widget/form/H7UtIQxZXltnj68M5jOV"
+              style="
+                width: 100%;
+                height: 100%;
+                border: none;
+                border-radius: 0 0 20px 20px;
+                min-height: 520px;
+              "
+              id="inline-H7UtIQxZXltnj68M5jOV"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Website Form (Do not edit)"
+              data-height="457"
+              data-layout-iframe-id="inline-H7UtIQxZXltnj68M5jOV"
+              data-form-id="H7UtIQxZXltnj68M5jOV"
+              title="Website Form (Do not edit)"
+            ></iframe>
+            <script src="https://link.nilsdigital.com/js/form_embed.js"></script>
+          </div>
+        </div>
+      </div>
+
+      <!-- Wave overlaid on hero image, bleeding into the section below -->
+      <div
+        style="
+          position: absolute;
+          bottom: -1px;
+          left: 0;
+          width: 100%;
+          line-height: 0;
+          z-index: 2;
+          pointer-events: none;
+        "
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 1440 72"
+          preserveAspectRatio="none"
+          style="display: block; width: 100%; height: 72px"
+        >
+          <path
+            fill="#ffffff"
+            d="M0,36 C240,72 480,0 720,36 C960,72 1200,12 1440,36 L1440,72 L0,72 Z"
+          />
+        </svg>
+      </div>
+    </section>
+
+    <!-- =============================================
+       SECTION 2.5: WE HEARD YOU / FLEXIBLE OPTIONS
+  ============================================= -->
+    <section id="flexible" class="section-pad" style="padding-bottom: var(--space-2xl)">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="eyebrow">AquaSquad Has Grown</span>
+          <h2>
+            We Heard You. Now There's a Path
+            <span class="accent">for Every Family.</span>
+          </h2>
+          <p>
+            Many families can't commit to survival lessons three days a week but
+            still want real progress and strong water safety skills. So we built
+            flexible lesson options that fit busy schedules, while still putting
+            water safety and water competency first.
+          </p>
+        </div>
+
+        <!-- Philosophy callout -->
+        <div
+          class="fade-up"
+          style="
+            max-width: 820px;
+            margin: 0 auto var(--space-2xl);
+            background: var(--gradient);
+            color: #fff;
+            border-radius: var(--radius-card);
+            padding: var(--space-xl) var(--space-lg);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+          "
+        >
+          <span style="font-size: 34px; line-height: 1">🛟</span>
+          <p
+            style="
+              font-size: clamp(20px, 3.2vw, 26px);
+              font-weight: 700;
+              margin: var(--space-sm) 0 var(--space-xs);
+              line-height: 1.3;
+            "
+          >
+            We teach self-rescue first and strokes second.
+          </p>
+          <p style="margin: 0; opacity: 0.92; font-size: 16px; max-width: 620px; margin-inline: auto">
+            Every AquaSquad program is built on survival swim principles.
+            Whatever format a family chooses, swimmers build strong water
+            competency and safety skills first, then progress to swimming and
+            stroke development.
+          </p>
+        </div>
+
+        <!-- Three pillars -->
+        <div
+          class="fade-up"
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--space-md);
+            margin-bottom: var(--space-xl);
+          "
+        >
+          <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card); padding: var(--space-lg)">
+            <span style="font-size: 30px">🛡️</span>
+            <h4 style="margin: 12px 0 8px; color: var(--text-primary)">Safety Is the Foundation</h4>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 15px">
+              As certified survival swim instructors, water safety is the base
+              of every program we offer, from first floats to full strokes.
+            </p>
+          </div>
+          <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card); padding: var(--space-lg)">
+            <span style="font-size: 30px">📅</span>
+            <h4 style="margin: 12px 0 8px; color: var(--text-primary)">Flexible Formats</h4>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 15px">
+              Private, small group, sibling and friend, stroke development, and
+              adult lessons. Real progress without a one-size-fits-all schedule.
+            </p>
+          </div>
+          <div style="background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card); padding: var(--space-lg)">
+            <span style="font-size: 30px">🏡</span>
+            <h4 style="margin: 12px 0 8px; color: var(--text-primary)">We Can Come to You</h4>
+            <p style="margin: 0; color: var(--text-secondary); font-size: 15px">
+              With mobile learn-to-swim lessons, we bring instruction to your
+              home or community pool. Convenient for families on the go.
+            </p>
+          </div>
+        </div>
+
+        <!-- Age 3 and under recommendation -->
+        <div
+          class="fade-up"
+          style="
+            max-width: 820px;
+            margin: 0 auto;
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            background: #fff;
+            border: 1.5px solid var(--secondary);
+            border-radius: var(--radius-card);
+            padding: var(--space-md) var(--space-lg);
+          "
+        >
+          <span style="font-size: 26px; flex-shrink: 0">👶</span>
+          <p style="margin: 0; color: var(--text-primary); font-size: 15px; line-height: 1.6">
+            <strong>For children age 3 and under,</strong> we strongly recommend
+            beginning with our Survival Swim program whenever possible. It's the
+            fastest path to life-saving swim-float-swim skills during the years
+            when drowning risk is highest.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: flexible (white) → about/problem (white) keeps flat; no divider needed -->
+
+    <!-- =============================================
+       SECTION 3: ABOUT BECCA + ALTERNATIVES
+  ============================================= -->
+    <section id="problem" class="section-pad" style="padding-top: var(--space-xl)">
+      <div class="container">
+        <!-- PART 1: Meet Becca + accordion wrapper -->
+        <div class="becca-card-wrap">
+        <div class="becca-intro-grid">
+          <!-- Photo with overlay credentials -->
+          <div class="becca-photo-wrap fade-up">
+            <img
+              src="https://assets.cdn.filesafe.space/vlShPNZKvXfgiMxkHRDS/media/69c6f2b29fc63ae6e529c82f.jpeg"
+              alt="Becca, AquaSquad Swim instructor, in pool during a lesson"
+              loading="lazy"
+            />
+            <div class="becca-photo-overlay">
+              <span class="becca-name">Becca</span>
+              <span class="becca-title"
+                >Founder &amp; Lead Instructor, AquaSquad Swim</span
+              >
+              <ul class="becca-creds">
+                <li>Certified Survival Swim Instructor</li>
+                <li>CPR &amp; First Aid Certified</li>
+                <li>SwimFin Certified</li>
+                <li>A.S. Liberal Arts</li>
+                <li>A.S. Early Childhood Education</li>
+                <li>B.S. Elementary Education</li>
+                <li>10+ Years Teaching Young Children</li>
+                <li>200+ Families Served</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Right: intro copy -->
+          <div class="becca-intro-text fade-up">
+            <span class="eyebrow">Meet the Instructor</span>
+            <h2>
+              Hi, I'm Becca,
+              <span class="accent">The Heart Behind AquaSquad</span>
+            </h2>
+
+            <p>
+              If you're here, you're probably a parent looking for someone you
+              can truly trust with your child around the water. As a mom of
+              three, I want you to know I take that responsibility to heart.
+            </p>
+
+            <p>
+              Before stepping onto the pool deck, I spent over a decade in the
+              classroom. My background in Early Childhood Education and
+              Elementary Education shapes every lesson, making sure instruction
+              is developmentally appropriate, intentional, and kind.
+            </p>
+
+            <div class="becca-pull-quote">
+              <p>
+                "You deserve to feel completely confident, informed, and
+                supported every step of the way. You're part of the Squad now."
+              </p>
+            </div>
+
+            <!-- Certification Badge -->
+            <div class="cert-66-badge">
+              <div class="cert-66-inner">
+                <div
+                  class="cert-66-num"
+                  style="font-size: 22px; line-height: 1.2"
+                >
+                  🏅
+                </div>
+                <div class="cert-66-text">
+                  <strong>Trained to the Industry's Highest Standard</strong>
+                  <span
+                    >The most rigorous survival swim certification pathway
+                    available, combining intensive in-water training with
+                    academic coursework in anatomy &amp; physiology</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- PART 1b: Beyond the Pool (accordion) -->
+        <details class="becca-accordion fade-up">
+          <summary class="becca-accordion-trigger">
+            <span class="bac-left">
+              <span class="bac-icon">🌐</span>
+              <span class="bac-label">
+                <strong>Beyond the Pool Deck</strong>
+                <span>Recognized internationally as a lead survival swim presenter</span>
+              </span>
+            </span>
+            <svg class="bac-arrow" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6l4 4 4-4"/>
+            </svg>
+          </summary>
+          <div class="becca-accordion-body">
+            <div class="bab-grid">
+              <div class="bab-img-wrap">
+                <img
+                  src="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/6997664a2a2f151b2903c552.jpg"
+                  alt="Becca presenting at an international swim instructor conference"
+                  loading="lazy"
+                />
+              </div>
+              <div class="bab-content">
+                <div class="conf-banner">
+                  <div class="conf-banner-icon">🏆</div>
+                  <div class="conf-banner-text">
+                    <strong>International Instructor Conference</strong>
+                    <span>Lead survival swim presenter &middot; Second consecutive year &middot; Global audience of swim instructors</span>
+                  </div>
+                </div>
+                <div class="instructor-quote-card">
+                  <span class="iq-label">From a Fellow Instructor</span>
+                  <p>"Her techniques have been a total game changer for my teaching. My students are floating and self-rescuing more efficiently and confidently than ever before. Becca shares skills that many instructors keep to themselves, and she does it with so much clarity and heart. She's an expert at her craft."</p>
+                  <div class="iq-attribution">
+                    <span class="iq-name">Jackie</span>
+                    <span class="iq-org">Arizona Mobile Swim &middot; Certified Swim Instructor</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </details>
+        </div><!-- /.becca-card-wrap -->
+
+        <!-- PART 2: Alternatives comparison -->
+        <div class="vs-section-header fade-up">
+          <span class="eyebrow">Why Most Swim Lessons Fall Short</span>
+          <h2>
+            Your Child May Already Have Lessons.
+            <span class="accent">This Is Different.</span>
+          </h2>
+          <p>Most programs teach strokes first. AquaSquad teaches survival first, then strokes.</p>
+        </div>
+
+        <div class="vs-grid fade-up">
+          <div class="vs-col vs-col-bad">
+            <span class="vs-col-label">What most programs do</span>
+            <h4>Familiar. But Not Enough.</h4>
+            <ul class="vs-list">
+              <li>Teach strokes and gliding, not survival responses</li>
+              <li>
+                Once-a-week group classes that don't build reliable muscle
+                memory
+              </li>
+            </ul>
+            <div class="collapse-body" id="vs-bad-extra">
+              <ul class="vs-list" style="margin-top: 0; padding-top: 0">
+                <li>Summer camps with no year-round reinforcement</li>
+                <li>
+                  Floaties and puddle jumpers that create dependency, not real
+                  skill
+                </li>
+                <li>Large classes where your child is one of many</li>
+                <li>No plan when something unexpected happens in the water</li>
+              </ul>
+            </div>
+            <button
+              class="show-more-btn"
+              onclick="toggleCollapse('vs-bad-extra', this)"
+              aria-expanded="false"
+            >
+              <span class="btn-label">Show more</span> <em class="arrow">↓</em>
+            </button>
+          </div>
+          <div class="vs-col vs-col-good">
+            <span class="vs-col-label">What AquaSquad does</span>
+            <h4>Built for Real Life. Not Just Lessons.</h4>
+            <ul class="vs-list">
+              <li>
+                Self-rescue first: roll, float, breathe, swim to safety. Strokes
+                come second.
+              </li>
+              <li>
+                Water safety and competency are the foundation of every lesson
+                format
+              </li>
+            </ul>
+            <div class="collapse-body" id="vs-good-extra">
+              <ul class="vs-list" style="margin-top: 0; padding-top: 0">
+                <li>
+                  Flexible formats: survival, private, small group, mobile, and
+                  adult lessons
+                </li>
+                <li>
+                  Zero dependency on floaties. Swimmers learn to trust
+                  themselves
+                </li>
+                <li>
+                  Taught by trained professionals, never a random seasonal hire
+                </li>
+                <li>
+                  Swimmers leave knowing exactly what to do if they fall in
+                  unexpectedly
+                </li>
+              </ul>
+            </div>
+            <button
+              class="show-more-btn"
+              onclick="toggleCollapse('vs-good-extra', this)"
+              aria-expanded="false"
+            >
+              <span class="btn-label">Show more</span> <em class="arrow">↓</em>
+            </button>
+          </div>
+        </div>
+
+        <div class="problem-video-wrap fade-up">
+          <video
+            src="https://assets.cdn.filesafe.space/vlShPNZKvXfgiMxkHRDS/media/46a2a289-d021-404b-aef2-e5c83f1579cb.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            aria-label="AquaSquad Swim lesson video"
+          ></video>
+          <div class="problem-callout">
+            <p>
+              The risk isn't that your child can't swim. It's that when
+              something unexpected happens, <em>they don't know what to do</em>.
+              That's the gap AquaSquad closes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       SECTION 3.5: TRAINED PROFESSIONALS
+  ============================================= -->
+    <section id="instructors" class="section-pad" style="padding-top: 0">
+      <div class="container">
+        <div
+          class="fade-up"
+          style="
+            background: var(--gradient);
+            color: #fff;
+            border-radius: var(--radius-card);
+            padding: clamp(28px, 5vw, 56px);
+            box-shadow: var(--shadow-lg);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: clamp(24px, 4vw, 48px);
+            align-items: center;
+          "
+        >
+          <div>
+            <span
+              class="eyebrow"
+              style="color: var(--secondary)"
+              >The AquaSquad Difference</span
+            >
+            <h2 style="color: #fff; margin: 10px 0 16px; line-height: 1.2">
+              Trained Professionals,
+              <span style="color: var(--secondary)">Not Summer Help</span>
+            </h2>
+            <p style="font-size: 17px; opacity: 0.95; margin: 0 0 14px; line-height: 1.6">
+              Not all swim lessons are created equal. At AquaSquad, our
+              instructors aren't just passionate, they're highly qualified
+              professionals committed to drowning prevention and water safety.
+            </p>
+            <p style="font-size: 17px; opacity: 0.95; margin: 0; line-height: 1.6">
+              Teaching swimming isn't a summer job for our team. It's their
+              career and their purpose.
+            </p>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 16px">
+            <div style="display: flex; gap: 14px; align-items: flex-start">
+              <span style="font-size: 22px; flex-shrink: 0">🎯</span>
+              <div>
+                <strong style="display: block; margin-bottom: 2px">Carefully selected, extensively trained</strong>
+                <span style="opacity: 0.9; font-size: 15px">Every instructor is chosen for skill, judgment, and a genuine love of teaching children.</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start">
+              <span style="font-size: 22px; flex-shrink: 0">🤝</span>
+              <div>
+                <strong style="display: block; margin-bottom: 2px">Never a random instructor</strong>
+                <span style="opacity: 0.9; font-size: 15px">Every team member holds high-level swim instruction certifications and is committed to ongoing education.</span>
+              </div>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start">
+              <span style="font-size: 22px; flex-shrink: 0">💙</span>
+              <div>
+                <strong style="display: block; margin-bottom: 2px">One shared mission</strong>
+                <span style="opacity: 0.9; font-size: 15px">Water safety, drowning prevention, and a lasting, positive relationship with the water for every child we teach.</span>
+              </div>
+            </div>
+            <p style="margin: 6px 0 0; font-size: 14px; opacity: 0.8; font-style: italic">
+              Survival Swim lessons are taught by Becca personally, at our pool.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: problem (white) → services (#F5FBFA) -->
+    <div class="wave-divider" style="background: #ffffff">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="#F5FBFA"
+          d="M0,22 C360,66 720,0 1080,42 C1260,60 1380,16 1440,30 L1440,72 L0,72 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- =============================================
+       SECTION 4: SERVICES
+  ============================================= -->
+    <section id="services" class="section-pad">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="eyebrow">Our Programs</span>
+          <h2>
+            Many Ways to Learn,
+            <span class="accent">One Foundation: Water Safety</span>
+          </h2>
+          <p>
+            From babies to adults, every AquaSquad program is built on survival
+            swim principles. Choose the format that fits your family. We can even
+            come to you.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- CARD 1: Survival Swim — FEATURED -->
+          <div class="service-card featured fade-up">
+            <div class="sc-ribbon">Most Popular</div>
+            <div class="sc-head">
+              <span class="sc-icon">🛡️</span>
+              <span class="badge badge-coral" style="font-size: 11px"
+                >6 Months to 6 Years</span
+              >
+              <h4>Survival Swim</h4>
+              <p class="short-desc">
+                Where it all begins. Becca teaches babies, toddlers, and young
+                children the calm, automatic response that keeps them safe:
+                roll, float, breathe, swim to safety.
+              </p>
+            </div>
+            <div class="sc-price-block">
+              <span class="sc-price">$115 <span class="per">/ week</span></span>
+              <p class="sc-price-note">
+                15-min private lessons &bull; 3 days/week &bull; at our pool
+              </p>
+            </div>
+            <button
+              class="sc-feat-toggle"
+              onclick="toggleCollapse('sc-feat-survival', this)"
+              aria-expanded="false"
+            >
+              <span class="btn-label">What's included</span>
+              <span class="arrow">›</span>
+            </button>
+            <div class="collapse-body" id="sc-feat-survival">
+              <div class="sc-features">
+                <ul>
+                  <li>
+                    Taught by Becca personally, at our pool only
+                  </li>
+                  <li>15-minute private lessons, 3 days per week</li>
+                  <li>
+                    Roll-to-float, independent breathing, calm water response
+                  </li>
+                  <li>18 months+: swim-float-swim sequence to a safe exit</li>
+                  <li>
+                    Most students complete the program in 6 to 8 weeks
+                  </li>
+                </ul>
+                <p class="sc-note">
+                  Refresher sessions available as your child grows. Contact us
+                  first to confirm open spots before registering.
+                </p>
+              </div>
+            </div>
+            <div class="sc-foot">
+              <a href="#hero" class="btn-primary">Get Started Today</a>
+              <span class="cta-subtext"
+                >Contact us first to confirm open spots</span
+              >
+            </div>
+          </div>
+
+          <!-- CARD 2: Private Lessons -->
+          <div class="service-card fade-up">
+            <div class="sc-head">
+              <span class="sc-icon">⭐</span>
+              <span class="badge badge-teal" style="font-size: 11px"
+                >Ages 4+</span
+              >
+              <h4>Private Lessons</h4>
+              <p class="short-desc">
+                One-on-one learn-to-swim and stroke development. Build technique,
+                endurance, and water confidence, all on a foundation of water
+                safety first.
+              </p>
+            </div>
+            <div class="sc-price-block">
+              <span class="sc-price">From $55 <span class="per">/ lesson</span></span>
+              <p class="sc-price-note">See package &amp; membership pricing below</p>
+            </div>
+            <button
+              class="sc-feat-toggle"
+              onclick="toggleCollapse('sc-feat-private', this)"
+              aria-expanded="false"
+            >
+              <span class="btn-label">What's included</span>
+              <span class="arrow">›</span>
+            </button>
+            <div class="collapse-body" id="sc-feat-private">
+              <div class="sc-features">
+                <ul>
+                  <li>Private, one-on-one instruction</li>
+                  <li>Learn-to-swim and stroke development</li>
+                  <li>Safety and water competency first, then strokes</li>
+                  <li>Single lessons or discounted multi-lesson packages</li>
+                  <li>Monthly membership options available</li>
+                </ul>
+              </div>
+            </div>
+            <div class="sc-foot">
+              <a href="#hero" class="btn-primary">Get Started</a>
+              <span class="cta-subtext">See pricing below or reach out</span>
+            </div>
+          </div>
+
+          <!-- CARD 3: Mobile Learn-to-Swim -->
+          <div class="service-card fade-up">
+            <div class="sc-head">
+              <span class="sc-icon">🏡</span>
+              <span class="badge badge-coral" style="font-size: 11px"
+                >6 Months to Adult</span
+              >
+              <h4>Mobile Learn-to-Swim</h4>
+              <p class="short-desc">
+                We come to you. Lessons delivered to your home or community pool,
+                for families who want convenience without sacrificing quality or
+                safety.
+              </p>
+            </div>
+            <div class="sc-price-block">
+              <span class="sc-price">From $55 <span class="per">/ lesson</span></span>
+              <p class="sc-price-note">We travel to your pool</p>
+            </div>
+            <button
+              class="sc-feat-toggle"
+              onclick="toggleCollapse('sc-feat-mobile', this)"
+              aria-expanded="false"
+            >
+              <span class="btn-label">What's included</span>
+              <span class="arrow">›</span>
+            </button>
+            <div class="collapse-body" id="sc-feat-mobile">
+              <div class="sc-features">
+                <ul>
+                  <li>Lessons at your home or community pool</li>
+                  <li>Same safety-first instruction, on your schedule</li>
+                  <li>Same package &amp; membership pricing as private lessons</li>
+                  <li>Availability depends on location. Contact us to confirm</li>
+                </ul>
+              </div>
+            </div>
+            <div class="sc-foot">
+              <a href="#hero" class="btn-primary">Check Availability</a>
+              <span class="cta-subtext">Contact us to confirm your area</span>
+            </div>
+          </div>
+
+          <!-- CARD 4: Small Group, Sibling & Friend -->
+          <div class="service-card fade-up">
+            <div class="sc-head">
+              <span class="sc-icon">👥</span>
+              <span class="badge badge-teal" style="font-size: 11px"
+                >Ages 3+</span
+              >
+              <h4>Small Group, Sibling &amp; Friend</h4>
+              <p class="short-desc">
+                Want to learn with siblings or friends? We offer discounted rates
+                for sibling lessons, friend groups, homeschool groups, and
+                neighborhood swim groups.
+              </p>
+            </div>
+            <div class="sc-price-block">
+              <span class="sc-price"
+                >Custom <span class="per">pricing</span></span
+              >
+              <p class="sc-price-note">Discounted per-swimmer rates</p>
+            </div>
+            <button
+              class="sc-feat-toggle"
+              onclick="toggleCollapse('sc-feat-group', this)"
+              aria-expanded="false"
+            >
+              <span class="btn-label">What's included</span>
+              <span class="arrow">›</span>
+            </button>
+            <div class="collapse-body" id="sc-feat-group">
+              <div class="sc-features">
+                <ul>
+                  <li>Siblings, friends, homeschool, and neighborhood groups</li>
+                  <li>The more swimmers you bring, the lower the cost per swimmer</li>
+                  <li>Same water-safety foundation as every AquaSquad program</li>
+                  <li>Contact us for custom group pricing</li>
+                </ul>
+              </div>
+            </div>
+            <div class="sc-foot">
+              <a href="#hero" class="btn-primary">Get Custom Pricing</a>
+              <span class="cta-subtext">Reach out with your group size</span>
+            </div>
+          </div>
+
+          <!-- CARD 5: Adult Swim Lessons -->
+          <div class="service-card fade-up">
+            <div class="sc-head">
+              <span class="sc-icon">🌊</span>
+              <span class="badge badge-teal" style="font-size: 11px"
+                >Ages 18+</span
+              >
+              <h4>Adult Swim Lessons</h4>
+              <p class="short-desc">
+                You're never too old to learn. Whether you're a complete
+                beginner or just want to feel more confident in the water, you
+                belong here too.
+              </p>
+            </div>
+            <div class="sc-price-block">
+              <span class="sc-price"
+                >From $55 <span class="per">/ lesson</span></span
+              >
+              <p class="sc-price-note">Private, one-on-one</p>
+            </div>
+            <button
+              class="sc-feat-toggle"
+              onclick="toggleCollapse('sc-feat-adult', this)"
+              aria-expanded="false"
+            >
+              <span class="btn-label">What's included</span>
+              <span class="arrow">›</span>
+            </button>
+            <div class="collapse-body" id="sc-feat-adult">
+              <div class="sc-features">
+                <ul>
+                  <li>Private, one-on-one instruction for beginner adults</li>
+                  <li>Zero judgment. We start exactly where you are</li>
+                  <li>
+                    Water comfort, breathing technique, and foundational skills
+                  </li>
+                  <li>Single lessons, packages, or monthly membership</li>
+                </ul>
+              </div>
+            </div>
+            <div class="sc-foot">
+              <a href="#hero" class="btn-primary">Get in Touch</a>
+              <span class="cta-subtext">Reach out to discuss your goals</span>
+            </div>
+          </div>
+
+          <!-- CARD 6: Parent & Me (Coming Soon) -->
+          <div class="service-card fade-up">
+            <div class="sc-head">
+              <span class="sc-icon">👨‍👩‍👧</span>
+              <span class="badge badge-coral" style="font-size: 11px"
+                >Coming Soon</span
+              >
+              <h4>Parent &amp; Me</h4>
+              <p class="short-desc">
+                Get in the water with your little one. A gentle, bonding
+                introduction to water safety for our youngest swimmers.
+                Launching soon.
+              </p>
+            </div>
+            <div class="sc-price-block">
+              <span class="sc-price">Coming <span class="per">Soon</span></span>
+              <p class="sc-price-note">Join the interest list</p>
+            </div>
+            <div class="sc-features" style="margin-top: 4px">
+              <ul>
+                <li>A bonding, in-water experience for parent and child</li>
+                <li>Early water comfort and safety habits</li>
+                <li>Designed with our youngest swimmers in mind</li>
+              </ul>
+            </div>
+            <div class="sc-foot">
+              <a href="#hero" class="btn-primary">Join the Interest List</a>
+              <span class="cta-subtext">Be first to know when we launch</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- =========================================
+             PRICING DETAIL BLOCK
+        ========================================= -->
+        <div id="pricing" style="margin-top: var(--space-3xl); scroll-margin-top: 90px">
+          <div class="section-header fade-up">
+            <span class="eyebrow">Pricing</span>
+            <h2>Simple, <span class="accent">Transparent Pricing</span></h2>
+            <p>
+              Survival Swim runs weekly. All other private, mobile, learn-to-swim,
+              stroke development, and adult lessons share the package and
+              membership pricing below.
+            </p>
+          </div>
+
+          <div
+            class="fade-up"
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: var(--space-md);
+              margin-bottom: var(--space-lg);
+            "
+          >
+            <!-- Survival Swim -->
+            <div style="background: #fff; border: 1.5px solid var(--primary); border-radius: var(--radius-card); padding: var(--space-lg); box-shadow: var(--shadow-md)">
+              <span class="badge badge-coral" style="font-size: 11px">Becca only · at our pool</span>
+              <h4 style="margin: 12px 0 4px; color: var(--text-primary)">Survival Swim</h4>
+              <p style="font-size: 30px; font-weight: 700; color: var(--primary); margin: 0 0 12px">
+                $115<span style="font-size: 16px; color: var(--text-secondary); font-weight: 600">/week</span>
+              </p>
+              <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-secondary); font-size: 15px; line-height: 2">
+                <li>✓ 15-minute private lessons</li>
+                <li>✓ 3 days per week</li>
+                <li>✓ Held at our pool only</li>
+                <li>✓ Most complete in 6 to 8 weeks</li>
+              </ul>
+            </div>
+
+            <!-- Package Pricing -->
+            <div style="background: #fff; border: 1px solid var(--border); border-radius: var(--radius-card); padding: var(--space-lg); box-shadow: var(--shadow-sm)">
+              <span class="badge badge-teal" style="font-size: 11px">Private · Mobile · Adult</span>
+              <h4 style="margin: 12px 0 4px; color: var(--text-primary)">Lesson Packages</h4>
+              <p style="font-size: 14px; color: var(--text-secondary); margin: 0 0 12px">Prepaid. Lower per-lesson the more you book.</p>
+              <ul style="list-style: none; padding: 0; margin: 0; color: var(--text-primary); font-size: 15px; line-height: 2.1">
+                <li><strong>Single Lesson</strong>: $75</li>
+                <li><strong>6 Lessons</strong>: $65/lesson ($390)</li>
+                <li><strong>12 Lessons</strong>: $60/lesson ($720)</li>
+                <li><strong>18 Lessons</strong>: $55/lesson ($990)</li>
+              </ul>
+            </div>
+
+            <!-- Monthly Memberships -->
+            <div style="background: #fff; border: 1px solid var(--border); border-radius: var(--radius-card); padding: var(--space-lg); box-shadow: var(--shadow-sm)">
+              <span class="badge badge-teal" style="font-size: 11px">Ongoing</span>
+              <h4 style="margin: 12px 0 4px; color: var(--text-primary)">Monthly Membership</h4>
+              <p style="font-size: 14px; color: var(--text-secondary); margin: 0 0 12px">For families who want a steady weekly rhythm.</p>
+              <ul style="list-style: none; padding: 0; margin: 0 0 10px; color: var(--text-primary); font-size: 15px; line-height: 2.1">
+                <li><strong>1 lesson/week</strong>: $65/lesson ($260/mo)</li>
+                <li><strong>2 lessons/week</strong>: $60/lesson ($480/mo)</li>
+              </ul>
+              <p style="font-size: 13px; color: var(--text-secondary); margin: 0; font-style: italic">
+                Monthly commitment required. 7-day cancellation notice required.
+              </p>
+            </div>
+          </div>
+
+          <!-- Registration + Step Up callouts -->
+          <div
+            class="fade-up"
+            style="
+              display: grid;
+              grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+              gap: var(--space-md);
+            "
+          >
+            <div style="display: flex; gap: 14px; align-items: flex-start; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-card); padding: var(--space-md) var(--space-lg)">
+              <span style="font-size: 24px; flex-shrink: 0">📝</span>
+              <p style="margin: 0; color: var(--text-primary); font-size: 15px; line-height: 1.6">
+                <strong>One-time registration fee:</strong> a non-refundable $100
+                registration fee applies to all programs.
+              </p>
+            </div>
+            <div style="display: flex; gap: 14px; align-items: flex-start; background: var(--primary-light); border: 1.5px solid var(--primary); border-radius: var(--radius-card); padding: var(--space-md) var(--space-lg)">
+              <span style="font-size: 24px; flex-shrink: 0">🎓</span>
+              <p style="margin: 0; color: var(--text-primary); font-size: 15px; line-height: 1.6">
+                <strong>Step Up for Students:</strong> AquaSquad Swim is an
+                approved Step Up for Students Direct Provider. Eligible families
+                may use scholarship funds for qualifying programs.
+              </p>
+            </div>
+          </div>
+
+          <div class="text-center fade-up" style="margin-top: var(--space-xl)">
+            <a href="#hero" class="btn-primary">Get a Free Consultation</a>
+            <span class="cta-subtext">Or call/text 813-320-9787 with any questions</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: services (#F5FBFA) → process (white) -->
+    <div class="wave-divider" style="background: #f5fbfa">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="#ffffff"
+          d="M0,50 C200,10 500,62 720,28 C940,0 1200,56 1440,36 L1440,72 L0,72 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- =============================================
+       SECTION 5: PROCESS / HOW IT WORKS
+  ============================================= -->
+    <section id="process" class="section-pad">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="eyebrow">From First Contact to Water Confidence</span>
+          <h2>Getting Started <span class="accent">Is Simple</span></h2>
+          <p>
+            Four straightforward steps separate your swimmer from real,
+            practiced water safety skills, whichever program you choose.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="step-num">01</div>
+            <span class="step-timeframe">Day 1 to 5</span>
+            <div class="step-header" role="button" aria-expanded="false">
+              <h4>Reach Out and Inquire</h4>
+              <span class="step-toggle-icon" aria-hidden="true">↓</span>
+            </div>
+            <div class="step-detail collapse-body">
+              <p>
+                Contact Becca to confirm availability and whether AquaSquad is
+                the right fit. You'll get a real response, not an automated
+                system.
+              </p>
+              <div class="step-roles">
+                <span
+                  ><strong>You:</strong> Reach out via phone, email, or
+                  Instagram</span
+                >
+                <span
+                  ><strong>Becca:</strong> Reviews readiness &amp; confirms
+                  scheduling</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num">02</div>
+            <span class="step-timeframe">Once confirmed</span>
+            <div class="step-header" role="button" aria-expanded="false">
+              <h4>Register and Prepare</h4>
+              <span class="step-toggle-icon" aria-hidden="true">↓</span>
+            </div>
+            <div class="step-detail collapse-body">
+              <p>
+                Complete registration once Becca confirms your spot. She builds
+                a custom lesson plan and sends your invoice.
+              </p>
+              <div class="step-roles">
+                <span
+                  ><strong>You:</strong> Complete registration, set
+                  payment</span
+                >
+                <span
+                  ><strong>Becca:</strong> Custom lesson plan &amp;
+                  scheduling</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num">03</div>
+            <span class="step-timeframe">Within 1 to 2 weeks</span>
+            <div class="step-header" role="button" aria-expanded="false">
+              <h4>Attend Consistent Lessons</h4>
+              <span class="step-toggle-icon" aria-hidden="true">↓</span>
+            </div>
+            <div class="step-detail collapse-body">
+              <p>
+                Show up consistently. Short, focused sessions build real
+                retention. Consistency is what makes skills automatic.
+              </p>
+              <div class="step-roles">
+                <span
+                  ><strong>You:</strong> Show up on time, every session</span
+                >
+                <span
+                  ><strong>Becca:</strong> Structured instruction &amp; parent
+                  updates</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="step-num">04</div>
+            <span class="step-timeframe">Core skills: 6 to 8 weeks</span>
+            <div class="step-header" role="button" aria-expanded="false">
+              <h4>Build Real Water Safety Skills</h4>
+              <span class="step-toggle-icon" aria-hidden="true">↓</span>
+            </div>
+            <div class="step-detail collapse-body">
+              <p>
+                Survival students build foundational skills in about 6 to 8
+                weeks. Learn-to-swim and stroke development progress on each
+                swimmer's own pace. Either way, consistency is what makes skills
+                stick.
+              </p>
+              <div class="step-roles">
+                <span
+                  ><strong>You:</strong> Celebrate progress, maintain
+                  practice</span
+                >
+                <span
+                  ><strong>Becca:</strong> Ongoing coaching &amp; skill
+                  reinforcement</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Photo pair below the steps -->
+        <div class="process-photo-pair fade-up">
+          <img
+            src="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/6997664a3873af096ea2734b.jpg"
+            alt="AquaSquad Swim lesson in progress"
+            loading="lazy"
+          />
+          <video
+            autoplay
+            muted
+            loop
+            playsinline
+            aria-label="AquaSquad Swim lesson clip"
+          >
+            <source
+              src="https://assets.cdn.filesafe.space/vlShPNZKvXfgiMxkHRDS/media/6998b7975ba498422e0b0163.mp4"
+              type="video/mp4"
+            />
+          </video>
+        </div>
+
+        <div class="text-center fade-up" style="margin-top: var(--space-2xl)">
+          <a href="#hero" class="btn-primary">Get in Touch</a>
+          <span class="cta-subtext"
+            >Spots fill quickly. Reach out to hold your place.</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: process (white) → benefits (dark teal) -->
+    <div class="wave-divider" style="background: #ffffff">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="#18494C"
+          d="M0,30 C180,62 420,6 720,40 C960,66 1200,14 1440,32 L1440,72 L0,72 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- =============================================
+       SECTION 6: BENEFITS
+  ============================================= -->
+    <section id="benefits" class="section-pad">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="eyebrow">Why It Matters</span>
+          <h2>
+            What Changes When Your Child Trains with
+            <span style="color: var(--secondary)">AquaSquad</span>
+          </h2>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card fade-up" role="button" aria-expanded="false">
+            <div class="benefit-icon">&#x1F6E1;&#xFE0F;</div>
+            <div class="benefit-card-header">
+              <h4>Real Peace of Mind</h4>
+              <span class="benefit-toggle-icon" aria-hidden="true">↓</span>
+            </div>
+            <div class="benefit-desc collapse-body">
+              <p>
+                You stop wondering "what would my child do?" and start knowing
+                the answer. AquaSquad replaces quiet anxiety with quiet
+                confidence.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card fade-up" role="button" aria-expanded="false">
+            <div class="benefit-icon">&#x1F504;</div>
+            <div class="benefit-card-header">
+              <h4>Skills That Hold Under Pressure</h4>
+              <span class="benefit-toggle-icon" aria-hidden="true">↓</span>
+            </div>
+            <div class="benefit-desc collapse-body">
+              <p>
+                AquaSquad's short, frequent sessions build automatic survival
+                responses, not skills that only work in a calm lesson setting.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card fade-up" role="button" aria-expanded="false">
+            <div class="benefit-icon">&#x1F393;</div>
+            <div class="benefit-card-header">
+              <h4>Education-Led Instruction</h4>
+              <span class="benefit-toggle-icon" aria-hidden="true">↓</span>
+            </div>
+            <div class="benefit-desc collapse-body">
+              <p>
+                Becca brings over a decade of classroom experience and three
+                degrees in Early Childhood Education, Liberal Arts, and
+                Elementary Education. She understands how young children
+                actually learn.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card fade-up" role="button" aria-expanded="false">
+            <div class="benefit-icon">&#x1F4CD;</div>
+            <div class="benefit-card-header">
+              <h4>Designed for Florida Families</h4>
+              <span class="benefit-toggle-icon" aria-hidden="true">↓</span>
+            </div>
+            <div class="benefit-desc collapse-body">
+              <p>
+                Pools, lakes, boats, and unpredictable outdoor water are part of
+                life here. This program is built for how Florida families
+                actually live.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card fade-up" role="button" aria-expanded="false">
+            <div class="benefit-icon">&#x2764;&#xFE0F;</div>
+            <div class="benefit-card-header">
+              <h4>Confidence and Joy in the Water</h4>
+              <span class="benefit-toggle-icon" aria-hidden="true">↓</span>
+            </div>
+            <div class="benefit-desc collapse-body">
+              <p>
+                AquaSquad doesn't stop at survival. Becca pushes children past
+                safety into a genuine love of the water that lasts a lifetime.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card fade-up" role="button" aria-expanded="false">
+            <div class="benefit-icon">&#x1F4C5;</div>
+            <div class="benefit-card-header">
+              <h4>Structured, Predictable Progress</h4>
+              <span class="benefit-toggle-icon" aria-hidden="true">↓</span>
+            </div>
+            <div class="benefit-desc collapse-body">
+              <p>
+                No guessing. Every swimmer has a plan, every session has a
+                purpose, and parents always know what to expect.
+              </p>
+            </div>
+          </div>
+          <div class="benefit-card fade-up" role="button" aria-expanded="false">
+            <div class="benefit-icon">&#x1F3E1;</div>
+            <div class="benefit-card-header">
+              <h4>Flexible and Convenient</h4>
+              <span class="benefit-toggle-icon" aria-hidden="true">↓</span>
+            </div>
+            <div class="benefit-desc collapse-body">
+              <p>
+                Survival, private, small group, stroke development, or adult
+                lessons, on a schedule that fits your family. With mobile
+                lessons, we can even come to you.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-inline-cta fade-up">
+          <p>Ready to give your child real water safety skills?</p>
+          <a href="#hero" class="btn-white">Get a Free Consultation</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       SECTION 8: GALLERY
+  ============================================= -->
+    <section id="gallery" class="section-pad">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="eyebrow">Inside AquaSquad Lessons</span>
+          <h2>
+            This Is What Water Safety Looks Like
+            <span class="accent">in Practice</span>
+          </h2>
+          <p>
+            Every child, every session, every skill. Real instruction with real
+            kids in the water.
+          </p>
+        </div>
+
+        <div class="gallery-grid fade-up">
+          <!-- Item 1: wide video (cols 1-2, row 1) -->
+          <div class="gallery-item">
+            <video
+              src="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/6997664bdf9bdf30151651a6.mp4"
+              autoplay muted loop playsinline
+              aria-label="AquaSquad Swim lesson video"
+            ></video>
+          </div>
+
+          <!-- Item 2: square image (col 3, row 1) -->
+          <div class="gallery-item">
+            <img
+              src="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/6997664a3ff516ff1c57a183.jpg"
+              alt="Child underwater in rainbow swimsuit at AquaSquad Swim"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Item 3: square image (col 1, row 2) -->
+          <div class="gallery-item">
+            <img
+              src="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/6997664a8d5b5a60a586bf04.jpeg"
+              alt="AquaSquad instructor smiling at child floating on back in pool"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Item 4: wide video (cols 2-3, row 2) -->
+          <div class="gallery-item">
+            <video
+              src="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/9a435817-f99d-453c-a1d3-9eb94f947697.mp4"
+              autoplay muted loop playsinline
+              aria-label="AquaSquad Swim water safety training video"
+            ></video>
+          </div>
+
+          <!-- Item 5: full-width video (cols 1-3, row 3) -->
+          <div class="gallery-item">
+            <video autoplay muted loop playsinline>
+              <source src="https://assets.cdn.filesafe.space/vlShPNZKvXfgiMxkHRDS/media/d39642fa-e57e-4d07-8bd3-65e721012ee4.mp4" type="video/mp4" />
+            </video>
+          </div>
+        </div>
+
+        <div class="text-center fade-up" style="margin-top: var(--space-md)">
+          <a href="#hero" class="btn-primary">Get in Touch</a>
+          <span class="cta-subtext"
+            >Limited spots available. Reach out to check availability.</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: gallery (white) → reviews (#F4FAFA) -->
+    <div class="wave-divider" style="background: #ffffff">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="#F4FAFA"
+          d="M0,48 C200,16 480,64 720,28 C960,0 1220,52 1440,28 L1440,72 L0,72 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- =============================================
+       SECTION 9: REVIEWS
+  ============================================= -->
+    <section id="reviews" class="section-pad" style="background: var(--surface);">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="eyebrow">What Families Are Saying</span>
+          <h2>Real Reviews from <span class="accent">Real AquaSquad Families</span></h2>
+        </div>
+        <div class="fade-up">
+          <script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script>
+          <iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/vlShPNZKvXfgiMxkHRDS' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%;'></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       SECTION 10: FAQ
+  ============================================= -->
+    <section id="faq" class="section-pad">
+      <div class="container">
+        <div class="section-header fade-up">
+          <span class="eyebrow">Common Questions</span>
+          <h2>
+            Everything You Want to Know
+            <span class="accent">Before You Reach Out</span>
+          </h2>
+          <p>
+            We get these questions often. Here are honest, straightforward
+            answers.
+          </p>
+        </div>
+
+        <div class="faq-list fade-up" role="list">
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Do you offer more than survival swim?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Yes. AquaSquad is now a full-service swim school. Alongside
+                Survival Swim, we offer private learn-to-swim and stroke
+                development, mobile lessons, small group and sibling/friend
+                lessons, and adult lessons, with Parent &amp; Me classes coming
+                soon. Every program is built on survival swim principles: we
+                teach self-rescue first and strokes second.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Do you come to my home?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Yes. With our Mobile Learn-to-Swim lessons we bring instruction
+                to your home or community pool. Mobile pricing matches our
+                standard lesson packages, and availability depends on your
+                location, so reach out to confirm we can come to you. Note that
+                Survival Swim is taught by Becca at our pool only.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Do you accept Step Up for Students?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Yes. AquaSquad Swim is an approved Step Up for Students Direct
+                Provider. Eligible families may use scholarship funds toward
+                qualifying programs. Contact us and we'll walk you through how to
+                apply your funds.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Is there a registration fee?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Yes. A one-time, non-refundable $100 registration fee applies to
+                all programs. After that, you only pay for your lessons, whether
+                weekly, by package, or through a monthly membership.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              What if my child cries during lessons?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Crying is communication, and it's completely normal when your
+                child is experiencing something new. My goal is never to push a
+                child into fear. We move at their pace, build trust first, and
+                celebrate every win. As their confidence grows, crying fades…
+                and pride takes over. Joy always follows confidence.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              What should my child wear to lessons?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                If your child isn't potty trained, they must wear a 2-ply
+                system: a reusable swim diaper plus a vinyl or plastic cover.
+                Disposable swim diapers alone don't seal properly. Please bring
+                two towels to every session.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Do kids need refresher sessions?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Yes! Children grow so quickly, and their changing body
+                composition affects their buoyancy. Skills don't disappear, but
+                growing bodies need updated practice. I recommend refreshers
+                every 4 to 6 months for children under 5, and yearly (or
+                skill-expansion lessons) for children over 5.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Will my child be afraid of the water after lessons?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Not with AquaSquad's approach. I prioritize emotional
+                safety, sensory-motor readiness, positive reinforcement, trust,
+                and consistency. Children learn that they can do it, and that
+                builds real joy and confidence in the water. My goal is for
+                every child to leave loving the water.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Can my child eat before lessons?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Please avoid: food for 1 hour before lessons, dairy for 90 to 120
+                minutes before, and apples, pears, peaches, mango, pineapple, or
+                kiwi for 48 hours before. These foods can cause gas and
+                discomfort, which affects floating and breath control. Comfort =
+                confidence.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Do you allow make-up lessons?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                No. Consistency is the key to this program working. If you need
+                to cancel, I'll reschedule or give you credit. If I ever cancel
+                a session, I'll always make it up.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Can I watch the lessons?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Yes! You'll watch from the parent area for most of the program.
+                As your child approaches their Level Up milestone, I'll bring
+                you into the water so you feel connected, confident, and ready
+                to safely support your swimmer. We're a team in this.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              Can we practice in the pool on weekends?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Not during the survival swim phase. Shallow-water play and
+                floaties can undo the survival motor patterns we're building.
+                After your child Levels Up, I'll show you exactly how to
+                practice safely and confidently so you can keep those skills
+                strong.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              What happens after my child Levels Up?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                After Level Up, your swimmer can continue with: maintenance
+                lessons, refresher sessions, one-on-one 30-minute learn-to-swim,
+                group lessons (for ages 3 to 5 graduates or 5+), Parent &amp; Me
+                (ages 3 and under), or adult lessons. There's always a next step.
+                We grow with your family.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              How do payments work?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Survival Swim is billed weekly. Private, mobile, and adult
+                lessons can be paid as single lessons, prepaid packages, or a
+                monthly membership. Memberships require a monthly commitment and
+                a 7-day cancellation notice. I accept Stripe (all major credit
+                and debit cards) or cash. A one-time, non-refundable $100
+                registration fee applies to all programs.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              What's the difference between your programs?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                <strong>Survival Swim</strong> (6 months to 6 years): 15-minute
+                private lessons, 3 days a week, taught by Becca at our pool.
+                Builds the automatic response: roll, float, breathe, swim to
+                safety. Most complete in 6 to 8 weeks. This is the
+                foundation.<br /><br />
+                <strong>Private Lessons</strong> (Ages 4+): One-on-one
+                learn-to-swim and stroke development. Technique, endurance, and
+                water confidence built on a safety-first
+                foundation.<br /><br />
+                <strong>Mobile Learn-to-Swim</strong> (All ages): The same
+                lessons delivered to your home or community pool. Availability
+                depends on location.<br /><br />
+                <strong>Small Group, Sibling &amp; Friend</strong> (Ages 3+):
+                Discounted per-swimmer rates for siblings, friends, homeschool,
+                and neighborhood groups. Contact us for custom
+                pricing.<br /><br />
+                <strong>Adult Swim Lessons</strong> (18+): Private sessions for
+                beginner adults. We start exactly where you are.<br /><br />
+                <strong>Parent &amp; Me</strong> (Coming Soon): A gentle, bonding
+                introduction to water safety for our youngest swimmers.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item" role="listitem">
+            <div
+              class="faq-q"
+              onclick="toggleFAQ(this)"
+              role="button"
+              tabindex="0"
+              aria-expanded="false"
+            >
+              How does the enrollment process work?
+              <span class="faq-icon" aria-hidden="true">+</span>
+            </div>
+            <div class="faq-a" role="region">
+              <div class="faq-a-inner">
+                Here's exactly how it works:
+                <strong>1. Reach out first:</strong> contact me to check
+                availability and make sure AquaSquad is the right fit for your
+                family. <strong>2. Get confirmed:</strong> once I confirm a
+                spot for you, I'll let you know. If I'm full, I'll add you to
+                the waitlist and reach out when a spot opens.
+                <strong>3. Register and pay:</strong> complete registration and
+                submit payment once your spot is confirmed.
+                <strong>4. I'll reach out:</strong> I'll contact you with your
+                schedule, lesson plan, and everything you need to know before
+                day one.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Wave: faq (light teal) → final-cta (ocean blue) -->
+    <div class="wave-divider" style="background: #e8f7f6">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="#0A7EB0"
+          d="M0,34 C360,70 720,4 1080,44 C1260,62 1380,22 1440,34 L1440,72 L0,72 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- =============================================
+       SECTION 10: FINAL CTA
+  ============================================= -->
+    <section id="final-cta" class="section-pad">
+      <!-- Pool decorative layer -->
+      <div class="pool-bg" aria-hidden="true">
+        <!-- Bubbles -->
+        <div class="pool-bubble pool-bubble-1"></div>
+        <div class="pool-bubble pool-bubble-2"></div>
+        <div class="pool-bubble pool-bubble-3"></div>
+        <div class="pool-bubble pool-bubble-4"></div>
+        <div class="pool-bubble pool-bubble-5"></div>
+        <div class="pool-bubble pool-bubble-6"></div>
+        <div class="pool-bubble pool-bubble-7"></div>
+        <div class="pool-bubble pool-bubble-8"></div>
+        <div class="pool-bubble pool-bubble-9"></div>
+        <div class="pool-bubble pool-bubble-10"></div>
+      </div>
+
+      <div class="container">
+        <span class="eyebrow">Spots Are Limited</span>
+        <h2>
+          Water Safety Starts with
+          <span style="color: var(--secondary)">One Message</span>
+        </h2>
+        <p class="fcta-sub">
+          AquaSquad has helped 200+ families build real, practiced water safety
+          skills, with flexible programs for every age. Reaching out costs
+          nothing and commits you to nothing.
+        </p>
+        <p style="text-align: center; margin: 0 auto var(--space-lg)">
+          <a target="_top"
+            href="tel:+18133209787"
+            style="display: inline-flex; align-items: center; gap: 10px; color: #fff; font-size: 19px; font-weight: 700"
+            ><span aria-hidden="true">📞</span> Call or Text: 813-320-9787</a
+          >
+        </p>
+
+        <!-- Final CTA Form -->
+        <div
+          class="fade-up"
+          style="
+            max-width: 600px;
+            margin: 0 auto var(--space-xl);
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+          "
+        >
+          <div
+            style="
+              background: var(--primary);
+              padding: var(--space-md) var(--space-lg);
+              text-align: center;
+            "
+          >
+            <p
+              style="color: #fff; font-size: 17px; font-weight: 700; margin: 0"
+            >
+              Get a Free Consultation
+            </p>
+            <span style="color: rgba(255, 255, 255, 0.85); font-size: 14px"
+              >Submit your info and we'll call you back.</span
+            >
+          </div>
+          <iframe
+            src="https://link.nilsdigital.com/widget/form/H7UtIQxZXltnj68M5jOV"
+            style="width: 100%; min-height: 520px; border: none; display: block"
+            id="inline-H7UtIQxZXltnj68M5jOV-bottom"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Website Form (Do not edit)"
+            data-height="457"
+            data-layout-iframe-id="inline-H7UtIQxZXltnj68M5jOV-bottom"
+            data-form-id="H7UtIQxZXltnj68M5jOV"
+            title="Website Form (Do not edit)"
+          ></iframe>
+        </div>
+
+        <div class="trust-row">
+          <div class="trust-item">
+            <span class="trust-check">&#x2713;</span> Certified Survival Swim
+            Instructor
+          </div>
+          <div class="trust-item">
+            <span class="trust-check">&#x2713;</span> CPR &amp; First Aid
+            Certified
+          </div>
+          <div class="trust-item">
+            <span class="trust-check">&#x2713;</span> SwimFin Certified
+          </div>
+          <div class="trust-item">
+            <span class="trust-check">&#x2713;</span> Fully Insured
+          </div>
+          <div class="trust-item">
+            <span class="trust-check">&#x2713;</span> 200+ Families Served
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================
+       SECTION 11: FOOTER
+  ============================================= -->
+    <footer id="footer">
+      <div class="footer-top">
+        <div class="footer-logo">
+          <img
+            src="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/699767b83873af6718a31276.png"
+            alt="AquaSquad Swim"
+          />
+          <p>
+            A full-service swim school built on water safety first. Survival
+            swim, learn-to-swim, mobile, group, and adult lessons for ages 6
+            months and up. Serving Wesley Chapel, Epperson, and the Tampa Bay
+            area. Approved Step Up for Students Direct Provider.
+          </p>
+          <div class="footer-social">
+            <a class="soc-icon" href="https://www.instagram.com/survivalswimwithbecca/" target="_blank" rel="noopener noreferrer" aria-label="AquaSquad Instagram">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+            </a>
+            <a class="soc-icon" href="https://www.facebook.com/swimwithbecca/" target="_blank" rel="noopener noreferrer" aria-label="AquaSquad Facebook">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                />
+              </svg>
+            </a>
+            <span class="soc-icon" aria-label="AquaSquad YouTube">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"
+                />
+                <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+              </svg>
+            </span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="#services">Programs</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <p>
+            Wesley Chapel, FL<br />
+            Epperson &amp; Surrounding Areas<br /><br />
+            <a target="_top" href="tel:+18133209787">Call or Text: 813-320-9787</a><br />
+            <a target="_top" href="mailto:info@aquasquadswim.com">info@aquasquadswim.com</a>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 AquaSquad Swim. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="/privacy-policy">Privacy Policy</a>
+          <a href="/terms">Terms &amp; Conditions</a>
+        </div>
+      </div>
+      <div class="nils-credit">
+        Website and marketing systems developed by
+        <a
+          href="https://nilsdigital.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          >Nilsdigital.com</a
+        >
+      </div>
+    </footer>
+
+    <script>
+      /* =============================================
+       NAV: Shadow on scroll
+    ============================================= */
+      const nav = document.getElementById("nav");
+      window.addEventListener(
+        "scroll",
+        () => {
+          nav.classList.toggle("scrolled", window.scrollY > 10);
+        },
+        { passive: true },
+      );
+
+      /* =============================================
+       MOBILE MENU
+    ============================================= */
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const menuClose = document.getElementById("menuClose");
+      const mobileBackdrop = document.getElementById("mobileBackdrop");
+
+      hamburger.addEventListener("click", () => {
+        const isOpen = mobileMenu.classList.contains("open");
+        if (isOpen) {
+          closeMobileMenu();
+          return;
+        }
+        mobileMenu.style.top = nav.offsetHeight + "px";
+        mobileMenu.classList.add("open");
+        mobileBackdrop.classList.add("open");
+        hamburger.classList.add("open");
+        document.body.style.overflow = "hidden";
+        hamburger.setAttribute("aria-expanded", "true");
+      });
+
+      menuClose.addEventListener("click", closeMobileMenu);
+      mobileBackdrop.addEventListener("click", closeMobileMenu);
+
+      function closeMobileMenu() {
+        mobileMenu.classList.remove("open");
+        mobileBackdrop.classList.remove("open");
+        hamburger.classList.remove("open");
+        document.body.style.overflow = "";
+        hamburger.setAttribute("aria-expanded", "false");
+      }
+
+      /* =============================================
+       SERVICE CARD EXPAND / COLLAPSE
+    ============================================= */
+      function toggleService(btn) {
+        const card = btn.closest(".service-card");
+        const body = card.querySelector(".sc-body");
+        const isOpen = body.classList.contains("open");
+        body.classList.toggle("open", !isOpen);
+        btn.classList.toggle("open", !isOpen);
+        btn.setAttribute("aria-expanded", String(!isOpen));
+      }
+
+      /* =============================================
+       FAQ ACCORDION
+    ============================================= */
+      function toggleFAQ(questionEl) {
+        const item = questionEl.closest(".faq-item");
+        const isOpen = item.classList.contains("open");
+        // Close all open items
+        document.querySelectorAll(".faq-item.open").forEach((el) => {
+          el.classList.remove("open");
+          el.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+        });
+        // Open this one if it was closed
+        if (!isOpen) {
+          item.classList.add("open");
+          questionEl.setAttribute("aria-expanded", "true");
+        }
+      }
+
+      // Tapping the answer body also closes the open FAQ item
+      document.querySelectorAll(".faq-a").forEach((answerEl) => {
+        answerEl.style.cursor = "pointer";
+        answerEl.addEventListener("click", () => {
+          const item = answerEl.closest(".faq-item");
+          if (item && item.classList.contains("open")) {
+            const q = item.querySelector(".faq-q");
+            toggleFAQ(q);
+          }
+        });
+      });
+
+      // Keyboard support for FAQ
+      document.querySelectorAll(".faq-q").forEach((q) => {
+        q.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            toggleFAQ(q);
+          }
+        });
+      });
+
+      /* =============================================
+       GENERIC COLLAPSE TOGGLE
+    ============================================= */
+      function toggleCollapse(bodyId, btn, openLabel, closeLabel) {
+        const body = document.getElementById(bodyId);
+        const isOpen = body.classList.contains("open");
+        body.classList.toggle("open", !isOpen);
+        if (btn) {
+          btn.classList.toggle("open", !isOpen);
+          btn.setAttribute("aria-expanded", String(!isOpen));
+          // Update label if provided
+          const labelEl = btn.querySelector(".btn-label");
+          if (labelEl && openLabel && closeLabel) {
+            labelEl.textContent = isOpen ? openLabel : closeLabel;
+          }
+        }
+      }
+
+      /* =============================================
+       PROCESS STEP TOGGLE
+    ============================================= */
+      document.querySelectorAll(".process-step").forEach((step) => {
+        step.style.cursor = "pointer";
+        step.addEventListener("click", () => {
+          const detail = step.querySelector(".step-detail");
+          const header = step.querySelector(".step-header");
+          const isOpen = step.classList.contains("open");
+          step.classList.toggle("open", !isOpen);
+          detail.classList.toggle("open", !isOpen);
+          if (header) header.setAttribute("aria-expanded", String(!isOpen));
+        });
+      });
+
+      /* =============================================
+       COMMUNITY CHIP TOGGLE (mobile)
+    ============================================= */
+      document.querySelectorAll(".community-chip").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          chip.classList.toggle("open");
+        });
+      });
+
+      /* =============================================
+       WHO-COL CARD — entire card tappable
+    ============================================= */
+      document.querySelectorAll(".who-col").forEach((col) => {
+        col.style.cursor = "pointer";
+        const btn = col.querySelector(".show-more-btn");
+        // Prevent button from double-firing when card is tapped
+        if (btn) btn.addEventListener("click", (e) => e.stopPropagation());
+        col.addEventListener("click", () => {
+          if (btn) btn.click();
+        });
+      });
+
+      /* =============================================
+       BENEFIT CARD TOGGLE
+    ============================================= */
+      document.querySelectorAll(".benefit-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const desc = card.querySelector(".benefit-desc");
+          const isOpen = card.classList.contains("open");
+          card.classList.toggle("open", !isOpen);
+          desc.classList.toggle("open", !isOpen);
+          card.setAttribute("aria-expanded", String(!isOpen));
+        });
+      });
+
+      /* =============================================
+       SCROLL ANIMATIONS — IntersectionObserver
+    ============================================= */
+      const animEls = document.querySelectorAll(".fade-up, .process-step");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      animEls.forEach((el) => observer.observe(el));
+
+      /* =============================================
+       HERO PARALLAX
+    ============================================= */
+      const heroBg = document.querySelector(".hero-bg");
+      if (heroBg && window.innerWidth > 768) {
+        window.addEventListener(
+          "scroll",
+          () => {
+            heroBg.style.transform = `translateY(${window.scrollY * 0.28}px)`;
+          },
+          { passive: true },
+        );
+      }
+    </script>
+  </body>
+</html>

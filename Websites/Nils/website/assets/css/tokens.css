@@ -1,0 +1,86 @@
+/* ─────────────────────────────────────────────────────────
+   Nils Digital — Design Tokens
+   Source of truth for color, typography, spacing, motion.
+   Every CSS file consuming a value must reference a token,
+   not a literal. No hardcoded px sizes or hex values in
+   page CSS, ever.
+   ───────────────────────────────────────────────────────── */
+
+:root {
+  /* COLOR — Foundational */
+  --bg:               #ffffff;
+  --ink:              #0a0a0a;
+  --ink-soft:         rgba(0, 0, 0, 0.6);
+  --ink-mute:         rgba(0, 0, 0, 0.4);
+  --ink-line:         rgba(0, 0, 0, 0.1);
+  --ink-line-soft:    rgba(0, 0, 0, 0.06);
+
+  /* COLOR — Marketing (blue, from Marketing VSL) */
+  --marketing:        #046bd2;
+  --marketing-dark:   #0358b0;
+  --marketing-rgb:    4, 107, 210;
+
+  /* COLOR — Automation (green, from Automation VSL) */
+  --automation:       #0fbf7a;
+  --automation-dark:  #087a4d;
+  --automation-rgb:   15, 191, 122;
+
+  /* TYPOGRAPHY — Families */
+  --font-serif:       'Instrument Serif', Georgia, serif;
+  --font-display:     'Instrument Sans', system-ui, sans-serif;
+  --font-body:        'Google Sans', 'DM Sans', system-ui, sans-serif;
+
+  /* TYPOGRAPHY — Sizes (fluid clamp pattern) */
+  --fs-h1:            clamp(32px, 5vw, 56px);
+  --fs-h2:            clamp(24px, 3.5vw, 40px);
+  --fs-h3:            clamp(20px, 2.5vw, 28px);
+  --fs-body:          16px;
+  --fs-body-lg:       18px;
+  --fs-meta:          13px;
+  --fs-eyebrow:       11px;
+
+  /* TYPOGRAPHY — Weights */
+  --fw-serif-regular: 400;
+  --fw-display-medium: 500;
+  --fw-display-bold: 600;
+  --fw-body-regular: 400;
+  --fw-body-medium: 500;
+  --fw-body-bold: 700;
+
+  /* TYPOGRAPHY — Line heights */
+  --lh-tight:         1.05;
+  --lh-snug:          1.25;
+  --lh-normal:        1.5;
+  --lh-relaxed:       1.65;
+
+  /* SPACING — 8pt scale */
+  --space-1:          4px;
+  --space-2:          8px;
+  --space-3:          12px;
+  --space-4:          16px;
+  --space-5:          24px;
+  --space-6:          32px;
+  --space-7:          48px;
+  --space-8:          64px;
+  --space-9:          96px;
+  --space-10:         128px;
+
+  /* LAYOUT */
+  --container-max:    1400px;
+  --container-narrow: 760px;
+  --radius-sm:        4px;
+  --radius-md:        8px;
+  --radius-lg:        12px;
+  --radius-pill:      100px;
+
+  /* MOTION */
+  --ease-out:         cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast:         150ms;
+  --dur-base:         300ms;
+  --dur-slow:         600ms;
+
+  /* SHADOW */
+  --shadow-card:      0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-card-hover: 0 8px 24px rgba(0, 0, 0, 0.07);
+  --shadow-nav:       0 1px 0 var(--ink-line-soft);
+}

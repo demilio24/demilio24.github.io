@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bold Transitions — No Dividers</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, 'SF Pro Display', sans-serif; background: #0a0a0a; color: #e0e0e0; padding: 32px; }
+  h1 { font-size: 24px; font-weight: 300; color: #fff; margin-bottom: 6px; text-align: center; }
+  .subtitle { font-size: 13px; color: #555; text-align: center; margin-bottom: 40px; }
+  .variation { margin-bottom: 36px; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #1e1e1e; cursor: pointer; transition: border-color .4s, box-shadow .4s; }
+  .variation:hover { border-color: rgba(184,154,106,.35); box-shadow: 0 0 40px rgba(184,154,106,.06); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 48px rgba(184,154,106,.12); }
+  .var-label { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #1a1a1a; }
+  .var-letter { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  .var-title { font-size: 15px; font-weight: 500; color: #fff; }
+  .var-desc { font-size: 12px; color: #555; padding: 14px 24px; line-height: 1.7; border-top: 1px solid #1a1a1a; }
+  .selected .var-letter { background: #fff; color: #B89A6A; }
+</style>
+</head>
+<body>
+
+<h1>Bold Transitions — Completely Different Approach</h1>
+<p class="subtitle">No dividers, no gradients, no ornaments. These are structural, architectural transitions that make a statement.</p>
+
+<!-- A: Overlapping section — gallery bleeds UP into services -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">A</div><div class="var-title">Overlapping Card — Gallery Bleeds Up</div></div>
+  <div>
+    <div style="height:60px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · services · · ·</span>
+    </div>
+    <div style="position:relative;background:#FAF6F0;padding-bottom:60px;">
+      <!-- Dark gallery card overlaps upward -->
+      <div style="margin:0 40px;background:#2A1E1A;border-radius:20px;padding:40px;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.2);">
+        <div style="text-align:center;">
+          <div style="font-size:9px;color:#B89A6A;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;">Our Work</div>
+          <div style="font-family:Georgia,serif;font-size:28px;color:#F3EBDD;font-weight:300;letter-spacing:-0.02em;margin-bottom:12px;">Spaces Fully Resolved</div>
+          <div style="font-size:11px;color:rgba(243,235,221,.4);max-width:340px;margin:0 auto;">Every project is a complete rethinking of how the home functions and feels.</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:24px;">
+          <div style="background:#4a3a2e;border-radius:8px;height:50px;"></div>
+          <div style="background:#5a4a3e;border-radius:8px;height:50px;grid-row:span 1;"></div>
+          <div style="background:#3a2e24;border-radius:8px;height:50px;"></div>
+          <div style="background:#4a3e32;border-radius:8px;height:50px;"></div>
+        </div>
+      </div>
+    </div>
+    <div style="height:60px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.08em;">· · · continues · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">The gallery section starts as a rounded dark card that sits ON TOP of the services section — breaking the boundary. As you scroll, the card expands into the full dark section. Feels like opening a portfolio book. The sections physically overlap.</div>
+</div>
+
+<!-- B: Inset dark panel with rounded corners -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">B</div><div class="var-title">Inset Panel — The Dark Section is a Card</div></div>
+  <div>
+    <div style="height:50px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · services · · ·</span>
+    </div>
+    <!-- The entire dark section is inset as a rounded panel -->
+    <div style="background:#FAF6F0;padding:0 24px;">
+      <div style="background:#2A1E1A;border-radius:24px 24px 0 0;padding:40px 32px 20px;">
+        <div style="text-align:center;">
+          <div style="font-size:9px;color:#B89A6A;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;">Our Work</div>
+          <div style="font-family:Georgia,serif;font-size:28px;color:#F3EBDD;font-weight:300;letter-spacing:-0.02em;margin-bottom:12px;">Spaces Fully Resolved</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;margin-top:20px;">
+          <div style="background:#4a3a2e;border-radius:8px;height:45px;"></div>
+          <div style="background:#5a4a3e;border-radius:8px;height:45px;"></div>
+          <div style="background:#3a2e24;border-radius:8px;height:45px;"></div>
+          <div style="background:#4a3e32;border-radius:8px;height:45px;"></div>
+        </div>
+      </div>
+    </div>
+    <div style="height:50px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.08em;">· · · continues full-width · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">The gallery section starts as an inset card with big rounded top corners — you can see the ivory peeking on the sides. Then it expands to full-width below. Like Apple's product section cards. Architectural and intentional — "this is a different space now."</div>
+</div>
+
+<!-- C: Full-bleed hero image as section break -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">C</div><div class="var-title">Hero Image Break — Cinematic</div></div>
+  <div>
+    <div style="height:50px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · services · · ·</span>
+    </div>
+    <div style="height:30px;background:#FAF6F0;"></div>
+    <!-- Full-bleed cinematic image -->
+    <div style="height:180px;background:linear-gradient(135deg, #3A241E 0%, #5a4a3a 30%, #4a3e32 60%, #2A1E1A 100%);position:relative;display:flex;align-items:center;justify-content:center;">
+      <div style="text-align:center;position:relative;z-index:1;">
+        <div style="font-family:Georgia,serif;font-size:32px;color:rgba(243,235,221,.8);font-weight:300;font-style:italic;letter-spacing:.01em;line-height:1.3;">"We don't follow trends —<br>we set them."</div>
+        <div style="margin-top:12px;font-size:10px;color:rgba(184,154,106,.6);letter-spacing:.18em;text-transform:uppercase;">Mandy VELUS</div>
+      </div>
+    </div>
+    <div style="height:50px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.08em;">· · · gallery · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">A full-viewport-width cinematic strip with a portfolio image (or texture) and Mandy's quote overlaid. No transition — just a bold visual break that SAYS something. The quote provides brand voice while the image provides atmosphere. Like a luxury magazine spread.</div>
+</div>
+
+<!-- D: Staggered offset — dark starts at an offset -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">D</div><div class="var-title">Asymmetric Reveal — Left Anchored</div></div>
+  <div>
+    <div style="height:50px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · services · · ·</span>
+    </div>
+    <div style="position:relative;height:140px;background:#FAF6F0;">
+      <!-- Dark panel slides in from the right -->
+      <div style="position:absolute;top:0;right:0;bottom:0;left:15%;background:#2A1E1A;border-radius:24px 0 0 0;">
+        <div style="padding:30px 40px;">
+          <div style="font-size:9px;color:#B89A6A;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px;">Our Work</div>
+          <div style="font-family:Georgia,serif;font-size:24px;color:#F3EBDD;font-weight:300;">Spaces Fully Resolved</div>
+        </div>
+      </div>
+    </div>
+    <div style="height:60px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.08em;">· · · gallery continues full-width · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">The dark section doesn't start full-width — it slides in from the right with one rounded corner, leaving ivory visible on the left. Then it expands to full-width below. Asymmetric, bold, unexpected. Like turning a page in an oversized art book.</div>
+</div>
+
+<!-- E: Layered depth — shadow creates the transition -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">E</div><div class="var-title">Shadow Depth — Sections Stack</div></div>
+  <div>
+    <div style="height:60px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · services · · ·</span>
+    </div>
+    <!-- Services section has a massive bottom shadow that creates depth -->
+    <div style="height:20px;background:#FAF6F0;box-shadow:0 20px 60px rgba(42,30,26,.25);position:relative;z-index:2;"></div>
+    <!-- Gallery starts right below, the shadow creates the transition -->
+    <div style="height:100px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;position:relative;z-index:1;">
+      <div style="text-align:center;">
+        <div style="font-size:9px;color:#B89A6A;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;">Our Work</div>
+        <div style="font-family:Georgia,serif;font-size:28px;color:#F3EBDD;font-weight:300;">Spaces Fully Resolved</div>
+      </div>
+    </div>
+    <div style="height:60px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.08em;">· · · gallery · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">No gradient, no element — just a massive drop shadow on the bottom of the ivory section that creates a sense of physical depth. The sections feel like stacked material layers — ivory floats ABOVE dark. Architectural, tangible, dimensional.</div>
+</div>
+
+<!-- F: Color-matched image bleed -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">F</div><div class="var-title">Image Bleed — No Boundary At All</div></div>
+  <div>
+    <div style="height:50px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · services · · ·</span>
+    </div>
+    <!-- The last service card's image bleeds to full-width and transitions into gallery -->
+    <div style="background:#FAF6F0;padding:16px 24px 0;">
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+        <div style="background:#c4b5a0;border-radius:10px;height:60px;"></div>
+        <div style="background:#b8a890;border-radius:10px;height:60px;"></div>
+        <div style="background:#a89880;border-radius:10px;height:60px;"></div>
+      </div>
+    </div>
+    <!-- One image goes full-bleed, acts as bridge -->
+    <div style="height:100px;background:linear-gradient(to bottom, #8a7a6a, #4a3a2e, #2A1E1A);margin-top:16px;display:flex;align-items:flex-end;justify-content:center;padding-bottom:16px;">
+      <div style="text-align:center;">
+        <div style="font-size:9px;color:#B89A6A;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px;">Our Work</div>
+        <div style="font-family:Georgia,serif;font-size:24px;color:#F3EBDD;font-weight:300;">Spaces Fully Resolved</div>
+      </div>
+    </div>
+    <div style="height:50px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.08em;">· · · gallery grid · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">The bottom of the services section has one image that stretches full-width — its colors naturally darken and bleed into the gallery section. No artificial transition — the content itself creates the shift. The most organic and editorial approach.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+[
+  {
+    "name": "Summer Camp - DEV",
+    "id": "oEDRZoVTuCWHt5cnMLpH",
+    "fields": 28,
+    "rules": 17,
+    "ok": true,
+    "note": ""
+  },
+  {
+    "name": "Summer Camp (live)",
+    "id": "61TiB5Zn1DJrGAsWiyTm",
+    "fields": 26,
+    "rules": 16,
+    "ok": true,
+    "note": ""
+  },
+  {
+    "name": "Free Camp",
+    "id": "3Z4E9y7WlWgkZDxViBUW",
+    "fields": 22,
+    "rules": 3,
+    "ok": true,
+    "note": ""
+  },
+  {
+    "name": "After School Registration",
+    "id": "TkioOL4IoByeHU3K2gTs",
+    "fields": 10,
+    "rules": 3,
+    "ok": true,
+    "note": ""
+  },
+  {
+    "name": "Private Lesson Booking",
+    "id": "Cpk2gmz9dcumDiz2KFun",
+    "fields": 23,
+    "rules": 12,
+    "ok": true,
+    "note": ""
+  },
+  {
+    "name": "Rent-A-Sensei",
+    "id": "myEoOLL1SKGv0IvSF4ur",
+    "fields": 14,
+    "rules": 0,
+    "ok": true,
+    "note": ""
+  },
+  {
+    "name": "Balloons (Birthday)",
+    "id": "SvXq0KmUb1Ct2AR2t8Yl",
+    "fields": 21,
+    "rules": 2,
+    "ok": true,
+    "note": ""
+  },
+  {
+    "name": "Vladimir Vasiliev Seminar",
+    "id": "Zu7nHwEILIJnkKyvtnbB",
+    "fields": 13,
+    "rules": 0,
+    "ok": true,
+    "note": ""
+  },
+  {
+    "name": "Lead Form",
+    "id": "yP3OPoUimfOZgrXJo2mI",
+    "fields": 5,
+    "rules": 7,
+    "ok": true,
+    "note": ""
+  },
+  {
+    "name": "Liability Waiver (paid) FL",
+    "id": "2vMqRPJVSiNx9qowOcpD",
+    "fields": 26,
+    "rules": 6,
+    "ok": true,
+    "note": ""
+  },
+  {
+    "name": "Liability Waiver (free) FL",
+    "id": "y3Ztbvsy0JAZt8dx453Y",
+    "fields": 24,
+    "rules": 6,
+    "ok": true,
+    "note": ""
+  }
+]

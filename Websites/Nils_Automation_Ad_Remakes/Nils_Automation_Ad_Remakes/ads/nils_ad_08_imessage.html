@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{--green:#0fbf7a;--neon:#00ff88;--neon-soft:#6dffa6;--bg:#050d09;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:radial-gradient(90% 60% at 80% 0%,rgba(0,255,136,.10),transparent 55%),var(--bg);
+    font-family:'Inter',sans-serif;color:#fff;display:flex;flex-direction:column;justify-content:center;padding:70px 60px}
+  .art::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(0,255,136,.4) 1.2px,transparent 1.4px);background-size:64px 64px;opacity:.07}
+  .row{position:relative;display:flex;align-items:flex-start;gap:26px;margin-bottom:30px}
+  .lbl{font-weight:900;font-size:58px;letter-spacing:-.02em;white-space:nowrap;padding-top:14px}
+  .bubble{font-weight:600;font-size:36px;line-height:1.32;padding:28px 36px;border-radius:34px;max-width:660px}
+  .b-green{background:linear-gradient(135deg,#1ee087,#0fbf7a);color:#04140c;border-bottom-right-radius:10px}
+  .b-gray{background:#1f2a25;color:#eaf3ee;border-bottom-left-radius:10px}
+  .row.me{justify-content:flex-start}
+  .panel{position:relative;background:#0c1813;border:1.5px solid #1c3a2c;border-radius:26px;padding:30px 32px;margin:8px 0 30px;box-shadow:0 24px 60px rgba(0,0,0,.45)}
+  .panel .ph{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .panel .ph .t{font-weight:800;font-size:32px}
+  .panel .ph .st{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:21px;color:var(--neon-soft);background:rgba(0,255,136,.1);padding:6px 14px;border-radius:999px}
+  .panel .ph .st .d{width:10px;height:10px;border-radius:50%;background:var(--neon);box-shadow:0 0 10px var(--neon)}
+  .task{display:flex;align-items:center;gap:18px;padding:16px 0;border-top:1px solid #16271f;font-size:25px}
+  .task .when{color:#7fa392;min-width:230px;font-weight:500}
+  .task .what{flex:1;font-weight:600;color:#e6f1ec}
+  .task .badge{font-weight:700;font-size:20px;padding:6px 14px;border-radius:999px}
+  .badge.done{color:#9affc9;background:rgba(0,255,136,.12)}
+  .badge.run{color:#cfe7da;background:#22332b}
+  .pills{display:flex;gap:14px;margin-top:24px}
+  .pill{font-weight:800;font-size:22px;color:#04140c;background:var(--neon-soft);padding:12px 20px;border-radius:999px}
+  .foot{position:relative;text-align:center;font-weight:600;font-size:30px;color:#cfe7da;margin-top:6px}
+  .foot b{color:var(--neon-soft);font-weight:800}
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="row"><span class="lbl">YOU:</span><div class="bubble b-green">How are you running your marketing in 2026?</div></div>
+    <div class="panel">
+      <div class="ph"><span class="t">Marketing Workspace</span><span class="st"><span class="d"></span>Active</span></div>
+      <div class="task"><span class="when">Every Monday 9:00 AM</span><span class="what">Generate weekly content calendar</span><span class="badge done">✓ Completed</span></div>
+      <div class="task"><span class="when">Hourly</span><span class="what">Enrich new leads from forms</span><span class="badge run">Running</span></div>
+      <div class="task"><span class="when">Daily 6:00 PM</span><span class="what">Compile campaign performance report</span><span class="badge done">✓ Completed</span></div>
+      <div class="task"><span class="when">Daily 6:00 PM</span><span class="what">Distribute social posts via API</span><span class="badge done">✓ Completed</span></div>
+      <div class="pills"><span class="pill">12 reports sent today</span><span class="pill">47 leads enriched</span><span class="pill">3 campaigns optimized</span></div>
+    </div>
+    <div class="row me"><span class="lbl">ALSO ME:</span><div class="bubble b-gray">Honestly? We run the entire thing through Claude now.</div></div>
+    <div class="foot"><b>Curious how?</b> Book a free AI audit and we'll show you the exact setup. → nilsdigital.com/automation</div>
+  </div>
+</body>
+</html>

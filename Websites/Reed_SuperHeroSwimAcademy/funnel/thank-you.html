@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <script>
+    if (!new URLSearchParams(window.location.search).has('ref-1')) {
+      try {
+        if (window.parent && window.parent !== window) {
+          window.parent.location.replace('https://start.superheroswimuniversity.com/');
+        } else {
+          window.location.replace('https://start.superheroswimuniversity.com/');
+        }
+      } catch (e) {
+        window.location.replace('https://start.superheroswimuniversity.com/');
+      }
+    }
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>You're Registered! | Superhero Swim Academy</title>
+  <meta name="description" content="Thank you for contacting us. Finish creating your parent portal account to secure your free assessment." />
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://assets.cdn.filesafe.space" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+/* ═══════ RESET ═══════ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: clip; height: 100%; }
+body { margin: 0; font-family: 'Manrope', sans-serif; font-weight: 500; background: #ffffff; color: #0a2540; overflow-x: clip; line-height: 1.6; -webkit-font-smoothing: antialiased; display: flex; flex-direction: column; min-height: 100vh; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+h1,h2,h3,h4 { font-family: 'Outfit', sans-serif; font-weight: 800; margin: 0; line-height: 1.14; letter-spacing: -0.02em; color: #0a2540; }
+p { margin: 0 0 1em; }
+
+/* ═══════ TOKENS ═══════ */
+:root {
+  --navy: #0a2540; --navy-2: #103258;
+  --blue: #1769d6; --blue-2: #1257b3;
+  --aqua: #28cdd9; --aqua-2: #15b6c2;
+  --gold: #ffc83d; --gold-2: #ff9d2e;
+  --red: #ff5468;
+  --bg-soft: #f9fbfd; --bg-band: #e7f1fb; --line: #e6f0fa; --muted: #4a6585;
+}
+
+/* ═══════ UTILITY ═══════ */
+.container { max-width: 1120px; margin: 0 auto; padding: 0 24px; width: 100%; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1rem; border: none; border-radius: 12px; padding: 16px 30px; cursor: pointer; transition: transform .22s ease, box-shadow .22s ease; line-height: 1; text-align: center; }
+.btn-primary { background: linear-gradient(135deg, var(--gold) 0%, var(--gold-2) 100%); color: var(--navy); box-shadow: 0 10px 26px rgba(255,157,46,0.35); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(255,157,46,0.48); }
+.anim { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+.anim.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══════ HEADER / LOGO ═══════ */
+.header { padding: 40px 0 20px; text-align: center; background: #ffffff; border-bottom: 1px solid var(--line); }
+.header-logo { display: inline-block; margin: 0 auto; max-width: 320px; width: 100%; height: auto; }
+
+/* ═══════ MAIN CONTENT ═══════ */
+.main-content { flex: 1; display: flex; align-items: center; padding: 60px 0 80px; background: #ffffff; position: relative; overflow: hidden; }
+
+/* ═══════ THANK YOU CARD ═══════ */
+.thank-you-card { position: relative; background: #ffffff; border-radius: 24px; padding: 48px 40px; box-shadow: 0 20px 50px rgba(10,37,64,0.06); border: 1.5px solid var(--line); z-index: 3; max-width: 600px; margin: 0 auto; text-align: center; }
+.thank-you-card::before { content: ''; position: absolute; inset: -2px; border-radius: 26px; background: linear-gradient(135deg, var(--aqua) 0%, var(--blue) 100%); z-index: -1; opacity: 0.15; filter: blur(20px); }
+
+/* Success badge */
+.badge-container { display: flex; justify-content: center; margin-bottom: 24px; }
+.success-badge { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, var(--aqua) 0%, var(--blue) 100%); color: #ffffff; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 20px rgba(40,205,217,0.3); animation: successPop .55s cubic-bezier(.2,.85,.3,1.2) 1; }
+.success-badge svg { width: 36px; height: 36px; }
+
+.thank-you-card h1 { font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 900; color: var(--navy); margin-bottom: 16px; }
+.thank-you-card h1 .accent { color: var(--blue); font-style: italic; }
+.thank-you-sub { font-size: 1.05rem; color: var(--muted); margin-bottom: 30px; line-height: 1.6; }
+
+/* Action Box */
+.action-box { background: var(--bg-soft); border: 1.5px solid var(--line); border-radius: 16px; padding: 24px; margin-bottom: 30px; text-align: left; position: relative; }
+.action-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 6px; background: linear-gradient(180deg, var(--gold) 0%, var(--gold-2) 100%); border-top-left-radius: 16px; border-bottom-left-radius: 16px; }
+.action-box h3 { font-size: 1.1rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.action-box h3 svg { color: var(--gold-2); width: 20px; height: 20px; flex-shrink: 0; }
+.action-box p { font-size: 0.92rem; color: var(--navy); margin: 0; line-height: 1.55; }
+
+/* Button & Footnote */
+.thank-you-card .btn { width: 100%; padding: 18px 30px; font-size: 1.08rem; margin-bottom: 12px; }
+.thank-you-card .form-foot { font-size: 0.82rem; color: var(--muted); display: flex; align-items: center; justify-content: center; gap: 6px; margin: 0; }
+.thank-you-card .form-foot svg { width: 15px; height: 15px; color: var(--aqua-2); }
+
+@keyframes successPop { 0% { transform: scale(.6); opacity: 0; } 60% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); } }
+
+/* ═══════ WATER BUBBLES ═══════ */
+.bubbles { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.bubble { position: absolute; border-radius: 50%; background: radial-gradient(circle at 32% 28%, rgba(23,105,214,0.15), rgba(23,105,214,0.04) 55%, rgba(23,105,214,0) 72%); box-shadow: inset 0 0 4px rgba(23,105,214,0.12); animation: bubbleRise ease-in-out infinite; opacity: 0; }
+@keyframes bubbleRise { 0% { transform: translateY(24px) scale(.8); opacity: 0; } 18% { opacity: .75; } 82% { opacity: .45; } 100% { transform: translateY(-160px) scale(1.12); opacity: 0; } }
+
+/* Mascot illustration (floating, hidden on mobile) */
+.mascot-side { position: absolute; bottom: 40px; z-index: 2; width: 100px; pointer-events: none; filter: drop-shadow(0 10px 18px rgba(10,37,64,0.12)); display: none; }
+@media (min-width: 1024px) {
+  .mascot-side { display: block; }
+  .mascot-side.left { left: calc(50% - 440px); animation: floatY 5.5s ease-in-out infinite; }
+  .mascot-side.right { right: calc(50% - 440px); animation: floatY 6.5s ease-in-out infinite reverse; width: 85px; bottom: auto; top: 120px; }
+}
+@keyframes floatY { 0%,100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-16px) rotate(2deg); } }
+
+/* ═══════ FOOTER ═══════ */
+.footer { padding: 40px 0; background: #ffffff; border-top: 1.5px solid var(--line); color: var(--muted); font-size: 0.86rem; text-align: center; }
+.footer-logo { display: inline-block; margin-bottom: 12px; }
+.footer-logo img { height: 38px; width: auto; }
+.footer-slogan { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.94rem; color: var(--navy); margin-bottom: 6px; }
+.footer-disclaimer { font-size: 0.76rem; color: var(--muted); margin-top: 10px; line-height: 1.4; max-width: 600px; margin-left: auto; margin-right: auto; }
+
+@media (max-width: 640px) {
+  .thank-you-card { padding: 32px 20px; border-radius: 20px; }
+  .action-box { padding: 18px; }
+  .action-box h3 { font-size: 1rem; }
+  .action-box p { font-size: 0.86rem; }
+}
+  </style>
+</head>
+<body>
+
+<!-- ═══════ HEADER ═══════ -->
+<header class="header">
+  <div class="container">
+    <a href="landing.html">
+      <img class="header-logo" src="https://assets.cdn.filesafe.space/4qEx4JF7P5PENsxUUwlr/media/6d6f28a5-916f-4035-ab55-377d2c563e08.png" alt="Superhero Swim Academy" width="320" height="82" loading="eager">
+    </a>
+  </div>
+</header>
+
+<!-- ═══════ HERO CONTENT ═══════ -->
+<main class="main-content has-bubbles">
+  <img class="mascot-side left" src="https://assets.cdn.filesafe.space/4qEx4JF7P5PENsxUUwlr/media/7b26cbe2-3496-44ef-aa60-843002f43da1.png" alt="" aria-hidden="true">
+  <img class="mascot-side right" src="https://assets.cdn.filesafe.space/4qEx4JF7P5PENsxUUwlr/media/dbe11963-b83b-437d-b121-649eee2ec123.png" alt="" aria-hidden="true">
+
+  <section style="position: relative; z-index: 1; width: 100%;">
+    <div class="container">
+      <div class="thank-you-card anim visible">
+        <div class="badge-container">
+          <div class="success-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+        </div>
+        
+        <h1>Request <span class="accent">Submitted!</span></h1>
+        <p class="thank-you-sub">We have received your contact details. Our team will reach out to you shortly to schedule your cadet's free 30-minute swim assessment class.</p>
+        
+        <div class="action-box">
+          <h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            Lock In Your Assessment Immediately
+          </h3>
+          <p>You can bypass the wait time! Create your account in our parent portal right now to view schedules and secure your cadet's slot instantly.</p>
+        </div>
+        
+        <a id="registrationBtn" href="https://portal.iclasspro.com/superheroswim/login" class="btn btn-primary">
+          Finish Registration inside Portal
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        
+        <p class="form-foot">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Direct link: portal.iclasspro.com/superheroswim/login
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════ FOOTER ═══════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-logo">
+      <img src="https://assets.cdn.filesafe.space/4qEx4JF7P5PENsxUUwlr/media/6d6f28a5-916f-4035-ab55-377d2c563e08.png" alt="Superhero Swim Academy">
+    </div>
+    <div class="footer-slogan">Inspiring imagination and creativity through swim lessons.</div>
+    <div>© <span id="yr">2026</span> Superhero Swim Academy · Plantation, FL. All Rights Reserved.</div>
+    <p class="footer-disclaimer">All Characters and logos are trademarks of Superhero Swim Academy LLC.</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// Water bubbles — inject bubble fields
+document.querySelectorAll('.has-bubbles, .main-content').forEach(sec => {
+  if (getComputedStyle(sec).position === 'static') sec.style.position = 'relative';
+  const layer = document.createElement('div'); layer.className = 'bubbles'; layer.setAttribute('aria-hidden', 'true');
+  const n = 10;
+  for (let i = 0; i < n; i++) {
+    const b = document.createElement('span'); b.className = 'bubble';
+    const size = 5 + Math.random() * 20;
+    b.style.width = b.style.height = size.toFixed(1) + 'px';
+    b.style.left = (Math.random() * 100).toFixed(1) + '%';
+    b.style.bottom = (Math.random() * 55).toFixed(1) + '%';
+    b.style.animationDuration = (7 + Math.random() * 8).toFixed(1) + 's';
+    b.style.animationDelay = (-Math.random() * 9).toFixed(1) + 's';
+    layer.appendChild(b);
+  }
+  sec.prepend(layer);
+});
+
+// Forward query parameters to registration URL
+(function() {
+  const portalUrl = 'https://portal.iclasspro.com/superheroswim/login';
+  const registrationBtn = document.getElementById('registrationBtn');
+  if (!registrationBtn) return;
+  
+  try {
+    const q = new URLSearchParams(location.search);
+    const firstName = q.get('first_name') || q.get('firstName');
+    const lastName = q.get('last_name') || q.get('lastName');
+    const email = q.get('email');
+    const phone = q.get('phone');
+    
+    if (firstName || lastName || email || phone) {
+      const u = new URL(portalUrl);
+      if (firstName) u.searchParams.set('firstName', firstName);
+      if (lastName) u.searchParams.set('lastName', lastName);
+      if (email) u.searchParams.set('email', email);
+      if (phone) u.searchParams.set('phone', phone);
+      registrationBtn.href = u.toString();
+    }
+  } catch(e) {
+    console.error('[thank-you] error forwarding parameters:', e);
+  }
+})();
+</script>
+</body>
+</html>

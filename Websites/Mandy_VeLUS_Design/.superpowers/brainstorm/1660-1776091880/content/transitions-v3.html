@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium Transitions — Apple-Level</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: -apple-system, 'SF Pro Display', 'Helvetica Neue', sans-serif; background: #0a0a0a; color: #e0e0e0; padding: 32px; }
+  h1 { font-size: 24px; font-weight: 300; color: #fff; margin-bottom: 8px; text-align: center; letter-spacing: -0.01em; }
+  .subtitle { font-size: 13px; color: #666; text-align: center; margin-bottom: 40px; }
+  .variation { margin-bottom: 36px; background: #141414; border-radius: 20px; overflow: hidden; border: 1px solid #222; cursor: pointer; transition: border-color .4s, box-shadow .4s; }
+  .variation:hover { border-color: rgba(184,154,106,.4); box-shadow: 0 0 40px rgba(184,154,106,.08); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 48px rgba(184,154,106,.15); }
+  .var-label { display: flex; align-items: center; gap: 12px; padding: 16px 24px; border-bottom: 1px solid #1a1a1a; }
+  .var-letter { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  .var-title { font-size: 15px; font-weight: 500; color: #fff; letter-spacing: -0.01em; }
+  .var-desc { font-size: 12px; color: #666; padding: 14px 24px; line-height: 1.7; border-top: 1px solid #1a1a1a; }
+  .selected .var-letter { background: #fff; color: #B89A6A; }
+</style>
+</head>
+<body>
+
+<h1>Apple-Level Premium Transitions</h1>
+<p class="subtitle">No ornaments. No lines. Just impeccable spatial design — the kind where you don't notice the transition, you just feel it.</p>
+
+<!-- A: Massive breathing room — no transition element at all -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">A</div><div class="var-title">Generous White Space — Let It Breathe</div></div>
+  <div>
+    <div style="height:70px;background:#FAF6F0;display:flex;align-items:flex-start;justify-content:center;padding-top:16px;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;">· · · services section · · ·</span>
+    </div>
+    <!-- Just massive padding — no element, no gradient, nothing -->
+    <div style="height:100px;background:#FAF6F0;"></div>
+    <div style="height:100px;background:#2A1E1A;"></div>
+    <div style="height:70px;background:#2A1E1A;display:flex;align-items:flex-end;justify-content:center;padding-bottom:16px;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.1em;text-transform:uppercase;">· · · gallery section · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">Apple's approach: no transition element whatsoever. Just generous padding (120px+) at the bottom of one section and top of the next. The hard color change becomes a feature, not a problem. Confidence in the design. The contrast IS the transition.</div>
+</div>
+
+<!-- B: Ultra-long gradient — barely perceptible -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">B</div><div class="var-title">Ultra-Slow Fade — Imperceptible</div></div>
+  <div>
+    <div style="height:50px;background:#FAF6F0;display:flex;align-items:flex-start;justify-content:center;padding-top:12px;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;">· · · services section · · ·</span>
+    </div>
+    <!-- 200px gradient — so slow you don't notice it happening -->
+    <div style="height:200px;background:linear-gradient(to bottom, #FAF6F0 0%, #e8ddd0 25%, #9a8a78 50%, #4a3a2e 75%, #2A1E1A 100%);"></div>
+    <div style="height:50px;background:#2A1E1A;display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.1em;text-transform:uppercase;">· · · gallery section · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">A 200px+ gradient so slow that by the time you've scrolled through it, you're already in the dark section without noticing the change. Like a sunset — you don't see the moment it turns dark. Extremely premium.</div>
+</div>
+
+<!-- C: Full-bleed image break -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">C</div><div class="var-title">Full-Bleed Image Break — Editorial</div></div>
+  <div>
+    <div style="height:50px;background:#FAF6F0;display:flex;align-items:flex-start;justify-content:center;padding-top:12px;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;">· · · services section · · ·</span>
+    </div>
+    <div style="height:30px;background:#FAF6F0;"></div>
+    <!-- Full-bleed portfolio image as the transition itself -->
+    <div style="height:120px;background:linear-gradient(135deg, #3A241E, #5a4a3a, #4a3a2e);position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:Georgia,serif;font-size:18px;color:rgba(243,235,221,.5);font-weight:300;font-style:italic;letter-spacing:.02em;">"Spaces are canvases."</span>
+      </div>
+    </div>
+    <div style="height:30px;background:#2A1E1A;"></div>
+    <div style="height:50px;background:#2A1E1A;display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.1em;text-transform:uppercase;">· · · gallery section · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">A full-width cinematic image strip (or Mandy's quote on a dark background) acts as a visual pause between sections. Like a chapter break in a coffee table book. The image IS the transition. Used by high-end architecture sites.</div>
+</div>
+
+<!-- D: Color block with quote -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">D</div><div class="var-title">Quote Break — Cinematic Pause</div></div>
+  <div>
+    <div style="height:50px;background:#FAF6F0;display:flex;align-items:flex-start;justify-content:center;padding-top:12px;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;">· · · services section · · ·</span>
+    </div>
+    <!-- Quote interstitial -->
+    <div style="background:linear-gradient(to bottom, #FAF6F0 0%, #3A241E 30%, #3A241E 70%, #2A1E1A 100%);padding:60px 40px;text-align:center;">
+      <div style="max-width:500px;margin:0 auto;">
+        <div style="width:32px;height:1px;background:rgba(184,154,106,.4);margin:0 auto 20px;"></div>
+        <p style="font-family:Georgia,serif;font-size:20px;color:rgba(243,235,221,.7);font-weight:300;line-height:1.5;font-style:italic;letter-spacing:.01em;">"We don't follow trends — we set them, delivering intentional, impactful spaces that are unapologetically yours."</p>
+        <div style="margin-top:16px;font-size:10px;color:rgba(184,154,106,.5);letter-spacing:.15em;text-transform:uppercase;">— Mandy VELUS</div>
+        <div style="width:32px;height:1px;background:rgba(184,154,106,.4);margin:20px auto 0;"></div>
+      </div>
+    </div>
+    <div style="height:50px;background:#2A1E1A;display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.1em;text-transform:uppercase;">· · · gallery section · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">Mandy's own words fill the space between sections. The quote block has its own gradient — ivory fades into it, it fades into dark. No hard edges anywhere. The transition tells a story. Like Apple's "quiet confidence" moments between product sections.</div>
+</div>
+
+<!-- E: Shared color zone -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">E</div><div class="var-title">Warm Midtone Zone — Seamless</div></div>
+  <div>
+    <div style="height:50px;background:#FAF6F0;display:flex;align-items:flex-start;justify-content:center;padding-top:12px;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;">· · · services section · · ·</span>
+    </div>
+    <!-- Both sections share a warm midtone — the bottom of services and top of gallery both meet here -->
+    <div style="height:60px;background:linear-gradient(to bottom, #FAF6F0, #d4c5b0);"></div>
+    <div style="height:60px;background:#c4b5a0;"></div>
+    <div style="height:60px;background:linear-gradient(to bottom, #8a7a6a, #2A1E1A);"></div>
+    <div style="height:50px;background:#2A1E1A;display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.1em;text-transform:uppercase;">· · · gallery section · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">Instead of one section ending and another starting, they both dissolve into a shared warm midtone (#c4b5a0). Like two rooms connected by a hallway in the same material. The most interior-design-native approach — it's how rooms actually transition in real life.</div>
+</div>
+
+<!-- F: Oversized section heading as transition -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">F</div><div class="var-title">Section Title IS the Transition — Apple Style</div></div>
+  <div>
+    <div style="height:50px;background:#FAF6F0;display:flex;align-items:flex-start;justify-content:center;padding-top:12px;">
+      <span style="font-size:10px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;">· · · services section · · ·</span>
+    </div>
+    <div style="height:40px;background:#FAF6F0;"></div>
+    <!-- The next section's heading sits in a gradient zone -->
+    <div style="background:linear-gradient(to bottom, #FAF6F0 0%, #2A1E1A 60%);padding:48px 40px 60px;text-align:center;">
+      <div style="font-size:9px;color:#B89A6A;letter-spacing:.2em;text-transform:uppercase;margin-bottom:12px;">Our Work</div>
+      <div style="font-family:Georgia,serif;font-size:36px;color:#F3EBDD;font-weight:300;line-height:1.1;letter-spacing:-0.02em;">Spaces Fully Resolved</div>
+    </div>
+    <div style="height:50px;background:#2A1E1A;display:flex;align-items:flex-end;justify-content:center;padding-bottom:12px;">
+      <span style="font-size:10px;color:rgba(243,235,221,.3);letter-spacing:.1em;text-transform:uppercase;">· · · gallery grid starts · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">The gallery section's heading sits directly inside the gradient zone — it IS the transition. The text starts in the light area and anchors into the dark. Apple does this constantly — the content leads you into the new section, not a decorative element. Most elegant approach.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

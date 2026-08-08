@@ -1,0 +1,255 @@
+﻿label {
+    position: relative; 
+}
+
+.section-header {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: .2rem;
+    color: white;
+    font-weight: 600;
+    background-color: #a5aab3;
+    padding: .75rem 1rem;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-top: 2.5em;
+}
+
+.modal-title {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: .2rem;
+    color: white;
+    font-weight: 600;
+    background-color: #0080c7;
+    padding: .75rem 1rem;
+    border-radius: 0;
+}
+
+.sub-section-header {
+    font-weight: 600;
+    color: #8f959f;    
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin: 2rem 0 .75rem 0;
+}
+
+input[type="checkbox"],input[type="radio"] {
+    margin:0;
+}
+
+/*for input notes override default input margin. tuck note back up and give note margin instead */
+input[type="text"] + span,input[type="email"] + span,input[type="tel"] + span, 
+select + span, textarea + span,input[type="text"] + img + span,.pstrength-minchar {
+    display: block;
+    margin-top: -1rem;
+    margin-bottom: 1.5rem;
+    font-weight: normal;
+    font-style:italic;
+    font-size: .85em;
+}
+
+.pstrength-info {
+    padding-bottom: .35em;
+}
+
+/*by default just give all inputs 100% width. We want that anyways. */
+input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]),select,textarea {
+    width: 100%;
+}
+
+.columns, .columns {
+    position:relative;
+}
+
+.schedule-new-icon, .globe-icon {
+    position: absolute;
+    right: 10px;
+    top: 16px;
+}
+
+.globe-icon{
+    top: 38px;
+}
+
+/*do a fixed header of sorts. Using this in */
+.fixed-header {
+    position: fixed;
+    background-color: #333;
+    color: white;
+    left: 0;
+    padding: 1em;
+    top: 0;
+    margin-top: 0;
+    width: 100%;
+    height: 65px;
+    z-index: 1;
+}
+
+.fixed-header .header {
+    text-transform: capitalize;
+    display: inline-block;
+    margin-left: 1em;
+}
+
+.fixed-header-content {
+    margin-top: 80px;
+}
+
+.fixed-header i.fa {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.fixed-header .icon-button {
+    height: auto;    
+    padding: 5px 10px;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+    margin-top: 10px;
+}
+
+/* styling for "shelf" will hold filter for now"'"*/
+.fixed-reveal {        
+    width: 0;
+    height: 100%;
+    position: fixed;    
+    z-index: 2;
+    top: 0;
+    left: 0;    
+    background-color: #333;
+    overflow-x: hidden;
+    padding-top: 60px;
+    transition: 0.5s;
+}
+
+.fixed-reveal a,.fixed-reveal label {
+    color: white;
+}
+
+.fixed-reveal.open {
+    width: 100%;
+    padding: .5em 1em;
+}
+
+/* change total shelf width based on view port*/
+@media (min-width:550px) {
+    .fixed-reveal.open {
+        width: 40%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .fixed-reveal.open {
+        width: 25%;
+    }
+}
+
+.fixed-reveal .header {
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: .1rem;
+}
+
+/* Position and style the close button (top right corner) */
+.fixed-reveal .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+
+/*hide IE clear controls */
+input::-ms-clear {
+    display: none;
+}
+
+/*big button*/
+.button.big {
+    font-size: 14px;
+}
+
+/* required styling */
+span.required {
+    font-size: 1.5em;
+    color: #cd2027;
+    font-weight: bold;
+    position: absolute;
+    bottom: -5px;
+}
+
+a.button > span.required {
+    bottom: auto;
+    top: 0;
+    font-size: 2em;
+}
+
+/*legalese styling*/
+.legal { font-size: 8pt; font-weight: bold;}
+.legal p label {
+    margin-top: .5em;
+    background: transparent;
+    color: #cd2027;
+    padding: .3em 1em;
+    background-color: #f6f6f6;
+    display: inline-block;
+    font-size: 1.25em;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: background-color .5s, transform .5s, color .5s, box-shadow .5s;
+
+}
+
+.legal p label:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.legal p label.checked {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    box-shadow: none;
+}
+
+.legal p label.checked:hover {
+    box-shadow: none;
+}
+
+
+/*custom utility classes*/
+
+.u-text-center {
+    text-align: center;
+}
+
+.u-column-center {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.light-blue-teal {
+    color: #1998d5;
+}
+
+.font.big {
+    font-size: calc(1em * 1.15);
+}
+
+.font.bigger {
+    font-size: calc(1em * 1.25);
+}
+
+table.perDay {
+    margin-bottom: 0;
+    border: 1px solid #bcbcc9;
+
+}
+
+table.perDay tbody tr th {
+    background-color: #bcbcc9;
+}

@@ -1,0 +1,60 @@
+/*  Systema Floyd - shared attendance checklist styles
+    Used by the standalone Attendance tab (attendance.html). The dashboard
+    modal (index.html) carries its own copy of these inline. Keep them in
+    sync if you restyle the checklist. */
+.att-feedback{margin-top:10px;text-align:center;font-size:12.5px;font-family:'Space Grotesk','Inter',sans-serif;color:var(--sf-ink-40);min-height:18px}
+.att-feedback.success{color:#137333;font-weight:600}
+.att-feedback.error{color:#b54708;font-weight:600}
+
+.att-people{display:flex;flex-direction:column;gap:5px;padding:8px;border:1px solid var(--sf-border);border-radius:10px;background:var(--sf-cream)}
+.att-people .att-empty{padding:18px;text-align:center;font-size:13px;color:var(--sf-ink-40);font-style:italic}
+.att-people .att-bulk{display:flex;gap:6px;margin-bottom:6px}
+.att-people .att-bulk button{flex:1;padding:9px 10px;border-radius:7px;border:1px solid var(--sf-border);background:var(--sf-white);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--sf-ink-60);cursor:pointer;letter-spacing:.04em;transition:background .15s,color .15s}
+.att-people .att-bulk button:hover{background:var(--sf-blue-50);color:var(--sf-blue-700)}
+.att-people .att-filter{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:8px}
+.att-people .att-filter button{padding:6px 11px;border-radius:999px;border:1px solid var(--sf-border);background:var(--sf-white);font-family:'Inter',sans-serif;font-size:12px;font-weight:600;color:var(--sf-ink-60);cursor:pointer;letter-spacing:.02em;transition:background .15s,color .15s,border-color .15s}
+.att-people .att-filter button:hover{background:var(--sf-blue-50);color:var(--sf-blue-700)}
+.att-people .att-filter button.active{background:var(--sf-blue-700);color:var(--sf-white);border-color:var(--sf-blue-700)}
+
+.att-person{display:flex;align-items:center;gap:9px;padding:10px 12px;background:var(--sf-white);border:1px solid var(--sf-border);border-radius:8px;transition:background .15s,border-color .15s;flex-wrap:wrap}
+.att-person .dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.att-person .dot.u{background:#1b2f6e}
+.att-person .dot.l{background:#4aa3e0}
+.att-person .dot.f{background:#f4b63a}
+.att-person .nm{flex:1;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:var(--sf-ink);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.att-person .att-times{display:none;gap:4px;flex-shrink:0;align-items:center}
+.att-person.present .att-times{display:inline-flex}
+.att-person .att-times input[type="time"]{width:96px;padding:5px 6px;border:1px solid var(--sf-border);border-radius:6px;font-family:'Inter',sans-serif;font-size:12px;color:var(--sf-ink);background:var(--sf-white);transition:border-color .15s}
+.att-person .att-times input[type="time"]:focus{outline:none;border-color:var(--sf-blue-700)}
+.att-person .att-times .att-tlbl{font-size:9px;font-weight:600;color:var(--sf-ink-40);letter-spacing:.04em;text-transform:uppercase}
+.att-person .att-marks{display:inline-flex;gap:5px;flex-shrink:0}
+.att-person .att-mark{width:34px;height:34px;border-radius:7px;border:1px solid var(--sf-border);background:var(--sf-white);font-size:15px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;color:var(--sf-ink-40);font-family:'Space Grotesk','Inter',sans-serif;line-height:1}
+.att-person .att-mark:hover{background:var(--sf-blue-50);color:var(--sf-ink)}
+.att-person.present{border-color:#9bd1ac;background:#e6f4ea}
+.att-person.present .att-mark.yes{background:#137333;color:#fff;border-color:#137333}
+.att-person.absent{border-color:#e8b4ad;background:#fbe9e7}
+.att-person.absent .att-mark.no{background:#b54708;color:#fff;border-color:#b54708}
+
+@media (max-width:520px){
+  .att-person{padding:9px 10px}
+  .att-person .att-mark{width:38px;height:38px}   /* bigger tap targets on phones */
+  .att-person .att-times input[type="time"]{width:84px}
+}
+
+/* ── Session photos (attendance proof) ── */
+.att-photos{margin-top:14px;background:var(--sf-white);border:1px solid var(--sf-border);border-radius:12px;box-shadow:var(--shadow-sm);padding:14px 16px}
+.att-photos-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.att-photos-head .lbl{flex:1;font-family:'Oswald',sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;color:var(--sf-ink-60);text-transform:uppercase}
+.ph-add-btn{display:inline-flex;align-items:center;gap:6px;padding:9px 15px;border-radius:9px;background:var(--grad-blue,linear-gradient(135deg,#2f82c4,#1b2f6e));color:#fff;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;box-shadow:0 4px 10px -4px rgba(47,130,196,.5);transition:transform .15s,box-shadow .15s}
+.ph-add-btn:hover{transform:translateY(-1px);box-shadow:0 6px 14px -4px rgba(47,130,196,.5)}
+.ph-cap-input{display:block;width:100%;padding:10px 12px;border:1px solid var(--sf-border);border-radius:8px;font-family:'Inter',sans-serif;font-size:14px;background:var(--sf-white);color:var(--sf-ink)}
+.ph-cap-input:focus{outline:none;border-color:var(--sf-blue-700);box-shadow:0 0 0 3px rgba(47,130,196,.12)}
+.ph-status{font-size:12px;font-weight:600;color:var(--sf-blue-700);margin:8px 0 2px;min-height:15px}
+.ph-status.err{color:var(--sf-red)}
+.ph-thumbs{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px;min-height:30px}
+.ph-thumb{position:relative;width:104px;height:104px;border-radius:8px;overflow:hidden;border:1px solid var(--sf-border);background:var(--sf-cream)}
+.ph-thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.ph-thumb .ph-del{position:absolute;top:3px;right:3px;width:24px;height:24px;border-radius:50%;background:rgba(13,21,52,.72);color:#fff;font-size:14px;line-height:1;border:none;cursor:pointer;padding:0;display:flex;align-items:center;justify-content:center}
+.ph-thumb .ph-del:hover{background:var(--sf-red)}
+.ph-thumb .ph-cap{position:absolute;left:0;right:0;bottom:0;background:rgba(13,21,52,.66);color:#fff;font-size:9px;padding:2px 5px;line-height:1.25;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ph-empty{font-size:12.5px;color:var(--sf-ink-40);font-style:italic;padding:8px 2px}

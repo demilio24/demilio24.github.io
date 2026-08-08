@@ -1,0 +1,83 @@
+<!-- Nils Digital — compact Client Agreement block. Paste into a GHL custom-code
+     element ABOVE the payment form. Collapsed by default to save vertical space. -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+<div id="nd-agreement">
+  <h2>Nils Digital Client Agreement</h2>
+  <p class="sub">By submitting payment, you agree to the following. Tap any item to read it.</p>
+
+  <details>
+    <summary>1. Ownership of Work</summary>
+    <p>You own only what you paid a setup or development fee for. Everything else we build, we own, unless we agree otherwise in writing.</p>
+    <p>This covers websites, funnels, code, automations, workflows, integrations, ad creative, and every other deliverable we produce. Work built under your membership that you were not separately charged to create is licensed to you only while your membership is active: you are renting access, not buying it. If you pause or cancel, that access ends and we may take the membership work offline.</p>
+    <p>When a deliverable carries a setup or development fee, we tell you before you buy, and you own that deliverable and keep it even if you cancel. A website is the common case: you own the website itself, but extras built around it like forms, workflows, and automations still need an active membership to keep running. You are welcome to take code you own and modify or re-host it elsewhere, but that is on you, as we do not offer a service to move or re-host your project.</p>
+    <p>We never claim your own brand, logos, content, customer data, domains, or accounts. Those remain yours at all times.</p>
+  </details>
+
+  <details>
+    <summary>2. Communication &amp; Disputes</summary>
+    <p>Both parties agree to maintain respectful, professional communication at all times. Any questions, concerns, or disputes will be handled directly over a call with our team. Not through public reviews, social media, or third parties.</p>
+  </details>
+
+  <details>
+    <summary>3. No Long-Term Contracts</summary>
+    <p>This is a month-to-month service. Cancel anytime by contacting us. No penalties, no hassle.</p>
+  </details>
+
+  <details>
+    <summary>4. All Sales Final</summary>
+    <p>All payments are final. No refunds. No chargebacks. By submitting payment, you agree not to dispute charges through your bank or payment processor. If there is a billing issue, contact us and we will sort it out.</p>
+  </details>
+
+  <details>
+    <summary>5. Platform Usage Costs</summary>
+    <p>You are responsible for the platform usage on your account: emails, SMS, phone calls, AI features, and extra usage like webhooks or premium actions. These are billed at exact provider cost with zero markup, the same pricing our provider offers us.</p>
+    <p>Every account starts with a $0 balance. Each email or SMS you send, or extra usage you trigger, costs a fraction of a cent and draws down that balance. Once it goes negative, we recharge the account using your payment method on file to keep your services running. For example, once you start using the services we recharge $10, and that amount stays on the account as credit until it is used.</p>
+    <p><strong>Please note:</strong> these payments go directly to our providers even though our name appears on the transaction (we keep none of it), and all recharges are non-refundable.</p>
+    <div class="nd-tablewrap">
+      <table>
+        <thead>
+          <tr><th>Service</th><th>Estimated Rate</th><th>Example Usage</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Email Sending</strong></td><td>$0.000675 / email</td><td>10k emails &asymp; $6.75</td></tr>
+          <tr><td><strong>SMS (US/CA)</strong></td><td>$0.0079 / segment</td><td>1k texts &asymp; $7.90</td></tr>
+          <tr><td><strong>Conversation AI</strong></td><td>$0.02 / message</td><td>100 replies = $2.00</td></tr>
+          <tr><td><strong>Content AI</strong></td><td>$0.09 / 1k words</td><td>5k words = $0.45</td></tr>
+          <tr><td><strong>Phone Calls</strong></td><td>~$0.014 / minute</td><td>100 mins &asymp; $1.40</td></tr>
+          <tr><td><strong>Reviews AI</strong></td><td>$0.08 / response</td><td>10 replies = $0.80</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  <p class="confirm">By proceeding with payment, you confirm that you have read and agree to the terms above.</p>
+</div>
+
+<style>
+#nd-agreement{
+  font-family:'Inter',sans-serif;font-size:14px;color:#1a1a1a;line-height:1.55;
+  padding:16px 18px;border:1px solid #e0e0e0;border-radius:8px;background:#fafafa;
+  max-width:600px;margin:0 auto 16px;
+}
+#nd-agreement h2{text-align:center;color:#046bd2;margin:0 0 2px;font-size:18px;font-weight:700;}
+#nd-agreement .sub{text-align:center;font-size:12px;color:#888;margin:0 0 10px;}
+#nd-agreement details{border-top:1px solid #eee;}
+#nd-agreement details:last-of-type{border-bottom:1px solid #eee;}
+#nd-agreement summary{
+  list-style:none;cursor:pointer;position:relative;
+  padding:10px 24px 10px 2px;font-weight:600;font-size:13px;color:#1a1a1a;
+}
+#nd-agreement summary::-webkit-details-marker{display:none;}
+#nd-agreement summary::after{
+  content:"+";position:absolute;right:4px;top:8px;
+  color:#046bd2;font-weight:700;font-size:16px;line-height:1;
+}
+#nd-agreement details[open] summary::after{content:"\2212";}
+#nd-agreement details p{margin:0 2px 12px;font-size:13px;color:#444;}
+#nd-agreement .nd-tablewrap{overflow-x:auto;margin:0 2px 12px;}
+#nd-agreement table{width:100%;border-collapse:collapse;font-size:12px;text-align:left;min-width:380px;}
+#nd-agreement th{padding:8px;border-bottom:2px solid #ddd;background:#f4f4f4;font-weight:700;}
+#nd-agreement td{padding:8px;border-bottom:1px solid #eee;}
+#nd-agreement .confirm{text-align:center;font-size:12px;color:#888;margin:12px 0 0;}
+</style>

@@ -1,0 +1,2224 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nils Digital - You Made the Right Call</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family:
+          "Instrument Sans",
+          "Inter",
+          -apple-system,
+          sans-serif;
+        background: #00b67a;
+        color: #000;
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ─────────────────────────────────────── */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 200;
+        background: #046bd2;
+        padding: 0 32px;
+        height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .nav-logo {
+        height: 30px;
+        object-fit: contain;
+      }
+      .nav-badge {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 100px;
+        padding: 5px 14px;
+        font-size: 11px;
+        font-weight: 700;
+        color: #fff;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .nav-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #fff;
+        animation: pulse-dot 2s ease-in-out infinite;
+      }
+      @keyframes pulse-dot {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      /* ── HERO ────────────────────────────────────── */
+      .hero {
+        background: #fff;
+        padding: 84px 32px 96px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 70% 60% at 50% 0%,
+          rgba(4, 107, 210, 0.06) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .hero-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(4, 107, 210, 0.08);
+        border: 1px solid rgba(4, 107, 210, 0.2);
+        border-radius: 100px;
+        padding: 6px 18px;
+        margin-bottom: 28px;
+        font-size: 12px;
+        font-weight: 700;
+        color: #046bd2;
+        letter-spacing: 0.08em;
+      }
+      .hero-pill::before {
+        content: "✓";
+        font-weight: 700;
+      }
+      .hero-h1 {
+        font-size: clamp(40px, 6.5vw, 78px);
+        font-weight: 700;
+        color: #000;
+        line-height: 1.06;
+        margin-bottom: 22px;
+        letter-spacing: -0.025em;
+      }
+      .hero-h1 em {
+        color: #046bd2;
+        font-style: normal;
+      }
+      .hero-sub {
+        font-size: clamp(18px, 2.2vw, 22px);
+        font-weight: 500;
+        color: #000;
+        line-height: 1.7;
+        max-width: 720px;
+        margin: 0 auto;
+      }
+
+      /* ── TRUST BAR ───────────────────────────────── */
+      .trust-bar {
+        background: #f0f4f9;
+        padding: 22px 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .trust-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        background: #fff;
+        border: 1px solid rgba(4, 107, 210, 0.15);
+        border-radius: 100px;
+        padding: 10px 20px;
+        font-size: 13px;
+        font-weight: 700;
+        color: #000;
+        letter-spacing: 0.03em;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.07);
+      }
+      .trust-item-icon {
+        font-size: 16px;
+      }
+      .trust-item img {
+        height: 22px;
+        object-fit: contain;
+      }
+      .trust-sep {
+        display: none;
+      }
+      @media (max-width: 600px) {
+        .trust-bar {
+          gap: 8px;
+        }
+        .trust-item {
+          font-size: 12px;
+          padding: 8px 14px;
+        }
+      }
+
+      /* ── SECTION SCAFFOLDING ─────────────────────── */
+      .section-tag {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        color: #046bd2;
+        margin-bottom: 12px;
+      }
+      .section-h {
+        font-size: clamp(26px, 4vw, 46px);
+        font-weight: 700;
+        color: #000;
+        line-height: 1.12;
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+      }
+      .on-blue .section-h {
+        color: #fff;
+      }
+      .section-sub {
+        font-size: 16px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.48);
+        line-height: 1.7;
+        max-width: 480px;
+      }
+      .on-blue .section-sub {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .on-blue .section-tag {
+        color: rgba(255, 255, 255, 0.75);
+        letter-spacing: 0.15em;
+      }
+
+      /* ── CUSTOM VIDEO PLAYER ─────────────────────── */
+      .vp {
+        position: relative;
+        aspect-ratio: 9/16;
+        background: #000;
+        border-radius: 18px;
+        overflow: hidden;
+        cursor: pointer;
+        user-select: none;
+      }
+      .vp video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .vp-center {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.2s;
+      }
+      .vp.playing .vp-center {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .vp-big-btn {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: rgba(4, 107, 210, 0.85);
+        backdrop-filter: blur(6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        transition:
+          transform 0.18s,
+          background 0.18s;
+        flex-shrink: 0;
+      }
+      .vp:hover .vp-big-btn {
+        transform: scale(1.1);
+        background: #046bd2;
+      }
+      .vp-big-btn svg {
+        width: 22px;
+        height: 22px;
+        fill: #fff;
+        margin-left: 3px;
+      }
+
+      .vp-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        padding: 28px 14px 14px;
+      }
+      .vp-seek {
+        width: 100%;
+        height: 3px;
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 2px;
+        margin-bottom: 10px;
+        position: relative;
+        cursor: pointer;
+        transition: height 0.15s;
+      }
+      .vp-seek:hover {
+        height: 5px;
+      }
+      .vp-seek-fill {
+        height: 100%;
+        background: #046bd2;
+        border-radius: 2px;
+        width: 0%;
+        pointer-events: none;
+      }
+      .vp-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .vp-btn {
+        background: none;
+        border: none;
+        color: rgba(255, 255, 255, 0.88);
+        cursor: pointer;
+        padding: 4px;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.15s;
+        flex-shrink: 0;
+        font-family: inherit;
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .vp-btn:hover {
+        background: rgba(255, 255, 255, 0.15);
+      }
+      .vp-btn svg {
+        width: 15px;
+        height: 15px;
+        fill: currentColor;
+        display: block;
+      }
+      .vp-time {
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.65);
+        white-space: nowrap;
+        min-width: 72px;
+      }
+      .vp-spacer {
+        flex: 1;
+      }
+
+      /* ── FEATURED VIDEO SECTION ──────────────────── */
+      .featured-section {
+        background: #f4f4f4;
+        padding: 72px 32px 96px;
+      }
+      .featured-inner {
+        max-width: 920px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-start;
+        gap: 52px;
+      }
+      .featured-video-col {
+        flex: 0 0 300px;
+        text-align: center;
+      }
+      .featured-quote-col {
+        flex: 1;
+        padding-top: 6px;
+      }
+      @media (max-width: 760px) {
+        .featured-inner {
+          flex-direction: column;
+        }
+        .featured-video-col {
+          width: 100%;
+          max-width: 340px;
+          margin: 0 auto;
+        }
+      }
+      .watch-lbl {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 18px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 22px;
+        letter-spacing: -0.01em;
+      }
+      .watch-finger {
+        font-size: 30px;
+        animation: bounce 1s ease-in-out infinite;
+        display: inline-block;
+      }
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        55% {
+          transform: translateY(8px);
+        }
+      }
+      .watch-finger em {
+        color: #046bd2;
+        font-style: normal;
+      }
+      .featured-vp-shell {
+        box-shadow:
+          0 0 0 1px rgba(4, 107, 210, 0.2),
+          0 24px 64px rgba(0, 0, 0, 0.15);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .vp-caption {
+        margin-top: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(0, 0, 0, 0.35);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      /* Seek-bar chapter marker */
+      .vp-marker {
+        position: absolute;
+        top: -5px;
+        bottom: -5px;
+        width: 2px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 1px;
+        cursor: pointer;
+        pointer-events: all;
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+      }
+      .vp-marker::before {
+        content: attr(data-label);
+        position: absolute;
+        bottom: calc(100% + 7px);
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 9px;
+        font-weight: 700;
+        color: #fff;
+        background: #046bd2;
+        padding: 3px 7px;
+        border-radius: 4px;
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.15s;
+        pointer-events: none;
+      }
+      .vp-marker:hover::before {
+        opacity: 1;
+      }
+      /* Featured quote card */
+      .feat-quote-card {
+        background: #fff;
+        border-radius: 18px;
+        padding: 32px 28px;
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        border-left: 4px solid #046bd2;
+        height: 100%;
+      }
+      .feat-quote-mark {
+        font-size: 72px;
+        line-height: 0.55;
+        color: #046bd2;
+        font-weight: 700;
+        margin-bottom: 22px;
+        display: block;
+        font-family: Georgia, serif;
+      }
+      .feat-quote-highlight {
+        font-size: 19px;
+        font-weight: 700;
+        color: #000;
+        line-height: 1.4;
+        margin-bottom: 18px;
+      }
+      .feat-quote-highlight em {
+        color: #046bd2;
+        font-style: normal;
+      }
+      .feat-quote-body {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.55);
+        line-height: 1.75;
+      }
+      .feat-quote-footer {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 24px;
+        flex-wrap: wrap;
+      }
+      .feat-stars {
+        color: #046bd2;
+        font-size: 17px;
+        letter-spacing: 1px;
+      }
+      .feat-jump-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #046bd2;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        padding: 9px 16px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        cursor: pointer;
+        font-family: inherit;
+        transition: opacity 0.2s;
+      }
+      .feat-jump-btn:hover {
+        opacity: 0.82;
+      }
+
+      /* ── NEXT STEPS ──────────────────────────────── */
+      .steps-section {
+        background: #fff;
+        padding: 96px 32px;
+      }
+      .steps-inner {
+        max-width: 980px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .steps-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 52px;
+      }
+      @media (max-width: 680px) {
+        .steps-row {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .step-card {
+        background: #f4f4f4;
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        border-radius: 20px;
+        padding: 44px 28px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .step-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.08);
+      }
+      .step-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: #046bd2;
+      }
+      .step-num {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #046bd2;
+        margin-bottom: 18px;
+      }
+      .step-icon {
+        font-size: 42px;
+        margin-bottom: 16px;
+        line-height: 1;
+      }
+      .step-title {
+        font-size: 18px;
+        font-weight: 700;
+        color: #000;
+        line-height: 1.3;
+        margin-bottom: 10px;
+      }
+      .step-body {
+        font-size: 14px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.5);
+        line-height: 1.6;
+      }
+
+      /* ── MORE VIDEOS ─────────────────────────────── */
+      .more-section {
+        background: #f4f4f4;
+        padding: 96px 32px;
+      }
+      .more-inner {
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+      .video-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 52px;
+      }
+      @media (max-width: 760px) {
+        .video-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 480px) {
+        .video-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .video-card-wrap {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+      }
+      .video-card-wrap:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+      }
+
+      /* result card below each video */
+      .vc-result {
+        padding: 16px 18px 18px;
+        background: #fff;
+        border-top: 1px solid rgba(0, 0, 0, 0.07);
+      }
+      .vc-name {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #046bd2;
+        margin-bottom: 10px;
+      }
+      .vc-bullets {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .vc-bullets li {
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.72);
+        line-height: 1.4;
+        display: flex;
+        align-items: flex-start;
+        gap: 7px;
+      }
+      .vc-bullets li::before {
+        content: "✓";
+        color: #046bd2;
+        font-weight: 700;
+        font-size: 12px;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      /* ── BLUE STATEMENT ──────────────────────────── */
+      .statement-section {
+        background: #046bd2;
+        padding: 72px 32px;
+        text-align: center;
+      }
+      .statement-h {
+        font-size: clamp(28px, 4.5vw, 54px);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.15;
+        max-width: 760px;
+        margin: 0 auto 16px;
+        letter-spacing: -0.02em;
+      }
+      .statement-sub {
+        font-size: 17px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+        max-width: 480px;
+        margin: 0 auto;
+        line-height: 1.65;
+      }
+
+      /* ── REVIEWS GRID ────────────────────────────── */
+      .reviews-section {
+        background: #f4f4f4;
+        padding: 96px 32px;
+      }
+      .reviews-header {
+        text-align: center;
+        margin-bottom: 52px;
+      }
+
+      .reviews-grid {
+        columns: 5;
+        column-gap: 12px;
+      }
+      @media (max-width: 1100px) {
+        .reviews-grid {
+          columns: 4;
+        }
+      }
+      @media (max-width: 800px) {
+        .reviews-grid {
+          columns: 3;
+        }
+      }
+      @media (max-width: 600px) {
+        .reviews-grid {
+          columns: 1;
+        }
+      }
+      .reviews-grid img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        break-inside: avoid;
+      }
+
+      /* ── LIVE WIDGET ─────────────────────────────── */
+      .widget-section {
+        background: #fff;
+        padding: 64px 32px;
+      }
+      .widget-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 20px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        padding: 8px;
+        cursor: grab;
+        -webkit-overflow-scrolling: touch;
+        scroll-behavior: smooth;
+      }
+      .widget-inner.is-grabbing {
+        cursor: grabbing;
+        user-select: none;
+      }
+      .widget-drag-hint {
+        text-align: center;
+        margin-top: 12px;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        color: rgba(0, 0, 0, 0.28);
+      }
+      .lc_reviews_widget {
+        display: block;
+        width: 100%;
+        border: none;
+      }
+
+      /* ── CLIENT PHOTOS ───────────────────────────── */
+      .clients-section {
+        background: #fff;
+        padding: 96px 32px;
+      }
+      .clients-inner {
+        max-width: 880px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .photos-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-top: 52px;
+      }
+      @media (max-width: 560px) {
+        .photos-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .photo-card {
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+        height: 380px;
+        border: 1px solid rgba(0, 0, 0, 0.07);
+      }
+      .photo-card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+
+      /* ── PRESS ───────────────────────────────────── */
+      .press-section {
+        background: #f4f4f4;
+        border-top: 1px solid rgba(0, 0, 0, 0.07);
+        padding: 96px 32px;
+      }
+      .press-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .press-logo-pill {
+        display: inline-flex;
+        align-items: center;
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        border-radius: 12px;
+        padding: 12px 24px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+        margin: 32px auto 24px;
+      }
+      .press-logo-pill img {
+        height: 28px;
+        object-fit: contain;
+      }
+
+      .press-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+        margin-top: 36px;
+        margin-bottom: 20px;
+      }
+      @media (max-width: 720px) {
+        .press-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .press-card {
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        height: 420px;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .press-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.13);
+      }
+      .press-card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .press-feature {
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1);
+        max-width: 680px;
+        margin: 20px auto 0;
+      }
+      .press-feature img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      /* ── FOOTER (only black section) ─────────────── */
+      .site-footer {
+        background: #00b67a;
+        padding: 88px 32px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .site-footer::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 70% at 50% 110%,
+          rgba(0, 0, 0, 0.12) 0%,
+          transparent 65%
+        );
+        pointer-events: none;
+      }
+      .footer-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 560px;
+        margin: 0 auto;
+      }
+      .footer-logo {
+        height: 34px;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto 28px;
+      }
+      .footer-rule {
+        width: 36px;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.4);
+        border-radius: 2px;
+        margin: 0 auto 28px;
+      }
+      .footer-emoji {
+        font-size: 36px;
+        display: block;
+        margin-bottom: 18px;
+      }
+      .footer-msg {
+        font-size: clamp(15px, 2vw, 19px);
+        font-weight: 500;
+        color: #fff;
+        line-height: 1.8;
+      }
+      .footer-msg strong {
+        color: #fff;
+        font-weight: 700;
+      }
+
+      /* ── GLOBAL MOBILE ───────────────────────────── */
+      @media (max-width: 600px) {
+        /* reduce section padding */
+        .hero {
+          padding: 28px 20px 24px;
+        }
+        .trust-bar {
+          padding: 10px 12px;
+          gap: 6px;
+        }
+        .featured-section,
+        .steps-section,
+        .more-section,
+        .reviews-section,
+        .widget-section,
+        .clients-section,
+        .press-section {
+          padding: 56px 16px;
+        }
+        .statement-section {
+          padding: 52px 16px;
+        }
+        .site-footer {
+          padding: 60px 20px;
+        }
+
+        /* section text */
+        .section-sub {
+          font-size: 15px;
+          max-width: 100%;
+        }
+        .hero-sub {
+          font-size: clamp(16px, 5vw, 19px);
+        }
+
+        /* featured section stacks nicely already via 760px query */
+        .feat-quote-card {
+          padding: 24px 18px;
+        }
+        .feat-quote-highlight {
+          font-size: 16px;
+        }
+
+        /* steps */
+        .step-card {
+          padding: 32px 20px;
+        }
+
+        /* video grid handled above */
+        .video-grid {
+          gap: 10px;
+          margin-top: 32px;
+        }
+
+        /* reviews */
+        .reviews-section {
+          padding: 56px 12px;
+        }
+        .reviews-grid {
+          column-gap: 8px;
+        }
+        .reviews-grid img {
+          margin-bottom: 8px;
+        }
+
+        /* trust bar — allow items to wrap tighter */
+        .trust-bar {
+          padding: 16px 12px;
+          gap: 8px;
+        }
+        .trust-item {
+          font-size: 11px;
+          padding: 8px 12px;
+        }
+
+        /* client photos */
+        .photo-card {
+          height: 260px;
+        }
+
+        /* press */
+        .press-logo-pill {
+          margin: 28px auto 32px;
+        }
+        .press-card {
+          height: 280px;
+        }
+
+        /* footer */
+        .footer-msg {
+          font-size: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav class="nav">
+      <img
+        class="nav-logo"
+        src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png"
+        alt="Nils Digital"
+      />
+      <div class="nav-badge"><span class="nav-dot"></span>Call Confirmed</div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-pill">Your call is booked</div>
+        <h1 class="hero-h1">You Made the<br /><em>Right Call.</em></h1>
+        <p class="hero-sub">
+          Please read this page top to bottom before our call. Get familiar with
+          who we are, what we do, and the results we deliver, so we can hit the
+          ground running together!
+        </p>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar">
+      <div class="trust-item">
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68f52108b130c579e9d0e7b3.png"
+          alt="Trustpilot Rating"
+        />
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">📰</span>Featured in USA Wire
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">🏆</span>Real Results. Every Time.
+      </div>
+      <div class="trust-item">
+        <span class="trust-item-icon">🏢</span>100+ Businesses Trust Us With
+        Their Systems
+      </div>
+    </div>
+
+    <!-- FEATURED VIDEO -->
+    <div class="featured-section">
+      <div class="featured-inner">
+        <!-- Video column -->
+        <div class="featured-video-col">
+          <div class="watch-lbl">
+            <span class="watch-finger">👇</span>
+            Watch this <em>&nbsp;first</em>
+          </div>
+          <div class="featured-vp-shell">
+            <div class="vp" id="featuredVP">
+              <video playsinline preload="metadata" data-start="126">
+                <source
+                  src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/699dd81a1001a5b5fb2fa22b.mp4#t=0.001"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="vp-center">
+                <div class="vp-big-btn">
+                  <svg viewBox="0 0 12 12">
+                    <polygon points="2,1 10,6 2,11" />
+                  </svg>
+                </div>
+              </div>
+              <div class="vp-bar">
+                <div class="vp-seek">
+                  <div class="vp-seek-fill"></div>
+                  <div
+                    class="vp-marker"
+                    data-time="126"
+                    data-label="2:06 — highlights start"
+                  ></div>
+                </div>
+                <div class="vp-row">
+                  <button class="vp-btn vp-play-btn" aria-label="Play">
+                    <svg viewBox="0 0 12 12">
+                      <polygon points="2,1 10,6 2,11" />
+                    </svg>
+                  </button>
+                  <span class="vp-time">0:00 / 0:00</span>
+                  <span class="vp-spacer"></span>
+                  <button class="vp-btn vp-mute-btn" aria-label="Mute">
+                    <svg viewBox="0 0 16 14">
+                      <polygon points="1,4 5,4 9,1 9,13 5,10 1,10" />
+                      <path
+                        d="M11 4.5C12.5 5.5 12.5 8.5 11 9.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                      <path
+                        d="M13 2.5C16 4.5 16 9.5 13 11.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                    </svg>
+                  </button>
+                  <button class="vp-btn vp-speed-btn" aria-label="Speed">
+                    1x
+                  </button>
+                  <button class="vp-btn vp-fs-btn" aria-label="Fullscreen">
+                    <svg
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="1,5 1,1 5,1" />
+                      <polyline points="9,1 13,1 13,5" />
+                      <polyline points="13,9 13,13 9,13" />
+                      <polyline points="5,13 1,13 1,9" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="vp-caption">Real client. Real results.</p>
+        </div>
+        <!-- Quote column -->
+        <div class="featured-quote-col">
+          <div class="feat-quote-card">
+            <span class="feat-quote-mark">"</span>
+            <p class="feat-quote-highlight">
+              We have seen a <em>huge jump in revenue</em> -- and we've only
+              started within the last couple months.
+            </p>
+            <p class="feat-quote-body">
+              We have seen a huge jump not only in leads and percentage but also
+              in revenue just in the past month and we've only started within
+              the last couple months. So, I'm going to tell you, make the
+              transition. Make it quick.
+            </p>
+            <p class="feat-quote-body" style="margin-top: 14px">
+              He is amazing. He follows up with you. He makes sure that you
+              understand everything and checks in. And that's what we need.
+            </p>
+            <div class="feat-quote-footer">
+              <span class="feat-stars"
+                >&#9733;&#9733;&#9733;&#9733;&#9733;</span
+              >
+              <button class="feat-jump-btn" onclick="jumpToHighlight()">
+                &#9654; Skip to 2:06 highlight
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MORE VIDEOS -->
+    <section class="more-section">
+      <div class="more-inner">
+        <div style="text-align: center">
+          <span class="section-tag">More Testimonials</span>
+          <h2 class="section-h">More Clients. More Results.</h2>
+          <p class="section-sub" style="margin: 0 auto">
+            Every one of these is a real business owner we helped grow.
+          </p>
+        </div>
+        <div class="video-grid">
+          <!-- Video 1: Coach Jacob -->
+          <div class="video-card-wrap">
+            <div class="vp">
+              <video playsinline preload="metadata" data-start="31">
+                <source
+                  src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/699dd81a2552e41a23401cc3.mp4#t=0.001"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="vp-center">
+                <div class="vp-big-btn">
+                  <svg viewBox="0 0 12 12">
+                    <polygon points="2,1 10,6 2,11" />
+                  </svg>
+                </div>
+              </div>
+              <div class="vp-bar">
+                <div class="vp-seek"><div class="vp-seek-fill"></div></div>
+                <div class="vp-row">
+                  <button class="vp-btn vp-play-btn">
+                    <svg viewBox="0 0 12 12">
+                      <polygon points="2,1 10,6 2,11" />
+                    </svg>
+                  </button>
+                  <span class="vp-time">0:00</span
+                  ><span class="vp-spacer"></span>
+                  <button class="vp-btn vp-mute-btn">
+                    <svg viewBox="0 0 16 14">
+                      <polygon points="1,4 5,4 9,1 9,13 5,10 1,10" />
+                      <path
+                        d="M11 4.5C12.5 5.5 12.5 8.5 11 9.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                      <path
+                        d="M13 2.5C16 4.5 16 9.5 13 11.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                    </svg>
+                  </button>
+                  <button class="vp-btn vp-speed-btn">1x</button>
+                  <button class="vp-btn vp-fs-btn">
+                    <svg
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="1,5 1,1 5,1" />
+                      <polyline points="9,1 13,1 13,5" />
+                      <polyline points="13,9 13,13 9,13" />
+                      <polyline points="5,13 1,13 1,9" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="vc-result">
+              <ul class="vc-bullets">
+                <li>
+                  Built email list from scratch &amp; created coach email
+                  campaigns
+                </li>
+                <li>
+                  <strong
+                    >Helped monetize an existing following into real
+                    revenue</strong
+                  >
+                </li>
+                <li>
+                  <strong
+                    >Set up CRM for both online &amp; physical business</strong
+                  >
+                </li>
+                <li>Extremely affordable, huge return on investment</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Video 2: Ariana Anderson -->
+          <div class="video-card-wrap">
+            <div class="vp">
+              <video playsinline preload="metadata" data-start="94">
+                <source
+                  src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/699dd81a2837e8f26631ae1d.mov#t=0.001"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="vp-center">
+                <div class="vp-big-btn">
+                  <svg viewBox="0 0 12 12">
+                    <polygon points="2,1 10,6 2,11" />
+                  </svg>
+                </div>
+              </div>
+              <div class="vp-bar">
+                <div class="vp-seek"><div class="vp-seek-fill"></div></div>
+                <div class="vp-row">
+                  <button class="vp-btn vp-play-btn">
+                    <svg viewBox="0 0 12 12">
+                      <polygon points="2,1 10,6 2,11" />
+                    </svg>
+                  </button>
+                  <span class="vp-time">0:00</span
+                  ><span class="vp-spacer"></span>
+                  <button class="vp-btn vp-mute-btn">
+                    <svg viewBox="0 0 16 14">
+                      <polygon points="1,4 5,4 9,1 9,13 5,10 1,10" />
+                      <path
+                        d="M11 4.5C12.5 5.5 12.5 8.5 11 9.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                      <path
+                        d="M13 2.5C16 4.5 16 9.5 13 11.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                    </svg>
+                  </button>
+                  <button class="vp-btn vp-speed-btn">1x</button>
+                  <button class="vp-btn vp-fs-btn">
+                    <svg
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="1,5 1,1 5,1" />
+                      <polyline points="9,1 13,1 13,5" />
+                      <polyline points="13,9 13,13 9,13" />
+                      <polyline points="5,13 1,13 1,9" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="vc-result">
+              <ul class="vc-bullets">
+                <li>Replaced 150 individual messages with 1 automated blast</li>
+                <li>Unified all contacts into a single platform</li>
+                <li>
+                  Automated appointment reminders &amp; slot notifications
+                </li>
+                <li>
+                  <strong>Streamlined client onboarding end-to-end</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Video 3: Website client -->
+          <div class="video-card-wrap">
+            <div class="vp">
+              <video playsinline preload="metadata" data-start="1">
+                <source
+                  src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/699e169f50d0aa0156c65c59.mp4#t=0.001"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="vp-center">
+                <div class="vp-big-btn">
+                  <svg viewBox="0 0 12 12">
+                    <polygon points="2,1 10,6 2,11" />
+                  </svg>
+                </div>
+              </div>
+              <div class="vp-bar">
+                <div class="vp-seek"><div class="vp-seek-fill"></div></div>
+                <div class="vp-row">
+                  <button class="vp-btn vp-play-btn">
+                    <svg viewBox="0 0 12 12">
+                      <polygon points="2,1 10,6 2,11" />
+                    </svg>
+                  </button>
+                  <span class="vp-time">0:00</span
+                  ><span class="vp-spacer"></span>
+                  <button class="vp-btn vp-mute-btn">
+                    <svg viewBox="0 0 16 14">
+                      <polygon points="1,4 5,4 9,1 9,13 5,10 1,10" />
+                      <path
+                        d="M11 4.5C12.5 5.5 12.5 8.5 11 9.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                      <path
+                        d="M13 2.5C16 4.5 16 9.5 13 11.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                    </svg>
+                  </button>
+                  <button class="vp-btn vp-speed-btn">1x</button>
+                  <button class="vp-btn vp-fs-btn">
+                    <svg
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="1,5 1,1 5,1" />
+                      <polyline points="9,1 13,1 13,5" />
+                      <polyline points="13,9 13,13 9,13" />
+                      <polyline points="5,13 1,13 1,9" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="vc-result">
+              <ul class="vc-bullets">
+                <li>Website exceeded all expectations</li>
+                <li>
+                  Previous agency took months &amp; just copied existing content
+                </li>
+                <li>
+                  <strong
+                    >"Best decision we could have made for our company"</strong
+                  >
+                </li>
+                <li>
+                  <strong
+                    >Fast, attentive, and genuinely invested in the
+                    business</strong
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Video 4: Annie Hooks -->
+          <div class="video-card-wrap">
+            <div class="vp">
+              <video playsinline preload="metadata" data-start="28">
+                <source
+                  src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/699dd81a2552e4081f401cc4.mp4#t=0.001"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="vp-center">
+                <div class="vp-big-btn">
+                  <svg viewBox="0 0 12 12">
+                    <polygon points="2,1 10,6 2,11" />
+                  </svg>
+                </div>
+              </div>
+              <div class="vp-bar">
+                <div class="vp-seek"><div class="vp-seek-fill"></div></div>
+                <div class="vp-row">
+                  <button class="vp-btn vp-play-btn">
+                    <svg viewBox="0 0 12 12">
+                      <polygon points="2,1 10,6 2,11" />
+                    </svg>
+                  </button>
+                  <span class="vp-time">0:00</span
+                  ><span class="vp-spacer"></span>
+                  <button class="vp-btn vp-mute-btn">
+                    <svg viewBox="0 0 16 14">
+                      <polygon points="1,4 5,4 9,1 9,13 5,10 1,10" />
+                      <path
+                        d="M11 4.5C12.5 5.5 12.5 8.5 11 9.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                      <path
+                        d="M13 2.5C16 4.5 16 9.5 13 11.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                    </svg>
+                  </button>
+                  <button class="vp-btn vp-speed-btn">1x</button>
+                  <button class="vp-btn vp-fs-btn">
+                    <svg
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="1,5 1,1 5,1" />
+                      <polyline points="9,1 13,1 13,5" />
+                      <polyline points="13,9 13,13 9,13" />
+                      <polyline points="5,13 1,13 1,9" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="vc-result">
+              <ul class="vc-bullets">
+                <li>Built full CRM database from the ground up</li>
+                <li>System works perfectly, "exactly what I wanted"</li>
+                <li>
+                  <strong
+                    >Made complex tech simple for a non-tech business
+                    owner</strong
+                  >
+                </li>
+                <li>Patient, thorough, goes above and beyond</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Video 5: Christina / Miss Chris -->
+          <div class="video-card-wrap">
+            <div class="vp">
+              <video playsinline preload="metadata" data-start="37">
+                <source
+                  src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/699bb11b480c4fd4ef95cd91.mov#t=0.001"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="vp-center">
+                <div class="vp-big-btn">
+                  <svg viewBox="0 0 12 12">
+                    <polygon points="2,1 10,6 2,11" />
+                  </svg>
+                </div>
+              </div>
+              <div class="vp-bar">
+                <div class="vp-seek"><div class="vp-seek-fill"></div></div>
+                <div class="vp-row">
+                  <button class="vp-btn vp-play-btn">
+                    <svg viewBox="0 0 12 12">
+                      <polygon points="2,1 10,6 2,11" />
+                    </svg>
+                  </button>
+                  <span class="vp-time">0:00</span
+                  ><span class="vp-spacer"></span>
+                  <button class="vp-btn vp-mute-btn">
+                    <svg viewBox="0 0 16 14">
+                      <polygon points="1,4 5,4 9,1 9,13 5,10 1,10" />
+                      <path
+                        d="M11 4.5C12.5 5.5 12.5 8.5 11 9.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                      <path
+                        d="M13 2.5C16 4.5 16 9.5 13 11.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                    </svg>
+                  </button>
+                  <button class="vp-btn vp-speed-btn">1x</button>
+                  <button class="vp-btn vp-fs-btn">
+                    <svg
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="1,5 1,1 5,1" />
+                      <polyline points="9,1 13,1 13,5" />
+                      <polyline points="13,9 13,13 9,13" />
+                      <polyline points="5,13 1,13 1,9" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="vc-result">
+              <ul class="vc-bullets">
+                <li>Website built &amp; live in just a few days</li>
+                <li>
+                  <strong
+                    >Eliminated years of manual heavy lifting overnight</strong
+                  >
+                </li>
+                <li>
+                  <strong
+                    >Streamlined &amp; optimized entire business
+                    operations</strong
+                  >
+                </li>
+                <li>
+                  <strong
+                    >Immediate response to every request, nothing falls
+                    through</strong
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Video 6: Google reviews / SEO client -->
+          <div class="video-card-wrap">
+            <div class="vp">
+              <video playsinline preload="metadata" data-start="43">
+                <source
+                  src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6998d8f4df9bdf0b337051ed.mov#t=0.001"
+                  type="video/mp4"
+                />
+              </video>
+              <div class="vp-center">
+                <div class="vp-big-btn">
+                  <svg viewBox="0 0 12 12">
+                    <polygon points="2,1 10,6 2,11" />
+                  </svg>
+                </div>
+              </div>
+              <div class="vp-bar">
+                <div class="vp-seek"><div class="vp-seek-fill"></div></div>
+                <div class="vp-row">
+                  <button class="vp-btn vp-play-btn">
+                    <svg viewBox="0 0 12 12">
+                      <polygon points="2,1 10,6 2,11" />
+                    </svg>
+                  </button>
+                  <span class="vp-time">0:00</span
+                  ><span class="vp-spacer"></span>
+                  <button class="vp-btn vp-mute-btn">
+                    <svg viewBox="0 0 16 14">
+                      <polygon points="1,4 5,4 9,1 9,13 5,10 1,10" />
+                      <path
+                        d="M11 4.5C12.5 5.5 12.5 8.5 11 9.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                      <path
+                        d="M13 2.5C16 4.5 16 9.5 13 11.5"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                        fill="none"
+                      />
+                    </svg>
+                  </button>
+                  <button class="vp-btn vp-speed-btn">1x</button>
+                  <button class="vp-btn vp-fs-btn">
+                    <svg
+                      viewBox="0 0 14 14"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <polyline points="1,5 1,1 5,1" />
+                      <polyline points="9,1 13,1 13,5" />
+                      <polyline points="13,9 13,13 9,13" />
+                      <polyline points="5,13 1,13 1,9" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="vc-result">
+              <ul class="vc-bullets">
+                <li>Website updated to rank in Google's eyes</li>
+                <li>
+                  Customer reviews fully automated, no more manual posting
+                </li>
+                <li>
+                  <strong>Freed up hours of wasted time every week</strong>
+                </li>
+                <li>
+                  <strong>"Now I can focus on revenue-generating tasks"</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NEXT STEPS -->
+    <section class="steps-section">
+      <div class="steps-inner">
+        <span class="section-tag">Before Your Call</span>
+        <h2 class="section-h">3 Things to Do Right Now</h2>
+        <p class="section-sub" style="margin: 0 auto">
+          Do these before your call so we can hit the ground running and make
+          the most of our time together.
+        </p>
+        <div class="steps-row">
+          <div class="step-card">
+            <div class="step-num">Step 01</div>
+            <div class="step-icon">📅</div>
+            <div class="step-title">Mark the Date on Your Calendar</div>
+            <div class="step-body">
+              Add your call right now so it does not slip through the cracks.
+              Treat it like a paid appointment.
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">Step 02</div>
+            <div class="step-icon">⏰</div>
+            <div class="step-title">Attend Your Meeting On-Time</div>
+            <div class="step-body">
+              Show up at the scheduled time. Late starts eat into the time we
+              have to actually help your business.
+            </div>
+          </div>
+          <div class="step-card">
+            <div class="step-num">Step 03</div>
+            <div class="step-icon">💻</div>
+            <div class="step-title">Join from a Computer, Fully Present</div>
+            <div class="step-body">
+              No multitasking. A quiet space and a laptop means you actually
+              absorb everything we share with you.
+            </div>
+          </div>
+        </div>
+
+        <!-- NO-RESCHEDULE NOTICE -->
+        <div
+          style="
+            margin-top: 40px;
+            background: #fffbe6;
+            border: 2px solid #f5c800;
+            border-radius: 12px;
+            padding: 28px 32px;
+            text-align: left;
+          "
+        >
+          <p
+            style="
+              font-size: 13px;
+              font-weight: 700;
+              letter-spacing: 0.1em;
+              text-transform: uppercase;
+              color: #b38600;
+              margin-bottom: 8px;
+            "
+          >
+            Please Read Before Your Call
+          </p>
+          <p style="font-size: 20px; font-weight: 700; color: #1a1a1a; margin-bottom: 14px; line-height: 1.3;">
+            We Do Not Reschedule
+          </p>
+          <p
+            style="
+              font-size: 15px;
+              color: #333;
+              line-height: 1.7;
+              margin-bottom: 12px;
+            "
+          >
+            This is a business consultation. Our professionals charge hourly to meet, identify, and consult on the systems you need. If you do not show up on time, there is no second opportunity to meet again. We have an abundance of interested people and we expect professional conduct.
+          </p>
+          <p
+            style="
+              font-size: 15px;
+              color: #333;
+              line-height: 1.7;
+              margin-bottom: 12px;
+            "
+          >
+            If you cannot meet with us at the time you booked, this is not going to work out. <strong>This is your single opportunity.</strong> The only exception is a valid emergency. If you had one, reach out and we will handle it with understanding. Otherwise, we will not meet again.
+          </p>
+          <p style="font-size: 15px; color: #333; line-height: 1.7">
+            If you need to reschedule or cancel because you cannot commit, please check your confirmation email for the cancellation link so someone else can take your spot.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BLUE STATEMENT -->
+    <div class="statement-section">
+      <p class="statement-h">
+        You get the point.<br />We get our clients results.
+      </p>
+      <p class="statement-sub">
+        Hundreds of business owners have trusted us with their digital growth.
+        You are next.
+      </p>
+    </div>
+
+    <!-- REVIEWS MARQUEE -->
+    <section class="reviews-section">
+      <div class="reviews-header">
+        <span class="section-tag">Client Reviews</span>
+        <h2 class="section-h">Hundreds of 5-Star Reviews</h2>
+        <p class="section-sub" style="margin: 0 auto">
+          Real screenshots. Real clients. Every industry we touch.
+        </p>
+      </div>
+
+      <div class="reviews-grid">
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6976d59d29dcf5971368e277.jpg"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68d85c0630eb845b14a16b21.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6976d662eb392bf8196989f8.jpg"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68d85c087fda7a317126b76a.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6945d3e58cae8f8306fd5fc6.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/691a16bb55008b8278fa27d7.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/696d5760439b6be373540aef.jpg"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68d85c4c956b851de2642b59.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/691a17a6fd6d7301db3b9fb0.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68d85c587fda7a32a826bd14.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68d85c055a423066f369ef9f.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68d85c59956b856761642c56.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6976c37a29dcf5e749662cd0.jpg"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6949ab8a671d50761fd7259d.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68d85be27fda7a410926b4d3.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6949ae3679fc96d264deccf7.png"
+          alt="Review"
+          loading="lazy"
+        />
+        <img
+          src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68d85c41956b859202642a95.png"
+          alt="Review"
+          loading="lazy"
+        />
+      </div>
+    </section>
+
+    <!-- LIVE WIDGET -->
+    <div class="widget-section">
+      <div class="widget-inner" id="widgetScroll">
+        <script
+          type="text/javascript"
+          src="https://reputationhub.site/reputation/assets/review-widget.js"
+        ></script>
+        <iframe
+          class="lc_reviews_widget"
+          src="https://reputationhub.site/reputation/widgets/review_widget/stoLOEGDIvEDY3xQI4B8?widgetId=699ddb090e54c474af0c8a01"
+          frameborder="0"
+          scrolling="no"
+          style="min-width: 100%; width: 100%"
+        ></iframe>
+      </div>
+      <p class="widget-drag-hint">Press "Load More" to read more reviews</p>
+    </div>
+
+    <!-- CLIENT PHOTOS -->
+    <section class="clients-section">
+      <div class="clients-inner">
+        <span class="section-tag">Our Clients</span>
+        <h2 class="section-h">The People Behind the Results</h2>
+        <p class="section-sub" style="margin: 0 auto">
+          Business owners we have helped grow their revenue and reclaim their
+          time.
+        </p>
+        <div class="photos-grid">
+          <div class="photo-card">
+            <img
+              src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg"
+              alt="Clients"
+              loading="lazy"
+            />
+          </div>
+          <div class="photo-card">
+            <img
+              src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg"
+              alt="Clients"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESS -->
+    <section class="press-section">
+      <div class="press-inner">
+        <span class="section-tag">Features &amp; Press</span>
+        <h2 class="section-h">As Seen In</h2>
+        <p class="section-sub" style="margin: 0 auto">
+          Nils Digital has been recognized and featured in major business
+          publications.
+        </p>
+        <div
+          style="display: flex; justify-content: center; margin-bottom: 28px"
+        >
+          <div class="press-logo-pill">
+            <img
+              src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68d85e99d2bc9078e9e71ed4.webp"
+              alt="USA Wire"
+            />
+          </div>
+        </div>
+        <div class="press-feature">
+          <img
+            src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68d4cad4b7ba346361a95c63.jpeg"
+            alt="USA Wire Feature Article"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- SPEAKING & PRESENTATIONS -->
+    <section class="press-section" style="background: #fff;">
+      <div class="press-inner">
+        <span class="section-tag">Speaking &amp; Presentations</span>
+        <h2 class="section-h">Taking the Stage</h2>
+        <p class="section-sub" style="margin: 0 auto">
+          Nils has spoken at business associations, workshops, and events,
+          helping owners understand how automation and digital systems can
+          transform their growth.
+        </p>
+        <div class="press-grid">
+          <div class="press-card">
+            <img
+              src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6892d9fcb0a21c1def971e5c.jpeg"
+              alt="Presentation"
+              loading="lazy"
+            />
+          </div>
+          <div class="press-card">
+            <img
+              src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6892d9fea0c12f947b4c2a12.jpeg"
+              alt="Presentation"
+              loading="lazy"
+            />
+          </div>
+          <div class="press-card">
+            <img
+              src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6892da0000987b509c82af78.jpeg"
+              alt="Presentation"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER (only black section) -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <img
+          class="footer-logo"
+          src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png"
+          alt="Nils Digital"
+        />
+        <div class="footer-rule"></div>
+        <span class="footer-emoji">🚀</span>
+        <p class="footer-msg">
+          <strong>We're super excited and can't wait to speak with you!</strong><br /><br />
+          By the time you read this, our team is already notified and researching your business so we can have a super productive conversation.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      const PLAY_ICON = `<svg viewBox="0 0 12 12" fill="currentColor" width="14" height="14"><polygon points="2,1 10,6 2,11"/></svg>`;
+      const PAUSE_ICON = `<svg viewBox="0 0 12 12" fill="currentColor" width="14" height="14"><rect x="2" y="1" width="3" height="10" rx="1"/><rect x="7" y="1" width="3" height="10" rx="1"/></svg>`;
+      const VOL_ICON = `<svg viewBox="0 0 16 14" fill="currentColor" width="16" height="14"><polygon points="1,4 5,4 9,1 9,13 5,10 1,10"/><path d="M11 4.5C12.5 5.5 12.5 8.5 11 9.5" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M13 2.5C16 4.5 16 9.5 13 11.5" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>`;
+      const MUTE_ICON = `<svg viewBox="0 0 16 14" fill="currentColor" width="16" height="14"><polygon points="1,4 5,4 9,1 9,13 5,10 1,10"/><line x1="11" y1="3" x2="16" y2="11" stroke="currentColor" stroke-width="2"/><line x1="16" y1="3" x2="11" y2="11" stroke="currentColor" stroke-width="2"/></svg>`;
+
+      function fmt(s) {
+        if (!s || isNaN(s)) return "0:00";
+        const m = Math.floor(s / 60),
+          sec = Math.floor(s % 60);
+        return m + ":" + String(sec).padStart(2, "0");
+      }
+
+      function initVP(el) {
+        const video = el.querySelector("video");
+        const playBtn = el.querySelector(".vp-play-btn");
+        const muteBtn = el.querySelector(".vp-mute-btn");
+        const speedBtn = el.querySelector(".vp-speed-btn");
+        const fsBtn = el.querySelector(".vp-fs-btn");
+        const seek = el.querySelector(".vp-seek");
+        const fill = el.querySelector(".vp-seek-fill");
+        const timeEl = el.querySelector(".vp-time");
+        const speeds = [0.75, 1, 1.25, 1.5, 2];
+        let sIdx = 1;
+
+        function togglePlay() {
+          if (video.paused) video.play();
+          else video.pause();
+        }
+        el.addEventListener("click", (e) => {
+          if (!e.target.closest(".vp-bar")) togglePlay();
+        });
+        video.addEventListener("play", () => {
+          el.classList.add("playing");
+          playBtn.innerHTML = PAUSE_ICON;
+        });
+        video.addEventListener("pause", () => {
+          el.classList.remove("playing");
+          playBtn.innerHTML = PLAY_ICON;
+        });
+        video.addEventListener("timeupdate", () => {
+          if (!video.duration) return;
+          fill.style.width =
+            ((video.currentTime / video.duration) * 100).toFixed(2) + "%";
+          const isFeatured = !!el.closest(".featured-vp-shell");
+          timeEl.textContent = isFeatured
+            ? fmt(video.currentTime) + " / " + fmt(video.duration)
+            : fmt(video.currentTime);
+        });
+
+        let seeking = false;
+        function scrub(clientX) {
+          const r = seek.getBoundingClientRect();
+          if (video.duration)
+            video.currentTime =
+              Math.max(0, Math.min(1, (clientX - r.left) / r.width)) *
+              video.duration;
+        }
+        seek.addEventListener("mousedown", (e) => {
+          seeking = true;
+          scrub(e.clientX);
+          e.stopPropagation();
+        });
+        window.addEventListener("mousemove", (e) => {
+          if (seeking) scrub(e.clientX);
+        });
+        window.addEventListener("mouseup", () => {
+          seeking = false;
+        });
+        seek.addEventListener(
+          "touchstart",
+          (e) => {
+            seeking = true;
+            scrub(e.touches[0].clientX);
+            e.stopPropagation();
+          },
+          { passive: true },
+        );
+        window.addEventListener(
+          "touchmove",
+          (e) => {
+            if (seeking) scrub(e.touches[0].clientX);
+          },
+          { passive: true },
+        );
+        window.addEventListener("touchend", () => {
+          seeking = false;
+        });
+
+        playBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          togglePlay();
+        });
+        muteBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          video.muted = !video.muted;
+          muteBtn.innerHTML = video.muted ? MUTE_ICON : VOL_ICON;
+        });
+        speedBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          sIdx = (sIdx + 1) % speeds.length;
+          video.playbackRate = speeds[sIdx];
+          speedBtn.textContent = speeds[sIdx] + "x";
+        });
+        fsBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          document.fullscreenElement
+            ? document.exitFullscreen()
+            : el.requestFullscreen().catch(() => {});
+        });
+
+        // Auto-seek to highlight start time — set immediately and on loadedmetadata for thumbnail
+        const startTime = parseFloat(video.dataset.start);
+        if (!isNaN(startTime)) {
+          video.currentTime = startTime;
+          video.addEventListener(
+            "loadedmetadata",
+            () => {
+              video.currentTime = startTime;
+            },
+            { once: true },
+          );
+        }
+
+        // Seek-bar chapter markers
+        const markers = el.querySelectorAll(".vp-marker[data-time]");
+        if (markers.length) {
+          video.addEventListener("loadedmetadata", () => {
+            markers.forEach((m) => {
+              const t = parseFloat(m.dataset.time);
+              if (video.duration)
+                m.style.left = ((t / video.duration) * 100).toFixed(2) + "%";
+            });
+          });
+          markers.forEach((m) => {
+            m.addEventListener("click", (e) => {
+              e.stopPropagation();
+              const t = parseFloat(m.dataset.time);
+              if (!isNaN(t)) {
+                video.currentTime = t;
+                video.play();
+              }
+            });
+          });
+        }
+      }
+
+      document.querySelectorAll(".vp").forEach(initVP);
+
+      function jumpToHighlight() {
+        const vp = document.getElementById("featuredVP");
+        if (!vp) return;
+        const video = vp.querySelector("video");
+        if (video) {
+          video.currentTime = 126;
+          video.play();
+          vp.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+      }
+
+      // Widget drag-to-scroll
+      (function () {
+        const wrap = document.getElementById("widgetScroll");
+        if (!wrap) return;
+        let isDown = false,
+          startX = 0,
+          scrollStart = 0;
+
+        wrap.addEventListener("mousedown", (e) => {
+          isDown = true;
+          startX = e.clientX;
+          scrollStart = wrap.scrollLeft;
+          wrap.classList.add("is-grabbing");
+          e.preventDefault();
+        });
+        document.addEventListener("mousemove", (e) => {
+          if (!isDown) return;
+          wrap.scrollLeft = scrollStart - (e.clientX - startX);
+        });
+        document.addEventListener("mouseup", () => {
+          if (!isDown) return;
+          isDown = false;
+          wrap.classList.remove("is-grabbing");
+        });
+
+        // Touch
+        wrap.addEventListener(
+          "touchstart",
+          (e) => {
+            startX = e.touches[0].clientX;
+            scrollStart = wrap.scrollLeft;
+          },
+          { passive: true },
+        );
+        wrap.addEventListener(
+          "touchmove",
+          (e) => {
+            wrap.scrollLeft = scrollStart - (e.touches[0].clientX - startX);
+          },
+          { passive: true },
+        );
+
+        // Pause iframe auto-scroll on hover via postMessage (works if widget supports it)
+        const iframe = wrap.querySelector(".lc_reviews_widget");
+        if (iframe) {
+          wrap.addEventListener("mouseenter", () => {
+            try {
+              iframe.contentWindow.postMessage({ action: "pause" }, "*");
+            } catch (_) {}
+          });
+          wrap.addEventListener("mouseleave", () => {
+            try {
+              iframe.contentWindow.postMessage({ action: "resume" }, "*");
+            } catch (_) {}
+          });
+        }
+      })();
+    </script>
+  </body>
+</html>

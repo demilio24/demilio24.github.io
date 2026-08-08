@@ -1,0 +1,4058 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Safe Space Swim offers private one-on-one swimming lessons for children and adults across San Diego County. A complete progression method that takes students from water safety all the way to swim team ready. Book with Coach Maria today."
+    />
+    <meta
+      property="og:title"
+      content="Safe Space Swim | Private Swim Lessons San Diego"
+    />
+    <meta
+      property="og:description"
+      content="Private swimming lessons for children and adults across San Diego County. From water safety to swim team ready. 11+ years experience, CPR & Water Safety certified, 5-star rated."
+    />
+    <meta property="og:type" content="website" />
+    <title>Safe Space Swim | Private Swim Lessons San Diego</title>
+
+    <!--
+    ⚠️ DEVELOPER NOTE — IMAGE PATHS
+    Pool/lesson images are served from the GoHighLevel CDN.
+    Replace WTQaOJivbCTAXFcrUIuD in all img src attributes below with the
+    Safe Space Swim GoHighLevel media bucket ID.
+    Pattern: https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/FILENAME.jpg
+
+    Coach Maria headshot (5FAFA564-F540-405B-9083-534B3E116D21.jpg) and
+    environment photo (DSC_0850.JPG) should be placed in the same directory
+    as this file, or update their src paths accordingly.
+  -->
+
+    <link
+      rel="preconnect"
+      href="https://assets.cdn.filesafe.space"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* ============================================
+       CSS VARIABLES
+       ============================================ */
+      :root {
+        /* Colors */
+        --color-primary: #1a7fa6;
+        --color-primary-dark: #125e7c;
+        --color-primary-light: #d4eef7;
+        --color-accent: #f4a940;
+        --color-accent-dark: #d48a2e;
+        --color-background: #ffffff;
+        --color-background-alt: #edf6fb;
+        --color-text: #0f2333;
+        --color-text-light: #4a7080;
+        --color-white: #ffffff;
+        --color-black: #000000;
+        --color-border: #c3dfe9;
+        --color-stars: #ffd45d;
+        --color-success: #4caf87;
+        --color-footer: #0b1c2b;
+
+        /* Typography */
+        --font-heading: "Poppins", sans-serif;
+        --font-body: "Poppins", sans-serif;
+        --font-size-xs: 0.75rem;
+        --font-size-sm: 0.875rem;
+        --font-size-base: 1rem;
+        --font-size-lg: 1.125rem;
+        --font-size-xl: 1.25rem;
+        --font-size-2xl: 1.5rem;
+        --font-size-3xl: 2rem;
+        --font-size-4xl: 2.5rem;
+        --font-size-5xl: 3.25rem;
+
+        /* Spacing */
+        --space-xs: 0.5rem;
+        --space-sm: 1rem;
+        --space-md: 1.5rem;
+        --space-lg: 2rem;
+        --space-xl: 3rem;
+        --space-2xl: 4rem;
+        --space-3xl: 5rem;
+
+        /* Layout */
+        --container-width: 1200px;
+        --section-padding: var(--space-3xl) 1.5rem;
+        --nav-h: 68px;
+
+        /* Effects */
+        --radius-sm: 6px;
+        --radius-md: 10px;
+        --radius-lg: 14px;
+        --radius-xl: 20px;
+        --radius-full: 9999px;
+        --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+        --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
+        --shadow-lg: 0 8px 40px rgba(0, 0, 0, 0.1);
+        --shadow-hover: 0 12px 48px rgba(0, 0, 0, 0.14);
+        --transition-fast: all 0.2s ease;
+        --transition-base: all 0.3s ease;
+        --transition-slow: all 0.5s ease;
+      }
+
+      /* ============================================
+       RESET & BASE
+       ============================================ */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-body);
+        font-size: var(--font-size-base);
+        color: var(--color-text);
+        background: var(--color-background);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+        height: auto;
+      }
+      a {
+        color: var(--color-primary);
+        text-decoration: none;
+        transition: var(--transition-fast);
+      }
+      a:hover {
+        color: var(--color-primary-dark);
+      }
+      ul {
+        list-style: none;
+      }
+      button {
+        font-family: var(--font-body);
+      }
+
+      /* ============================================
+       TYPOGRAPHY
+       ============================================ */
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-text);
+      }
+      h1 {
+        font-size: var(--font-size-5xl);
+      }
+      h2 {
+        font-size: var(--font-size-4xl);
+      }
+      h3 {
+        font-size: 1.75rem;
+      }
+      h4 {
+        font-size: var(--font-size-2xl);
+        font-weight: 700;
+      }
+      p {
+        margin-bottom: 1rem;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        font-family: var(--font-body);
+        font-size: var(--font-size-xs);
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--color-primary);
+        margin-bottom: var(--space-sm);
+      }
+      .text-primary {
+        color: var(--color-primary);
+      }
+      .highlight {
+        background: var(--color-primary-light);
+        color: var(--color-primary-dark);
+        border-radius: 3px;
+        padding: 0.05em 0.25em;
+        font-weight: 600;
+      }
+      .text-light-color {
+        color: var(--color-text-light);
+      }
+
+      /* ============================================
+       LAYOUT UTILITIES
+       ============================================ */
+      .container {
+        max-width: var(--container-width);
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      .section {
+        padding: var(--section-padding);
+        background: var(--color-background);
+        position: relative;
+        z-index: 1;
+      }
+      .section-alt {
+        padding: var(--section-padding);
+        background: var(--color-background-alt);
+        position: relative;
+        z-index: 1;
+      }
+      /* section-dark repurposed as light-blue — no heavy dark backgrounds */
+      .section-dark {
+        padding: var(--section-padding);
+        background: var(--color-primary-light);
+      }
+      .section-dark h1,
+      .section-dark h2,
+      .section-dark h3,
+      .section-dark h4 {
+        color: var(--color-text);
+      }
+      .section-dark p {
+        color: var(--color-text-light);
+      }
+      .section-dark .eyebrow {
+        color: var(--color-primary);
+      }
+      .section-dark .section-subtitle {
+        color: var(--color-text-light);
+      }
+      .section-cta {
+        padding: var(--section-padding);
+        background: var(--color-primary);
+        color: var(--color-white);
+        position: relative;
+        z-index: 1;
+        overflow: hidden;
+      }
+      .cta-bubble {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.12);
+        pointer-events: none;
+        animation: bubbleFloat 6s ease-in-out infinite;
+      }
+      .cta-bubble:nth-child(1)  { width: 80px;  height: 80px;  top: 10%;  left: 5%;   animation-duration: 7s; animation-delay: 0s; }
+      .cta-bubble:nth-child(2)  { width: 40px;  height: 40px;  top: 60%;  left: 3%;   animation-duration: 5s; animation-delay: 1s; }
+      .cta-bubble:nth-child(3)  { width: 120px; height: 120px; top: 20%;  left: 15%;  animation-duration: 9s; animation-delay: 2s; }
+      .cta-bubble:nth-child(4)  { width: 55px;  height: 55px;  top: 75%;  left: 20%;  animation-duration: 6s; animation-delay: 0.5s; }
+      .cta-bubble:nth-child(5)  { width: 30px;  height: 30px;  top: 40%;  left: 8%;   animation-duration: 8s; animation-delay: 3s; }
+      .cta-bubble:nth-child(6)  { width: 90px;  height: 90px;  top: 10%;  right: 5%;  animation-duration: 7s; animation-delay: 1.5s; }
+      .cta-bubble:nth-child(7)  { width: 45px;  height: 45px;  top: 65%;  right: 3%;  animation-duration: 5s; animation-delay: 0s; }
+      .cta-bubble:nth-child(8)  { width: 110px; height: 110px; top: 25%;  right: 15%; animation-duration: 9s; animation-delay: 2.5s; }
+      .cta-bubble:nth-child(9)  { width: 60px;  height: 60px;  top: 80%;  right: 22%; animation-duration: 6s; animation-delay: 1s; }
+      .cta-bubble:nth-child(10) { width: 35px;  height: 35px;  top: 45%;  right: 7%;  animation-duration: 8s; animation-delay: 3.5s; }
+      @keyframes bubbleFloat {
+        0%, 100% { opacity: 0.10; }
+        50%       { opacity: 0.22; }
+      }
+      .section-cta h1,
+      .section-cta h2,
+      .section-cta h3,
+      .section-cta h4,
+      .section-cta p {
+        color: var(--color-white);
+      }
+      .section-cta .eyebrow {
+        color: rgba(255, 255, 255, 0.9);
+        letter-spacing: 0.1em;
+      }
+
+      .section-title {
+        font-family: var(--font-heading);
+        font-size: var(--font-size-4xl);
+        margin-bottom: var(--space-sm);
+      }
+      .section-subtitle {
+        font-size: var(--font-size-lg);
+        color: var(--color-text-light);
+        max-width: 700px;
+        margin: 0 auto var(--space-xl);
+        line-height: 1.6;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: var(--space-xl);
+      }
+      .section-dark .section-subtitle {
+        color: var(--color-text-light);
+      }
+
+      .grid {
+        display: grid;
+        gap: var(--space-md);
+      }
+      .grid-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .grid-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+      .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+      }
+      .text-center {
+        text-align: center;
+      }
+      .text-narrow {
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .mt-sm {
+        margin-top: var(--space-sm);
+      }
+      .mt-md {
+        margin-top: var(--space-md);
+      }
+      .mt-lg {
+        margin-top: var(--space-lg);
+      }
+      .mt-xl {
+        margin-top: var(--space-xl);
+      }
+      .mb-xl {
+        margin-bottom: var(--space-xl);
+      }
+
+      /* ============================================
+       BUTTONS
+       ============================================ */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        padding: 0.875rem 2rem;
+        border-radius: var(--radius-full);
+        font-family: var(--font-body);
+        font-size: var(--font-size-base);
+        font-weight: 700;
+        cursor: pointer;
+        transition: var(--transition-base);
+        border: none;
+        text-decoration: none;
+        white-space: nowrap;
+        line-height: 1;
+      }
+      .btn-primary {
+        background: var(--color-primary);
+        color: var(--color-white);
+        box-shadow: var(--shadow-md);
+      }
+      .btn-primary:hover {
+        background: var(--color-primary-dark);
+        color: var(--color-white);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+      .btn-accent {
+        background: var(--color-accent);
+        color: var(--color-white);
+        box-shadow: var(--shadow-md);
+      }
+      .btn-accent:hover {
+        background: var(--color-accent-dark);
+        color: var(--color-white);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+      }
+      .btn-secondary {
+        background: transparent;
+        color: var(--color-primary);
+        border: 2px solid var(--color-primary);
+      }
+      .btn-secondary:hover {
+        background: var(--color-primary-light);
+        color: var(--color-primary-dark);
+      }
+      .btn-white {
+        background: var(--color-white);
+        color: var(--color-primary);
+        border-color: var(--color-white);
+        box-shadow: var(--shadow-md);
+      }
+      .btn-white:hover {
+        background: var(--color-background-alt);
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-lg);
+        color: var(--color-primary-dark);
+      }
+      .btn-lg {
+        padding: 1.125rem 2.5rem;
+        font-size: var(--font-size-lg);
+        min-width: 240px;
+      }
+      .btn-subtext {
+        display: block;
+        font-family: var(--font-body);
+        font-size: var(--font-size-xs);
+        font-weight: 600;
+        color: var(--color-text-light);
+        margin-top: 0.625rem;
+        text-align: center;
+        letter-spacing: 0;
+      }
+      .section-cta .btn-subtext {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .section-dark .btn-subtext {
+        color: var(--color-text-light);
+      }
+      .btn-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .btn-wrap-center {
+        align-items: center;
+      }
+
+      /* ============================================
+       CARDS
+       ============================================ */
+      .card {
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--color-border);
+        transition: var(--transition-base);
+      }
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .card-icon {
+        width: 64px;
+        height: 64px;
+        background: var(--color-primary);
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: var(--space-md);
+        color: var(--color-white);
+      }
+      .card-icon svg {
+        width: 32px;
+        height: 32px;
+      }
+      .card h3,
+      .card h4 {
+        margin-bottom: var(--space-xs);
+      }
+      .card p {
+        color: var(--color-text-light);
+      }
+
+      /* ============================================
+       ANIMATIONS
+       ============================================ */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes slideInRight {
+        from {
+          opacity: 0;
+          transform: translateX(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+      @keyframes formPulse {
+        0% {
+          box-shadow:
+            0 24px 64px rgba(0, 0, 0, 0.3),
+            0 0 0 0px rgba(159, 200, 218, 0.5);
+        }
+        50% {
+          box-shadow:
+            0 24px 64px rgba(0, 0, 0, 0.3),
+            0 0 0 14px rgba(159, 200, 218, 0);
+        }
+        100% {
+          box-shadow:
+            0 24px 64px rgba(0, 0, 0, 0.3),
+            0 0 0 0px rgba(159, 200, 218, 0);
+        }
+      }
+      @keyframes gradient-shift {
+        0% {
+          background-position: 0% center;
+        }
+        100% {
+          background-position: 200% center;
+        }
+      }
+      @keyframes water-shift {
+        0%   { background-position: 0% 60%; }
+        50%  { background-position: 100% 40%; }
+        100% { background-position: 0% 60%; }
+      }
+
+      .animate-on-scroll {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.55s ease,
+          transform 0.55s ease;
+      }
+      .animate-on-scroll.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .animate-on-scroll.delay-1 {
+        transition-delay: 0.1s;
+      }
+      .animate-on-scroll.delay-2 {
+        transition-delay: 0.2s;
+      }
+      .animate-on-scroll.delay-3 {
+        transition-delay: 0.3s;
+      }
+      .animate-on-scroll.delay-4 {
+        transition-delay: 0.4s;
+      }
+      .animate-on-scroll.delay-5 {
+        transition-delay: 0.5s;
+      }
+      .animate-on-scroll.delay-6 {
+        transition-delay: 0.6s;
+      }
+
+      /* ============================================
+       NAVIGATION
+       ============================================ */
+      .nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+        background: var(--color-white);
+        border-bottom: 1px solid var(--color-border);
+        transition: var(--transition-base);
+      }
+      .nav.scrolled {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 72px;
+        gap: var(--space-lg);
+      }
+      .nav-logo {
+        font-family: var(--font-heading);
+        font-size: 1.375rem;
+        font-weight: 800;
+        color: var(--color-text);
+        text-decoration: none;
+        flex-shrink: 0;
+        line-height: 1;
+      }
+      .nav-logo-primary {
+        color: var(--color-primary);
+      }
+      .nav-logo-secondary {
+        color: var(--color-text);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: var(--space-lg);
+        flex: 1;
+        justify-content: center;
+      }
+      .nav-link {
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        color: var(--color-text);
+        text-decoration: none;
+        transition: var(--transition-fast);
+        white-space: nowrap;
+      }
+      .nav-link:hover {
+        color: var(--color-primary);
+      }
+      .nav-cta {
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        gap: var(--space-sm);
+      }
+      .nav-lang-badge {
+        font-size: 0.7rem;
+        font-weight: 600;
+        color: var(--color-primary-dark);
+        background: var(--color-primary-light);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-full);
+        padding: 0.2rem 0.625rem;
+        white-space: nowrap;
+        letter-spacing: 0.02em;
+      }
+      .nav-cta .btn {
+        padding: 0.75rem 2.25rem;
+        font-size: var(--font-size-base);
+        min-width: auto;
+      }
+      .nav-hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+      }
+      .nav-hamburger span {
+        display: block;
+        width: 24px;
+        height: 2px;
+        background: var(--color-text);
+        border-radius: 2px;
+        transition: var(--transition-fast);
+      }
+      .nav-hamburger.open span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      .nav-hamburger.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav-hamburger.open span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+      .nav-mobile {
+        display: none;
+        background: var(--color-white);
+        border-top: 1px solid var(--color-border);
+        padding: var(--space-md) var(--space-md);
+      }
+      .nav-mobile.open {
+        display: block;
+      }
+      .nav-mobile-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .nav-mobile-links li {
+        border-bottom: 1px solid var(--color-border);
+      }
+      .nav-mobile-links li:last-child {
+        border-bottom: none;
+        margin-top: var(--space-sm);
+      }
+      .nav-mobile-links .nav-link {
+        display: block;
+        padding: 0.75rem 0;
+        font-size: var(--font-size-base);
+      }
+      .nav-mobile-links .btn {
+        display: flex;
+        justify-content: center;
+        font-size: var(--font-size-base);
+      }
+
+      /* ============================================
+       FOOTER
+       ============================================ */
+      .footer {
+        background: var(--color-footer);
+        color: var(--color-white);
+        padding: var(--space-3xl) 0 0;
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1.5fr;
+        gap: var(--space-2xl);
+        padding-bottom: var(--space-2xl);
+      }
+      .footer-logo {
+        font-family: var(--font-heading);
+        font-size: var(--font-size-2xl);
+        font-weight: 800;
+        margin-bottom: var(--space-sm);
+        line-height: 1;
+      }
+      .footer-logo-primary {
+        color: var(--color-primary);
+      }
+      .footer-tagline {
+        color: rgba(255, 255, 255, 0.55);
+        font-size: var(--font-size-sm);
+        margin-bottom: 0.25rem;
+      }
+      .footer-location {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: var(--font-size-xs);
+      }
+      .footer h4 {
+        color: var(--color-white);
+        font-family: var(--font-body);
+        font-size: var(--font-size-xs);
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: var(--space-md);
+      }
+      .footer-nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.625rem;
+      }
+      .footer-nav-links a {
+        color: rgba(255, 255, 255, 0.65);
+        font-size: var(--font-size-sm);
+        transition: var(--transition-fast);
+      }
+      .footer-nav-links a:hover {
+        color: var(--color-primary);
+      }
+      .footer-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.625rem;
+        margin-bottom: 0.625rem;
+        color: rgba(255, 255, 255, 0.65);
+        font-size: var(--font-size-sm);
+        line-height: 1.5;
+      }
+      .footer-contact-item svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        margin-top: 2px;
+        color: var(--color-primary);
+      }
+      .footer-contact-item a {
+        color: rgba(255, 255, 255, 0.65);
+      }
+      .footer-contact-item a:hover {
+        color: var(--color-primary);
+      }
+      .footer-lang {
+        color: rgba(255, 255, 255, 0.4);
+        font-size: var(--font-size-xs);
+        margin-top: var(--space-sm);
+        font-style: italic;
+      }
+      .footer-social {
+        display: flex;
+        gap: 0.625rem;
+        margin-top: var(--space-md);
+      }
+      .footer-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 38px;
+        height: 38px;
+        border-radius: var(--radius-full);
+        background: rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.65);
+        transition: var(--transition-fast);
+      }
+      .footer-social a:hover {
+        background: var(--color-primary);
+        color: var(--color-white);
+      }
+      .footer-social svg {
+        width: 18px;
+        height: 18px;
+      }
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+        padding: var(--space-md) 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: var(--space-xs);
+        text-align: center;
+      }
+      .footer-bottom p {
+        color: rgba(255, 255, 255, 0.35);
+        font-size: var(--font-size-xs);
+        margin: 0;
+      }
+      .footer-bottom a {
+        color: rgba(255, 255, 255, 0.35);
+      }
+      .footer-bottom a:hover {
+        color: var(--color-primary);
+      }
+      .footer-legal {
+        display: flex;
+        gap: var(--space-md);
+      }
+      .footer-credit {
+        color: rgba(255, 255, 255, 0.6);
+        font-size: var(--font-size-base);
+      }
+      .footer-credit a {
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: underline;
+        text-decoration-color: rgba(255,255,255,0.35);
+        font-weight: 600;
+      }
+      .footer-credit a:hover {
+        color: var(--color-primary);
+      }
+
+      /* ============================================
+       SECTION-SPECIFIC STYLES
+       (Add unique section styles here ONLY if needed)
+       ============================================ */
+
+      /* ---- Wave Dividers ---- */
+      .wave-divider {
+        display: block;
+        overflow: hidden;
+        line-height: 0;
+        font-size: 0;
+        margin-bottom: -2px;
+        position: relative;
+        z-index: 2;
+      }
+      /* Hero-to-section wave: overlaps bottom of hero for seamless transition */
+      #hero-wave {
+        background: transparent;
+        margin-top: -72px;
+        z-index: 5;
+      }
+      @media (max-width: 768px) {
+        #hero-wave {
+          margin-top: -44px;
+        }
+      }
+      .wave-divider svg {
+        display: block;
+        width: 100%;
+        height: 72px;
+      }
+      .wave-bg-white { background: var(--color-background); }
+      .wave-bg-alt { background: var(--color-background-alt); }
+      .wave-bg-primary-light { background: var(--color-primary-light); }
+      .wave-fill-white .wave-main {
+        fill: var(--color-background);
+      }
+      .wave-fill-alt .wave-main {
+        fill: var(--color-background-alt);
+      }
+      .wave-fill-primary-light .wave-main {
+        fill: var(--color-primary-light);
+      }
+      .wave-fill-primary .wave-main {
+        fill: var(--color-primary);
+      }
+      .wave-secondary {
+        opacity: 0;
+      }
+      .wave-fill-white .wave-secondary {
+        fill: var(--color-background);
+      }
+      .wave-fill-alt .wave-secondary {
+        fill: var(--color-background-alt);
+      }
+      .wave-fill-primary-light .wave-secondary {
+        fill: var(--color-primary-light);
+      }
+      .wave-fill-primary .wave-secondary {
+        fill: var(--color-primary);
+        opacity: 0;
+      }
+      @media (max-width: 768px) {
+        .wave-divider svg {
+          height: 44px;
+        }
+      }
+
+      /* ---- Premium Effects ---- */
+      .hero-accent-word {
+        background: linear-gradient(
+          90deg,
+          #a8dff0,
+          #3ab8e0,
+          #1a7fa6,
+          #5dcfef,
+          #a8dff0
+        );
+        background-size: 300% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradient-shift 5s linear infinite;
+      }
+      .hero-form-card.form-highlight {
+        animation: formPulse 1.6s ease-out;
+        border: 2px solid var(--color-primary);
+      }
+      /* Counter stat numbers */
+      .stat-number[data-target] {
+        transition: none;
+      }
+
+      /* ---- Hero ---- */
+      .hero-section {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: var(--color-text);
+        overflow: hidden;
+      }
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background-image: url("https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abd9b617a737a52b249d.jpg");
+        background-size: cover;
+        background-position: center;
+        transform: scaleX(-1);
+        z-index: 0;
+      }
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          105deg,
+          rgba(17, 35, 55, 0.8) 0%,
+          rgba(17, 35, 55, 0.55) 100%
+        );
+        z-index: 1;
+      }
+      .hero-section > .container {
+        position: relative;
+        z-index: 2;
+        padding-top: calc(var(--nav-h, 68px) + var(--space-3xl));
+        padding-bottom: var(--space-3xl);
+        width: 100%;
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: var(--space-2xl);
+        align-items: center;
+      }
+      /* Hero badge (pill above headline) */
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(6px);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: var(--radius-full);
+        padding: 0.4rem 1.1rem;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: var(--font-size-xs);
+        font-weight: 600;
+        letter-spacing: 0.07em;
+        text-transform: uppercase;
+        margin-bottom: var(--space-md);
+      }
+      .hero-badge svg {
+        width: 14px;
+        height: 14px;
+        color: var(--color-accent);
+        flex-shrink: 0;
+      }
+      .hero-headline {
+        color: var(--color-white);
+        font-size: clamp(2.25rem, 4vw, 3.5rem);
+        margin-bottom: var(--space-sm);
+      }
+      .hero-sub {
+        font-size: var(--font-size-lg);
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: var(--space-xl);
+        line-height: 1.6;
+        max-width: 500px;
+      }
+      /* 2×2 stat boxes */
+      .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.75rem;
+        max-width: 480px;
+      }
+      .hero-stat {
+        background: rgba(255, 255, 255, 0.18);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.38);
+        border-radius: var(--radius-md);
+        padding: 1rem 1.25rem;
+        text-align: center;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+      }
+      .hero-stat-number {
+        display: block;
+        font-family: var(--font-heading);
+        font-size: var(--font-size-3xl);
+        color: #ffffff;
+        line-height: 1.1;
+        margin-bottom: 0.25rem;
+        font-weight: 700;
+        text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+      }
+      .hero-stat-label {
+        display: block;
+        font-size: var(--font-size-xs);
+        color: rgba(255, 255, 255, 0.92);
+        font-weight: 600;
+      }
+      /* Hero form card */
+      .hero-form-card {
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        padding: 0;
+        overflow: hidden;
+        box-shadow: 0 24px 64px rgba(0, 0, 0, 0.35);
+      }
+      .hero-form-card h3 {
+        font-size: var(--font-size-2xl);
+        color: var(--color-text);
+        margin-bottom: 0.25rem;
+        text-align: center;
+        padding: var(--space-lg) var(--space-lg) 0;
+      }
+      .hero-form-card .form-sub {
+        color: var(--color-text-light);
+        font-size: var(--font-size-sm);
+        text-align: center;
+        padding: 0 var(--space-lg);
+        margin: 0;
+      }
+      .hero-form-card .btn-subtext {
+        display: block;
+        padding: 0 var(--space-lg) var(--space-md);
+        text-align: center;
+      }
+      .form-group {
+        margin-bottom: var(--space-sm);
+      }
+      .form-group label {
+        display: block;
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        color: var(--color-text);
+        margin-bottom: 0.375rem;
+      }
+      .form-control {
+        width: 100%;
+        padding: 0.75rem 1rem;
+        border: 1.5px solid var(--color-border);
+        border-radius: var(--radius-sm);
+        font-family: var(--font-body);
+        font-size: var(--font-size-sm);
+        color: var(--color-text);
+        background: var(--color-background);
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        outline: none;
+        -webkit-appearance: none;
+        appearance: none;
+      }
+      .form-control:focus {
+        border-color: var(--color-primary);
+        box-shadow: 0 0 0 3px rgba(159, 200, 218, 0.12);
+      }
+      .form-control::placeholder {
+        color: rgba(88, 99, 116, 0.45);
+      }
+      textarea.form-control {
+        resize: vertical;
+        min-height: 90px;
+      }
+      .form-submit {
+        width: 100%;
+        margin-top: 0.5rem;
+      }
+
+      /* ---- Proof Bar ---- */
+      .proof-bar {
+        background: var(--color-primary-light);
+        padding: var(--space-xl) 0;
+        border-top: 1px solid var(--color-border);
+        border-bottom: 1px solid var(--color-border);
+      }
+      .proof-stats {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: var(--space-md);
+        text-align: center;
+      }
+      .stat-number {
+        display: block;
+        font-family: var(--font-heading);
+        font-size: 2.25rem;
+        font-weight: 900;
+        color: var(--color-primary);
+        line-height: 1.1;
+      }
+      .stat-label {
+        display: block;
+        font-size: var(--font-size-xs);
+        color: var(--color-text-light);
+        margin-top: 0.375rem;
+        line-height: 1.4;
+        font-weight: 600;
+      }
+      .stat-item {
+        padding: 0 var(--space-xs);
+      }
+
+      /* ---- Why Different / Problem Section ---- */
+      .why-photo {
+        max-width: 860px;
+        margin: 0 auto var(--space-xl);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+      }
+      .why-photo img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        display: block;
+      }
+      .problem-cards {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-lg);
+        margin: var(--space-xl) 0;
+      }
+      .problem-card {
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--color-border);
+        transition: var(--transition-base);
+      }
+      .problem-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .problem-card-icon {
+        color: var(--color-primary);
+        margin-bottom: var(--space-sm);
+      }
+      .problem-card-icon svg {
+        width: 36px;
+        height: 36px;
+      }
+      .problem-card h4 {
+        margin-bottom: var(--space-xs);
+        font-size: var(--font-size-xl);
+      }
+      .problem-card p {
+        color: var(--color-text-light);
+        font-size: var(--font-size-sm);
+        margin: 0;
+      }
+      .problem-body {
+        font-size: var(--font-size-base);
+        color: var(--color-text-light);
+        max-width: 800px;
+        margin: 0 auto var(--space-xl);
+        line-height: 1.7;
+      }
+      .problem-body p {
+        margin-bottom: 0.875rem;
+      }
+      .problem-body p:last-child {
+        margin-bottom: 0;
+      }
+      .problem-image-wrap {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        max-width: 700px;
+        margin: var(--space-xl) auto;
+        box-shadow: var(--shadow-md);
+      }
+      .problem-image-wrap img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+      }
+      .problem-transition {
+        text-align: center;
+        font-size: var(--font-size-lg);
+        color: var(--color-text-light);
+        max-width: 680px;
+        margin: 0 auto var(--space-xl);
+        font-style: italic;
+      }
+
+      /* ---- Services ---- */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+        margin-bottom: var(--space-lg);
+      }
+      .service-card.card-solo {
+        grid-column: 1 / -1;
+        width: 100%;
+      }
+      .service-card-img {
+        margin: calc(-1 * var(--space-lg)) calc(-1 * var(--space-lg)) var(--space-md);
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        overflow: hidden;
+      }
+      .service-card-img img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .service-card:hover .service-card-img img {
+        transform: scale(1.03);
+      }
+      .service-card {
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--color-border);
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition-base);
+      }
+      .service-card {
+        cursor: pointer;
+      }
+      .service-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .service-teaser {
+        color: var(--color-text-light);
+        font-size: var(--font-size-sm);
+        margin: var(--space-sm) 0;
+        flex: 1;
+        line-height: 1.6;
+      }
+      .service-toggle {
+        background: none;
+        border: none;
+        color: var(--color-primary);
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        cursor: pointer;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        gap: 0.375rem;
+        margin-top: var(--space-sm);
+        transition: color var(--transition-fast);
+      }
+      .service-toggle:hover {
+        color: var(--color-primary-dark);
+      }
+      .service-toggle svg {
+        transition: transform var(--transition-fast);
+        width: 16px;
+        height: 16px;
+      }
+      .service-toggle.open svg {
+        transform: rotate(180deg);
+      }
+      .service-detail {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.45s ease,
+          opacity 0.3s ease;
+        opacity: 0;
+      }
+      .service-detail.open {
+        max-height: 900px;
+        opacity: 1;
+      }
+      .service-detail-inner {
+        padding-top: var(--space-md);
+        border-top: 1px solid var(--color-border);
+        margin-top: var(--space-md);
+      }
+      .service-detail-inner p {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-light);
+        line-height: 1.7;
+        margin-bottom: 0.75rem;
+      }
+      .service-meta {
+        margin-top: var(--space-sm);
+        padding-top: var(--space-sm);
+        border-top: 1px solid var(--color-border);
+      }
+      .service-meta-row {
+        display: flex;
+        gap: 0.5rem;
+        font-size: var(--font-size-xs);
+        color: var(--color-text-light);
+        padding: 0.2rem 0;
+      }
+      .service-meta-row strong {
+        color: var(--color-text);
+        min-width: 90px;
+      }
+      .service-detail-img {
+        border-radius: var(--radius-md);
+        overflow: hidden;
+        margin-top: var(--space-sm);
+      }
+      .service-detail-img img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+      .coming-soon-banner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-sm);
+        background: var(--color-primary-light);
+        border: 1.5px dashed var(--color-primary);
+        border-radius: var(--radius-md);
+        padding: var(--space-md) var(--space-lg);
+        color: var(--color-primary-dark);
+        font-size: var(--font-size-sm);
+        font-weight: 600;
+        margin-bottom: var(--space-xl);
+      }
+
+      /* ---- Services Dark Water Theme ---- */
+      #services {
+        background: #0d2d4a;
+        position: relative;
+      }
+      /* Wave fill helpers for dark ocean colour */
+      .wave-bg-ocean { background: #0d2d4a; }
+      .wave-fill-ocean .wave-main,
+      .wave-fill-ocean .wave-secondary { fill: #0d2d4a; }
+      .wave-bg-footer { background: var(--color-footer); }
+      .wave-fill-footer .wave-main { fill: var(--color-footer); }
+      /* Eyebrow pill on dark background */
+      #services .eyebrow {
+        color: var(--color-primary);
+        background: rgba(159, 200, 218, 0.15);
+        border: 1px solid rgba(159, 200, 218, 0.3);
+        border-radius: var(--radius-full);
+        padding: 0.3rem 1rem;
+      }
+      #services .section-title {
+        color: #ffffff;
+      }
+      #services .section-title .text-primary {
+        color: var(--color-primary);
+        -webkit-text-fill-color: var(--color-primary);
+      }
+      #services .section-subtitle {
+        color: rgba(255, 255, 255, 0.68);
+      }
+      /* Cards: white on dark background */
+      #services .service-card {
+        background: var(--color-white);
+        border: 1px solid var(--color-border);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+        color: var(--color-text);
+      }
+      #services .service-card:hover {
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.35);
+      }
+      /* Coming soon banner in dark context */
+      #services .coming-soon-banner {
+        background: rgba(159, 200, 218, 0.1);
+        border-color: rgba(159, 200, 218, 0.3);
+        color: var(--color-primary);
+      }
+      /* CTA subtext in dark context */
+      #services .btn-subtext {
+        color: rgba(255, 255, 255, 0.55);
+      }
+
+      /* ---- Process ---- */
+      .process-timeline {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--space-sm);
+        position: relative;
+        margin: var(--space-2xl) 0;
+      }
+      .process-connector {
+        position: absolute;
+        top: 32px;
+        left: calc(12.5% + 16px);
+        right: calc(12.5% + 16px);
+        height: 2px;
+        background: repeating-linear-gradient(
+          to right,
+          var(--color-primary) 0,
+          var(--color-primary) 8px,
+          transparent 8px,
+          transparent 16px
+        );
+        z-index: 0;
+      }
+      .process-step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 0 var(--space-sm);
+        position: relative;
+        z-index: 1;
+      }
+      .step-number {
+        width: 64px;
+        height: 64px;
+        border-radius: var(--radius-full);
+        background: var(--color-primary);
+        color: var(--color-white);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-heading);
+        font-size: var(--font-size-2xl);
+        font-weight: 900;
+        margin-bottom: var(--space-md);
+        flex-shrink: 0;
+        box-shadow: var(--shadow-md);
+      }
+      .step-body {
+        flex: 1;
+        min-width: 0;
+      }
+      .step-title {
+        font-family: var(--font-heading);
+        font-size: var(--font-size-xl);
+        color: var(--color-text);
+        margin-bottom: var(--space-xs);
+        font-weight: 800;
+      }
+      .step-desc {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-light);
+        line-height: 1.6;
+      }
+      .process-image-wrap {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        max-width: 600px;
+        margin: var(--space-xl) auto 0;
+        box-shadow: var(--shadow-lg);
+      }
+      .process-image-wrap img {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+      }
+
+      /* ---- Benefits ---- */
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-lg);
+      }
+      .benefit-card {
+        display: flex;
+        gap: var(--space-md);
+        align-items: flex-start;
+        background: var(--color-white);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--color-border);
+        transition: var(--transition-base);
+      }
+      .benefit-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .benefit-icon {
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        background: var(--color-primary-light);
+        border-radius: var(--radius-lg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--color-primary);
+      }
+      .benefit-icon svg {
+        width: 28px;
+        height: 28px;
+      }
+      .benefit-body h4 {
+        font-size: var(--font-size-xl);
+        margin-bottom: 0.375rem;
+      }
+      .benefit-body p {
+        color: var(--color-text-light);
+        font-size: var(--font-size-base);
+        margin: 0;
+        line-height: 1.6;
+      }
+
+      /* ---- Who We Help ---- */
+      .who-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-2xl);
+        align-items: start;
+      }
+      .checklist {
+        display: flex;
+        flex-direction: column;
+        gap: 0.875rem;
+        margin-bottom: var(--space-lg);
+      }
+      .checklist-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.875rem;
+        font-size: var(--font-size-base);
+        line-height: 1.5;
+      }
+      .checklist-icon {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        color: var(--color-primary);
+        margin-top: 1px;
+      }
+      .who-image {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--color-border);
+      }
+      .who-image img {
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+      }
+      .qualifier-box {
+        background: var(--color-primary-light);
+        border-left: 4px solid var(--color-primary);
+        border-radius: 0 var(--radius-md) var(--radius-md) 0;
+        padding: var(--space-md) var(--space-lg);
+        margin-top: var(--space-xl);
+      }
+      .qualifier-box p {
+        font-size: var(--font-size-sm);
+        color: var(--color-text-light);
+        font-style: italic;
+        margin: 0;
+        line-height: 1.7;
+      }
+
+      /* ---- Gallery ---- */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: var(--space-xl) 0;
+      }
+      .gallery-item {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        aspect-ratio: 4 / 3;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--color-border);
+        transition: var(--transition-base);
+      }
+      .gallery-item:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* ---- Testimonials ---- */
+      .testimonials-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-lg);
+        margin: var(--space-xl) 0;
+      }
+      .testimonial-card {
+        background: var(--color-white);
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        padding: var(--space-lg);
+        box-shadow: var(--shadow-md);
+        transition: var(--transition-base);
+      }
+      .testimonial-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-hover);
+      }
+      .testimonial-stars {
+        display: flex;
+        gap: 3px;
+        margin-bottom: var(--space-sm);
+        color: var(--color-stars);
+        font-size: 1.125rem;
+      }
+      .testimonial-quote-mark {
+        font-family: var(--font-heading);
+        font-size: 3.5rem;
+        color: var(--color-primary);
+        line-height: 0.6;
+        display: block;
+        margin-bottom: var(--space-sm);
+        opacity: 0.4;
+      }
+      .testimonial-quote {
+        font-style: italic;
+        color: var(--color-text-light);
+        line-height: 1.7;
+        margin-bottom: var(--space-md);
+        font-size: var(--font-size-sm);
+      }
+      .testimonial-author {
+        color: var(--color-text);
+        font-weight: 800;
+        font-size: var(--font-size-sm);
+      }
+      .testimonial-role {
+        color: var(--color-text-light);
+        font-size: var(--font-size-xs);
+      }
+      .review-widget-wrap {
+        margin-top: var(--space-xl);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+      }
+
+      /* ---- About ---- */
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-lg);
+        align-items: stretch;
+      }
+      .about-image {
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        box-shadow: var(--shadow-lg);
+        border: 1px solid var(--color-border);
+        min-height: 320px;
+      }
+      .about-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+      .about-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-sm);
+      }
+      .about-content .eyebrow {
+        margin-bottom: 0;
+      }
+      .about-content .section-title {
+        font-size: clamp(1.5rem, 2.2vw, 2.25rem);
+        line-height: 1.2;
+        margin-bottom: 0;
+      }
+      .about-intro {
+        font-size: var(--font-size-xl);
+        color: var(--color-text-light);
+        line-height: 1.6;
+        margin: 0;
+      }
+      .about-body p {
+        font-size: var(--font-size-lg);
+        color: var(--color-text-light);
+        line-height: 1.75;
+        margin-bottom: 0.75rem;
+      }
+      .about-body p:last-child {
+        margin-bottom: 0;
+      }
+      .about-body {
+        font-size: var(--font-size-base);
+        color: var(--color-text-light);
+        line-height: 1.7;
+        margin-bottom: var(--space-md);
+      }
+      .about-body p {
+        margin-bottom: 0.875rem;
+      }
+      .about-body p:last-child {
+        margin-bottom: 0;
+      }
+      .credential-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: var(--space-lg);
+      }
+      .credential-badge {
+        background: var(--color-primary);
+        color: var(--color-white);
+        border: none;
+        border-radius: var(--radius-full);
+        padding: 0.375rem 1rem;
+        font-size: var(--font-size-xs);
+        font-weight: 700;
+      }
+
+      /* ---- FAQ ---- */
+      .faq-list {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        border: 1px solid var(--color-border);
+        border-radius: var(--radius-lg);
+        margin-bottom: var(--space-sm);
+        overflow: hidden;
+        transition:
+          border-color var(--transition-fast),
+          box-shadow var(--transition-fast);
+      }
+      .faq-item.open {
+        border-color: var(--color-primary);
+        box-shadow: var(--shadow-sm);
+      }
+      .faq-question {
+        width: 100%;
+        background: none;
+        border: none;
+        padding: var(--space-md) var(--space-lg);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: var(--space-md);
+        cursor: pointer;
+        text-align: left;
+        font-size: var(--font-size-base);
+        font-weight: 600;
+        color: var(--color-text);
+        transition: color var(--transition-fast);
+      }
+      .faq-question:hover {
+        color: var(--color-primary);
+      }
+      .faq-icon {
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        color: var(--color-primary);
+        transition: transform var(--transition-fast);
+      }
+      .faq-item.open .faq-icon {
+        transform: rotate(45deg);
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.38s ease,
+          opacity 0.28s ease;
+        opacity: 0;
+      }
+      .faq-answer.open {
+        max-height: 600px;
+        opacity: 1;
+      }
+      .faq-answer-inner {
+        padding: 0 var(--space-lg) var(--space-md);
+        color: var(--color-text-light);
+        font-size: var(--font-size-base);
+        line-height: 1.7;
+      }
+
+      /* ---- Final CTA ---- */
+      .trust-badges-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+        justify-content: center;
+        margin-top: var(--space-xl);
+      }
+      .trust-badge {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.25);
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: var(--radius-full);
+        padding: 0.5rem 1.25rem;
+        font-size: var(--font-size-xs);
+        font-weight: 700;
+        color: var(--color-white);
+      }
+      .trust-badge svg {
+        width: 14px;
+        height: 14px;
+      }
+      .contact-options {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-lg);
+        justify-content: center;
+        margin-top: var(--space-xl);
+      }
+      .contact-option {
+        display: flex;
+        align-items: center;
+        gap: 0.625rem;
+        color: rgba(255, 255, 255, 0.85);
+        font-size: var(--font-size-base);
+      }
+      .contact-option svg {
+        width: 20px;
+        height: 20px;
+        color: rgba(255, 255, 255, 0.6);
+      }
+      .contact-option a {
+        color: var(--color-white);
+        font-weight: 700;
+      }
+      .contact-option a:hover {
+        text-decoration: underline;
+        color: var(--color-white);
+      }
+
+      /* ============================================
+       RESPONSIVE
+       ============================================ */
+      @media (max-width: 1024px) {
+        .proof-stats {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.25rem;
+        }
+        h2,
+        .section-title {
+          font-size: 1.75rem;
+        }
+        h3 {
+          font-size: 1.5rem;
+        }
+        .section,
+        .section-alt,
+        .section-dark,
+        .section-cta {
+          padding: 3rem 1.25rem;
+        }
+        .hero-section {
+          min-height: auto;
+        }
+        .hero-section > .container {
+          padding-top: calc(var(--nav-h, 68px) + 2rem);
+          padding-bottom: 2.5rem;
+        }
+        .hero-grid {
+          grid-template-columns: 1fr;
+          gap: var(--space-xl);
+        }
+        .hero-sub {
+          font-size: var(--font-size-base);
+          max-width: 100%;
+        }
+        .nav-links {
+          display: none;
+        }
+        .nav-lang-badge {
+          display: none;
+        }
+        .nav-cta .btn {
+          padding: 0.625rem 1.125rem;
+          font-size: var(--font-size-sm);
+        }
+        .nav-hamburger {
+          display: flex;
+        }
+        .grid-2,
+        .grid-3,
+        .grid-4 {
+          grid-template-columns: 1fr;
+        }
+        .proof-stats {
+          grid-template-columns: repeat(2, 1fr);
+          gap: var(--space-md);
+        }
+        .problem-cards {
+          grid-template-columns: 1fr;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .service-card.card-solo {
+          grid-column: auto;
+        }
+        .process-timeline {
+          grid-template-columns: 1fr;
+          gap: var(--space-lg);
+        }
+        .process-connector {
+          display: none;
+        }
+        .process-step {
+          flex-direction: column;
+          text-align: center;
+          gap: var(--space-sm);
+          align-items: center;
+        }
+        .step-body {
+          text-align: center;
+        }
+        .step-number {
+          margin-bottom: 0;
+        }
+        .benefits-grid {
+          grid-template-columns: 1fr;
+        }
+        .benefit-card {
+          flex-direction: column;
+          gap: var(--space-sm);
+        }
+        .who-grid {
+          grid-template-columns: 1fr;
+        }
+        .who-image {
+          order: -1;
+        }
+        .who-image img {
+          height: 300px;
+        }
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .testimonials-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-image {
+          min-height: 360px;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: var(--space-xl);
+        }
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+        .footer-legal {
+          justify-content: center;
+        }
+        .btn-lg {
+          min-width: auto;
+          width: 100%;
+          max-width: 400px;
+        }
+        .contact-options {
+          flex-direction: column;
+          align-items: center;
+          gap: var(--space-md);
+        }
+        .trust-badges-row {
+          gap: 0.5rem;
+        }
+        .section-subtitle {
+          font-size: var(--font-size-base);
+        }
+        .problem-image-wrap img {
+          height: 260px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 1.875rem;
+        }
+        h2,
+        .section-title {
+          font-size: 1.5rem;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+        .proof-stats {
+          grid-template-columns: 1fr 1fr;
+        }
+        .stat-number {
+          font-size: 1.75rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="nav" id="nav">
+      <div class="container nav-inner">
+        <a href="#hero" class="nav-logo">
+          <span class="nav-logo-primary">Safe Space</span>
+          <span class="nav-logo-secondary">Swim</span>
+        </a>
+        <ul class="nav-links">
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#process" class="nav-link">How It Works</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#about" class="nav-link">About Coach Maria</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+        </ul>
+        <div class="nav-cta">
+          <span class="nav-lang-badge">Se habla español</span>
+          <a href="#hero" class="btn btn-primary">Get in Touch</a>
+        </div>
+        <button
+          class="nav-hamburger"
+          id="hamburger"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav-mobile" id="nav-mobile">
+        <ul class="nav-mobile-links">
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#process" class="nav-link">How It Works</a></li>
+          <li><a href="#reviews" class="nav-link">Reviews</a></li>
+          <li><a href="#about" class="nav-link">About Coach Maria</a></li>
+          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#hero" class="btn btn-primary">Get in Touch</a></li>
+        </ul>
+      </div>
+    </nav>
+    <!-- ========== NAVIGATION END ========== -->
+
+    <!-- ========== HERO SECTION START ========== -->
+    <section id="hero" class="hero-section">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left: Copy + Stats -->
+          <div>
+            <div class="hero-badge animate-on-scroll">
+              <svg
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+              Private Swim Lessons in San Diego County &bull; Families &amp;
+              Adults
+            </div>
+            <h1 class="hero-headline animate-on-scroll delay-1">
+              From Water Safety to
+              <span class="hero-accent-word">Swim Team Ready</span>
+            </h1>
+            <p class="hero-sub animate-on-scroll delay-2">
+              Safe Space Swim is Coach Maria's complete progression method. One private instructor takes your child all the way, from their very first time in the water to fully ready for swim team. Lessons for children and adults across San Diego County.
+            </p>
+            <div class="hero-stats animate-on-scroll delay-3">
+              <div class="hero-stat">
+                <span class="hero-stat-number" data-target="11" data-suffix="+"
+                  >11+</span
+                >
+                <span class="hero-stat-label"
+                  >Years of Teaching Experience</span
+                >
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat-number">100s</span>
+                <span class="hero-stat-label"
+                  >of Students Taught Each Year</span
+                >
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat-number">5 ★</span>
+                <span class="hero-stat-label">Rated on Google and Yelp</span>
+              </div>
+              <div class="hero-stat">
+                <span class="hero-stat-number">CPR+</span>
+                <span class="hero-stat-label">Red Cross Certified</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Contact Form -->
+          <div class="hero-form-card animate-on-scroll delay-2">
+            <h3>Get in Touch</h3>
+            <p class="form-sub">
+              Submit your info and we will call you back within 24 hours. <strong>Se habla español.</strong>
+            </p>
+            <iframe
+              src="https://link.nilsdigital.com/widget/form/Glqc8E2muKtZrofFqCJi"
+              style="width:100%;height:509px;border:none;border-radius:3px;display:block;"
+              id="inline-Glqc8E2muKtZrofFqCJi"
+              data-layout="{'id':'INLINE'}"
+              data-trigger-type="alwaysShow"
+              data-trigger-value=""
+              data-activation-type="alwaysActivated"
+              data-activation-value=""
+              data-deactivation-type="neverDeactivate"
+              data-deactivation-value=""
+              data-form-name="Website Form"
+              data-height="509"
+              data-layout-iframe-id="inline-Glqc8E2muKtZrofFqCJi"
+              data-form-id="Glqc8E2muKtZrofFqCJi"
+              title="Website Form"
+            ></iframe>
+          </div>
+        </div>
+        <!-- /hero-grid -->
+      </div>
+      <!-- /container -->
+    </section>
+    <!-- ========== HERO SECTION END ========== -->
+
+    <!-- Wave: hero → background-alt (overlaps hero bottom for seamless transition) -->
+    <div id="hero-wave" class="wave-divider wave-fill-alt" aria-hidden="true">
+      <svg
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="wave-secondary"
+          d="M0,55 C200,25 400,72 640,45 C880,18 1100,65 1280,40 C1360,28 1410,50 1440,45 L1440,80 L0,80 Z"
+        />
+        <path
+          class="wave-main"
+          d="M0,38 C240,72 480,8 720,42 C960,76 1200,12 1440,38 L1440,80 L0,80 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- ========== WHY DIFFERENT SECTION START ========== -->
+    <section id="why" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow animate-on-scroll"
+            >A Different Way to Learn</span
+          >
+          <h2 class="section-title animate-on-scroll delay-1">
+            Progress You Can See After the
+            <span class="text-primary">First</span> Lesson
+          </h2>
+          <p class="section-subtitle animate-on-scroll delay-2">
+            Many families come to us after trying other programs where results
+            never came. Here is why our approach works so consistently.
+          </p>
+        </div>
+
+        <div class="why-photo animate-on-scroll">
+          <img
+            src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abda753f1567a04c7fbb.jpg"
+            alt="Coach Maria guiding a child in the pool during a one-on-one swim lesson"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="problem-cards">
+          <div class="card animate-on-scroll">
+            <div class="card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path
+                  d="M12 14c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"
+                />
+                <polyline points="16 5 18 7 22 3" />
+              </svg>
+            </div>
+            <h4>Always One-on-One</h4>
+            <p>
+              Every student gets the coach's full attention every lesson. No
+              sharing time, no distractions. Just focused, personalized
+              instruction.
+            </p>
+          </div>
+          <div class="card animate-on-scroll delay-1">
+            <div class="card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="3" y="3" width="7" height="7" />
+                <rect x="14" y="3" width="7" height="7" />
+                <rect x="14" y="14" width="7" height="7" />
+                <rect x="3" y="14" width="7" height="7" />
+              </svg>
+            </div>
+            <h4>Built on the Right Foundation</h4>
+            <p>
+              We teach flotation and buoyancy first. Once students feel at ease
+              in the water, learning strokes becomes much easier and far less
+              scary.
+            </p>
+          </div>
+          <div class="card animate-on-scroll delay-2">
+            <div class="card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
+              </svg>
+            </div>
+            <h4>Consistent Coach, Consistent Progress</h4>
+            <p>
+              Your child works with the same instructor from day one. We know
+              your swimmer, track their progress, and share daily feedback with
+              parents.
+            </p>
+          </div>
+        </div>
+
+        <div class="text-center animate-on-scroll">
+          <div class="btn-wrap btn-wrap-center">
+            <a href="#hero" class="btn btn-primary btn-lg">See Our Programs</a>
+            <span class="btn-subtext">No long-term commitment required</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== WHY DIFFERENT SECTION END ========== -->
+
+    <!-- Wave: background-alt → ocean dark (services) -->
+    <div class="wave-divider wave-bg-alt wave-fill-ocean" aria-hidden="true">
+      <svg
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="wave-secondary"
+          d="M0,45 C180,72 360,15 600,50 C840,85 1080,20 1320,48 C1380,55 1420,40 1440,45 L1440,80 L0,80 Z"
+        />
+        <path
+          class="wave-main"
+          d="M0,25 C180,65 480,0 720,35 C960,70 1200,5 1440,32 L1440,80 L0,80 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- ========== SERVICES SECTION START ========== -->
+    <section id="services" class="section" style="background:#0d2d4a;">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow animate-on-scroll" style="color:rgba(255,255,255,0.85);">What We Offer</span>
+          <h2 class="section-title animate-on-scroll delay-1">
+            Lessons Built Around <span class="text-primary">Your</span> Goals
+          </h2>
+          <p class="section-subtitle animate-on-scroll delay-2">
+            Whether your child is just starting out or you are an adult ready to
+            finally learn, we have a program that fits.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <!-- Card 1: Children's Lessons -->
+          <div class="service-card animate-on-scroll">
+            <div class="service-card-img">
+              <img
+                src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abd9b617a737a52b249d.jpg"
+                alt="Instructor guiding child with kickboard in shallow pool"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"
+                />
+                <path d="M8 14s1.5 2 4 2 4-2 4-2" />
+                <line x1="9" y1="9" x2="9.01" y2="9" />
+                <line x1="15" y1="9" x2="15.01" y2="9" />
+              </svg>
+            </div>
+            <h4>Children's Swim Lessons</h4>
+            <p class="service-teaser">
+              Private one-on-one lessons for kids ages 3 and up. We build from
+              water safety to stroke development at your child's own pace.
+            </p>
+            <button class="service-toggle" aria-expanded="false">
+              <span class="service-toggle-text">Learn More</span>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="service-detail" aria-hidden="true">
+              <div class="service-detail-inner">
+                <p>
+                  Our children's program follows a proven progression curriculum
+                  refined over 11 years and hundreds of students. Every lesson
+                  is completely private. 20 to 30 minutes of focused,
+                  one-on-one time in the water.
+                </p>
+                <p>
+                  We start with water safety and buoyancy before introducing any
+                  strokes. This allows children to feel safe and in control
+                  before any complex movement is introduced. Whether your child
+                  is terrified of putting their face underwater or preparing for
+                  a swim team tryout, the program meets them exactly where they
+                  are.
+                </p>
+                <p>
+                  Parents receive daily feedback and customized at-home practice
+                  recommendations after every session.
+                </p>
+                <div class="service-meta">
+                  <div class="service-meta-row">
+                    <strong>Ages:</strong> 3 years and up
+                  </div>
+                  <div class="service-meta-row">
+                    <strong>Length:</strong> 20–30 minutes
+                  </div>
+                  <div class="service-meta-row">
+                    <strong>Format:</strong> Private only
+                  </div>
+                  <div class="service-meta-row">
+                    <strong>Locations:</strong> Community &amp; in-home pools,
+                    San Diego County
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Adult Lessons -->
+          <div class="service-card animate-on-scroll delay-1">
+            <div class="service-card-img">
+              <img
+                src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abd9133a4052c15dac50.jpg"
+                alt="Instructor holding child with pool noodle, smiling brightly outdoors"
+                loading="lazy"
+              />
+            </div>
+            <div class="card-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="7" r="4" />
+                <path d="M5.2 20a7 7 0 0 1 13.6 0" />
+              </svg>
+            </div>
+            <h4>Adult Swim Lessons</h4>
+            <p class="service-teaser">
+              Whether you've never swum before or want to improve your
+              technique, our 8-week adult progression program will get you
+              confident in the water.
+            </p>
+            <button class="service-toggle" aria-expanded="false">
+              <span class="service-toggle-text">Learn More</span>
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+            <div class="service-detail" aria-hidden="true">
+              <div class="service-detail-inner">
+                <p>
+                  It is never too late to learn. Our adult program is built
+                  specifically for people who feel anxious in the water, have
+                  never learned to swim properly, or want to refine their
+                  technique in a comfortable, judgment-free environment.
+                </p>
+                <p>
+                  Safe Space Swim uses a unique 8-week progression system for
+                  adults that starts exactly where you are. No rushing. No group
+                  pressure. Just one instructor, one student, and a clear path
+                  forward.
+                </p>
+                <p>
+                  This is also one of the most important things you can do for
+                  your family. A parent who can swim is a parent who can save
+                  their child.
+                </p>
+                <div class="service-meta">
+                  <div class="service-meta-row">
+                    <strong>Ages:</strong> 16 years and up
+                  </div>
+                  <div class="service-meta-row">
+                    <strong>Length:</strong> 20–30 minutes
+                  </div>
+                  <div class="service-meta-row">
+                    <strong>Format:</strong> Completely private
+                  </div>
+                  <div class="service-meta-row">
+                    <strong>Program:</strong> 8-week progression
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <!-- /services-grid -->
+
+        <div class="text-center animate-on-scroll">
+          <div class="btn-wrap btn-wrap-center">
+            <a href="#hero" class="btn btn-primary btn-lg">Get in Touch</a>
+            <span class="btn-subtext"
+              >We serve Poway, Carmel Valley, Encinitas, and more across San
+              Diego County</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== SERVICES SECTION END ========== -->
+
+    <!-- Wave: ocean dark (services) → background-alt -->
+    <div class="wave-divider wave-bg-ocean wave-fill-alt" aria-hidden="true">
+      <svg
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="wave-secondary"
+          d="M0,55 C240,20 480,70 720,40 C960,10 1200,60 1440,35 L1440,80 L0,80 Z"
+        />
+        <path
+          class="wave-main"
+          d="M0,35 C320,72 640,8 960,45 C1120,60 1300,20 1440,38 L1440,80 L0,80 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- ========== PROCESS SECTION START ========== -->
+    <section id="process" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow animate-on-scroll"
+            >Getting Started is Simple</span
+          >
+          <h2 class="section-title animate-on-scroll delay-1">
+            From First Message to
+            <span class="text-primary">First Lesson</span> in Days
+          </h2>
+          <p class="section-subtitle animate-on-scroll delay-2">
+            We make it easy to start. No complicated paperwork, no long
+            waitlists. Just four simple steps.
+          </p>
+        </div>
+
+        <div class="process-timeline">
+          <div class="process-connector"></div>
+
+          <div class="process-step animate-on-scroll">
+            <div class="step-number">1</div>
+            <div class="step-body">
+              <h3 class="step-title">Reach Out</h3>
+              <p class="step-desc">
+                Call, text, or fill out our contact form. Tell us a little about
+                your swimmer and what you are hoping to achieve. We will get back
+                to you within 24 hours.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step animate-on-scroll delay-1">
+            <div class="step-number" style="background:var(--color-accent);">2</div>
+            <div class="step-body">
+              <h3 class="step-title">We Find the Right Pool</h3>
+              <p class="step-desc">
+                Safe Space Swim teaches at community pools and in-home pools
+                across San Diego County. We will match you with a year-round
+                location near you.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step animate-on-scroll delay-2">
+            <div class="step-number">3</div>
+            <div class="step-body">
+              <h3 class="step-title">Your First Lesson</h3>
+              <p class="step-desc">
+                Every new swimmer starts at their current level. We assess
+                comfort, skills, and goals in the first session and build a
+                personalized plan from there.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step animate-on-scroll delay-3">
+            <div class="step-number" style="background:var(--color-accent);">4</div>
+            <div class="step-body">
+              <h3 class="step-title">Track Progress Together</h3>
+              <p class="step-desc">
+                After every lesson, you receive feedback on what your child worked
+                on and specific things to practice at home. Progress is visible
+                from lesson one.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="process-image-wrap animate-on-scroll">
+          <img
+            src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abd9753f153eb74c7fb9.jpg"
+            alt="Child with pink ring enthusiastically engaging in water with instructor"
+            loading="lazy"
+          />
+        </div>
+
+        <div class="text-center mt-xl animate-on-scroll">
+          <div class="btn-wrap btn-wrap-center">
+            <a href="#hero" class="btn btn-primary btn-lg">Get in Touch</a>
+            <span class="btn-subtext"
+              >Questions first? We are happy to chat before you commit to
+              anything.</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== PROCESS SECTION END ========== -->
+
+    <!-- Wave: background-alt → background-alt (same bg, uses white mid-layer for visual break) -->
+    <div class="wave-divider wave-bg-alt wave-fill-white" aria-hidden="true">
+      <svg
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="wave-secondary"
+          d="M0,40 C360,72 720,15 1080,50 C1200,62 1340,30 1440,42 L1440,80 L0,80 Z"
+        />
+        <path
+          class="wave-main"
+          d="M0,20 C240,60 480,5 720,40 C960,75 1200,10 1440,30 L1440,80 L0,80 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- ========== BENEFITS SECTION START ========== -->
+    <section id="benefits" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow animate-on-scroll"
+            >Why Families Love Safe Space Swim</span
+          >
+          <h2 class="section-title animate-on-scroll delay-1">
+            More Than Lessons. A <span class="text-primary">Skill</span> for
+            Life.
+          </h2>
+          <p class="section-subtitle animate-on-scroll delay-2">
+            Every student leaves with more than swimming ability. They leave
+            with confidence, safety awareness, and a genuine love for the water.
+          </p>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-card animate-on-scroll">
+            <div class="benefit-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg>
+            </div>
+            <div class="benefit-body">
+              <h4>Water Safety From Day One</h4>
+              <p>
+                Every student learns survival skills alongside technique, so
+                they are safer in and around water from the very start.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card animate-on-scroll delay-1">
+            <div class="benefit-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="8" r="4" />
+                <path
+                  d="M12 14c-5.33 0-8 2.67-8 4v2h16v-2c0-1.33-2.67-4-8-4z"
+                />
+                <polyline points="16 5 18 7 22 3" />
+              </svg>
+            </div>
+            <div class="benefit-body">
+              <h4>Same Coach Every Session</h4>
+              <p>
+                Continuity means your instructor knows your swimmer personally
+                and can build on progress lesson by lesson.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card animate-on-scroll delay-2">
+            <div class="benefit-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <polyline points="12 6 12 12 16 14" />
+              </svg>
+            </div>
+            <div class="benefit-body">
+              <h4>Results Within the First Lesson</h4>
+              <p>
+                Most students notice a shift in comfort and confidence within
+                their very first session with us.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card animate-on-scroll delay-3">
+            <div class="benefit-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                />
+              </svg>
+            </div>
+            <div class="benefit-body">
+              <h4>Daily Feedback for Parents</h4>
+              <p>
+                After every lesson you get specific, honest updates on what your
+                child worked on and what to practice at home.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card animate-on-scroll delay-4">
+            <div class="benefit-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <div class="benefit-body">
+              <h4>Year-Round Pool Locations</h4>
+              <p>
+                We have access to indoor, year-round pools so lessons never stop
+                because of weather or seasonal closures.
+              </p>
+            </div>
+          </div>
+
+          <div class="benefit-card animate-on-scroll delay-5">
+            <div class="benefit-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <polygon
+                  points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+                />
+              </svg>
+            </div>
+            <div class="benefit-body">
+              <h4>Tailored to Every Swimmer</h4>
+              <p>
+                From nervous first-timers to kids training for swim team
+                tryouts, every lesson plan is built around individual goals.
+              </p>
+            </div>
+          </div>
+        </div>
+        <!-- /benefits-grid -->
+      </div>
+    </section>
+    <!-- ========== BENEFITS SECTION END ========== -->
+
+    <!-- Wave: white → alt (subtle, same family) -->
+    <div class="wave-divider wave-bg-white wave-fill-alt" aria-hidden="true">
+      <svg
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="wave-secondary"
+          d="M0,48 C300,20 600,68 900,38 C1100,18 1300,55 1440,40 L1440,80 L0,80 Z"
+        />
+        <path
+          class="wave-main"
+          d="M0,58 C180,30 420,72 660,45 C900,18 1140,65 1440,30 L1440,80 L0,80 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- ========== WHO WE HELP SECTION START ========== -->
+    <section id="who" class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow animate-on-scroll">Who We Work With</span>
+          <h2 class="section-title animate-on-scroll delay-1">
+            Swimmers of Every <span class="text-primary">Level</span> Welcome
+            Here
+          </h2>
+          <p class="section-subtitle animate-on-scroll delay-2">
+            Safe Space Swim serves children and adults across San Diego County
+            who are ready to learn, grow, or simply feel safer in the water.
+          </p>
+        </div>
+
+        <div class="who-grid">
+          <div class="animate-on-scroll">
+            <div class="checklist">
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span
+                  >Children ages 3 and up who are just starting to explore the
+                  water</span
+                >
+              </div>
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span
+                  >Kids who have tried other programs without seeing real
+                  progress</span
+                >
+              </div>
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span
+                  >Adults who want to finally learn to swim or overcome water
+                  anxiety</span
+                >
+              </div>
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span
+                  >Families looking for consistent, one-on-one private
+                  instruction</span
+                >
+              </div>
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span
+                  >Children preparing to try out for a competitive swim
+                  team</span
+                >
+              </div>
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span
+                  >Parents who want daily feedback and a clear plan for their
+                  child</span
+                >
+              </div>
+              <div class="checklist-item">
+                <svg
+                  class="checklist-icon"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="20 6 9 17 4 12" />
+                </svg>
+                <span
+                  >Anyone in the Poway, Carmel Valley, Encinitas, or greater San
+                  Diego area</span
+                >
+              </div>
+            </div>
+
+            <div class="btn-wrap mt-lg">
+              <a href="#hero" class="btn btn-primary btn-lg">Get in Touch</a>
+              <span class="btn-subtext"
+                >Se habla espa&ntilde;ol. We are here to help every
+                family.</span
+              >
+            </div>
+          </div>
+
+          <div class="who-image animate-on-scroll delay-2">
+            <img
+              src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abda753f1585d14c7fba.jpg"
+              alt="Young swimmer in yellow floral swimsuit and goggles, relaxed and happy in the pool"
+              loading="lazy"
+            />
+          </div>
+        </div>
+        <!-- /who-grid -->
+      </div>
+    </section>
+    <!-- ========== WHO WE HELP SECTION END ========== -->
+
+    <!-- ========== GALLERY SECTION START ========== -->
+    <section class="section-alt">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow animate-on-scroll"
+            >Real Lessons, Real Results</span
+          >
+          <h2 class="section-title animate-on-scroll delay-1">
+            A Peek Into Our <span class="text-primary">Pool</span>
+          </h2>
+        </div>
+
+        <div class="gallery-grid">
+          <div class="gallery-item animate-on-scroll">
+            <img
+              src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abd9b617a737a52b249d.jpg"
+              alt="Child with kickboard guided by instructor in sunny pool"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item animate-on-scroll delay-1">
+            <img
+              src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abd9167da4cbea8d4c2b.jpg"
+              alt="Child with floatation device at pool edge with instructor"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item animate-on-scroll delay-2">
+            <img
+              src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abd9753f153eb74c7fb9.jpg"
+              alt="Child with pink ring smiling with instructor in pool"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item animate-on-scroll delay-1">
+            <img
+              src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abda753f1567a04c7fbb.jpg"
+              alt="Coach Maria and child smiling together in water, sunlight on pool"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item animate-on-scroll delay-2">
+            <img
+              src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abd9133a4052c15dac50.jpg"
+              alt="Instructor holding child with pool noodle on a warm sunny day"
+              loading="lazy"
+            />
+          </div>
+          <div class="gallery-item animate-on-scroll delay-3">
+            <img
+              src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a3abda753f1585d14c7fba.jpg"
+              alt="Young child in yellow floral swimsuit, goggles, relaxed and happy in pool"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== GALLERY SECTION END ========== -->
+
+    <!-- Wave: alt → footer dark (testimonials) -->
+    <div class="wave-divider wave-bg-alt wave-fill-footer" aria-hidden="true">
+      <svg
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="wave-main"
+          d="M0,55 C300,15 600,72 900,35 C1100,10 1300,60 1440,28 L1440,80 L0,80 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- ========== TESTIMONIALS SECTION START ========== -->
+    <section id="reviews" class="section" style="background: var(--color-footer);">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow animate-on-scroll" style="color:var(--color-accent);"
+            >What San Diego Parents Are Saying</span
+          >
+          <h2 class="section-title animate-on-scroll delay-1" style="color:var(--color-white);">
+            Hundreds of Families Have Found Their Safe Space in the Water
+          </h2>
+        </div>
+
+        <div class="testimonials-grid">
+          <div class="testimonial-card animate-on-scroll">
+            <div class="testimonial-stars">★★★★★</div>
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-quote">
+              We tried Noonan Family Swim School, then YMCA, then the British
+              Swim School. The problem with all of them is the instructors have
+              very little experience. <span class="highlight">Maria has a lot of experience teaching
+              kids and she is very focused on teaching them to swim the right
+              way.</span> Our six-year-old daughter swims like a champion now. Thank
+              you, Maria!
+            </p>
+            <p class="testimonial-author">Gabe Farkas</p>
+            <p class="testimonial-role">San Diego Parent</p>
+          </div>
+
+          <div class="testimonial-card animate-on-scroll delay-1">
+            <div class="testimonial-stars">★★★★★</div>
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-quote">
+              Coach Maria is patient, dedicated, and truly passionate about
+              teaching. <span class="highlight">She excels at working with kids and creates a positive,
+              encouraging environment that helps each swimmer thrive.</span> Under her
+              guidance, my son has developed a strong work ethic and a genuine
+              love for the sport. We are incredibly thankful to have Coach Maria
+              as part of our son's swimming journey.
+            </p>
+            <p class="testimonial-author">Cathy Xqian</p>
+            <p class="testimonial-role">San Diego Parent</p>
+          </div>
+
+          <div class="testimonial-card animate-on-scroll delay-2">
+            <div class="testimonial-stars">★★★★★</div>
+            <span class="testimonial-quote-mark">"</span>
+            <p class="testimonial-quote">
+              My son took different classes several times to learn to swim, but
+              unfortunately he didn't make progress. <span class="highlight">Since he started his class
+              with Maria, he has both improved and become interested in
+              swimming.</span> Maria is very kind and patient and knows how to teach
+              children to swim.
+            </p>
+            <p class="testimonial-author">Roya Enami</p>
+            <p class="testimonial-role">San Diego Parent</p>
+          </div>
+        </div>
+
+        <!-- Review widget integration point -->
+        <div class="review-widget-wrap animate-on-scroll">
+          <script type='text/javascript' src='https://reputationhub.site/reputation/assets/review-widget.js'></script>
+          <iframe class='lc_reviews_widget' src='https://reputationhub.site/reputation/widgets/review_widget/WTQaOJivbCTAXFcrUIuD' frameborder='0' scrolling='no' style='min-width: 100%; width: 100%;'></iframe>
+        </div>
+
+        <div class="text-center mt-xl animate-on-scroll">
+          <div class="btn-wrap btn-wrap-center">
+            <a href="#hero" class="btn btn-primary btn-lg">Get in Touch</a>
+            <span class="btn-subtext"
+              >Book a trial lesson. No long-term commitment required.</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== TESTIMONIALS SECTION END ========== -->
+
+    <!-- Wave: footer dark (testimonials) → white (about) -->
+    <div class="wave-divider wave-bg-footer wave-fill-white" aria-hidden="true">
+      <svg
+        viewBox="0 0 1440 72"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          class="wave-secondary"
+          d="M0,45 C300,10 600,70 900,38 C1100,16 1300,58 1440,30 L1440,80 L0,80 Z"
+        />
+        <path
+          class="wave-main"
+          d="M0,35 C240,68 480,15 720,50 C960,85 1200,22 1440,48 L1440,80 L0,80 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- ========== ABOUT SECTION START ========== -->
+    <section id="about" class="section" style="padding: var(--space-xl) 1.5rem;">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-image animate-on-scroll">
+            <img
+              src="https://assets.cdn.filesafe.space/WTQaOJivbCTAXFcrUIuD/media/69a4b6ec753f15c2c66c1eba.webp"
+              alt="Coach Maria, Safe Space Swim instructor, San Diego"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="about-content animate-on-scroll delay-2">
+            <span class="eyebrow">Meet Your Coach</span>
+            <h2 class="section-title">
+              11 Years. Hundreds of Students.<br />One Unwavering Mission.
+            </h2>
+            <p class="about-intro">
+              Coach Maria isn't just a swim instructor. She's the coach your child will actually want to come back to. With 11 years of private teaching experience across San Diego, she has built a curriculum that builds real confidence in the water, one lesson at a time. Bilingual, fully certified, and genuinely passionate, she treats every student like they are her only one.
+            </p>
+            <div class="credential-badges">
+              <span class="credential-badge">WWSI Water Safety (2023)</span>
+              <span class="credential-badge"
+                >CPR Certified, Infants &amp; Adults</span
+              >
+              <span class="credential-badge">Red Cross Certified</span>
+              <span class="credential-badge">Fully Insured</span>
+              <span class="credential-badge">Se habla español</span>
+            </div>
+            <div class="btn-wrap">
+              <a href="#hero" class="btn btn-accent btn-lg" style="box-shadow:0 8px 24px rgba(244,169,64,0.45);font-weight:800;letter-spacing:0.02em;">Get in Touch</a>
+              <span class="btn-subtext"
+                >Spots are limited. Reach out today to check availability.</span
+              >
+            </div>
+          </div>
+        </div>
+        <!-- /about-grid -->
+      </div>
+    </section>
+    <!-- ========== ABOUT SECTION END ========== -->
+
+    <!-- ========== FAQ SECTION START ========== -->
+    <section id="faq" class="section">
+      <div class="container">
+        <div class="section-header">
+          <span class="eyebrow animate-on-scroll">Got Questions?</span>
+          <h2 class="section-title animate-on-scroll delay-1">
+            Everything You Need to Know
+            <span class="text-primary">Before</span> Booking
+          </h2>
+          <p class="section-subtitle animate-on-scroll delay-2">
+            We believe you deserve clear, honest answers. Not a sales pitch.
+          </p>
+        </div>
+
+        <div class="faq-list animate-on-scroll">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How quickly will my child see results?
+              <svg
+                class="faq-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Most students show real, visible improvement within their very
+                first lesson. For children who are very nervous around water,
+                expect to feel genuinely comfortable and water-safe within 2 to
+                3 months. Strong water safety and independent swimming typically
+                comes within 4 months, and stroke development follows at 5 to 6
+                months. Every child is different, but the progression is
+                consistent.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Are lessons really private, or are there other kids in the
+              session?
+              <svg
+                class="faq-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Every lesson is completely private. It is just your child and
+                Coach Maria in the water. In very rare circumstances,
+                semi-private lessons may be arranged, but private one-on-one
+                instruction is the standard, because it is the most effective
+                way for children to learn.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How long is each lesson?
+              <svg
+                class="faq-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Lessons are typically 20 to 30 minutes long, depending on the
+                student's age and current level. Shorter sessions are more
+                effective for younger children, and length can increase as focus
+                and endurance improve.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Where do lessons take place?
+              <svg
+                class="faq-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                We teach at various community pools and in-home pools across San
+                Diego County, including Poway, Carmel Valley, Encinitas, and
+                more. We have year-round locations so there are no seasonal gaps
+                in your child's progress.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              I've tried other instructors before. Why will this be different?
+              <svg
+                class="faq-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                The most common reason children do not make progress at group
+                schools is the lack of consistency, individual attention, and
+                proper foundational instruction. Safe Space Swim's method builds
+                buoyancy and flotation before introducing any movement, meaning
+                your child learns to feel safe in the water before anything
+                else. This foundation is what most schools skip. And it is the
+                most important step.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Is Coach Maria certified and insured?
+              <svg
+                class="faq-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Yes. Coach Maria holds her WWSI Water Safety Skills
+                certification for all ages, Red Cross certification, and CPR
+                certification for both infants and adults. She carries full
+                liability insurance and holds all permits required to teach
+                throughout San Diego County.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What if my child is extremely afraid of the water?
+              <svg
+                class="faq-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                That is exactly who we are best at helping. The most rewarding
+                success stories at Safe Space Swim are the kids who arrived
+                terrified and left confident. The entire program is designed to
+                meet students where they are emotionally. Patience and positive
+                reinforcement are central to every lesson.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              Do you offer adult lessons?
+              <svg
+                class="faq-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Absolutely. We offer a unique 8-week progression program for
+                adults ages 16 and up. Whether you have never been in a pool or
+                simply want to feel more comfortable and improve your technique,
+                the adult program is private, non-judgmental, and built around
+                your specific starting point.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              How do I get started?
+              <svg
+                class="faq-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Simply call or text (760) 300-0793, email
+                admin@safespaceswim.com, or send a message on Instagram. We will
+                respond quickly, learn about your swimmer's goals, and get you
+                set up with your first lesson. There is no long-term commitment
+                required to begin.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              What is the cost?
+              <svg
+                class="faq-icon"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                Pricing depends on location, lesson frequency, and session type.
+                Contact us directly for a personalized quote. We are happy to
+                discuss what works best for your schedule and budget.
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /faq-list -->
+
+        <div class="text-center mt-xl animate-on-scroll">
+          <div class="btn-wrap btn-wrap-center">
+            <a href="#hero" class="btn btn-primary btn-lg">Get in Touch</a>
+            <span class="btn-subtext"
+              >We respond to all calls, texts, and emails the same day.</span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== FAQ SECTION END ========== -->
+
+    <!-- Wave: white → primary (CTA) -->
+    <div
+      class="wave-divider wave-bg-white wave-fill-primary"
+      aria-hidden="true"
+      style="margin-bottom:-8px;display:block;"
+    >
+      <svg
+        viewBox="0 0 1440 80"
+        preserveAspectRatio="none"
+        xmlns="http://www.w3.org/2000/svg"
+        style="height:80px;"
+      >
+        <path
+          fill="var(--color-primary)"
+          d="M0,28 C200,65 480,8 760,48 C1040,88 1240,20 1440,45 L1440,80 L0,80 Z"
+        />
+      </svg>
+    </div>
+
+    <!-- ========== FINAL CTA SECTION START ========== -->
+    <section id="cta" class="section-cta">
+      <div class="cta-bubble"></div>
+      <div class="cta-bubble"></div>
+      <div class="cta-bubble"></div>
+      <div class="cta-bubble"></div>
+      <div class="cta-bubble"></div>
+      <div class="cta-bubble"></div>
+      <div class="cta-bubble"></div>
+      <div class="cta-bubble"></div>
+      <div class="cta-bubble"></div>
+      <div class="cta-bubble"></div>
+      <div class="container text-center" style="position:relative;z-index:2;">
+        <span class="eyebrow animate-on-scroll">Start Today</span>
+        <h2 class="section-title mt-sm animate-on-scroll delay-1">
+          Your Child Can Become a Confident Swimmer This Year
+        </h2>
+        <p class="section-subtitle animate-on-scroll delay-2">
+          Private lessons with a certified, experienced coach. Real progress from the very first session.
+        </p>
+
+        <div class="text-narrow animate-on-scroll delay-2">
+          <p>
+            Try one lesson. No long-term commitment required. Just show up and see what is possible.
+          </p>
+        </div>
+
+        <div class="btn-wrap btn-wrap-center mt-xl animate-on-scroll delay-3">
+          <a href="#hero" class="btn btn-white btn-lg" style="background:#fff;color:var(--color-primary);box-shadow:0 8px 32px rgba(0,0,0,0.25);font-weight:800;letter-spacing:0.02em;">Get in Touch</a>
+          <span class="btn-subtext">No commitment required. One call, that is all it takes.</span>
+        </div>
+
+        <div class="trust-badges-row animate-on-scroll delay-4">
+          <div class="trust-badge">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polygon
+                points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
+              />
+            </svg>
+            5-Star Google &amp; Yelp
+          </div>
+          <div class="trust-badge">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <polyline points="12 6 12 12 16 14" />
+            </svg>
+            11 Years Experience
+          </div>
+          <div class="trust-badge">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            CPR + Water Safety Certified
+          </div>
+          <div class="trust-badge">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+              <polyline points="9 22 9 12 15 12 15 22" />
+            </svg>
+            Fully Insured
+          </div>
+          <div class="trust-badge">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+              />
+            </svg>
+            Se habla español
+          </div>
+        </div>
+
+        <div class="contact-options animate-on-scroll delay-5">
+          <div class="contact-option">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.43 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.51a16 16 0 0 0 5.66 5.66l.87-.87a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 21 15.9l-.08 1.02z"
+              />
+            </svg>
+            <span
+              >Call or Text: <a target="_top" href="tel:7603000793">(760) 300-0793</a></span
+            >
+          </div>
+          <div class="contact-option">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+              />
+              <polyline points="22,6 12,13 2,6" />
+            </svg>
+            <span
+              >Email:
+              <a target="_top" href="mailto:admin@safespaceswim.com"
+                >admin@safespaceswim.com</a
+              ></span
+            >
+          </div>
+          <div class="contact-option">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+            <span
+              >Instagram:
+              <a
+                href="https://www.instagram.com/safe.space.swim/"
+                target="_blank"
+                rel="noopener"
+                >@safe.space.swim</a
+              ></span
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== FINAL CTA SECTION END ========== -->
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="contact">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Column 1: Brand -->
+          <div>
+            <div class="footer-logo">
+              <span class="footer-logo-primary">Safe Space</span> Swim
+            </div>
+            <p class="footer-tagline">Saving a life one day at a time.</p>
+            <p class="footer-location">San Diego County, CA</p>
+            <div class="footer-social">
+              <a
+                href="https://www.instagram.com/safe.space.swim/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                </svg>
+              </a>
+              <a href="#" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
+                  />
+                </svg>
+              </a>
+              <a href="#" target="_blank" rel="noopener" aria-label="YouTube">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.95C5.12 20 12 20 12 20s6.88 0 8.59-.47a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"
+                  />
+                  <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div>
+            <h4>Quick Links</h4>
+            <nav class="footer-nav-links">
+              <a href="#services">Services</a>
+              <a href="#about">About Coach Maria</a>
+              <a href="#process">How It Works</a>
+              <a href="#reviews">Reviews</a>
+              <a href="#faq">FAQ</a>
+              <a href="#contact">Book a Lesson</a>
+            </nav>
+          </div>
+
+          <!-- Column 3: Contact -->
+          <div>
+            <h4>Contact</h4>
+            <div class="footer-contact-item">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.43 2 2 0 0 1 3.55 1h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.51a16 16 0 0 0 5.66 5.66l.87-.87a2 2 0 0 1 2.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0 1 21 15.9l-.08 1.02z"
+                />
+              </svg>
+              <a target="_top" href="tel:7603000793">(760) 300-0793</a>
+            </div>
+            <div class="footer-contact-item">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path
+                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              <a target="_top" href="mailto:admin@safespaceswim.com"
+                >admin@safespaceswim.com</a
+              >
+            </div>
+            <div class="footer-contact-item">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+              </svg>
+              <a
+                href="https://www.instagram.com/safe.space.swim/"
+                target="_blank"
+                rel="noopener"
+                >@safe.space.swim</a
+              >
+            </div>
+            <p class="footer-lang">Se habla español</p>
+          </div>
+        </div>
+        <!-- /footer-grid -->
+      </div>
+      <!-- /container -->
+
+      <div class="container">
+        <div class="footer-bottom">
+          <p>Safe Space Swim &copy; 2026</p>
+          <p class="footer-credit">
+            Website and marketing systems developed by
+            <a href="https://nilsdigital.com" target="_blank" rel="noopener">Nilsdigital.com</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <!-- ========== FOOTER END ========== -->
+
+    <script>
+      /* ============================================
+       CONFIG — update links and contact info here
+       ============================================ */
+      const CONFIG = {
+        cta: "#contact",
+        phone: "(760) 300-0793",
+        phoneHref: "tel:7603000793",
+        email: "admin@safespaceswim.com",
+        address: "San Diego County, CA",
+        social: {
+          instagram: "https://www.instagram.com/safe.space.swim/",
+          facebook: "#",
+          youtube: "#",
+        },
+      };
+
+      /* ============================================
+       INTERSECTION OBSERVER — handles ALL .animate-on-scroll
+       ============================================ */
+      const scrollObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              scrollObserver.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+
+      /* ============================================
+       MOBILE MENU TOGGLE
+       ============================================ */
+      function initMobileMenu() {
+        const hamburger = document.getElementById("hamburger");
+        const navMobile = document.getElementById("nav-mobile");
+        if (!hamburger || !navMobile) return;
+
+        hamburger.addEventListener("click", () => {
+          const isOpen = navMobile.classList.toggle("open");
+          hamburger.classList.toggle("open", isOpen);
+          hamburger.setAttribute("aria-expanded", isOpen);
+          document.body.style.overflow = isOpen ? "hidden" : "";
+        });
+
+        // Close on nav link click
+        navMobile.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", () => {
+            navMobile.classList.remove("open");
+            hamburger.classList.remove("open");
+            hamburger.setAttribute("aria-expanded", "false");
+            document.body.style.overflow = "";
+          });
+        });
+      }
+
+      /* ============================================
+       NAVBAR SCROLL EFFECT
+       ============================================ */
+      function initNavScroll() {
+        const nav = document.getElementById("nav");
+        if (!nav) return;
+        const onScroll = () => {
+          nav.classList.toggle("scrolled", window.scrollY > 20);
+        };
+        window.addEventListener("scroll", onScroll, { passive: true });
+        onScroll();
+      }
+
+      /* ============================================
+       SMOOTH SCROLL — anchor links
+       ============================================ */
+      function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", (e) => {
+            const target = document.querySelector(anchor.getAttribute("href"));
+            if (!target) return;
+            e.preventDefault();
+            const navHeight =
+              document.getElementById("nav")?.offsetHeight || 72;
+            const top =
+              target.getBoundingClientRect().top + window.scrollY - navHeight;
+            window.scrollTo({ top, behavior: "smooth" });
+          });
+        });
+      }
+
+      /* ============================================
+       SERVICE CARD ACCORDION
+       ============================================ */
+      function initServiceAccordion() {
+        const cards = document.querySelectorAll(".service-card");
+        cards.forEach((card) => {
+          const btn = card.querySelector(".service-toggle");
+          const detail = card.querySelector(".service-detail");
+          if (!btn || !detail) return;
+          card.style.cursor = "pointer";
+          const toggle = () => {
+            const isOpen = detail.classList.toggle("open");
+            btn.classList.toggle("open", isOpen);
+            btn.querySelector(".service-toggle-text").textContent = isOpen
+              ? "Show Less"
+              : "Learn More";
+          };
+          card.addEventListener("click", (e) => {
+            if (e.target.closest("a")) return;
+            toggle();
+          });
+        });
+        // Auto-open first two cards (Children's + Adult) on desktop
+        if (window.innerWidth >= 1024) {
+          cards.forEach((card, i) => {
+            if (i < 2) {
+              const detail = card.querySelector(".service-detail");
+              const btn = card.querySelector(".service-toggle");
+              if (detail && btn) {
+                detail.classList.add("open");
+                btn.classList.add("open");
+                btn.querySelector(".service-toggle-text").textContent = "Show Less";
+              }
+            }
+          });
+        }
+      }
+
+      /* ============================================
+       FAQ ACCORDION
+       ============================================ */
+      function initFAQ() {
+        document.querySelectorAll(".faq-question").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const item = btn.closest(".faq-item");
+            const answer = item.querySelector(".faq-answer");
+            const isOpen = item.classList.toggle("open");
+            answer.classList.toggle("open", isOpen);
+            btn.setAttribute("aria-expanded", isOpen);
+          });
+        });
+      }
+
+      /* ============================================
+       COUNTER ANIMATION — stat numbers count up on scroll
+       ============================================ */
+      function animateCounter(el) {
+        const target = parseInt(el.dataset.target, 10);
+        const suffix = el.dataset.suffix || "";
+        if (!target) return;
+        const duration = 1200;
+        const start = performance.now();
+        const update = (now) => {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.round(eased * target) + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+        };
+        requestAnimationFrame(update);
+      }
+
+      function initCounters() {
+        const counterObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateCounter(entry.target);
+                counterObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.5 },
+        );
+        document.querySelectorAll(".stat-number[data-target]").forEach((el) => {
+          counterObserver.observe(el);
+        });
+      }
+
+      /* ============================================
+       FORM HIGHLIGHT — triggered by any CTA linking to #hero
+       ============================================ */
+      function initFormHighlight() {
+        document.querySelectorAll('a[href="#hero"]').forEach((link) => {
+          link.addEventListener("click", () => {
+            setTimeout(() => {
+              const form = document.querySelector(".hero-form-card");
+              if (form) {
+                form.classList.add("form-highlight");
+                setTimeout(() => form.classList.remove("form-highlight"), 2000);
+              }
+            }, 800);
+          });
+        });
+      }
+
+      /* ============================================
+       INITIALIZE ALL
+       ============================================ */
+      document.addEventListener("DOMContentLoaded", () => {
+        initMobileMenu();
+        initNavScroll();
+        initSmoothScroll();
+        initServiceAccordion();
+        initFAQ();
+        initCounters();
+        initFormHighlight();
+
+        // Observe all scroll-animated elements
+        document.querySelectorAll(".animate-on-scroll").forEach((el) => {
+          scrollObserver.observe(el);
+        });
+      });
+    </script>
+    <script src="https://link.nilsdigital.com/js/form_embed.js"></script>
+  </body>
+</html>

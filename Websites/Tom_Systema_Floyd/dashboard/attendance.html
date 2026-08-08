@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dashboard moved — Systema Floyd</title>
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://dashboard.systemafloyd.com/dashboard/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--sf-white:#fff;--sf-cream:#f7f9fc;--sf-border:#e2e8f2;--sf-ink:#0d1534;
+        --sf-amber:#f3a847;--sf-amber-deep:#c97a16;--sf-ink-60:rgba(13,21,52,.6)}
+  *{box-sizing:border-box;margin:0}
+  body{min-height:100svh;display:flex;align-items:center;justify-content:center;
+       background:var(--sf-cream);color:var(--sf-ink);
+       font:16px/1.6 'Inter',system-ui,sans-serif;padding:24px}
+  .card{background:var(--sf-white);border:1px solid var(--sf-border);border-radius:14px;
+        max-width:480px;width:100%;padding:40px 36px;text-align:center;
+        box-shadow:0 10px 30px rgba(13,21,52,.08)}
+  .card::before{content:"";display:block;height:4px;border-radius:99px;
+        background:linear-gradient(90deg,var(--sf-amber),var(--sf-amber-deep));
+        margin:-16px auto 26px;width:56px}
+  .brand{font:600 13px/1 'Oswald',sans-serif;letter-spacing:.22em;
+        text-transform:uppercase;color:var(--sf-amber-deep);margin-bottom:14px}
+  h1{font:600 26px/1.25 'Oswald',sans-serif;letter-spacing:.01em;margin-bottom:12px}
+  p{color:var(--sf-ink-60);margin-bottom:8px}
+  p b{color:var(--sf-ink)}
+  .addr{display:inline-block;margin:14px 0 22px;padding:10px 16px;border-radius:8px;
+        background:var(--sf-cream);border:1px solid var(--sf-border);
+        font:600 14px/1 'Inter',monospace;color:var(--sf-ink)}
+  a.btn{display:inline-block;padding:13px 28px;border-radius:9px;text-decoration:none;
+        background:linear-gradient(180deg,var(--sf-amber),var(--sf-amber-deep));
+        color:#fff;font:600 15px/1 'Inter',sans-serif;
+        box-shadow:0 6px 16px rgba(201,122,22,.35)}
+  a.btn:hover{filter:brightness(1.05)}
+  .auto{margin-top:16px;font-size:12.5px;color:var(--sf-ink-60)}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="brand">Systema Floyd</div>
+  <h1>The dashboard has moved</h1>
+  <p>It now lives at its own address with <b>the same login and password</b>.</p>
+  <p>Please update your bookmark:</p>
+  <div class="addr">dashboard.systemafloyd.com</div><br>
+  <a class="btn" id="go" href="https://dashboard.systemafloyd.com/dashboard/">Take me there</a>
+  <div class="auto">Redirecting automatically&hellip;</div>
+</div>
+<script>
+  // Always land on the dashboard home. One fixed destination means an old
+  // bookmark can never 404, no matter how the new site's pages change.
+  var dest = "https://dashboard.systemafloyd.com/dashboard/";
+  document.getElementById("go").href = dest;
+  setTimeout(function () { window.location.replace(dest); }, 1800);
+</script>
+</body>
+</html>

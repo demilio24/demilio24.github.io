@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Schedule Your Classes | Kicking Kiddos – Just Keep Swimming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; }
+    body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; background: #f0f4fa; color: #1a1a2e; }
+    :root { --blue: #0A7EF5; --green: #16a34a; --gold: #F5A623; --muted: #64748b; }
+    .funnel-bar { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: #fff; border-bottom: 2px solid rgba(0,0,0,.07); padding: 14px 20px; box-shadow: 0 2px 12px rgba(0,0,0,.06); }
+    .funnel-bar__inner { max-width: 860px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 0; overflow-x: auto; scrollbar-width: none; }
+    .funnel-bar__inner::-webkit-scrollbar { display: none; }
+    .funnel-step { display: flex; flex-direction: column; align-items: center; gap: 5px; padding: 0 20px; white-space: nowrap; flex-shrink: 0; position: relative; }
+    .funnel-step + .funnel-step::before { content: ''; position: absolute; left: -2px; top: 17px; width: 0; height: 0; border-top: 6px solid transparent; border-bottom: 6px solid transparent; border-left: 8px solid #e2e8f0; }
+    .funnel-step__num { width: 34px; height: 34px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .75rem; font-weight: 800; background: #e2e8f0; color: #94a3b8; }
+    .funnel-step__label { font-size: .7rem; font-weight: 600; color: #94a3b8; text-align: center; }
+    .funnel-step.done .funnel-step__num { background: #10b981; color: #fff; }
+    .funnel-step.done .funnel-step__label { color: #10b981; font-weight: 700; }
+    .funnel-step.done + .funnel-step::before { border-left-color: #10b981; }
+    .funnel-step.active .funnel-step__num { background: var(--blue); color: #fff; width: 38px; height: 38px; font-size: .8rem; box-shadow: 0 4px 12px rgba(10,126,245,.4); }
+    .funnel-step.active .funnel-step__label { color: var(--blue); font-weight: 800; font-size: .74rem; }
+    .funnel-step.active + .funnel-step::before { border-left-color: var(--blue); }
+    @media (max-width: 480px) { .funnel-step { padding: 0 12px; } .funnel-step__label { font-size: .62rem; } }
+    .page-wrap { padding: 94px 20px 60px; max-width: 960px; margin: 0 auto; }
+    .page-header { text-align: center; margin-bottom: 28px; }
+    .level-badge { display: inline-flex; align-items: center; gap: 8px; background: #d97706; color: #fff; font-size: .72rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; padding: 6px 16px; border-radius: 100px; box-shadow: 0 4px 14px rgba(217,119,6,.35); margin-bottom: 14px; }
+    .page-header h1 { font-size: clamp(1.6rem, 4vw, 2.3rem); font-weight: 900; letter-spacing: -.03em; color: #1a1a2e; line-height: 1.15; margin-bottom: 10px; }
+    .page-header p { font-size: .92rem; color: var(--muted); max-width: 500px; margin: 0 auto; line-height: 1.6; }
+    .alert-banner { background: linear-gradient(135deg, #1a1a2e 0%, #0d1528 100%); border-radius: 16px; padding: 28px 32px; margin-bottom: 24px; border-left: 5px solid #f5a623; box-shadow: 0 4px 24px rgba(0,0,0,.18); }
+    .alert-title { display: flex; align-items: center; gap: 10px; font-size: 1rem; font-weight: 900; color: #f5a623; letter-spacing: -.01em; margin-bottom: 18px; }
+    .alert-title-icon { width: 32px; height: 32px; border-radius: 8px; background: rgba(245,166,35,.15); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+    .alert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .alert-item { background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); border-radius: 11px; padding: 14px 16px; display: flex; align-items: flex-start; gap: 10px; }
+    .alert-item-num { width: 24px; height: 24px; border-radius: 50%; flex-shrink: 0; background: #f5a623; color: #1a1a2e; font-size: .72rem; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+    .alert-item p { font-size: .84rem; color: rgba(255,255,255,.8); line-height: 1.5; font-weight: 500; }
+    .alert-item p strong { color: #fff; font-weight: 800; }
+    @media (max-width: 540px) { .alert-grid { grid-template-columns: 1fr; } .alert-banner { padding: 22px 20px; } }
+    .booked-banner { display: none; background: #f0fdf4; border: 2px solid #16a34a; border-radius: 16px; padding: 20px 24px; margin-bottom: 24px; text-align: center; }
+    .booked-banner.show { display: block; }
+    .booked-banner .bb-icon { font-size: 2.4rem; margin-bottom: 10px; }
+    .booked-banner strong { display: block; font-size: 1.1rem; font-weight: 900; color: #15803d; margin-bottom: 6px; }
+    .booked-banner p { font-size: .88rem; color: #166534; line-height: 1.6; margin-bottom: 16px; }
+    .btn-rebook { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: #fff; font-family: inherit; font-size: .9rem; font-weight: 800; padding: 13px 28px; border-radius: 100px; border: none; cursor: pointer; box-shadow: 0 4px 16px rgba(22,163,74,.35); transition: background .2s, transform .15s; }
+    .btn-rebook:hover { background: #15803d; transform: translateY(-2px); }
+    .btn-next-steps { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 16px 24px; margin-bottom: 20px; background: #fff; border: 2.5px solid var(--green); border-radius: 14px; text-decoration: none; font-family: inherit; font-size: .95rem; font-weight: 800; color: var(--green); box-shadow: 0 2px 12px rgba(22,163,74,.12); transition: background .15s, transform .15s, box-shadow .15s; }
+    .btn-next-steps:hover { background: #f0fdf4; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(22,163,74,.2); }
+    iframe#booking-frame { width: 100%; border: none; overflow: hidden; display: block; min-height: 700px; }
+    .footer-note { text-align: center; font-size: .76rem; color: #94a3b8; margin-top: 24px; line-height: 1.7; }
+    .footer-note a { color: var(--blue); font-weight: 600; }
+    .calendar-reschedule-card {
+      background: #fffbeb;
+      border: 1.5px solid #fde68a;
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      color: #78350f;
+      text-align: left;
+    }
+    .calendar-reschedule-card strong {
+      color: #1a1a2e;
+    }
+    .calendar-reschedule-card .card-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #b45309;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .calendar-reschedule-card p {
+      margin-bottom: 8px;
+    }
+    .calendar-reschedule-card p:last-child {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+<!-- BANNER-START: enrollment-paused [DISABLED, site open; re-enable steps in PROJECT.md]
+<div id="enrollment-paused-banner" style="position:fixed;inset:0;z-index:2147483647;background:#0b0b0b;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;display:flex;align-items:center;justify-content:center;padding:32px;text-align:center;">
+  <div style="max-width:640px;">
+    <div style="font-size:clamp(28px,5vw,44px);font-weight:700;line-height:1.15;margin-bottom:18px;">We're temporarily not accepting new students</div>
+    <div style="font-size:clamp(16px,2.2vw,20px);line-height:1.5;opacity:.85;">Please check back later, thank you for your patience!</div>
+  </div>
+</div>
+<style>html,body{overflow:hidden !important;}</style>
+BANNER-END -->
+  <div class="funnel-bar">
+    <div class="funnel-bar__inner">
+      <div class="funnel-step done"><div class="funnel-step__num">✓</div><div class="funnel-step__label">Register</div></div>
+      <div class="funnel-step done"><div class="funnel-step__num">✓</div><div class="funnel-step__label">Picture Package</div></div>
+      <div class="funnel-step done"><div class="funnel-step__num">✓</div><div class="funnel-step__label">Select Your Level</div></div>
+      <div class="funnel-step active"><div class="funnel-step__num">4</div><div class="funnel-step__label">Schedule Classes</div></div>
+    </div>
+  </div>
+  <div class="page-wrap">
+    <div class="page-header">
+      <div class="level-badge">⭐ Special Program — Just Keep Swimming!</div>
+      <h1>Registration Closed for the Season</h1>
+      <p>We are full for this swim season. Already enrolled? Your scheduling is unchanged, just use the reschedule link in your confirmation email.</p>
+    </div>
+    <div class="alert-banner">
+      <div class="alert-title"><div class="alert-title-icon">⚠️</div>IMPORTANT — Read this before you start booking</div>
+      <div class="alert-grid">
+        <div class="alert-item"><div class="alert-item-num">1</div><p>You can only book <strong>ONE time slot at a time</strong> — this is completely normal, not a bug.</p></div>
+        <div class="alert-item"><div class="alert-item-num">2</div><p>After booking, <strong>this page will automatically refresh</strong> — that's your sign to pick your next slot.</p></div>
+        <div class="alert-item"><div class="alert-item-num">3</div><p><strong>You do NOT need to re-enter your info</strong> each time — it's already saved. Just pick a new time and confirm.</p></div>
+        <div class="alert-item"><div class="alert-item-num">4</div><p>Repeat this <strong>as many times as you need</strong> until all your class slots are booked.</p></div>
+      </div>
+    </div>
+    <div class="booked-banner" id="bookedBanner">
+      <div class="bb-icon">✅</div>
+      <strong>Slot booked! You're all set for that one.</strong>
+      <p>Need another time slot? Just click below — the page will reload and your info is already filled in. Simply pick your next time and confirm.</p>
+      <button class="btn-rebook" onclick="location.reload()">&#8635; Book Another Time Slot</button>
+    </div>
+    <!-- NEXT STEPS BUTTON -->
+    <a href="https://kickingkiddos.com/done" class="btn-next-steps">
+      Done booking all your lessons? Go to next steps here →
+    </a>
+
+    <div class="calendar-reschedule-card">
+      <div class="card-title">🔄 Need to Reschedule?</div>
+      <p>Please <strong>do not book a new slot on this calendar</strong> to reschedule. Doing so creates a duplicate booking.</p>
+      <p>To reschedule correctly, open the confirmation email you received after booking that specific appointment and use the <strong>reschedule link</strong> inside it. Since there are <strong>no refunds</strong>, booking a duplicate slot will result in a loss of payment.</p>
+    </div>
+
+    <!-- CALENDAR EMBED -->
+<!-- REG-CLOSED-START: booking calendar hidden 2026-06-25 (season full). To REOPEN, delete this notice + style block and uncomment the original calendar iframe below. -->
+    <style>.alert-banner,.btn-next-steps,.booked-banner{display:none !important;}</style>
+    <div style="max-width:620px;margin:0 auto 8px;background:#fff;border:1px solid #e2e8f0;border-radius:24px;box-shadow:0 20px 50px rgba(10,126,245,.12);padding:48px 36px;text-align:center;">
+      <div style="display:inline-flex;align-items:center;gap:8px;background:#fff7e8;color:#b5740f;font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;padding:8px 16px;border-radius:999px;margin-bottom:22px;">🏊 Registration Closed for the Season</div>
+      <h2 style="font-size:clamp(1.5rem,3.4vw,2rem);font-weight:800;color:#1a1a2e;line-height:1.2;margin:0 0 18px;">Thank you for your interest in Kicking Kiddos</h2>
+      <p style="font-size:1.05rem;line-height:1.65;color:#475569;margin:0 0 18px;">We are full and no longer accepting new registrations for this swim season.</p>
+      <p style="font-size:1.05rem;line-height:1.65;color:#475569;margin:0 0 24px;">A limited number of openings may be extended into August and September. If you would like to be considered, please email us and we will add you to our inquiry list.</p>
+      <a href="mailto:kickingkiddos@yahoo.com?subject=Kicking%20Kiddos%20Inquiry%20List" style="display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#0A7EF5,#0557b8);color:#fff;font-weight:700;font-size:1.05rem;text-decoration:none;padding:16px 32px;border-radius:14px;box-shadow:0 12px 28px rgba(10,126,245,.32);">✉️ Email Us to Join the Inquiry List</a>
+      <div style="margin-top:16px;font-size:.92rem;color:#64748b;">Already enrolled? Your classes are unchanged, use the reschedule link in your confirmation email.</div>
+    </div>
+    <!--
+    ORIGINAL CALENDAR (uncomment this iframe and delete the notice + style block above to reopen booking):
+    <iframe src="https://link.nilsdigital.com/widget/booking/HoKfyEqiXwFIBFifs7lP" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="HoKfyEqiXwFIBFifs7lP_1773358990563"></iframe>
+    -->
+<!-- REG-CLOSED-END -->
+    <script>
+      (function () {
+        var email = new URLSearchParams(window.location.search).get('email');
+        if (!email) return;
+        var iframe = document.getElementById('HoKfyEqiXwFIBFifs7lP_1773358990563');
+        if (!iframe) return;
+        iframe.src = iframe.src + '?email=' + encodeURIComponent(email);
+      })();
+    </script>
+  <script src="https://link.nilsdigital.com/js/form_embed.js" type="text/javascript"></script>
+    <p class="footer-note">Questions? Email Kicking Kiddos at <a target="_top" href="mailto:kickingkiddos@yahoo.com">kickingkiddos@yahoo.com</a></p>
+  </div>
+  <script>
+    window.addEventListener('message', function(e) {
+      try {
+        var data = typeof e.data === 'string' ? JSON.parse(e.data) : e.data;
+        if (data && (data.event === 'appointment_booked' || data.action === 'appointment_booked' || data.type === 'appointment_booked' || (data.event && data.event.toLowerCase().includes('booked')) || (data.action && data.action.toLowerCase().includes('booked')))) { showBookedBanner(); }
+      } catch(err) {}
+    });
+    function showBookedBanner() { document.getElementById('bookedBanner').classList.add('show'); document.getElementById('bookedBanner').scrollIntoView({ behavior: 'smooth', block: 'center' }); }
+  </script>
+  <p style="text-align:center;font-size:.72rem;color:#94a3b8;padding:16px 0 24px;font-family:inherit;">Website &amp; marketing systems by <a href="https://nilsdigital.com" target="_blank" rel="noopener" style="color:#64748b;font-weight:600;">nilsdigital.com</a></p>
+</body>
+</html>

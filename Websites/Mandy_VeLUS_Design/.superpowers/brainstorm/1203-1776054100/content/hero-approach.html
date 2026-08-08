@@ -1,0 +1,84 @@
+<h2>Hero Section: Which direction?</h2>
+<p class="subtitle">The hero is the first thing visitors see. Since lead gen is the goal, the CTA needs to dominate. Which approach feels right for VELUS?</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#FAF6F0;padding:24px;min-height:260px;">
+      <!-- Mockup A: Current layout refined -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;height:100%;">
+        <div style="display:flex;flex-direction:column;gap:10px;justify-content:center;">
+          <div style="background:rgba(184,154,106,.12);border:1px solid rgba(184,154,106,.25);border-radius:100px;padding:4px 12px;font-size:10px;color:#6B4E2A;width:fit-content;letter-spacing:.08em;text-transform:uppercase;">Full-Service Design</div>
+          <div style="font-family:Georgia,serif;font-size:22px;font-weight:300;color:#3A241E;line-height:1.1;">Interiors Shaped<br>With <em style="color:#B89A6A;font-style:italic">Intention</em></div>
+          <div style="font-size:10px;color:#7A6B62;line-height:1.6;">We transform homes through full-service interior design...</div>
+          <div style="display:flex;gap:8px;margin-top:4px;">
+            <div style="background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);color:#fff;padding:8px 16px;border-radius:8px;font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;">Get In Touch</div>
+            <div style="border:1px solid rgba(58,36,30,.08);padding:8px 16px;border-radius:2px;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#3A241E;">View Work</div>
+          </div>
+          <div style="display:flex;gap:1px;margin-top:8px;border:1px solid rgba(184,154,106,.25);border-radius:8px;overflow:hidden;background:rgba(255,255,255,.7);">
+            <div style="flex:1;padding:8px;text-align:center;"><div style="font-family:Georgia;font-size:14px;color:#B89A6A;">150+</div><div style="font-size:7px;color:#7A6B62;text-transform:uppercase;letter-spacing:.05em;">Projects</div></div>
+            <div style="flex:1;padding:8px;text-align:center;border-left:1px solid rgba(184,154,106,.15);"><div style="font-family:Georgia;font-size:14px;color:#B89A6A;">7 Yrs</div><div style="font-size:7px;color:#7A6B62;text-transform:uppercase;letter-spacing:.05em;">Experience</div></div>
+            <div style="flex:1;padding:8px;text-align:center;border-left:1px solid rgba(184,154,106,.15);"><div style="font-family:Georgia;font-size:14px;color:#B89A6A;">5.0</div><div style="font-size:7px;color:#7A6B62;text-transform:uppercase;letter-spacing:.05em;">Rating</div></div>
+          </div>
+        </div>
+        <div style="background:#d4c5b0;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#8a7a6a;font-size:10px;">
+          [Swipe Gallery]<br>with project photos
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. Refined Current Layout</h3>
+      <p>Keep the 2-column hero (text left, gallery right) but fix the stats with real numbers (150+ projects, 7 years, 5.0 rating). Tighten spacing, stronger CTA prominence. Safe and proven.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#FAF6F0;padding:24px;min-height:260px;">
+      <!-- Mockup B: Full-bleed image hero -->
+      <div style="position:relative;background:#2A1E1A;border-radius:12px;height:100%;min-height:220px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(42,30,26,.3),rgba(42,30,26,.7));border-radius:12px;"></div>
+        <div style="position:relative;z-index:1;">
+          <div style="font-size:9px;color:rgba(243,235,221,.6);letter-spacing:.15em;text-transform:uppercase;margin-bottom:10px;">Full-Service Interior Design · Chicago</div>
+          <div style="font-family:Georgia,serif;font-size:26px;font-weight:300;color:#F3EBDD;line-height:1.1;margin-bottom:8px;">Interiors Shaped<br>With <em style="color:#B89A6A;font-style:italic">Intention</em></div>
+          <div style="font-size:10px;color:rgba(243,235,221,.55);margin-bottom:14px;max-width:280px;">Full-service design from concept through completion.</div>
+          <div style="display:flex;gap:8px;justify-content:center;">
+            <div style="background:linear-gradient(135deg,#9a6d1f,#B89A6A);color:#fff;padding:10px 20px;border-radius:8px;font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;">Get In Touch</div>
+            <div style="border:1px solid rgba(255,255,255,.2);padding:10px 20px;border-radius:2px;font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:#F3EBDD;">View Work</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. Full-Bleed Image Hero</h3>
+      <p>Dramatic full-width hero image with text overlay. More immersive and emotional. The work speaks first, CTA is centered. Higher visual impact but less room for proof stats.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#FAF6F0;padding:24px;min-height:260px;">
+      <!-- Mockup C: Asymmetric with floating CTA card -->
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:16px;height:100%;">
+        <div style="display:flex;flex-direction:column;gap:10px;justify-content:center;">
+          <div style="font-size:9px;color:#B89A6A;letter-spacing:.15em;text-transform:uppercase;">Full-Service Interior Design</div>
+          <div style="font-family:Georgia,serif;font-size:22px;font-weight:300;color:#3A241E;line-height:1.1;">Interiors Shaped<br>With <em style="color:#B89A6A;font-style:italic">Intention</em></div>
+          <div style="font-size:10px;color:#7A6B62;line-height:1.6;">We transform homes through full-service interior design, resolving every detail from concept through completion.</div>
+          <div style="display:flex;gap:8px;margin-top:4px;">
+            <div style="background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);color:#fff;padding:10px 20px;border-radius:8px;font-size:9px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;">Schedule a Call</div>
+          </div>
+        </div>
+        <div style="position:relative;">
+          <div style="background:#d4c5b0;border-radius:12px;height:100%;"></div>
+          <!-- Floating proof card -->
+          <div style="position:absolute;bottom:-8px;left:-16px;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);border:1px solid rgba(184,154,106,.2);border-radius:10px;padding:10px 14px;box-shadow:0 8px 24px rgba(0,0,0,.08);display:flex;gap:12px;align-items:center;">
+            <div style="text-align:center;"><div style="font-family:Georgia;font-size:16px;color:#B89A6A;font-weight:400;">150+</div><div style="font-size:7px;color:#7A6B62;text-transform:uppercase;">Projects</div></div>
+            <div style="width:1px;height:24px;background:rgba(184,154,106,.2);"></div>
+            <div style="text-align:center;"><div style="font-family:Georgia;font-size:16px;color:#B89A6A;font-weight:400;">5.0★</div><div style="font-size:7px;color:#7A6B62;text-transform:uppercase;">Rating</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. Asymmetric + Floating Proof</h3>
+      <p>Clean 2-column but with a floating glass proof card overlapping the image. Single prominent CTA ("Schedule a Call"). Stats feel organic, not forced. Best balance of proof + aesthetics.</p>
+    </div>
+  </div>
+</div>

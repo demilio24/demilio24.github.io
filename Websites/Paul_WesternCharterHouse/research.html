@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow">
+<title>Research: The Foundation of Every Position</title>
+<meta name="description" content="Research is the foundation of Western Charter House: gathering data, speaking with stakeholders, and filing FOIs on the issues shaping British Columbia. Browse the issues and follow each from research into policy.">
+<meta property="og:title" content="Research: Western Charter House">
+<meta property="og:description" content="The foundation of every position. Gathering data, speaking with stakeholders, and filing FOIs, then moving each issue into policy.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="uploads/WesternCharterHouse-Logo-dark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2.2">
+</head>
+<body>
+
+<header class="site">
+  <div class="head-inner">
+    <a class="head-brand" href="index.html" aria-label="Western Charter House home">
+      <span><span class="bn-1">Western</span> Charter House</span>
+    </a>
+    <nav class="head-nav" aria-label="Primary">
+      <a href="thought.html">Team</a>
+      <a href="research.html" class="active">Research &amp; Policy</a>
+      <a href="advocacy.html">Ridings</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-inner anim">
+      <div class="crumb"><a href="index.html">Home</a><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg><span>Research &amp; Policy</span></div>
+      <span class="kicker">The foundation</span>
+      <h1>Research &amp; <span class="gold">Policy</span></h1>
+      <p class="sub">Before we recommend anything, we establish the facts. Through rigorous research and data collection, we formulate principled, evidence-based policy solutions for British Columbia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ISSUE OVERVIEW (the project we are actively working on) -->
+<section class="section section--cream" id="issues">
+  <div class="wrap">
+    <div class="section-head anim">
+      <span class="eyebrow">The issues</span>
+      <h2>What we are working on</h2>
+      <p class="lead">These are the projects our research team is focused on right now. Open them to see what we have learned. We have presented the report in the most understandable way. Breaking down the problem into easily digestible parts. Open it to see what we have learned, the source material behind it, the people and stakeholders involved, and where the research leads in policy.</p>
+      <div class="explorer-stat">
+        <span class="big"><span class="r" data-countup>0</span></span>
+        <span class="txt">issue moving from research into principled policy.</span>
+      </div>
+    </div>
+
+    <div class="filter-toggle-row anim">
+      <button class="filter-toggle" id="filterToggle" aria-expanded="false" aria-controls="explorerBar">
+        <svg viewBox="0 0 24 24"><path d="M3 5h18M6 12h12M10 19h4"/></svg>
+        Filter &amp; search
+        <svg class="chev" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+    </div>
+    <div class="explorer-bar" id="explorerBar">
+      <div class="search-row">
+        <div class="search-box" id="searchBox">
+          <svg class="ico" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" id="policySearch" placeholder="Search issues: autism, housing, crime, taxes..." aria-label="Search issues" autocomplete="off">
+          <button class="clear" id="searchClear" aria-label="Clear search"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+        </div>
+        <div class="result-count" id="resultCount"></div>
+      </div>
+      <div class="filter-tabs" id="filterTabs" role="group" aria-label="Filter issues by category"></div>
+    </div>
+
+    <div class="ov-grid" id="issueGrid"></div>
+    <div class="empty-state" id="emptyState">
+      <h3>No issues match that search.</h3>
+      <p>Try a different keyword or reset the filters.</p>
+      <button class="btn btn--dark" id="resetFilters">Reset filters</button>
+    </div>
+    <div class="legend-box anim">
+      <h4>Project Status Legend</h4>
+      <div class="legend-items">
+        <div class="legend-item"><span class="ov-stage status-research-coming-soon">Research Coming Soon</span> <span class="lbl">Upcoming area of interest</span></div>
+        <div class="legend-item"><span class="ov-stage status-research-in-progress">Research in progress</span> <span class="lbl">Active fact-gathering and data collection</span></div>
+        <div class="legend-item"><span class="ov-stage status-research-complete">Research complete</span> <span class="lbl">All facts gathered and verified</span></div>
+        <div class="legend-item"><span class="ov-stage status-policy-in-progress">Policy in progress</span> <span class="lbl">Formulating recommendations and solutions</span></div>
+        <div class="legend-item"><span class="ov-stage status-policy-complete">Policy complete</span> <span class="lbl">Recommendations finalized and published</span></div>
+        <div class="legend-item"><span class="ov-stage status-advocacy-in-progress">Advocacy in progress</span> <span class="lbl">Active public mobilization and MLA contact campaign</span></div>
+        <div class="legend-item"><span class="ov-stage status-advocacy-complete">Advocacy complete</span> <span class="lbl">Mobilization campaign concluded</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="brand"><img src="uploads/WesternCharterHouse-Logo-light.svg" alt=""> Western Charter House<small>Established in British Columbia</small></span>
+        <p class="foot-about">An independent, non-partisan civic institution advancing principled solutions for British Columbia, one riding at a time.</p>
+      </div>
+      <div class="foot-col">
+        <h4>The work</h4>
+        <a href="thought.html">Team</a>
+        <a href="research.html">Research &amp; Policy</a>
+        <a href="advocacy.html">Ridings</a>
+      </div>
+      <div class="foot-col">
+        <h4>Get involved</h4>
+        <a href="index.html#stay">Sign up by riding</a>
+        <a href="advocacy.html">Your riding map</a>
+        <a href="research.html">The issues</a>
+        <a href="index.html#faq">Questions</a>
+      </div>
+    </div>
+    <div class="foot-facts">
+      <div class="foot-fact"><b>93</b> BC electoral ridings mapped, each with its MLA and 2024 result.</div>
+      <div class="foot-fact"><b>4</b> regional chapters: Okanagan, Lower Mainland, Interior, Island.</div>
+      <div class="foot-fact"><b>$0</b> in government funding. Independent and member-backed.</div>
+      <div class="foot-fact"><b>Free</b> to join. Non-partisan, evidence-based, for British Columbia.</div>
+    </div>
+    <div class="foot-line">Western Thinking. Enduring Principles.</div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="year"></span> Western Charter House. All rights reserved.</span>
+      <a href="https://x.com/CharterHouseBC" class="foot-x" target="_blank" rel="noopener" aria-label="Western Charter House on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <span class="tag">Thought &bull; Policy &bull; Research &bull; Public Understanding</span>
+    </div>
+    <p class="foot-credit">Designed and built by <a href="https://nilsdigital.com" target="_top" rel="noopener">Nils Digital</a>.</p>
+  </div>
+</footer>
+
+<script src="assets/site-data.js?v=2.2"></script>
+<script src="assets/site.js?v=2.2"></script>
+</body>
+</html>

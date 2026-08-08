@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{--green:#0fbf7a;--neon:#00ff88;--neon-soft:#6dffa6;--bg:#03110a;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:radial-gradient(110% 80% at 50% 0%,rgba(0,255,136,.10),transparent 55%),var(--bg);
+    font-family:'IBM Plex Sans',sans-serif;color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:110px 96px}
+  .art::before{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(0,255,136,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,.04) 1px,transparent 1px);
+    background-size:48px 48px}
+  .brand{position:relative;font-family:'Inter';font-weight:700;letter-spacing:.42em;font-size:23px;
+    color:var(--neon-soft);text-transform:uppercase;text-indent:.42em;margin-bottom:18px}
+  .tick{position:relative;width:74px;height:4px;border-radius:4px;background:var(--neon);margin:26px 0 40px;box-shadow:0 0 18px rgba(0,255,136,.5)}
+  .head{position:relative;font-weight:700;font-size:96px;line-height:1.02;letter-spacing:-.02em}
+  .head .n{color:var(--neon)}
+  .sub{position:relative;font-weight:500;font-size:42px;line-height:1.32;color:#cfe7da;margin-top:46px}
+  .sub .g{color:var(--neon-soft);font-weight:700}
+  .cta{position:relative;margin-top:48px;font-family:'Inter';font-weight:800;font-size:34px;color:var(--neon)}
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="brand">Nils Digital · Automation</div>
+    <div class="tick"></div>
+    <div class="head">Can you name<br><span class="n">5</span> places AI should<br>be running in<br>your business?</div>
+    <div class="sub">Most owners can't.<br>That's what the <span class="g">audit</span> is for.</div>
+    <div class="cta">Book yours →</div>
+  </div>
+</body>
+</html>

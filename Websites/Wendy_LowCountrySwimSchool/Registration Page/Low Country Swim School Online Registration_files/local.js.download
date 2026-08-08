@@ -1,0 +1,101 @@
+var Jr;
+(function (Jr) {
+    var Base;
+    (function (Base) {
+        var Storage;
+        (function (Storage) {
+            var LocalStorageAdapter;
+            (function (LocalStorageAdapter) {
+                var storageSupported = false, localData = {};
+                try {
+                    window.localStorage.setItem('test', '');
+                    window.localStorage.getItem('test');
+                    window.localStorage.removeItem('test');
+                    storageSupported = true;
+                }
+                catch (ex) { }
+                function localGet(name) {
+                    if (storageSupported) {
+                        return window.localStorage.getItem(name);
+                    }
+                    else {
+                        return localData[name];
+                    }
+                }
+                LocalStorageAdapter.localGet = localGet;
+                function localSet(name, value) {
+                    if (storageSupported) {
+                        window.localStorage.setItem(name, value);
+                    }
+                    else {
+                        localData[name] = value;
+                    }
+                }
+                LocalStorageAdapter.localSet = localSet;
+                function localRemove(name) {
+                    if (storageSupported) {
+                        window.localStorage.removeItem(name);
+                    }
+                    else {
+                        delete localData[name];
+                    }
+                }
+                LocalStorageAdapter.localRemove = localRemove;
+            })(LocalStorageAdapter || (LocalStorageAdapter = {}));
+            var Local;
+            (function (Local) {
+                var prefix = 'jrls_';
+                function set(key, value) {
+                    key = prefix + key;
+                    var storedValue = null;
+                    var intermediate = {
+                        v: value
+                    };
+                    try {
+                        storedValue = JSON.stringify(intermediate);
+                    }
+                    catch (e) {
+                        console.error('could not serialize data for localstorage');
+                        return false;
+                    }
+                    ;
+                    LocalStorageAdapter.localSet(key, storedValue);
+                    return true;
+                }
+                Local.set = set;
+                function get(key) {
+                    key = prefix + key;
+                    var value = LocalStorageAdapter.localGet(key);
+                    if (!value)
+                        return undefined;
+                    var parsedValue = null;
+                    try {
+                        var intermediate = JSON.parse(value);
+                        parsedValue = intermediate.v;
+                    }
+                    catch (e) {
+                        console.error('could not parse data from localstorage');
+                        return undefined;
+                    }
+                    return parsedValue;
+                }
+                Local.get = get;
+                function remove(key) {
+                    key = prefix + key;
+                    LocalStorageAdapter.localRemove(key);
+                }
+                Local.remove = remove;
+                function test(value) {
+                    var key = "jr_test_".concat(Date.now());
+                    set(key, value);
+                    var retrieved = get(key);
+                    remove(key);
+                    var afterClear = get(key);
+                    return [retrieved, afterClear];
+                }
+                Local.test = test;
+            })(Local = Storage.Local || (Storage.Local = {}));
+        })(Storage = Base.Storage || (Base.Storage = {}));
+    })(Base = Jr.Base || (Jr.Base = {}));
+})(Jr || (Jr = {}));
+//# sourceMappingURL=local.js.map

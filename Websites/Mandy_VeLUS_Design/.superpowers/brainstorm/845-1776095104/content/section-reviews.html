@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 6: Reviews</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e0e0e0; }
+  h1 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 6px; text-align: center; padding-top: 32px; }
+  .sub { font-size: 13px; color: #555; text-align: center; margin-bottom: 32px; padding: 0 24px; }
+  .variation { margin: 0 24px 40px; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #1e1e1e; cursor: pointer; transition: border-color .4s, box-shadow .4s; }
+  .variation:hover { border-color: rgba(184,154,106,.35); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 48px rgba(184,154,106,.12); }
+  .vl { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #1a1a1a; }
+  .vn { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  .vt { font-size: 14px; font-weight: 500; color: #fff; }
+  .vd { font-size: 12px; color: #555; padding: 12px 24px; line-height: 1.7; border-top: 1px solid #1a1a1a; }
+  .selected .vn { background: #fff; color: #B89A6A; }
+  .mock { background: #FAF6F0; padding: 64px 40px; }
+  img { max-width: 100%; display: block; }
+</style>
+</head>
+<body>
+
+<h1>Section 6: Reviews</h1>
+<p class="sub">Real Google reviews. Styled to look like they're pulled directly from Google. Excluding the negative one.</p>
+
+<!-- A: 3-col Google review cards -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">A</div><div class="vt">3-Column Google Cards — Classic</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">Client Experiences</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">What Our Clients Say</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;">
+        <!-- Review 1 -->
+        <div style="padding:28px 24px;border-radius:14px;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 4px 20px rgba(42,30,26,.04);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span style="font-size:12px;color:#7A6B62;">Google Review</span>
+          </div>
+          <div style="color:#B89A6A;font-size:14px;letter-spacing:2px;margin-bottom:12px;">★★★★★</div>
+          <p style="font-size:13px;color:#7A6B62;line-height:1.8;font-style:italic;margin-bottom:16px;">"We recently moved into a beautiful home in Lincoln Park and hired VELUS Interiors to help renovate multiple spaces. From the start, we trusted Mandy to bring our vision to life..."</p>
+          <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Nicole Karkalis</div>
+          <div style="font-size:11px;color:#A89A90;margin-top:2px;">a year ago</div>
+        </div>
+        <!-- Review 2 -->
+        <div style="padding:28px 24px;border-radius:14px;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 4px 20px rgba(42,30,26,.04);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span style="font-size:12px;color:#7A6B62;">Google Review</span>
+          </div>
+          <div style="color:#B89A6A;font-size:14px;letter-spacing:2px;margin-bottom:12px;">★★★★★</div>
+          <p style="font-size:13px;color:#7A6B62;line-height:1.8;font-style:italic;margin-bottom:16px;">"Mandy is amazing. Her eye for everything from fixtures, to flooring, to small timeless touches is impeccable. She communicates throughout the entire project so you know exactly what you're getting. 10/10."</p>
+          <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Zakiya B</div>
+          <div style="font-size:11px;color:#A89A90;margin-top:2px;">a year ago</div>
+        </div>
+        <!-- Review 3 -->
+        <div style="padding:28px 24px;border-radius:14px;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 4px 20px rgba(42,30,26,.04);">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+            <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span style="font-size:12px;color:#7A6B62;">Google Review</span>
+          </div>
+          <div style="color:#B89A6A;font-size:14px;letter-spacing:2px;margin-bottom:12px;">★★★★★</div>
+          <p style="font-size:13px;color:#7A6B62;line-height:1.8;font-style:italic;margin-bottom:16px;">"Mandy is a design wizard and a true professional. She staged my Chicago home so well it basically sold itself. Then, she worked her magic in our Barcelona apartment..."</p>
+          <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Ghire S</div>
+          <div style="font-size:11px;color:#A89A90;margin-top:2px;">a year ago</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Clean 3-column grid. Each card has the real Google "G" logo, 5 gold stars, italic review text, reviewer name, and "a year ago" timestamp. White solid cards on ivory. Classic and trustworthy.</div>
+</div>
+
+<!-- B: Horizontal scroll of more reviews -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">B</div><div class="vt">Horizontal Scroll — More Reviews Visible</div></div>
+  <div class="mock" style="padding:64px 0;">
+    <div style="text-align:center;margin-bottom:48px;padding:0 40px;">
+      <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">Client Experiences</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">What Our Clients Say</div>
+    </div>
+    <div style="display:flex;gap:16px;overflow-x:auto;padding:0 40px 20px;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;">
+      <!-- Review 1 -->
+      <div style="flex:0 0 340px;scroll-snap-align:start;padding:28px 24px;border-radius:14px;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 4px 20px rgba(42,30,26,.04);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span style="font-size:12px;color:#7A6B62;">Google Review</span>
+        </div>
+        <div style="color:#B89A6A;font-size:14px;letter-spacing:2px;margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:13px;color:#7A6B62;line-height:1.8;font-style:italic;margin-bottom:16px;">"We recently moved into a beautiful home in Lincoln Park and hired VELUS Interiors to help renovate multiple spaces. From the start, we trusted Mandy to bring our vision to life..."</p>
+        <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Nicole Karkalis</div>
+        <div style="font-size:11px;color:#A89A90;margin-top:2px;">a year ago</div>
+      </div>
+      <!-- Review 2 -->
+      <div style="flex:0 0 340px;scroll-snap-align:start;padding:28px 24px;border-radius:14px;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 4px 20px rgba(42,30,26,.04);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span style="font-size:12px;color:#7A6B62;">Google Review</span>
+        </div>
+        <div style="color:#B89A6A;font-size:14px;letter-spacing:2px;margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:13px;color:#7A6B62;line-height:1.8;font-style:italic;margin-bottom:16px;">"Mandy of VELUS Interiors transformed my homes in NY and Chicago into spaces that truly reflect my style. From our first meeting to the final reveal, her attention to detail was extraordinary..."</p>
+        <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Shaandj Ferguson</div>
+        <div style="font-size:11px;color:#A89A90;margin-top:2px;">a year ago</div>
+      </div>
+      <!-- Review 3 -->
+      <div style="flex:0 0 340px;scroll-snap-align:start;padding:28px 24px;border-radius:14px;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 4px 20px rgba(42,30,26,.04);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span style="font-size:12px;color:#7A6B62;">Google Review</span>
+        </div>
+        <div style="color:#B89A6A;font-size:14px;letter-spacing:2px;margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:13px;color:#7A6B62;line-height:1.8;font-style:italic;margin-bottom:16px;">"Mandy is amazing. Her eye for everything from fixtures, to flooring, to small timeless touches is impeccable. She communicates throughout the entire project. 10/10."</p>
+        <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Zakiya B</div>
+        <div style="font-size:11px;color:#A89A90;margin-top:2px;">a year ago</div>
+      </div>
+      <!-- Review 4 -->
+      <div style="flex:0 0 340px;scroll-snap-align:start;padding:28px 24px;border-radius:14px;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 4px 20px rgba(42,30,26,.04);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span style="font-size:12px;color:#7A6B62;">Google Review</span>
+        </div>
+        <div style="color:#B89A6A;font-size:14px;letter-spacing:2px;margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:13px;color:#7A6B62;line-height:1.8;font-style:italic;margin-bottom:16px;">"Mandy is a design wizard and a true professional. She staged my Chicago home so well it basically sold itself. Then, she worked her magic in our Barcelona apartment..."</p>
+        <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Ghire S</div>
+        <div style="font-size:11px;color:#A89A90;margin-top:2px;">a year ago</div>
+      </div>
+      <!-- Review 5 -->
+      <div style="flex:0 0 340px;scroll-snap-align:start;padding:28px 24px;border-radius:14px;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 4px 20px rgba(42,30,26,.04);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span style="font-size:12px;color:#7A6B62;">Google Review</span>
+        </div>
+        <div style="color:#B89A6A;font-size:14px;letter-spacing:2px;margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:13px;color:#7A6B62;line-height:1.8;font-style:italic;margin-bottom:16px;">"We had the pleasure of working with VELUS Interiors for our home renovation in Maryland, and we couldn't be happier with the results. They understood our style perfectly..."</p>
+        <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Troy Valladares</div>
+        <div style="font-size:11px;color:#A89A90;margin-top:2px;">a year ago</div>
+      </div>
+      <!-- Review 6 -->
+      <div style="flex:0 0 340px;scroll-snap-align:start;padding:28px 24px;border-radius:14px;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 4px 20px rgba(42,30,26,.04);">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span style="font-size:12px;color:#7A6B62;">Google Review</span>
+        </div>
+        <div style="color:#B89A6A;font-size:14px;letter-spacing:2px;margin-bottom:12px;">★★★★★</div>
+        <p style="font-size:13px;color:#7A6B62;line-height:1.8;font-style:italic;margin-bottom:16px;">"I had the pleasure of working with Mandy on my bedroom design in Atlanta. The transformation is nothing short of spectacular. She understood my adventurous style from the beginning..."</p>
+        <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Roni King</div>
+        <div style="font-size:11px;color:#A89A90;margin-top:2px;">a year ago</div>
+      </div>
+    </div>
+    <div style="text-align:center;font-size:11px;color:#A89A90;margin-top:8px;">← Scroll for more reviews →</div>
+  </div>
+  <div class="vd">Horizontal scrolling row — shows 6 reviews (all her best ones). You can swipe through on mobile, scroll on desktop. Shows 3 at a time on desktop with a peek of the 4th. More reviews = more trust. Same Google card styling.</div>
+</div>
+
+<!-- C: Featured quote + grid below -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">C</div><div class="vt">Featured Quote + Grid — Hero Review</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">Client Experiences</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">What Our Clients Say</div>
+      </div>
+      <!-- Featured quote -->
+      <div style="text-align:center;max-width:700px;margin:0 auto 48px;padding:40px 32px;border-radius:16px;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 8px 32px rgba(42,30,26,.06);">
+        <div style="color:#B89A6A;font-size:16px;letter-spacing:3px;margin-bottom:16px;">★★★★★</div>
+        <p style="font-family:'Cormorant Garamond';font-size:24px;color:#3A241E;line-height:1.5;font-style:italic;font-weight:300;margin-bottom:20px;">"We recently moved into a beautiful home in Lincoln Park and hired VELUS Interiors to help renovate multiple spaces, including all the bathrooms, our master bedroom, dining room, and living room. From the start, we trusted Mandy to bring our vision to life."</p>
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;">
+          <svg width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+          <span style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Nicole Karkalis</span>
+          <span style="font-size:11px;color:#A89A90;">· a year ago</span>
+        </div>
+      </div>
+      <!-- Smaller cards below -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <div style="padding:24px 20px;border-radius:12px;background:#fff;border:1px solid rgba(58,36,30,.06);">
+          <div style="color:#B89A6A;font-size:13px;letter-spacing:2px;margin-bottom:10px;">★★★★★</div>
+          <p style="font-size:12px;color:#7A6B62;line-height:1.7;font-style:italic;margin-bottom:12px;">"Her eye for everything from fixtures, to flooring, to small timeless touches is impeccable. 10/10."</p>
+          <div style="font-size:14px;color:#3A241E;font-weight:400;">Zakiya B</div>
+        </div>
+        <div style="padding:24px 20px;border-radius:12px;background:#fff;border:1px solid rgba(58,36,30,.06);">
+          <div style="color:#B89A6A;font-size:13px;letter-spacing:2px;margin-bottom:10px;">★★★★★</div>
+          <p style="font-size:12px;color:#7A6B62;line-height:1.7;font-style:italic;margin-bottom:12px;">"Mandy is a design wizard. She staged my Chicago home so well it basically sold itself."</p>
+          <div style="font-size:14px;color:#3A241E;font-weight:400;">Ghire S</div>
+        </div>
+        <div style="padding:24px 20px;border-radius:12px;background:#fff;border:1px solid rgba(58,36,30,.06);">
+          <div style="color:#B89A6A;font-size:13px;letter-spacing:2px;margin-bottom:10px;">★★★★★</div>
+          <p style="font-size:12px;color:#7A6B62;line-height:1.7;font-style:italic;margin-bottom:12px;">"We couldn't be happier with the results. They understood our style perfectly, even out of state."</p>
+          <div style="font-size:14px;color:#3A241E;font-weight:400;">Troy Valladares</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">One big featured review card in the center (large Cormorant text, full quote), then 3 smaller cards below with shorter excerpts. Creates hierarchy — the best review gets the spotlight. The smaller cards provide volume/variety.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

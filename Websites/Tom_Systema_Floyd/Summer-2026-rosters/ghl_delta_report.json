@@ -1,0 +1,79 @@
+{
+  "summary": {
+    "upserted": 5,
+    "upsertOk": 5,
+    "upsertErr": 0,
+    "deleted": 3,
+    "deleteOk": 3,
+    "deleteErr": 0
+  },
+  "upserts": [
+    {
+      "email": "kimyounes11@gmail.com",
+      "code": 201,
+      "new": true,
+      "contactId": "kzkNezQ3f7kzwX9eOCnX",
+      "students": "Miles Younes (Wk3)"
+    },
+    {
+      "email": "stacykassatly@gmail.com",
+      "code": 201,
+      "new": true,
+      "contactId": "LCjmAJ44czCODjUJtnmC",
+      "students": "Sloane Kassatly (Wk6)"
+    },
+    {
+      "email": "allisonm.mcpherson@gmail.com",
+      "code": 201,
+      "new": true,
+      "contactId": "uUEbqeTwJfdhDwhM6vkp",
+      "students": "Liam McPherson (Wk8); Luke McPherson (Wk8)"
+    },
+    {
+      "email": "shelleycarterrn@gmail.com",
+      "code": 201,
+      "new": true,
+      "contactId": "1d7914pp4uvk29ALcT8Y",
+      "students": "Bennett Carter (Wk1+2); Saylor Carter (Wk1+2)"
+    },
+    {
+      "email": "cdenisew@icloud.com",
+      "code": 201,
+      "new": true,
+      "contactId": "g7prQq26inh1VZG8HOve",
+      "students": "Norah Skaar (Wk2+8)"
+    }
+  ],
+  "deletes": [
+    {
+      "email": "priscilla-ten@hotmail.com",
+      "contactId": "hg465GKNMmvam4HMxM7j",
+      "studentName": "Lilly Heyes",
+      "code": 200,
+      "response": {
+        "succeded": true,
+        "traceId": "d2a0886c-d59a-4b42-af56-9701da91e881"
+      }
+    },
+    {
+      "email": "jennifermosst@gmail.com",
+      "contactId": "bzsvUwpMYOuFNpGqL6eQ",
+      "studentName": "Benjamin Mosst",
+      "code": 200,
+      "response": {
+        "succeded": true,
+        "traceId": "67d951c9-fda9-44cd-a9a1-f93c7950da46"
+      }
+    },
+    {
+      "email": "fennelljason42@gmail.com",
+      "contactId": "IFJ8RM2Pd4GRtu5IdZV6",
+      "studentName": "Hawthorn Fennell",
+      "code": 200,
+      "response": {
+        "succeded": true,
+        "traceId": "34f467bd-424c-4125-bc01-07d09c152915"
+      }
+    }
+  ]
+}

@@ -1,0 +1,856 @@
+Impromptu Google Meet Meeting - April 27
+VIEW RECORDING - 109 mins (No highlights): https://fathom.video/share/2g5fbfPWgJr7mNyhEypyVzR8xhMbR5Q8
+
+---
+
+0:00 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah bro, what can I say?
+
+0:03 - Roko Serdar
+  Nah dude, I'm happy.
+
+0:04 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  My  business is doing really well and I'm finally gonna  graduate from school. Thank  god. I'm so annoyed. What are you graduating from?  Information Technology Management. So IT. IT and just  web development,  like that.
+
+0:25 - Roko Serdar
+  Yeah, and is this something you want to pursue or? Hell no!
+
+0:30 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I that's the main reason why I started a business, know? So I didn't have to work a 9 to 5.  And finally, you know, I'm making good money. You know what's crazy, bro? In our countries, like after college, make like what?  I don't know how much it's in Croatia, but like in Panama, it's like $2,000 USD. It's like a good salary after college.  It depends on the industry. Yeah. Yeah. And that's like nothing, bro. That's like one client.
+
+1:00 - Roko Serdar
+  Here is like one average salary is 1.2k euros. And then my friend who finished a master's degree in IT and data science, he has 1.8k, you know, that's crazy.  Yeah, that's nothing, bro. And the thing is, like, they can get to like 5k. Yeah, they need to have like, 20 years of experience, you know, yeah, one year old.
+
+1:25 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  That's crazy.
+
+1:26 - Roko Serdar
+  And I already like breached that like 5k, you know, way, way back. And then this is like when I realized there is no way once you experience like online money that you can go back to.  There's no way. No way. Like, first of all, like, unless someone gives me like a very good salary and then I have to go to HR , then, you know, yeah, sure.  Bro, it's not even, I mean, obviously the money is super important.
+
+1:51 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  It's like having the freedom. It's like working from wherever, not having, I mean, you have to listen to your clients, but it's better than a boss.  Yeah.
+
+2:00 - Roko Serdar
+  If you ever worked like a corporate job, you understand how, like my friend, she finished like a college, like she's a physiotherapist and she's getting paid like 1,000 euros and abused by her boss.  It's like that everywhere.
+
+2:13 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  In Panama, it's the same  like my friends. Yeah. It's BS.
+
+2:19 - Roko Serdar
+  They're cleaning toilets, you know, what the , you know, but yeah, it's just like, it's insane. Once you experience this and then like, I feel like then you can never go back.  Especially like once you acquire skills, I feel like I have skills, even like if I go to zero, I can go back pretty much very easily, you know, and connections.  think connections are the most important. Like once you have connections, like, you know, hey, I'm like broke as .  Do you have any work for me? I work for like, you know, 100%.
+
+2:46 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  So yeah, we successfully escaped the matrix pretty much.
+
+2:51 - Roko Serdar
+  Yeah. Well, well, well, well, yeah, I look like that. It's just like, I just want to, I don't know, I don't see myself working.  don't I'm anywhere now. now. But I feel like escaping the matrix means basically you don't work, so you still technically work, you know?  Yeah, of course.
+
+3:07 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I mean, kind of. Escaping the matrix for me is like not having a boss. Like being an entrepreneur is so good once you actually make money.
+
+3:14 - Roko Serdar
+  Yeah, I feel like we should enjoy this moment more because I was thinking about like imagine when you like buy everything that you ever wanted, then like where is joy anymore?  Like, you know, what's the purpose, you know? I feel like we don't understand that this is the process that is going to be the best.  The good part? Yeah. Yeah, the good part because once you get to that level, it's going to be like, okay, what do I do now?  100%. Let me make some kids. Yeah. By the way, did you see Jem in a new update? Like now it's taking notes on the call, you know, with me and you and I built some workflows in Google Studio.  too. Yeah.
+
+3:52 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I have a workflow that puts the client costs in folders so that I can build RAG in the future.  I just, I built it like.
+
+4:00 - Roko Serdar
+  No, was just testing it out because I'm also using Fathom, but this might change some stuff. Same, same.
+
+4:08 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Dude, and what I did is with a Google Workspace, I built an email replier to automate that with the full context of the client.  And I also did a follow-up automation. If I need to follow up on an email after two days, they'll write it for me.  And since it knows exactly how, right, because I've been using this email address for years now, it does it perfectly.
+
+4:33 - Roko Serdar
+  Yeah, I did not really invest a lot of time because... You know what I did?
+
+4:39 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Bro, tell the Cloud Chrome extension to do it.
+
+4:45 - Roko Serdar
+  That's what I did. I did it well.
+
+4:47 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I had to just change a few things. How useless would we be? Bro, I hired a BA to help me with emails and stuff like that because my client work was ramping up.  And I was like, dude, I can automate all of it. Like, a day of work, and I fired her, like, a week after.
+
+5:04 - Roko Serdar
+  Yeah, I think the only thing you would need, like, I would think, like, appointment center is super valuable, but VA, I don't think so.  Yeah, I agree.
+
+5:13 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  No, I just need to work on sales, bro. Like, marketing has always been my weakest, I guess, like, getting people on calls has always been my weakest point.  And I'm, like, I invested into some really high-quality ads, and I'll show you in a sec if you want, for, like, my main offer, which is websites and Google Ads, because it's super profitable for me.
+
+5:35 - Roko Serdar
+  Yeah, what do you mean invested in ads? In what sense?
+
+5:38 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  No, like, I hired, like, a creative agency. It wasn't super expensive. They charged me $700 for, it's, like, it's, like, 100 static ads and then 10 videos.  But they're really good.
+
+5:53 - Roko Serdar
+  They're high-quality. But do they, like, produce results? That's the main thing. Well, I've only spent, like, four...
+
+6:00 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  And I haven't gotten any calls so far, but I don't know. I don't know if it's the ads. don't know if it's my offer.
+
+6:08 - Roko Serdar
+  The thing is, I've been learning and studying Facebook ads for the past six months. I've been testing a lot of .  And we actually built the whole video editor automation where you can edit your own videos basically for 50 cents per video, ads, captions, animations on the screen and so on.  And that way you can test a lot of creatives because now the whole thing about Andromeda is just like testing.  As much creative than angles. For example, one thing that goes well on Andromeda right now is green screen ads.  So for example, you record your video before you record like a screen of your phone and then you put yourself in front of that like as a green screen.  And then we have like five reasons why AI automation is going to improve your business and help your business.  Number one. And then we go and also we show the audits that we did in the past and go through them as well.  So I think that nowadays, like, you don't really need to, like, for example, the dumber the ad is, the more it jumps out of the box, the higher, the better conversion you're going to have.  Like, I got 27 leads, actually, no, 32 leads through one ad that was generated by Gemini AI. Damn. Right.  And it's like, and I spent, like, 50 euros on video editors to edit me, like, you know, I had nothing, like, they barely produced anything.  And the ad that I edited, video ad that I edited, got me, like, six leads. So, yeah, I think that's the offer on the landing page, or it's, like, it's, like, it depends, like, what you have to look like, your click-through rate.  do getting, like, a lot of click-through rates. If a lot of you, if you have, like, a... Let me check.  If you have a good click-through rate, then it's your landing page, right? Not converting. Or... Your creatives are not resonating with the landing page.  That could be also the thing. What's your frequency? I think the first question is, what's your click-through rate? Are people actually clicking on your ad?  I can show you my metrics for it. We spent like six and a half grand on ads and we generated 50 booking ads.  Damn.
+
+8:22 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I mean, that's not bad, honestly.
+
+8:23 - Roko Serdar
+  You pay like $120 to speak with the CEO of a million-dollar company. I don't see how that is that bad.  That's not bad.
+
+8:30 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I said that's not bad. That's good.
+
+8:33 - Roko Serdar
+  Yeah, that's good. That's good. That's amazing. But now I realize that we missed so much money because we did not really track leads who did not qualify and I think we can nurture them.  Because this is what even Charlie Morgan spoke about. He lost so much money because he was always focusing on high-ticket service and people who could afford that.  But he never focused on people who could not really afford it, but still have the money to invest, if that makes sense.  So if he created an offer... For 1k, 2k, where people can enter, still get the value, and then after that he can for sure upsell them on 10k offer, he will make so much money because he's capturing all the leads, so this is what we realized as well, that's why we implemented iClosed, we paid $120 per month for that, and bro, it captures, as soon as you enter your email and your phone number, it immediately captures all that, yeah.  gotcha.
+
+9:25 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I gotcha. Yeah. Let me show you.
+
+9:28 - Roko Serdar
+  Let me see. I think my ads just look really salesy, I think that's why they're... Yeah, you wanna make sure that your ads blend in, I can show you the creatives that I'm building, I still need to change them, because there's a lot of text on it, but I can show you...  Yeah. I mean, I haven't spent that much, it's just... But how many ads do you, like, it's one campaign, one ad set, 20 different creatives, is that the tactic you're using?
+
+9:54 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  No, I have one campaign, I have two ads, one's for static, one's for videos, and then... Nah, bro, put them all in...
+
+10:03 - Roko Serdar
+  I'm telling you that's the new Andromeda update, and this is where you're going to give a lot of options for your Facebook, just like create one ad set, one campaign, and then 15 to 20 creatives, this is like, the reason why I know that, because I'm working right now with one agency from UK, I'm building some automations, and they're in direct contact with Meta, they're spend over $200 million on ads.  Damn. Yeah. So they're spending an average $8 million per month on ads for their clients, so they kind of know their  and what's trending.  And they told me about the algorithm, the way it works is when you put like 15 to 20 ads into one ad set, then what happens is the Meta algorithm basically analyzes all of them, and then it picks up the patterns of what's working, what's not working.  And they said to me, even though that image ad produced 27, 30 leads. the reasons. know. All other ads also contributed to learning phase so that you can show your ads to the right people.  So that's why it's super important to group everything into one ad set and you also have to, in this new Andromeda update, you have to diversify all of your ads so they cannot be the same.  Because if you, for example, have five talking heads with the same script, same angle, whatever, Emeta is going to consider that as one ad.  He's just going to use it as one ad. So you need to diversify that as well. So every single ad needs to be different, like different hook, different angle, different pain point, who you address to.  In that way, you're going to give Emeta more space to test and that you're going to get the best possible results.  For example, the best performing ads that we have spent around $3,000 on one creative.
+
+11:48 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  It generated like 32 leads.
+
+11:50 - Roko Serdar
+  And then when I said to them that it spent $3,000, they said, it's fine. don't, you don't worry about that.  That's amazing. Just replicate all of these ads. Right. Yeah. And then after running ads for two to three weeks, you need to introduce new ads.  So then you see the winners who are performing, and then you want to copy more of what's happening. And then you only shut down when your cost per lead goes above your expectations.  So for example, we had one ad that only spent $5 in the whole two months. Why would I shut it off?  Let it run. Maybe sometimes in the future it's going to pick up, but no need to shut out. But I had to shut down one ad that spent like $300.  It produced nothing. Then I have the calculator where you can basically calculate how much you can spend on ads in order to be profitable.  So I inputted all of my information. Our cost per lead needs to be around $500 to $600 in order for us to be like break-even.  And after that, it's just like you're losing money.
+
+12:49 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I gotcha. I want to give you lots of this before we look at the metrics. What do you think?  mean, obviously you're really smart with building these new systems. There's both. Have. Have you thought about building an agency where you kind of do the same service and then obviously you have your automations internally to provide the service instead of building custom systems every single time?
+
+13:12 - Roko Serdar
+  No, we actually removed, like we are not going to build custom CRMs anymore. I gotcha. Because I had a call today with this guy who is basically, he's working like 25 years as an entrepreneur.  He worked at every CSuit level that you can possibly imagine, enterprise plans. He told me that at million dollar, like after you enter like big, like big levels, there is no way they're going to switch to custom CRM.  It's just because like, it's like you're telling them you're going to operate, you're going to have like an upper heart surgery, you know, and then like you say like that's like a big risk they have to take.  So he told me like just focus on audits and upselling on the audits. And when he said about audits, he told me after you build an audit, just implement this  that you said in the audit.  And this is what you upsell. And then when it comes to retail. retainer, do not charge 5k retainers. Why?  At the beginning, it's going to be amazing because they're going to see so much value from your agency. You're going to be their AI partner.  You're going to implement all of this . But what happens after you start implementing this , let's say for five months, you implement, and then things start to slowly slow down because you cannot really implement a lot more .  So they're going to be like, oh, I'm paying five grand for this.  no. At the beginning, I had so much value.  Now I don't have that much value. So rather have a lower retainer, like 1k, and then let them invite you on the projects that you want to build for them.  In that way, you increase your LTV by far. Also, when you're working with these big dogs, you want to, because obviously you're never going to work.  Like you can go on a call with the CEO, but after you close a deal, then you're not dealing with the CEO anymore.  Then comes someone else on the call with you. You want to make his life easier by actually giving him information.  you, So if it's gonna take you three weeks to finish something, in this process of three weeks, don't wait for three weeks until you show them something.  Make him be part of the process. Record him a boom video. Make him a bullet point list where you're gonna explain to him what is happening, what is going on, so he can report to his boss.  So he can be like a rockstar in his company. Because boss is gonna say, what the  is going on?  We invested into this. What's the status? And he's gonna be like, I don't know. And then he's gonna look bad in front of the boss.  And this is what you don't want. You always want to make them involved. But this is what I'm talking about, like 10 million plus businesses.  We had a couple of conversations with them through Facebook ads. I think we booked like four calls with $10 million businesses.  That makes sense.
+
+15:42 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  So your offer is just an audit, and then you do like coastal projects.
+
+15:46 - Roko Serdar
+  Yeah, but like the press funnel we run where we booked like 50 calls were custom CRMs, you know. But after like we burned like 25 leads trying to sell custom CRM, we realized there is literally no trust.  And I understand now. now. After you test and see, after you jump on the call, after they show you their process, bro, it takes  a lot of courage to transition your whole business from all these integrated systems that they have to one custom CRM from a company that is basically no-name company, you know what I mean?  So it was kind of eye-opening, let's build the audit to gain the trust and then let's see if we want to sell custom CRMs after.  And then we realized the profit margins are going to be . Like, for example, me and Adam, can run like we can 10 audits per month for sure.  Like 20k each can earn from these audits, you know? Yeah. Just by doing the audits. And profit margins are going to be insane.  The only thing you have to spend on is the advertising budget, right? Right. we want to get pretty much.  Yeah, but we want to get to the level where we spend like 10k per month on ads. Because in that way, we can also build a brand on top of it.  Because then you enter a stage where you can be omnipresent on Facebook. And you can create one campaign for leads and one.  campaign for brand awareness, and then you can funnel these people for brand awareness to Instagram, so you can gain followers and get authority, if that makes sense.  So that is the goal, because the more, it's just about the volume, bro, like at one point we were booking like 14 calls per day, 14 calls per week, which is bloody amazing, and then you get like the data bag, the data is the most important thing that you can get.  So, yeah, also like we started booking calls through Upwork, like since Adam has like 100k on Upwork plus, like literally like two hours ago, one business, one guy paid like $120 for one hour of consultation, wants to implement AI into business, and he runs a 6 million plus business.  So, if he paid for a consultation, the chances of him closing is  90%, right? it's super qualified. It's super qualified already.  It's So Upwork is also like very, very, very, very, because a lot of people are searching for that. So I even opened an Upwork profile today, I'm going to optimize it, and I already got added to an agency of Adam, so I can leverage that and do some outage as well there, because it's all about the volume at the end of the day.  And then cold email as well. Tomorrow we are starting the campaigns from Lee Gen J, like the guy who is running the call, like Oli, I don't know if you remember him.  Yeah, the guy from the group I sent you. Yeah, I went on the first call ever with Lee Gen J in the Lee Gen J community, and he was there, and I told him what I do, he asked me to stay after the call, and he offered me like, listen, I'm going to build you the whole cold email sequence, and you help me with the enriching platform that I'm building.  And we basically build the whole cold email platform now, and we automated everything, like everything from onboarding a client to buying the domains, then warming out the domains, then  changing domains when they got burned, and testing them again, again.  Yeah. Copy everything, everything. Dude, .
+
+19:04 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I've been thinking about starting like an offer where I automate the onboarding because I think that's businesses who have that problem.  They're definitely above like 500k a year and they're trying to grow, obviously. Like that's how I've started multiple projects with clients, but I can let's grow some work.  But my problem is that I have so many different skills, but I don't have enough lead flow. That's it.  That's my main thing. And that's why I started running these ads, but I haven't gotten any results so far.  And it's just referrals, which is fine. I mean, I got to 10k literally just from referrals.
+
+19:42 - Roko Serdar
+  Yeah, but that's not scalable, you know? Exactly. That is not scalable. I mean, yeah, that's why I'm  running ads.
+
+19:48 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  just not working or it hasn't picked up.
+
+19:51 - Roko Serdar
+  But you're running ads for like what offer now?
+
+19:54 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  For the website and Google ads. It's just, it's not this one. This is like a... a... Yeah, pretty much website funnel plus Google Ads, and then it's just $1,500 per month, and I have a few clients on that.  Do you have Postcog installed on your website? That what, sorry?
+
+20:20 - Roko Serdar
+  Postcog, that is a tool for tracking people. Is that like the Microsoft thing? Nah, it records all the sessions of all the leads who enter your website, and then you can see where they click.  I do not.
+
+20:32 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I know Microsoft has like a screen recording, a screen thing, but I did not implement it. Postcog.
+
+20:41 - Roko Serdar
+  Yeah, we have that, like I can share your screen so you can see how it looks.
+
+20:46 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  You're gonna take a look, bro.
+
+20:49 - Roko Serdar
+  You're gonna look, you get on it. I've just been- It has like a free plan, so you don't have to pay for anything.  Nice, I mean, it's cool. Basically, you can track the video. You have to track everything when you're running funnel.  You're probably not tracking VSL watch rate. You're not tracking probably when leads come on your website, where they click.  That is super important because you want to see, for example, if your VSL drops significantly after the first minute, your VSL has a big problem.  need to change something. But I don't think your VSL is a problem. thought your VSL is good. But then you need to see where leads click on your funnel because right now, you don't know what's going on.  And that's why data is king. Then you need to track all the data. It's pretty new.
+
+21:35 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah, you're right. I can implement that.
+
+21:38 - Roko Serdar
+  Because then, yeah, you're just like, for example, if your ads are not performing, then you need to identify the problem.  And then how do you identify the problem? You need to change only one variable to test again. If you change multiple variables, you're not going to know what's going on.  So this is why split testing comes to place. So after you run ads for like two weeks, then you should  Start implementing some changes. You know, this is like a rule of thumb. And like, for example, sometimes when we were running ads, like three days, nothing happens.  Then the four day, like three bookings, four bookings, you know? happened to me.
+
+22:12 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah. That's actually happened to me.
+
+22:15 - Roko Serdar
+  Just so you know, like ads are not linear. You know, they don't produce like, you're going to see the same booking rate every single day, which is fine.  I see a lot of people panic and then you shut down the ads. That's the worst thing you can do because then you just  up the algorithm.  You know? Yeah. No, you're  right, bro.
+
+22:31 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I got to do the, put all of them in a single ad set and then. And that's also, it tells these image creatives as well.
+
+22:38 - Roko Serdar
+  Like I'm sure you can. have image creatives. I have a bunch.
+
+22:42 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Take a look. I think they're good. I want to get your thoughts on it. These are just some that I, actually, at the end of the day, it's not what is good.
+
+22:52 - Roko Serdar
+  What is bad. It's how it performs, you know? Yeah, no, I said, I think they look good.
+
+22:56 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  They're brand new though. I literally just uploaded them before this call. So. So. Yeah, this is one pretty simple.  They charged me like three dollars per creator, which I think is amazing. After I do the math. and these.  Why don't you just like, you can generate all of this .
+
+23:15 - Roko Serdar
+  Yeah, I know.
+
+23:16 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah, but I guess I'm just , I'd rather.
+
+23:20 - Roko Serdar
+  I feel like it's too much. It's too much. Like, for example, if you open the ads, can you open again?  I feel like, for example, the orange one, I don't like. It's like too much text. And yeah, like, I feel like, you know, there is like, like when you see the ad, you need to understand, like immediately needs to grab your attention, you know?  So what will happen? Like you see the number 30 and then like, you know, then your logo at the top, you can like actually remove the logo, you know?  Because then it just crowds your space. Like it's useless to have logo on the image creatives. Like, I don't see any benefits of that.  It's just like waste your space for no reason. Yeah. Oh, you're right.
+
+23:59 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Like the headline should be.
+
+24:03 - Roko Serdar
+  Yeah, yeah. I mean, and case study as well. Like, you can just like, or maybe like, also, like, if you ever read, I don't know if you know who Chris Voss is, but he's basically an FBI interrogator.  was basically saying that book, like, never, never split the difference. Yeah, yeah. He basically talked about talks about pattern interrupts.  So he explained this, Jeremy Miner as well in like, in cold calling, like, when you're cold calling someone, then every single, like sales, a person goes like, hey, my name is, is this Emilio?  Hey, like, and then immediately proceed with the pitch. And then your brain already knows, oh, , someone is trying to sell me something.  I already know. First of all, it's an unknown number. As soon as I pick up that I know this pattern, right?  Yeah.  off. But imagine if I call you, hey, hey, is this Emilio? And you said, yeah. Hey, can you help me?  And then you immediately like, okay, I have to think now what is going on? Like, who is this? The pattern is broken.  That's pattern interrupt. You did not expect this. And now you're focused. Now you're aware, okay, what is going on?  Even though it's a cold call, but you immediately switch to a thought process because this is not familiar to you.  Exactly the same you can do with ads. For example, I can show you my creatives. One of the creatives that I have is like, we are sorry.  And then broken heart.
+
+25:24 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  That's actually good. That's really good advice. Right. then like, you see like, what is this?
+
+25:30 - Roko Serdar
+  Like, and then also like the other ad is like Reddit post. Yeah.
+
+25:34 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  You know, and then the other ad is like conversation between two business It doesn't even look like an ad.
+
+25:38 - Roko Serdar
+  Yeah. And then the conversation between two business owners talking about how can they implement AI into their business? I like that we are sorry.
+
+25:47 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  We're sorry. Your website's getting you no clients.
+
+25:50 - Roko Serdar
+  Some  like that. That's good. Or about AI. Or like, or like a whiteboard. Where the  do we implement AI?  But obviously  is censored. can on already. You Yeah. You know, like that catches attention. That's like, and this is like, I mean, this is what, you know what, I I just got lazy.
+
+26:08 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Not lazy, but it's like, I'll just hire like someone to do this and then I'll take care of some other .
+
+26:13 - Roko Serdar
+  Yeah, but you know, like, you know, one thing I realized in business is I only hire someone once I understand something, you know, so that is the best piece of advice I ever got is hire someone once you figure something out.  Like you don't have to become an expert level, but to the point you understand your audience, your ICP and who you're targeting.  This is, you know better than anyone else, you know, you know, the better what works and then what does not work.  And then if I'm going to hire in the future media buyer or like, I already know what I'm going to tell him, you know?  Right. But if I, if I hire someone just from like the get go, I don't know what the  is going on.  And then if he's not performing well, I'm going to be like, I don't know why he's not performing because I never run ads.  But now I kind of get, get the point and I know what I generated for myself when I was running ads.  So if he underperforms that and he saw experienced media buyer, they're like, just bro. Like. Like. Like. Like. Like.  Yeah, but I'm going to show you the ads for the previous funnel and the new funnel, but this is for the new funnel.
+
+27:12 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  So you're offering pretty much to get on a free call, say like, hey, yeah, I think you can do this.  And then you pitch them a 3K, won't that be me for it?
+
+27:20 - Roko Serdar
+  5K? Yeah, we have like five testimonials now and case studies, no more 3K. I gotcha. Bro, when we said like, when we said like 3K for the first business, they were like only, you know, so.
+
+27:32 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah, because you're speaking with, you know, good quality.
+
+27:37 - Roko Serdar
+  How you can open multiple pictures on Mac. Oh, you don't have a Mac, sorry.
+
+27:46 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  No, no, no, I forgot.
+
+27:47 - Roko Serdar
+  I know everyone has Mac, you know, and you're the only person who has Windows now. Bro, I don't know.
+
+27:53 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I hate Mac.
+
+27:54 - Roko Serdar
+  don't know what to tell you, bro. Okay. So this is one of the creatives, right? Newspaper. Yeah. Yeah, Oh,  Now, I'm going to change a couple of ads because I did not get the time, but I need to lower the amount of text because it's too much.  But for example, this one is pretty much like very good because this catches the attention over there.
+
+28:11 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  All these with AI? Yeah. With the...
+
+28:15 - Roko Serdar
+  Gemini, another banana. I have the automation in place with plugins. Nice.
+
+28:20 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Have you seen the new OpenAI one? It's really good. Nah, bro.
+
+28:26 - Roko Serdar
+  You just saw the hype. Like, I'm not... Like, for example... For hype? Yeah. I mean, maybe for wide coding, but I'm like not really jumping too much on the train because Claude also released some new stuff that...  So yeah, this is the next ad, you know, just, you know... Yeah. Pattern interrupt. And now this is the Reddit ad, but I have to lower the amount of text, but this is basically the whole idea behind it, right?  Gotcha. And then you call out, right? The business. Is that completely fake or is that actually... Bro, this is Gemini.
+
+28:59 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah. This is the authority ad.
+
+29:05 - Roko Serdar
+  You see how clear it is? You see the atom here, pretty clear. Then this is the we are sorry.  I just tried to integrate AI and automation in a business, spent months figuring it out and eventually just gave up, you see?  Then this is the, I also have to lower the amount of text, but this is the Google one, how to actually integrate AI into a business.  This is the bill that you're paying, you know? This is the conversation between two business owners. Like, have you tried integrating AI into your business?  I've been completely paralyzed, no idea where to start. You know, mate, I was the same, just got an audit done from APG Software, they mapped out everything, blah, blah, blah.  You see? And then, you know, then this is the AI, where the  do we start? You know, step one, step two, step three, no idea.  Pattern interrupt, like where the  do we start? Like, it's gonna... Do you run video ads? Yeah, this is all.  I have 20 creatives, and then I'm going to have 10 video ads as well, ready.
+
+30:05 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I got you.
+
+30:06 - Roko Serdar
+  Then these things keeping me up at night. Obviously, I'm going to lower the text, but again, just to test it out.  Then these type of ads, test, you see how clear it is? Yeah. For example, your creatives also want to sparkle some curiosity.  So then when they click on the landing page, they get more information about... Right, right. So you can also play around that.  You don't have to reveal all the cards in creatives, especially in image creatives. Another one, you know. Then this one, this one I like.  Can you name five places AI should be running in your business? Right? This is a very good one. Yeah.  It's basically an open-ended question that, , I don't know. Yeah. But I'm a business owner. Then you, how are you running your marketing in 2026?  Also me, honestly, we're running the entire thing through Cloud now. Yeah, that's true. So we have the whole Cloud basically pulls business manager data every single week, analyzes...  Saves it to database and writes a report, which we should change. Then this is what your AI audit looks like.  Every business we work, again, just to test it out to see how this will perform. Then this is a case study ad, right?  This we actually found in one of the businesses, right? Again, same case study ad, just a different format, you see?  Like this big number, you know, and then book your AI audit. Now these are, these are the, and then these are the ads that are generated by AI, like edited by AI, sorry.  I gotcha. I'm just gonna mute them because you don't know. Is one hour or one minute? One minute, bro.
+
+31:40 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  What the ?
+
+31:42 - Roko Serdar
+  Like calling them out, you know, talking head in front of a camera with animations and then like.
+
+31:51 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  , bro. Your ads are way better than mine.
+
+31:56 - Roko Serdar
+  Like this is all done by AI. and as he's speaking as soon as he starts speaking about it then it changes the scene right you see this one covers very well like from the from the experience it's just because like it blends in with the like a real format you know how old is adam 24 25 25 this year i got you i'm like 26 okay you see like bro if you were not escaping the matrix you'd be like in a  1.5k retainer and sucking someone's dick in a job yeah but yeah this is basically like one of the ads then this is the green screen ad um look roko i gotta lock in  
+
+33:00 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  And then this is the hot take one, and then this is the testimonial one.
+
+33:05 - Roko Serdar
+  Look, like we had a client coming to Adam's place and basically they recorded like two-hour podcast on this, how we build the whole sequence, and also 30-minute talking in front of the screen for his business, and then like this is the hook.  Like I already said, five to 10 hours a week, like minimum. That's Tom. He runs that, you see, and then we introduce the lead and introduce like who he is, and then we give more context about it, right?  And yeah. That's really good. I like that.
+
+33:40 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I like that. Bro, my marketing class. After watching this, I'm like, dude, I wouldn't even click on my own .
+
+33:47 - Roko Serdar
+  And then what I did is like, I used AI to cut all the important stuff from the three-minute video, right?  So then... Yeah. Yeah. then added the captions as well, you know, through AI, because I have... I editor from Serbia that gave me a lot of templates that I can use for this.  I got you. Yeah, this is one of the ads, and then also this is the next ad. This is the VSL ad.  What's your daily spend?
+
+34:12 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Just $100? Yeah, for now, but we're going to increase it.
+
+34:16 - Roko Serdar
+  Right. Like our plan is to spend  $500 a day. Yeah, I mean, of course.
+
+34:22 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  You got to start.
+
+34:24 - Roko Serdar
+  See, then this is the basically VSL ad that we have on the landing page, but also on the...
+
+34:29 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  That's in the audit.apgsoftware.com. This is the one.
+
+34:34 - Roko Serdar
+  This is what I wrote and he just one shot at it. And then we had like a guy from Serbia who works for like a music company, music production company.  He edited this for us. That's good. They charged like 2,000 euros for it, but they charged only 400 for us.
+
+34:51 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Damn! Yeah, bro.
+
+34:53 - Roko Serdar
+  Because color grading, sound, animations, everything, you know, it does make a difference. Like I've had somebody... Yeah, there's a big gap in like code quality.
+
+35:04 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah, yeah.
+
+35:06 - Roko Serdar
+  So this is what we're also going to run as an ad as well. And yeah, that's pretty much it.  I have a couple of them in the process, but also like I want to show you something as well in the funnel.  Wait, let me just go to... And then like this is like, for example, when you look, this is the whole funnel.  Right. And then after they scroll through 50%, you see this like pops up immediately with the only few cells left.  Right. And then case studies, testimonials, and then... Did you make it with Fathom? Yeah. And lovable. And then on thank you, obviously here, you're going to have an eye closed calendar.  But now right now, since I did not book, it's not showing. But essentially here, then you can immediately add to calendar.  This is super important. And then this, we have the video here. We have a video here, and then basically in this video, we are basically just explaining...  Wait, let me just show you, just so you can... Because this is super important, bro. After you're booking a call, you need to tell them to add it to the calendar and then reply to yes to email.  Okay? And then this is also edited by AI. And then in this video, we just tell them, hey, after you...  We're setting the expectations for the call, right? And also telling them to look at the calendar above this video and then add this to calendar.  Because iClose basically gives you just one press of a button that you can press on that link and it immediately opens Google Maps, sorry, Google Maps, Google Calendar, and then you can immediately add that to the calendar and press yes, press yes that you're coming.  So then you also get notified there as well.
+
+36:46 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah, I know. I've done that in my own songs before. You can do that with high level as well.  Yeah, yeah.
+
+36:53 - Roko Serdar
+  Yeah, I know, know, know. It's just like... I... Ever since I discovered iClose, it's just like the game changer because I want to nurture it.  I want to squeeze it. You the whole funnel, you know, and you see, like, this is what all edited by.
+
+37:05 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Are you using HighLevel for the follow-ups?
+
+37:09 - Roko Serdar
+  Nah. I'm only going to use HighLevel for database reactivation now. I gotcha. gotcha. That's the only thing. Everything else is, like, we're slowly migrating away from HighLevel because there are so many tools out there.  We basically build, like, let me show you, in our CRM that we have. Let me show you. We can call people from the CRM now, you know?  I gotcha. We connected basically, like, if I go to Contacts right now, let me just change this. Yeah, and as you can see, I can come to the lead.  Every lead gets synced. See? I have the option to call. And then immediately calls, makes, like, if I go to Messages and Calls, I think, yeah, you see?  A seven-minute call, and the whole transcript is here, get saved to the database, and then we can use that to train our AI model on it.  I gotcha. gotcha. Yeah, so, yeah, that's our CRM that we were selling, but now we are just like, let's use it for our own team and then just focus on building these audits.  Right.
+
+38:12 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  And what is your, just curious, because I, you know, I struggled with it probably before when I was doing like the custom projects.  I mean, I still am, but do you have like a calculator for developing quotes or is it just like a simple formula by hour?  How do you kind of go about that?
+
+38:28 - Roko Serdar
+  Work, bro, work in sprints.
+
+38:30 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I gotcha. Don't in, don't like, don't, don't tell fixed price.
+
+38:35 - Roko Serdar
+  Pretty much. Yeah. If you work by fixed price, you're going to get, you're going to shoot yourself in the leg because you might end up doing way more.  Right. And if you do sprints, you do sprints in two weeks, you set up expectation with the client. We're to do this for two weeks.  You're going to pay me this much. I deliver, you see, we continue. And then if they  off after like four weeks, you don't care.  At least you get paid. Right. Right. Right. And Then you can charge more. You can also charge more by sprint.  Don't do fixed-price.
+
+39:05 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  How much do you charge for a two-week sprint? Depends on the project and the complexity. I thought it was like, for two weeks, they get 100 hours of your team.  then in 100 hours, you estimate you can get this and this and this done. I thought it was like that.  So I thought it was fixed.
+
+39:22 - Roko Serdar
+  Yeah, but if you're going to build like a complex... It's not like if you're going to compare a complex like a Rack Yeah.  If a complex Rack system that needs, first of all, cleaning the documents and everything, then that's going to charge more hours.  For example, if you're an agency, $2,000 is the minimum. Like you're losing money on that. Just so you know, because you have to do advertising.  This is where you spend money. Let's say you have people working for you as well. And trust me, other businesses understand that.  It took me a long time to figure that out.
+
+39:54 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah.
+
+39:56 - Roko Serdar
+  Just like charging more, it's just a little bit better. Always better. I agree, you should not charge more if you don't have any results, of course, you should then eat  with bad clients.  That's what we all did. But at some point, you have to migrate away from that and just respect yourself more.  You know, I just like accepted like two weeks ago because he's my friend, like 200 or 400 euros for building two landing pages and two quizzes for his, what is that, digital drop shipping store, right?  Yeah. nightmare. A A nightmare. I did that just because he's a friend. But never again. I said to myself, why am I doing this, you know?  Right.
+
+40:35 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Because the less, the least are the ones that give you the biggest headache. Yeah.
+
+40:42 - Roko Serdar
+  And also they request a lot, you know, for the price they pay, you know? Because it means a lot to them because they're broke.
+
+40:49 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah. But also they understand that.
+
+40:51 - Roko Serdar
+  So that's why they are extracting the... But I understand. But I'm saying if you're a beginner, lower the ego for sure.  But. But... At a certain point, just up the price and just say,  off, I don't want to work with you.  I'm not saying there are no bad clients who are paying good. You also have bad clients there, but at least you're getting paid for the  that they're giving you.  You know what I mean? So there is a trade-off that you can kind of accept and move on. So yeah, this is what I also had realization.  Also, I had a big realization with Facebook ads. Everything I saw, this is a money printing machine. If you understand ads, if you actually put in time to figure them out, you could never run out of business.  Even if you go broke, as soon as you validate the offer, ads. I  called outreach.  cold calling people. That's so ...  Yeah. Also, I would rather delegate that to someone else, hire people than do that by myself. But Facebook ads, cold email as well.  You can target people. can get them really... I agree.
+
+42:02 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I think he's the most retarded thing of all time. I really do.
+
+42:07 - Roko Serdar
+  What did you say?
+
+42:07 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I think cold calling is like the most retarded way of getting clients. really do.
+
+42:13 - Roko Serdar
+  That guy, Giuliano.
+
+42:15 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah, he's from Chicago, actually.
+
+42:17 - Roko Serdar
+  Bro, he's  like, he now sells the course, of course. Of course, bro. Let me show you the old ads.  Do you guys have a cool community or no? Yeah, we have like 500 members on it. But is it paid or is it free?
+
+42:30 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  We charge it. Now it's free. Nice. Let me show you the previous ads.
+
+42:36 - Roko Serdar
+  So you see. You know what, bro?
+
+42:38 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I spoke with this guy, with Jake Sederland. I think you're better at ads than him. Like the advice you're giving me just makes way more sense.
+
+42:46 - Roko Serdar
+  Who? Jake Sederland?
+
+42:49 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I don't know who that is.
+
+42:50 - Roko Serdar
+  Pick him up, bro.
+
+42:51 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  He has like, not even trolling. I think he's made over, like all of his agencies, I think he's made over $30 million online.  Bye. Bye. And what did he tell you? It's just his advice is more like...
+
+43:08 - Roko Serdar
+  What?
+
+43:09 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Bro, it's just like general, I guess, tests. I don't know. It's not really actionable, like more than in-page variations.  But what you're saying about the creatives makes a lot of sense. Yeah, mean, that's just like psychology behind it.
+
+43:27 - Roko Serdar
+  Like, yourself, for example, what I do, every single time I scroll on Facebook or Instagram, if something catches my attention, I save that or screenshot that.  I have a folder for it. And then use that as an inspiration. Don't  pay some agency 700 euros. They give you some generic , right?  All of your creatives look the same. To be honest, they all look the same. No diversification, you know? Well, if you look at mine, look at it.  They are super diversified. Like, look, this one, let me just go with the amount spent. You see, like, I just split-tested the 200k and 1 million.  As you can see, spent 3.4 Is that like they're calling out the avatar? Yeah, yeah, yeah. This one. But again, we booked a couple of 500k leads just to see how they perform, you know.  Ah, decent, decent, but let me just, yeah, this one crashed it. Nice.
+
+44:32 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  This one, you see, like, that's like a good pattern interrupt, no? 100%.
+
+44:38 - Roko Serdar
+  Like, see, and then look, we got a lot of engagement down there.
+
+44:43 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  That's good. They started arguing.
+
+44:44 - Roko Serdar
+  One guy started promoting his business and Adam told me, should we delete it? No,  him, like, let him do whatever he wants, know.  It's just like we are just engaging more people. That lowers our cost per click, you know? Right. So, I don't mind.  And this was... This was... Yeah, that performed the best, which, by the way, generated by AI, spent zero pennies, actually just subscription on Gemini, that's pretty much it.  Then, this was the second one that performed. This was edited by me, by the way, for free.
+
+45:17 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I want to see the flows you have. You said you have a flow that edits for you? Is it just with Quad?  Yeah, I'll show you.
+
+45:25 - Roko Serdar
+  But I'm not going to edit the video. It's just because everyone starts lagging, but the whole PC starts to ramp up.  But this is the hook. Mark Cuban, I would spend every minute investing into AI. That is the authority hook, right?  Yeah. And then, see, this is the ad that got us seven leads. I got you. And it spent like $500.  Now, do the math. Or maybe more. I'm going to see. And then, look, this is the most important thing.  Like, 90% of the time, this is what they read. Only that. No one reads this  below that. No one.  Like, don't try to focus on a wall of text. Just , this is the most important thing. Right? This and hook of the ad.  All this  below, nah, that's dog . No one actually, you know. I actually tested this to see if anyone's gonna notice.  No one actually, they just click learn more. Right? Bro, I wanna get your thoughts on this, because right let me just show...  Yeah, sorry. So yeah, it's paying like $550. $78. I got seven bookings for $78. You know? Yeah. That's very good.  And then also, this was the one that performed like this. Oh, this was edited talking head. I can show you this as well.  Then I'm gonna show you the ads and then you can tell me what you think. Yeah. What you had in mind.  So yeah, this one was edited by, you know. No, I might see. by, know. This was not, this was edited before AI.
+
+47:02 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Right. And again, call out at the top.
+
+47:06 - Roko Serdar
+  And then, super simple, like nothing , and then what else, what else? Oh yeah, this one. And this one also.  So this is what Yoni Aiza performed. Everything else was, you see, your CRM shooting series before it was, you know.  And you see like, again, some kind of a pattern interrupt. And then if you see other ads, like just to show you, look how many ads we, you know, we have on our one creative.  And as you can see how much they spent. Not really, not a lot. That's why I did not shut them down.  You know, I let them run. Right. But for example, this one, where was it? I think, yeah, golden bucket.  I turned it off. No. Yeah. No, Frankenstein turned it off because it started spending and it did not generate it.  Oh, the Frankenstein. Look. Look. Thank you.
+
+48:01 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I feel like you smoked some weed before making these  creatives. That's good. That's a good one, bro. That's a good one.  Nah, bro, I don't smoke.
+
+48:13 - Roko Serdar
+  I never smoked in my life. Yeah, but then again, you don't know what's going to work, what's not going to work.  That's true. The guy that was saying, that's true. But that's why you need to test a lot of .  And as you this one got rejected second time because I'm mentioning investing.  hell.  meta. But what else? What else?  else? But yeah, look, this one as well. I think it generated one lead. Yeah, but like I said, I don't know what's going to work, what's going to perform, what's not going to perform just because like I just passed a  ton.  Yeah. Yeah, but also diversify. As you can see, all of them are  different. Like, none of them are the same.  And then this is where you give Meta time to adapt to you, especially when you're spending $100 a day, which is still a small budget, but more than enough to get some fraction and get some data.  And also, like, important thing, let me just show you. Where is it? Where is it? Where the  is that?  Because I know it's... Wait, let me just go to the new funnel. By the way, when you're uploading video ads, you have to render them in two times.  You know that? I don't know. What do you mean?
+
+49:47 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I know I get a warning every time I upload a video.
+
+49:50 - Roko Serdar
+  Yeah, bro, if you don't render it in two formats, you're going to have a zoom-in picture. You have a real format and one-by-one format.  Oh, I know, I know. Like the...
+
+49:58 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Do you mean like when... When... It asks you for the placement, like you play, you put original or like 16 or 9 by 16.
+
+50:04 - Roko Serdar
+  Yeah, look, look, look, look, you see, I have this type of format is only on feeds, right? Because it has this black thing around, because if I put this one, it's just going to zoom in and you're not going to see the text on feed.  But this one is showing only, not on feed, but on everything else, right? Because it makes sense. I gotcha.
+
+50:28 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  , I didn't know that.
+
+50:29 - Roko Serdar
+  Then, then also like turn off the, this one, turn off that, because then you're going to compete against your biggest competitors.  Turn this off. This is going to drastically improve your ads. Don't, don't have this on. Okay.
+
+50:42 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Turn this off.
+
+50:43 - Roko Serdar
+  Then also, also, what else, what else, what else? Yeah. All AI enhancements.  off. Like, turn them off. Like, don't allow Meta, because if you add, like, Meta can add clown music to your...  Just don't, like, remove, like, remove... Turn off everything. All the enhancements you see, just turn them off. And don't look at this .  Like this does not matter. I had like 65 when I started running my first funnel. I was like, what the ?  And also this error, it's only one placement, but that's . No one basically sees ads there. Bro, I gotta fix so much .
+
+51:16 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Holy . Yeah.
+
+51:19 - Roko Serdar
+  And yeah, as you can see, they're all uploaded. I just need to press publish, but I still am fixing this one with the bunch of text.  But yeah, that's pretty much it. also, if you do not know Events Manager, double check if you do have conversion API set up.  Is that the one where you have to set up the server or some ?
+
+51:36 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah, set up with the server.
+
+51:37 - Roko Serdar
+  see, this one is connected to iClosed. Basically, in iClosed, you can immediately integrate with, let me just show you.  You can immediately integrate with, like look. Meta? Yeah, look past. And then I have, you see this one, I actually already booked.  So when you're on a call and then you want to reschedule, you press no sale. Why? Then follow up scheduled.  Continue. Smoke stream. Let's say logistics. And then it immediately populates all the data that he inputted, all the qualifying questions, and then you can immediately schedule him for another call.  And then you are not going to do this because I still have to follow him up. He's not responding.  But basically, here we have all the analytics. Then you can track all the analytics here. And then based on the answers that leads give you, you can track what leads give you the best answer.  And based on that, if you have more closers on your team, you can route to the best closer. I gotcha.  The best leads. Yeah. And then if you go to global data, see, now I have all the people that inputted information.  Like disqualified, disqualified because they just inputted information and left. I gotcha. this one is qualified because it answered all the qualifying questions.  It was qualified. to We Try And then we got notified as soon as someone enters the information. Hey, like, by the way, I saw that you populated our calendar.  What was going on? Then we can try to book them. And if we can book 20% of the leads like that, amazing.  And close like one or two deals per month more, bro, that's amazing. You don't want to say no to that.  And then if you go to settings and then integrations, You see, you can integrate with all of this .  And you can integrate with Hyrus as well. This is the next thing that we're going to add. But right now it's an overkill because we only have Facebook ads.  But like in Metapixel, you see, like, you know, and then like it triggers on call booked and qualified. Obviously, we were tracking for call booked, not qualified.  Because qualified is when someone answers the questions and it's qualified. And call booked is when actually someone books in a call.  So then you want to see that this is connected. I first. I don't In order to do this, you have to go to test events, add this to your code, you know, this one, add this to your code, custom code, or whatever, like I added this to if I go to test event code, and then I tested it out to see if everything is coming, everything is coming, then delete this test code, and then try booking a call through your funnel, and then it will show up here, you need to add it manually.  These custom events will show here, and then you need to manually add them here. And then in the campaigns, if you go to the ad set level, they should appear like you and then you go to the edit section.  And then you go to the EC conversion event, and then you can track here inviting meeting schedule. This is what you need.  This is what's super important. So this is where this is where Facebook pixel optimize around. So obviously, obviously, we're going to use the same pixel that we use for our previous funnel, right?  Yeah. So we are basically targeting businesses, but instead of having complete registration because it's inactive anymore, we are optimizing for this one.  So then it's going to optimize for this, like every single time someone books in the call, it's going to optimize around this.  Bro, you're on a whole nother level.
+
+55:16 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Like this is insane.
+
+55:19 - Roko Serdar
+  Yeah, bro.
+
+55:21 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Star Wars is $24, it's not bad. Yeah, but you cannot track all of these with $25.
+
+55:28 - Roko Serdar
+  Actually, you need $121?
+
+55:29 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah, because then you can also have something like this.
+
+55:32 - Roko Serdar
+  If you go to the event automations, look, you can send immediately this. And then you can also add in the calendar, right?  In our calendar, you can have disqualification questions, right? And then when someone is below $200,000, they cannot book a call.  We do not allow them to book a call. And then we can still call him to see what they have.  But this is basically to, you don't want people, because if unqualified people... Yeah, you don't want to waste your time.  Yeah. ... ... ... Not only that, but you're sending data to Facebook Pixel that unqualified people are booking a call, it's going to show your ads to unqualified people, right?  Right. So that's why it's super important not to allow them to book a call. Yeah, sounds like you're ...  And then bro, you are in the United States, right? Yeah. You can add this, you can add  credit score.  So whenever a lead booking a call, it checks their credit score and then it shows you on the, like, let me show you, on global data, it shows you, look.  The credit score. So you can immediately know whether they are qualified or not. Do they have money to invest, you see?  Or no? Yeah. You can only run this in the USA because you have credit scores. Yeah. So that's why you can use that.  Also, what you can do, it's super important, is you can, if I go to, look, I can only ask, I can only accept business emails.  So if they enter Gmail, I can, they... forävs. out, quickly, They're not accepted, which, by the way, when we were running the funnel, every email was business.  One person or two people booked that were gmails. They were either funnel hacking us, and the second got no shots.  So probably funnel hacking. Yeah, I got you. So then also what you can do is you can have phone validation and email validation.  Yeah. we obviously cost credits, but it's important. Yeah. For what it's worth is definitely  amazing. We don't need this.  You don't need to use this if you're going to have this. Right. Business only, right? Yeah. Because we never had a problem.  For every lead that booked with us was a good email and good phone number, right? What's your show up, Brady?
+
+57:43 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  It must be insanely high.
+
+57:45 - Roko Serdar
+  90%. Yeah.
+
+57:46 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  That's amazing. Holy . Yeah. We basically had like three or four.
+
+57:51 - Roko Serdar
+  No, like five leads. you have like three? Like what?
+
+57:56 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  How many calls are we currently doing? Right now? Nothing.
+
+57:59 - Roko Serdar
+  Like right Right now we have... Yeah, because you say you have too much, you know...
+
+58:04 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah, right now we have like two or three calls per week, which is  low.
+
+58:09 - Roko Serdar
+  But coming from Upwork and cold email. I gotcha. But when you were running ads... 17, I think like the maximum was like 17 we managed to get.  Let me show you actually on GHL. But this was not with cold email. Because cold email, we have... The guy who is running cold email for us is booking Calendly, right?  I gotcha.
+
+58:33 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Let me show you.
+
+58:36 - Roko Serdar
+  What's your close rate? It was ... You see, like this is the... This was the... This was the peak week.  I think if I combine that with cold email, we had like 17 calls. What's your close rate? Our close rate was...  Because we burned like first 20 leads. 25 leads, basically. Basically, we managed to close like six deals out of 20 calls, yeah, six deals.
+
+59:07 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  30, yeah, 30%.
+
+59:08 - Roko Serdar
+  Yeah, but it could be much, like now, we are so confident because we have six projects that we know we can charge more and we can show what we are doing.  So now, like, and they're like, bro, I'm going to database reactivate all of these , you know? Yeah, gotcha.  All these people. Also, we spoke with a guy who is doing 300 million. Damn. Yeah, we want to see what we can do with that, you know?  Because if we can close that, bro, that's a business that can basically make you rich.
+
+59:44 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Are these all like 5k retainers or 5k setup, sorry, or 3k setup you set up first and then you're doing like what, a lower retainer?  Let actually show you how to edit.
+
+59:56 - Roko Serdar
+  Do you have like a pitch deck or some ?
+
+59:58 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  be up have looks I'm This
+
+1:00:01 - Roko Serdar
+  Where is that? One second, bro.
+
+1:00:09 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Let me show you how the author does Adam take them as well.
+
+1:00:13 - Roko Serdar
+  Sometimes Adam, me, but because of the Australian time zone, he takes more than me on Australia. I took cold email because it's US based in Canada.  Bro, it's  insane when you have to be awake at 4 in the morning.
+
+1:00:29 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah.
+
+1:00:30 - Roko Serdar
+  Is it here? Nope. Wait, just let me... Because my brain stopped working and... Dude, I got so much  to do now.  Yeah, bro. Now you see the difference. I mean, I thought I was not doing  with funnels. I was feeling like an imposter.
+
+1:00:50 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Dude, I felt like I was on a decent track, but there's so much to be done. This is what makes you rich.  Like, for real. It's having... I'm sure you've already gotten word of mouth calls. Yep.
+
+1:01:10 - Roko Serdar
+  Those calls so easily.
+
+1:01:12 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Oh yeah, bro.
+
+1:01:13 - Roko Serdar
+  That's the highest. I went on a couple of sales lectures in Croatia and the easiest clause is when someone recommends you.  So this is our audit and how it looks like. We give them a login information about their business and then we have sessions of what we discussed in the session.  By the way, this is a demo there just so we can show something, you know, because we cannot really show client data because of the NDA.  But yeah, this is the process. when we go on a call with them, we basically record every single call and then we tell them what they said on the call.  And then we also like quote them what they say and then they can open that Fathom link immediately and get to that minute exactly where they say that so they can see that we're not making  up.  And then that we are here giving them all. The things that they're doing bad, you know, because of the call we had with them.  And then on the next section, what we discussed, so all the pain points that we found and optimizations we can do in their business.  Then hidden costs we uncovered, how much they are wasting per year. And then boom, like all the details, right?  And then also the quotes. And then also their hourly rate, how much they're spending and how much they're wasting per week.  Opportunities we found, like 15 opportunities, and then what we can do, right? And how much it saves per year.  And yeah, and then priority matrix so they can see what should they focus on more, right? Which is super important, your options.  And then again, waste we found. And then look, upsell here. I got you. But then like I spoke today with the guy, that enterprise guy, he told me, don't show this, make them ask you.  need. Oh, make them ask you. Yeah, because yeah, that's but he's talking about enterprise plans, enterprise, you know, teams, right?  So, you know, maybe more, maybe for smaller businesses, this is okay, but I feel like he has a point.  Also, he told me that also show negative sides of the audit. So that we also take care of that because they feel it.
+
+1:03:21 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  This is like a, like an, like an additional sales call where they feel the pain for real, you know?  Yeah, but also like, and then we can open the prototypes for them.
+
+1:03:32 - Roko Serdar
+  But also he told me that to show them like, okay, what could go wrong? And then also show that as well.  Because in that way, we also take care of that because these businesses understand that there is no way everything can be perfect.  There has to be some other stuff and then they're going to trust even more by actually you showing that, which is  amazing.  I never actually thought about it, you know? Right. And, but it makes so much sense because these big businesses like, bro, I, there is not a single time.  I was on the call where the guy who was on the call with me was my age. It was always like 40 plus.  Yeah, yeah. So they are in the business in this game longer than I've been living on this earth, right?  Some of them. Yeah, true. And then if I just show them this, but without any downsides, like, come on, bro.  You know? Right. I have more games in my feet, please, where's the catch? Right. And he's right. If you show them, oh, , I actually also show them that as well.
+
+1:04:33 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  All good, all good, all good. Yeah, it makes sense.
+
+1:04:36 - Roko Serdar
+  Yeah. So this is the audit. And then, yeah, they can see the full audit report. And then also like something that we are also going to be, that is not in this one, but it's in this one.  It is priority matrix, so you see. So they can click on all the stuff that they can implement in their business and it gives them quick wins.  So, The impact on their business, how easy it is to implement. And then these big swings are impact 10 out of 10, but it's not easy to build, right?  And then also here, they're going to have, as you can see, less of a business impact and less of an ease to implement.  then as well, here in this second quadrant, it's easy to implement, but it's not really a quick win. So this is what they can differentiate and ROI and roadmap.  You see, they can see the whole roadmap in the next six to 12 months, how much they can save.  And then the implementation one by one, what they can implement in their business, right? So a competitive edge, you go and compare their business to competitors, how much they're wasting time, you know, and how much they could be in front of their competitors after they implement this, you know?  Super  important because this one actually sells it by itself, you know? And then KPI and targets, right? Sorry. Yeah.  No, I mean, I know, I know.
+
+1:05:59 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I actually. I've already looked at the entire funnel.
+
+1:06:04 - Roko Serdar
+  Sorry, I forgot.
+
+1:06:07 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  You guys charge and then you guys have like four meetings?
+
+1:06:12 - Roko Serdar
+  Depends. Depends on the business. Because sometimes you can have like six, seven meetings, six, seven,  off. That's funny. Yeah, but yeah, it depends.  really depends. But that's like the biggest headache. Because jumping on the call. We an SOP for that.
+
+1:06:34 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  We look at onboarding. We are right now building the whole AI.
+
+1:06:39 - Roko Serdar
+  If there is a business who is not worth our time, they just go and talk with AI and we get a full report.  I gotcha.
+
+1:06:47 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I was going ask you earlier, because right now I look at it as like different entry points. Because I know the services I provide, but I don't want to have like a single page saying like, yeah, can help you with this, this, this, and this.  It's because... It's I know that won't help me convert. So I was looking at like the marketing entry point where it's like the website and the Google Ads, and then this is like, this would be like a separate one for automating or implementing, you know, even if it's deterministic automations or AI, whatever.
+
+1:07:16 - Roko Serdar
+  Why don't you, sorry for interrupting you, but why don't you combine both?
+
+1:07:22 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Awesome.
+
+1:07:23 - Roko Serdar
+  The thing is like, the thing is like, I remember back in the day when I was doing SMMA, everyone was pitching Facebook ads, right?  And it's  saturated. So how do you differentiate yourself? You don't pitch Facebook ads. You pitch what I pitched  websites and go high level for $100.  I get the value. I show them the value, what I can do. I organize their lead flow. And then I show them, by the way, I also do Facebook ads if you want to get more leads.  Oh, . Cool. Let's do it. Yeah. Super easy to get a yes. So then you can also like have a different angle where you don't even mention Google ads, but you just want to build some automation.  If you want sell them on Google Ads, that's the best way because everyone is saying the same  in your industry.  And then if you can just like, what I realized is everyone is saying the same , just differentiate yourself.  In the front end, you can have a different offer, but on the back end, that's the big pile of money that is waiting for you.  Right.
+
+1:08:22 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  No, that's exactly how I look at it. Because if I do Google Ads and websites for them, then I ask them like, hey, how's your client fulfillment process?  then, oh, I do this and this. Then I give them suggestions and like, hey, you could automate it with an intake form and then this, whatever.  But it also works backwards. Like I have this martial arts client in Florida. They do like a million dollars a year.  And I haven't helped them with marketing at all. But they needed, they were like getting a bunch of emails for like clients telling them like, hey, I want to sign up for this.  And I help them with intake for that. And then I'm going to help them with marketing afterwards. So I just look at it as different.
+
+1:09:02 - Roko Serdar
+  Yeah, bro, because like what I've realized is if you don't have authority, which you don't have, you don't have like a personal brand where you have like 500k subscribers or 100k, whatever, then you can choose who you want to work with.  You're not at that level yet. We are not at that level yet as well, but we want to get there.  Yeah. We have like 6k subscribers on YouTube, which is still like small, you know? Yeah. Then you have to provide value first or you have to provide value first and then after that you upsell them, right?  And this is by far the easiest way to get a yes because you get a quick win for them.  They develop trust. And then after that, it comes like as a natural upsell. That is the best way to do business.  Even if you have thousands of testimonials and you, right, you still want to like, it's just a less friction for them.  Right. And then it just makes, and then unless like after you dial it on. The service, then bro, if you can become the authority in your business, but then again, you still want to differentiate yourself, you just offer Google Ads, it's not enough.  It's not 2013, 14, 15, 16, right? Or even 2020, you can still run with that offer. But if you can just differentiate yourself from the competition and not offer the same BS ads, I'm not saying their ads are bad.  I mean, I'm sure you can deliver the service, but it's just other 25 agencies can as well. Right. So just by positioning yourself as like, oh, I'm just going to implement some automation in your business and charge you pennies for that.  And that is your front end. This is where you don't make money. You don't make money here, but on the back end you make money.  This is where you can charge premium price then after that. You can be easily charging. I don't know how much you're charging, but you can be charging like five grand a month.  A guy runs like a cold email agency, charges 4k, and he's doing it for us for free. Just saying no.  Oli? Ready? Ready? Yeah, he charges 4k. And pounds,  pounds, not dollars. that's, if you can clear that, I think that's even 5k.  Yeah, it's a bit more. So yeah, he can charge that because he's working with rich clients, but he's not charging us anything because we are basically helping him with this.  That's why you provide value, you get value back. But that's why I'm saying you should be, I don't know how much you're charging, but you should definitely charge more, way more.  But that's what you can after you provide value. That's super easy to ask because you say, okay, cool. This is what we do.  We charge 4k for this. And this is what you're going to get. And then do you think that they're going to hesitate?  Of course, you're going to have some clients who are going to hesitate, but you're going to get a lot of more yeses than before just because you...  No, you're  right.
+
+1:11:49 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  That's exactly what I've been doing. I just got to get, first of all, qualified businesses. Because, you know, if I help a small business with a...  If workflow or a small website build, then I can't upsell them because they don't have more problems, you know, or they don't have the money.  Nah, bro.
+
+1:12:09 - Roko Serdar
+  Yeah, they don't have the money. You want to be like, ever since I started dealing with these businesses, I realized I never want to go back.  Like I would rather solve these harder problems because obviously more money coming in, the harder are problems than focus on bottom of the, yeah, bottom of the, not funnel, but bottom of the, I don't know how to say that, but you know what I mean.  Yeah. Yeah, also like, that's what I'm saying. You should definitely like qualify more by, I don't know like how you're qualifying now, but because I did not see qualifying questions on your funnel, definitely you need that and don't also call out people in the ads like you see in the copy.  Then, and don't worry about cost per lead. It's better to have a higher cost per lead than lower cost per lead and then get  leads.  Like I've seen people like I've been talking to a lot of people for Facebook ads. I'll results. Like Like, in the AI space, they're all like, ah, I tried Facebook ads once, it did not work, I just got bots, I got very bad leads, and then when I asked them a couple of questions, I realized they don't even qualify, they're finally .
+
+1:13:12 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Bro, you're like on a  whole different level for ads. Like, the thing you showed me, it's like, I've never seen anyone talk about, or like, break it down like that, and I'm in  5k mentorship programs, they're not cheap either, and they're making a lot of money.  So, I'm sure that, you're  right, like, it just makes sense, you know?
+
+1:13:34 - Roko Serdar
+  Yeah, yeah, but also be careful, because like, I realize, right now, nowadays, especially in this school community era, you could get really good people for very cheap.  Yeah. You could pay like $100 per month for a school community and get access to 7 figure entrepreneurs, just so you know that.  No, I know, sure. I entered the lead gen J's course, and I got so lucky because I met Oli, if I did not met Oli, that course is dog .  Rs. It's a could." No, Well, they Yeah, Who told you that?
+
+1:14:02 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  But still, I'm glad I bought it because I met Oli, you know?
+
+1:14:06 - Roko Serdar
+  Just because this guy actually upsells on a course that you already bought from him. And he now created an AI course.  Yeah, yeah. Oh, what the ? A lot of his guys who are working for him are selling his  on that, which is  insane, right?  But he actually launched an AI course, right? And one guy actually bought his course and he told me it's  .  The AI won't?
+
+1:14:36 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  course, bro. He doesn't know anything.
+
+1:14:37 - Roko Serdar
+  He charges 2k for that. But he's like a good marketer. That's pretty much it. But he's bad at service delivery.  That's what I'm saying. Nowadays, that's how I learned all these ads. I'm paying $220 per month school community. I think I told you that.  Facebook ads basically. Yeah. I think now it's like you have to pay it yearly, $1.4k to get all the access that I have.  I joined like six months ago and I'm working with them closely. Like I'm showing them what I'm building and how I can improve creatives and so on.  They're giving me feedback because they want to also implement AI to their business. And I'm like going back and forth.  I have five calls with them per month, per week, sorry, five  calls. And then usually like three or four people join.  I just abuse like 20 minutes, three minutes of the call. I talk, you know, and I'm like, why would I  pay like five grand for a  coach when I have this, you know, we just want, we just, you know, that's well, that's, is what I saw like school, like changing the whole game because usually before, yeah, before you have to really spend the money to get to access to these people.  Now, like $100, you get access to people who are spending $200 million on meta, right? Yeah. That's  insane if you ask me.  So that's why like I learned all of the  from them. And also like I'm building rag with all their whole school community.  Actually obsidian rag, not really rag, but obsidian kind of rag. Like it's not really a rag, but basically. I don't know if you heard about Obsidian.
+
+1:16:02 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  No, I haven't heard of it.
+
+1:16:04 - Roko Serdar
+  But basically, let me show you the screen. When you're going to see this, you're going to be like, oh, , this is familiar.  Sharpen your thinking.
+
+1:16:16 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Oh, I remember you showed me like the, what do you call it? Knowledge graph, but this is not really a knowledge graph.
+
+1:16:24 - Roko Serdar
+  But yeah, this is connected to my cloud. So I will see Facebook Ads Mastery, understanding the customer. Boom, look.  And then when I ask question about it, it's going to pull out the information about it and then give me the answer about it, right?  And then it has all our sales calls. I mean, I have to update it, but see. Yeah. And I have the most common objections and what did they say?  And you see, and this was when we were running the CRM offer, you know. I got you. And then you can just train your AI on this tool.  So then it becomes extremely powerful. This is when AI basically becomes insane. But let me also show you this.  This is, one second. Is it here? Yeah, it's here. Yeah, this is that rack that I completed for the client.  Look at this . Damn. Yeah, look. I love it. It's beautiful.
+
+1:17:31 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yes, sir.
+
+1:17:34 - Roko Serdar
+  See, and now it has like the knowledge graph as well. Look, you can see how it's connected. Then he can go to projects.  He can pick between the projects. Like I built him the Hormozy AI. And you see, we uploaded all documents.  Then if I go to the Explorer, right, then you see, I can have and see all the chunks and how it chunked it.  All the relations, all the entities, which is super important for RAG, and then I can see all the chunks and their metadata and how they were processed, you see, and then if I go to the chat, then I have the agenting mode, I have human in the loop mode, I have other models, and then he can just choose between which one, and then how many rounds of agenting he wants, and then you see how to hire people, for example, then it gives you the answer, then when you press on it, boom.  If you remember from the lawyers, he just opened it, and then now I'm building the MCP server, that he can connect to Glod, and then immediately have interaction here, so that he doesn't have to open the app.  , bro.
+
+1:18:44 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah.
+
+1:18:47 - Roko Serdar
+  every time I speak with you, you're like...
+
+1:18:50 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Evolving.
+
+1:18:51 - Roko Serdar
+  Yeah, it's like you take Adderall, and you just  geek out on this . I don't, but like Legend J does, you know, I heard a lot of stories, bro.  They're all on something just to be concentrated for 15 hours. That's crazy.
+
+1:19:05 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  No, I think I'm going to pay both into backwards where I start with the automations, just because I feel like bigger businesses have those problems.  And if it's like an acquisition problem, it's either you're really small or you're huge and you can take on a lot more clients like this, you know?  And then the ads on the backend.
+
+1:19:26 - Roko Serdar
+  No, bro, but also what I realized is a lot of these million dollar businesses are  bad at client acquisition.  Yeah.
+
+1:19:34 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  But they've all been burned by agencies before.
+
+1:19:37 - Roko Serdar
+  Yeah, exactly. And this is why you have to accept this like granular approach where you go step by step.  Yeah. Yeah, And then once you build the authority in the space and industry, you can skip that and immediately charge premium.  Right. But until then, just go with that route. And I'm telling you, you could be making like easy, like 50, 70, 50 to 100 K.  Yeah. Then this is where you scale, and this is when you invest money into ads, and then not only ads, but you should...  Adam is sending me, we booked another call to Apple. Yeah, sorry, but yeah. Yeah, sorry.
+
+1:20:16 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I was gonna ask you, what's usually the main problem for the business that you speak with?
+
+1:20:23 - Roko Serdar
+  They wanna... What is the main problem?
+
+1:20:26 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah, what is the typical recommendation you give them implementing? Is it for onboarding? Is it for fulfillment?
+
+1:20:35 - Roko Serdar
+  onboarding, lead follow-up, like when leads, booking a call with them, how fast they're following up on them, you know?  Yeah. Marketing, like one guy, one business, a million dollar business is paying a grand for marketing agency. At the end of the month, they just get a PDF, sorry, a Google sheet report that is so  poor.  And then we give them a cloud plugin that pulls out the data every single week, and they see all the charts.  At... I think I showed you. sent you the HTML. Right? Yeah. That is basically it. And then amazing. .  We were paying eight grand for what? Yeah. And they're not even getting results. Eight grand, bro. Eight  grand. , bro.
+
+1:21:15 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  There's so much money to be made. It's retarded. It's actually retarded.
+
+1:21:19 - Roko Serdar
+  Yeah. I think you just need to position yourself. And I'm telling you, so many people are bad at what they're doing.  So many people. They don't know what. I remember when I started, I thought people knew what they're doing. But then, especially when I started entrepreneurship, I was like, how the  am I going to compete with these people?  But now, once I'm at a certain level, now when I look down below, I see the space is crowded with  noobs.  Yeah. Not even idiots, but people who cannot stick to one thing for a longer period of time. People who are afraid of everything.  People who basically, even when they got a job, they cannot deliver because they're lazy. They don't want it bad enough.  Now I'm like, bro, I was afraid of this. If I had to go back again, easy. Easy. I would.  not even hesitate and wait. But this was a big mindset shift. now when you talk with this million-dollar business and see other businesses who are in their business, what they're doing, and they're charging 8K.  To be honest, 8K Aussie dollars, but it's still  8K. That's like 6K in US dollars. It's still a lot of money.  I'm like, holy . So just reframe the mindset and just think differently. If everyone is doing the same thing, just approach it from a different angle.  That's why I build an Apple profile. And in my Apple profile, I'm talking  about like, everyone is sending you AI generated proposal.  I'm just going to send you a Loom video, go open it and watch it. And that's pretty much it.  And these are the projects I made. And that's all. You see? Again, I'm using this style of, let me be different.  Let me think outside the box. And let me pattern interrupt, you know, just so that they see, yeah, he's probably right.  Everyone is using AI, you know. So this is our. This is how I think. Just think with our own head and you're going to see how fast you can improve.  You don't need to buy like a $20,000 course to get to a certain level. I think at some point you just buy these courses to mentor high level people more than you actually buy for a course.
+
+1:23:19 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Since I've been making more money, I don't even like spending time watching courses. It's just about action because what you told me, I'm just going to look at the transcript from this and be like, okay, I need to figure out how to do this, this, this, and I'll just learn.
+
+1:23:32 - Roko Serdar
+  Bro, like execute faster. One thing I realized in business is speed. Like speed is the most important thing. Like execute, test, see.  Like especially now since you have cash flow. Cash is key in business. You can like, look at this. I'm going to spend $3,000.  I don't have any expectations. If I don't lend a single client, I'm fine. I'm fine with that. But the thing is what I'm going to learn is I'm going to get the data back, which is that $3,000 worth of data.  And I'm going to optimize it. I'm around the data. I'm going to change things based on that data. That's why you did not waste $3,000.  You got data back from these $3,000 that is super important for your business. That's a good mindset. That's a good angle to look at it.
+
+1:24:11 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Right.
+
+1:24:12 - Roko Serdar
+  This is what I always tell to people. Use that as a tool to learn stuff. Because I look at business like this.  You have inputs, then you have this big processor, and then you have outputs. then you have Facebook ads. You have Facebook ads.  You run them for two weeks. You have this processor, which is AI, meta AI. And then you have the output.  You get the output back. Okay. Now, am I satisfied with this output? If yes, continue what I'm doing. Up the volume.  I'm more creative. If I'm not satisfied, if I'm not... Then, okay, let me analyze. Let me critically think. Okay.  What is going on? Let me look at the data. Okay. I have the data. My click-through rate is fine, but people who land on the landing page are not converting.  Okay. Let me look at PostHog. See where the  they are going. Why the  are they not converting? Right. My VSL retention rate is like 10%.  this and Oh, I need to change the VSL. Let me change the VSL and continue running the funnel. Boom.  After two weeks, again, oh , now I'm getting bookings, now I'm getting leads. Okay, let me scale. And that's how you should think.  Data is king in business. Data is the most important and crucial thing in business. So many businesses are losing money that we are doing audit because they are not  tracking their data properly.  They are not even trying to follow up the leads. They think I'm just going to follow up leads once or twice.  I just follow up leads until they say  off. You know, I start sending memes. Memes are groundbreaking, bro. Like start sending memes.  I've seen you talk about that. It's true, like 50% response rate from memes. It's insane. Also, I'm using like some manipulation tactics from Chris Voss, you know, like a no-oriented question.  Like when I ask you, have you given up on this?
+
+1:25:52 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah. You know, that's like, oh , no, of course.
+
+1:25:55 - Roko Serdar
+  No, you know, that's a no-oriented question, but it's like kind of  with your brain because like no- and then he  And then also like when you're booking in a call, when you're rescheduling, always offer two times, two options, sorry.  Don't allow them to book alone. They've never booked. Like, oh, cool. What is the best time? Is it tomorrow at 10 p.m.?  I was booking on the call.
+
+1:26:20 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I never let them  go.
+
+1:26:23 - Roko Serdar
+  Yeah, exactly. But always like, for example, always like the first client that we closed through ads, he didn't actually book through ads.  He commented under the ads. I messaged him on Messenger. I booked a call through Messenger and we closed him then.  Really? Yeah. Yeah. But I also like use this tactic. Oh, does it suit better for you tomorrow or day after tomorrow?  You know, and then give him two options. Oh, it actually, because when you give two options, they don't have to think.  Right. You don't want them to think. You don't want them to think. So this is how you should read ads and any acquisition process.  But it's important to track data. If you don't track data, you're lost. You're like in the mail. And you are not tracking where you are going and then you're going to get lost.  And then when you get lost, you're going to say, oh, this is not working, you know? But while in reality it is, you're just not tracking data.  You know, you did not learn about this postcode before. Like, you know, and it's super important to see where they're  clicking on the ads.  No, was foolish. It was crazy. Yeah. Yeah. things like this, like 1%, 1%. And that's then like, you're going to get results.  And then treat ads like this. I told this to my friend. He wants to switch to media buying. I told him, and he makes like five grand per month from his job, right?  Yeah. I told him like, bro, like, why don't you invest like 1K per month into ads for yourself just to see?  And he's like, yeah, that's a good point. Like, why the ? Like, okay, you're signing clients, but the best way to learn is to actually start doing it.  Like, oh, I'm going to, I'm going to, he actually paid like $700 for a media buyer to just show him the screen, share him the screen when he's building stuff.  I'm like, bro, what? Like, you're not going to learn anything like that. You're going to go see what he's doing.  going learn anything, So that's the best way to learn is actually just implement the ads, start running them, and then see how they convert, and then after that, just optimize around that, and then track all the data.  Bro, data is king. That's why also we are pulling data every single week to see what changed, what's going on, and then we can make decisions on that.  If you're not tracking data, your business can be profitable, but it can be way more profitable, it can earn way more money because you're tracking , and then you know who to hire, who to fire based on that, because eventually we're going to start hiring people, we're going to start hiring appointment setters and maybe even sales reps.  So I have to, first of all, I have to show the sales rep how to sell because we have the data, we have the recordings, right?  That's why I don't want to hire it immediately. And then also, if he's not performing, I'm going to... I know why he's not performing, right?  Right. Because I have the data to make it up. But if I'm not have that, he can say it's bad leads.  No, it's not, bro. We know the leads are good. Yeah. And also like when you show sales rep 90% show up rate and the thing that you're selling everyone, we want to work for you.  Yeah. Because I realized and I think a lot of people told me that the biggest issue with sales rep is they don't want to work with people who have a very bad show up rate.  You know what you do once you scale up, which I really, really like.
+
+1:29:31 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Like I really like this, this kind of methodology is in my, I mean, this is probably like a few years from now is you can have like a lower ticket, just like qualification call and then need sales reps.  I think you could sell the like 1.5k. That's like maximum you can do like mid ticket before you need like a sales call.  But yeah, you have a lot of traffic coming in and trust and you're the authority that could definitely work.  Like. Like. Like. Yeah, 100%.
+
+1:30:00 - Roko Serdar
+  This is what we are planning to do as well. But yeah, right now I'm building the Claw on my Windows PC, because I don't use it anymore, so I'm going to host the server and everything there.  I gotcha.
+
+1:30:13 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  But I'm going to use Claw, not  that other , you know.
+
+1:30:17 - Roko Serdar
+  Because you cannot connect Claw to Telegram as well. Yeah. So I'm going to do that as well and use that as a selling point.
+
+1:30:25 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Dude, this call has been so valuable. I want to implement so much . I'm going to text you everything I've done.  Yeah, bro.
+
+1:30:34 - Roko Serdar
+  Like, yeah, I'm telling you, ads are working. It's just that, you know.
+
+1:30:39 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  The opportunity cost I have from ads is the highest  tax I'm paying. Like if I had two calls coming in a week, just two, and I just do like a low ticket, like  audit for whatever it is, 500 bucks just to get the relationship started.  Dude, that will, that would be so good. would make like $300,000 per year easily if I have two calls coming in per week.  Thank you. With qualified people. Because all of my clients, they love the delivery. I only have 5 star reviews and I have like 40 at this point.  I just need 2 calls, 3 calls a week and I'll be set. Set.
+
+1:31:12 - Roko Serdar
+  Yeah, that's why I'm telling you like $100 a day and just like qualify them as much as possible. Add as much friction as possible as you can.  then just , yeah, don't worry about cost per lead, worry about lead quality. If the lead quality is good, the cost per lead is $200, you're fine with that.  I've seen so many businesses, oh, I want a lower cost per lead. Why? If you're selling high-tech, why? Like, what's the point, you know?  Okay, I can get you like $20 for cost per lead, but then you're going to talk , oh, leads are , you know?  And I even spoke with a guy like, bro, if you get $400 per lead and you close them, you're already in a very good spot, you know?  Right, yeah. This is the shift you need to have because I see so many people, they make this mistake that you need to put, you need to lower your cosplay as much as possible.  True. But to some degree, yeah, to some degree, like why? Like, I don't know who would not pay $200 to speak with the CEO of a $5 million company.  Right. Who would say no to that?
+
+1:32:17 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I feel like people who say no to that are  clueless about business and they're all speaking with and they all have friends in the industry or competitors and they're like, who the  is helping them?  Bro. . Yeah.
+
+1:32:28 - Roko Serdar
+  I mean, I'm telling you, bro, like, you and then also like target broad. I forgot to tell you that.  Don't target narrow. I don't know how you're targeting right now. I mean, you're targeting local businesses, right?
+
+1:32:38 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Yeah. But how do you target right now?
+
+1:32:40 - Roko Serdar
+  Because like, are you targeting like the statewide or?
+
+1:32:45 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  It's just the US. US and above 25. No, I think I put one demographic like business owner. That's it.
+
+1:32:52 - Roko Serdar
+  No, no, Remove that . Like USA broad, no  targeting on gender, no targeting on  we're
+
+1:33:03 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  So my targeting was Australia, broad.
+
+1:33:07 - Roko Serdar
+  I did not put age. And I'm telling you, I did not get any 20-year-old  on the call. Everyone was 40+.  Don't put anything in additional stuff, business owners. That will just ruin your performance. Actually, it won't do anything. Dude, I got to pause these ads because I'm going to switch the  entry point and everything.  100%, bro. Track this  and I'm telling you, if you don't get results, there is no way you don't get any results because I feel like the biggest issue right now is your creatives and then you just don't diversify enough.  I feel like you've really underestimated the Andromeda update, how much you need to diversify your creatives in order to get the best possible result.  And this is what you want because upload minimum, like 20. Aim for 20 creatives. And combine videos, like a mix of videos and static images.  Combine those two. And it's going to take a little bit longer, but bro. Trust me, once you've done this, then after two weeks, you introduce new ones, then after two weeks, you measure your metrics, and then you see what's performing, what's not performing, and based on what's performing, all of your metrics, you maybe shut down some of them, and then you add and introduce new ones based on your winners, on your potential winners, who you see, right?  Gotcha. And then also like, yeah, the things that you need to track as well is like cost per click, then obviously cost per lead, and then frequency as well, that is super important.  If the frequency goes above three, that means you should probably rotate your ad, because I don't know if you know what frequency means, but it just basically means how often people see your ad, and then when your frequency increases, usually the ad fatigues, because a lot of people are seeing, the same people are seeing the ad.  you're not getting results. Yeah, that can happen, like for example, what can happen with your best, like let's say you start running ads, and then you get a winner, and that winner is winning, winning, winning, then after a month, it starts to tank, fatigue.  Yeah. frequency increases, then you need to come with. Another angle with another winning creative and this is the point of ads right now.  Don't use lookalike audience. Don't use custom audience. You don't need that  unless your business has some previous data, a lot of data that you can import, but don't use that.  Like no one uses that anymore. I gotcha. Just so you know, because that was the thing before. Now it's just no.  And then like if you want to do one creative, one ad set and then also like if the also one thing that you might also be worried about or maybe not, but I'm just going to tell you in advance because I see a lot of people struggle with this is, oh, but the Meta is spending 90% of the budget to one ad.  Is that ad performing? Yes, but I don't see. I want to test also the other ad. Why? know, Meta invested billions of dollars into the algorithm.  What you can do is you can force it. You can force Meta to spend more money on other ads.  But the thing is, let me tell you something. So if your cost per lead is $100. Yeah. You want to spend more budget on five other ads that you've not spent.  You have to spend $500 per day in order for this to make sense because your cost per lead is $100, right?  Yeah. If you don't have the budget for that, it doesn't make sense. Just so you know, because you can actually force a meta to spend, right?  Yeah, you turn them off to a separate one. Yeah, you have actually an option, and it will create another one.  But then if your cost per lead is $100, and then if you test five different ads, you don't have $500 per day, it doesn't make any sense.  Because then what happens is, again, it's going to take time for them to convert, and then it's just going to be too much.  It doesn't make any sense. Also, meta comes out of the learning phase after you have 50 conversions, you know?  Just so know. 50? 50, yeah. What the ?
+
+1:36:54 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I've never got 50 ever, think.
+
+1:36:56 - Roko Serdar
+  Yeah. Well, after two months, we got 50, you know? But it tracks on a weekly. So it tracks like 50 conversions on a weekly basis.  But then for Legion, it's kind of different. For Legion, it's kind of different. Especially when you're selling high ticket.  You should not worry about that. And then even if it enters a learning period, don't panic. Just leave it like that.  And after a couple of days, it will leave learning period. You don't have to worry. Like the rule of thumb, if it's performing, generate links, don't touch.  Just don't touch. Because Facebook will also tell you, oh, you can do this. Don't listen to Facebook, by the way.  It will tell you, you can lower your cost per click by adding instant forms. I don't give a  about instant forms.  Right. I don't want lower cost per lead. But that's what I'm saying. It will say  like that. And you can get confused like, oh, I might fall of what Meta says.  They're a billion dollar company. No, bro. Don't listen to them. They're just going to  you up for no reason.  Even when it gives you the score of the ad, don't look at that . Mine was like, I said 67 or 70 or something like that.  And I still... So yeah, also one inside information, Meta actually wants to get rid of campaign, ad set, creative structure.  They want to make it as simple as possible. So that's why they're pushing this Andromeda update. One creative, one ad set, 20 different creatives.  That is their vision. They want to make it as simple as possible. But they're also investing billions of dollars into their algorithms.  So that's why, trust me, they know better than you. Don't think that you know more than them. They're tracking all of our data anyway.  So yeah. But yeah, it's super important. And also don't  up the conversion API. That's like test that to see if it works because that's going to determine a lot about your performance of your ad.  If that's not set up, then you're going to be clueless. Your Facebook is going to be clueless and then you're going to get no leads or bad, not really bad leads, but you're not going to get any bookings because Meta is going to show that to people you don't target.  So that is the, and then well, after. After. So you start getting leads, start closing them, don't turn off the ads.  Unless it becomes like, in our case, very, very to the point where you have to turn it off. But then...  What about lowering the budget? Increasing the budget. Don't lower it. You just  up the ad then. Why? The ?
+
+1:39:19 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Increase the budget.
+
+1:39:19 - Roko Serdar
+  Don't lower it. Why would you lower the budget?
+
+1:39:21 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  No, like, if you have too many clients coming in, you can't, like, and you said, don't turn it off.  You just lower it to, I don't 10 bucks, some  like that.
+
+1:39:29 - Roko Serdar
+  Yeah, no, no, no, no. That doesn't make any sense. If your cost per lead is like... Yeah, it'll just take longer.  Yeah, but still, like... Yeah, but still, you still... But then again, the reason why we turn it off is we want to test this audit funnel, right?  That was the main reason. You know, I want to test this audit funnel, but increase the budget. At some point, you're going to see the leads are not really coming in, that increase the budget.  That is your time to spend $200 a day. Don't be afraid to pull the trigger on that. That is the mindset, you know.  This is what you need to, like... So you start getting leads, start closing them, don't turn off the ads.  Unless it becomes like, in our case, very, very to the point where you have to turn it off. But then...  What about lowering the budget? Increasing the budget. Don't lower it. You just  up the ad then. Why? The ?  Increase the budget. Don't lower it. Why would you lower the budget?
+
+1:40:21 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  No, like, if you have too many clients coming in, you can't, like, and you said, don't turn it off.  You just lower it to, I don't 10 bucks, some  like that.
+
+1:40:29 - Roko Serdar
+  Yeah, no, no, no, no. That doesn't make any sense. If your cost per lead is like... Yeah, it'll just take longer.  Yeah, but still, like... Yeah, but still, you still... But then again, the reason why we turn it off is we want to test this audit funnel, right?  That was the main reason. You know, I want to test this audit funnel, but increase the budget.
+
+1:40:47 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  At some point, you're going to see the leads are not really coming in, that increase the budget. That is your time to spend $200 a day.  Don't be afraid to pull the trigger on that.
+
+1:40:57 - Roko Serdar
+  That is the mindset, you know. This is what you need to, like... I need to invest money in order to make money, the biggest breakthrough of 2026, invest to make more, you know, that is like the biggest piece of like the biggest mindset shift, invest money in order to make more money.  , it's like everything's counterintuitive. Yeah, but like when you see like investing to coaches, right? Why? Because you want to make more money, right?  no, I'm saying like if it's something doesn't work intuitively, you're like, okay, I got to turn it off. Yeah, but that's what I'm saying.  Like, if you're in a position and you told me that you are, don't spend money on stupid , like rather invest in your business, like be okay with like, okay, I'm going to spend 3K just to see, you know, don't panic, like because you need, first of all, you need two weeks to test.  I'm going to set up all of this . And then I'm going to send you a video explaining everything I've done.  And then you're going to tell me, okay, spend the  3K. I'm going to get the Rocco thumbs up before I do that.  Yeah, but then like, I'm going to explain to you, like, after like, start running ads. Then, I don't know if you have someone who can call these leads, or you call them by yourself.  I can call them. In the first five minutes, you know that? Yeah. Okay, I don't have to explain that.  No, I'm into her policy. Yeah, I don't understand that.
+
+1:42:16 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Then, send them, I don't know if you send them reminders before the call? Yeah, of course.
+
+1:42:21 - Roko Serdar
+  And a nurturing video or some . In case study as well, if you have? Yeah. Cool. And then on top of that, yeah, that's pretty much it.  build one for automation, but that wouldn't be that hard. That shouldn't be that hard. No, it's not hard. It's easy.  And just also be, and yeah, then after two weeks, see what's performing, what's not performing, and then slowly change creatives.  But also in this two-week process, every single day, start to, okay, how can I make a new creative? What can I, you know, get some inspiration from competitors from when you're scrolling on Facebook.  take . And then save that, and then after a week, slowly start to create new creatives, video creatives, and then add them after two weeks, like add two or three more, you know, and then you add every two weeks more and more.  What do your reminder sequences say? It's just, hey, calls in three days, or is it just like, hey, it's just...  First one is confirmation call. We don't allow them to book for like four days. You can book four days in advance.  No more. Okay? No more in advance. Then we, first of all, it's the confirmation email that they booked in the call with us, reply with yes, add to calendar, that is the first one.  The second one, 24 hours before the call, case study one, right? Showing all the case studies that we did, and also sending the SMS.  Then the third one is one hour before the call, then video testimonial on SMS, you know, that is linked with our domain.  And then 15 minutes before the call, SMS SMS and email, just to remind them one more time. Okay, here's the link.  But before, bro, I was sending them eight reminders before the call. Yeah, I've been that guy before. And a couple of them told us, holy , you do a lot of reminders.  You should stop doing that. It's annoying.
+
+1:44:16 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  And then we said, oh, we just wanted you to get on the call with us. That's why it's super important for you to get on a call with us.
+
+1:44:23 - Roko Serdar
+  I gotcha. I don't give a . If they show up on the call, that means they want to get on the call.  I don't give a  about... Yeah, I've been ghosted too many times by these leads who promise everything and they don't come.  I've become ruthless when it comes to this. Until they say to me,  off, I'm just going to follow up on them.  know? 100%. That is the mindset, bro. That is the whole client acquisition at the end of the day. But a lot of people cannot execute that because, yeah, bro, they're either lazy or like I said...  not easy. Yeah, it's not easy.
+
+1:44:50 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  But I feel like at this level that I think I am right now, I think that you can transition that knowledge into any other business and scale much faster after you validate the offer, you know?  After you validate the offer, just like ads.  run ads. Like always. But you don't run ads before you validate the offer.  Or you can, but then you don't spend a lot of money into ads.
+
+1:45:11 - Roko Serdar
+  100%. So yeah, that's pretty much it, man. Thank you, Roko. I want to implement this  and I'll let you know.  I'll let you know. bro. Try using Gemini for sure, like for ads, you know, get some inspiration, you know, and start creating them and you're going to see much better.  Because like these ones that they generated, they're like pretty, like as you can see, like they're pretty, we can test them as well, use a couple of them.  But see how they're going to perform. By the way, are we going to build a funnel for ads for automation or?  Yeah. Yeah. Then just don't mention like Google ads as well. No, I'm going to keep that company separate. Yeah.  And then just, and then in the VSL, I don't know the way you write VSLs, like how do you write VSLs?  you have any frameworks? I think I used to follow some Hermosi thing, but I like. Bro, I'm just gonna  copy your .  I'll take some inspiration. Now what you can do, like what I do is I go to like very good VSL that I found on the internet.  just download the videos, go to like extract this transcript and then go to Claude. then like I spent like five hours crafting VSLs.  It just takes time, but I just speed up the process with AI. But I can send you a couple of examples like the, for example, one VSL that I made was for our custom CRM.  Is I compared our nervous system with custom CRM, you know, like I did like a story telling what I said.  Like you want to move your hand, instant process. Like you want to jump, instant process. Like it takes one millisecond from your brain to your hand for that signal to come.  Now imagine if you run a system that has 10 different tools. Now imagine if your body is like that.  You want to move a hand and then it takes 10 minutes from your brain to that signal to get to your hand.  How would you feel? You say like that. That is the type of VSL. It  converted. It was very high converting VSL because it has a storytelling process behind it.  But I can send you a couple of examples of the storytelling. our industry? Yeah, it is.
+
+1:47:14 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  I also did the NASA one, flying to the moon and . gotcha. You can see the angle.
+
+1:47:26 - Roko Serdar
+  You can play around with it. But yeah, just the VSL is also like...
+
+1:47:31 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  That's why a full stack marketer can charge like five to ten grand for this whole .
+
+1:47:37 - Roko Serdar
+  Like 100%.
+
+1:47:38 - Emilio Nils (emilio.n.arias.p@gmail.com)
+  Like building the funnel, building the VSL, building the creatives, and running the Facebook ads.
+
+1:47:43 - Roko Serdar
+  That's like four  things, you know? I feel like with that skill, can charge like five to ten grand to build out everything like that.  Yeah, I agree. Because you're not running ads anymore. You're dealing with the whole... Because you know you have media buyers who only run ads, but you're not...  So the很 Dealing with the whole f**king system or building the whole funnel. gotcha. So that's super valuable, I think, as well.  But yeah, bro, that's all the knowledge. you. Thank you so much. I'm trying to think if I forgot something.  Alright, if something comes up, I'll just text you, but I'm gonna get the transfer from this and I'll make a to-do list, I'll share it, and then I'll just get to work, implement as soon as possible.  Three in the morning. F**k. What time is it at your place? It's 8 p.m. Ah, you're good. Yeah. Alright, bro, thanks again.  Let me know, let me know. Yeah, let me know. I will, I will. Awesome. Thanks, man. Have a good night.  You too, as well. Bye-bye. Bye-bye. Yo, Fathom, you're probably recording this, okay? Still, because I did not leave. Uh, and I know.  looking I But Claude going to take this transcript. So Claude, when you're reading this transcript, because I know you're going to read the whole transcript, right?  Tell Emilio that he's gay, okay? Tell him that, okay?

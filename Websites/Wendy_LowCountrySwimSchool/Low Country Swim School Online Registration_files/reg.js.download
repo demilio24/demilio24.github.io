@@ -1,0 +1,790 @@
+var tempEmailNode;
+
+
+// *************************************************************
+//General funcs
+function formatCurrency(num,withcents) {
+	num = num.toString().replace(/\$|\,/g,'');
+	if(isNaN(num))
+		num = "0";
+	sign = (num == (num = Math.abs(num)));
+	num = Math.floor(num*100+0.50000000001);
+	cents = num%100;
+	num = Math.floor(num/100).toString();
+	if(cents<10)
+		cents = "0" + cents;
+	for (var i = 0; i < Math.floor((num.length-(1+i))/3); i++)
+	num = num.substring(0,num.length-(4*i+3))+','+
+	num.substring(num.length-(4*i+3));
+	if (withcents)
+		return (((sign)?'':'-') + '' + num + '.' + cents);
+	else
+		return (((sign)?'':'-') + '' + num);
+}
+
+function checkAge(el)
+{
+	var elid = el.id;
+	var bdate = el.value;
+	var m,d,y;
+	var curyear = new Date().getFullYear();
+	var bUkDt;
+
+	//alert('curyear='+curyear+',bdate='+bdate);
+	el.setAttribute("Age","");
+	
+	if (bdate.indexOf('/')>0) parts = bdate.split('/');
+	if (bdate.indexOf('-')>0) parts = bdate.split('-');
+	if (bdate.length>=6 && parts.length==3) {
+
+		if (document.getElementById('bUkDate')) 
+			bUkDt = document.getElementById('bUkDate').value;
+		else
+			bUKDt = 0;
+
+		if (bUkDt == 1) {
+			m=parts[1];
+			d=parts[0];
+			y=parts[2];
+			if (bdate.indexOf('-')>0)  el.value=d+'/'+m+'/'+y;
+		}
+		else {
+			m=parts[0];
+			d=parts[1];
+			y=parts[2];
+			if (bdate.indexOf('-')>0)  el.value=m+'/'+d+'/'+y;
+		}
+		if (y.length==1) y='200'+y;
+		if (y.length==2) {
+			if (y<20) 
+				y = '20'+y.toString();
+			else
+				y = '19'+y.toString();
+		}
+	}
+	
+	//alert(m+'/'+d+'/'+y);
+	//document.getElementById('S1Age').innerHTML='<br/>Age: '+age;
+	var snum = elid.substring(0,2);
+	var elage = document.getElementById(snum+'Age');
+	if (elage) {
+		if (y>0 && m>0 && d>0) {
+			age=calcage(y,m,d);
+			//alert('calcage='+age);
+			if (age.indexOf('yrs')>0) {
+				var curage_y = age.substring(0,age.indexOf('yrs')-1)
+				//alert('setting elemID '+elid+' attribute Age='+curage_y);
+				el.setAttribute("Age",curage_y);
+			}
+			elage.innerHTML='<br/>Current Age: '+age;
+			
+			if (snum=='S1')	//check student 1 preloaded class reqs.
+			{
+				if(document.getElementById('S1C1'))
+				{
+					var s1c1=document.getElementById('S1C1').value;
+					//alert('checkAge: S1C1='+s1c1);
+					if(s1c1!=''&&s1c1!='0') {
+						var cminAge = parseInt(document.getElementById('preLoadClassMinAge').value);
+						cminAge=(isNaN(cminAge))?'':parseInt(cminAge);
+						var cmaxAge = parseInt(document.getElementById('preLoadClassMaxAge').value);
+						cmaxAge=(isNaN(cmaxAge))?'':parseInt(cmaxAge);
+						//alert('Class minage='+cminAge+',curage_y='+curage_y+',parseInt(cminAge)='+parseInt(cminAge)+',parseInt(curage_y)='+parseInt(curage_y));
+
+						var now = new Date();
+						var nowm=(now.getMonth()+1), nowd=now.getDate(), nowy=now.getFullYear();
+						//alert('now='+now+',nowm='+nowm+',nowd='+nowd+',nowy='+parseInt(nowy));
+						//next bday
+						if (m>nowm||(m==nowm&&d>nowd)) 	// has birthday has already passed this year?
+							var nextbday = new Date(m+"/"+d+"/"+nowy);
+						else
+							var nextbday = new Date(m+"/"+d+"/"+(nowy+1));
+						//alert('next bday='+nextbday);
+						var cStartDt = document.getElementById('preLoadClassStartDate').value;
+						var dStartDt = new Date(cStartDt);
+						if (isNaN(dStartDt)) dStartDt=0;
+						var cEndDt = document.getElementById('preLoadClassEndDate').value;
+						var dEndDt = new Date(cEndDt);
+						if (isNaN(dEndDt))  dEndDt=0;
+						//alert('StartDt='+cStartDt+',EndDt='+cEndDt+',dStart='+dStartDt+',dEnd='+dEndDt);
+						var s_age=parseInt(curage_y);
+						//alert('age='+s_age);
+						var bMinAge=false, bMaxAge=false;
+						if ((cminAge==''||(cminAge<=s_age && (cStartDt==''||dStartDt<=nextbday)) )||(dStartDt>=nextbday&&cminAge<=(s_age+1)))
+						{	//alert('MinAge is good.');
+							bMinAge=true;
+						} //else { alert('MinAge is NOT good.'); }
+						if ((cmaxAge==''||(cmaxAge>=s_age && (cStartDt==''||dStartDt<=nextbday) ))||(dStartDt>nextbday&&cmaxAge>=(s_age+1)))
+						{	//alert('MaxAge is good.');
+							bMaxAge=true;
+						} //else { alert('MaxAge is NOT good.'); }
+
+			            f_age = document.getElementById('_AgeFilter');
+                        var bCheckAge = false;
+                        if (f_age && f_age.value == 'Y')
+                            bCheckAge = true;
+
+                            
+						if ((bMinAge&&bMaxAge) || !bCheckAge) {
+							return true;
+						} else {
+							var link = document.getElementById('linkS1C1');
+							if (link) {className=' "'+link.innerText+'"';}
+							return false;
+						}
+						//checkClass();
+					}
+				}
+				return true;
+			}
+		} else {
+		elage.innerHTML='';
+		}
+	}
+}
+
+function checkGender(el) 
+{	//currently checking preLoaded class only.
+	var preLoadClassGender = document.getElementById('preLoadClassGender').value;
+	var elval = el.options[el.selectedIndex].text;
+	//alert('checkGender: value='+elval+' preLoadClassGender='+preLoadClassGender);
+	if(preLoadClassGender==''||preLoadClassGender=='Both') return true;
+	if (elval!=''&&elval!=preLoadClassGender) {
+		var link = document.getElementById('linkS1C1');
+		if (link) {className=' "'+link.innerHTML+'"';}
+		alert('Student Gender does not match the selected class'+className);  // '+preLoadClassGender);
+	}
+	//alert('The first class you have chosen does not match the Age');
+}
+
+function checkClass()
+{
+	//alert('checkClass');
+	var af=document.getElementById('_AgeFilter').value;
+	var gf=document.getElementById('_GenderFilter').value;
+	var s1c1=document.getElementById('S1C1').value;
+	var bdate=document.getElementById('S1BDate');
+	var gndr=document.getElementById('S1Gender');
+	var gndrval=gndr.options[gndr.selectedIndex].text;	
+	if(gndrval!='') gndrval=gndrval.substring(0,1);
+	if(s1c1!=''&&s1c1!='0'&&bdate.value!=''&&(af=='Y'||gf=='Y')) {
+		var curage_y=bdate.getAttribute("Age");
+		//alert('Age='+curage_y+',Gender='+gndrval);
+		var url='webreg_checkclass.asp?cid='+s1c1+''; // &s_age='+curage_y+'&s_bdate='+bdate.value+'&s_gndr=F'
+		if(af=='Y') url+='&s_age='+curage_y+'&s_bdate='+bdate.value;
+		if(gf=='Y'&&gndrval!='') url+='&s_gndr='+gndrval;
+		url+='&rnd='+ (Math.random() * Date.parse(new Date())) 
+		
+		alert('checkClass: url='+url);
+		//var url = 'webreg_checkclass.asp';
+		var hdrs = ['HTTP_xml','on'];		
+		var pars = 'cid='+s1c1+'&s_age='+'&s_bdate='+bdate+'&s_gndr='+gndrval+'&rnd='+ (Math.random() * Date.parse(new Date())) ;
+		//alert('checkClass: pars='+url);
+		jQuery.ajax({
+			type: 'get',
+			url: url,
+			Headers: hdrs,
+			complete: function(resp) {
+				if (resp.responseText.indexOf('Not OK') > -1) {
+					alert('Student #1 first class selected does not match Student Age');
+					return false;
+				} else {
+					return true;
+				}
+			}
+		});
+	}
+	return true;
+}
+
+
+function checkIfExists(node)
+{
+	//Only called if portal enabled.
+	var email = node.value;
+	tempEmailNode = node;
+
+	var id = ''; 
+	try{
+		id = document.getElementById('ID').value; //reg form has hidden ID
+	} catch (e) {}
+	
+	var url = 'ajaxUniqueCheck.asp';
+	var pars = 'tableName=Contacts' 
+		     + '&fieldName=HomeEmail'
+			 + '&requiresignin=false'
+			 + '&bSystemWide=true'
+			 + '&oid='+id
+			 + '&val=' + escape(email)			 
+			 + '&rnd='+ (Math.random() * Date.parse(new Date()));
+			 
+	var target = '';
+
+	jQuery.ajax({
+		type: 'get',
+		url: url,
+		data: pars,
+		complete: function(r) {
+			if(r.responseText.indexOf("is not a unique") > -1)
+			{
+				if(confirm("This email address is already in our system. Click OK to go to the portal. If you would like to change your email address, click Cancel."))
+				{
+					tempEmailNode.value = ""; //blank out in case they return to the reg form
+					window.location.href = document.getElementById('portalLink').href + "&UserID=" + email;
+				}
+				else
+				{
+					tempEmailNode.value = "";
+					tempEmailNode.focus();
+				}
+			}
+		} 
+	});
+}
+
+// *************************************************************
+//Post funcs
+function postRegFee(buttonNode,suffix)
+{
+	buttonNode.disabled = "true";
+	$('postMsg').innerHTML = "";
+	
+	var familyID = escape($('familyID').value);
+	var trantype = escape($('trantype_'+suffix).value);
+	var trandate = escape($('trandate_'+suffix).value);
+	var tranfee = escape($('tranfee_'+suffix).value);
+	var trandisc = escape($('trandisc_'+suffix).value);
+	var tranamt = escape($('tranamt_'+suffix).value);
+	var trannote = escape($('trannote_'+suffix).value);
+	var trantax = 0;
+	if ( $('trantax_'+suffix) ) trantax = escape($('trantax_'+suffix).value);
+	
+	var tranqty = escape($('tranqty_'+suffix).value);
+	
+	var url = 'studentenroll.asp';
+	var hdrs = ['HTTP_xml','on'];		
+	var pars = 'familyID='+familyID+'&trantype='+trantype+'&trandate='+trandate+'&tranamt='+tranamt+'&tranfee='+tranfee+'&trandisc='+trandisc+'&trannote='+trannote+'&trantax='+trantax+'&tranqty='+tranqty+'&action=postRegFee&rnd='+ (Math.random() * Date.parse(new Date())) ;
+	var target = 'postMsg';
+	//alert(pars);		
+	
+	if ($('spin')) $('spin').style.display='';
+
+	var myAjax = new Ajax.Request(url, {
+					method: 'get', 
+					parameters: pars, 
+					requestHeaders: hdrs,
+					onComplete: function(resp) {								
+							$('spin').style.display='none';
+							//alert(resp.responseText);
+							$('postMsg').innerHTML = 'Transaction Posted';
+							}
+					}	);
+}
+
+function postFee(buttonNode,sid,cid,id)
+{
+	buttonNode.disabled = "true";
+	
+	$('postMsg').innerHTML = "";
+	
+	var trandate = escape($('trandate_'+id).value);
+	var tranfee = escape($('tranfee_'+id).value);
+	var trandisc = escape($('trandisc_'+id).value);
+	var tranamt = escape($('tranamt_'+id).value);
+	var trannote = escape($('trannote_'+id).value);
+	var trantax = 0;
+	if ( $('trantax_'+id) ) trantax = escape($('trantax_'+id).value);	
+	
+	var tranqty = escape($('tranqty_'+id).value);	
+		
+	var url = 'studentenroll.asp';
+	var hdrs = ['HTTP_xml','on'];		
+	var pars = 'sid='+escape(sid)+'&cid='+escape(cid)+'&trandate='+trandate+'&tranamt='+tranamt+'&tranfee='+tranfee+'&trandisc='+trandisc+'&trannote='+trannote+'&trantax='+ trantax +'&tranqty='+ tranqty +'&action=postfee&rnd='+ (Math.random() * Date.parse(new Date())) ;
+	var target = 'postfeeresults';
+	//alert(pars);		
+	
+	if ($('spin')) $('spin').style.display='';
+
+	var myAjax = new Ajax.Request(url, {
+			method: 'get', parameters: pars, requestHeaders: hdrs,
+			onComplete: function(resp) {								
+					$('spin').style.display='none';
+					$('postMsg').innerHTML = 'Transaction Posted';
+					}
+			}	);
+}
+
+function recalcTax(suffix)
+{		
+	if ( !$('taxrate') ) return;
+	
+	var sTaxRate = $('taxrate').value;
+	if( sTaxRate.length == 0 ) sTaxRate = "0.00";
+	
+	var rate = parseFloat(sTaxRate)/100;
+	
+	var origamtfield = $('tranfee_'+suffix);
+	var discamtfld = $('trandisc_'+suffix);
+	var netamtfld = $('tranamt_'+suffix);
+	var taxamtfld = $('trantax_'+suffix);
+	
+	if(origamtfield && discamtfld && netamtfld && taxamtfld)
+	{
+		var origamt = origamtfield.value;
+		var discamt = discamtfld.value;
+		if(discamt.length==0) discamt = "0.00";
+		var newtaxamt = 0.00;
+		newtaxamt = rate * (parseFloat(origamt)-parseFloat(discamt));
+		taxamtfld.value = formatCurrency(newtaxamt,true);
+	}
+}
+
+function recalcTotal(el) 
+{
+	var id = el.id.substring(el.id.indexOf("_")+1);
+	//alert(id + ' changed.');
+	
+	var tranamt = $('tranamt_' + id).value;
+	tranamt = parseFloat(tranamt);
+	if(isNaN(tranamt)) tranamt=0;
+	
+	var tranfee = $('tranfee_' + id).value;
+	tranfee = parseFloat(tranfee);
+	if(isNaN(tranfee)) tranfee=0;
+
+	var trandisc = $('trandisc_' + id).value;
+	if(trandisc.indexOf("-") == 0)
+	{
+		//alert("negative");
+		trandisc = -parseFloat(trandisc.substring(1));
+		//alert(trandisc);
+	}
+	else
+	{
+		trandisc = parseFloat(trandisc);		
+	}
+			
+	if(isNaN(trandisc)) trandisc=0;
+
+	var trantax = 0;
+	if( $('trantax_'+id) )
+		trantax = parseFloat($('trantax_'+id).value);
+	
+	if(isNaN(trantax)) trantax = 0;
+	/*
+	if (el.id.substring(0,7)=='tranamt') 
+	{
+		//when net amt changes, assume original amt stays the same
+		//Also, net amt should never be greater than original amt.
+		if (tranamt>tranfee && tranfee>0) {
+			alert('Amount cannot be greater than Original amount.\nChange Original amount first.');
+			return false;
+		}
+		if (tranfee>0) { //&& trandisc>0
+			$('tranamt_' + id).value = formatCurrency(tranfee - trandisc,true);
+		}
+	}
+	*/
+	if (el.id.substring(0,7)=='tranamt') 
+	{
+		//when net amt changes, recalculate discount (Orig amount can no longer change)
+		if (tranfee>0) { // && trandisc>0
+			$('trandisc_' + id).value = formatCurrency(tranfee - tranamt + trantax,true);
+		}
+	}
+
+	if (el.id.substring(0,7) =='tranfee') {
+		//if orig amt changes, discount stays same and net amt changes
+		if (tranfee==0) $('trandisc_' + id).value = '';
+		if (tranfee>0) { //&& trandisc>=0
+			if($('taxrate')) 
+			{ 					
+				recalcTax(id);
+				trantax = parseFloat($('trantax_'+id).value);
+			}
+			$('tranamt_' + id).value = formatCurrency(tranfee - trandisc + trantax,true);
+		}
+	}
+
+	if (el.id.substring(0,8) =='trandisc') {
+		//if discount changes, recalc net amt
+		//if (tranfee>0 && trandisc>=0) {
+		if($('taxrate')) 
+		{ 					
+			recalcTax(id);
+			trantax = parseFloat($('trantax_'+id).value);
+		}		
+		$('tranamt_' + id).value = formatCurrency(tranfee - trandisc + trantax,true);
+		//}
+	}
+	
+	if (el.id.substring(0,7) =='trantax') {
+		//if tax changes, recalc net amt
+		//if (tranfee>0 && trandisc>=0) { 
+		
+		$('tranamt_'+id).value = formatCurrency(tranfee - trandisc + trantax,true);
+		//}
+	}
+}
+
+// *************************************************************
+
+function emailcheck(control) {
+    var at = "@", dot = ".", comma = ",";
+	var email;
+	// Check if control is an element or a string
+	if (typeof control === 'object' && control instanceof HTMLElement) {
+		email = control.value;
+	} else if (typeof control === 'string') {
+		email = control;
+	} else {
+		// Handle invalid input
+		console.error("Invalid input for 'control'. It must be either an element or a string.");
+		return false;
+	}	
+
+    var bolValidEmail = true;
+    var lat = email.indexOf(at);
+    var lstr = email.length;
+    var ldot = email.indexOf(dot);
+
+    if (email.indexOf(comma) > 0) {
+        bolValidEmail = false;
+    }
+
+    if (email.indexOf(at) == -1) {
+        bolValidEmail = false;
+    }
+
+    if (email.indexOf(at) == -1 || email.indexOf(at) == 0 || email.indexOf(at) == lstr) {
+        bolValidEmail = false;
+    }
+
+    if (email.indexOf(dot) == -1 || email.indexOf(dot) == 0 || email.indexOf(dot) == lstr) {
+        bolValidEmail = false;
+    }
+
+    if (email.indexOf(at, (lat + 1)) != -1) {
+        bolValidEmail = false;
+    }
+
+    if (email.substring(lat - 1, lat) == dot || email.substring(lat + 1, lat + 2) == dot) {
+        bolValidEmail = false;
+    }
+
+    if (email.indexOf(dot, (lat + 2)) == -1) {
+        bolValidEmail = false;
+    }
+
+    if (email.indexOf(" ") != -1) {
+        bolValidEmail = false;
+    }
+
+    if (email.indexOf("'") > -1) {
+        bolValidEmail = false;
+    }
+
+    if (bolValidEmail == false) {
+        control.className = 'error';
+        alert("Invalid Email");
+        control.focus();
+        return false;
+    }
+    else {
+        control.className = '';
+    }
+
+    return true;
+}
+
+
+function showdiv(div) {
+	document.getElementById(div).style.display="normal"; 
+	document.getElementById(div).style.visibility="visible"; 
+	document.getElementById(div).style.zIndex=500; 
+}
+
+function hidediv(div) {
+	document.getElementById(div).style.visibility="hidden"; 
+}
+
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+  
+  //var d=document; if(d.images){ if(!d.MM_p) d.MM_p= newArray();vari,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+  //  if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_findObj(n, d) { //v4.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
+  if(!x && document.getElementById) x= document.getElementById(n); return x; }
+  function MM_swapImage(){//v3.0vari,j= 0,x,a=  MM_swapImage.arguments;
+    document.MM_sr=newArray;for(i=0;i<(a.length-2);i+=3)if((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+
+function isNumericKey(e)
+{
+	var k = document.all ? e.keyCode : e.which;
+	//alert(k);
+	return ((k > 47 && k < 58) || k == 8 || k == 0 ||k==null || k==0 || k==8 || k==9 || k==13 || k==27 || k==118);
+}
+function isDecimalKey(e)
+{
+	var k = document.all ? e.keyCode : e.which;
+	return ((k > 47 && k < 58) || k == 8 || k == 0 || k == 46);
+}
+function extractNumeric(el)
+{
+	var str = el.value;
+	return str.replace(/\D/g,"");
+}
+function validNumber(el)
+{
+	var str = el.value;
+	if (str=='') return true;
+	if (isNaN(str)) { alert('number invalid'); }
+	if (str) {
+		el.value = str.replace(/\D/g,"");		
+	}
+	return;
+
+	//return (str.replace(/\D/g,"")) ;
+}
+
+function checkMod10(el) {
+
+	var input = el.value;
+
+	const values = [];
+
+	if (!isNaN(input)) {
+		values.push(input.charAt(0) * 3);
+		values.push(input.charAt(1) * 7);
+		values.push(input.charAt(2) * 1);
+		values.push(input.charAt(3) * 3);
+		values.push(input.charAt(4) * 7);
+		values.push(input.charAt(5) * 1);
+		values.push(input.charAt(6) * 3);
+		values.push(input.charAt(7) * 7);
+		values.push(input.charAt(8) * 1);
+
+		var sum = 0;
+
+		for (var i = 0; i < values.length; i++) {
+			sum += values[i];
+		}
+
+		var modTen = parseInt(sum % 10);
+		if (modTen === 0) 
+			return;
+
+		/*var finalResult = result - sum;
+		if (finalResult == (input.charAt(8)))
+			//alert("Valid ABA Number.");
+			return; */
+		else {
+			alert("Bank Routing Number invalid");
+			el.value = "";
+        }			
+	}
+}
+
+function validDate(thisDate){
+ val=thisDate.value;
+ if (val=='') return true;
+ if (val.length >= 1 && val.length < 5) {alert('Invalid Date Format.'); return false} 
+ mth = val.toLowerCase().substr(0,3)
+ if (mth=='jan'||mth=='feb'||mth=='mar'||mth=='apr'||mth=='may'||mth=='jun'||mth=='jul'||mth=='aug'||mth=='sep'||mth=='oct'||mth=='nov'||mth=='dec') {
+	//alert(mth);
+	if (val.indexOf(', 0')>0||val.indexOf(', 9')>0||val.indexOf(', 8')>0||val.indexOf(', 7')>0) {
+	    if (val.indexOf(', 0')>0)
+			val = val.replace(', 0',', 200');
+	    else
+		val = val.replace(', ',', 19');
+	}
+	var testdate = new Date(val);
+	if (testdate=='NaN') {alert('Invalid Date Format.'); return false}
+	if (val.indexOf('.')>0) {
+		val=val.replace('.','');
+		thisDate.value = val;
+	}
+	if (val.toLowerCase().substr(0,5)=='sept ') {
+	    //alert(thisDate.tagName);
+	    if (val.toLowerCase().substr(0,5)=='sept ') thisDate.value = val.replace('ept', 'ep');
+	}
+ }
+ else {
+ if (val.indexOf('/')==-1 && val.indexOf('-')==-1) {alert('Invalid Date Format.'); return false}
+ if (val.indexOf('/')>0) {
+	 if (!/^\d{1,2}\/\d{1,2}\/(\d{2}|\d{4})/.test(val)) {alert('Invalid Date Format.'); return false}
+	 if (val.split('/').length!=3) {alert('Invalid Date Format.'); return false}
+	 //d=new Date()
+	 //Ynow=1*d.getYear()
+	 //Mnow=1*d.getMonth()
+	 Y=val.split('/')[2]
+	 D=1*val.split('/')[1]
+	 M=1*val.split('/')[0]
+ }
+ if (val.indexOf('-')>0) {
+	 if (!/^\d{1,2}\-\d{1,2}\-(\d{2}|\d{4})/.test(val)) {alert('Invalid Date Format2.'); return false}
+	 if (val.split('-').length!=3) {alert('Invalid Date Format.'); return false}
+	 //d=new Date()
+	 //Ynow=1*d.getYear()
+	 //Mnow=1*d.getMonth()
+	 Y=val.split('-')[2]
+	 D=1*val.split('-')[1]
+	 M=1*val.split('-')[0]
+ }
+
+ //Does Year have time following?
+ if(Y.indexOf(' ')>2) {
+    //alert(Y.indexOf(' '));
+    t=Y.split(' ');
+    Y=t[0];
+ }
+ if (M<1 || M>12){alert('Invalid Month: \''+M+'\''); return false}
+ if (D<1 || D>31){alert('Invalid Day: \''+D+'\'');  return false}
+ if (D==31 && (M==4||M==6||M==9||M==11)){alert('Invalid Day: \''+D+'\'');  return false}
+ if (Y.toString().length=='2' || Y.toString().length=='4'){
+    if (Y.toString().length=='4') {
+	if (Y<1900 || Y>2050){
+	   alert('Invalid Year'); 
+	   return false; }
+	}
+ } else {
+	alert('invalid year: \''+Y+'\''); 
+	return false; 
+	}
+ }
+ return true
+}
+
+
+function validDateNew(el) {
+    if (el && el.value == '') return true;
+    var result = parseDate(el.value);
+    //alert(el.value+' '+result+' '+(result==null));
+    if (result == null) {
+        alert('Invalid date: ' + el.value); try { el.focus(); } catch (e) { }
+        return false;
+    }
+    return true;
+}
+
+//date
+var MONTH_NAMES = new Array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'); var DAY_NAMES = new Array('Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat');
+function LZ(x) { return (x < 0 || x > 9 ? "" : "0") + x }
+function isDate(val, format) { var date = getDateFromFormat(val, format); if (date == 0) { return false; } return true; }
+function compareDates(date1, dateformat1, date2, dateformat2) { var d1 = getDateFromFormat(date1, dateformat1); var d2 = getDateFromFormat(date2, dateformat2); if (d1 == 0 || d2 == 0) { return -1; } else if (d1 > d2) { return 1; } return 0; }
+function formatDate(date, format) { format = format + ""; var result = ""; var i_format = 0; var c = ""; var token = ""; var y = date.getYear() + ""; var M = date.getMonth() + 1; var d = date.getDate(); var E = date.getDay(); var H = date.getHours(); var m = date.getMinutes(); var s = date.getSeconds(); var yyyy, yy, MMM, MM, dd, hh, h, mm, ss, ampm, HH, H, KK, K, kk, k; var value = new Object(); if (y.length < 4) { y = "" + (y - 0 + 1900); } value["y"] = "" + y; value["yyyy"] = y; value["yy"] = y.substring(2, 4); value["M"] = M; value["MM"] = LZ(M); value["MMM"] = MONTH_NAMES[M - 1]; value["NNN"] = MONTH_NAMES[M + 11]; value["d"] = d; value["dd"] = LZ(d); value["E"] = DAY_NAMES[E + 7]; value["EE"] = DAY_NAMES[E]; value["H"] = H; value["HH"] = LZ(H); if (H == 0) { value["h"] = 12; } else if (H > 12) { value["h"] = H - 12; } else { value["h"] = H; } value["hh"] = LZ(value["h"]); if (H > 11) { value["K"] = H - 12; } else { value["K"] = H; } value["k"] = H + 1; value["KK"] = LZ(value["K"]); value["kk"] = LZ(value["k"]); if (H > 11) { value["a"] = "PM"; } else { value["a"] = "AM"; } value["m"] = m; value["mm"] = LZ(m); value["s"] = s; value["ss"] = LZ(s); while (i_format < format.length) { c = format.charAt(i_format); token = ""; while ((format.charAt(i_format) == c) && (i_format < format.length)) { token += format.charAt(i_format++); } if (value[token] != null) { result = result + value[token]; } else { result = result + token; } } return result; }
+function _isInteger(val) { var digits = "1234567890"; for (var i = 0; i < val.length; i++) { if (digits.indexOf(val.charAt(i)) == -1) { return false; } } return true; }
+function _getInt(str, i, minlength, maxlength) { for (var x = maxlength; x >= minlength; x--) { var token = str.substring(i, i + x); if (token.length < minlength) { return null; } if (_isInteger(token)) { return token; } } return null; }
+function getDateFromFormat(val, format) { val = val + ""; format = format + ""; var i_val = 0; var i_format = 0; var c = ""; var token = ""; var token2 = ""; var x, y; var now = new Date(); var year = now.getYear(); var month = now.getMonth() + 1; var date = 1; var hh = now.getHours(); var mm = now.getMinutes(); var ss = now.getSeconds(); var ampm = ""; while (i_format < format.length) { c = format.charAt(i_format); token = ""; while ((format.charAt(i_format) == c) && (i_format < format.length)) { token += format.charAt(i_format++); } if (token == "yyyy" || token == "yy" || token == "y") { if (token == "yyyy") { x = 4; y = 4; } if (token == "yy") { x = 2; y = 2; } if (token == "y") { x = 2; y = 4; } year = _getInt(val, i_val, x, y); if (year == null) { return 0; } i_val += year.length; if (year.length == 2) { if (year > 70) { year = 1900 + (year - 0); } else { year = 2000 + (year - 0); } } } else if (token == "MMM" || token == "NNN") { month = 0; for (var i = 0; i < MONTH_NAMES.length; i++) { var month_name = MONTH_NAMES[i]; if (val.substring(i_val, i_val + month_name.length).toLowerCase() == month_name.toLowerCase()) { if (token == "MMM" || (token == "NNN" && i > 11)) { month = i + 1; if (month > 12) { month -= 12; } i_val += month_name.length; break; } } } if ((month < 1) || (month > 12)) { return 0; } } else if (token == "EE" || token == "E") { for (var i = 0; i < DAY_NAMES.length; i++) { var day_name = DAY_NAMES[i]; if (val.substring(i_val, i_val + day_name.length).toLowerCase() == day_name.toLowerCase()) { i_val += day_name.length; break; } } } else if (token == "MM" || token == "M") { month = _getInt(val, i_val, token.length, 2); if (month == null || (month < 1) || (month > 12)) { return 0; } i_val += month.length; } else if (token == "dd" || token == "d") { date = _getInt(val, i_val, token.length, 2); if (date == null || (date < 1) || (date > 31)) { return 0; } i_val += date.length; } else if (token == "hh" || token == "h") { hh = _getInt(val, i_val, token.length, 2); if (hh == null || (hh < 1) || (hh > 12)) { return 0; } i_val += hh.length; } else if (token == "HH" || token == "H") { hh = _getInt(val, i_val, token.length, 2); if (hh == null || (hh < 0) || (hh > 23)) { return 0; } i_val += hh.length; } else if (token == "KK" || token == "K") { hh = _getInt(val, i_val, token.length, 2); if (hh == null || (hh < 0) || (hh > 11)) { return 0; } i_val += hh.length; } else if (token == "kk" || token == "k") { hh = _getInt(val, i_val, token.length, 2); if (hh == null || (hh < 1) || (hh > 24)) { return 0; } i_val += hh.length; hh--; } else if (token == "mm" || token == "m") { mm = _getInt(val, i_val, token.length, 2); if (mm == null || (mm < 0) || (mm > 59)) { return 0; } i_val += mm.length; } else if (token == "ss" || token == "s") { ss = _getInt(val, i_val, token.length, 2); if (ss == null || (ss < 0) || (ss > 59)) { return 0; } i_val += ss.length; } else if (token == "a") { if (val.substring(i_val, i_val + 2).toLowerCase() == "am") { ampm = "AM"; } else if (val.substring(i_val, i_val + 2).toLowerCase() == "pm") { ampm = "PM"; } else { return 0; } i_val += 2; } else { if (val.substring(i_val, i_val + token.length) != token) { return 0; } else { i_val += token.length; } } } if (i_val != val.length) { return 0; } if (month == 2) { if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) { if (date > 29) { return 0; } } else { if (date > 28) { return 0; } } } if ((month == 4) || (month == 6) || (month == 9) || (month == 11)) { if (date > 30) { return 0; } } if (hh < 12 && ampm == "PM") { hh = hh - 0 + 12; } else if (hh > 11 && ampm == "AM") { hh -= 12; } if (year > 99 && year < 1900) { return 0; } var newdate = new Date(year, month - 1, date, hh, mm, ss); return newdate.getTime(); }
+function parseDate(val) { var preferEuro = (arguments.length == 2) ? arguments[1] : false; generalFormats = new Array('y-M-d', 'MMM d, y', 'MMM d,y', 'y-MMM-d', 'd-MMM-y', 'MMM d'); monthFirst = new Array('M/d/y', 'M-d-y', 'M.d.y', 'MMM-d', 'M/d', 'M-d'); dateFirst = new Array('d/M/y', 'd-M-y', 'd.M.y', 'd-MMM', 'd/M', 'd-M'); var checkList = new Array('generalFormats', preferEuro ? 'dateFirst' : 'monthFirst', preferEuro ? 'monthFirst' : 'dateFirst'); var d = null; for (var i = 0; i < checkList.length; i++) { var l = window[checkList[i]]; for (var j = 0; j < l.length; j++) { d = getDateFromFormat(val, l[j]); if (d != 0) { return new Date(d); } } } return null; }
+
+
+// *************************************************************
+var startyear = "1950";
+var endyear = "2010";
+var dat = new Date();
+
+var curday = dat.getDate();
+var curmon = dat.getMonth()+1;
+var curyear = dat.getFullYear();
+
+function checkleapyear(datea)
+{
+	if(datea.getYear()%4 == 0)
+	{
+		if(datea.getYear()% 10 != 0)
+		{
+			return true;
+		}
+		else
+		{
+			if(datea.getYear()% 400 == 0)
+				return true;
+			else
+				return false;
+		}
+	}
+return false;
+}
+function DaysInMonth(Y, M) {
+    with (new Date(Y, M, 1, 12)) {
+        setDate(0);
+        return getDate();
+    }
+}
+function datediff(date1, date2) {
+    var y1 = date1.getFullYear(), m1 = date1.getMonth(), d1 = date1.getDate(),
+	 y2 = date2.getFullYear(), m2 = date2.getMonth(), d2 = date2.getDate();
+
+    if (d1 < d2) {
+        m1--;
+        d1 += DaysInMonth(y2, m2);
+    }
+    if (m1 < m2) {
+        y1--;
+        m1 += 12;
+    }
+    return [y1 - y2, m1 - m2, d1 - d2];
+}
+
+function calcage(calyear,calmon,calday)
+{
+//var calday = document.birthday.day.options[document.birthday.day.selectedIndex].value;
+//var calmon = document.birthday.month.options[document.birthday.month.selectedIndex].value;
+//var calyear = document.birthday.year.options[document.birthday.year.selectedIndex].value;
+	if(curday == "" || curmon=="" || curyear=="" || calday=="" || calmon=="" || calyear=="")
+	{
+		alert("please fill all the values and click go -");
+	}	
+	else
+	{
+		var curd = new Date(curyear,curmon-1,curday);
+		var cald = new Date(calyear,calmon-1,calday);
+		var diff =  Date.UTC(curyear,curmon,curday,0,0,0) - Date.UTC(calyear,calmon,calday,0,0,0);
+
+		var dife = datediff(curd,cald);
+		//document.birthday.age.value=dife[0]+" years, "+dife[1]+" months, and "+dife[2]+" days";
+		//return dife[0]+" years, "+dife[1]+" months, and "+dife[2]+" days";
+		if (dife[0] < 0) {
+		    dife[0] = "0";
+		    dife[1] = "0";
+		}
+		return dife[0] + " yrs, " + dife[1] + " mths";
+		
+		var monleft = (dife[0]*12)+dife[1];
+		var secleft = diff/1000/60;
+		var hrsleft = secleft/60;
+		var daysleft = hrsleft/24;
+		var as = parseInt(calyear)+dife[0]+1;
+		var diff =  Date.UTC(as,calmon,calday,0,0,0) - Date.UTC(curyear,curmon,curday,0,0,0);
+		var datee = diff/1000/60/60/24;
+	}
+}
+
+// Make sure to reset all displayed class input counters on load
+jQuery("input[id$='VisibleClasses']").val('5');
+function showMoreClasses(student) {
+    var numClassesVisible = parseInt(jQuery('#_S' + student + 'VisibleClasses').val(), 10);
+
+    for (var i = 1; i <= 5; i++) {        
+        var rowId = '#trS' + student + 'C' + (numClassesVisible + i);
+        jQuery(rowId).show();
+    }
+    numClassesVisible+=5;
+    jQuery('#_S' + student + 'VisibleClasses').val(numClassesVisible);
+
+    if (numClassesVisible == 15) {
+        jQuery('#S' + student + 'BtnMoreClasses').hide();
+        jQuery('#S' + student + 'MoreClassesMsg').show();
+    }
+}

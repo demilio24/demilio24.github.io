@@ -1,0 +1,47 @@
+[
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": null,
+        "selectedField": "student_name_(after_school_registration)",
+        "selectedOperation": "isEmpty"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide",
+      "type": "showHideFields",
+      "value": "neighborhood_kids_schools"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": null,
+        "selectedField": "student_name_(after_school_registration)",
+        "selectedOperation": "isFilled"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide",
+      "type": "showHideFields",
+      "value": "neighborhood_kids_schools"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Neighborhood Kids Schools",
+        "selectedField": "select_class",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "neighborhood_kids_schools"
+    }
+  }
+]

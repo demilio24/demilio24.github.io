@@ -1,0 +1,42 @@
+.site-nav { position: sticky; top: 0; z-index: 50; background: var(--bg); border-bottom: 1px solid var(--ink-line-soft); }
+.nav-inner { display: flex; align-items: center; justify-content: space-between; padding-top: var(--space-3); padding-bottom: var(--space-3); }
+.brand { font-family: var(--font-display); font-size: 20px; font-weight: var(--fw-display-bold); color: var(--ink); letter-spacing: -0.01em; display: inline-flex; align-items: center; }
+.brand img { height: 28px; width: auto; display: block; }
+.nav-links { display: flex; gap: var(--space-5); font-family: var(--font-body); font-size: var(--fs-meta); font-weight: var(--fw-body-medium); color: var(--ink-soft); }
+.nav-links a { transition: color var(--dur-fast); }
+.nav-links a:hover { color: var(--ink); }
+
+.nav-toggle { display: none; background: none; border: 0; padding: 8px; gap: 4px; flex-direction: column; }
+.nav-toggle span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 1px; transition: transform var(--dur-fast); }
+
+@media (max-width: 720px) {
+  .nav-toggle { display: flex; }
+  .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; padding: var(--space-4) var(--space-5); background: var(--bg); border-bottom: 1px solid var(--ink-line); }
+  .nav-links.open { display: flex; }
+}
+
+/* ─── OFFERS-FIRST NAV (Marketing + Automation as colored gradient pills) ─── */
+.nav-links a.nav-marketing,
+.nav-links a.nav-automation {
+  color: #fff;
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-weight: var(--fw-body-bold);
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  transition: transform var(--dur-fast), box-shadow var(--dur-fast);
+}
+.nav-links a.nav-marketing {
+  background: linear-gradient(135deg, var(--marketing) 0%, var(--marketing-dark) 100%);
+  box-shadow: 0 4px 12px rgba(var(--marketing-rgb), 0.25);
+}
+.nav-links a.nav-automation {
+  background: linear-gradient(135deg, var(--automation) 0%, var(--automation-dark) 100%);
+  box-shadow: 0 4px 12px rgba(var(--automation-rgb), 0.25);
+}
+.nav-links a.nav-marketing:hover,
+.nav-links a.nav-automation:hover {
+  color: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}

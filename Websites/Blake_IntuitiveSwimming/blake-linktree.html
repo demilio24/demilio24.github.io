@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book with Blake – Swim Lessons</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blue:        #0077B6;
+      --blue-dark:   #005F92;
+      --blue-deeper: #023E8A;
+      --blue-light:  #CAF0F8;
+      --blue-pale:   #EEF8FF;
+      --teal:        #00B4D8;
+      --white:       #FFFFFF;
+      --text:        #0D1B2A;
+      --text-soft:   #4A6885;
+      --radius:      16px;
+      --transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: linear-gradient(160deg, #023E8A 0%, #0077B6 40%, #00B4D8 100%);
+      min-height: 100vh;
+      padding: 40px 16px 80px;
+      color: var(--white);
+    }
+
+    /* ── HEADER ── */
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .avatar {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: 3px solid rgba(255,255,255,0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      margin: 0 auto 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .header h1 {
+      font-size: clamp(1.6rem, 5vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+
+    .header p {
+      font-size: 1.05rem;
+      opacity: 0.85;
+      max-width: 320px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* ── WAVE DIVIDER ── */
+    .wave {
+      text-align: center;
+      font-size: 1.5rem;
+      opacity: 0.5;
+      margin: 8px 0 32px;
+      letter-spacing: 6px;
+    }
+
+    /* ── CARD STACK ── */
+    .cards {
+      max-width: 560px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    /* ── SINGLE CARD ── */
+    .card {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: var(--radius);
+      backdrop-filter: blur(12px);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .card:hover {
+      background: rgba(255,255,255,0.18);
+      border-color: rgba(255,255,255,0.45);
+      transform: translateY(-2px);
+    }
+
+    .card.open {
+      background: var(--white);
+      border-color: transparent;
+      color: var(--text);
+      transform: none;
+    }
+
+    /* ── CARD BUTTON (trigger row) ── */
+    .card-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 22px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      color: inherit;
+      font-family: inherit;
+    }
+
+    .card-icon {
+      font-size: 1.8rem;
+      flex-shrink: 0;
+      width: 44px;
+      text-align: center;
+    }
+
+    .card-text {
+      flex: 1;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      line-height: 1.2;
+      display: block;
+    }
+
+    .card.open .card-title {
+      color: var(--blue-deeper);
+    }
+
+    .card-sub {
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-top: 3px;
+      display: block;
+    }
+
+    .card.open .card-sub {
+      color: var(--text-soft);
+      opacity: 1;
+    }
+
+    .card-arrow {
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      transition: transform var(--transition);
+      opacity: 0.7;
+    }
+
+    .card.open .card-arrow {
+      transform: rotate(180deg);
+      opacity: 1;
+      color: var(--blue);
+    }
+
+    /* ── CALENDAR PANEL ── */
+    .calendar-panel {
+      display: none;
+      padding: 0 16px 20px;
+    }
+
+    .card.open .calendar-panel {
+      display: block;
+    }
+
+    .calendar-panel iframe {
+      width: 100%;
+      border: none;
+      border-radius: 10px;
+      min-height: 600px;
+      background: #f8fafc;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.8rem;
+      opacity: 0.55;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER ── -->
+  <header class="header">
+    <div class="avatar">🏊</div>
+    <h1>Book with Blake</h1>
+    <p>Certified Swim Instructor<br>Pick a lesson type below to book your spot</p>
+  </header>
+
+  <div class="wave">〰〰〰</div>
+
+  <!-- ── BOOKING CARDS ── -->
+  <div class="cards">
+
+    <!-- 1. Intro Assessment -->
+    <div class="card" id="card-intro">
+      <button class="card-btn" onclick="toggleCard('card-intro', 'cal-intro')" aria-expanded="false">
+        <span class="card-icon">👋</span>
+        <span class="card-text">
+          <span class="card-title">Private Lessons Recurring Monthly Plan</span>
+          <span class="card-sub">with Blake, find your level</span>
+        </span>
+        <span class="card-arrow">▼</span>
+      </button>
+      <div class="calendar-panel" id="cal-intro">
+        <iframe
+          src="https://link.nilsdigital.com/widget/booking/WPjVySyt4UUPUUTkZYMU"
+          scrolling="no"
+          id="WPjVySyt4UUPUUTkZYMU_booking">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- 2. Drop-In Lesson -->
+    <div class="card" id="card-dropin">
+      <button class="card-btn" onclick="toggleCard('card-dropin', 'cal-dropin')" aria-expanded="false">
+        <span class="card-icon">🌊</span>
+        <span class="card-text">
+          <span class="card-title">Drop-In Lesson</span>
+          <span class="card-sub">One-time session, no commitment</span>
+        </span>
+        <span class="card-arrow">▼</span>
+      </button>
+      <div class="calendar-panel" id="cal-dropin">
+        <iframe
+          src="https://link.nilsdigital.com/widget/booking/mUCNGmbtfJeuHltZJdNR"
+          scrolling="no"
+          id="mUCNGmbtfJeuHltZJdNR_booking">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- 3. Group Lessons -->
+    <div class="card" id="card-group">
+      <button class="card-btn" onclick="toggleCard('card-group', 'cal-group')" aria-expanded="false">
+        <span class="card-icon">👥</span>
+        <span class="card-text">
+          <span class="card-title">Group Lessons</span>
+          <span class="card-sub">Learn with others, great for all ages</span>
+        </span>
+        <span class="card-arrow">▼</span>
+      </button>
+      <div class="calendar-panel" id="cal-group">
+        <iframe
+          src="https://link.nilsdigital.com/widget/booking/0mxi4BxYArrmjyCUJBxJ"
+          scrolling="no"
+          id="0mxi4BxYArrmjyCUJBxJ_booking">
+        </iframe>
+      </div>
+    </div>
+
+    <!--
+    ════════════════════════════════════════
+    INACTIVE — Parent Tot Advanced
+    Uncomment this block when ready to go live
+    ════════════════════════════════════════
+
+    <div class="card" id="card-parenttot">
+      <button class="card-btn" onclick="toggleCard('card-parenttot', 'cal-parenttot')" aria-expanded="false">
+        <span class="card-icon">👶</span>
+        <span class="card-text">
+          <span class="card-title">Parent Tot Advanced</span>
+          <span class="card-sub">Parent &amp; toddler advanced swim sessions</span>
+        </span>
+        <span class="card-arrow">▼</span>
+      </button>
+      <div class="calendar-panel" id="cal-parenttot">
+        <iframe
+          src="https://link.nilsdigital.com/widget/booking/gAFr2mfpwKny1uO3gcZD"
+          scrolling="no"
+          id="gAFr2mfpwKny1uO3gcZD_booking">
+        </iframe>
+      </div>
+    </div>
+
+    ════════════════════════════════════════ -->
+
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <footer class="footer">
+    <p>Questions? Reach out to Blake directly.</p>
+  </footer>
+
+  <!-- ── BOOKING WIDGET SCRIPT ── -->
+  <script src="https://link.nilsdigital.com/js/form_embed.js"></script>
+
+  <script>
+    function toggleCard(cardId, panelId) {
+      const card  = document.getElementById(cardId);
+      const btn   = card.querySelector('.card-btn');
+      const isOpen = card.classList.contains('open');
+
+      // Close all cards
+      document.querySelectorAll('.card').forEach(c => {
+        c.classList.remove('open');
+        c.querySelector('.card-btn').setAttribute('aria-expanded', 'false');
+      });
+
+      // If it wasn't open, open this one and scroll to it
+      if (!isOpen) {
+        card.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        setTimeout(() => {
+          card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+[
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": null,
+        "selectedField": "select_school",
+        "selectedOperation": "isEmpty"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide",
+      "type": "showHideFields",
+      "value": "is_this_student_potty_trained?_(free_camp)"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": null,
+        "selectedField": "select_school",
+        "selectedOperation": "isFilled"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide",
+      "type": "showHideFields",
+      "value": "is_this_student_potty_trained?_(free_camp)"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "dateFormat": "MM-DD-YYYY",
+        "inputValue": "12-01-2022",
+        "selectedField": "student's_birthday",
+        "selectedOperation": "after"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "is_this_student_potty_trained?_(free_camp)"
+    }
+  }
+]

@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" /><style>
+  *{margin:0;padding:0;box-sizing:border-box}html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;font-family:'Inter',sans-serif;
+    display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;padding:88px 84px}
+  .inner{position:relative;width:100%;z-index:2}
+  .eyebrow{display:flex;align-items:center;gap:13px;font-weight:800;letter-spacing:.34em;font-size:21px;text-transform:uppercase;text-indent:.34em;margin-bottom:30px}
+  .eyebrow .dot{width:12px;height:12px;border-radius:50%;text-indent:0}
+  h1{font-family:'Anton',sans-serif;font-weight:400;line-height:1.26;letter-spacing:.5px;text-transform:uppercase;margin-bottom:34px}
+  .sub{font-weight:600;line-height:1.32;margin-bottom:42px}
+  .cta{display:inline-flex;align-items:center;gap:13px;font-weight:800;border-radius:999px}
+  .foot{position:absolute;left:84px;bottom:50px;font-weight:600;font-size:22px;letter-spacing:.02em;z-index:2}
+  
+    .art{background:linear-gradient(145deg,#7dffb0 0%,#16d98a 55%,#0fbf7a 100%);color:#04140c}
+    .art::before{content:"";position:absolute;inset:0;z-index:1;background-image:radial-gradient(rgba(4,20,12,.16) 1.3px,transparent 1.5px);background-size:46px 46px;opacity:.5}
+    .ghost{position:absolute;right:-50px;bottom:-40px;font-family:'Anton';font-size:540px;line-height:.7;color:rgba(4,20,12,.07);transform:rotate(8deg);z-index:1}
+    .eyebrow{color:#06492f}.eyebrow .dot{background:#04140c}
+    h1{font-size:106px;max-width:910px;color:#04140c}.flex{}
+    .hl{color:#6dffa6;padding:0 .1em;border-radius:6px;background:#03110a;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+    .sub{font-size:36px;color:#06492f;max-width:780px;font-weight:700}
+    .cta{background:#03110a;color:#6dffa6;font-size:33px;padding:25px 48px;box-shadow:0 16px 40px rgba(4,20,12,.25)}
+    .foot{color:#06492f}.foot b{color:#04140c}</style></head><body><div class="art"><div class="ghost">↗</div><div class="inner"><div class="eyebrow"><span class="dot"></span>Nils Digital · AI Audit</div><h1 class="flex">One audit. 38 problems. <span class="hl">$204,880</span> found.</h1><div class="sub">6 sessions. Every workflow mapped. Nothing guessed.</div><div class="cta">Book your audit →</div></div><div class="foot"><b>50 five-star reviews</b> &nbsp;·&nbsp; nilsdigital.com/automation</div></div><script>
+  function fit(){var inner=document.querySelector('.inner');if(!inner)return;
+    var big=document.querySelector('.big');
+    if(big){var avW=inner.clientWidth,bs=parseFloat(getComputedStyle(big).fontSize),gw=0;
+      while(big.scrollWidth>avW&&bs>60&&gw<200){bs-=4;big.style.fontSize=bs+'px';gw++;}}
+    var avail=1080-176-86;var els=inner.querySelectorAll('.flex');if(!els.length)return;
+    var g=0;
+    while(inner.scrollHeight>avail&&g<160){els.forEach(function(e){e.style.fontSize=(parseFloat(getComputedStyle(e).fontSize)-2)+'px'});g++;if(parseFloat(getComputedStyle(els[0]).fontSize)<=38)break;}
+  }
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}window.addEventListener('load',fit);
+</script></body></html>

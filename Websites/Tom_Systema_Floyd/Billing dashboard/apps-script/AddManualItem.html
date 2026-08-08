@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base target="_top">
+<style>
+  :root {
+    --brand-dark:   #143980;
+    --brand-mid:    #4a6493;
+    --ink:          #1a1f36;
+    --muted:        #6b7280;
+    --line:         #e5e7eb;
+    --line-strong:  #d1d5db;
+    --bg-soft:      #f9fafb;
+    --success:      #16a34a;
+    --danger:       #dc2626;
+    --owed:         #f59e0b;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'DM Sans', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    color: var(--ink);
+    background: #fff;
+  }
+  body {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .header {
+    background: var(--brand-dark);
+    color: #fff;
+    padding: 12px 14px 11px;
+  }
+  .header h1 {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.2px;
+  }
+  .header .subtitle {
+    margin-top: 3px;
+    font-size: 11px;
+    opacity: 0.75;
+    line-height: 1.35;
+  }
+  .body {
+    flex: 1;
+    padding: 14px 14px 8px;
+    overflow-y: auto;
+  }
+  .field { margin-bottom: 13px; }
+  .field label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 5px;
+    letter-spacing: 0.3px;
+    text-transform: uppercase;
+  }
+  .field input[type="text"],
+  .field input[type="number"],
+  .field input[type="email"] {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--line-strong);
+    border-radius: 5px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--ink);
+    background: #fff;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .field input:focus {
+    outline: none;
+    border-color: var(--brand-dark);
+    box-shadow: 0 0 0 3px rgba(20, 57, 128, 0.12);
+  }
+  .field .hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+  .field .error {
+    font-size: 12px;
+    color: var(--danger);
+    margin-top: 4px;
+    display: none;
+  }
+  .field .error.visible { display: block; }
+
+  /* ─── Contact picker ─── */
+  .contact-picker { position: relative; }
+  .contact-input-wrap {
+    position: relative;
+  }
+  .contact-results {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    right: 0;
+    max-height: 240px;
+    overflow-y: auto;
+    background: #fff;
+    border: 1px solid var(--line-strong);
+    border-radius: 6px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    z-index: 10;
+    display: none;
+  }
+  .contact-results.visible { display: block; }
+  .contact-result {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+    cursor: pointer;
+    transition: background 0.12s;
+  }
+  .contact-result:last-child { border-bottom: none; }
+  .contact-result:hover,
+  .contact-result.active { background: var(--bg-soft); }
+  .contact-result .name {
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .contact-result .email {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 1px;
+  }
+  .contact-result .students {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 3px;
+    font-style: italic;
+  }
+  .contact-results .empty {
+    padding: 14px 12px;
+    color: var(--muted);
+    font-size: 13px;
+    text-align: center;
+  }
+  .contact-results .new-contact {
+    padding: 10px 12px;
+    color: var(--brand-dark);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    border-top: 1px dashed var(--line-strong);
+    background: var(--bg-soft);
+  }
+  .contact-results .new-contact:hover { background: #eef2ff; }
+
+  .selected-contact {
+    display: none;
+    background: var(--bg-soft);
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-top: 4px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .selected-contact.visible { display: flex; }
+  .selected-contact .label {
+    font-size: 12px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    margin-bottom: 4px;
+  }
+  .selected-contact .name { font-weight: 600; }
+  .selected-contact .email { font-size: 12px; color: var(--muted); }
+  .selected-contact button {
+    background: transparent;
+    border: 1px solid var(--line-strong);
+    color: var(--muted);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .selected-contact button:hover {
+    background: #fff;
+    color: var(--ink);
+  }
+
+  /* ─── Details section ─── */
+  .details {
+    display: none;
+    margin-top: 4px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+  }
+  .details.visible { display: block; }
+
+  .amount-qty-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 13px;
+  }
+  .amount-qty-row .field { margin-bottom: 0; flex: 1; }
+  .amount-qty-row .qty-field { flex: 0 0 72px; }
+
+  /* Native select styled to match text inputs */
+  .field select {
+    width: 100%;
+    padding: 8px 10px;
+    border: 1px solid var(--line-strong);
+    border-radius: 5px;
+    font-size: 13px;
+    font-family: inherit;
+    color: var(--ink);
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .field select:focus {
+    outline: none;
+    border-color: var(--brand-dark);
+    box-shadow: 0 0 0 3px rgba(20, 57, 128, 0.12);
+  }
+
+  .status-options {
+    display: flex;
+    gap: 5px;
+  }
+  .status-options input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .status-options label {
+    flex: 1;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: 0;
+    color: var(--ink);
+    text-align: center;
+    padding: 7px 4px;
+    border: 1px solid var(--line-strong);
+    border-radius: 5px;
+    cursor: pointer;
+    background: #fff;
+    transition: all 0.12s;
+  }
+  .status-options label:hover { border-color: var(--brand-mid); }
+  .status-options input[type="radio"]:checked + label {
+    background: var(--brand-dark);
+    color: #fff;
+    border-color: var(--brand-dark);
+  }
+
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .checkbox-row input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin: 0;
+    cursor: pointer;
+    accent-color: var(--brand-dark);
+  }
+  .checkbox-row label {
+    margin: 0;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 13px;
+    color: var(--ink);
+    cursor: pointer;
+    font-weight: 500;
+  }
+  .checkbox-row .hint {
+    font-size: 12px;
+    color: var(--muted);
+    margin-left: 4px;
+  }
+
+  /* ─── Footer ─── */
+  .footer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: stretch;
+    padding: 10px 14px 12px;
+    border-top: 1px solid var(--line);
+    background: var(--bg-soft);
+  }
+  .footer .status-msg {
+    font-size: 11px;
+    color: var(--muted);
+    line-height: 1.35;
+    min-height: 14px;
+  }
+  .footer .status-msg.error { color: var(--danger); }
+  .footer .status-msg.success { color: var(--success); }
+  .footer-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+  }
+  .btn {
+    padding: 8px 14px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-family: inherit;
+    transition: all 0.12s;
+  }
+  .btn-secondary {
+    background: #fff;
+    border-color: var(--line-strong);
+    color: var(--ink);
+  }
+  .btn-secondary:hover { background: var(--bg-soft); }
+  .btn-primary {
+    background: var(--brand-dark);
+    color: #fff;
+  }
+  .btn-primary:hover:not(:disabled) { background: #0e2a5f; }
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  /* ─── Loading state ─── */
+  .loading {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Add Manual Item</h1>
+  <div class="subtitle">Append a billable line item to a contact on the Dashboard.</div>
+</div>
+
+<div class="body">
+
+  <!-- Step 1: Contact -->
+  <div class="field contact-picker">
+    <label for="contact-search">Contact</label>
+    <div class="contact-input-wrap">
+      <input
+        type="text"
+        id="contact-search"
+        placeholder="Type a name or email..."
+        autocomplete="off"
+        spellcheck="false">
+      <div class="contact-results" id="contact-results"></div>
+    </div>
+    <div class="selected-contact" id="selected-contact">
+      <div>
+        <div class="label">Adding to</div>
+        <div class="name" id="selected-name"></div>
+        <div class="email" id="selected-email"></div>
+      </div>
+      <button type="button" id="change-contact">Change</button>
+    </div>
+    <div class="error" id="contact-error">Please pick a contact.</div>
+  </div>
+
+  <!-- Step 2: Item details -->
+  <div class="details" id="details">
+
+    <!-- Student picker (rendered dynamically based on contact's students) -->
+    <div class="field" id="student-field" style="display:none;">
+      <label for="student-control">Student</label>
+      <select id="student-select"></select>
+      <input
+        type="text"
+        id="student-input"
+        placeholder="Student name (or leave blank)"
+        maxlength="80"
+        style="display:none;">
+    </div>
+
+    <div class="field">
+      <label for="label">Item description</label>
+      <input
+        type="text"
+        id="label"
+        placeholder="e.g. Private lesson, Apr 12"
+        maxlength="200">
+      <div class="error" id="label-error">Description is required.</div>
+    </div>
+
+    <div class="amount-qty-row">
+      <div class="field amount-field">
+        <label for="amount">Amount (pre-fee)</label>
+        <input
+          type="number"
+          id="amount"
+          placeholder="0.00"
+          step="0.01">
+        <div class="hint">Negative for credit</div>
+      </div>
+      <div class="field qty-field">
+        <label for="qty">Qty</label>
+        <input
+          type="number"
+          id="qty"
+          placeholder="1"
+          min="0.01"
+          step="1"
+          value="1">
+      </div>
+    </div>
+    <div class="error" id="amount-error" style="margin-top:-8px; margin-bottom:13px;">Enter a non-zero amount.</div>
+
+    <div class="field">
+      <label>Fees</label>
+      <div class="checkbox-row">
+        <input type="checkbox" id="apply-processing" checked>
+        <label for="apply-processing">Apply 3% processing fee</label>
+      </div>
+      <div class="checkbox-row" style="margin-top: 8px;">
+        <input type="checkbox" id="apply-tax">
+        <label for="apply-tax">Apply 7% sales tax</label>
+      </div>
+      <div class="hint">Uncheck both to charge the exact base amount with no inflation.</div>
+    </div>
+
+    <div class="field">
+      <label>Initial status</label>
+      <div class="status-options">
+        <input type="radio" id="status-owed" name="status" value="owed" checked>
+        <label for="status-owed">Owed</label>
+        <input type="radio" id="status-paid" name="status" value="paid">
+        <label for="status-paid">Paid</label>
+        <input type="radio" id="status-canceled" name="status" value="canceled">
+        <label for="status-canceled">Canceled</label>
+      </div>
+      <div class="hint">Operator edits to the Dashboard pill later take precedence.</div>
+    </div>
+
+    <div class="field">
+      <label for="period">Period / note (optional)</label>
+      <input
+        type="text"
+        id="period"
+        placeholder="e.g. April 2026 or June 1st-5th"
+        maxlength="80">
+    </div>
+
+  </div>
+</div>
+
+<div class="footer">
+  <div class="status-msg" id="status-msg"></div>
+  <div class="footer-actions">
+    <button class="btn btn-secondary" id="btn-cancel">Cancel</button>
+    <button class="btn btn-primary" id="btn-submit" disabled>Add Item</button>
+  </div>
+</div>
+
+<script>
+  // Server-injected contact list (via HtmlTemplate in showAddManualItemDialog).
+  window.__INJECTED_CONTACTS__ = <?!= contactsJson ?>;
+</script>
+<script>
+(function() {
+  var contacts = [];
+  var filteredContacts = [];
+  var selectedContact = null;
+  var activeIdx = -1;
+
+  var searchEl       = document.getElementById('contact-search');
+  var resultsEl      = document.getElementById('contact-results');
+  var selectedEl     = document.getElementById('selected-contact');
+  var selNameEl      = document.getElementById('selected-name');
+  var selEmailEl     = document.getElementById('selected-email');
+  var changeEl       = document.getElementById('change-contact');
+  var detailsEl      = document.getElementById('details');
+  var studentFieldEl = document.getElementById('student-field');
+  var studentSelectEl= document.getElementById('student-select');
+  var studentInputEl = document.getElementById('student-input');
+  var labelEl        = document.getElementById('label');
+  var amountEl       = document.getElementById('amount');
+  var qtyEl          = document.getElementById('qty');
+  var periodEl       = document.getElementById('period');
+  var procEl         = document.getElementById('apply-processing');
+  var taxEl          = document.getElementById('apply-tax');
+  var submitEl       = document.getElementById('btn-submit');
+  var cancelEl       = document.getElementById('btn-cancel');
+  var statusEl       = document.getElementById('status-msg');
+
+  function setStatus(msg, kind) {
+    statusEl.textContent = msg || '';
+    statusEl.className = 'status-msg' + (kind ? ' ' + kind : '');
+  }
+
+  function escapeHtml(s) {
+    return String(s || '').replace(/[&<>"']/g, function(c) {
+      return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c];
+    });
+  }
+
+  function renderResults() {
+    if (!filteredContacts.length && !searchEl.value.trim()) {
+      resultsEl.classList.remove('visible');
+      return;
+    }
+    var q = searchEl.value.trim();
+    var html = '';
+    if (filteredContacts.length === 0) {
+      html = '<div class="empty">No matches.</div>';
+    } else {
+      filteredContacts.slice(0, 8).forEach(function(c, i) {
+        var students = c.students ? '<div class="students">Students: ' + escapeHtml(c.students) + '</div>' : '';
+        html += '<div class="contact-result' + (i === activeIdx ? ' active' : '') +
+                '" data-idx="' + i + '">' +
+                  '<div class="name">' + escapeHtml(c.name || '(no name)') + '</div>' +
+                  '<div class="email">' + escapeHtml(c.email) + '</div>' +
+                  students +
+                '</div>';
+      });
+    }
+    // Always offer "use this email as a new contact" if the typed value is a valid email
+    if (q && q.indexOf('@') > 0 && q.indexOf('.') > q.indexOf('@')) {
+      var alreadyMatches = filteredContacts.some(function(c) {
+        return c.email.toLowerCase() === q.toLowerCase();
+      });
+      if (!alreadyMatches) {
+        html += '<div class="new-contact" data-new="1">+ Add as new contact: ' + escapeHtml(q) + '</div>';
+      }
+    }
+    resultsEl.innerHTML = html;
+    resultsEl.classList.add('visible');
+  }
+
+  function filterContacts() {
+    var q = searchEl.value.trim().toLowerCase();
+    if (!q) {
+      filteredContacts = contacts.slice(0, 8);
+    } else {
+      filteredContacts = contacts.filter(function(c) {
+        return (c.name || '').toLowerCase().indexOf(q) !== -1
+            || (c.email || '').toLowerCase().indexOf(q) !== -1
+            || (c.students || '').toLowerCase().indexOf(q) !== -1;
+      });
+    }
+    activeIdx = -1;
+    renderResults();
+  }
+
+  function selectContact(c) {
+    selectedContact = c;
+    selNameEl.textContent  = c.name || '(no name)';
+    selEmailEl.textContent = c.email;
+    searchEl.parentElement.style.display = 'none';
+    resultsEl.classList.remove('visible');
+    selectedEl.classList.add('visible');
+    detailsEl.classList.add('visible');
+    document.getElementById('contact-error').classList.remove('visible');
+
+    // Student picker: dropdown when 2+ students, hidden when 1, free-text
+    // when 0 (new contact case — operator can type one or leave blank).
+    var students = (c.students || '').split(',')
+      .map(function(s) { return s.trim(); })
+      .filter(function(s) { return s; });
+    studentSelectEl.innerHTML = '';
+    if (students.length >= 2) {
+      students.forEach(function(s) {
+        var opt = document.createElement('option');
+        opt.value = s; opt.textContent = s;
+        studentSelectEl.appendChild(opt);
+      });
+      studentFieldEl.style.display = '';
+      studentSelectEl.style.display = '';
+      studentInputEl.style.display = 'none';
+    } else if (students.length === 1) {
+      studentFieldEl.style.display = 'none';
+    } else {
+      studentFieldEl.style.display = '';
+      studentSelectEl.style.display = 'none';
+      studentInputEl.style.display = '';
+      studentInputEl.value = '';
+    }
+
+    refreshSubmitState();
+    setTimeout(function() { labelEl.focus(); }, 50);
+  }
+
+  function getSelectedStudent() {
+    if (!selectedContact) return '';
+    var students = (selectedContact.students || '').split(',')
+      .map(function(s) { return s.trim(); })
+      .filter(function(s) { return s; });
+    if (students.length >= 2) return studentSelectEl.value || students[0];
+    if (students.length === 1) return students[0];
+    return (studentInputEl.value || '').trim() || '(no student)';
+  }
+
+  function clearContact() {
+    selectedContact = null;
+    selectedEl.classList.remove('visible');
+    detailsEl.classList.remove('visible');
+    searchEl.parentElement.style.display = '';
+    searchEl.value = '';
+    filterContacts();
+    refreshSubmitState();
+    searchEl.focus();
+  }
+
+  function refreshSubmitState() {
+    var amt = Number(amountEl.value);
+    var q = Number(qtyEl.value);
+    var valid = !!selectedContact &&
+                !!labelEl.value.trim() &&
+                isFinite(amt) && amt !== 0 &&
+                isFinite(q) && q > 0;
+    submitEl.disabled = !valid;
+  }
+
+  // ── Wiring ─────────────────────────────────────────────────────────
+  searchEl.addEventListener('input', filterContacts);
+  searchEl.addEventListener('focus', filterContacts);
+  searchEl.addEventListener('keydown', function(e) {
+    if (!resultsEl.classList.contains('visible')) return;
+    var visible = Math.min(filteredContacts.length, 8);
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      activeIdx = Math.min(activeIdx + 1, visible - 1);
+      renderResults();
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      activeIdx = Math.max(activeIdx - 1, 0);
+      renderResults();
+    } else if (e.key === 'Enter') {
+      if (activeIdx >= 0 && filteredContacts[activeIdx]) {
+        e.preventDefault();
+        selectContact(filteredContacts[activeIdx]);
+      } else {
+        var q = searchEl.value.trim();
+        if (q && q.indexOf('@') > 0 && q.indexOf('.') > q.indexOf('@')) {
+          e.preventDefault();
+          selectContact({ name: '', email: q, students: '' });
+        }
+      }
+    } else if (e.key === 'Escape') {
+      resultsEl.classList.remove('visible');
+    }
+  });
+
+  resultsEl.addEventListener('click', function(e) {
+    var row = e.target.closest('.contact-result');
+    if (row) {
+      var idx = Number(row.getAttribute('data-idx'));
+      selectContact(filteredContacts[idx]);
+      return;
+    }
+    var newRow = e.target.closest('.new-contact');
+    if (newRow) {
+      selectContact({ name: '', email: searchEl.value.trim(), students: '' });
+    }
+  });
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.contact-picker')) {
+      resultsEl.classList.remove('visible');
+    }
+  });
+
+  changeEl.addEventListener('click', clearContact);
+
+  [labelEl, amountEl, qtyEl].forEach(function(el) {
+    el.addEventListener('input', refreshSubmitState);
+  });
+
+  cancelEl.addEventListener('click', function() { google.script.host.close(); });
+
+  function resetFormFields() {
+    // Keep the contact selected — most batch flows add multiple items
+    // to the same parent. Operator clicks "Change" if they want a different
+    // contact. Everything else gets cleared / set to defaults.
+    labelEl.value  = '';
+    amountEl.value = '';
+    qtyEl.value    = '1';
+    periodEl.value = '';
+    procEl.checked = true;
+    taxEl.checked  = false;
+    var owedRadio = document.getElementById('status-owed');
+    if (owedRadio) owedRadio.checked = true;
+    refreshSubmitState();
+    setTimeout(function() { labelEl.focus(); }, 50);
+  }
+
+  submitEl.addEventListener('click', function() {
+    if (!selectedContact) return;
+    var payload = {
+      email:           selectedContact.email,
+      student:         getSelectedStudent(),
+      label:           labelEl.value.trim(),
+      amount:          Number(amountEl.value),
+      qty:             Number(qtyEl.value) || 1,
+      applyProcessing: procEl.checked,
+      applyTax:        taxEl.checked,
+      period:          periodEl.value.trim(),
+      status:          document.querySelector('input[name="status"]:checked').value
+    };
+    document.body.classList.add('loading');
+    submitEl.disabled = true;
+    setStatus('Saving...', '');
+    google.script.run
+      .withSuccessHandler(function(res) {
+        document.body.classList.remove('loading');
+        if (res && res.ok) {
+          setStatus('Saved. Add another?', 'success');
+          resetFormFields();
+          setTimeout(function() { setStatus('', ''); }, 2200);
+        } else {
+          submitEl.disabled = false;
+          setStatus((res && res.error) || 'Save failed.', 'error');
+        }
+      })
+      .withFailureHandler(function(err) {
+        document.body.classList.remove('loading');
+        submitEl.disabled = false;
+        setStatus('Error: ' + (err && err.message ? err.message : err), 'error');
+      })
+      .manualItemDialog_submit(payload);
+  });
+
+  // ── Contacts are pre-injected by HtmlTemplate (server-side), so they
+  //    are available synchronously on first keystroke — no race.
+  contacts = window.__INJECTED_CONTACTS__ || [];
+  setStatus(contacts.length + ' contacts loaded.', '');
+  setTimeout(function() { setStatus('', ''); }, 1200);
+  searchEl.focus();
+
+})();
+</script>
+
+</body>
+</html>

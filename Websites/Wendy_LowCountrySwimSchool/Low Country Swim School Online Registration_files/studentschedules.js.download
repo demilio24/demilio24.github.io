@@ -1,0 +1,326 @@
+function CompareStartEndTimes(day,errEl,inOut)
+{
+	//Remove any highlighting here.
+	//$('#' + day + 'InTime').removeClass('errBg');
+	//$('#' + day + 'OutTime').removeClass('errBg');
+
+    var inTime = jQuery('#' + day + 'InTime').val();
+    var outTime = jQuery('#' + day + 'OutTime').val();
+
+    //Handle am/pm
+    inTime = inTime.replace(/([Aa][Mm])/, ' am');
+    inTime = inTime.replace(/([Pp][Mm])/, ' pm');
+    outTime = outTime.replace(/([Aa][Mm])/, ' am');
+    outTime = outTime.replace(/([Pp][Mm])/, ' pm');
+
+	//Only compare if we both an In and Out time.
+	if (inTime != '' && outTime != '')
+	{
+		start = new Date("1/1/2000 " + inTime);
+		end = new Date("1/1/2000 " + outTime);
+
+		//Compare end to start date, if Negative, then houston we have a problem.
+		if (end-start < 0)
+		{
+			jQuery('#' + day + inOut + 'Time').addClass('error');
+			jQuery(errEl).html('*Out time must be greater than in time.');
+			//$('#' + day + inOut + 'Time').select();
+		}
+		else
+		{
+		    jQuery('#' + day + inOut + 'Time').removeClass('error');
+
+			jQuery(errEl).empty();
+		}
+	}
+	//else
+		//$(errEl).empty();
+
+}
+
+function CompareTimes(startTime,endTime,errEl)
+{
+	//Remove any highlighting here.
+	//$(startTime).removeClass('errBg');
+	//$(endTime).removeClass('errBg');
+	//$(errEl).empty();
+	
+	//Check to make sure both dates are valid.
+	if(!IsValidTime(startTime,false,errEl) || !IsValidTime(endTime,false,errEl))
+	{
+		return false;
+	}
+		
+    var inTime = $(startTime).val();
+    var outTime = $(endTime).val();
+	
+    //Handle am/pm
+    inTime = inTime.replace(/([Aa][Mm])/, ' am');
+    inTime = inTime.replace(/([Pp][Mm])/, ' pm');
+    outTime = outTime.replace(/([Aa][Mm])/, ' am');
+    outTime = outTime.replace(/([Pp][Mm])/, ' pm');
+
+	//Only compare if we both an In and Out time.
+    if (inTime != '' && outTime != '') {
+
+		start = new Date("1/1/2000 " + inTime);
+		end = new Date("1/1/2000 " + outTime);
+
+		//Compare end to start date, if Negative, then houston we have a problem.
+		if (end-start < 0)
+		{
+			$(startTime).addClass('error');
+			$(errEl).html('*Out time must be greater than in time.');
+			alert('Out time cannot be greater than in time.');
+			//$(startTime).select();
+		}
+		else
+		{
+			$(startTime).removeClass('error');
+			$(errEl).empty();
+		}
+	}
+	
+}
+
+function IsValidTime(timeStr,isMilitaryTime,errEl) {
+
+	if(jQuery(timeStr).val() == '')
+	{
+	    jQuery(timeStr).removeClass('error');
+	    if (jQuery('.error').length == 0)
+		    jQuery(errEl).empty();
+		return false;
+	}
+	// Checks if time is in HH:MM:SS AM/PM format.
+	// The seconds and AM/PM are optional.
+
+	var timePat = /^(\d{1,2}):(\d{2})(:(\d{2}))?(\s?(AM|am|PM|pm))?$/;
+
+	var matchArray = jQuery(timeStr).val().match(timePat);
+	if (matchArray == null) {
+	    if (jQuery(timeStr).val() != '')
+		{
+	        jQuery(timeStr).addClass('error');
+			alert('Invalid Time Entries (Format: 1:00pm)');
+			jQuery(errEl).html('*Invalid Time Entries (Format: 1:00pm)');
+			//$(timeStr).select();
+			return false;
+		}
+	}
+	else
+	    jQuery(timeStr).removeClass('error');
+	
+	hour = matchArray[1];
+	minute = matchArray[2];
+	second = matchArray[4];
+	ampm = matchArray[6];
+
+	if (second=="") { second = null; }
+	if (ampm=="") { ampm = null }
+
+	if (hour < 0  || hour > 23) {
+		alert("Hour must be between 1 and 12. (or 0 and 23 for military time)");
+		return false;
+	}
+
+	if ((hour > 12 || hour == 0) && !isMilitaryTime ) {
+	    jQuery(timeStr).addClass('error');
+			alert('Hour must be between 1 and 12.');
+			jQuery(errEl).html('Hour must be between 1 and 12.');
+			//$(timeStr).select();
+			return false;
+	}
+
+	if (hour <= 12 && !isMilitaryTime ) {
+
+		if (ampm == null)
+		{
+		    jQuery(timeStr).addClass('error');
+			alert('Please specify AM or PM.');
+			jQuery(errEl).html('Please specify AM or PM.');
+			//$(timeStr).select();
+			return false;
+		}
+	}
+
+	if  (hour > 12 && ampm != null) {
+		alert("You can't specify AM or PM for military time.");
+		return false;
+	}
+
+	if (minute<0 || minute > 59) {
+	    jQuery(timeStr).addClass('error');
+		alert("Minute must be below 59.");
+		jQuery(errEl).html('Minute must be below 59.');
+		//$(timeStr).select();
+		return false;
+	}
+		if (second != null && (second < 0 || second > 59)) {
+		alert ("Second must be between 0 and 59.");
+		return false;
+	}
+	
+	//Hide if no errors exists
+		if (jQuery('.error').length == 0)
+	    jQuery(errEl).empty();
+		
+	return true;
+}
+
+	
+//Schedule object
+function schedule(classId,studentId,startDate,endDate,monIn,tueIn,wedIn,thuIn,friIn,satIn,sunIn,schId)
+{
+	this.classId = classId;
+	this.studentId = studentId;
+	this.startDate = startDate;
+	this.endDate = endDate;
+	this.monIn = monIn;
+	this.tueIn = tueIn;
+	this.wedIn = wedIn;
+	this.thuIn = thuIn;
+	this.friIn = friIn;
+	this.satIn = satIn;
+	this.sunIn = sunIn;
+	this.schId = schId
+}
+
+function stopTab(evt)
+{
+	alert(evt);
+	evt.preventDefault();
+}
+
+function loadTemplateById(id) {
+
+	if (id == '')
+	{
+		//Clear all boxes
+		jQuery("input[name$='Time']").each(function() { jQuery(this).val('')});
+		return false
+	}
+		
+    //call to get template type and content -- Loads into a JSON object
+    jQuery.ajax({ url: "student_actions.asp?action=getTemplate", cache: false, dataType: 'json', data: { xid: id }, success: loadTemplateWithContent, error: function(r,e){ alert('error');}}) 
+}
+
+function loadTemplateWithContent(data)
+{
+	jQuery('#MonInTime').val(data.monIn);
+	jQuery('#MonOutTime').val(data.monOut);
+	jQuery('#TueInTime').val(data.tueIn);
+	jQuery('#TueOutTime').val(data.tueOut);
+	jQuery('#WedInTime').val(data.wedIn);
+	jQuery('#WedOutTime').val(data.wedOut);
+	jQuery('#ThuInTime').val(data.thuIn);
+	jQuery('#ThuOutTime').val(data.thuOut);
+	jQuery('#FriInTime').val(data.friIn);
+	jQuery('#FriOutTime').val(data.friOut);
+	jQuery('#SatInTime').val(data.satIn);
+	jQuery('#SatOutTime').val(data.satOut);
+	jQuery('#SunInTime').val(data.sunIn);
+	jQuery('#SunOutTime').val(data.sunOut);
+}
+
+function CheckSchedule(sch) {
+
+    var url = 'student_actions.asp?action=checkSchedules&xid=' + sch.studentId;
+    //var pars = 'xid=' + sid + '&sdate=' + sDate + '&edate=' + eDate + '&classId=' + classId + '&action=checkSchedules';
+    var isValid = false;
+
+    if (confirm('Are you sure you wish to submit this student schedule?')) {
+        jQuery.ajax({
+            type: "POST", url: url, timeout: 10000, data: sch, async: false,
+            error: function (r) { alert('Error on portal password reset: ' + r.responseText); },
+            success: function (data) {
+                //alert( "Response: " + data );
+                if (data.indexOf("true") > -1) {
+                    //$('#divMessage').html('Schedule Added').show();
+                    isValid = true;
+                }
+                else {
+                    alert('Unable to add schedule.  Conflict detected!');
+                }
+            }
+        });
+    }
+
+    return isValid;
+
+}
+
+function filterSchedules(el) {
+
+    var readonlyflag;
+    
+    if ($(el).val() == 'Past Schedules') {
+        
+        $('tr[id*=current]').hide();
+        $('tr[id*=future]').hide();
+        $('tr[id*=past]').show();
+        
+		$('tr[id*=past] :text[id*=ss]').each(function() {
+            readonlyflag = '#' + $(this).attr('id') + 'readonly';
+            $(readonlyflag).hide();
+            $(this).show();
+        });
+		
+		
+        $('tr[id*=past] img').each(function() {
+            $(this).hide();
+        });
+        
+        //Update the total row count.
+        $('#careRecCount').html('&nbsp;<span id="careRecCount"><b>' + $('tr[id*=past]').length + '</b> record(s) found.</span>&nbsp;');
+    }
+
+    if ($(el).val() == 'Future Schedules') {
+        $('tr[id*=current]').hide();
+        $('tr[id*=future]').show();
+        $('tr[id*=past]').hide();
+
+        //Update the total row count.
+        $('#careRecCount').html('&nbsp;<span id="careRecCount"><b>' + $('tr[id*=future]').length + '</b> record(s) found.</span>&nbsp;');
+    }
+
+    if ($(el).val() == 'All') {
+        $('tr[id*=current]').show();
+        $('tr[id*=future]').show();
+        $('tr[id*=past]').show();
+
+        $('tr[id*=past] :text[id*=ss]').each(function() {
+            readonlyflag = '#' + $(this).attr('id') + 'readonly';
+            $(readonlyflag).hide();
+            $(this).show();
+        });
+        
+        $('tr[id*=past] img').each(function() {
+            $(this).hide();
+        });
+        
+        //Update the total row count.
+        $('#careRecCount').html('&nbsp;<span id="careRecCount"><b>' + ($('#tblGridSchedules .sr').length) + '</b> record(s) found.</span>&nbsp;');
+    }
+
+    if ($(el).val() == 'Current') {
+        $('tr[id*=current]').show();
+        $('tr[id*=future]').hide();
+        $('tr[id*=past]').hide();
+
+        //Update the total row count.
+        $('#careRecCount').html('&nbsp;<span id="careRecCount"><b>' + $('tr[id*=current]').length + '</b> record(s) found.</span>&nbsp;');
+    }
+	
+	if ($(el).val() == 'Current & Future') {
+        $('tr[id*=current]').show();
+        $('tr[id*=future]').show();
+        $('tr[id*=past]').hide();
+
+		var recs = $('tr[id*=current]').length + $('tr[id*=future]').length;
+		
+        //Update the total row count.
+        $('#careRecCount').html('&nbsp;<span id="careRecCount"><b>' + recs + '</b> record(s) found.</span>&nbsp;');
+    }
+
+}

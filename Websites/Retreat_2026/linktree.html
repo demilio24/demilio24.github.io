@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swim Instructor Retreat 2026 — Instructors</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Nunito:wght@400;600;700;800;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blue: #2b3a8e;
+            --blue-light: #4158D0;
+            --blue-sky: #5ba3d9;
+            --blue-pool: #7ec8e3;
+            --yellow: #FFD700;
+            --white: #ffffff;
+            --dark: #1a2a5e;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #e8f4fc;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--dark);
+        }
+
+        /* ── Water Canvas ── */
+        #water-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ── Bubbles ── */
+        .bubbles-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            bottom: -80px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), rgba(91,163,217,0.15));
+            border: 1px solid rgba(255,255,255,0.5);
+            animation: rise linear infinite;
+        }
+        @keyframes rise {
+            0%   { transform: translateY(0) scale(1); opacity: 0.6; }
+            50%  { opacity: 0.4; }
+            100% { transform: translateY(-110vh) scale(0.3); opacity: 0; }
+        }
+
+        /* ── Ripple ── */
+        .ripple {
+            position: fixed;
+            border-radius: 50%;
+            border: 2px solid rgba(43,58,142,0.3);
+            animation: ripple-out 0.8s ease-out forwards;
+            pointer-events: none;
+            z-index: 100;
+        }
+        @keyframes ripple-out {
+            0%   { width: 0; height: 0; opacity: 1; }
+            100% { width: 200px; height: 200px; opacity: 0; }
+        }
+
+        /* ── Caustics ── */
+        .caustics {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.06;
+            background:
+                repeating-conic-gradient(rgba(43,58,142,0.15) 0% 25%, transparent 0% 50%)
+                50% / 60px 60px;
+            animation: caustic-move 12s linear infinite;
+        }
+        @keyframes caustic-move {
+            0%   { transform: translate(0,0) scale(1); }
+            50%  { transform: translate(-20px,15px) scale(1.05); }
+            100% { transform: translate(0,0) scale(1); }
+        }
+
+        /* ── Main Container ── */
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 32px 20px 60px;
+        }
+
+        /* ── Swimmer Track ── */
+        .swimmer-track {
+            width: 100%;
+            height: 24px;
+            position: relative;
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+        .swimmer-emoji {
+            position: absolute;
+            font-size: 1.2rem;
+            animation: swim-across 8s linear infinite;
+        }
+        @keyframes swim-across {
+            0%   { left: -30px; }
+            100% { left: calc(100% + 30px); }
+        }
+
+        /* ── Header ── */
+        .header {
+            text-align: center;
+            margin-bottom: 28px;
+        }
+        .retreat-badge {
+            display: inline-block;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--yellow), #ffa726);
+            color: var(--dark);
+            padding: 5px 18px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            box-shadow: 0 3px 12px rgba(255,215,0,0.3);
+        }
+        .header-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--dark);
+            text-shadow: 0 2px 12px rgba(43,58,142,0.15);
+        }
+        .header-sub {
+            font-size: 0.82rem;
+            color: var(--blue);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-top: 4px;
+            opacity: 0.75;
+        }
+
+        /* ── Wave Divider ── */
+        .wave-divider {
+            width: 100%;
+            height: 30px;
+            margin: 16px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        .wave-divider svg {
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            animation: wave-slide 6s linear infinite;
+        }
+        @keyframes wave-slide {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ── Section Label ── */
+        .section-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #000;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+
+        /* ── Instructor Card ── */
+        .instructor-card {
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.75);
+            border-radius: 20px;
+            padding: 22px 20px 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 28px rgba(43,58,142,0.09);
+        }
+        .instructor-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 16px;
+        }
+        .instructor-avatar {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+        .avatar--singing { background: linear-gradient(135deg, #f857a6, #ff5858); }
+        .avatar--amazing { background: linear-gradient(135deg, #4158D0, #C850C0); }
+
+        .instructor-name {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--dark);
+            line-height: 1.2;
+        }
+        .instructor-biz {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--blue-sky);
+            margin-top: 2px;
+        }
+
+        /* ── Link Buttons ── */
+        .link-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width: 100%;
+            padding: 13px 16px;
+            margin-bottom: 10px;
+            border-radius: 14px;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 700;
+            font-size: 0.9rem;
+            border: 1px solid rgba(255,255,255,0.6);
+            background: rgba(255,255,255,0.5);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            transition: all 0.35s cubic-bezier(.4,0,.2,1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(43,58,142,0.06);
+        }
+        .link-btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.5s ease;
+        }
+        .link-btn:hover::before { left: 100%; }
+        .link-btn:hover {
+            transform: translateY(-2px) scale(1.015);
+            border-color: rgba(43,58,142,0.18);
+            box-shadow: 0 8px 28px rgba(43,58,142,0.12), 0 0 16px rgba(126,200,227,0.15);
+            background: rgba(255,255,255,0.72);
+        }
+        .link-btn:active { transform: scale(0.97); }
+        .link-btn:last-child { margin-bottom: 0; }
+
+        .link-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15rem;
+            flex-shrink: 0;
+        }
+        .link-btn .arrow {
+            margin-left: auto;
+            opacity: 0.3;
+            transition: all 0.3s;
+            font-size: 1.1rem;
+            color: var(--blue);
+            flex-shrink: 0;
+        }
+        .link-btn:hover .arrow { opacity: 1; transform: translateX(3px); }
+
+        .link-text { line-height: 1.2; }
+        .link-sub {
+            font-size: 0.7rem;
+            font-weight: 400;
+            opacity: 0.5;
+            margin-top: 1px;
+        }
+
+        /* Icon colors */
+        .icon-instagram { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .icon-facebook  { background: linear-gradient(135deg, #1877f2, #42a5f5); }
+        .icon-website   { background: linear-gradient(135deg, #4158D0, #7b42f6); }
+        .icon-booking   { background: linear-gradient(135deg, #0097a7, #26c6da); }
+        .icon-email     { background: linear-gradient(135deg, #f57c00, #ffb74d); }
+
+        /* ── Fade Up ── */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeUp 0.6s ease forwards;
+        }
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+        .delay-5 { animation-delay: 0.5s; }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            margin-top: 28px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(43,58,142,0.08);
+            font-size: 0.72rem;
+            color: #000;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+<canvas id="water-canvas"></canvas>
+<div class="caustics"></div>
+<div class="bubbles-container" id="bubbles"></div>
+
+<div class="container">
+
+    <!-- Swimmer animation -->
+    <div class="swimmer-track fade-up">
+        <span class="swimmer-emoji" style="animation-delay:0s;">🏊</span>
+        <span class="swimmer-emoji" style="animation-delay:3s;">🏊</span>
+        <span class="swimmer-emoji" style="animation-delay:6s;">🏊</span>
+    </div>
+
+    <!-- Header -->
+    <div class="header fade-up delay-1">
+        <div class="retreat-badge">RETREAT 2026</div>
+        <div class="header-title">Meet the Instructors</div>
+        <div class="header-sub">Swim Instructor Retreat 2026</div>
+    </div>
+
+    <!-- Wave -->
+    <div class="wave-divider fade-up delay-2">
+        <svg viewBox="0 0 1200 30" preserveAspectRatio="none">
+            <path d="M0,15 Q150,0 300,15 T600,15 T900,15 T1200,15 T1500,15 T1800,15 T2100,15 T2400,15"
+                  fill="none" stroke="rgba(43,58,142,0.12)" stroke-width="2"/>
+        </svg>
+    </div>
+
+    <div class="section-label fade-up delay-2">Connect with your fellow instructors</div>
+
+    <!-- ── Shalene Hill ── -->
+    <div class="instructor-card fade-up delay-3">
+        <div class="instructor-header">
+            <div class="instructor-avatar avatar--singing">🎵</div>
+            <div>
+                <div class="instructor-name">Shalene Hill</div>
+                <div class="instructor-biz">Singing Swim School</div>
+            </div>
+        </div>
+
+        <a href="https://www.instagram.com/singingswimschool/" target="_blank" rel="noopener" class="link-btn">
+            <div class="link-icon icon-instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+            <div class="link-text">
+                <div>Instagram</div>
+                <div class="link-sub">@singingswimschool</div>
+            </div>
+            <span class="arrow">›</span>
+        </a>
+
+        <a href="https://www.singingswimschool.com" target="_blank" rel="noopener" class="link-btn">
+            <div class="link-icon icon-website">🌐</div>
+            <div class="link-text">
+                <div>Website</div>
+                <div class="link-sub">singingswimschool.com</div>
+            </div>
+            <span class="arrow">›</span>
+        </a>
+
+        <a href="https://SingingSwimSchool.as.me/?appointmentType=90386703" target="_blank" rel="noopener" class="link-btn">
+            <div class="link-icon icon-booking">📅</div>
+            <div class="link-text">
+                <div>Book a Lesson</div>
+                <div class="link-sub">Schedule an appointment</div>
+            </div>
+            <span class="arrow">›</span>
+        </a>
+
+        <a href="mailto:Shalene@singingswimschool.com" class="link-btn">
+            <div class="link-icon icon-email">✉️</div>
+            <div class="link-text">
+                <div>Email</div>
+                <div class="link-sub">Shalene@singingswimschool.com</div>
+            </div>
+            <span class="arrow">›</span>
+        </a>
+    </div>
+
+    <!-- ── Natalie Pantaleon ── -->
+    <div class="instructor-card fade-up delay-4">
+        <div class="instructor-header">
+            <div class="instructor-avatar avatar--amazing">🌊</div>
+            <div>
+                <div class="instructor-name">Natalie Pantaleon</div>
+                <div class="instructor-biz">Amazing Swimmers LLC</div>
+            </div>
+        </div>
+
+        <a href="https://www.instagram.com/amazingswimmersllc/" target="_blank" rel="noopener" class="link-btn">
+            <div class="link-icon icon-instagram">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            </div>
+            <div class="link-text">
+                <div>Instagram</div>
+                <div class="link-sub">@amazingswimmersllc</div>
+            </div>
+            <span class="arrow">›</span>
+        </a>
+
+        <a href="mailto:nevanicolefairfield@gmail.com" class="link-btn">
+            <div class="link-icon icon-email">✉️</div>
+            <div class="link-text">
+                <div>Email</div>
+                <div class="link-sub">nevanicolefairfield@gmail.com</div>
+            </div>
+            <span class="arrow">›</span>
+        </a>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer fade-up delay-5">
+        🏊 SWIM INSTRUCTOR RETREAT &bull; 2026
+    </div>
+
+</div>
+
+<script>
+// ── Water Canvas ──
+(function() {
+    const canvas = document.getElementById('water-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h, cols, rows;
+    const spacing = 28;
+
+    function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+        cols = Math.ceil(w / spacing) + 1;
+        rows = Math.ceil(h / spacing) + 1;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    function draw(t) {
+        ctx.clearRect(0, 0, w, h);
+        const grad = ctx.createLinearGradient(0, 0, 0, h);
+        grad.addColorStop(0, '#dceefb');
+        grad.addColorStop(0.3, '#c4e0f4');
+        grad.addColorStop(0.6, '#a8d4f0');
+        grad.addColorStop(1, '#8ac4e8');
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, w, h);
+
+        ctx.fillStyle = 'rgba(43,58,142,0.04)';
+        for (let i = 0; i < cols; i++) {
+            for (let j = 0; j < rows; j++) {
+                const x = i * spacing + Math.sin(t * 0.0008 + j * 0.3) * 6;
+                const y = j * spacing + Math.cos(t * 0.001 + i * 0.3) * 6;
+                const size = 1.2 + Math.sin(t * 0.002 + i + j) * 0.6;
+                ctx.beginPath();
+                ctx.arc(x, y, size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        for (let k = 0; k < 5; k++) {
+            ctx.beginPath();
+            ctx.strokeStyle = `rgba(255,255,255,${0.15 + k * 0.04})`;
+            ctx.lineWidth = 1.5;
+            const yBase = h * 0.15 + k * (h * 0.18);
+            for (let x = 0; x <= w; x += 4) {
+                const y = yBase + Math.sin(x * 0.004 + t * 0.0008 + k) * 25
+                              + Math.sin(x * 0.008 + t * 0.0012 + k * 2) * 12;
+                x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        }
+
+        for (let k = 0; k < 3; k++) {
+            const cx = w * (0.2 + k * 0.3) + Math.sin(t * 0.0005 + k * 2) * 80;
+            const cy = h * (0.3 + k * 0.2) + Math.cos(t * 0.0007 + k) * 60;
+            const r = 120 + Math.sin(t * 0.001 + k) * 30;
+            const glow = ctx.createRadialGradient(cx, cy, 0, cx, cy, r);
+            glow.addColorStop(0, 'rgba(255,255,255,0.12)');
+            glow.addColorStop(1, 'rgba(255,255,255,0)');
+            ctx.fillStyle = glow;
+            ctx.beginPath();
+            ctx.arc(cx, cy, r, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+})();
+
+// ── Bubbles ──
+(function() {
+    const container = document.getElementById('bubbles');
+    function createBubble() {
+        const bubble = document.createElement('div');
+        bubble.classList.add('bubble');
+        const size = Math.random() * 18 + 5;
+        bubble.style.width = size + 'px';
+        bubble.style.height = size + 'px';
+        bubble.style.left = Math.random() * 100 + '%';
+        bubble.style.animationDuration = (Math.random() * 8 + 6) + 's';
+        bubble.style.animationDelay = (Math.random() * 4) + 's';
+        container.appendChild(bubble);
+        setTimeout(() => bubble.remove(), 16000);
+    }
+    setInterval(createBubble, 800);
+    for (let i = 0; i < 12; i++) setTimeout(createBubble, i * 120);
+})();
+
+// ── Ripple on Click ──
+document.addEventListener('click', function(e) {
+    const ripple = document.createElement('div');
+    ripple.classList.add('ripple');
+    ripple.style.left = (e.clientX - 100) + 'px';
+    ripple.style.top = (e.clientY - 100) + 'px';
+    document.body.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 800);
+});
+</script>
+
+</body>
+</html>

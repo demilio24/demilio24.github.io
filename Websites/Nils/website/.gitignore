@@ -1,0 +1,6 @@
+# Pagefind generates its index here; rebuild locally with scripts/build-search.sh
+pagefind/
+
+# Variation drafts are kept for review during the build phase, then archived.
+# After launch, uncomment to ignore them entirely:
+# _drafts/

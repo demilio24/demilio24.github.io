@@ -1,0 +1,2957 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CS Infraestructura | #1 en Frigoríficos Industriales Chile</title>
+    <meta
+      name="description"
+      content="CS Infraestructura SpA - 24 años construyendo proyectos industriales complejos. #1 en frigoríficos industriales, plantas de tratamiento, construcción institucional."
+    />
+
+    <!-- Fonts: Instrument Serif + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #d32f2f;
+        --primary-dark: #b71c1c;
+        --dark: #1a1a1a;
+        --gray-700: #616161;
+        --gray-600: #757575;
+        --gray-300: #e0e0e0;
+        --gray-200: #eeeeee;
+        --gray-100: #f5f5f5;
+        --white: #ffffff;
+        --font-serif: "Instrument Serif", serif;
+        --font-sans: "Inter", sans-serif;
+        --max: 1200px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        color: var(--dark);
+        background: var(--white);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ============================================
+   NAVIGATION - LOGO 50% MÁS GRANDE
+   ============================================ */
+      .nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 1rem 0;
+        background: var(--white);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-container {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo-img {
+        height: 68px; /* 50% más grande que 45px original */
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        color: var(--dark);
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 0.938rem;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--primary);
+      }
+
+      .nav-cta {
+        background: var(--primary);
+        color: var(--white) !important;
+        padding: 0.75rem 1.5rem;
+        border-radius: 6px;
+        font-weight: 600;
+      }
+
+      .nav-cta:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      /* MOBILE MENU - FUNCIONA CORRECTAMENTE */
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+      }
+
+      .nav-toggle span {
+        width: 28px;
+        height: 3px;
+        background: var(--dark);
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+
+      .mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    max-width: 400px;
+    height: 100vh;
+    background: var(--white);
+    z-index: 999;
+    padding: 8rem 2rem 2rem;
+    transition: right 0.3s;
+    box-shadow: -4px 0 20px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+}
+
+      .mobile-menu.active {
+        right: 0;
+      }
+
+      .mobile-menu-links {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+
+      .mobile-menu-links a {
+        color: var(--dark);
+        font-size: 1.125rem;
+        font-weight: 500;
+        text-decoration: none;
+      }
+
+      .mobile-cta {
+        background: var(--primary);
+        color: var(--white);
+        padding: 1rem 2rem;
+        border-radius: 6px;
+        text-align: center;
+        display: block;
+        margin-top: 1rem;
+        text-decoration: none;
+      }
+
+      /* ============================================
+   HERO SECTION
+   ============================================ */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+        padding: 10rem 0 4rem;
+      }
+
+      .hero-container {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 3rem;
+      }
+
+      .hero-layout {
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 4rem;
+        align-items: start;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        background: var(--white);
+        border: 1.5px solid var(--primary);
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-size: 0.813rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        margin-bottom: 2rem;
+        color: var(--primary);
+      }
+
+      .hero-title {
+        font-family: var(--font-serif);
+        font-size: clamp(3rem, 8vw, 5.5rem);
+        line-height: 1.1;
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+      }
+
+      .title-accent {
+        color: var(--primary);
+        font-style: italic;
+      }
+
+      .hero-subtitle {
+        font-size: 1.25rem;
+        color: var(--gray-700);
+        margin-bottom: 2rem;
+      }
+
+      .hero-stats-badges {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+      }
+
+      .stat-badge-mini {
+        background: var(--white);
+        border: 2px solid var(--gray-200);
+        padding: 1.25rem 1.5rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .stat-badge-mini:hover {
+        border-color: var(--primary);
+        transform: translateY(-2px);
+      }
+
+      .stat-badge-mini .number {
+        font-family: var(--font-serif);
+        font-size: 2.25rem;
+        color: var(--primary);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-badge-mini .label {
+        font-size: 0.813rem;
+        color: var(--gray-600);
+        font-weight: 500;
+      }
+
+      /* FORMULARIO INLINE COMPLETO */
+.form-container {
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    border: 1px solid var(--gray-200);
+    overflow: hidden;
+}
+
+.form-container iframe {
+    width: 100%;
+    min-height: 850px;
+    border: none;
+    border-radius: 16px;
+    display: block;
+}
+
+      /* ============================================
+   GENERAL SECTIONS
+   ============================================ */
+      .section {
+        padding: 5rem 0;
+      }
+
+      .section-white {
+        background: var(--white);
+      }
+
+      .section-gray {
+        background: var(--gray-100);
+      }
+
+      .section-container {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 3rem;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section-tag {
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--primary);
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .section-title {
+        font-family: var(--font-serif);
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+      }
+
+      .section-subtitle {
+        font-size: 1.125rem;
+        color: var(--gray-700);
+        line-height: 1.7;
+      }
+
+      /* ============================================
+   CAROUSEL
+   ============================================ */
+      .carousel-section {
+        padding: 3rem 0;
+        background: var(--white);
+        overflow: hidden;
+        border-top: 1px solid var(--gray-200);
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .carousel-label {
+        text-align: center;
+        font-size: 0.875rem;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--gray-600);
+        margin-bottom: 2rem;
+      }
+
+      .carousel-track {
+        display: flex;
+        animation: scroll 60s linear infinite;
+        gap: 1.5rem;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      .carousel-track:hover {
+        animation-play-state: paused;
+      }
+
+      .carousel-item {
+        flex-shrink: 0;
+        width: 380px;
+        height: 260px;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        transition: all 0.3s;
+        border: 1px solid var(--gray-200);
+        cursor: pointer;
+      }
+
+      .carousel-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 30px rgba(211, 47, 47, 0.2);
+      }
+
+      .carousel-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      /* ============================================
+   TIPOS DE PROYECTOS CON DROPDOWN
+   ============================================ */
+      .project-types {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .type-card {
+        background: var(--white);
+        border: 2px solid var(--gray-200);
+        padding: 2rem;
+        border-radius: 12px;
+        transition: all 0.3s;
+      }
+
+      .type-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-4px);
+      }
+
+      .type-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .type-card h3 {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+        font-weight: 400;
+      }
+
+      .type-summary {
+        color: var(--gray-700);
+        font-size: 0.938rem;
+        line-height: 1.6;
+        margin-bottom: 1rem;
+      }
+
+      .type-details {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+
+      .type-details.active {
+        max-height: 500px;
+      }
+
+      .type-details ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 1rem;
+      }
+
+      .type-details li {
+        padding-left: 1.5rem;
+        position: relative;
+        margin-bottom: 0.5rem;
+        color: var(--gray-700);
+        font-size: 0.875rem;
+      }
+
+      .type-details li::before {
+        content: "•";
+        color: var(--primary);
+        font-weight: bold;
+        position: absolute;
+        left: 0;
+      }
+
+      .read-more-btn {
+        background: none;
+        border: none;
+        color: var(--primary);
+        font-weight: 600;
+        cursor: pointer;
+        font-size: 0.938rem;
+        padding: 0.5rem 0;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: gap 0.3s;
+        font-family: var(--font-sans);
+      }
+
+      .read-more-btn:hover {
+        gap: 0.75rem;
+      }
+
+      .read-more-btn svg {
+        transition: transform 0.3s;
+      }
+
+      .read-more-btn.active svg {
+        transform: rotate(180deg);
+      }
+
+      /* ============================================
+   SERVICIOS - 2 FILAS DE 3 CON DROPDOWNS
+   ============================================ */
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .service-card {
+        background: var(--white);
+        border: 2px solid var(--gray-200);
+        padding: 2.5rem;
+        border-radius: 12px;
+        transition: all 0.3s;
+      }
+
+      .service-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-4px);
+      }
+
+      .service-card h3 {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+
+      .service-summary {
+        color: var(--gray-700);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+        font-size: 0.938rem;
+      }
+
+      .service-details {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+
+      .service-details.active {
+        max-height: 600px;
+      }
+
+      .service-details-content {
+        padding-top: 1rem;
+        border-top: 1px solid var(--gray-200);
+        margin-top: 1rem;
+      }
+
+      .service-details-content p {
+        color: var(--gray-700);
+        font-size: 0.875rem;
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+      }
+
+      /* ============================================
+   PROCESO CON ANIMACIÓN
+   ============================================ */
+      .process-timeline {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .process-step {
+        text-align: center;
+        position: relative;
+      }
+
+      .process-step::after {
+        content: "";
+        position: absolute;
+        top: 35px;
+        right: -1rem;
+        width: 2rem;
+        height: 2px;
+        background: var(--gray-300);
+      }
+
+      .process-step:last-child::after {
+        display: none;
+      }
+
+      .process-number {
+        width: 70px;
+        height: 70px;
+        background: var(--white);
+        border: 3px solid var(--gray-300);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        color: var(--gray-600);
+        margin: 0 auto 1rem;
+        transition: all 0.5s;
+      }
+
+      .process-number.active {
+        border-color: var(--primary);
+        color: var(--primary);
+        background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+        transform: scale(1.1);
+        box-shadow: 0 8px 20px rgba(211, 47, 47, 0.3);
+      }
+
+      .process-step h4 {
+        font-family: var(--font-serif);
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+        transition: color 0.5s;
+      }
+
+      .process-step.active h4 {
+        color: var(--primary);
+      }
+
+      .process-step p {
+        font-size: 0.875rem;
+        color: var(--gray-600);
+      }
+
+      /* ============================================
+   WHY GRID - INTEGRADO
+   ============================================ */
+      .why-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .why-card {
+        background: var(--white);
+        border: 2px solid var(--gray-200);
+        padding: 2.5rem;
+        border-radius: 12px;
+        transition: all 0.3s;
+      }
+
+      .why-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-4px);
+      }
+
+      .why-icon {
+        width: 70px;
+        height: 70px;
+        background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+        border: 2px solid var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .why-card h3 {
+        font-family: var(--font-serif);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 400;
+      }
+
+      .why-card p {
+        color: var(--gray-700);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+
+      .coverage-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: 1rem;
+      }
+
+      .coverage-badge {
+        background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+        border: 1px solid var(--primary);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--primary);
+      }
+
+      .team-list {
+        margin-top: 1rem;
+      }
+
+      .team-member {
+        padding: 0.75rem 0;
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .team-member:last-child {
+        border-bottom: none;
+      }
+
+      .team-name {
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .team-role {
+        font-size: 0.875rem;
+        color: var(--primary);
+      }
+
+      /* ============================================
+   INDUSTRIAS CON MÁS INFO Y FOTOS
+   ============================================ */
+      .industries-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .industry-card {
+        background: var(--white);
+        border: 2px solid var(--gray-200);
+        border-radius: 12px;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .industry-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-4px);
+      }
+
+      .industry-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .industry-content {
+        padding: 1.5rem;
+      }
+
+      .industry-icon {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+        display: block;
+      }
+
+      .industry-card h4 {
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+        margin-bottom: 0.75rem;
+      }
+
+      .industry-card p {
+        color: var(--gray-700);
+        font-size: 0.875rem;
+        line-height: 1.6;
+      }
+
+      /* ============================================
+   PROYECTOS CON FILTRO Y MODAL
+   ============================================ */
+      .projects-filter {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+
+      .filter-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--white);
+        border: 2px solid var(--gray-300);
+        border-radius: 50px;
+        color: var(--dark);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-family: var(--font-sans);
+        font-size: 0.938rem;
+      }
+
+      .filter-btn:hover,
+      .filter-btn.active {
+        background: var(--primary);
+        border-color: var(--primary);
+        color: var(--white);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+
+      .project-card {
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        height: 300px;
+        border: 2px solid var(--gray-200);
+        transition: all 0.3s;
+        cursor: pointer;
+      }
+
+      .project-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--primary);
+      }
+
+      .project-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .project-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to top,
+          rgba(26, 26, 26, 0.9) 0%,
+          transparent 60%
+        );
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1.5rem;
+        color: var(--white);
+      }
+
+      .project-category {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        background: var(--primary);
+        padding: 0.25rem 0.75rem;
+        border-radius: 4px;
+        display: inline-block;
+        margin-bottom: 0.75rem;
+        width: fit-content;
+      }
+
+      .project-card h3 {
+        font-family: var(--font-serif);
+        font-size: 1.375rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .project-card p {
+        font-size: 0.875rem;
+      }
+
+      /* MODAL POPUP */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        align-items: center;
+        justify-content: center;
+        padding: 2rem;
+      }
+
+      .modal.active {
+        display: flex;
+      }
+
+      .modal-content {
+        background: var(--white);
+        border-radius: 16px;
+        max-width: 900px;
+        width: 100%;
+        max-height: 90vh;
+        overflow-y: auto;
+        position: relative;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: var(--primary);
+        color: var(--white);
+        border: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        font-size: 1.5rem;
+        cursor: pointer;
+        z-index: 10;
+      }
+
+      .modal-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 16px 16px 0 0;
+      }
+
+      .modal-body {
+        padding: 2rem;
+      }
+
+      .modal-body h2 {
+        font-family: var(--font-serif);
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .modal-body .project-category {
+        margin-bottom: 1rem;
+      }
+
+      .modal-body p {
+        color: var(--gray-700);
+        line-height: 1.7;
+        margin-bottom: 1rem;
+      }
+
+      /* ============================================
+   CTA - CON PADDING ARREGLADO
+   ============================================ */
+      .cta-inline {
+        text-align: center;
+        padding: 2.5rem;
+        background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+        border-radius: 12px;
+        border: 2px solid var(--primary);
+        margin-top: 3rem;
+      }
+
+      .cta-inline h3 {
+        font-family: var(--font-serif);
+        font-size: 1.75rem;
+        margin-bottom: 1rem;
+      }
+
+      .cta-inline p {
+        color: var(--gray-700);
+        margin-bottom: 1.5rem;
+        font-size: 1.063rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 1.125rem 2.5rem;
+        background: var(--primary);
+        color: var(--white);
+        font-weight: 600;
+        border-radius: 8px;
+        transition: all 0.3s;
+        border: none;
+        text-decoration: none;
+        font-family: var(--font-sans);
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      /* ============================================
+   STATS
+   ============================================ */
+      .stats-section {
+        padding: 4rem 0;
+        background: var(--white);
+        border-top: 1px solid var(--gray-200);
+        border-bottom: 1px solid var(--gray-200);
+      }
+
+      .stats-container {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 3rem;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+      }
+
+      .stat-box {
+        background: var(--white);
+        border: 2px solid var(--gray-200);
+        padding: 2.5rem 2rem;
+        border-radius: 12px;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .stat-box:hover {
+        border-color: var(--primary);
+        transform: translateY(-4px);
+      }
+
+      .stat-number {
+        font-family: var(--font-serif);
+        font-size: 3.5rem;
+        color: var(--primary);
+        display: block;
+        margin-bottom: 0.5rem;
+      }
+
+      .stat-label {
+        font-size: 0.938rem;
+        color: var(--gray-700);
+        font-weight: 500;
+        margin-top: 0.75rem;
+      }
+
+      /* ============================================
+   CTA SECTION
+   ============================================ */
+      .cta-section {
+        padding: 5rem 0;
+        background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+        text-align: center;
+      }
+
+      .cta-content h2 {
+        font-family: var(--font-serif);
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        margin-bottom: 1.5rem;
+        font-weight: 400;
+      }
+
+      .cta-content p {
+        font-size: 1.125rem;
+        color: var(--gray-700);
+        margin-bottom: 2rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* ============================================
+   FOOTER
+   ============================================ */
+      .footer {
+        background: var(--dark);
+        color: rgba(255, 255, 255, 0.8);
+        padding: 4rem 0 2rem;
+      }
+
+      .footer-container {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 3rem;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr 1fr 1.5fr;
+        gap: 3rem;
+        margin-bottom: 3rem;
+      }
+
+      .footer-brand .logo-img {
+        margin-bottom: 1.5rem;
+        filter: brightness(0) invert(1);
+      }
+
+      .footer-links h4 {
+        font-family: var(--font-serif);
+        font-size: 1.25rem;
+        margin-bottom: 1.5rem;
+        color: var(--white);
+      }
+
+      .footer-links ul {
+        list-style: none;
+      }
+
+      .footer-links li {
+        margin-bottom: 0.75rem;
+      }
+
+      .footer-links a {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 2rem;
+        text-align: center;
+        font-size: 0.875rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* ============================================
+   RESPONSIVE
+   ============================================ */
+      @media (max-width: 1024px) {
+        .hero-layout {
+          grid-template-columns: 1fr;
+        }
+        .services-grid,
+        .project-types,
+        .industries-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .why-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .process-timeline {
+          grid-template-columns: 1fr;
+        }
+        .process-step::after {
+          display: none;
+        }
+        .footer-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-toggle {
+          display: flex;
+        }
+        .hero-stats-badges {
+          grid-template-columns: 1fr;
+        }
+        .services-grid,
+        .project-types,
+        .industries-grid,
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+        .stats-container {
+          grid-template-columns: 1fr;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "wkegx8o47t");
+    </script>
+  </head>
+  <!-- END OF PART 1: HEAD & CSS -->
+  <!-- NEXT: Copy this and save it. Then ask for Part 2 (Navigation & Hero) -->
+</html>
+<!-- PART 2: BODY, NAVIGATION, HERO & CAROUSEL -->
+<!-- Paste this AFTER Part 1 (after </head>) -->
+
+<body>
+  <!-- Navigation - Logo 50% más grande -->
+  <nav class="nav" id="nav">
+    <div class="nav-container">
+      <a href="#hero">
+        <img
+          src="CS_logo_B2_horizontal.svg"
+          alt="CS Infraestructura"
+          class="logo-img"
+        />
+      </a>
+      <div class="nav-links">
+        <a href="#servicios">Servicios</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#hero" class="nav-cta">Cotizar Proyecto</a>
+      </div>
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="mobile-menu-links">
+      <a href="#servicios" class="menu-link">Servicios</a>
+      <a href="#proyectos" class="menu-link">Proyectos</a>
+      <a href="#nosotros" class="menu-link">Nosotros</a>
+      <a href="#hero" class="mobile-cta">Cotizar Proyecto</a>
+    </div>
+  </div>
+
+  <!-- Hero Section - Formulario completo -->
+  <section class="hero" id="hero">
+    <div class="hero-container">
+      <div class="hero-layout">
+        <div>
+          <div class="hero-badge">
+            <span>★</span>
+            <span>#1 en Frigoríficos Industriales Chile</span>
+          </div>
+
+          <h1 class="hero-title">
+            Infraestructura <span class="title-accent">Industrial</span> de
+            Excelencia
+          </h1>
+
+          <p class="hero-subtitle">
+            Especialistas en proyectos complejos que otras constructoras evitan.
+            Frigoríficos, plantas de tratamiento, construcción institucional y
+            más.
+          </p>
+
+          <div class="hero-stats-badges">
+            <div class="stat-badge-mini">
+              <span class="number">100+</span>
+              <span class="label">Proyectos Completados</span>
+            </div>
+            <div class="stat-badge-mini">
+              <span class="number">24</span>
+              <span class="label">Años de Experiencia</span>
+            </div>
+            <div class="stat-badge-mini">
+              <span class="number">3</span>
+              <span class="label">Universidades Construidas</span>
+            </div>
+            <div class="stat-badge-mini">
+              <span class="number">#1</span>
+              <span class="label">En Frigoríficos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-container">
+          <iframe
+            src="https://link.nilsdigital.com/widget/form/xJWVB1FRTjV5rPly1zaZ"
+            data-form-name="CS Infraestructura - Cotización"
+            title="CS Infraestructura - Cotización"
+          >
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Carousel - TODAS LAS 57 FOTOS -->
+  <section class="carousel-section">
+    <div class="carousel-label">Nuestros Proyectos</div>
+    <div class="carousel-track">
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca229284f079.jpg"
+          alt="Nave Industrial"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877da60d111e2.jpg"
+          alt="Centro Logístico"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd827ce0b436663.jpg"
+          alt="Puente"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd827a852436669.jpg"
+          alt="Planta"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877d109d111e1.jpg"
+          alt="Estanques"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d120daa37b52.jpg"
+          alt="Industrial"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f6090d465ef9.jpg"
+          alt="Fabricación"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877c736d111e5.jpg"
+          alt="Institucional"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca1d7e84f076.jpg"
+          alt="Fabricación"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f6287a465efa.jpg"
+          alt="Planta"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f67a91465ef6.jpg"
+          alt="Tanques"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f62505465ef7.jpg"
+          alt="Bodega"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a8775fdad111d7.jpg"
+          alt="Modular"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a8771f41d111e4.jpg"
+          alt="Estanque"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca1bb484f078.jpg"
+          alt="Tanque"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f658e7465ef8.jpg"
+          alt="Reservorio"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d13f84a37b50.jpg"
+          alt="Interior"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a8772e00d111d8.jpg"
+          alt="Instalación"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd8276618436668.jpg"
+          alt="Edificio"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd8270b70436667.jpg"
+          alt="Prefabricado"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877618ed111e0.jpg"
+          alt="Baños"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d1db43a37b53.jpg"
+          alt="Ferroviario"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a8772ccfd111df.jpg"
+          alt="Rieles"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d122d8a37b51.jpg"
+          alt="Conexiones"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd827c5ad43666c.jpg"
+          alt="Acero"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca756584f07b.jpg"
+          alt="Marco"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca60bb84f086.jpg"
+          alt="Estructura"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca7b3e84f07a.jpg"
+          alt="Bodega"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca9ede84f07f.jpg"
+          alt="Taller"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca0c8b84f083.jpg"
+          alt="Componentes"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f662c7465f00.jpg"
+          alt="Acero"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d16040a37b5c.jpg"
+          alt="Puente"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca1d6584f080.jpg"
+          alt="Montaje"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f6538b465efd.jpg"
+          alt="Construcción"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a87750a2d111e6.jpg"
+          alt="Puente"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f66b4c465eff.jpg"
+          alt="Ensamblaje"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd82799c843666b.jpg"
+          alt="Industrial"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd827f766436665.jpg"
+          alt="Manufactura"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd82728ff436664.jpg"
+          alt="Galpón"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a87765c5d111de.jpg"
+          alt="Instalación"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f629fd465efe.jpg"
+          alt="Planta"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d11e18a37b5b.jpg"
+          alt="Marco"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f6777e465efb.jpg"
+          alt="Construcción"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd8279c3a43666d.jpg"
+          alt="Estructura"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877a15ad111dd.jpg"
+          alt="Techo"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca858584f084.jpg"
+          alt="Nave"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7caf27b84f085.jpg"
+          alt="Techo"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d117e9a37b55.jpg"
+          alt="Módulo"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d11732a37b5d.jpg"
+          alt="Oficina"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d158b3a37b54.jpg"
+          alt="Tanques"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d13a84a37b57.jpg"
+          alt="Fabricación"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a8772f0ed111e3.jpg"
+          alt="Tubería"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f60b6d465f0b.jpg"
+          alt="Producción"
+        />
+      </div>
+
+      <!-- Duplicados para loop infinito -->
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca229284f079.jpg"
+          alt="Nave Industrial"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877da60d111e2.jpg"
+          alt="Centro Logístico"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd827ce0b436663.jpg"
+          alt="Puente"
+        />
+      </div>
+      <div class="carousel-item">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d120daa37b52.jpg"
+          alt="Industrial"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- END OF PART 2 -->
+  <!-- NEXT: Ask for Part 3 (Project Types & Services) -->
+</body>
+<!-- PART 3: PROJECT TYPES & SERVICES SECTIONS -->
+<!-- Paste this after Part 2 (after carousel section) -->
+
+<!-- Tipos de Proyectos CON DROPDOWN -->
+<section class="section section-white">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">Tipos de Proyectos</span>
+      <h2 class="section-title">
+        Especialización en Tres Categorías Principales
+      </h2>
+    </div>
+
+    <div class="project-types">
+      <!-- INDUSTRIAL -->
+      <div class="type-card">
+        <span class="type-icon">🏭</span>
+        <h3>Industrial</h3>
+        <p class="type-summary">
+          Frigoríficos industriales, plantas de manufactura, galpones de gran
+          escala, y centros logísticos.
+        </p>
+
+        <div class="type-details" id="industrial-details">
+          <ul>
+            <li>
+              Frigoríficos industriales con sistemas especializados de
+              refrigeración
+            </li>
+            <li>Plantas de manufactura y producción alimentaria</li>
+            <li>Galpones industriales de gran escala</li>
+            <li>Centros logísticos y bodegas de almacenamiento</li>
+            <li>Estructuras metálicas con capacidad de carga pesada</li>
+            <li>Sistemas de grúas y equipamiento industrial</li>
+          </ul>
+        </div>
+
+        <button
+          class="read-more-btn"
+          onclick="toggleDetails('industrial-details', this)"
+        >
+          <span>Leer más</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- INFRAESTRUCTURA -->
+      <div class="type-card">
+        <span class="type-icon">🌉</span>
+        <h3>Infraestructura</h3>
+        <p class="type-summary">
+          Puentes industriales, estanques de almacenamiento de agua, plantas de
+          tratamiento.
+        </p>
+
+        <div class="type-details" id="infraestructura-details">
+          <ul>
+            <li>Puentes industriales de alta complejidad estructural</li>
+            <li>Estanques de almacenamiento de agua a gran escala</li>
+            <li>Plantas de tratamiento de agua y aguas residuales</li>
+            <li>Infraestructura ferroviaria y de transporte</li>
+            <li>Estructuras de ingeniería civil compleja</li>
+            <li>Proyectos con requisitos técnicos especializados</li>
+          </ul>
+        </div>
+
+        <button
+          class="read-more-btn"
+          onclick="toggleDetails('infraestructura-details', this)"
+        >
+          <span>Leer más</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- INSTITUCIONAL -->
+      <div class="type-card">
+        <span class="type-icon">🏛️</span>
+        <h3>Institucional</h3>
+        <p class="type-summary">
+          Universidades, colegios, y construcciones modulares. 3 universidades
+          completadas incluyendo INACAP.
+        </p>
+
+        <div class="type-details" id="institucional-details">
+          <ul>
+            <li>3 universidades completadas incluyendo proyectos INACAP</li>
+            <li>Colegios y establecimientos educacionales</li>
+            <li>Construcciones modulares y prefabricadas</li>
+            <li>Oficinas corporativas y espacios institucionales</li>
+            <li>Instalaciones temporales y permanentes</li>
+            <li>Habilitaciones de espacios educativos y corporativos</li>
+          </ul>
+        </div>
+
+        <button
+          class="read-more-btn"
+          onclick="toggleDetails('institucional-details', this)"
+        >
+          <span>Leer más</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS - 2 FILAS DE 3 CON DROPDOWNS -->
+<section class="section section-gray" id="servicios">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">Nuestros Servicios</span>
+      <h2 class="section-title">
+        Soluciones Integrales en Infraestructura Industrial
+      </h2>
+      <p class="section-subtitle">
+        Equipo técnico in-house con arquitectura, ingeniería civil e ingeniería
+        eléctrica.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <!-- SERVICIO 1: Frigoríficos Industriales -->
+      <div class="service-card">
+        <h3>Frigoríficos Industriales</h3>
+        <p class="service-summary">
+          Diseño y construcción de instalaciones frigoríficas completas. #1 en
+          Chile.
+        </p>
+
+        <div class="service-details" id="frigorifico-details">
+          <div class="service-details-content">
+            <p>
+              <strong>Especialización única en el mercado:</strong> CS
+              Infraestructura es líder en Chile en construcción de frigoríficos
+              industriales. Nadie más tiene esta especialización.
+            </p>
+            <p>
+              <strong>Sistemas completos:</strong> Desde el diseño estructural
+              hasta la instalación de sistemas de refrigeración industrial,
+              aislamiento especializado y cumplimiento normativo.
+            </p>
+            <p>
+              <strong>Proyectos realizados:</strong> Múltiples plantas de
+              alimentos, centros de distribución refrigerados, y facilidades de
+              almacenamiento en frío para la industria alimentaria.
+            </p>
+            <p>
+              <strong>Capacidades técnicas:</strong> Estructuras metálicas
+              diseñadas para soportar cargas de equipamiento de refrigeración,
+              paneles aislantes, cámaras frigoríficas de distintas temperaturas.
+            </p>
+          </div>
+        </div>
+
+        <button
+          class="read-more-btn"
+          onclick="toggleServiceDetails('frigorifico-details', this)"
+        >
+          <span>Ver más información</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- SERVICIO 2: Plantas de Tratamiento -->
+      <div class="service-card">
+        <h3>Plantas de Tratamiento</h3>
+        <p class="service-summary">
+          Diseño y construcción de plantas de tratamiento de agua y estanques
+          industriales.
+        </p>
+
+        <div class="service-details" id="tratamiento-details">
+          <div class="service-details-content">
+            <p>
+              <strong>Infraestructura especializada:</strong> Plantas de
+              tratamiento de agua potable y aguas residuales para operaciones
+              industriales de gran escala.
+            </p>
+            <p>
+              <strong>Estanques de almacenamiento:</strong> Diseño y
+              construcción de estanques de agua de distintas capacidades, desde
+              medianos hasta grandes volúmenes.
+            </p>
+            <p>
+              <strong>Ingeniería completa:</strong> Desde estudios de suelo
+              hasta la implementación de sistemas de tratamiento y distribución.
+            </p>
+            <p>
+              <strong>Cumplimiento normativo:</strong> Todos los proyectos
+              cumplen con normativas ambientales y sanitarias vigentes.
+            </p>
+          </div>
+        </div>
+
+        <button
+          class="read-more-btn"
+          onclick="toggleServiceDetails('tratamiento-details', this)"
+        >
+          <span>Ver más información</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- SERVICIO 3: Galpones Industriales -->
+      <div class="service-card">
+        <h3>Galpones Industriales</h3>
+        <p class="service-summary">
+          Estructuras metálicas para bodegas, centros logísticos y plantas de
+          manufactura.
+        </p>
+
+        <div class="service-details" id="galpones-details">
+          <div class="service-details-content">
+            <p>
+              <strong>Construcción a gran escala:</strong> Galpones industriales
+              desde 1,000m² hasta proyectos de más de 10,000m² de superficie
+              cubierta.
+            </p>
+            <p>
+              <strong>Estructuras metálicas:</strong> Diseño y fabricación de
+              estructuras de acero con capacidad para soportar grúas
+              industriales y equipamiento pesado.
+            </p>
+            <p>
+              <strong>Alianza internacional:</strong> Asociación con Hangzhou
+              Famous Steel Engineering (China) para fabricación de componentes
+              especializados.
+            </p>
+            <p>
+              <strong>Rapidez de ejecución:</strong> Sistemas de construcción
+              eficientes que reducen tiempos de obra.
+            </p>
+          </div>
+        </div>
+
+        <button
+          class="read-more-btn"
+          onclick="toggleServiceDetails('galpones-details', this)"
+        >
+          <span>Ver más información</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- SERVICIO 4: Construcción Institucional -->
+      <div class="service-card">
+        <h3>Construcción Institucional</h3>
+        <p class="service-summary">
+          Universidades, colegios e instituciones educacionales. 3 universidades
+          completadas.
+        </p>
+
+        <div class="service-details" id="institucional-service-details">
+          <div class="service-details-content">
+            <p>
+              <strong>Experiencia comprobada:</strong> 3 universidades
+              completadas incluyendo proyectos INACAP y múltiples colegios
+              construidos.
+            </p>
+            <p>
+              <strong>Construcción modular:</strong> Sistemas de construcción
+              rápida y eficiente para proyectos educacionales que requieren
+              plazos ajustados.
+            </p>
+            <p>
+              <strong>Diseño funcional:</strong> Espacios optimizados para uso
+              educacional con énfasis en iluminación natural, acústica y
+              climatización.
+            </p>
+            <p>
+              <strong>Escala variable:</strong> Desde aulas modulares hasta
+              edificios institucionales completos.
+            </p>
+          </div>
+        </div>
+
+        <button
+          class="read-more-btn"
+          onclick="toggleServiceDetails('institucional-service-details', this)"
+        >
+          <span>Ver más información</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- SERVICIO 5: Centros Logísticos -->
+      <div class="service-card">
+        <h3>Centros Logísticos</h3>
+        <p class="service-summary">
+          Infraestructura para distribución y almacenamiento adaptada a
+          necesidades específicas.
+        </p>
+
+        <div class="service-details" id="logisticos-details">
+          <div class="service-details-content">
+            <p>
+              <strong>Diseño especializado:</strong> Centros de distribución con
+              flujos optimizados para carga y descarga eficiente.
+            </p>
+            <p>
+              <strong>Capacidad de adaptación:</strong> Proyectos diseñados
+              según las necesidades específicas de cada operación logística.
+            </p>
+            <p>
+              <strong>Infraestructura completa:</strong> Incluye áreas de
+              almacenamiento, muelles de carga, oficinas administrativas y zonas
+              de maniobra.
+            </p>
+            <p>
+              <strong>Tecnología integrada:</strong> Preparación para sistemas
+              automatizados de gestión de inventario y manejo de materiales.
+            </p>
+          </div>
+        </div>
+
+        <button
+          class="read-more-btn"
+          onclick="toggleServiceDetails('logisticos-details', this)"
+        >
+          <span>Ver más información</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- SERVICIO 6: Habilitaciones Comerciales -->
+      <div class="service-card">
+        <h3>Habilitaciones Comerciales</h3>
+        <p class="service-summary">
+          Construcción y remodelación de oficinas corporativas y espacios
+          comerciales.
+        </p>
+
+        <div class="service-details" id="habilitaciones-details">
+          <div class="service-details-content">
+            <p>
+              <strong>Oficinas corporativas:</strong> Habilitación completa de
+              espacios de oficina con acabados de alta calidad para empresas de
+              primer nivel.
+            </p>
+            <p>
+              <strong>Experiencia con clientes importantes:</strong> Proyectos
+              para estudios jurídicos, empresas petroleras, y corporaciones
+              multinacionales.
+            </p>
+            <p>
+              <strong>Proyectos de gran escala:</strong> Desde 6,000m² hasta
+              28,000m² de habilitación en edificios corporativos.
+            </p>
+            <p>
+              <strong>Servicio integral:</strong> Incluye sistemas eléctricos,
+              HVAC, cielos, tabiquería, pisos y acabados especializados.
+            </p>
+          </div>
+        </div>
+
+        <button
+          class="read-more-btn"
+          onclick="toggleServiceDetails('habilitaciones-details', this)"
+        >
+          <span>Ver más información</span>
+          <svg
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- CTA 1 -->
+    <div class="cta-inline">
+      <h3>¿Tiene un proyecto complejo que otros han rechazado?</h3>
+      <p>Especialistas en proyectos que constructoras generales evitan</p>
+      <a href="#hero" class="btn">
+        <span>Conversemos sobre su proyecto</span>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- END OF PART 3: PROJECT TYPES & SERVICES -->
+<!-- NEXT: Ask for Part 4 (Process, Why Choose Us, Industries) -->
+<!-- PART 4: PROCESS, WHY CHOOSE US & INDUSTRIES -->
+<!-- Paste this after Part 3 (after services section) -->
+
+<!-- PROCESO CON ANIMACIÓN -->
+<section class="section section-white" id="proceso">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">Cómo Trabajamos</span>
+      <h2 class="section-title">Proceso Integral de Principio a Fin</h2>
+      <p class="section-subtitle">
+        Servicio completo que cubre todas las etapas de su proyecto industrial
+      </p>
+    </div>
+
+    <div class="process-timeline">
+      <div class="process-step" data-step="1">
+        <div class="process-number">1</div>
+        <h4>Consulta Inicial</h4>
+        <p>Evaluación técnica y asesoramiento especializado</p>
+      </div>
+
+      <div class="process-step" data-step="2">
+        <div class="process-number">2</div>
+        <h4>Diseño e Ingeniería</h4>
+        <p>Equipo in-house de arquitectura e ingeniería</p>
+      </div>
+
+      <div class="process-step" data-step="3">
+        <div class="process-number">3</div>
+        <h4>Permisos</h4>
+        <p>Gestión completa de permisos y normativas</p>
+      </div>
+
+      <div class="process-step" data-step="4">
+        <div class="process-number">4</div>
+        <h4>Construcción</h4>
+        <p>Ejecución con control de calidad total</p>
+      </div>
+
+      <div class="process-step" data-step="5">
+        <div class="process-number">5</div>
+        <h4>Mantenimiento</h4>
+        <p>Servicio post-construcción continuo</p>
+      </div>
+    </div>
+
+    <!-- CTA 2 -->
+    <div class="cta-inline">
+      <h3>Ofrecemos servicio completo o por etapas</h3>
+      <p>Flexibilidad para adaptarnos a las necesidades de su proyecto</p>
+      <a href="#hero" class="btn">
+        <span>Iniciar mi proyecto</span>
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <path d="M5 12h14M12 5l7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US - INTEGRADO CON COBERTURA, TEAM Y PARTNER -->
+<section class="section section-gray" id="nosotros">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">¿Por Qué CS Infraestructura?</span>
+      <h2 class="section-title">Proyectos que Otras Constructoras Rechazan</h2>
+      <p class="section-subtitle">
+        Especialización en infraestructura técnicamente compleja.
+      </p>
+    </div>
+
+    <div class="why-grid">
+      <!-- 24 AÑOS -->
+      <div class="why-card">
+        <div class="why-icon">📅</div>
+        <h3>24 Años de Experiencia</h3>
+        <p>
+          Desde 2001 construyendo proyectos industriales e institucionales de
+          alta complejidad. Trayectoria comprobada en Chile, Panamá y Perú.
+        </p>
+      </div>
+
+      <!-- ESPECIALIZACIÓN -->
+      <div class="why-card">
+        <div class="why-icon">❄️</div>
+        <h3>Especialización Única</h3>
+        <p>
+          #1 en frigoríficos industriales en Chile. Expertise que ninguna
+          constructora general puede igualar. Nadie más tiene esta
+          especialización en el mercado.
+        </p>
+      </div>
+
+      <!-- ALCANCE INTERNACIONAL + COBERTURA + PARTNER INTEGRADOS -->
+      <div class="why-card">
+        <div class="why-icon">🌎</div>
+        <h3>Alcance Internacional</h3>
+        <p>
+          Operaciones en múltiples países con alianza estratégica internacional
+          para fabricación de componentes especializados.
+        </p>
+        <div class="coverage-list">
+          <span class="coverage-badge">🇨🇱 Chile - Operaciones Principales</span>
+          <span class="coverage-badge">🇵🇦 Panamá - En Operación</span>
+          <span class="coverage-badge">🇵🇪 Perú - En Operación</span>
+          <span class="coverage-badge">🌎 USA/Canadá - En Desarrollo</span>
+        </div>
+        <p
+          style="
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--gray-200);
+          "
+        >
+          <strong>Alianza Estratégica:</strong> Hangzhou Famous Steel
+          Engineering Co., Ltd (China) - Fabricante líder en estructuras de
+          acero especializadas.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIAS CON MÁS INFO Y FOTOS -->
+<section class="section section-white">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-tag">Industrias</span>
+      <h2 class="section-title">Sectores que Servimos</h2>
+      <p class="section-subtitle">
+        Experiencia comprobada en múltiples industrias
+      </p>
+    </div>
+
+    <div class="industries-grid">
+      <!-- INDUSTRIA ALIMENTARIA -->
+      <div class="industry-card">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca9ede84f07f.jpg"
+          alt="Industria Alimentaria"
+          class="industry-img"
+        />
+        <div class="industry-content">
+          <span class="industry-icon">🍖</span>
+          <h4>Industria Alimentaria</h4>
+          <p>
+            Frigoríficos industriales, plantas de procesamiento, cámaras de
+            refrigeración y almacenamiento en frío. #1 en Chile.
+          </p>
+        </div>
+      </div>
+
+      <!-- SECTOR EDUCATIVO -->
+      <div class="industry-card">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877c736d111e5.jpg"
+          alt="Sector Educativo"
+          class="industry-img"
+        />
+        <div class="industry-content">
+          <span class="industry-icon">🎓</span>
+          <h4>Sector Educativo</h4>
+          <p>
+            3 universidades completadas incluyendo INACAP, colegios y
+            establecimientos educacionales con construcción modular.
+          </p>
+        </div>
+      </div>
+
+      <!-- MANUFACTURA INDUSTRIAL -->
+      <div class="industry-card">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca229284f079.jpg"
+          alt="Manufactura Industrial"
+          class="industry-img"
+        />
+        <div class="industry-content">
+          <span class="industry-icon">🏭</span>
+          <h4>Manufactura Industrial</h4>
+          <p>
+            Plantas de producción, galpones industriales con sistemas de grúas,
+            naves de manufactura de gran escala.
+          </p>
+        </div>
+      </div>
+
+      <!-- LOGÍSTICA -->
+      <div class="industry-card">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877da60d111e2.jpg"
+          alt="Logística y Distribución"
+          class="industry-img"
+        />
+        <div class="industry-content">
+          <span class="industry-icon">📦</span>
+          <h4>Logística y Distribución</h4>
+          <p>
+            Centros logísticos, bodegas de almacenamiento, centros de
+            distribución con infraestructura optimizada.
+          </p>
+        </div>
+      </div>
+
+      <!-- TRATAMIENTO DE AGUA -->
+      <div class="industry-card">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877d109d111e1.jpg"
+          alt="Tratamiento de Agua"
+          class="industry-img"
+        />
+        <div class="industry-content">
+          <span class="industry-icon">💧</span>
+          <h4>Tratamiento de Agua</h4>
+          <p>
+            Plantas de tratamiento de agua potable y residuales, estanques de
+            almacenamiento de distintas capacidades.
+          </p>
+        </div>
+      </div>
+
+      <!-- OFICINAS CORPORATIVAS -->
+      <div class="industry-card">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d13f84a37b50.jpg"
+          alt="Oficinas Corporativas"
+          class="industry-img"
+        />
+        <div class="industry-content">
+          <span class="industry-icon">🏢</span>
+          <h4>Oficinas Corporativas</h4>
+          <p>
+            Habilitaciones de oficinas corporativas, espacios comerciales,
+            proyectos desde 6,000m² hasta 28,000m².
+          </p>
+        </div>
+      </div>
+
+      <!-- INFRAESTRUCTURA PÚBLICA -->
+      <div class="industry-card">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd827ce0b436663.jpg"
+          alt="Infraestructura Pública"
+          class="industry-img"
+        />
+        <div class="industry-content">
+          <span class="industry-icon">🌉</span>
+          <h4>Infraestructura Pública</h4>
+          <p>
+            Puentes industriales, infraestructura ferroviaria, estructuras de
+            ingeniería civil de alta complejidad.
+          </p>
+        </div>
+      </div>
+
+      <!-- CONSTRUCCIÓN CIVIL -->
+      <div class="industry-card">
+        <img
+          src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca60bb84f086.jpg"
+          alt="Construcción Civil"
+          class="industry-img"
+        />
+        <div class="industry-content">
+          <span class="industry-icon">🏗️</span>
+          <h4>Construcción Civil</h4>
+          <p>
+            Estructuras metálicas complejas, construcción industrial, proyectos
+            de ingeniería especializada.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- END OF PART 4: PROCESS, WHY CHOOSE US & INDUSTRIES -->
+<!-- NEXT: Ask for Part 5 (Projects Gallery with Modal, Stats, CTA, Footer) -->
+<!-- PART 5: PROJECTS, STATS, CTA, FOOTER & JAVASCRIPT -->
+<!-- Paste this after Part 4 (after industries section) -->
+
+    <!-- PROJECTS GALLERY WITH MODAL POPUP -->
+    <section class="section section-gray" id="proyectos">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Portafolio</span>
+                <h2 class="section-title">Proyectos que Demuestran Nuestra Capacidad</h2>
+            </div>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="industrial">Industrial</button>
+                <button class="filter-btn" data-filter="infraestructura">Infraestructura</button>
+                <button class="filter-btn" data-filter="institucional">Institucional</button>
+            </div>
+            
+            <div class="projects-grid">
+                <!-- INDUSTRIAL PROJECTS -->
+                <div class="project-card" data-category="industrial" onclick="openModal('industrial1')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877da60d111e2.jpg" alt="Nave Industrial">
+                    <div class="project-overlay">
+                        <span class="project-category">Industrial</span>
+                        <h3>Nave Industrial con Grúas</h3>
+                        <p>Estructura metálica de gran escala con sistema de grúas industriales</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="industrial" onclick="openModal('industrial2')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d120daa37b52.jpg" alt="Planta Industrial">
+                    <div class="project-overlay">
+                        <span class="project-category">Industrial</span>
+                        <h3>Planta Industrial</h3>
+                        <p>Facilidad de manufactura con capacidad de carga pesada</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="industrial" onclick="openModal('industrial3')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca229284f079.jpg" alt="Centro Logístico">
+                    <div class="project-overlay">
+                        <span class="project-category">Industrial</span>
+                        <h3>Centro Logístico</h3>
+                        <p>Bodega de almacenamiento con sistemas automatizados</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="industrial" onclick="openModal('industrial4')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd827a852436669.jpg" alt="Planta Manufactura">
+                    <div class="project-overlay">
+                        <span class="project-category">Industrial</span>
+                        <h3>Planta de Manufactura</h3>
+                        <p>Facilidad industrial con overhead cranes y piping</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="industrial" onclick="openModal('industrial5')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca9ede84f07f.jpg" alt="Taller Fabricación">
+                    <div class="project-overlay">
+                        <span class="project-category">Industrial</span>
+                        <h3>Taller de Fabricación</h3>
+                        <p>Facilidad de soldadura y ensamblaje de componentes metálicos</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="industrial" onclick="openModal('industrial6')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f60b6d465f0b.jpg" alt="Producción Tubería">
+                    <div class="project-overlay">
+                        <span class="project-category">Industrial</span>
+                        <h3>Planta Producción de Tubería</h3>
+                        <p>Facilidad especializada para manufactura de tuberías de gran diámetro</p>
+                    </div>
+                </div>
+                
+                <!-- INFRAESTRUCTURA PROJECTS -->
+                <div class="project-card" data-category="infraestructura" onclick="openModal('infra1')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd827ce0b436663.jpg" alt="Puente">
+                    <div class="project-overlay">
+                        <span class="project-category">Infraestructura</span>
+                        <h3>Puente Industrial</h3>
+                        <p>Estructura de alta complejidad con trusses de acero</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="infraestructura" onclick="openModal('infra2')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877d109d111e1.jpg" alt="Estanques">
+                    <div class="project-overlay">
+                        <span class="project-category">Infraestructura</span>
+                        <h3>Estanques de Agua</h3>
+                        <p>Sistema de almacenamiento de agua de gran capacidad</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="infraestructura" onclick="openModal('infra3')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a8771f41d111e4.jpg" alt="Tanque Almacenamiento">
+                    <div class="project-overlay">
+                        <span class="project-category">Infraestructura</span>
+                        <h3>Tanque de Almacenamiento</h3>
+                        <p>Construcción bolted steel con foundation de hormigón</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="infraestructura" onclick="openModal('infra4')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d1db43a37b53.jpg" alt="Infraestructura Ferroviaria">
+                    <div class="project-overlay">
+                        <span class="project-category">Infraestructura</span>
+                        <h3>Infraestructura Ferroviaria</h3>
+                        <p>Facility para mantenimiento y operación de trenes</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="infraestructura" onclick="openModal('infra5')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd82799c843666b.jpg" alt="Puente Construcción">
+                    <div class="project-overlay">
+                        <span class="project-category">Infraestructura</span>
+                        <h3>Puente en Construcción</h3>
+                        <p>Montaje de estructura de puente con heavy lifting equipment</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="infraestructura" onclick="openModal('infra6')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca1bb484f078.jpg" alt="Estanque Industrial">
+                    <div class="project-overlay">
+                        <span class="project-category">Infraestructura</span>
+                        <h3>Estanque Industrial</h3>
+                        <p>Tank de almacenamiento con coating especializado</p>
+                    </div>
+                </div>
+                
+                <!-- INSTITUCIONAL PROJECTS -->
+                <div class="project-card" data-category="institucional" onclick="openModal('inst1')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877c736d111e5.jpg" alt="Edificio Institucional">
+                    <div class="project-overlay">
+                        <span class="project-category">Institucional</span>
+                        <h3>Edificio Institucional</h3>
+                        <p>Fachada moderna de vidrio para edificio público</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="institucional" onclick="openModal('inst2')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd8276618436668.jpg" alt="Edificio Modular">
+                    <div class="project-overlay">
+                        <span class="project-category">Institucional</span>
+                        <h3>Construcción Modular</h3>
+                        <p>Edificio modular de dos pisos para uso educacional</p>
+                    </div>
+                </div>
+                
+                <div class="project-card" data-category="institucional" onclick="openModal('inst3')">
+                    <img src="https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd8270b70436667.jpg" alt="Estructura Prefabricada">
+                    <div class="project-overlay">
+                        <span class="project-category">Institucional</span>
+                        <h3>Instalación Prefabricada</h3>
+                        <p>Estructura modular portable para oficinas temporales</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CTA 4 -->
+            <div class="cta-inline">
+                <h3>¿Quiere ver más detalles de nuestros proyectos?</h3>
+                <p>Conversemos sobre cómo podemos ayudar con su proyecto específico</p>
+                <a href="#hero" class="btn">
+                    <span>Solicitar información</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL FOR PROJECT DETAILS -->
+    <div class="modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <img id="modalImage" class="modal-image" src="" alt="">
+            <div class="modal-body">
+                <span class="project-category" id="modalCategory"></span>
+                <h2 id="modalTitle"></h2>
+                <p id="modalDescription"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-box">
+                <span class="stat-number">100+</span>
+                <div class="stat-label">Proyectos Completados</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">24</span>
+                <div class="stat-label">Años de Experiencia</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">3</span>
+                <div class="stat-label">Universidades Construidas</div>
+            </div>
+            <div class="stat-box">
+                <span class="stat-number">#1</span>
+                <div class="stat-label">En Frigoríficos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section">
+        <div class="section-container">
+            <div class="cta-content">
+                <h2>¿Listo para Comenzar su Proyecto?</h2>
+                <p>Contáctenos para una evaluación gratuita. 24 años de experiencia respaldan nuestro compromiso.</p>
+                <a href="#hero" class="btn">
+                    <span>Solicitar Cotización Gratuita</span>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <img src="CS_logo_B2_horizontal.svg" alt="CS Infraestructura" class="logo-img">
+                    <p>Especialistas en infraestructura industrial en Chile. Proyectos complejos que otras constructoras evitan.</p>
+                    <div style="margin-top: 1.5rem; font-size: 0.875rem; color: rgba(255,255,255,0.6);">
+                        <div>CS Infraestructura SpA</div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Servicios</h4>
+                    <ul>
+                        <li><a href="#servicios">Frigoríficos Industriales</a></li>
+                        <li><a href="#servicios">Plantas de Tratamiento</a></li>
+                        <li><a href="#servicios">Galpones Industriales</a></li>
+                        <li><a href="#servicios">Construcción Institucional</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#nosotros">Sobre Nosotros</a></li>
+                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#hero">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Contacto</h4>
+                    <p style="color: rgba(255,255,255,0.7); margin-bottom: 0.75rem;">Nueva Tajamar 481 N° 908<br>Las Condes, Santiago, Chile</p>
+                    <p><a target="_top" href="tel:+56942276621" style="color: rgba(255,255,255,0.7);">+56 9 4227 6621</a></p>
+                    <p><a target="_top" href="mailto:contacto@csinfraestructura.com" style="color: rgba(255,255,255,0.7);">contacto@csinfraestructura.com</a></p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 CS Infraestructura SpA. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT - TODAS LAS FUNCIONALIDADES -->
+    <script src="https://link.nilsdigital.com/js/form_embed.js"></script>
+    <script>
+// ============================================
+// MOBILE MENU FUNCTIONALITY
+// ============================================
+document.addEventListener('DOMContentLoaded', function() {
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuLinks = document.querySelectorAll('.menu-link, .mobile-cta');
+    
+    // Toggle mobile menu
+    navToggle.addEventListener('click', function() {
+        mobileMenu.classList.toggle('active');
+    });
+    
+    // Close menu when clicking on a link
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+        });
+    });
+    
+    // Close menu when clicking outside
+    document.addEventListener('click', function(event) {
+        if (!mobileMenu.contains(event.target) && !navToggle.contains(event.target)) {
+            mobileMenu.classList.remove('active');
+        }
+    });
+});
+
+// ============================================
+// PROJECT TYPES DROPDOWN FUNCTIONALITY
+// ============================================
+function toggleDetails(detailsId, button) {
+    const details = document.getElementById(detailsId);
+    const isActive = details.classList.contains('active');
+    
+    // Close all other details
+    document.querySelectorAll('.type-details').forEach(d => {
+        d.classList.remove('active');
+    });
+    document.querySelectorAll('.read-more-btn').forEach(b => {
+        b.classList.remove('active');
+        b.querySelector('span').textContent = 'Leer más';
+    });
+    
+    // Toggle current
+    if (!isActive) {
+        details.classList.add('active');
+        button.classList.add('active');
+        button.querySelector('span').textContent = 'Leer menos';
+    }
+}
+
+// ============================================
+// SERVICE DETAILS DROPDOWN FUNCTIONALITY
+// ============================================
+function toggleServiceDetails(detailsId, button) {
+    const details = document.getElementById(detailsId);
+    const isActive = details.classList.contains('active');
+    
+    // Close all other service details
+    document.querySelectorAll('.service-details').forEach(d => {
+        d.classList.remove('active');
+    });
+    document.querySelectorAll('.service-card .read-more-btn').forEach(b => {
+        b.classList.remove('active');
+        b.querySelector('span').textContent = 'Ver más información';
+    });
+    
+    // Toggle current
+    if (!isActive) {
+        details.classList.add('active');
+        button.classList.add('active');
+        button.querySelector('span').textContent = 'Ver menos información';
+    }
+}
+
+// ============================================
+// PROCESS ANIMATION - ILLUMINATE ON SCROLL
+// ============================================
+const processSteps = document.querySelectorAll('.process-step');
+let currentActiveStep = 0;
+let animationInterval;
+
+function animateProcess() {
+    // Remove active from all
+    processSteps.forEach(step => {
+        step.classList.remove('active');
+        step.querySelector('.process-number').classList.remove('active');
+    });
+    
+    // Add active to current
+    if (processSteps[currentActiveStep]) {
+        processSteps[currentActiveStep].classList.add('active');
+        processSteps[currentActiveStep].querySelector('.process-number').classList.add('active');
+    }
+    
+    // Move to next step
+    currentActiveStep = (currentActiveStep + 1) % processSteps.length;
+}
+
+// Start animation when process section is visible
+const processSection = document.getElementById('proceso');
+if (processSection) {
+    const processObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Start animation
+                animateProcess(); // Immediate first step
+                animationInterval = setInterval(animateProcess, 2000); // Then every 2 seconds
+            } else {
+                // Stop animation
+                if (animationInterval) {
+                    clearInterval(animationInterval);
+                }
+                // Reset
+                processSteps.forEach(step => {
+                    step.classList.remove('active');
+                    step.querySelector('.process-number').classList.remove('active');
+                });
+                currentActiveStep = 0;
+            }
+        });
+    }, { threshold: 0.3 });
+    
+    processObserver.observe(processSection);
+}
+
+// ============================================
+// PROJECT FILTER FUNCTIONALITY
+// ============================================
+const filterBtns = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.project-card');
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+        
+        // Update active button
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        // Filter projects
+        projectCards.forEach(card => {
+            const category = card.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
+// ============================================
+// PROJECT MODAL FUNCTIONALITY
+// ============================================
+const projectData = {
+    industrial1: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877da60d111e2.jpg',
+        category: 'Industrial',
+        title: 'Nave Industrial con Sistema de Grúas',
+        description: 'Construcción de nave industrial de gran escala con estructura metálica diseñada para soportar sistema de grúas overhead. Proyecto incluye instalación de vigas de carga, sistemas de iluminación industrial, y piso de concreto reforzado. Capacidad de carga de 10 toneladas. Superficie total: 8,000m².'
+    },
+    industrial2: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d120daa37b52.jpg',
+        category: 'Industrial',
+        title: 'Planta Industrial de Manufactura',
+        description: 'Facilidad de manufactura con estructura de acero, sistemas de ventilación industrial, y capacidad para equipamiento pesado. Incluye áreas de producción, almacenamiento y oficinas administrativas. Construcción con enfoque en eficiencia operacional.'
+    },
+    industrial3: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca229284f079.jpg',
+        category: 'Industrial',
+        title: 'Centro Logístico de Distribución',
+        description: 'Bodega de almacenamiento y distribución con sistemas automatizados. Incluye muelles de carga, área de maniobra para camiones, y sistemas de gestión de inventario. Estructura optimizada para operaciones 24/7.'
+    },
+    industrial4: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd827a852436669.jpg',
+        category: 'Industrial',
+        title: 'Planta de Manufactura Avanzada',
+        description: 'Facilidad industrial equipada con overhead cranes, sistemas de piping industrial, y estructuras de acero de alta resistencia. Diseñada para operaciones de manufactura pesada con múltiples líneas de producción.'
+    },
+    industrial5: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca9ede84f07f.jpg',
+        category: 'Industrial',
+        title: 'Taller de Fabricación y Soldadura',
+        description: 'Facilidad especializada para fabricación y ensamblaje de componentes metálicos. Incluye áreas de soldadura, corte, y ensamblaje con equipamiento de última generación. Sistemas de ventilación y extracción especializados.'
+    },
+    industrial6: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1311f60b6d465f0b.jpg',
+        category: 'Industrial',
+        title: 'Planta de Producción de Tubería',
+        description: 'Facilidad especializada para la manufactura de tuberías de gran diámetro. Incluye equipamiento de rolling, welding stations, y sistemas de control de calidad. Capacidad de producción de tubería desde 12" hasta 48" de diámetro.'
+    },
+    infra1: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd827ce0b436663.jpg',
+        category: 'Infraestructura',
+        title: 'Puente Industrial de Alta Complejidad',
+        description: 'Construcción de puente con trusses de acero estructural. Proyecto de ingeniería civil compleja que requirió análisis estructural avanzado y coordinación de múltiples especialidades. Longitud: 120 metros.'
+    },
+    infra2: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877d109d111e1.jpg',
+        category: 'Infraestructura',
+        title: 'Sistema de Estanques de Almacenamiento',
+        description: 'Construcción de múltiples estanques de agua para planta industrial. Capacidad total de almacenamiento: 5,000m³. Incluye sistemas de bombeo, distribución, y tratamiento de agua. Construcción con paneles de acero galvanizado.'
+    },
+    infra3: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a8771f41d111e4.jpg',
+        category: 'Infraestructura',
+        title: 'Tanque de Almacenamiento de Agua',
+        description: 'Tanque de gran capacidad construido con sistema bolted steel. Fundación de hormigón armado diseñada para soportar cargas sísmicas. Capacidad: 2,000m³. Incluye sistemas de acceso, ventilación y mantenimiento.'
+    },
+    infra4: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1f68d1db43a37b53.jpg',
+        category: 'Infraestructura',
+        title: 'Facilidad de Infraestructura Ferroviaria',
+        description: 'Construcción de estructura para mantenimiento y operación de sistemas ferroviarios. Incluye coberturas de gran luz, sistemas de rieles, y facilidades de soporte técnico. Estructura metálica con arcos de acero.'
+    },
+    infra5: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd82799c843666b.jpg',
+        category: 'Infraestructura',
+        title: 'Construcción de Puente Vial',
+        description: 'Montaje de estructura de puente utilizando heavy lifting equipment y cranes de alta capacidad. Proyecto requirió planificación logística detallada y coordinación con autoridades viales. Estructura de acero con deck de hormigón.'
+    },
+    infra6: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b66e7ca1bb484f078.jpg',
+        category: 'Infraestructura',
+        title: 'Estanque Industrial con Coating Especializado',
+        description: 'Tank de almacenamiento con coating interior y exterior para protección contra corrosión. Diseño según normativas internacionales. Incluye escaleras de acceso, plataformas de inspección y sistemas de seguridad.'
+    },
+    inst1: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965bf7a877c736d111e5.jpg',
+        category: 'Institucional',
+        title: 'Edificio Institucional con Fachada Moderna',
+        description: 'Construcción de edificio público con fachada de vidrio y sistemas de iluminación integrados. Diseño moderno que cumple con normativas de accesibilidad y eficiencia energética. Incluye áreas administrativas y de atención al público.'
+    },
+    inst2: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd8276618436668.jpg',
+        category: 'Institucional',
+        title: 'Edificio Modular Educacional',
+        description: 'Construcción modular de dos pisos para uso educacional. Sistema de construcción rápida que permitió entrega en tiempo record. Incluye aulas, oficinas administrativas, y áreas comunes. Construcción con paneles prefabricados.'
+    },
+    inst3: {
+        image: 'https://storage.googleapis.com/msgsndr/CKxAEP7tblWnBnWC2ONS/media/697e965b1fd8270b70436667.jpg',
+        category: 'Institucional',
+        title: 'Instalación Modular Portable',
+        description: 'Estructura modular diseñada para uso como oficinas temporales en sitios de construcción. Sistema portable que puede ser reubicado según necesidades del proyecto. Incluye sistemas eléctricos, climatización y acabados interiores.'
+    }
+};
+
+function openModal(projectId) {
+    const modal = document.getElementById('projectModal');
+    const data = projectData[projectId];
+    
+    if (data) {
+        document.getElementById('modalImage').src = data.image;
+        document.getElementById('modalCategory').textContent = data.category;
+        document.getElementById('modalTitle').textContent = data.title;
+        document.getElementById('modalDescription').textContent = data.description;
+        
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('projectModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = ''; // Restore scrolling
+}
+
+// Close modal when clicking outside
+document.getElementById('projectModal').addEventListener('click', function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
+
+// Close modal with ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        closeModal();
+    }
+});
+
+// ============================================
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ============================================
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#') return;
+        
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+            const headerOffset = 80;
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+    </script>
+
+</body>
+</html>
+
+<!-- END OF PART 5 - COMPLETE WEBSITE! -->

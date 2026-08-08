@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — A+D with Filter Bubbles</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e0e0e0; }
+  h1 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 6px; text-align: center; padding-top: 32px; }
+  .sub { font-size: 13px; color: #555; text-align: center; margin-bottom: 32px; padding: 0 24px; }
+  .variation { margin: 0 24px 40px; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #1e1e1e; cursor: pointer; transition: border-color .4s, box-shadow .4s; }
+  .variation:hover { border-color: rgba(184,154,106,.35); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 48px rgba(184,154,106,.12); }
+  .vl { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #1a1a1a; }
+  .vn { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  .vt { font-size: 14px; font-weight: 500; color: #fff; }
+  .vd { font-size: 12px; color: #555; padding: 12px 24px; line-height: 1.7; border-top: 1px solid #1a1a1a; }
+  .selected .vn { background: #fff; color: #B89A6A; }
+  img { max-width: 100%; display: block; }
+</style>
+</head>
+<body>
+
+<h1>Gallery — A+D Hybrid with Filter Bubbles</h1>
+<p class="sub">Sorting pills at top, hero image + grid below, all images in perfect rectangles. Dark card on ivory.</p>
+
+<!-- V1: Dark card, pill filters, hero + 4-col grid -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">1</div><div class="vt">Dark Card — Pill Filters + Hero + Grid</div></div>
+  <div style="background:#FAF6F0;padding:48px 40px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="background:#2A1E1A;border-radius:20px;padding:56px 40px;box-shadow:0 24px 80px rgba(42,30,26,.15);">
+        <div style="text-align:center;margin-bottom:32px;">
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">Our Work</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#F3EBDD;line-height:1.15;">Spaces Fully Resolved</div>
+        </div>
+        <!-- Filter pills -->
+        <div style="display:flex;gap:8px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;">
+          <div style="padding:9px 22px;border-radius:100px;background:rgba(243,235,221,.12);color:#F3EBDD;font-size:12px;font-weight:400;letter-spacing:.03em;border:1px solid rgba(243,235,221,.15);">All</div>
+          <div style="padding:9px 22px;border-radius:100px;background:transparent;color:rgba(243,235,221,.45);font-size:12px;border:1px solid rgba(243,235,221,.08);">Living Rooms</div>
+          <div style="padding:9px 22px;border-radius:100px;background:transparent;color:rgba(243,235,221,.45);font-size:12px;border:1px solid rgba(243,235,221,.08);">Kitchens</div>
+          <div style="padding:9px 22px;border-radius:100px;background:transparent;color:rgba(243,235,221,.45);font-size:12px;border:1px solid rgba(243,235,221,.08);">Bathrooms</div>
+          <div style="padding:9px 22px;border-radius:100px;background:transparent;color:rgba(243,235,221,.45);font-size:12px;border:1px solid rgba(243,235,221,.08);">Bedrooms</div>
+        </div>
+        <!-- Hero image -->
+        <div style="border-radius:12px;overflow:hidden;margin-bottom:12px;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/4ad8cbdb-b492-415c-8ac6-3dde21d30e46.jpg" alt="" style="width:100%;height:360px;object-fit:cover;object-position:center;">
+        </div>
+        <!-- 4-col grid -->
+        <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;">
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e74a0b20-884a-4e6c-8ccb-4c60e682cd28.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/faada81f-d8e3-4347-bf39-82dad0dad9d4.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/5c5f1580-b05f-4755-b41d-57d43533a552.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/9bc2e8a4-ae1b-49b8-82f2-1665e85cf35c.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/015d8616-a468-40a7-b21c-45564aa022e6.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e12bb222-a6e7-4fb9-a581-6ad2645a0c39.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/c72114cd-c431-4ca9-a8ad-a80796049a56.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/dbd22cee-2ae9-4357-8a29-bcf6df705bea.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Dark rounded card on ivory. Filter pills at top (All, Living Rooms, Kitchens, Bathrooms, Bedrooms). Active pill is highlighted. One hero image + 4-col grid of thumbnails. All images are perfect rectangles at fixed heights. Clicking a filter shows only that category.</div>
+</div>
+
+<!-- V2: Dark card, pill filters, 3-col equal grid (no hero) -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">2</div><div class="vt">Dark Card — Pill Filters + 3-Col Equal Grid</div></div>
+  <div style="background:#FAF6F0;padding:48px 40px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="background:#2A1E1A;border-radius:20px;padding:56px 40px;box-shadow:0 24px 80px rgba(42,30,26,.15);">
+        <div style="text-align:center;margin-bottom:32px;">
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">Our Work</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#F3EBDD;line-height:1.15;">Spaces Fully Resolved</div>
+        </div>
+        <!-- Filter pills -->
+        <div style="display:flex;gap:8px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;">
+          <div style="padding:9px 22px;border-radius:100px;background:rgba(184,154,106,.25);color:#F3EBDD;font-size:12px;font-weight:500;letter-spacing:.03em;border:1px solid rgba(184,154,106,.4);">All</div>
+          <div style="padding:9px 22px;border-radius:100px;background:transparent;color:rgba(243,235,221,.45);font-size:12px;border:1px solid rgba(243,235,221,.08);">Living Rooms</div>
+          <div style="padding:9px 22px;border-radius:100px;background:transparent;color:rgba(243,235,221,.45);font-size:12px;border:1px solid rgba(243,235,221,.08);">Kitchens</div>
+          <div style="padding:9px 22px;border-radius:100px;background:transparent;color:rgba(243,235,221,.45);font-size:12px;border:1px solid rgba(243,235,221,.08);">Bathrooms</div>
+          <div style="padding:9px 22px;border-radius:100px;background:transparent;color:rgba(243,235,221,.45);font-size:12px;border:1px solid rgba(243,235,221,.08);">Bedrooms</div>
+        </div>
+        <!-- 3-col equal grid -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/4ad8cbdb-b492-415c-8ac6-3dde21d30e46.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e74a0b20-884a-4e6c-8ccb-4c60e682cd28.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/faada81f-d8e3-4347-bf39-82dad0dad9d4.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/5c5f1580-b05f-4755-b41d-57d43533a552.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/9bc2e8a4-ae1b-49b8-82f2-1665e85cf35c.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/015d8616-a468-40a7-b21c-45564aa022e6.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e12bb222-a6e7-4fb9-a581-6ad2645a0c39.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/c72114cd-c431-4ca9-a8ad-a80796049a56.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/dbd22cee-2ae9-4357-8a29-bcf6df705bea.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/60658542-b879-441b-a986-955c15a46f2c.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/01e38a10-801a-4137-b041-bc842bae1765.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/90961daa-6724-456d-b151-418b8cdbde91.jpg" alt="" style="width:100%;height:220px;object-fit:cover;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Dark card, gold-tinted active pill, 3-column uniform grid — all images exactly the same size (220px height). No hero image, just a clean grid. Shows the most images. Active filter pill uses gold tint. All rectangles perfectly even. 12 images visible.</div>
+</div>
+
+<!-- V3: Dark card, underline tabs instead of pills, hero + masonry -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">3</div><div class="vt">Dark Card — Underline Tabs + Hero + 3-Col</div></div>
+  <div style="background:#FAF6F0;padding:48px 40px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="background:#2A1E1A;border-radius:20px;padding:56px 40px;box-shadow:0 24px 80px rgba(42,30,26,.15);">
+        <div style="text-align:center;margin-bottom:32px;">
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">Our Work</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#F3EBDD;line-height:1.15;">Spaces Fully Resolved</div>
+        </div>
+        <!-- Underline tabs -->
+        <div style="display:flex;gap:0;justify-content:center;margin-bottom:36px;border-bottom:1px solid rgba(243,235,221,.06);">
+          <div style="padding:12px 24px;font-size:13px;color:#F3EBDD;border-bottom:2px solid #B89A6A;font-weight:400;">All</div>
+          <div style="padding:12px 24px;font-size:13px;color:rgba(243,235,221,.35);">Living Rooms</div>
+          <div style="padding:12px 24px;font-size:13px;color:rgba(243,235,221,.35);">Kitchens</div>
+          <div style="padding:12px 24px;font-size:13px;color:rgba(243,235,221,.35);">Bathrooms</div>
+          <div style="padding:12px 24px;font-size:13px;color:rgba(243,235,221,.35);">Bedrooms</div>
+        </div>
+        <!-- Hero image -->
+        <div style="border-radius:12px;overflow:hidden;margin-bottom:12px;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/4ad8cbdb-b492-415c-8ac6-3dde21d30e46.jpg" alt="" style="width:100%;height:340px;object-fit:cover;object-position:center;">
+        </div>
+        <!-- 3-col grid -->
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;">
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e74a0b20-884a-4e6c-8ccb-4c60e682cd28.jpg" alt="" style="width:100%;height:180px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/faada81f-d8e3-4347-bf39-82dad0dad9d4.jpg" alt="" style="width:100%;height:180px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/5c5f1580-b05f-4755-b41d-57d43533a552.jpg" alt="" style="width:100%;height:180px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/9bc2e8a4-ae1b-49b8-82f2-1665e85cf35c.jpg" alt="" style="width:100%;height:180px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/015d8616-a468-40a7-b21c-45564aa022e6.jpg" alt="" style="width:100%;height:180px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e12bb222-a6e7-4fb9-a581-6ad2645a0c39.jpg" alt="" style="width:100%;height:180px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/c72114cd-c431-4ca9-a8ad-a80796049a56.jpg" alt="" style="width:100%;height:180px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/dbd22cee-2ae9-4357-8a29-bcf6df705bea.jpg" alt="" style="width:100%;height:180px;object-fit:cover;"></div>
+          <div style="border-radius:10px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/60658542-b879-441b-a986-955c15a46f2c.jpg" alt="" style="width:100%;height:180px;object-fit:cover;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Underline-style tabs instead of pills (gold underline on active). One hero image at top + 3-col uniform grid below. All images perfectly rectangular. Underline tabs feel more minimal and architectural than pills.</div>
+</div>
+
+<!-- V4: On ivory (not dark card), pill filters, hero + grid -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">4</div><div class="vt">Ivory Background — Pill Filters + Hero + Grid</div></div>
+  <div style="background:#FAF6F0;padding:48px 40px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:32px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">Our Work</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Spaces Fully Resolved</div>
+      </div>
+      <!-- Filter pills on ivory -->
+      <div style="display:flex;gap:8px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;">
+        <div style="padding:9px 22px;border-radius:100px;background:#3A241E;color:#F3EBDD;font-size:12px;font-weight:400;letter-spacing:.03em;">All</div>
+        <div style="padding:9px 22px;border-radius:100px;background:transparent;color:#7A6B62;font-size:12px;border:1px solid rgba(58,36,30,.1);">Living Rooms</div>
+        <div style="padding:9px 22px;border-radius:100px;background:transparent;color:#7A6B62;font-size:12px;border:1px solid rgba(58,36,30,.1);">Kitchens</div>
+        <div style="padding:9px 22px;border-radius:100px;background:transparent;color:#7A6B62;font-size:12px;border:1px solid rgba(58,36,30,.1);">Bathrooms</div>
+        <div style="padding:9px 22px;border-radius:100px;background:transparent;color:#7A6B62;font-size:12px;border:1px solid rgba(58,36,30,.1);">Bedrooms</div>
+      </div>
+      <!-- Hero image -->
+      <div style="border-radius:14px;overflow:hidden;margin-bottom:14px;box-shadow:0 12px 40px rgba(42,30,26,.08);">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/4ad8cbdb-b492-415c-8ac6-3dde21d30e46.jpg" alt="" style="width:100%;height:380px;object-fit:cover;object-position:center;">
+      </div>
+      <!-- 4-col grid -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px;">
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(42,30,26,.06);"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e74a0b20-884a-4e6c-8ccb-4c60e682cd28.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(42,30,26,.06);"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/faada81f-d8e3-4347-bf39-82dad0dad9d4.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(42,30,26,.06);"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/5c5f1580-b05f-4755-b41d-57d43533a552.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(42,30,26,.06);"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/9bc2e8a4-ae1b-49b8-82f2-1665e85cf35c.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(42,30,26,.06);"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/015d8616-a468-40a7-b21c-45564aa022e6.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(42,30,26,.06);"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e12bb222-a6e7-4fb9-a581-6ad2645a0c39.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(42,30,26,.06);"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/c72114cd-c431-4ca9-a8ad-a80796049a56.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+        <div style="border-radius:10px;overflow:hidden;box-shadow:0 4px 16px rgba(42,30,26,.06);"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/dbd22cee-2ae9-4357-8a29-bcf6df705bea.jpg" alt="" style="width:100%;height:160px;object-fit:cover;"></div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Same hero + grid structure but on ivory instead of a dark card — matches the unified background approach. Dark filled pill for active filter, outline pills for inactive. Shadows on images for subtle depth. Keeps the page feeling continuous and light.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

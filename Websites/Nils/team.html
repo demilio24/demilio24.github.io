@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nils Digital — Team</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #f8fafc;
+    color: #1a1a2e;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+  }
+
+  /* ── HEADER ─────────────────────────────── */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .header h1 {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 6px;
+  }
+  .header p {
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.5;
+  }
+
+  /* ── LAYOUT: cards left, examples right ─── */
+  .team-layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 24px;
+    align-items: start;
+  }
+
+  /* ── LEFT: CARD LIST ────────────────────── */
+  .card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: sticky;
+    top: 24px;
+  }
+  .card {
+    background: #fff;
+    border: 2px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 14px 16px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; bottom: 0;
+    width: 4px;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .card:hover {
+    border-color: #d1d5db;
+    background: #fafbfc;
+  }
+  .card.active {
+    border-color: var(--accent);
+    background: var(--accent-bg);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+  .card.active::before {
+    opacity: 1;
+  }
+
+  /* Accent colors */
+  .card[data-accent="blue"]   { --accent: #3b82f6; --accent-bg: #eff6ff; }
+  .card[data-accent="purple"] { --accent: #8b5cf6; --accent-bg: #f5f3ff; }
+  .card[data-accent="green"]  { --accent: #10b981; --accent-bg: #ecfdf5; }
+  .card[data-accent="amber"]  { --accent: #f59e0b; --accent-bg: #fffbeb; }
+  .card[data-accent="rose"]   { --accent: #f43f5e; --accent-bg: #fff1f2; }
+  .card[data-accent="cyan"]   { --accent: #06b6d4; --accent-bg: #ecfeff; }
+  .card[data-accent="orange"] { --accent: #f97316; --accent-bg: #fff7ed; }
+
+  .card-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+    flex-shrink: 0;
+  }
+  .avatar-placeholder {
+    width: 56px;
+    height: 56px;
+    border-radius: 12px;
+    background: var(--accent-bg);
+    border: 2px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .card-name {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+  .card-role {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 1px;
+  }
+
+  /* ── RIGHT: DETAIL PANEL ────────────────── */
+  .detail-panel {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+    padding: 36px 32px;
+    min-height: 500px;
+  }
+
+  .detail-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f0f3;
+  }
+  .detail-avatar {
+    width: 88px;
+    height: 88px;
+    border-radius: 18px;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    flex-shrink: 0;
+  }
+  .detail-avatar-placeholder {
+    width: 88px;
+    height: 88px;
+    border-radius: 18px;
+    background: var(--accent-bg);
+    border: 3px solid var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .detail-name {
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+  .detail-role {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 2px;
+  }
+
+  /* Responsibilities */
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 10px;
+  }
+  .resp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .resp-list li {
+    font-size: 14px;
+    color: #374151;
+    line-height: 1.55;
+    padding-left: 16px;
+    position: relative;
+  }
+  .resp-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.45;
+  }
+
+  /* Workflow examples */
+  .examples {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+  .example {
+    background: #f9fafb;
+    border: 1px solid #f0f0f3;
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .example-flow {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .flow-person {
+    font-size: 11px;
+    font-weight: 700;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    padding: 2px 8px;
+    color: #1a1a2e;
+  }
+  .flow-person.highlight {
+    background: var(--accent-bg);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .flow-arrow {
+    color: #c0c5ce;
+    font-size: 11px;
+  }
+  .example-desc {
+    font-size: 12.5px;
+    color: #6b7280;
+    line-height: 1.55;
+  }
+
+  /* Loop in chips */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .chip {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--accent-bg);
+    border-radius: 100px;
+    padding: 4px 12px;
+  }
+
+  /* ── ESCALATION NOTE ────────────────────── */
+  .note {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+  .note h3 {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .note-steps {
+    display: flex;
+    gap: 16px;
+  }
+  .note-step {
+    flex: 1;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .note-num {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 800;
+    flex-shrink: 0;
+  }
+  .note-step:nth-child(1) .note-num { background: #ecfdf5; color: #10b981; }
+  .note-step:nth-child(2) .note-num { background: #f5f3ff; color: #8b5cf6; }
+  .note-step:nth-child(3) .note-num { background: #eff6ff; color: #3b82f6; }
+  .note-step p {
+    font-size: 13px;
+    color: #4b5563;
+    line-height: 1.5;
+  }
+  .note-step strong { color: #1a1a2e; }
+
+  .footer {
+    text-align: center;
+    margin-top: 32px;
+    font-size: 11px;
+    color: #c0c5ce;
+  }
+
+  /* ── RESPONSIVE ─────────────────────────── */
+  @media (max-width: 768px) {
+    .team-layout {
+      grid-template-columns: 1fr;
+    }
+    .card-list {
+      position: static;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 8px;
+      padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .card {
+      min-width: 160px;
+      flex-shrink: 0;
+    }
+    .detail-panel {
+      min-height: auto;
+      padding: 28px 22px;
+    }
+    .note-steps {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  /* ── LIGHTBOX ───────────────────────────── */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0,0,0,0.75);
+    backdrop-filter: blur(6px);
+    align-items: center;
+    justify-content: center;
+    cursor: zoom-out;
+    animation: lbFadeIn 0.2s ease;
+  }
+  .lightbox.open { display: flex; }
+  @keyframes lbFadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+  .lightbox img {
+    max-width: min(420px, 90vw);
+    max-height: 90vh;
+    border-radius: 20px;
+    box-shadow: 0 32px 80px rgba(0,0,0,0.5);
+    object-fit: cover;
+    animation: lbZoomIn 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: default;
+  }
+  @keyframes lbZoomIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .lightbox-name {
+    position: absolute;
+    bottom: calc(50% - min(210px, 45vh) - 44px);
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    color: rgba(255,255,255,0.7);
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.15s;
+  }
+  .lightbox-close:hover { color: #fff; }
+
+  /* Make avatars show zoom cursor */
+  .avatar, .detail-avatar { cursor: zoom-in; }
+
+  /* ── PRINT ──────────────────────────────── */
+  @media print {
+    body { background: #fff; }
+    .card-list { display: none; }
+    .team-layout { grid-template-columns: 1fr; }
+    .detail-panel { border: 1px solid #ddd; break-inside: avoid; }
+    .example { background: #f9f9f9; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="" onclick="event.stopPropagation()">
+  <div class="lightbox-name" id="lightbox-name"></div>
+</div>
+
+<div class="page">
+
+  <div class="header">
+    <h1>Team Directory</h1>
+    <p>Who owns what, who to loop in, and how work moves between us.</p>
+  </div>
+
+  <div class="team-layout">
+
+    <!-- LEFT: Card list -->
+    <div class="card-list" id="card-list">
+      <div class="card active" data-accent="blue" data-person="emilio" onclick="show('emilio')">
+        <div class="card-row">
+          <img class="avatar" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69dfaa3b109243d2cc05723c.jpg" alt="Emilio" />
+          <div><div class="card-name">Emilio</div><div class="card-role">Owner & Manager</div></div>
+        </div>
+      </div>
+<div class="card" data-accent="green" data-person="amina" onclick="show('amina')">
+        <div class="card-row">
+          <img class="avatar" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69dfaa3b06cfeed5501559ce.jpg" alt="Amina" />
+          <div><div class="card-name">Amina Shah</div><div class="card-role">GoHighLevel Engineer</div></div>
+        </div>
+      </div>
+      <div class="card" data-accent="amber" data-person="umair" onclick="show('umair')">
+        <div class="card-row">
+          <img class="avatar" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69dfaa3b190683601a631784.jpg" alt="Umair" />
+          <div><div class="card-name">Umair</div><div class="card-role">Google Ad Specialist</div></div>
+        </div>
+      </div>
+      <div class="card" data-accent="cyan" data-person="ak" onclick="show('ak')">
+        <div class="card-row">
+          <img class="avatar" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69e14336bde9ef25bd135d8f.jpg" alt="AK" />
+          <div><div class="card-name">AK</div><div class="card-role">Technical Automations Engineer</div></div>
+        </div>
+      </div>
+      <div class="card" data-accent="rose" data-person="brian" onclick="show('brian')">
+        <div class="card-row">
+          <img class="avatar" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69e143360b562c72812af7dd.jpg" alt="Brian" />
+          <div><div class="card-name">Brian</div><div class="card-role">Developer</div></div>
+        </div>
+      </div>
+      <div class="card" data-accent="orange" data-person="jude" onclick="show('jude')">
+        <div class="card-row">
+          <img class="avatar" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69e14336c56ad279082eb659.png" alt="Jude" />
+          <div><div class="card-name">Jude</div><div class="card-role">A2P Verification</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: Detail panel -->
+    <div class="detail-panel" id="detail-panel"></div>
+
+  </div>
+
+  <!-- Escalation note -->
+  <div class="note">
+    <h3>Not sure who to contact?</h3>
+    <div class="note-steps">
+      <div class="note-step">
+        <div class="note-num">1</div>
+        <p><strong>Know who owns it?</strong> Go to them directly.</p>
+      </div>
+      <div class="note-step">
+        <div class="note-num">2</div>
+        <p><strong>Not sure?</strong> Start with Emilio.</p>
+      </div>
+      <div class="note-step">
+        <div class="note-num">3</div>
+        <p><strong>Urgent?</strong> Go straight to Emilio.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">Nils Digital &middot; Internal &middot; April 2026</div>
+</div>
+
+<script>
+var DATA = {
+  emilio: {
+    name: "Emilio",
+    role: "Owner & Manager",
+    accent: "blue",
+    avatarType: "img",
+    avatarSrc: "https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69dfaa3b109243d2cc05723c.jpg",
+    responsibilities: [
+      "Marketing & sales strategy",
+      "Website development",
+      "Client onboarding calls",
+      "Final decision-maker on all accounts"
+    ],
+    loopIn: ["Everyone (as needed)"],
+    examples: [
+      {
+        flow: [["Anyone", false], ["Emilio", true]],
+        desc: "For urgent or time-sensitive issues, anyone can message Emilio directly. Quick Slack or text is fine — don't wait."
+      },
+      {
+        flow: [["Emilio", true], ["Amina", false]],
+        desc: "After an onboarding call, Emilio assigns setup tasks directly to Amina, Jude, and Umair."
+      }
+    ]
+  },
+  amina: {
+    name: "Amina Shah",
+    role: "GoHighLevel Engineer",
+    accent: "green",
+    avatarType: "img",
+    avatarSrc: "https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69dfaa3b06cfeed5501559ce.jpg",
+    responsibilities: [
+      "Principal GHL person — go-to for all things GoHighLevel",
+      "Backend automations, forms, surveys, dashboards, pipelines",
+      "Builds and maintains client GHL infrastructure"
+    ],
+    loopIn: ["AK", "Emilio"],
+    examples: [
+      {
+        flow: [["Umair", false], ["Amina", true]],
+        desc: "Tracking isn't working on a GHL form. Umair contacts Amina directly — this is a GHL-side fix."
+      },
+      {
+        flow: [["Emilio", false], ["Amina", true]],
+        desc: "Client wants a change to their dashboard or pipeline. Emilio adds it to Amina's board."
+      },
+      {
+        flow: [["Amina", true], ["Emilio", false]],
+        desc: "Amina needs access to a sub-account. Emilio handles the provisioning or approves new accounts."
+      },
+      {
+        flow: [["Amina", true], ["AK", false]],
+        desc: "An automation needs a custom API call or n8n workflow. Amina loops in AK for the technical piece."
+      }
+    ]
+  },
+  umair: {
+    name: "Umair",
+    role: "Google Ad Specialist",
+    accent: "amber",
+    avatarType: "img",
+    avatarSrc: "https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69dfaa3b190683601a631784.jpg",
+    responsibilities: [
+      "Sets up and manages Google Ads campaigns",
+      "Monitors and optimizes ad performance",
+      "Keyword research, bid strategy, conversion tracking"
+    ],
+    loopIn: ["Emilio"],
+    examples: [
+      {
+        flow: [["Umair", true], ["Amina", false]],
+        desc: "Form tracking is broken on a landing page. Umair contacts Amina directly to fix the GHL-side tracking."
+      },
+      {
+        flow: [["Umair", true], ["Emilio", false]],
+        desc: "Campaign is live and performing well. Umair updates Emilio so he can relay results to the client."
+      },
+      {
+        flow: [["Umair", true], ["Emilio", false]],
+        desc: "Needs to discuss budget changes or strategy shift. Goes straight to Emilio for approval."
+      }
+    ]
+  },
+  brian: {
+    name: "Brian",
+    role: "Developer",
+    accent: "rose",
+    avatarType: "img",
+    avatarSrc: "https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69e143360b562c72812af7dd.jpg",
+    responsibilities: [
+      "Owns and maintains the review filtering system",
+      "All modifications, customizations, and bug fixes",
+      "Technical implementation and code-level changes"
+    ],
+    loopIn: ["AK", "Emilio"],
+    examples: [
+      {
+        flow: [["Emilio", false], ["Brian", true]],
+        desc: "Client reports reviews aren't filtering correctly. Emilio creates a task and Brian investigates."
+      },
+      {
+        flow: [["Brian", true], ["AK", false]],
+        desc: "A fix requires changes to an API integration or n8n workflow. Brian loops in AK."
+      },
+      {
+        flow: [["Brian", true], ["Emilio", false]],
+        desc: "Fix is deployed. Brian updates Emilio so he can notify the client."
+      }
+    ]
+  },
+  ak: {
+    name: "AK",
+    role: "Technical Automations Engineer",
+    accent: "cyan",
+    avatarType: "img",
+    avatarSrc: "https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69e14336bde9ef25bd135d8f.jpg",
+    responsibilities: [
+      "n8n workflows requiring APIs or custom code",
+      "Technical integrations across platforms",
+      "Co-built Savvy Compliance automations for Savvy Link",
+      "Go-to for Savvy Link support"
+    ],
+    loopIn: ["Amina", "Brian", "Emilio"],
+    examples: [
+      {
+        flow: [["Emilio", false], ["AK", true]],
+        desc: "Savvy Link client needs support. AK co-built the Savvy Compliance automations and is the go-to for that entire account."
+      },
+      {
+        flow: [["Amina", false], ["AK", true]],
+        desc: "A GHL automation needs a custom API call. Amina describes what she needs, AK builds the n8n workflow."
+      },
+      {
+        flow: [["AK", true], ["Brian", false]],
+        desc: "An integration touches the review filtering system. AK coordinates with Brian on the code side."
+      }
+    ]
+  },
+  jude: {
+    name: "Jude",
+    role: "A2P Verification Specialist",
+    accent: "orange",
+    avatarType: "img",
+    avatarSrc: "https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69e14336c56ad279082eb659.png",
+    responsibilities: [
+      "Handles A2P verification for all client accounts",
+      "GoHighLevel account setup & configuration",
+      "GHL-familiar — Amina is the principal GHL specialist"
+    ],
+    loopIn: ["Amina", "Emilio"],
+    examples: [
+      {
+        flow: [["Emilio", false], ["Jude", true]],
+        desc: "New client needs A2P verification after onboarding. Emilio assigns it to Jude."
+      },
+      {
+        flow: [["Jude", true], ["Amina", false]],
+        desc: "Client's GHL account needs automations or pipelines set up. Jude loops in Amina for the advanced GHL work."
+      },
+      {
+        flow: [["Jude", true], ["Emilio", false]],
+        desc: "A2P verification is complete. Jude updates Emilio so he can inform the client and move to next steps."
+      }
+    ]
+  }
+};
+
+function show(id) {
+  // Update active card
+  document.querySelectorAll('.card').forEach(function(c) { c.classList.remove('active'); });
+  document.querySelector('[data-person="' + id + '"]').classList.add('active');
+
+  var d = DATA[id];
+  var panel = document.getElementById('detail-panel');
+
+  // Build avatar
+  var avatarHTML = d.avatarType === 'img'
+    ? '<img class="detail-avatar" src="' + d.avatarSrc + '" alt="' + d.name + '" />'
+    : '<div class="detail-avatar-placeholder">' + d.avatarInitial + '</div>';
+
+  // Build responsibilities
+  var respHTML = d.responsibilities.map(function(r) { return '<li>' + r + '</li>'; }).join('');
+
+  // Build examples
+  var exHTML = d.examples.map(function(ex) {
+    var flowHTML = ex.flow.map(function(f, i) {
+      var cls = f[1] ? ' highlight' : '';
+      var arrow = i < ex.flow.length - 1 ? '<span class="flow-arrow">&rarr;</span>' : '';
+      return '<span class="flow-person' + cls + '">' + f[0] + '</span>' + arrow;
+    }).join('');
+    return '<div class="example"><div class="example-flow">' + flowHTML + '</div><p class="example-desc">' + ex.desc + '</p></div>';
+  }).join('');
+
+  // Build chips
+  var chipHTML = d.loopIn.map(function(c) { return '<span class="chip">' + c + '</span>'; }).join('');
+
+  // Set accent CSS variable on panel
+  var accentMap = {
+    blue: ['#3b82f6', '#eff6ff'],
+    purple: ['#8b5cf6', '#f5f3ff'],
+    green: ['#10b981', '#ecfdf5'],
+    amber: ['#f59e0b', '#fffbeb'],
+    rose: ['#f43f5e', '#fff1f2'],
+    cyan: ['#06b6d4', '#ecfeff'],
+    orange: ['#f97316', '#fff7ed']
+  };
+  panel.style.setProperty('--accent', accentMap[d.accent][0]);
+  panel.style.setProperty('--accent-bg', accentMap[d.accent][1]);
+
+  panel.innerHTML =
+    '<div class="detail-header">' + avatarHTML +
+    '<div><div class="detail-name">' + d.name + '</div><div class="detail-role">' + d.role + '</div></div></div>' +
+    '<div class="section-label">Responsibilities</div><ul class="resp-list">' + respHTML + '</ul>' +
+    '<div class="section-label">How work flows</div><div class="examples">' + exHTML + '</div>' +
+    '<div class="section-label">Loop in</div><div class="chips">' + chipHTML + '</div>';
+}
+
+// Init with Emilio selected
+show('emilio');
+
+// ── LIGHTBOX ─────────────────────────────────
+function openLightbox(src, name) {
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox-img').alt = name;
+  document.getElementById('lightbox-name').textContent = name;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+
+// Wire up card avatars
+document.querySelectorAll('.card .avatar').forEach(function(img) {
+  img.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var name = this.closest('.card').querySelector('.card-name').textContent;
+    openLightbox(this.src, name);
+  });
+});
+
+// Wire up detail panel avatar (re-wire after each show())
+var _origShow = show;
+show = function(id) {
+  _origShow(id);
+  var detailAvatar = document.querySelector('.detail-avatar');
+  if (detailAvatar) {
+    detailAvatar.addEventListener('click', function(e) {
+      e.stopPropagation();
+      openLightbox(this.src, DATA[id].name);
+    });
+  }
+};
+</script>
+
+</body>
+</html>

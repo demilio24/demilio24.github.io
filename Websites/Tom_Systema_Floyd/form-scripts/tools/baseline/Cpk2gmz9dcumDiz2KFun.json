@@ -1,0 +1,103 @@
+{
+  "name": "private-lessons",
+  "id": "Cpk2gmz9dcumDiz2KFun",
+  "fields": [
+    {
+      "label": "Student Name *",
+      "options": []
+    },
+    {
+      "label": "State *",
+      "options": [
+        "Florida",
+        "Virginia",
+        "Georgia"
+      ]
+    },
+    {
+      "label": "Instructor *",
+      "options": []
+    },
+    {
+      "label": "Dance",
+      "options": [
+        "Dance only"
+      ]
+    },
+    {
+      "label": "Boxing",
+      "options": [
+        "Boxing Only"
+      ]
+    },
+    {
+      "label": "Piano",
+      "options": [
+        "Piano and Music Lessons"
+      ]
+    },
+    {
+      "label": "Lesson Length & Price – Premium",
+      "options": []
+    },
+    {
+      "label": "Lesson Length & Price",
+      "options": []
+    },
+    {
+      "label": "Training Type *",
+      "options": [
+        "Martial Arts",
+        "Fitness",
+        "Sports",
+        "Combination",
+        "Weight Lifting",
+        "Stepping"
+      ]
+    },
+    {
+      "label": "Number of Students *",
+      "options": [
+        "1 Student",
+        "2 Students (+$25)",
+        "3 Students (+$50)"
+      ]
+    },
+    {
+      "label": "Age Group *",
+      "options": [
+        "Ages 2.5-6 (30 min recommended)",
+        "Ages 7+",
+        "Teen",
+        "Adult"
+      ]
+    },
+    {
+      "label": "Package *",
+      "options": [
+        "Single Session",
+        "10 Sessions Pack (Get 1 Free)"
+      ]
+    },
+    {
+      "label": "Preferred Date *",
+      "options": []
+    },
+    {
+      "label": "Preferred Time *",
+      "options": []
+    },
+    {
+      "label": "Full Name *",
+      "options": []
+    },
+    {
+      "label": "Phone Number *",
+      "options": []
+    },
+    {
+      "label": "Email Address",
+      "options": []
+    }
+  ]
+}

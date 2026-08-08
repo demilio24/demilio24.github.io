@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Option 4 Refined</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #3A241E; }
+  img { max-width: 100%; display: block; }
+  .gallery-section { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+  .gallery-header { text-align: center; margin-bottom: 32px; }
+  .gallery-label { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #B89A6A; margin-bottom: 12px; }
+  .gallery-title { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300; color: #3A241E; line-height: 1.15; }
+
+  /* Filter pills */
+  .filters { display: flex; gap: 8px; justify-content: center; margin-bottom: 36px; flex-wrap: wrap; }
+  .filter-pill { padding: 9px 22px; border-radius: 100px; font-size: 12px; font-weight: 400; letter-spacing: .03em; cursor: pointer; transition: all .3s ease; border: 1px solid rgba(58,36,30,.1); color: #7A6B62; background: transparent; }
+  .filter-pill.active { background: #3A241E; color: #F3EBDD; border-color: #3A241E; }
+  .filter-pill:hover:not(.active) { border-color: rgba(184,154,106,.4); color: #3A241E; }
+
+  /* Hero image */
+  .gallery-hero { border-radius: 14px; overflow: hidden; margin-bottom: 14px; box-shadow: 0 12px 40px rgba(42,30,26,.08); }
+  .gallery-hero img { width: 100%; height: 380px; object-fit: cover; object-position: center; }
+
+  /* Grid */
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .gallery-item { border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(42,30,26,.06); cursor: pointer; transition: transform .3s ease, box-shadow .3s ease; }
+  .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(42,30,26,.12); }
+  .gallery-item img { width: 100%; height: 180px; object-fit: cover; object-position: center; }
+  .gallery-item.hidden { display: none; }
+
+  /* CTA */
+  .gallery-cta { text-align: center; margin-top: 56px; }
+  .gallery-cta-text { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: #3A241E; margin-bottom: 8px; }
+  .gallery-cta-sub { font-size: 14px; color: #7A6B62; margin-bottom: 24px; line-height: 1.7; }
+  .btn-gold { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 40px; background: linear-gradient(135deg, #9a6d1f 0%, #B89A6A 45%, #D4B87A 100%); color: #fff; font-size: 13px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; border: none; border-radius: 10px; cursor: pointer; text-decoration: none; box-shadow: 0 8px 28px rgba(184,154,106,.25); transition: all .3s ease; }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(184,154,106,.35); }
+  .btn-outline { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 40px; background: transparent; color: #3A241E; font-size: 13px; font-weight: 400; letter-spacing: .08em; text-transform: uppercase; border: 1px solid rgba(58,36,30,.12); border-radius: 10px; cursor: pointer; text-decoration: none; transition: all .3s ease; }
+  .btn-outline:hover { border-color: #B89A6A; color: #B89A6A; }
+</style>
+</head>
+<body>
+
+<section class="gallery-section">
+  <div class="gallery-header">
+    <div class="gallery-label">Our Work</div>
+    <div class="gallery-title">Spaces Fully Resolved</div>
+  </div>
+
+  <!-- Filter pills -->
+  <div class="filters" id="filters">
+    <div class="filter-pill active" data-filter="all">All</div>
+    <div class="filter-pill" data-filter="living">Living Rooms</div>
+    <div class="filter-pill" data-filter="kitchen">Kitchens</div>
+    <div class="filter-pill" data-filter="bathroom">Bathrooms</div>
+    <div class="filter-pill" data-filter="bedroom">Bedrooms</div>
+  </div>
+
+  <!-- Hero image -->
+  <div class="gallery-hero" id="galleryHero">
+    <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/4ad8cbdb-b492-415c-8ac6-3dde21d30e46.jpg" alt="Featured project" id="heroImg">
+  </div>
+
+  <!-- Grid — ALL portfolio images with categories -->
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- Living Rooms -->
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e74a0b20-884a-4e6c-8ccb-4c60e682cd28.jpg" alt="Living room — mountain retreat"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/015d8616-a468-40a7-b21c-45564aa022e6.jpg" alt="Living room — contemporary warm"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/60658542-b879-441b-a986-955c15a46f2c.jpg" alt="Living room — walnut media wall"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/90961daa-6724-456d-b151-418b8cdbde91.jpg" alt="Living room — mountain retreat wide"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg" alt="Living & dining — walnut paneling"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/3fc94637-65b1-4d49-9b95-11d5a01f06f0.jpg" alt="Living room — waterfront coastal"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/b60a85e5-0b51-4eef-ac4f-4ab388187cc5.jpg" alt="Living room — neutral contemporary"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8c170be3-32a7-47ec-8259-4a29aebaa377.jpg" alt="Living room — minimalist white"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/2d759b38-9271-4565-8d11-cfa11bfa3d79.jpg" alt="Living room — walnut pink ottoman"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/1a7dd7a7-7355-41fe-a085-6ee79bd13447.jpg" alt="Family room — bunk beds"></div>
+
+    <!-- Kitchens -->
+    <div class="gallery-item" data-cat="kitchen"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/5c5f1580-b05f-4755-b41d-57d43533a552.jpg" alt="Kitchen — two-tone dark & white"></div>
+    <div class="gallery-item" data-cat="kitchen"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e23f4a3d-37ee-4d7b-a01b-9ebb95cc6901.jpg" alt="Kitchen — L-shaped island"></div>
+    <div class="gallery-item" data-cat="kitchen"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/5fedffc8-ce4a-4a2e-96d7-302bcbf1fb4e.jpg" alt="Kitchen — charcoal classic"></div>
+    <div class="gallery-item" data-cat="kitchen"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0c7b09c7-acbc-4634-ad53-80c9a8906664.jpg" alt="Kitchen — transitional herringbone"></div>
+
+    <!-- Bathrooms -->
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/faada81f-d8e3-4347-bf39-82dad0dad9d4.jpg" alt="Bathroom — black & white geometric"></div>
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/c72114cd-c431-4ca9-a8ad-a80796049a56.jpg" alt="Bathroom — luxury spa vanity"></div>
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/dbd22cee-2ae9-4357-8a29-bcf6df705bea.jpg" alt="Bathroom — kids scallop tile"></div>
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0b3e2897-7da8-4c35-adce-755ed7523f3b.jpg" alt="Bathroom — marble spa"></div>
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/1221be03-8b0e-4d43-a904-13b90ad9cc31.jpg" alt="Bathroom — marble double vanity"></div>
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/5820d685-7f2f-4ed2-8f3f-bfd98c6f4e80.jpg" alt="Bathroom — luxury wide vanity"></div>
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d96f32b5-f66f-416b-9651-6580b54002e6.jpg" alt="Bathroom — floating vanity"></div>
+
+    <!-- Bedrooms -->
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/9bc2e8a4-ae1b-49b8-82f2-1665e85cf35c.jpg" alt="Bedroom — high-rise city view"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e12bb222-a6e7-4fb9-a581-6ad2645a0c39.jpg" alt="Bedroom — blue chevron headboard"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/ad954273-e3f4-4a47-9cc9-eaabca8fd287.jpg" alt="Bedroom — modern urban"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0fb4ff41-a5bc-4704-92df-a1f631b22a5d.jpg" alt="Bedroom — blue upholstered gold"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e840332e-a0eb-42a4-a5a0-017db1243e67.jpg" alt="Bedroom — high-rise serene"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/01e38a10-801a-4137-b041-bc842bae1765.jpg" alt="Bedroom — industrial loft"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/4f57825e-0350-4dcd-ad71-a108efd708e1.jpg" alt="Bedroom — colorful kids room"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e1e63659-7b45-4e99-873c-d2f20a80c1c9.jpg" alt="Bedroom — kids world map"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/309977a2-a80a-4221-8885-62d507fd267a.jpg" alt="Bedroom — kids detail"></div>
+  </div>
+
+  <!-- CTA -->
+  <div class="gallery-cta">
+    <div class="gallery-cta-text">See Something You Love?</div>
+    <div class="gallery-cta-sub">Every project begins with a conversation about your space, your vision, and what's possible.</div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+      <a href="#" class="btn-gold" onclick="openForm();return false">Start Your Project</a>
+      <a href="tel:9545409039" class="btn-outline">Call 954-540-9039</a>
+    </div>
+  </div>
+</section>
+
+<script>
+// Filter functionality
+const pills = document.querySelectorAll('.filter-pill');
+const items = document.querySelectorAll('.gallery-item');
+const heroImg = document.getElementById('heroImg');
+
+// First image per category for hero
+const heroImages = {
+  all: 'https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/4ad8cbdb-b492-415c-8ac6-3dde21d30e46.jpg',
+  living: 'https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e74a0b20-884a-4e6c-8ccb-4c60e682cd28.jpg',
+  kitchen: 'https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/5c5f1580-b05f-4755-b41d-57d43533a552.jpg',
+  bathroom: 'https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/faada81f-d8e3-4347-bf39-82dad0dad9d4.jpg',
+  bedroom: 'https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/9bc2e8a4-ae1b-49b8-82f2-1665e85cf35c.jpg'
+};
+
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    const filter = pill.dataset.filter;
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+
+    // Update hero
+    heroImg.style.opacity = '0';
+    setTimeout(() => {
+      heroImg.src = heroImages[filter];
+      heroImg.style.opacity = '1';
+    }, 200);
+
+    // Filter grid
+    items.forEach(item => {
+      if (filter === 'all' || item.dataset.cat === filter) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Click grid item to make it the hero
+items.forEach(item => {
+  item.addEventListener('click', () => {
+    const src = item.querySelector('img').src;
+    heroImg.style.opacity = '0';
+    setTimeout(() => {
+      heroImg.src = src;
+      heroImg.style.opacity = '1';
+    }, 200);
+    window.scrollTo({ top: document.getElementById('galleryHero').offsetTop - 100, behavior: 'smooth' });
+  });
+});
+</script>
+
+<style>
+  .gallery-hero img { transition: opacity .3s ease; }
+</style>
+
+</body>
+</html>

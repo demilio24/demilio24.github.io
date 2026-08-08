@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>{{TITLE}} | Nils Digital</title>
+  <meta name="description" content="{{DESCRIPTION}}">
+  <link rel="canonical" href="{{CANONICAL_URL}}">
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="{{CANONICAL_URL}}">
+  <meta property="article:tag" content="{{TAG}}">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="../assets/css/tokens.css">
+  <link rel="stylesheet" href="../assets/css/globals.css">
+  <link rel="stylesheet" href="../assets/css/nav.css">
+  <link rel="stylesheet" href="../assets/css/footer.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/blog.css">
+
+  <!-- Site JS -->
+  <script src="../assets/js/nav.js" defer></script>
+  <script src="../assets/js/animations.js" defer></script>
+
+  <!-- Article schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{TITLE}}",
+    "description": "{{DESCRIPTION}}",
+    "datePublished": "{{DATE_ISO}}",
+    "author": { "@type": "Person", "name": "{{AUTHOR}}" },
+    "publisher": { "@type": "Organization", "name": "Nils Digital" }
+  }
+  </script>
+</head>
+<body>
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a class="brand" href="../">Nils</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="../about.html">About</a>
+        <a href="../proof.html">Proof</a>
+        <a href="./">Blog</a>
+        <a href="../contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <article class="post container-narrow">
+    <header class="post-header">
+      <span class="post-tag tag-{{TAG_SLUG}}">{{TAG}}</span>
+      <h1>{{TITLE}}</h1>
+      <p class="lead">{{SUBTITLE}}</p>
+      <div class="post-meta">
+        <span>By {{AUTHOR}}</span>
+        <span>·</span>
+        <span>{{READ_TIME}} min read</span>
+        <span>·</span>
+        <time datetime="{{DATE_ISO}}">{{DATE_PRETTY}}</time>
+      </div>
+    </header>
+
+    <div class="post-body">
+      {{BODY}}
+    </div>
+
+    <!-- {{CTA}} -->
+
+    <aside class="post-related">
+      <h6>Related</h6>
+      <div class="related-grid">
+        <!-- Populated by future enhancement; static placeholder for now -->
+      </div>
+    </aside>
+  </article>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="../">Nils</a>
+        <p class="footer-tagline">Growth + systems for $1M+ local service businesses.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-col">
+          <h6>Explore</h6>
+          <a href="../about.html">About</a>
+          <a href="../proof.html">Proof</a>
+          <a href="./">Blog</a>
+          <a href="../contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h6>Get started</h6>
+          <a href="../../funnel/vsl.html">Marketing system</a>
+          <a href="../../funnel/automation-vsl-funnel-direct.html">Automation audit</a>
+        </div>
+      </nav>
+    </div>
+    <div class="container footer-meta">
+      <span>&copy; <span id="footer-year"></span> Nils Digital</span>
+    </div>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  </footer>
+</body>
+</html>

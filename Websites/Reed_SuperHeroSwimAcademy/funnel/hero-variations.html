@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Superhero Swim — Hero Variations (preview)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;font-family:'Manrope',sans-serif;background:#0a2540;color:#0a2540}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+h1,h2,h3{font-family:'Outfit',sans-serif;margin:0;line-height:1.12;letter-spacing:-0.02em}
+:root{--navy:#0a2540;--navy-2:#103258;--blue:#1769d6;--blue-2:#1257b3;--aqua:#28cdd9;--aqua-2:#15b6c2;--gold:#ffc83d;--gold-2:#ff9d2e;--line:#d6e4f2;--muted:#4a6585}
+.label{max-width:1180px;margin:0 auto;padding:22px 24px 10px;color:#fff;font-family:'Outfit',sans-serif}
+.label b{font-size:1.5rem;font-weight:800}
+.label span{display:block;color:rgba(255,255,255,.6);font-size:.95rem;margin-top:4px}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;font-family:'Outfit',sans-serif;font-weight:800;font-size:1rem;border:none;border-radius:12px;padding:15px 28px;cursor:pointer;line-height:1}
+.btn-gold{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);box-shadow:0 10px 26px rgba(255,157,46,.42)}
+.btn-white{background:#fff;color:var(--navy);box-shadow:0 8px 24px rgba(0,0,0,.18)}
+
+/* nav */
+.hnav{position:relative;z-index:5}
+.hnav-in{max-width:1220px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.hnav img{height:42px;width:auto}
+.hnav-right{display:flex;align-items:center;gap:12px}
+.hnav-phone{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.95rem}
+.hnav-phone svg{width:18px;height:18px}
+.hnav-cta{background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);padding:11px 20px;border-radius:10px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.88rem}
+
+/* hero shell */
+.hero{position:relative;overflow:hidden}
+.hero-media{position:absolute;inset:0;z-index:0}
+.hero-media img,.hero-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero-ov{position:absolute;inset:0;z-index:1}
+.hero .container,.hero .hnav{position:relative;z-index:2}
+.hgrid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:38px 0 60px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.76rem;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;border-radius:50px;margin-bottom:18px}
+.h1{font-size:clamp(2.3rem,4.8vw,3.6rem);font-weight:900;margin-bottom:16px}
+.h1 .ac{font-style:italic}
+.sub{font-size:1.12rem;max-width:500px;margin-bottom:22px;line-height:1.5;font-weight:500}
+.social{display:flex;align-items:center;gap:14px;margin-bottom:22px}
+.avatars{display:flex}
+.avatars img{width:54px;height:54px;border-radius:50%;border:3px solid #fff;object-fit:cover;margin-left:-14px;box-shadow:0 3px 10px rgba(10,37,64,.25)}
+.avatars img:first-child{margin-left:0}
+.social-tx{font-family:'Manrope',sans-serif;font-size:1.02rem;font-weight:600;line-height:1.3}
+.social-tx .st{color:var(--gold);letter-spacing:-1px;font-size:1.12rem}
+.pills{display:flex;flex-wrap:wrap;gap:10px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.84rem}
+.pill svg{width:16px;height:16px}
+
+/* form card */
+.fcard{position:relative;background:#fff;border-radius:22px;padding:26px 24px;box-shadow:0 24px 64px rgba(0,0,0,.32);border:1px solid var(--line)}
+.fbadge{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);font-family:'Outfit',sans-serif;font-weight:800;font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;padding:7px 16px;border-radius:50px;white-space:nowrap}
+.fcard h3{font-size:1.34rem;font-weight:800;color:var(--navy);text-align:center;margin:8px 0 4px}
+.fcard .fsub{font-size:.9rem;color:var(--muted);text-align:center;margin:0 0 16px}
+.ff{margin-bottom:11px}
+.ff label{display:block;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.6px;margin-bottom:5px}
+.ff input{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font-family:'Manrope',sans-serif;font-size:16px;color:var(--navy)}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fsubmit{width:100%;padding:15px;margin-top:6px;background:linear-gradient(135deg,var(--gold),var(--gold-2));color:var(--navy);border:none;border-radius:12px;font-family:'Outfit',sans-serif;font-weight:800;font-size:1.02rem;cursor:pointer;box-shadow:0 10px 24px rgba(255,157,46,.45)}
+.ffoot{font-size:.78rem;color:var(--muted);text-align:center;margin:12px 0 0}
+
+/* ===== Variant: LIGHT (Aquanauts style) ===== */
+.v-light .hero-ov{background:linear-gradient(118deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.78) 40%,rgba(255,255,255,.32) 100%)}
+.v-light .eyebrow{background:rgba(255,255,255,.7);border:1px solid rgba(23,105,214,.18);color:var(--blue-2)}
+.v-light .h1{color:var(--navy)}
+.v-light .h1 .ac{color:var(--blue)}
+.v-light .sub{color:#2b4a6b}
+.v-light .social-tx{color:var(--navy)}
+.v-light .pill{background:#fff;border:1.5px solid var(--line);color:var(--navy);box-shadow:0 4px 14px rgba(10,37,64,.06)}
+.v-light .pill svg{color:var(--blue)}
+.v-light .hnav-phone{color:var(--navy)}
+.v-light .hnav-phone svg{color:var(--blue)}
+
+/* ===== Variant: DARK CINEMATIC (AquaSquad style) ===== */
+.v-dark{background:var(--navy)}
+.v-dark .hero-ov{background:linear-gradient(105deg,rgba(10,37,64,.92) 0%,rgba(10,37,64,.74) 48%,rgba(18,87,179,.45) 100%)}
+.v-dark .eyebrow{background:rgba(255,255,255,.12);color:var(--gold)}
+.v-dark .h1{color:#fff}
+.v-dark .h1 .ac{color:var(--gold)}
+.v-dark .sub{color:rgba(255,255,255,.82)}
+.v-dark .social-tx{color:#fff}
+.v-dark .pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff}
+.v-dark .pill svg{color:var(--aqua)}
+.v-dark .hnav-phone{color:#fff}
+.v-dark .hnav-phone svg{color:var(--aqua)}
+
+/* ===== Variant: SPLIT ===== */
+.v-split .hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%)}
+.v-split .split-grid{display:grid;grid-template-columns:1.05fr .95fr;min-height:600px}
+.v-split .split-left{padding:30px 0 50px;display:flex;flex-direction:column;justify-content:center}
+.v-split .split-photo{position:relative;overflow:hidden;border-radius:0}
+.v-split .split-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.v-split .split-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,37,64,.6) 0%,transparent 30%)}
+.v-split .eyebrow{background:rgba(255,255,255,.12);color:var(--gold)}
+.v-split .h1{color:#fff}.v-split .h1 .ac{color:var(--gold)}
+.v-split .sub{color:rgba(255,255,255,.82)}
+.v-split .social-tx{color:#fff}
+.v-split .hnav-phone{color:#fff}.v-split .hnav-phone svg{color:var(--aqua)}
+.v-split .fcard{margin-top:8px}
+
+/* ===== Variant: CENTERED ===== */
+.v-center .hero-ov{background:linear-gradient(180deg,rgba(10,37,64,.78) 0%,rgba(10,37,64,.62) 50%,rgba(10,37,64,.85) 100%)}
+.v-center .center-wrap{text-align:center;max-width:760px;margin:0 auto;padding:34px 0 56px}
+.v-center .eyebrow{background:rgba(255,255,255,.12);color:var(--gold)}
+.v-center .h1{color:#fff;font-size:clamp(2.4rem,5.4vw,4rem)}
+.v-center .h1 .ac{color:var(--gold)}
+.v-center .sub{color:rgba(255,255,255,.85);margin:0 auto 22px}
+.v-center .social{justify-content:center}
+.v-center .social-tx{color:#fff}
+.v-center .pills{justify-content:center;margin-bottom:26px}
+.v-center .pill{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff}
+.v-center .pill svg{color:var(--aqua)}
+.v-center .fcard{max-width:560px;margin:0 auto}
+.v-center .frow3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.v-center .hnav-phone{color:#fff}.v-center .hnav-phone svg{color:var(--aqua)}
+
+@media(max-width:900px){
+  .hgrid,.v-split .split-grid{grid-template-columns:1fr}
+  .v-split .split-photo{min-height:320px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ OPTION 1 — LIGHT (Aquanauts style) ============ -->
+<div class="label"><b>Option 1 — Bright &amp; Welcoming</b><span>Photo background with a soft white wash (Aquanauts style). Dark text, form on the right. Friendly + readable.</span></div>
+<div class="v-light">
+  <section class="hero" id="v1">
+    <div class="hero-media"><img src="https://static.wixstatic.com/media/53a3ab_c90f4cd005654a099ea2479e6dd0e451~mv2.jpg/v1/fill/w_1600,h_950,al_c,q_80,enc_auto/h.jpg" alt=""></div>
+    <div class="hero-ov"></div>
+    <nav class="hnav"><div class="hnav-in">
+      <img src="https://static.wixstatic.com/media/2774b4_caec6ecc8b4a47e89cf4299d34b782b8~mv2.png/v1/fit/w_560,h_144,al_c,q_90,enc_auto/logo.png" alt="Superhero Swim Academy">
+      <div class="hnav-right"><a class="hnav-phone" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>954-541-0980</a><a class="hnav-cta" href="#">Book Free Assessment</a></div>
+    </div></nav>
+    <div class="container"><div class="hgrid">
+      <div>
+        <div class="eyebrow">Plantation &amp; Broward County, FL · Ages 4 Months+</div>
+        <h1 class="h1">Give Your Child the Superpower of <span class="ac">Swimming Safely</span></h1>
+        <p class="sub">Certified coaches, heated pools in Plantation, or we come right to your home.</p>
+        <div class="social"><div class="avatars"><img src="https://static.wixstatic.com/media/2774b4_63a3d60dcff1459bba94a4777ce8cb02~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"><img src="https://static.wixstatic.com/media/2774b4_20607edea74042edb72c652aaca7ecb1~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"><img src="https://static.wixstatic.com/media/2774b4_a174a1f66ee74558bc1e8b8fa3830751~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"></div><div class="social-tx"><span class="st">★★★★★</span><br><strong>2,500+ kids</strong> taught to be water-safe</div></div>
+        <div class="pills"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>CPR &amp; First Aid Certified</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M2 12s3-5 10-5 10 5 10 5-3 5-10 5-10-5-10-5z"/><circle cx="12" cy="12" r="2"/></svg>Survival Swim Since 2018</span></div>
+      </div>
+      <div class="fcard"><div class="fbadge">Free Assessment · No Commitment</div><h3>Book Your Free Swim Assessment</h3><p class="fsub">Tell us about your little swimmer.</p>
+        <div class="frow"><div class="ff"><label>First name</label><input placeholder="Jamie"></div><div class="ff"><label>Last name</label><input placeholder="Smith"></div></div>
+        <div class="ff"><label>Email</label><input placeholder="you@example.com"></div>
+        <div class="ff"><label>Mobile phone</label><input placeholder="954-555-0123"></div>
+        <div class="ff"><label>How many kids?</label><input placeholder="e.g. 2"></div>
+        <button class="fsubmit">Get My Free Assessment →</button><p class="ffoot">Free 30-minute assessment. No commitment.</p>
+      </div>
+    </div></div>
+  </section>
+</div>
+
+<!-- ============ OPTION 2 — DARK CINEMATIC (AquaSquad style) ============ -->
+<div class="label"><b>Option 2 — Cinematic &amp; Bold</b><span>Photo (or looping video) with a dark navy wash (AquaSquad style). White text, form on the right. Premium + high-impact.</span></div>
+<div class="v-dark">
+  <section class="hero" id="v2">
+    <div class="hero-media"><img src="https://static.wixstatic.com/media/2774b4_2cf6dcb038dd4c67957d072f15aa082c~mv2.jpg/v1/fill/w_1600,h_950,al_c,q_80,enc_auto/h.jpg" alt=""></div>
+    <div class="hero-ov"></div>
+    <nav class="hnav"><div class="hnav-in">
+      <img src="https://static.wixstatic.com/media/2774b4_caec6ecc8b4a47e89cf4299d34b782b8~mv2.png/v1/fit/w_560,h_144,al_c,q_90,enc_auto/logo.png" alt="Superhero Swim Academy">
+      <div class="hnav-right"><a class="hnav-phone" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>954-541-0980</a><a class="hnav-cta" href="#">Book Free Assessment</a></div>
+    </div></nav>
+    <div class="container"><div class="hgrid">
+      <div>
+        <div class="eyebrow">Plantation &amp; Broward County, FL · Ages 4 Months+</div>
+        <h1 class="h1">Give Your Child the Superpower of <span class="ac">Swimming Safely</span></h1>
+        <p class="sub">Certified coaches, heated pools in Plantation, or we come right to your home.</p>
+        <div class="social"><div class="avatars"><img src="https://static.wixstatic.com/media/2774b4_63a3d60dcff1459bba94a4777ce8cb02~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"><img src="https://static.wixstatic.com/media/2774b4_20607edea74042edb72c652aaca7ecb1~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"><img src="https://static.wixstatic.com/media/2774b4_a174a1f66ee74558bc1e8b8fa3830751~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"></div><div class="social-tx"><span class="st">★★★★★</span><br><strong>2,500+ kids</strong> taught to be water-safe</div></div>
+        <div class="pills"><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg>CPR &amp; First Aid Certified</span><span class="pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M2 12s3-5 10-5 10 5 10 5-3 5-10 5-10-5-10-5z"/><circle cx="12" cy="12" r="2"/></svg>Survival Swim Since 2018</span></div>
+      </div>
+      <div class="fcard"><div class="fbadge">Free Assessment · No Commitment</div><h3>Book Your Free Swim Assessment</h3><p class="fsub">Tell us about your little swimmer.</p>
+        <div class="frow"><div class="ff"><label>First name</label><input placeholder="Jamie"></div><div class="ff"><label>Last name</label><input placeholder="Smith"></div></div>
+        <div class="ff"><label>Email</label><input placeholder="you@example.com"></div>
+        <div class="ff"><label>Mobile phone</label><input placeholder="954-555-0123"></div>
+        <div class="ff"><label>How many kids?</label><input placeholder="e.g. 2"></div>
+        <button class="fsubmit">Get My Free Assessment →</button><p class="ffoot">Free 30-minute assessment. No commitment.</p>
+      </div>
+    </div></div>
+  </section>
+</div>
+
+<!-- ============ OPTION 3 — SPLIT ============ -->
+<div class="label"><b>Option 3 — Split Screen</b><span>Solid navy panel with the text + form on the left, a full-height photo on the right. Clean and modern.</span></div>
+<div class="v-split">
+  <section class="hero" id="v3">
+    <nav class="hnav"><div class="hnav-in">
+      <img src="https://static.wixstatic.com/media/2774b4_caec6ecc8b4a47e89cf4299d34b782b8~mv2.png/v1/fit/w_560,h_144,al_c,q_90,enc_auto/logo.png" alt="Superhero Swim Academy">
+      <div class="hnav-right"><a class="hnav-phone" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>954-541-0980</a><a class="hnav-cta" href="#">Book Free Assessment</a></div>
+    </div></nav>
+    <div class="container"><div class="split-grid">
+      <div class="split-left">
+        <div class="eyebrow">Plantation &amp; Broward County, FL</div>
+        <h1 class="h1">Give Your Child the Superpower of <span class="ac">Swimming Safely</span></h1>
+        <p class="sub">Certified coaches, heated pools in Plantation, or we come right to your home.</p>
+        <div class="social"><div class="avatars"><img src="https://static.wixstatic.com/media/2774b4_63a3d60dcff1459bba94a4777ce8cb02~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"><img src="https://static.wixstatic.com/media/2774b4_20607edea74042edb72c652aaca7ecb1~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"><img src="https://static.wixstatic.com/media/2774b4_a174a1f66ee74558bc1e8b8fa3830751~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"></div><div class="social-tx"><span class="st">★★★★★</span><br><strong>2,500+ kids</strong> taught</div></div>
+      </div>
+      <div></div>
+    </div></div>
+    <!-- right photo panel positioned to bleed to the edge -->
+    <div class="split-photo" style="position:absolute;top:0;right:0;bottom:0;width:42vw;max-width:760px;z-index:1"><img src="https://static.wixstatic.com/media/2774b4_1a43f9f2fde746619374f52f745e4056~mv2.jpg/v1/fill/w_900,h_1200,al_c,q_82,enc_auto/s.jpg" alt=""></div>
+  </section>
+</div>
+
+<!-- ============ OPTION 4 — CENTERED ============ -->
+<div class="label"><b>Option 4 — Centered Spotlight</b><span>Big edge-to-edge photo (or video), headline centered, compact form card in the middle. Bold and simple.</span></div>
+<div class="v-center">
+  <section class="hero" id="v4">
+    <div class="hero-media"><img src="https://static.wixstatic.com/media/2774b4_12c176647a2e42beb97a510a8894bc70~mv2.jpg/v1/fill/w_1600,h_1000,al_c,q_80,enc_auto/h.jpg" alt=""></div>
+    <div class="hero-ov"></div>
+    <nav class="hnav"><div class="hnav-in">
+      <img src="https://static.wixstatic.com/media/2774b4_caec6ecc8b4a47e89cf4299d34b782b8~mv2.png/v1/fit/w_560,h_144,al_c,q_90,enc_auto/logo.png" alt="Superhero Swim Academy">
+      <div class="hnav-right"><a class="hnav-phone" href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>954-541-0980</a><a class="hnav-cta" href="#">Book Free Assessment</a></div>
+    </div></nav>
+    <div class="container"><div class="center-wrap">
+      <div class="eyebrow">Plantation &amp; Broward County, FL · Ages 4 Months+</div>
+      <h1 class="h1">Give Your Child the Superpower of <span class="ac">Swimming Safely</span></h1>
+      <p class="sub">Certified coaches, heated pools in Plantation, or we come right to your home.</p>
+      <div class="social"><div class="avatars"><img src="https://static.wixstatic.com/media/2774b4_63a3d60dcff1459bba94a4777ce8cb02~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"><img src="https://static.wixstatic.com/media/2774b4_20607edea74042edb72c652aaca7ecb1~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"><img src="https://static.wixstatic.com/media/2774b4_a174a1f66ee74558bc1e8b8fa3830751~mv2.jpg/v1/fill/w_120,h_120,al_c,q_85,enc_auto/a.jpg"></div><div class="social-tx"><span class="st">★★★★★</span> <strong>2,500+ kids</strong> taught to be water-safe</div></div>
+      <div class="fcard"><div class="fbadge">Free Assessment · No Commitment</div><h3>Book Your Free Swim Assessment</h3>
+        <div class="frow"><div class="ff"><label>First name</label><input placeholder="Jamie"></div><div class="ff"><label>Last name</label><input placeholder="Smith"></div></div>
+        <div class="frow"><div class="ff"><label>Email</label><input placeholder="you@example.com"></div><div class="ff"><label>Mobile phone</label><input placeholder="954-555-0123"></div></div>
+        <div class="ff"><label>How many kids are you looking to register?</label><input placeholder="e.g. 2"></div>
+        <button class="fsubmit">Get My Free Assessment →</button><p class="ffoot">Free 30-minute assessment. No commitment.</p>
+      </div>
+    </div></div>
+  </section>
+</div>
+
+</body>
+</html>

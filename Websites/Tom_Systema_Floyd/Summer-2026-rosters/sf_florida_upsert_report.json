@@ -1,0 +1,547 @@
+{
+  "summary": {
+    "location": "8IWtNFlmgJ8bif9DivHT",
+    "totalAttempted": 67,
+    "created": 13,
+    "updated": 54,
+    "errors": 0
+  },
+  "results": [
+    {
+      "email": "thereginasmith@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "TDXiNGpZnlivz8eUP022",
+      "error": null
+    },
+    {
+      "email": "marilyn@thefalzones.net",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "ZhYSG4YasI2nCCv4FsgB",
+      "error": null
+    },
+    {
+      "email": "lrathlev@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "LdUDvaY5tYcQwIWKSwit",
+      "error": null
+    },
+    {
+      "email": "tdenney138@me.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "87sTuJvulW2IV55oG3Fo",
+      "error": null
+    },
+    {
+      "email": "lmw340@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "O7TWozReQtSetBr41koT",
+      "error": null
+    },
+    {
+      "email": "jinglejudi@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "E9ZnxQnMqxY73rROdfmJ",
+      "error": null
+    },
+    {
+      "email": "kedem.shinar@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "BYlBnd9wFDbvWn3cepC8",
+      "error": null
+    },
+    {
+      "email": "lpratka@pm.me",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "wQZVrH6v51toOEJDIDf9",
+      "error": null
+    },
+    {
+      "email": "amandaolowin@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "C8anbppsQxOhLbnRxVjD",
+      "error": null
+    },
+    {
+      "email": "ryan.t76@icloud.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "UZ2BUZLWhXoTeyfN2Gfx",
+      "error": null
+    },
+    {
+      "email": "mperla0605@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "YZOM8KKsAUYJdkZY0BRO",
+      "error": null
+    },
+    {
+      "email": "laurenmusselman84@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "KDb3JMmWsTYrc8kL8Pv6",
+      "error": null
+    },
+    {
+      "email": "zaneywilson@aol.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "xXNEUl8cuVplohzBnU1y",
+      "error": null
+    },
+    {
+      "email": "till.amanda@yahoo.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "Nx46mv4C8V0TmxmY7EXE",
+      "error": null
+    },
+    {
+      "email": "taylor.materio@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "3T7lpeWFdFfLWf42Hzbu",
+      "error": null
+    },
+    {
+      "email": "agarver2@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "92ZaWiqBgbeIXgpNvz3v",
+      "error": null
+    },
+    {
+      "email": "mparloc0505@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "2MxwtVdrSp4cXPlF0v25",
+      "error": null
+    },
+    {
+      "email": "1nemayynyr@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "LwUMQ2huQekUdniv3syZ",
+      "error": null
+    },
+    {
+      "email": "fennelljason42@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "hJT8XnC7wgT1YT9DZU3X",
+      "error": null
+    },
+    {
+      "email": "daphne&jean_francois@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "MOx8sIu9TWaFyyWAB1a2",
+      "error": null
+    },
+    {
+      "email": "brittanypond@yahoo.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "mDgwN88ehpQsrX7JfUdB",
+      "error": null
+    },
+    {
+      "email": "jhendrix75@icloud.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "hVn68aDLYeI2IAQxsUW1",
+      "error": null
+    },
+    {
+      "email": "sandra.lakow@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "XMsr5Vj48ZiSKMRoMelm",
+      "error": null
+    },
+    {
+      "email": "savannahhuizenga@icloud.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "XgIVIVpNYfHvt9YQKuIN",
+      "error": null
+    },
+    {
+      "email": "virginia.elizabeth.grace@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "pIhNjudrHyYO3ajUpzFI",
+      "error": null
+    },
+    {
+      "email": "l.molinari5588@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "75fv6wiQX9fZG3mJSpEj",
+      "error": null
+    },
+    {
+      "email": "sherylmendez22@yahoo.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "5ql6fRDpQuKHxMp1zlTG",
+      "error": null
+    },
+    {
+      "email": "howewedding17@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "hUlA0u9ga6i45XOKwS8s",
+      "error": null
+    },
+    {
+      "email": "epompea@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "y3wiM90bCkNOOjr5hG1O",
+      "error": null
+    },
+    {
+      "email": "farrahkscott@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "HkK1EJcUGxfwwnkwzIyu",
+      "error": null
+    },
+    {
+      "email": "jgwenberry@yahoo.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "odFV72J445xc31vDesP2",
+      "error": null
+    },
+    {
+      "email": "phoebehorn87@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "ckW6fb8FU7GJBz4BwGe1",
+      "error": null
+    },
+    {
+      "email": "kellyhorta@aol.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "8VRpsuvkLzWnCDyOYu9P",
+      "error": null
+    },
+    {
+      "email": "edeady5180@att.net",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "AotBKt4DmOlMGg73ZHkD",
+      "error": null
+    },
+    {
+      "email": "jerlmccollum@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "2vewFPGywCpFwhtMagmG",
+      "error": null
+    },
+    {
+      "email": "shall@sourceonespares.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "QRWzaHQmUMBgkwhiL7NO",
+      "error": null
+    },
+    {
+      "email": "nikisned@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "G66qf8QjuRa6hCp6SqpT",
+      "error": null
+    },
+    {
+      "email": "kellyannvitko@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "sc0AeF8l0qW2NdHAcMy2",
+      "error": null
+    },
+    {
+      "email": "priscilla-ten@hotmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "yHzatL6R48WuDUUaiUtj",
+      "error": null
+    },
+    {
+      "email": "danelamartinat@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "lYd8OOmzuh7YOmKPXR1J",
+      "error": null
+    },
+    {
+      "email": "kellyklainewhite@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "RgYHFfliguAQnJdsmdJN",
+      "error": null
+    },
+    {
+      "email": "ggrant0508@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "z2aV3epM4KUMKcCWrKB5",
+      "error": null
+    },
+    {
+      "email": "mollyvallier@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "FGawkb4pBZe4kbiVDgn4",
+      "error": null
+    },
+    {
+      "email": "susan.trochez@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "UiCBIcvmP9hjXHJHUNLB",
+      "error": null
+    },
+    {
+      "email": "briafoca@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "aQJDSWEwtzIfPWYmUtKM",
+      "error": null
+    },
+    {
+      "email": "iamsam1018@yahoo.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "nMdt4KYF76xiBtrmVdQW",
+      "error": null
+    },
+    {
+      "email": "olivia.b.thomason@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "PlgK28XHakeArkHG9VuX",
+      "error": null
+    },
+    {
+      "email": "laurenjhooks@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "xrG83P6JXig1wzuvzKip",
+      "error": null
+    },
+    {
+      "email": "brilafoca@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "Bx6hdimRuUSmHq5gCpmb",
+      "error": null
+    },
+    {
+      "email": "ashleezahringer@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "OmeffuJQIlgXlVe4BRGV",
+      "error": null
+    },
+    {
+      "email": "mplummer@gunster.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "ILIrXu1zqJlD3eVvvPrZ",
+      "error": null
+    },
+    {
+      "email": "jessica.dockus@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "MbPiffkAxw6ovHX5lfkX",
+      "error": null
+    },
+    {
+      "email": "ashleyeady@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "5jku0qVWQ3yCcCvsmcIH",
+      "error": null
+    },
+    {
+      "email": "ballapiatt25@hotmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "BIWMaJd9Vtog8LQPWBXS",
+      "error": null
+    },
+    {
+      "email": "jvrobinson@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "pOfDoN1v4AzOfjpI63G2",
+      "error": null
+    },
+    {
+      "email": "kristh.h.rollins@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "qr70dFfY359bTx7sAeqL",
+      "error": null
+    },
+    {
+      "email": "chanemurphy@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "PA8NDsEWPNotbQI19pQo",
+      "error": null
+    },
+    {
+      "email": "ericapaigezimmer@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "I9AZwE6u3gyLSaPfznMl",
+      "error": null
+    },
+    {
+      "email": "bg03interiors@aol.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "fg4hEVkKeMRqEdj6Qxk1",
+      "error": null
+    },
+    {
+      "email": "email.mlafuente@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "wS5jh4WBDt27gzhKqNuK",
+      "error": null
+    },
+    {
+      "email": "kimyounes11@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "f9fpekeNp1hCyj05c57B",
+      "error": null
+    },
+    {
+      "email": "stacykassatly@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "Xpq6F5U0fYSakZuJBpuS",
+      "error": null
+    },
+    {
+      "email": "allisonm.mcpherson@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "Pw9QwfABw70Mx2CamHpJ",
+      "error": null
+    },
+    {
+      "email": "shelleycarterrn@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "p7m7GNfOeCONeStdy7lP",
+      "error": null
+    },
+    {
+      "email": "cdenisew@icloud.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "gtYwsYKdOQZa2N6rb8l5",
+      "error": null
+    },
+    {
+      "email": "kristenlee724@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "PgrerSvG97xRJSKF10py",
+      "error": null
+    },
+    {
+      "email": "loupisfamily@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": false,
+      "contactId": "WF5yugERqYjjDBD4wg1B",
+      "error": null
+    }
+  ]
+}

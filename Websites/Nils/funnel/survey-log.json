@@ -1,0 +1,226 @@
+[
+  {
+    "date": "2026-03-24T16:28:33.388Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "3000",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-24T16:54:03.139Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "2000",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-24T16:57:49.664Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Maybe, I'd need to check my finances",
+    "ltv": "55",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-24T17:01:17.914Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "555",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-24T17:04:53.496Z",
+    "capacity": "I could make room for the right ones",
+    "budget": "Yes, that works for me",
+    "ltv": "55",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-24T17:18:28.895Z",
+    "capacity": "I could make room for the right ones",
+    "budget": "Yes, that works for me",
+    "ltv": "55",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-27T04:31:44.424Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Maybe, I'd need to check my finances",
+    "ltv": "2222",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-29T18:24:31.419Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "4000",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-29T23:13:05.508Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "1200",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-30T06:09:47.728Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "2000",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-30T10:16:38.331Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "100",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-31T17:01:36.253Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Maybe, I'd need to check my finances",
+    "ltv": "3000",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-31T21:08:17.945Z",
+    "capacity": "Not right now, I'm already at full capacity",
+    "budget": "No, that's too much for me right now",
+    "ltv": "600",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-31T21:10:24.138Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "5000",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-31T21:11:55.600Z",
+    "capacity": "Not right now, I'm already at full capacity",
+    "budget": "Yes, that works for me",
+    "ltv": "2000",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-31T21:13:47.071Z",
+    "capacity": "I could make room for the right ones",
+    "budget": "Maybe, I'd need to check my finances",
+    "ltv": "7",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-31T21:14:18.010Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "2",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-31T21:18:11.500Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "5",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-31T21:18:23.054Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "22",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-31T21:19:51.198Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "5",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-03-31T21:20:10.741Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "2",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-04-02T07:43:29.986Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "No, that's too much for me right now",
+    "ltv": "100",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-04-06T06:52:15.056Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "1000",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-04-06T19:39:04.310Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "2000",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-04-06T19:52:22.337Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "600",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-04-06T19:52:37.115Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "2000",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-04-06T19:55:23.617Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "200",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-04-06T19:57:19.970Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "7",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-04-12T16:08:51.016Z",
+    "capacity": "Not right now, I'm already at full capacity",
+    "budget": "No, that's too much for me right now",
+    "ltv": "25",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-04-16T18:52:34.750Z",
+    "capacity": "I could make room for the right ones",
+    "budget": "Maybe, I'd need to check my finances",
+    "ltv": "44",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-04-19T05:57:41.512Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "3000",
+    "decision": "Yes, I make the decisions"
+  },
+  {
+    "date": "2026-04-19T05:56:33.057Z",
+    "capacity": "Yes, I'm ready for more clients",
+    "budget": "Yes, that works for me",
+    "ltv": "50000",
+    "decision": "Yes, I make the decisions"
+  }
+]

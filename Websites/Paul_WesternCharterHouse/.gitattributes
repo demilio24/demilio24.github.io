@@ -1,0 +1,5 @@
+# Brand assets are binary — never apply line-ending conversion (would corrupt the PDF/PNGs)
+*.pdf binary
+*.png binary
+*.jpg binary
+*.svg -text

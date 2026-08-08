@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Terms &amp; Conditions | Nils Digital</title>
+  <meta name="description" content="Nils Digital Terms &amp; Conditions: ownership of work, membership access, and setup fees.">
+  <meta name="robots" content="index, follow">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --ink:#0a0a0a;
+      --ink-soft:rgba(0,0,0,.62);
+      --ink-mute:rgba(0,0,0,.42);
+      --ink-line:rgba(0,0,0,.1);
+      --ink-line-soft:rgba(0,0,0,.06);
+      --blue:#046bd2;
+      --blue-dark:#0358b0;
+      --blue-rgb:4,107,210;
+      --font-serif:'Instrument Serif',Georgia,serif;
+      --font-display:'Instrument Sans',system-ui,sans-serif;
+      --font-body:'DM Sans','Google Sans',system-ui,sans-serif;
+      --radius-md:8px;
+      --radius-lg:12px;
+      --radius-pill:100px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    html{-webkit-text-size-adjust:100%;}
+    body{
+      background:var(--bg);
+      color:var(--ink);
+      font-family:var(--font-body);
+      font-size:16px;
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+    }
+    .wrap{
+      max-width:760px;
+      margin:0 auto;
+      padding:64px 24px 96px;
+    }
+
+    /* Top accent + header */
+    .topbar{
+      height:4px;
+      background:linear-gradient(90deg,var(--blue),var(--blue-dark));
+    }
+    .brand{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-family:var(--font-display);
+      font-weight:600;
+      letter-spacing:-.01em;
+      color:var(--ink);
+      margin-bottom:32px;
+    }
+    .brand .dot{
+      width:30px;height:30px;border-radius:8px;
+      background:linear-gradient(135deg,var(--blue),var(--blue-dark));
+      color:#fff;font-weight:700;
+      display:grid;place-items:center;
+      font-family:var(--font-display);
+    }
+    h1{
+      font-family:var(--font-serif);
+      font-weight:400;
+      font-size:clamp(34px,6vw,56px);
+      line-height:1.05;
+      letter-spacing:-.01em;
+      margin-bottom:14px;
+    }
+    .updated{
+      color:var(--ink-mute);
+      font-size:14px;
+      margin-bottom:40px;
+    }
+
+    /* Plain-English summary box */
+    .summary{
+      background:rgba(var(--blue-rgb),.05);
+      border:1px solid rgba(var(--blue-rgb),.18);
+      border-radius:var(--radius-lg);
+      padding:24px 26px;
+      margin-bottom:48px;
+    }
+    .summary h2{
+      font-family:var(--font-display);
+      font-size:13px;
+      font-weight:700;
+      letter-spacing:.08em;
+      text-transform:uppercase;
+      color:var(--blue-dark);
+      margin-bottom:12px;
+    }
+    .summary p{
+      margin:0;
+      color:var(--ink-soft);
+      font-size:15px;
+      line-height:1.65;
+    }
+    .summary strong{color:var(--ink);font-weight:600;}
+
+    h2.sec{
+      font-family:var(--font-display);
+      font-weight:600;
+      font-size:clamp(20px,3vw,26px);
+      letter-spacing:-.01em;
+      margin:44px 0 14px;
+      display:flex;align-items:baseline;gap:12px;
+    }
+    h2.sec .n{
+      color:var(--blue);
+      font-size:15px;
+      font-weight:700;
+      font-family:var(--font-display);
+      letter-spacing:0;
+    }
+    h3.sub{
+      font-family:var(--font-display);
+      font-weight:600;
+      font-size:17px;
+      margin:24px 0 8px;
+    }
+    p{color:var(--ink-soft);margin-bottom:14px;}
+    p strong, li strong{color:var(--ink);font-weight:600;}
+    /* Emphasised lead line at the top of a clause */
+    .lead-strong{
+      font-size:18px;
+      line-height:1.55;
+      color:var(--ink);
+    }
+    .lead-strong strong{font-weight:700;}
+    /* Re-affirmation callout */
+    .reaffirm{
+      margin-top:22px;
+      padding:16px 20px;
+      background:rgba(var(--blue-rgb),.06);
+      border-left:3px solid var(--blue);
+      border-radius:0 var(--radius-md) var(--radius-md) 0;
+      color:var(--ink);
+      font-size:16px;
+    }
+    .reaffirm strong{font-weight:700;}
+    ul.body{margin:0 0 16px;padding-left:22px;color:var(--ink-soft);}
+    ul.body li{margin-bottom:8px;}
+
+    /* Platform usage pricing */
+    .usage details{
+      margin:4px 0;
+      border:1px solid var(--ink-line);
+      border-radius:var(--radius-md);
+      overflow:hidden;
+    }
+    .usage summary{
+      cursor:pointer;
+      padding:13px 18px;
+      font-family:var(--font-display);
+      font-weight:600;
+      font-size:15px;
+      color:var(--blue-dark);
+      background:rgba(var(--blue-rgb),.05);
+      list-style:none;
+      user-select:none;
+    }
+    .usage summary::-webkit-details-marker{display:none;}
+    .usage summary::after{content:"+";float:right;color:var(--blue);font-weight:700;}
+    .usage details[open] summary::after{content:"\2212";}
+    .usage .table-wrap{overflow-x:auto;}
+    .usage table{width:100%;border-collapse:collapse;font-size:14px;min-width:440px;}
+    .usage th,.usage td{text-align:left;padding:12px 16px;border-top:1px solid var(--ink-line);}
+    .usage th{
+      font-family:var(--font-display);font-weight:600;color:var(--ink);
+      background:rgba(var(--blue-rgb),.03);
+      font-size:12px;letter-spacing:.04em;text-transform:uppercase;
+    }
+    .usage td{color:var(--ink-soft);}
+    .usage td:first-child{color:var(--ink);font-weight:500;}
+
+    /* Final confirmation line */
+    .confirm{
+      margin-top:40px;
+      padding:18px 22px;
+      background:rgba(var(--blue-rgb),.06);
+      border:1px solid rgba(var(--blue-rgb),.18);
+      border-radius:var(--radius-lg);
+      color:var(--ink);
+      font-weight:600;
+      text-align:center;
+    }
+    /* Small print (changes-to-terms) */
+    .note{
+      margin-top:24px;
+      font-size:13px;
+      color:var(--ink-mute);
+      line-height:1.6;
+    }
+
+    hr{
+      border:0;
+      border-top:1px solid var(--ink-line);
+      margin:48px 0;
+    }
+    .contact a{color:var(--blue);font-weight:600;text-decoration:none;}
+    .contact a:hover{text-decoration:underline;}
+    .foot{
+      margin-top:56px;
+      padding-top:24px;
+      border-top:1px solid var(--ink-line);
+      color:var(--ink-mute);
+      font-size:13px;
+    }
+    @media (max-width:560px){
+      .wrap{padding:44px 20px 72px;}
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar"></div>
+  <main class="wrap">
+
+    <h1>Terms &amp; Conditions</h1>
+    <p class="updated">Last updated: February 2, 2026</p>
+
+    <!-- Plain-English summary -->
+    <section class="summary">
+      <h2>The short version</h2>
+      <p><strong>You only own whatever you paid a setup or development fee for. Everything else we build, we own.</strong> You have full access to it for as long as your membership is active, so think of it as renting, not buying: if you pause or cancel, access to that membership work ends. Anything you do own, you are free to take, modify, or host elsewhere, but that is on you, as we do not offer a service to move or re-host it. We never claim your own brand, content, or accounts.</p>
+    </section>
+
+    <p>These Terms &amp; Conditions ("Terms") govern the work, deliverables, and services provided by Nils Digital ("Nils Digital", "we", "us", or "our") to you, the client ("you" or "your"). By engaging Nils Digital, signing up for a membership, or paying any invoice, you agree to these Terms.</p>
+
+    <h2 class="sec"><span class="n">1.</span> Ownership of Work</h2>
+    <p class="lead-strong"><strong>You own only what you paid a setup or development fee for. Everything else we build, we own</strong>, unless we agree otherwise in writing.</p>
+    <p>This covers websites, funnels, code, automations, workflows, integrations, ad creative, and every other deliverable we produce. Work built under your membership that you were not separately charged to create is <strong>licensed to you only while your membership is active</strong>: you are renting access, not buying it. If you pause or cancel, that access ends and we may take the membership work offline.</p>
+    <p>When a deliverable carries a setup or development fee, we tell you before you buy, and <strong>you own that deliverable and keep it even if you cancel</strong>. A website is the common case: you own the website itself, but extras built around it like forms, workflows, and automations still need an active membership to keep running. You are welcome to take code you own and modify or re-host it elsewhere, but that is on you, as we do not offer a service to move or re-host your project.</p>
+    <p>We never claim your own brand, logos, content, customer data, domains, or accounts. Those remain yours at all times.</p>
+
+    <h2 class="sec"><span class="n">2.</span> Communication &amp; Disputes</h2>
+    <p>Both parties agree to maintain respectful, professional communication at all times. Any questions, concerns, or disputes are handled directly over a call with our team, not through public reviews, social media, or third parties.</p>
+
+    <h2 class="sec"><span class="n">3.</span> No Long-Term Contracts</h2>
+    <p>This is a month-to-month service. Cancel anytime by contacting us. No penalties, no hassle.</p>
+
+    <h2 class="sec"><span class="n">4.</span> All Sales Final</h2>
+    <p><strong>All payments are final. No refunds. No chargebacks.</strong> By submitting payment, you agree not to dispute charges through your bank or payment processor. If there is a billing issue, contact us and we will sort it out.</p>
+
+    <h2 class="sec"><span class="n">5.</span> Platform Usage Costs</h2>
+    <p>You are responsible for the platform usage on your account: emails, SMS, phone calls, AI features, and extra usage like webhooks or premium actions. These are billed at <strong>exact provider cost with zero markup</strong>, the same pricing our provider offers us.</p>
+    <p><strong>Every account starts with a $0 balance.</strong> Each time you send an email or SMS, or use extra usage, it costs a fraction of a cent and draws down that balance. Once the balance goes negative, we recharge the account using your payment method on file to keep your services running. For example, once you start using the services we recharge $10, and that amount stays on the account as credit until it is used.</p>
+    <p>Please note:</p>
+    <ul class="body">
+      <li><strong>These payments go directly to our providers</strong>, even though our name appears on the transaction. We do not keep any part of them.</li>
+      <li><strong>All recharges are non-refundable.</strong></li>
+    </ul>
+    <div class="usage">
+      <details>
+        <summary>View detailed usage pricing</summary>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Service</th><th>Estimated rate</th><th>Example usage</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Email sending</td><td>$0.000675 / email</td><td>10k emails &asymp; $6.75</td></tr>
+              <tr><td>SMS (US/CA)</td><td>$0.0079 / segment</td><td>1k texts &asymp; $7.90</td></tr>
+              <tr><td>Conversation AI</td><td>$0.02 / message</td><td>100 replies = $2.00</td></tr>
+              <tr><td>Content AI</td><td>$0.09 / 1k words</td><td>5k words = $0.45</td></tr>
+              <tr><td>Phone calls</td><td>~$0.014 / minute</td><td>100 mins &asymp; $1.40</td></tr>
+              <tr><td>Reviews AI</td><td>$0.08 / response</td><td>10 replies = $0.80</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+    </div>
+
+    <p class="confirm">By proceeding with payment, you confirm that you have read and agree to all of the terms above.</p>
+
+    <p class="note">We may update these Terms from time to time. The version posted here, with its "Last updated" date, is the current and governing version. Continuing to use our services after an update means you accept the updated Terms.</p>
+
+    <div class="foot contact">
+      Questions about these Terms? Contact us at <a href="mailto:emilio@nilsdigital.com" target="_top">emilio@nilsdigital.com</a>.<br>
+      &copy; 2026 Nils Digital. All rights reserved.
+    </div>
+
+  </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nils Digital — Ads Performance</title>
+  <link rel="preconnect" href="https://esm.sh" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./">Nils Digital · Ads</a>
+    <nav id="crumbs" class="crumbs"></nav>
+    <span id="updated" class="updated"></span>
+  </header>
+  <main id="app" class="app"><div class="loading">Loading…</div></main>
+  <footer class="foot">Data refreshes hourly. Conversions may settle over 1–3 days.</footer>
+
+  <!-- KPI history drawer (slides in from the right) -->
+  <div id="overlay" class="overlay" hidden></div>
+  <aside id="drawer" class="drawer" hidden aria-label="Metric history"></aside>
+
+  <script type="module" src="lib/app.js"></script>
+</body>
+</html>

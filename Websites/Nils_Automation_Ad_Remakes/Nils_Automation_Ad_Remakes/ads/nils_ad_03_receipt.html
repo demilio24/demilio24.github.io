@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{--green:#0fbf7a;--neon:#00ff88;--neon-soft:#6dffa6;--bg:#03110a;--bg2:#06180e;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{
+    width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(80% 60% at 50% 0%, rgba(15,191,122,.14), transparent 60%),
+      var(--bg);
+    font-family:'Inter',sans-serif;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;padding:70px;
+  }
+  .art::before{content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(0,255,136,.04) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,255,136,.04) 1px,transparent 1px);
+    background-size:48px 48px}
+  .brand{position:relative;font-family:'Inter';font-weight:700;letter-spacing:.42em;
+    font-size:22px;color:var(--neon-soft);text-transform:uppercase;text-indent:.42em;margin-bottom:34px}
+  .receipt{
+    position:relative;width:620px;background:#f7f4ec;color:#15140f;
+    padding:54px 56px 44px;font-family:'IBM Plex Mono',monospace;
+    box-shadow:0 40px 90px rgba(0,0,0,.55);
+    /* torn/zigzag bottom edge */
+    -webkit-mask:
+      linear-gradient(#000 0 0) top/100% calc(100% - 18px) no-repeat,
+      radial-gradient(12px 18px at 12px 100%,transparent 0 12px,#000 13px) bottom left/24px 18px repeat-x;
+            mask:
+      linear-gradient(#000 0 0) top/100% calc(100% - 18px) no-repeat,
+      radial-gradient(12px 18px at 12px 100%,transparent 0 12px,#000 13px) bottom left/24px 18px repeat-x;
+  }
+  .r-title{text-align:center;font-weight:700;font-size:31px;line-height:1.25;letter-spacing:.01em;
+    padding-bottom:22px;border-bottom:2px dashed #15140f;margin-bottom:26px}
+  .row{display:flex;justify-content:space-between;align-items:flex-end;font-size:23px;line-height:1.3;margin:18px 0}
+  .row .desc{max-width:330px}
+  .row .dots{flex:1;border-bottom:2px dotted #15140f;margin:0 10px 7px}
+  .row .amt{font-weight:700;white-space:nowrap}
+  .total{display:flex;justify-content:space-between;align-items:center;
+    border-top:3px solid #15140f;margin-top:26px;padding-top:22px;font-weight:700;font-size:30px}
+  .total .amt{color:#0a7d4f}
+  .foot{text-align:center;margin-top:30px;font-size:21px;line-height:1.5}
+  .foot .u{font-weight:700}
+  .foot .link{display:inline-block;margin-top:6px;background:#0a7d4f;color:#fff;
+    padding:6px 16px;border-radius:6px;font-weight:700;letter-spacing:.02em}
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="receipt">
+      <div class="r-title">YOUR BUSINESS:<br>MONTHLY WASTE REPORT</div>
+      <div class="row"><span class="desc">Manual data entry across 6 tools</span><span class="dots"></span><span class="amt">$2,400</span></div>
+      <div class="row"><span class="desc">Staff overtime from inefficient scheduling</span><span class="dots"></span><span class="amt">$3,100</span></div>
+      <div class="row"><span class="desc">Lost quotes from slow follow-up</span><span class="dots"></span><span class="amt">$4,500</span></div>
+      <div class="row"><span class="desc">Duplicated work across departments</span><span class="dots"></span><span class="amt">$1,800</span></div>
+      <div class="row"><span class="desc">Software subscriptions used at 10%</span><span class="dots"></span><span class="amt">$1,200</span></div>
+      <div class="total"><span>TOTAL MONTHLY WASTE</span><span class="amt">$13,000</span></div>
+      <div class="foot"><span class="u">Want to know YOUR number?</span><br><span class="link">nilsdigital.com/automation</span></div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Mandy — New Variations</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e0e0e0; }
+  h1 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 6px; text-align: center; padding-top: 32px; }
+  .sub { font-size: 13px; color: #555; text-align: center; margin-bottom: 32px; padding: 0 24px; }
+  .variation { margin: 0 24px 40px; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #1e1e1e; cursor: pointer; transition: border-color .4s, box-shadow .4s; }
+  .variation:hover { border-color: rgba(184,154,106,.35); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 48px rgba(184,154,106,.12); }
+  .vl { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #1a1a1a; }
+  .vn { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  .vt { font-size: 14px; font-weight: 500; color: #fff; }
+  .vd { font-size: 12px; color: #555; padding: 12px 24px; line-height: 1.7; border-top: 1px solid #1a1a1a; }
+  .selected .vn { background: #fff; color: #B89A6A; }
+  img { max-width: 100%; display: block; }
+</style>
+</head>
+<body>
+
+<h1>About Mandy — Fresh Variations</h1>
+<p class="sub">Using her real copy. Quote, portrait, signature, 3 value points. Which layout feels right?</p>
+
+<!-- 1: Portrait left with quote overlay → points right in clean list -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">1</div><div class="vt">Portrait with Quote Overlay + Points Right</div></div>
+  <div style="background:#FAF6F0;padding:80px 40px;">
+    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:start;">
+      <!-- Left: portrait with quote overlapping bottom -->
+      <div style="position:relative;">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/21ed982d-5c2a-4805-9faa-dcf01adb2934.jpeg" alt="Mandy VELUS" style="width:100%;border-radius:14px;aspect-ratio:3/4;object-fit:cover;">
+        <!-- Quote card overlapping bottom of portrait -->
+        <div style="position:absolute;bottom:-24px;left:20px;right:20px;background:rgba(42,30,26,.85);backdrop-filter:blur(12px);border-radius:12px;padding:20px 24px;border:1px solid rgba(243,235,221,.08);">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:rgba(243,235,221,.8);line-height:1.5;margin-bottom:8px;">"Design should whisper luxury — never shout it."</p>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png" alt="Signature" style="height:20px;opacity:.4;filter:brightness(10);">
+        </div>
+      </div>
+      <!-- Right: heading + bio + points -->
+      <div style="padding-top:8px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:14px;">Meet Mandy</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;margin-bottom:18px;">Designing With <em style="font-style:italic;color:#B89A6A;">Soul</em></div>
+        <p style="font-size:14px;color:#7A6B62;line-height:1.8;margin-bottom:32px;">With a background in fashion and an eye for architectural detail, Mandy VELUS founded VELUS Interiors to bring a fresh, soulful perspective to luxury home design. Every project begins with listening — understanding how you live, what you value, and the feeling you want your home to evoke.</p>
+        <!-- Points as clean list with gold left border -->
+        <div style="display:flex;flex-direction:column;gap:16px;">
+          <div style="padding:18px 22px;border-left:3px solid rgba(184,154,106,.3);background:rgba(255,255,255,.4);border-radius:0 10px 10px 0;">
+            <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:4px;">Holistic Vision</div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.6;">We design the entire experience — from spatial flow to the texture of every surface.</div>
+          </div>
+          <div style="padding:18px 22px;border-left:3px solid rgba(184,154,106,.3);background:rgba(255,255,255,.4);border-radius:0 10px 10px 0;">
+            <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:4px;">Hands-On Management</div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.6;">Mandy leads every project personally, coordinating contractors, vendors, and timelines.</div>
+          </div>
+          <div style="padding:18px 22px;border-left:3px solid rgba(184,154,106,.3);background:rgba(255,255,255,.4);border-radius:0 10px 10px 0;">
+            <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:4px;">Lasting Relationships</div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.6;">Most clients return for their next room, next home, or next chapter. That trust is everything.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Portrait on the left with a dark glass quote card overlapping the bottom edge. Heading + bio + 3 gold-bordered points on the right. The quote card creates depth — like a personal note from Mandy pinned to her photo. Warm and personal.</div>
+</div>
+
+<!-- 2: Centered text → wide portfolio image → portrait + points side by side -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">2</div><div class="vt">Centered Intro → Image → Portrait + Points</div></div>
+  <div style="background:#FAF6F0;padding:80px 40px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <!-- Centered intro -->
+      <div style="text-align:center;max-width:640px;margin:0 auto 40px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:14px;">Meet Mandy</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;color:#3A241E;line-height:1.15;margin-bottom:14px;">Designing With <em style="font-style:italic;color:#B89A6A;">Soul</em></div>
+        <p style="font-size:14px;color:#7A6B62;line-height:1.8;">Every project begins with listening — understanding how you live, what you value, and the feeling you want your home to evoke.</p>
+      </div>
+      <!-- Wide portfolio image with quote overlay -->
+      <div style="position:relative;border-radius:16px;overflow:hidden;margin-bottom:48px;">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg" alt="Interior" style="width:100%;height:320px;object-fit:cover;object-position:center;">
+        <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(42,30,26,.7) 0%,rgba(42,30,26,.3) 50%,transparent 100%);display:flex;align-items:center;padding:0 48px;">
+          <div style="max-width:400px;">
+            <p style="font-family:'Cormorant Garamond',serif;font-size:24px;font-style:italic;color:rgba(243,235,221,.85);line-height:1.4;margin-bottom:12px;">"Design should whisper luxury — never shout it."</p>
+            <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png" alt="Signature" style="height:22px;opacity:.4;filter:brightness(10);">
+          </div>
+        </div>
+      </div>
+      <!-- Portrait + 3 points side by side -->
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:start;">
+        <div style="text-align:center;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/21ed982d-5c2a-4805-9faa-dcf01adb2934.jpeg" alt="Mandy" style="width:200px;height:200px;border-radius:50%;object-fit:cover;border:3px solid rgba(184,154,106,.15);margin-bottom:12px;">
+          <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;">Mandy VELUS</div>
+          <div style="font-size:11px;color:#7A6B62;letter-spacing:.08em;text-transform:uppercase;">Principal Designer</div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;">
+          <div style="padding:24px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);">
+            <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:8px;">Holistic Vision</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.7;">We design the entire experience — from spatial flow to the texture of every surface.</div>
+          </div>
+          <div style="padding:24px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);">
+            <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:8px;">Hands-On Management</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.7;">Mandy leads every project personally, coordinating contractors, vendors, and timelines.</div>
+          </div>
+          <div style="padding:24px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);">
+            <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:8px;">Lasting Relationships</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.7;">Most clients return for their next room, next home, or next chapter. That trust is everything.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Three layers: centered intro text → wide cinematic image with quote overlay → circular portrait + 3 points in a horizontal row. Each layer reveals more about Mandy. The image acts as a visual break between the intro and the details. Most editorial.</div>
+</div>
+
+<!-- 3: Split — dark left with portrait + quote, ivory right with points -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">3</div><div class="vt">Dark/Ivory Split — Dramatic Contrast</div></div>
+  <div style="background:#FAF6F0;padding:0 40px 80px;">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;border-radius:20px;overflow:hidden;box-shadow:0 16px 48px rgba(42,30,26,.08);">
+      <!-- Dark left: portrait + quote -->
+      <div style="background:#2A1E1A;padding:48px 40px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/21ed982d-5c2a-4805-9faa-dcf01adb2934.jpeg" alt="Mandy" style="width:180px;height:180px;border-radius:50%;object-fit:cover;border:3px solid rgba(184,154,106,.2);margin-bottom:20px;">
+        <div style="font-family:'Cormorant Garamond';font-size:22px;color:#F3EBDD;margin-bottom:4px;">Mandy VELUS</div>
+        <div style="font-size:11px;color:rgba(243,235,221,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:24px;">Principal Designer</div>
+        <div style="width:40px;height:1px;background:rgba(184,154,106,.3);margin-bottom:24px;"></div>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:20px;font-style:italic;color:rgba(243,235,221,.7);line-height:1.5;max-width:320px;margin-bottom:16px;">"Design should whisper luxury — never shout it."</p>
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png" alt="Signature" style="height:24px;opacity:.3;filter:brightness(10);">
+      </div>
+      <!-- Ivory right: heading + bio + points -->
+      <div style="background:#FAF6F0;padding:48px 40px;display:flex;flex-direction:column;justify-content:center;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:14px;">About VELUS</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#3A241E;line-height:1.15;margin-bottom:16px;">Designing With <em style="font-style:italic;color:#B89A6A;">Soul</em></div>
+        <p style="font-size:14px;color:#7A6B62;line-height:1.8;margin-bottom:28px;">With a background in fashion and an eye for architectural detail, Mandy founded VELUS Interiors to bring a fresh, soulful perspective to luxury home design.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:16px 20px;border-left:3px solid rgba(184,154,106,.3);background:rgba(255,255,255,.4);border-radius:0 10px 10px 0;">
+            <div style="font-family:'Cormorant Garamond';font-size:19px;color:#3A241E;margin-bottom:3px;">Holistic Vision</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.6;">We design the entire experience — from spatial flow to the texture of every surface.</div>
+          </div>
+          <div style="padding:16px 20px;border-left:3px solid rgba(184,154,106,.3);background:rgba(255,255,255,.4);border-radius:0 10px 10px 0;">
+            <div style="font-family:'Cormorant Garamond';font-size:19px;color:#3A241E;margin-bottom:3px;">Hands-On Management</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Mandy leads every project personally, coordinating contractors, vendors, and timelines.</div>
+          </div>
+          <div style="padding:16px 20px;border-left:3px solid rgba(184,154,106,.3);background:rgba(255,255,255,.4);border-radius:0 10px 10px 0;">
+            <div style="font-family:'Cormorant Garamond';font-size:19px;color:#3A241E;margin-bottom:3px;">Lasting Relationships</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Most clients return for their next room, next home, or next chapter. That trust is everything.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">One card, split in two: dark left half has Mandy's circular portrait + name + quote + signature. Ivory right half has heading + bio + 3 points. The dark/ivory split creates dramatic contrast — like two worlds meeting. The card floats on ivory. Bold and architectural.</div>
+</div>
+
+<!-- 4: Full-width portrait background with glass content overlay -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">4</div><div class="vt">Full-Width Image + Glass Content — Immersive</div></div>
+  <div style="position:relative;min-height:580px;overflow:hidden;">
+    <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/b7ddbac2-55db-42ef-bf8e-49db2681e21e.jpg" alt="" style="width:100%;height:580px;object-fit:cover;object-position:center 40%;">
+    <div style="position:absolute;inset:0;background:rgba(42,30,26,.68);"></div>
+    <div style="position:absolute;inset:0;display:flex;align-items:center;padding:0 40px;">
+      <div style="max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center;">
+        <!-- Portrait + info -->
+        <div style="text-align:center;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/21ed982d-5c2a-4805-9faa-dcf01adb2934.jpeg" alt="Mandy" style="width:200px;height:260px;border-radius:14px;object-fit:cover;border:3px solid rgba(243,235,221,.15);margin-bottom:16px;box-shadow:0 16px 48px rgba(0,0,0,.3);">
+          <div style="font-family:'Cormorant Garamond';font-size:20px;color:#F3EBDD;">Mandy VELUS</div>
+          <div style="font-size:10px;color:rgba(243,235,221,.4);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;">Principal Designer</div>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png" alt="Signature" style="height:22px;opacity:.3;filter:brightness(10);margin:0 auto;">
+        </div>
+        <!-- Content -->
+        <div>
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:14px;">Meet Mandy</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#F3EBDD;line-height:1.15;margin-bottom:8px;">Designing With <em style="font-style:italic;color:#B89A6A;">Soul</em></div>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:19px;font-style:italic;color:rgba(243,235,221,.6);line-height:1.5;margin-bottom:20px;">"Design should whisper luxury — never shout it."</p>
+          <p style="font-size:14px;color:rgba(243,235,221,.5);line-height:1.8;margin-bottom:28px;">With a background in fashion and an eye for architectural detail, Mandy founded VELUS Interiors to bring a fresh, soulful perspective to luxury home design.</p>
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <div style="padding:14px 18px;border-radius:10px;background:rgba(243,235,221,.06);border:1px solid rgba(243,235,221,.08);border-left:3px solid rgba(184,154,106,.4);">
+              <div style="font-family:'Cormorant Garamond';font-size:18px;color:#F3EBDD;margin-bottom:2px;">Holistic Vision</div>
+              <div style="font-size:12px;color:rgba(243,235,221,.4);line-height:1.5;">From spatial flow to the texture of every surface.</div>
+            </div>
+            <div style="padding:14px 18px;border-radius:10px;background:rgba(243,235,221,.06);border:1px solid rgba(243,235,221,.08);border-left:3px solid rgba(184,154,106,.4);">
+              <div style="font-family:'Cormorant Garamond';font-size:18px;color:#F3EBDD;margin-bottom:2px;">Hands-On Management</div>
+              <div style="font-size:12px;color:rgba(243,235,221,.4);line-height:1.5;">Mandy leads every project personally.</div>
+            </div>
+            <div style="padding:14px 18px;border-radius:10px;background:rgba(243,235,221,.06);border:1px solid rgba(243,235,221,.08);border-left:3px solid rgba(184,154,106,.4);">
+              <div style="font-family:'Cormorant Garamond';font-size:18px;color:#F3EBDD;margin-bottom:2px;">Lasting Relationships</div>
+              <div style="font-size:12px;color:rgba(243,235,221,.4);line-height:1.5;">Most clients return. That trust is everything.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Full-width cinematic image as background (like a second hero). Everything overlaid — Mandy's rectangular portrait on the left, heading + quote + bio + dark glass points on the right. Most immersive and dramatic. Like an Apple "Meet the team" moment. The image does all the atmosphere work.</div>
+</div>
+
+<!-- 5: Portrait overlapping cinematic strip (original approved but refined) -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">5</div><div class="vt">Quote Strip → Overlapping Portrait (Refined Original)</div></div>
+  <div style="background:#FAF6F0;">
+    <!-- Cinematic quote strip -->
+    <div style="position:relative;overflow:hidden;">
+      <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/b7ddbac2-55db-42ef-bf8e-49db2681e21e.jpg" alt="" style="width:100%;height:280px;object-fit:cover;object-position:center 40%;">
+      <div style="position:absolute;inset:0;background:rgba(42,30,26,.65);display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;max-width:540px;padding:0 24px;">
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:14px;">Meet Mandy</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#F3EBDD;line-height:1.3;font-style:italic;">"Design should whisper luxury — never shout it."</div>
+        </div>
+      </div>
+    </div>
+    <!-- Portrait overlapping + points -->
+    <div style="max-width:1000px;margin:0 auto;padding:0 48px 64px;display:grid;grid-template-columns:0.7fr 1.3fr;gap:40px;align-items:start;">
+      <div style="margin-top:-60px;position:relative;z-index:2;">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/21ed982d-5c2a-4805-9faa-dcf01adb2934.jpeg" alt="Mandy" style="width:100%;border-radius:14px;aspect-ratio:3/4;object-fit:cover;border:4px solid #FAF6F0;box-shadow:0 16px 48px rgba(42,30,26,.15);">
+        <div style="text-align:center;margin-top:16px;">
+          <div style="font-family:'Cormorant Garamond';font-size:22px;color:#3A241E;">Mandy VELUS</div>
+          <div style="font-size:10px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px;">Principal Designer</div>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png" alt="Signature" style="height:24px;opacity:.25;margin:0 auto;">
+        </div>
+      </div>
+      <div style="padding-top:24px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#3A241E;line-height:1.2;margin-bottom:16px;">Designing With <em style="font-style:italic;color:#B89A6A;">Soul</em></div>
+        <p style="font-size:14px;color:#7A6B62;line-height:1.8;margin-bottom:28px;">With a background in fashion and an eye for architectural detail, Mandy founded VELUS Interiors to bring a fresh, soulful perspective to luxury home design. Every project begins with listening — understanding how you live, what you value, and the feeling you want your home to evoke.</p>
+        <div style="display:flex;flex-direction:column;gap:14px;">
+          <div style="padding:18px 22px;border-left:3px solid rgba(184,154,106,.3);background:rgba(255,255,255,.4);border-radius:0 10px 10px 0;">
+            <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:4px;">Holistic Vision</div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.6;">We design the entire experience — from spatial flow to the texture of every surface.</div>
+          </div>
+          <div style="padding:18px 22px;border-left:3px solid rgba(184,154,106,.3);background:rgba(255,255,255,.4);border-radius:0 10px 10px 0;">
+            <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:4px;">Hands-On Management</div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.6;">Mandy leads every project personally, coordinating contractors, vendors, and timelines.</div>
+          </div>
+          <div style="padding:18px 22px;border-left:3px solid rgba(184,154,106,.3);background:rgba(255,255,255,.4);border-radius:0 10px 10px 0;">
+            <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:4px;">Lasting Relationships</div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.6;">Most clients return for their next room, next home, or next chapter. That trust is everything.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">The original approved layout but with your updated copy — "Designing With Soul", the new quote, and the 3 new value points (Holistic Vision, Hands-On Management, Lasting Relationships). Cinematic strip → overlapping portrait → points. For comparison against the new options.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

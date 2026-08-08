@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register | AquaSquad Swim</title>
+    <meta
+      name="description"
+      content="Register your child for swim lessons with AquaSquad. Serving Wesley Chapel, Epperson, and surrounding areas."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #1aa79d;
+        --primary-dark: #18494c;
+        --primary-light: #e8f7f6;
+        --secondary: #f8a28e;
+        --bg: #ffffff;
+        --surface: #f4fafa;
+        --text-primary: #18494c;
+        --text-secondary: #5a7a7b;
+        --border: #d4ecea;
+        --gradient: linear-gradient(135deg, #1aa79d 0%, #18494c 100%);
+        --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+        --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+        --shadow-glow: 0 0 20px rgba(26, 167, 157, 0.25);
+        --radius-btn: 8px;
+        --radius-card: 12px;
+        --radius-pill: 100px;
+        --font: "Jost", "Century Gothic", "Trebuchet MS", sans-serif;
+        --container: 1200px;
+        --nav-h: 126px;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font);
+        color: var(--text-primary);
+        background: var(--bg);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+      a {
+        color: var(--primary);
+        text-decoration: none;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      /* NAV */
+      #nav {
+        position: relative;
+        background: #fff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.09);
+      }
+      .nav-inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 24px;
+        max-width: var(--container);
+        margin: 0 auto;
+      }
+      .nav-logo img {
+        height: 110px;
+        width: auto;
+      }
+      .nav-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 15px;
+        color: var(--text-primary);
+        padding: 10px 20px;
+        border-radius: var(--radius-btn);
+        border: 1.5px solid var(--border);
+        transition: background 0.2s, color 0.2s;
+      }
+      .nav-back:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+        border-color: var(--primary);
+      }
+      .nav-back svg {
+        width: 16px;
+        height: 16px;
+        stroke: currentColor;
+        fill: none;
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        flex-shrink: 0;
+      }
+
+      /* PAGE HEADER */
+      .page-header {
+        padding-top: 48px;
+        padding-bottom: 40px;
+        text-align: center;
+        background: var(--gradient);
+        color: #fff;
+      }
+      .page-header .eyebrow {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.75);
+        display: block;
+        margin-bottom: 12px;
+      }
+      .page-header h1 {
+        font-size: clamp(28px, 4vw, 44px);
+        font-weight: 700;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+        margin-bottom: 12px;
+      }
+      .page-header p {
+        font-size: 17px;
+        color: rgba(255, 255, 255, 0.85);
+        max-width: 520px;
+        margin: 0 auto;
+      }
+
+      /* FORM SECTION */
+      .form-section {
+        background: var(--surface);
+        padding: 48px 0 80px;
+      }
+      .form-wrap {
+        max-width: 780px;
+        margin: 0 auto;
+        padding: 0 24px;
+        background: #fff;
+        border-radius: var(--radius-card);
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border);
+        overflow: hidden;
+      }
+      .form-wrap iframe {
+        width: 100%;
+        border: none;
+        display: block;
+      }
+
+      /* FOOTER */
+      .footer {
+        background: var(--primary-dark);
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        padding: 24px;
+        font-size: 14px;
+      }
+      .footer a {
+        color: rgba(255, 255, 255, 0.9);
+        font-weight: 600;
+      }
+      .footer a:hover {
+        color: #fff;
+      }
+
+      @media (max-width: 600px) {
+        .nav-logo img {
+          height: 72px;
+        }
+        :root {
+          --nav-h: 88px;
+        }
+        .page-header {
+          padding-top: 32px;
+          padding-bottom: 32px;
+        }
+        .form-wrap {
+          border-radius: 0;
+          border-left: none;
+          border-right: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav id="nav">
+      <div class="nav-inner">
+        <a href="becca.html" class="nav-logo" aria-label="AquaSquad Swim home">
+          <img
+            src="https://assets.cdn.filesafe.space/Y6gwSTjgTSm8n6V1SQed/media/699767b83873af6718a31276.png"
+            alt="AquaSquad Swim"
+          />
+        </a>
+      </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <span class="eyebrow">AquaSquad Swim</span>
+      <h1>Complete Your Registration</h1>
+      <p>Fill out the form below to enroll your child in swim lessons.</p>
+    </div>
+
+    <!-- FORM -->
+    <section class="form-section">
+      <div class="form-wrap">
+        <iframe
+          src="https://link.nilsdigital.com/widget/form/EGKrMwxSgGPnhV3m6zgh"
+          style="width: 100%; height: 6577px; border: none; border-radius: 3px"
+          id="inline-EGKrMwxSgGPnhV3m6zgh"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Registration Form"
+          data-height="6577"
+          data-layout-iframe-id="inline-EGKrMwxSgGPnhV3m6zgh"
+          data-form-id="EGKrMwxSgGPnhV3m6zgh"
+          title="Registration Form"
+        ></iframe>
+        <script src="https://link.nilsdigital.com/js/form_embed.js"></script>
+      </div>
+    </section>
+
+    <script>
+(function () {
+  const RADIO_ATTR = 'what_type_of_student_are_you_registering?';
+  let currentSelection = null;
+
+  // Finds a payment tag by the dollar amount text it contains
+  function getTag(amount) {
+    const tags = document.querySelectorAll('.payment-suggestion-tag-container');
+    for (var i = 0; i < tags.length; i++) {
+      if (tags[i].innerText.replace(/\s/g, '').includes(amount)) {
+        return tags[i];
+      }
+    }
+    return null;
+  }
+
+  function applyVisibility() {
+    const tag100 = getTag('100');
+    const tag35  = getTag('35');
+
+    if (!tag100 || !tag35) {
+      console.log('[GHL Toggle] Payment tags not in DOM yet, will retry...');
+      return;
+    }
+
+    if (currentSelection === 'New student') {
+      tag100.style.setProperty('display', '', 'important');
+      tag35.style.setProperty('display', 'none', 'important');
+      console.log('[GHL Toggle] ✅ New student → $100 visible, $35 hidden');
+    } else if (currentSelection === 'Returning student') {
+      tag100.style.setProperty('display', 'none', 'important');
+      tag35.style.setProperty('display', '', 'important');
+      console.log('[GHL Toggle] ✅ Returning student → $100 hidden, $35 visible');
+    } else {
+      tag100.style.setProperty('display', '', 'important');
+      tag35.style.setProperty('display', '', 'important');
+      console.log('[GHL Toggle] No selection yet — both visible');
+    }
+  }
+
+  function attachRadioListeners() {
+    const radios = document.querySelectorAll('input[type="radio"][data-q="' + RADIO_ATTR + '"]');
+    if (!radios.length) return false;
+
+    radios.forEach(function (radio) {
+      if (radio.dataset.ghlBound) return;
+      radio.dataset.ghlBound = '1';
+
+      radio.addEventListener('change', function () {
+        if (this.checked) {
+          currentSelection = this.value;
+          console.log('[GHL Toggle] Radio changed:', currentSelection);
+          applyVisibility();
+        }
+      });
+
+      if (radio.checked) {
+        currentSelection = radio.value;
+      }
+    });
+
+    console.log('[GHL Toggle] Listeners attached to', radios.length, 'radio(s). Current selection:', currentSelection);
+    applyVisibility();
+    return true;
+  }
+
+  // Poll every 300ms until radios are found, then keep reapplying on DOM changes
+  var attached = false;
+  var pollInterval = setInterval(function () {
+    if (attachRadioListeners()) {
+      attached = true;
+      clearInterval(pollInterval);
+
+      // Watch for GHL re-renders wiping out our styles
+      var observer = new MutationObserver(function () {
+        applyVisibility();
+      });
+      observer.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['style'] });
+      console.log('[GHL Toggle] MutationObserver active — will re-apply on re-render');
+    }
+  }, 300);
+
+  // Stop polling after 30s to avoid infinite loop
+  setTimeout(function () {
+    if (!attached) {
+      clearInterval(pollInterval);
+      console.warn('[GHL Toggle] Gave up after 30s — radios never found. Check if form is in an iframe.');
+    }
+  }, 30000);
+
+})();
+</script>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p>
+        &copy; 2026 AquaSquad Swim. All rights reserved. &nbsp;|&nbsp;
+        Website and marketing systems developed by
+        <a href="https://nilsdigital.com" target="_blank" rel="noopener">Nilsdigital.com</a>
+      </p>
+    </footer>
+
+  </body>
+</html>

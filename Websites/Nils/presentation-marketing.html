@@ -1,0 +1,2569 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nils Digital - The Offer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;600;700&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      :root {
+        --font-main: "Google Sans", "DM Sans", sans-serif;
+        --font-secondary: "DM Sans", "Google Sans", sans-serif;
+        --font-emphasis: "Instrument Sans", "Google Sans", sans-serif;
+        --blue: #046bd2;
+        --blue-dark: #0358b0;
+        --blue-rgb: 4, 107, 210;
+        --gray-bg: #f5f7fa;
+        --text: #0a0a0a;
+        --muted: rgba(10, 10, 10, 0.5);
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: var(--font-main);
+        background: #000;
+        cursor: pointer;
+        user-select: none;
+        color: var(--text);
+      }
+
+      /* Font assignments */
+      h1,
+      h2,
+      h3,
+      h4,
+      .headline,
+      .eyebrow,
+      .badge,
+      .title-outcome,
+      .title-pill,
+      .cta-btn,
+      .price-card__amount,
+      .price-card__monthly,
+      .onboard-step__num,
+      .included-row__title,
+      .flow-step__label,
+      .guarantee__title {
+        font-family: var(--font-emphasis);
+      }
+      p,
+      .subtext,
+      .chat-bubble,
+      .guarantee__body,
+      .result-label,
+      .chat-label,
+      .deliverable__sub,
+      .price-card__label,
+      .price-card__monthly-label,
+      .onboard-step__text {
+        font-family: var(--font-secondary);
+      }
+
+      /* SLIDE SYSTEM */
+      .deck {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+      }
+      .slide {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 80px 48px;
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(28px);
+        transition:
+          opacity 0.38s ease,
+          transform 0.38s ease;
+        overflow: hidden;
+      }
+      .slide.active {
+        opacity: 1;
+        pointer-events: all;
+        transform: translateY(0);
+      }
+      .slide.leaving {
+        opacity: 0;
+        transform: translateY(-28px);
+        transition:
+          opacity 0.28s ease,
+          transform 0.28s ease;
+      }
+
+      /* ── THEME BACKGROUNDS ─────────────────────────── */
+
+      /* Hero blue — radial glows + dot grid baked into background */
+      .theme-hero-blue {
+        background:
+          radial-gradient(
+              circle,
+              rgba(255, 255, 255, 0.18) 1.5px,
+              transparent 1.5px
+            )
+            0 0 / 28px 28px,
+          radial-gradient(
+            ellipse 70% 85% at 0% 0%,
+            rgba(30, 140, 255, 0.95) 0%,
+            rgba(4, 107, 210, 0.55) 45%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 70% 85% at 100% 0%,
+            rgba(30, 140, 255, 0.95) 0%,
+            rgba(4, 107, 210, 0.55) 45%,
+            transparent 65%
+          ),
+          #0447a8;
+        color: #fff;
+      }
+
+      /* Light with blue dot grid (problem style) */
+      .theme-light-dots {
+        background:
+          radial-gradient(
+              circle,
+              rgba(4, 107, 210, 0.1) 1.5px,
+              transparent 1.5px
+            )
+            0 0 / 28px 28px,
+          #eef5ff;
+        color: var(--text);
+      }
+
+      /* Navy — deep dark + subtle grid + blue glow */
+      .theme-navy {
+        background:
+          radial-gradient(
+              circle,
+              rgba(255, 255, 255, 0.04) 1px,
+              transparent 1px
+            )
+            0 0 / 32px 32px,
+          radial-gradient(
+            ellipse 60% 60% at 20% 90%,
+            rgba(4, 107, 210, 0.18) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 60% 60% at 80% 10%,
+            rgba(4, 107, 210, 0.12) 0%,
+            transparent 70%
+          ),
+          #0a1628;
+        color: #fff;
+      }
+
+      /* Green guarantee — gradient + subtle grid */
+      .theme-green {
+        background:
+          radial-gradient(
+              circle,
+              rgba(255, 255, 255, 0.04) 1px,
+              transparent 1px
+            )
+            0 0 / 28px 28px,
+          radial-gradient(
+            ellipse 60% 70% at 30% 20%,
+            rgba(16, 185, 129, 0.35) 0%,
+            transparent 65%
+          ),
+          radial-gradient(
+            ellipse 50% 60% at 80% 80%,
+            rgba(4, 107, 210, 0.2) 0%,
+            transparent 65%
+          ),
+          #052e16;
+        color: #fff;
+      }
+
+      .slide > *:not(.bg-icon):not(.arc-ring):not(.vcol-wrap):not(.glass-orb) {
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Concentric arc ring decoration */
+      .arc-ring {
+        position: absolute;
+        top: -320px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 860px;
+        height: 660px;
+        border-radius: 50%;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow:
+          0 0 0 36px rgba(255, 255, 255, 0.04),
+          0 0 0 72px rgba(255, 255, 255, 0.02);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* WATERMARK BG ICON */
+      .bg-icon {
+        position: absolute;
+        font-size: clamp(160px, 25vw, 300px);
+        opacity: 0.03;
+        z-index: 0 !important;
+        pointer-events: none;
+        user-select: none;
+        right: -10px;
+        bottom: -10px;
+      }
+
+      /* ── TYPOGRAPHY ─────────────────────────────────── */
+      .eyebrow {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+        margin-bottom: 18px;
+      }
+      .theme-hero-blue .eyebrow {
+        display: inline-block;
+        color: rgba(255, 255, 255, 0.88);
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        border-radius: 100px;
+        padding: 7px 22px;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+      }
+      .theme-navy .eyebrow {
+        color: rgba(79, 163, 247, 0.9);
+      }
+      .theme-light-dots .eyebrow {
+        color: var(--blue);
+      }
+      .theme-green .eyebrow {
+        color: rgba(255, 255, 255, 0.65);
+      }
+
+      .headline {
+        font-size: clamp(28px, 5vw, 58px);
+        font-weight: 700;
+        line-height: 1.12;
+        text-align: center;
+        max-width: 920px;
+        letter-spacing: -0.02em;
+      }
+      .headline.xl {
+        font-size: clamp(32px, 6.5vw, 76px);
+      }
+      .headline.huge {
+        font-size: clamp(40px, 8vw, 96px);
+      }
+
+      .subtext {
+        font-size: clamp(15px, 2vw, 20px);
+        font-weight: 500;
+        line-height: 1.55;
+        text-align: center;
+        max-width: 680px;
+        margin-top: 18px;
+      }
+      .theme-navy .subtext {
+        color: rgba(255, 255, 255, 0.55);
+      }
+      .theme-light-dots .subtext {
+        color: var(--muted);
+      }
+      .theme-hero-blue .subtext {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      .theme-green .subtext {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      .accent {
+        color: var(--blue);
+      }
+      .theme-navy .accent {
+        color: #4fa3f7;
+      }
+      .theme-hero-blue .accent,
+      .theme-green .accent {
+        color: #fff;
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.4);
+        text-underline-offset: 5px;
+        text-decoration-thickness: 2px;
+      }
+
+      /* BADGE */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        background: var(--blue);
+        color: #fff;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 7px 18px;
+        border-radius: 100px;
+        margin-bottom: 24px;
+        box-shadow: 0 4px 16px rgba(var(--blue-rgb), 0.35);
+      }
+
+      /* TITLE SLIDE */
+      .title-outcomes {
+        margin-top: 36px;
+        text-align: center;
+        max-width: 920px;
+      }
+      .title-outcome {
+        font-size: clamp(26px, 4.5vw, 54px);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.25;
+        letter-spacing: -0.02em;
+      }
+      .title-outcome__num {
+        opacity: 0.4;
+        font-weight: 600;
+        margin-right: 6px;
+      }
+      .title-divider {
+        font-size: clamp(14px, 2vw, 20px);
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.4);
+        margin: 10px 0;
+      }
+
+      /* SCROLLING GALLERY */
+      .scroll-gallery {
+        display: flex;
+        gap: 14px;
+        width: 100vw;
+        overflow: hidden;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        padding: 20px 0 24px;
+        mask-image: linear-gradient(
+          to right,
+          transparent,
+          #000 4%,
+          #000 96%,
+          transparent
+        );
+        -webkit-mask-image: linear-gradient(
+          to right,
+          transparent,
+          #000 4%,
+          #000 96%,
+          transparent
+        );
+      }
+      .scroll-track {
+        display: flex;
+        gap: 16px;
+        animation: scrollGallery 60s linear infinite;
+        will-change: transform;
+      }
+      .scroll-track.paused {
+        animation-play-state: paused;
+      }
+      .scroll-track img {
+        height: clamp(200px, 40vh, 420px);
+        width: auto;
+        border-radius: 12px;
+        box-shadow: 0 6px 28px rgba(0, 0, 0, 0.12);
+        flex-shrink: 0;
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        cursor: pointer;
+      }
+      .scroll-track img:hover {
+        transform: scale(1.08);
+        box-shadow: 0 12px 48px rgba(4, 107, 210, 0.25);
+        z-index: 10;
+        position: relative;
+      }
+      @keyframes scrollGallery {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      /* ── GLASSMORPHISM SLIDE 1 ────────────────────── */
+      .slide-glass {
+        background:
+          radial-gradient(
+            ellipse 50% 50% at 10% 90%,
+            rgba(4, 107, 210, 0.18) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 45% 45% at 80% 20%,
+            rgba(4, 107, 210, 0.14) 0%,
+            transparent 70%
+          ),
+          radial-gradient(
+            ellipse 40% 40% at 50% 50%,
+            rgba(4, 107, 210, 0.06) 0%,
+            transparent 60%
+          ),
+          linear-gradient(160deg, #f4f8ff 0%, #eaf1fb 40%, #f0f5ff 100%);
+      }
+
+      /* Floating glass orbs — blue/white only */
+      .glass-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(70px);
+        opacity: 0.45;
+        z-index: 0;
+        pointer-events: none;
+        animation: orbFloat 14s ease-in-out infinite alternate;
+      }
+      .glass-orb--1 {
+        width: 400px;
+        height: 400px;
+        background: rgba(4, 107, 210, 0.25);
+        top: -10%;
+        left: -5%;
+        animation-delay: 0s;
+      }
+      .glass-orb--2 {
+        width: 300px;
+        height: 300px;
+        background: rgba(30, 140, 255, 0.2);
+        bottom: -5%;
+        left: 25%;
+        animation-delay: -5s;
+      }
+      .glass-orb--3 {
+        width: 350px;
+        height: 350px;
+        background: rgba(4, 107, 210, 0.15);
+        top: 10%;
+        right: 10%;
+        animation-delay: -9s;
+      }
+      @keyframes orbFloat {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          transform: translate(30px, -20px) scale(1.1);
+        }
+      }
+
+      /* Glass stat card */
+      .glass-card {
+        background: rgba(255, 255, 255, 0.55);
+        backdrop-filter: blur(24px) saturate(180%);
+        -webkit-backdrop-filter: blur(24px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.7);
+        border-radius: 20px;
+        padding: 24px 28px;
+        box-shadow:
+          0 4px 24px rgba(0, 0, 0, 0.06),
+          0 1px 0 rgba(255, 255, 255, 0.9) inset;
+      }
+
+      /* VERTICAL COLUMNS CAROUSEL */
+      .vcol-wrap {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 52%;
+        height: 100%;
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden;
+        z-index: 0;
+        padding: 0 24px;
+        mask-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          #000 6%,
+          #000 94%,
+          transparent 100%
+        );
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          transparent 0%,
+          #000 6%,
+          #000 94%,
+          transparent 100%
+        );
+      }
+      .vcol {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        flex-shrink: 0;
+        will-change: transform;
+        width: 15vw;
+      }
+      .vcol--up {
+        animation: vcolUp 90s linear infinite;
+      }
+      .vcol--down {
+        animation: vcolDown 90s linear infinite;
+        margin-top: -180px;
+      }
+      .vcol--up2 {
+        animation: vcolUp 110s linear infinite;
+        margin-top: -320px;
+      }
+      .vcol img {
+        width: 15vw;
+        height: auto;
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 6px;
+        box-shadow:
+          0 2px 8px rgba(0, 0, 0, 0.04),
+          0 8px 32px rgba(0, 0, 0, 0.08),
+          0 1px 0 rgba(255, 255, 255, 0.7) inset;
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        flex-shrink: 0;
+        cursor: pointer;
+        transition:
+          transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+          box-shadow 0.4s ease;
+      }
+      .vcol img:hover {
+        transform: scale(1.06) translateY(-4px);
+        box-shadow:
+          0 16px 48px rgba(100, 130, 255, 0.2),
+          0 4px 16px rgba(0, 0, 0, 0.08),
+          0 1px 0 rgba(255, 255, 255, 0.9) inset;
+        z-index: 10;
+        position: relative;
+      }
+      @keyframes vcolUp {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-50%);
+        }
+      }
+      @keyframes vcolDown {
+        0% {
+          transform: translateY(-50%);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      /* LIGHTBOX */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
+        cursor: pointer;
+      }
+      .lightbox.open {
+        opacity: 1;
+        pointer-events: all;
+      }
+      .lightbox img {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 16px;
+        box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5);
+        transform: scale(0.9);
+        transition: transform 0.3s ease;
+      }
+      .lightbox.open img {
+        transform: scale(1);
+      }
+      .lightbox-close {
+        position: absolute;
+        top: 24px;
+        right: 28px;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        border: none;
+        color: #fff;
+        font-size: 22px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background 0.2s;
+      }
+      .lightbox-close:hover {
+        background: rgba(255, 255, 255, 0.3);
+      }
+
+      /* RESULTS */
+      .results-slide {
+        padding: 48px 0 32px;
+      }
+      .results-slide .eyebrow,
+      .results-slide .headline {
+        padding: 0 48px;
+      }
+      .results-slide .result-hero {
+        margin-top: 16px;
+        margin-bottom: 4px;
+      }
+      .results-slide .result-hero .result-img img {
+        max-height: 20vh;
+      }
+      .result-item {
+        text-align: center;
+      }
+      .result-img {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow:
+          0 12px 48px rgba(0, 0, 0, 0.13),
+          0 1px 4px rgba(0, 0, 0, 0.08);
+        border: 1px solid #e0e0e0;
+      }
+      .result-img img {
+        display: block;
+        width: auto;
+        max-height: 52vh;
+        max-width: min(380px, 40vw);
+        object-fit: contain;
+      }
+      .result-label {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-top: 10px;
+      }
+
+      /* REVIEW FLOW — glassmorphism cards */
+      .review-flow {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 32px;
+      }
+      .flow-step {
+        background: rgba(3, 18, 60, 0.5);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 16px 20px;
+        text-align: center;
+        min-width: 130px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      }
+      .flow-step__icon {
+        font-size: 28px;
+        margin-bottom: 6px;
+      }
+      .flow-step__label {
+        font-size: 13px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.85);
+      }
+      .flow-arrow {
+        font-size: 22px;
+        color: #4fa3f7;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      /* CHAT MOCK */
+      .chat-mock {
+        margin-top: 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        max-width: 440px;
+        width: 100%;
+      }
+      .chat-bubble {
+        padding: 12px 18px;
+        border-radius: 18px;
+        font-size: 14px;
+        font-weight: 500;
+        max-width: 82%;
+        line-height: 1.4;
+      }
+      .chat-bubble.review {
+        background: rgba(3, 18, 60, 0.5);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        color: rgba(255, 255, 255, 0.85);
+        align-self: flex-start;
+        border-bottom-left-radius: 4px;
+      }
+      .chat-bubble.reply {
+        background: linear-gradient(
+          135deg,
+          #1a72e8 0%,
+          var(--blue) 50%,
+          var(--blue-dark) 100%
+        );
+        color: #fff;
+        align-self: flex-end;
+        border-bottom-right-radius: 4px;
+        box-shadow: 0 4px 16px rgba(var(--blue-rgb), 0.4);
+      }
+      .chat-label {
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.35);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .chat-label.right {
+        text-align: right;
+      }
+
+      /* CONSOLIDATED REVIEW */
+      .consolidated-review {
+        display: flex;
+        gap: 36px;
+        align-items: center;
+        max-width: 960px;
+        width: 100%;
+        margin-top: 20px;
+      }
+      .consolidated-review__left {
+        flex: 1;
+        min-width: 0;
+      }
+      .consolidated-review__right {
+        flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      @media (max-width: 768px) {
+        .consolidated-review {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+
+      /* GUARANTEE — glassmorphism */
+      .guarantee {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        background: rgba(255, 255, 255, 0.12);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        padding: 20px 24px;
+        max-width: 580px;
+        margin-top: 20px;
+        text-align: left;
+      }
+      .guarantee__icon {
+        font-size: 28px;
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+      .guarantee__title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 6px;
+      }
+      .guarantee__body {
+        font-size: 13px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.6;
+      }
+
+      /* INCLUDED LIST */
+      .included-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        max-width: 600px;
+        width: 100%;
+        margin-top: 20px;
+      }
+      .included-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        background: #fff;
+        border-left: 3px solid var(--blue);
+        border-radius: 0 12px 12px 0;
+        padding: 13px 18px;
+        transition: background 0.2s;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+      }
+      .included-row:hover {
+        background: #f8fafd;
+      }
+      .theme-hero-blue .included-row {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-left-color: rgba(255, 255, 255, 0.5);
+        box-shadow: none;
+      }
+      .theme-hero-blue .included-row:hover {
+        background: rgba(255, 255, 255, 0.16);
+      }
+      .included-row__icon {
+        font-size: 18px;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .included-row__title {
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .theme-hero-blue .included-row__title {
+        color: #fff;
+      }
+
+      /* PRICING */
+      .price-cards {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 28px;
+      }
+      .price-card {
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 20px;
+        padding: 36px 64px;
+        text-align: center;
+        box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
+        position: relative;
+        overflow: hidden;
+      }
+      /* Subtle inner glow */
+      .price-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.25),
+          transparent
+        );
+      }
+      .price-card__amount {
+        font-size: 72px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1;
+        margin-bottom: 8px;
+        letter-spacing: -0.03em;
+      }
+      .price-card__label {
+        font-size: 13px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.55);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+      }
+      .price-card__monthly {
+        font-size: 22px;
+        font-weight: 700;
+        color: rgba(255, 255, 255, 0.75);
+        margin-top: 14px;
+        padding-top: 14px;
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        letter-spacing: 0.01em;
+      }
+      .price-card__monthly-label {
+        font-size: 12px;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.4);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-top: 4px;
+      }
+
+      /* CTA BUTTON — gradient like hero CTA in vsl */
+      .cta-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        padding: 18px 42px;
+        background: linear-gradient(
+          135deg,
+          #1a72e8 0%,
+          var(--blue) 50%,
+          var(--blue-dark) 100%
+        );
+        color: #fff;
+        font-family: var(--font-emphasis);
+        font-size: 17px;
+        font-weight: 700;
+        border-radius: 100px;
+        text-decoration: none;
+        margin-top: 24px;
+        pointer-events: all;
+        cursor: pointer;
+        transition:
+          transform 0.15s,
+          box-shadow 0.2s,
+          filter 0.2s;
+        box-shadow:
+          0 8px 32px rgba(var(--blue-rgb), 0.55),
+          0 2px 8px rgba(0, 0, 0, 0.2),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        letter-spacing: 0;
+        white-space: nowrap;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.12) 0%,
+          transparent 60%
+        );
+        border-radius: inherit;
+        pointer-events: none;
+      }
+      .cta-btn:hover {
+        transform: translateY(-3px);
+        box-shadow:
+          0 16px 48px rgba(var(--blue-rgb), 0.65),
+          0 4px 12px rgba(0, 0, 0, 0.25),
+          inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        filter: brightness(1.06);
+      }
+      .cta-btn .cta-arrow {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .cta-btn:hover .cta-arrow {
+        background: rgba(255, 255, 255, 0.28);
+        transform: translateX(3px);
+      }
+
+      /* ONBOARDING STEPS */
+      .onboard-steps {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-width: 520px;
+        width: 100%;
+        margin-top: 28px;
+      }
+      .onboard-step {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        background: rgba(3, 18, 60, 0.4);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 14px 20px;
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+      }
+      .onboard-step:hover {
+        background: rgba(3, 18, 60, 0.55);
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+      .onboard-step__num {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1a72e8 0%, var(--blue) 100%);
+        color: #fff;
+        font-size: 15px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 4px 12px rgba(var(--blue-rgb), 0.4);
+      }
+      .onboard-step__text {
+        font-size: 15px;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.85);
+        line-height: 1.4;
+      }
+
+      .deliverable__sub {
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 1.6;
+      }
+
+      /* ── CHROME ─────────────────────────────────────── */
+      .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 3px;
+        background: var(--blue);
+        transition: width 0.4s ease;
+        z-index: 200;
+      }
+      .brand-mark {
+        position: fixed;
+        top: 22px;
+        left: 26px;
+        font-family: var(--font-emphasis);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        z-index: 200;
+        transition: color 0.3s;
+      }
+      .counter {
+        position: fixed;
+        top: 22px;
+        right: 26px;
+        font-family: var(--font-secondary);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        z-index: 200;
+        transition: color 0.3s;
+      }
+      .nav-dots {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        z-index: 200;
+      }
+      .dot {
+        height: 6px;
+        border-radius: 3px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      .click-hint {
+        position: fixed;
+        bottom: 62px;
+        right: 26px;
+        font-family: var(--font-secondary);
+        font-size: 12px;
+        font-weight: 600;
+        z-index: 200;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        animation: pulse 2.2s ease-in-out infinite;
+        transition: opacity 0.5s;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 0.4;
+        }
+        50% {
+          opacity: 0.9;
+        }
+      }
+
+      /* ARROWS */
+      .arrow {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: rgba(255, 255, 255, 0.5);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        cursor: pointer;
+        z-index: 200;
+        transition: all 0.2s;
+        pointer-events: all;
+      }
+      .arrow:hover {
+        background: rgba(255, 255, 255, 0.15);
+        color: #fff;
+      }
+      .arrow-prev {
+        left: 18px;
+      }
+      .arrow-next {
+        right: 18px;
+      }
+      .arrow.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      .light-chrome .arrow {
+        background: rgba(0, 0, 0, 0.04);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-color: rgba(0, 0, 0, 0.08);
+        color: rgba(0, 0, 0, 0.35);
+      }
+      .light-chrome .arrow:hover {
+        background: rgba(0, 0, 0, 0.1);
+        color: #000;
+      }
+
+      /* ── MOBILE ─────────────────────────────────────── */
+      @media (max-width: 640px) {
+        .slide {
+          padding: 60px 24px;
+        }
+        .results-slide .eyebrow,
+        .results-slide .headline {
+          padding: 0 24px;
+        }
+        .price-card {
+          padding: 28px 36px;
+        }
+        .price-card__amount {
+          font-size: 56px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="brand-mark" id="brandMark">Nils Digital</div>
+    <div class="counter" id="counter">1 / 6</div>
+
+    <button
+      class="arrow arrow-prev hidden"
+      id="arrowPrev"
+      onclick="
+        event.stopPropagation();
+        prev();
+      "
+    >
+      &#8249;
+    </button>
+    <button
+      class="arrow arrow-next"
+      id="arrowNext"
+      onclick="
+        event.stopPropagation();
+        next();
+      "
+    >
+      &#8250;
+    </button>
+
+    <div class="deck" id="deck">
+      <!-- ━━━ SLIDE 1: Step #1 ━━━ -->
+      <div
+        class="slide slide-glass active"
+        data-theme="light"
+        style="
+          justify-content: center;
+          align-items: flex-start;
+          padding: 60px 48px 80px 5%;
+        "
+      >
+        <!-- Floating glass orbs -->
+        <div class="glass-orb glass-orb--1"></div>
+        <div class="glass-orb glass-orb--2"></div>
+        <div class="glass-orb glass-orb--3"></div>
+
+        <div
+          class="badge"
+          style="
+            background: rgba(4, 107, 210, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+          "
+        >
+          Step #1
+        </div>
+        <h2
+          class="headline"
+          style="
+            font-size: clamp(32px, 5vw, 60px);
+            text-align: left;
+            letter-spacing: -0.03em;
+            max-width: 44%;
+          "
+        >
+          Super-Optimized Website
+        </h2>
+        <p
+          class="subtext"
+          style="
+            max-width: 40%;
+            text-align: left;
+            color: rgba(10, 10, 10, 0.55);
+            font-size: clamp(16px, 1.8vw, 22px);
+          "
+        >
+          The average website converts at 2-3%. Ours convert at 10-20%.
+        </p>
+        <div class="glass-card" style="margin-top: 24px">
+          <img
+            src="https://imgproxy.gamma.app/resize/quality:80/resizing_type:fit/width:500/https://cdn.gamma.app/53q4o972mi6mu4k/54fc41112ed94ae38855fe7e1386d086/original/image.png"
+            alt="20% Conversion Rate"
+            style="max-height: 18vh; border-radius: 10px"
+          />
+        </div>
+
+        <!-- Three vertical scrolling columns on the right -->
+        <div class="vcol-wrap">
+          <div class="vcol vcol--up">
+            <img
+              src="https://demilio24.github.io/Websites/references/1.png"
+              alt="Funnel 1"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/4.png"
+              alt="Funnel 4"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/7.png"
+              alt="Funnel 7"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/10.png"
+              alt="Funnel 10"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/13.png"
+              alt="Funnel 13"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/16.png"
+              alt="Funnel 16"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/1.png"
+              alt="Funnel 1"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/4.png"
+              alt="Funnel 4"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/7.png"
+              alt="Funnel 7"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/10.png"
+              alt="Funnel 10"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/13.png"
+              alt="Funnel 13"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/16.png"
+              alt="Funnel 16"
+            />
+          </div>
+          <div class="vcol vcol--down">
+            <img
+              src="https://demilio24.github.io/Websites/references/2.png"
+              alt="Funnel 2"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/5.png"
+              alt="Funnel 5"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/8.png"
+              alt="Funnel 8"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/11.png"
+              alt="Funnel 11"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/14.png"
+              alt="Funnel 14"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/17.png"
+              alt="Funnel 17"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/2.png"
+              alt="Funnel 2"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/5.png"
+              alt="Funnel 5"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/8.png"
+              alt="Funnel 8"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/11.png"
+              alt="Funnel 11"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/14.png"
+              alt="Funnel 14"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/17.png"
+              alt="Funnel 17"
+            />
+          </div>
+          <div class="vcol vcol--up2">
+            <img
+              src="https://demilio24.github.io/Websites/references/3.png"
+              alt="Funnel 3"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/6.png"
+              alt="Funnel 6"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/9.png"
+              alt="Funnel 9"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/12.png"
+              alt="Funnel 12"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/15.png"
+              alt="Funnel 15"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/18.png"
+              alt="Funnel 18"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/3.png"
+              alt="Funnel 3"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/6.png"
+              alt="Funnel 6"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/9.png"
+              alt="Funnel 9"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/12.png"
+              alt="Funnel 12"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/15.png"
+              alt="Funnel 15"
+            />
+            <img
+              src="https://demilio24.github.io/Websites/references/18.png"
+              alt="Funnel 18"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- ━━━ SLIDE 2: Step #2 — Google Ads ━━━ -->
+      <div
+        class="slide slide-glass"
+        data-theme="light"
+        style="
+          justify-content: center;
+          align-items: flex-start;
+          padding: 60px 48px 80px 5%;
+        "
+      >
+        <!-- Floating glass orbs -->
+        <div class="glass-orb glass-orb--1"></div>
+        <div class="glass-orb glass-orb--2"></div>
+        <div class="glass-orb glass-orb--3"></div>
+
+        <div
+          class="badge"
+          style="
+            background: rgba(4, 107, 210, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+          "
+        >
+          Step #2
+        </div>
+        <h2
+          class="headline"
+          style="
+            font-size: clamp(32px, 5vw, 60px);
+            text-align: left;
+            letter-spacing: -0.03em;
+            max-width: 44%;
+          "
+        >
+          Google Ads
+        </h2>
+        <p
+          class="subtext"
+          style="
+            max-width: 40%;
+            text-align: left;
+            color: rgba(10, 10, 10, 0.55);
+            font-size: clamp(16px, 1.8vw, 22px);
+          "
+        >
+          Precision targeting people already searching for what you offer. They
+          see you're clearly the best option &mdash; they're not going to your
+          competitor.
+        </p>
+
+        <!-- Glass flow steps -->
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 28px;
+            max-width: 42%;
+          "
+        >
+          <div
+            class="glass-card"
+            style="
+              display: flex;
+              align-items: center;
+              gap: 14px;
+              padding: 16px 22px;
+            "
+          >
+            <span style="font-size: 24px">&#128270;</span>
+            <span style="font-weight: 600; font-size: 15px; color: var(--text)"
+              >They search for your service</span
+            >
+          </div>
+          <div
+            style="
+              color: var(--blue);
+              text-align: center;
+              font-size: 18px;
+              line-height: 1;
+            "
+          >
+            &#8595;
+          </div>
+          <div
+            class="glass-card"
+            style="
+              display: flex;
+              align-items: center;
+              gap: 14px;
+              padding: 16px 22px;
+            "
+          >
+            <span style="font-size: 24px">&#128204;</span>
+            <span style="font-weight: 600; font-size: 15px; color: var(--text)"
+              >Your ad shows first</span
+            >
+          </div>
+          <div
+            style="
+              color: var(--blue);
+              text-align: center;
+              font-size: 18px;
+              line-height: 1;
+            "
+          >
+            &#8595;
+          </div>
+          <div
+            class="glass-card"
+            style="
+              display: flex;
+              align-items: center;
+              gap: 14px;
+              padding: 16px 22px;
+              background: rgba(4, 107, 210, 0.12);
+              border-color: rgba(4, 107, 210, 0.25);
+            "
+          >
+            <span style="font-size: 24px">&#128222;</span>
+            <span style="font-weight: 600; font-size: 15px; color: var(--blue)"
+              >They call you</span
+            >
+          </div>
+        </div>
+
+        <!-- Ad spend proof on the right -->
+        <div
+          style="
+            position: absolute;
+            right: 5%;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 48%;
+            z-index: 1;
+          "
+        >
+          <div
+            class="glass-card lightbox-trigger"
+            style="
+              padding: 20px;
+              cursor: pointer;
+              transition:
+                transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                box-shadow 0.4s ease;
+            "
+            onmouseenter="
+              this.style.transform = 'scale(1.02)';
+              this.style.boxShadow = '0 20px 60px rgba(4,107,210,0.18)';
+            "
+            onmouseleave="
+              this.style.transform = 'scale(1)';
+              this.style.boxShadow = '0 4px 24px rgba(0,0,0,0.06)';
+            "
+          >
+            <img
+              src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69c0a8875596d15ca607f536.jpg"
+              alt="$2M+ in managed ad spend"
+              style="
+                max-height: 55vh;
+                max-width: 100%;
+                width: auto;
+                border-radius: 12px;
+              "
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- ━━━ SLIDE 3: The Result ━━━ -->
+      <div
+        class="slide slide-glass"
+        data-theme="light"
+        style="justify-content: center; align-items: center; padding: 60px 48px"
+      >
+        <!-- Floating glass orbs -->
+        <div class="glass-orb glass-orb--1"></div>
+        <div class="glass-orb glass-orb--2"></div>
+        <div class="glass-orb glass-orb--3"></div>
+
+        <div class="eyebrow" style="color: var(--blue)">The Result</div>
+        <h2
+          class="headline"
+          style="font-size: clamp(32px, 5.5vw, 68px); letter-spacing: -0.03em"
+        >
+          Put <span style="color: var(--blue)">$X</span> in, get
+          <span style="color: var(--blue)">$Y</span> out.
+        </h2>
+        <p
+          class="subtext"
+          style="
+            max-width: 580px;
+            color: rgba(10, 10, 10, 0.55);
+            font-size: clamp(16px, 1.8vw, 22px);
+          "
+        >
+          We know exactly how much a click costs, how many clicks become leads,
+          and how many leads become clients. It's a science &mdash; not a guess.
+        </p>
+
+        <!-- Glass funnel flow -->
+        <div
+          style="
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 36px;
+            flex-wrap: wrap;
+            justify-content: center;
+          "
+        >
+          <div
+            class="glass-card"
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 6px;
+              padding: 20px 28px;
+              min-width: 120px;
+            "
+          >
+            <span style="font-size: 28px">&#128184;</span>
+            <span
+              style="
+                font-weight: 700;
+                font-size: 14px;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: var(--text);
+              "
+              >Ad Spend</span
+            >
+          </div>
+          <span style="font-size: 22px; color: var(--blue); font-weight: 600"
+            >&#8594;</span
+          >
+          <div
+            class="glass-card"
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 6px;
+              padding: 20px 28px;
+              min-width: 120px;
+            "
+          >
+            <span style="font-size: 28px">&#128065;</span>
+            <span
+              style="
+                font-weight: 700;
+                font-size: 14px;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: var(--text);
+              "
+              >Clicks</span
+            >
+          </div>
+          <span style="font-size: 22px; color: var(--blue); font-weight: 600"
+            >&#8594;</span
+          >
+          <div
+            class="glass-card"
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 6px;
+              padding: 20px 28px;
+              min-width: 120px;
+            "
+          >
+            <span style="font-size: 28px">&#128100;</span>
+            <span
+              style="
+                font-weight: 700;
+                font-size: 14px;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: var(--text);
+              "
+              >Leads</span
+            >
+          </div>
+          <span style="font-size: 22px; color: var(--blue); font-weight: 600"
+            >&#8594;</span
+          >
+          <div
+            class="glass-card"
+            style="
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              gap: 6px;
+              padding: 20px 28px;
+              min-width: 120px;
+              background: rgba(4, 107, 210, 0.12);
+              border-color: rgba(4, 107, 210, 0.3);
+            "
+          >
+            <span style="font-size: 28px">&#129309;</span>
+            <span
+              style="
+                font-weight: 700;
+                font-size: 14px;
+                letter-spacing: 0.05em;
+                text-transform: uppercase;
+                color: var(--blue);
+              "
+              >Clients</span
+            >
+          </div>
+        </div>
+
+        <p
+          class="subtext"
+          style="
+            margin-top: 28px;
+            font-size: clamp(14px, 1.5vw, 17px);
+            max-width: 520px;
+            color: rgba(10, 10, 10, 0.45);
+          "
+        >
+          Every week we test and optimize &mdash; ads, landing page, and Google
+          profile. The longer you're with us, the better your results get.
+        </p>
+      </div>
+
+      <!-- ━━━ SLIDE 4: Onboarding ━━━ -->
+      <div
+        class="slide slide-glass"
+        data-theme="light"
+        style="justify-content: center; align-items: center; padding: 60px 48px"
+      >
+        <!-- Floating glass orbs -->
+        <div class="glass-orb glass-orb--1"></div>
+        <div class="glass-orb glass-orb--2"></div>
+        <div class="glass-orb glass-orb--3"></div>
+
+        <div class="eyebrow" style="color: var(--blue)">Getting Started</div>
+        <h2
+          class="headline"
+          style="
+            font-size: clamp(32px, 5.5vw, 68px);
+            letter-spacing: -0.03em;
+            margin-bottom: 12px;
+          "
+        >
+          Onboarding is simple.
+        </h2>
+        <p
+          class="subtext"
+          style="
+            max-width: 560px;
+            color: rgba(10, 10, 10, 0.5);
+            font-size: clamp(15px, 1.6vw, 20px);
+            margin-bottom: 10px;
+          "
+        >
+          You're not building anything or dealing with the tech &mdash; we
+          handle all of it.
+        </p>
+
+        <!-- Glass step cards -->
+        <div
+          style="
+            display: flex;
+            gap: 24px;
+            margin-top: 36px;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 900px;
+          "
+        >
+          <div
+            class="glass-card"
+            style="
+              flex: 1;
+              min-width: 220px;
+              max-width: 280px;
+              padding: 32px 28px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+              gap: 14px;
+            "
+          >
+            <div
+              style="
+                width: 52px;
+                height: 52px;
+                border-radius: 16px;
+                background: rgba(4, 107, 210, 0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                font-weight: 800;
+                color: var(--blue);
+                font-family: var(--font-emphasis);
+              "
+            >
+              1
+            </div>
+            <span
+              style="
+                font-weight: 700;
+                font-size: 17px;
+                color: var(--text);
+                font-family: var(--font-emphasis);
+              "
+              >Fill out a form</span
+            >
+            <span
+              style="
+                font-size: 14px;
+                color: rgba(10, 10, 10, 0.5);
+                line-height: 1.5;
+                font-family: var(--font-secondary);
+              "
+              >Share your business info so we can build everything around
+              you.</span
+            >
+          </div>
+
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              color: var(--blue);
+              font-size: 24px;
+              font-weight: 600;
+              padding-top: 20px;
+            "
+          >
+            &#8594;
+          </div>
+
+          <div
+            class="glass-card"
+            style="
+              flex: 1;
+              min-width: 220px;
+              max-width: 280px;
+              padding: 32px 28px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+              gap: 14px;
+            "
+          >
+            <div
+              style="
+                width: 52px;
+                height: 52px;
+                border-radius: 16px;
+                background: rgba(4, 107, 210, 0.1);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                font-weight: 800;
+                color: var(--blue);
+                font-family: var(--font-emphasis);
+              "
+            >
+              2
+            </div>
+            <span
+              style="
+                font-weight: 700;
+                font-size: 17px;
+                color: var(--text);
+                font-family: var(--font-emphasis);
+              "
+              >One setup call</span
+            >
+            <span
+              style="
+                font-size: 14px;
+                color: rgba(10, 10, 10, 0.5);
+                line-height: 1.5;
+                font-family: var(--font-secondary);
+              "
+              >We connect &amp; activate everything on a single call.</span
+            >
+          </div>
+
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              color: var(--blue);
+              font-size: 24px;
+              font-weight: 600;
+              padding-top: 20px;
+            "
+          >
+            &#8594;
+          </div>
+
+          <div
+            class="glass-card"
+            style="
+              flex: 1;
+              min-width: 220px;
+              max-width: 280px;
+              padding: 32px 28px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+              gap: 14px;
+              background: rgba(4, 107, 210, 0.1);
+              border-color: rgba(4, 107, 210, 0.25);
+            "
+          >
+            <div
+              style="
+                width: 52px;
+                height: 52px;
+                border-radius: 16px;
+                background: var(--blue);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                font-weight: 800;
+                color: #fff;
+                font-family: var(--font-emphasis);
+              "
+            >
+              3
+            </div>
+            <span
+              style="
+                font-weight: 700;
+                font-size: 17px;
+                color: var(--blue);
+                font-family: var(--font-emphasis);
+              "
+              >Results on autopilot</span
+            >
+            <span
+              style="
+                font-size: 14px;
+                color: rgba(10, 10, 10, 0.5);
+                line-height: 1.5;
+                font-family: var(--font-secondary);
+              "
+              >Biweekly reports + 24/7 support. We optimize every week.</span
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- ━━━ SLIDE 5: Questions ━━━ -->
+      <div
+        class="slide slide-glass"
+        data-theme="light"
+        style="justify-content: center; align-items: center; padding: 60px 48px"
+      >
+        <!-- Floating glass orbs -->
+        <div class="glass-orb glass-orb--1"></div>
+        <div class="glass-orb glass-orb--2"></div>
+        <div class="glass-orb glass-orb--3"></div>
+
+        <div
+          class="glass-card"
+          style="
+            padding: 20px 28px;
+            margin-bottom: 32px;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+          "
+        >
+          &#x1F64B;
+        </div>
+        <h2
+          class="headline"
+          style="
+            font-size: clamp(40px, 7vw, 86px);
+            letter-spacing: -0.03em;
+            color: var(--text);
+          "
+        >
+          Any Questions?
+        </h2>
+        <p
+          class="subtext"
+          style="
+            max-width: 480px;
+            color: rgba(10, 10, 10, 0.45);
+            font-size: clamp(16px, 1.8vw, 22px);
+            margin-top: 16px;
+          "
+        >
+          Let's talk through anything on your mind.
+        </p>
+      </div>
+
+      <!-- ━━━ SLIDE 6: Pricing — Main Offer ━━━ -->
+      <div class="slide slide-glass" data-theme="light" style="justify-content: center; align-items: center; padding: 60px 48px">
+        <div class="glass-orb glass-orb--1"></div>
+        <div class="glass-orb glass-orb--2"></div>
+        <div class="glass-orb glass-orb--3"></div>
+
+        <div class="eyebrow" style="color: var(--blue)">Investment</div>
+        <h2 class="headline" style="font-size: clamp(32px, 5.5vw, 68px); letter-spacing: -0.03em; margin-bottom: 8px">Everything You Need</h2>
+        <p class="subtext" style="max-width: 480px; color: rgba(10,10,10,0.5); font-size: clamp(15px, 1.6vw, 20px); margin-bottom: 8px">One flat monthly fee. No setup costs. No surprises.</p>
+
+        <div class="glass-card" style="padding: 36px 44px; margin-top: 24px; text-align: center; max-width: 440px; width: 100%; background: rgba(255,255,255,0.65)">
+          <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; font-family: var(--font-emphasis)">All-In-One Growth Package</div>
+          <div style="font-size: clamp(44px, 6vw, 68px); font-weight: 800; color: var(--text); letter-spacing: -0.03em; line-height: 1; font-family: var(--font-emphasis)">$2,000<span style="font-size: 22px; font-weight: 500; color: rgba(10,10,10,0.4)">/mo</span></div>
+          <div style="font-size: 13px; color: rgba(10,10,10,0.45); margin-top: 6px; font-weight: 600">No setup fee</div>
+          <div style="width: 100%; height: 1px; background: rgba(4,107,210,0.1); margin: 22px 0"></div>
+          <div style="display: flex; flex-direction: column; gap: 10px; text-align: left">
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text)"><span style="color: var(--blue); font-size: 14px; font-weight: 700; min-width: 20px">1.</span><span style="font-weight: 600">Funnel design &amp; setup</span></div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text)"><span style="color: var(--blue); font-size: 14px; font-weight: 700; min-width: 20px">2.</span><span style="font-weight: 600">2 website variations</span></div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text)"><span style="color: var(--blue); font-size: 14px; font-weight: 700; min-width: 20px">3.</span><span style="font-weight: 600">3 rounds of unlimited revisions</span></div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text)"><span style="color: var(--blue); font-size: 14px; font-weight: 700; min-width: 20px">4.</span><span style="font-weight: 600">Google Ads setup &amp; management</span></div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text)"><span style="color: var(--blue); font-size: 14px; font-weight: 700; min-width: 20px">5.</span><span style="font-weight: 600">Conversion rate optimization</span></div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text)"><span style="color: var(--blue); font-size: 14px; font-weight: 700; min-width: 20px">6.</span><span style="font-weight: 600">Ongoing testing &amp; optimization</span></div>
+          </div>
+        </div>
+
+        <div class="glass-card" style="display: flex; align-items: center; gap: 14px; padding: 16px 24px; margin-top: 16px; max-width: 440px; width: 100%; background: rgba(4,107,210,0.08); border-color: rgba(4,107,210,0.2)">
+          <span style="font-size: 26px">&#128737;&#65039;</span>
+          <div>
+            <div style="font-weight: 700; font-size: 14px; color: var(--text); font-family: var(--font-emphasis)">30-Day Guarantee</div>
+            <div style="font-size: 12px; color: rgba(10,10,10,0.5); line-height: 1.4; font-family: var(--font-secondary)">Beat your industry average cost per lead in 30 days, or full refund.</div>
+          </div>
+        </div>
+
+        <a class="cta-btn" href="https://nilsdigital.com/client" target="_blank" onclick="event.stopPropagation()" style="margin-top: 20px">
+          Get Started <span class="cta-arrow"><svg width="16" height="16" fill="none" viewBox="0 0 24 24"><path d="M5 12h14m-6-6 6 6-6 6" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        </a>
+      </div>
+
+      <!-- ━━━ SLIDE 7: Downsell — Foundational Starter Pack ━━━ -->
+      <div
+        class="slide slide-glass"
+        data-theme="light"
+        style="justify-content: center; align-items: center; padding: 60px 48px"
+      >
+        <div class="glass-orb glass-orb--1"></div>
+        <div class="glass-orb glass-orb--2"></div>
+        <div class="glass-orb glass-orb--3"></div>
+
+        <div class="eyebrow" style="color: var(--blue)">Alternative Option</div>
+        <h2
+          class="headline"
+          style="
+            font-size: clamp(28px, 4.5vw, 56px);
+            letter-spacing: -0.03em;
+            margin-bottom: 8px;
+          "
+        >
+          Foundational Starter Pack
+        </h2>
+        <p
+          class="subtext"
+          style="
+            max-width: 520px;
+            color: rgba(10, 10, 10, 0.5);
+            font-size: clamp(15px, 1.6vw, 20px);
+            margin-bottom: 8px;
+          "
+        >
+          Start with a high-converting website. Add ads when you're ready.
+        </p>
+
+        <!-- Price card -->
+        <div
+          class="glass-card"
+          style="
+            padding: 40px 48px;
+            margin-top: 28px;
+            text-align: center;
+            max-width: 480px;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.65);
+          "
+        >
+          <div
+            style="
+              font-size: 13px;
+              font-weight: 700;
+              letter-spacing: 0.12em;
+              text-transform: uppercase;
+              color: var(--blue);
+              margin-bottom: 16px;
+              font-family: var(--font-emphasis);
+            "
+          >
+            Starter Pack
+          </div>
+          <div
+            style="
+              display: flex;
+              align-items: baseline;
+              justify-content: center;
+              gap: 8px;
+            "
+          >
+            <div
+              style="
+                font-size: clamp(42px, 6vw, 64px);
+                font-weight: 800;
+                color: var(--text);
+                letter-spacing: -0.03em;
+                line-height: 1;
+                font-family: var(--font-emphasis);
+              "
+            >
+              $850
+            </div>
+            <div
+              style="
+                font-size: 16px;
+                font-weight: 500;
+                color: rgba(10, 10, 10, 0.4);
+              "
+            >
+              setup
+            </div>
+          </div>
+          <div
+            style="
+              font-size: 22px;
+              font-weight: 700;
+              color: var(--text);
+              margin-top: 6px;
+              font-family: var(--font-emphasis);
+            "
+          >
+            + $197<span
+              style="
+                font-size: 16px;
+                font-weight: 500;
+                color: rgba(10, 10, 10, 0.4);
+              "
+              >/mo</span
+            >
+          </div>
+          <div
+            style="
+              width: 100%;
+              height: 1px;
+              background: rgba(4, 107, 210, 0.1);
+              margin: 24px 0;
+            "
+          ></div>
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+              text-align: left;
+            "
+          >
+            <div
+              style="
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 15px;
+                color: var(--text);
+              "
+            >
+              <span style="color: var(--blue); font-size: 14px; font-weight: 700; min-width: 20px">1.</span>
+              <span style="font-weight: 600">Website design &amp; CRO</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text)">
+              <span style="color: var(--blue); font-size: 14px; font-weight: 700; min-width: 20px">2.</span>
+              <span style="font-weight: 600">2 website variations</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text)">
+              <span style="color: var(--blue); font-size: 14px; font-weight: 700; min-width: 20px">3.</span>
+              <span style="font-weight: 600">3 rounds of unlimited revisions</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text)">
+              <span style="color: var(--blue); font-size: 14px; font-weight: 700; min-width: 20px">4.</span>
+              <span style="font-weight: 600">Hosting &amp; maintenance</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 10px; font-size: 15px; color: var(--text)">
+              <span style="color: var(--blue); font-size: 14px; font-weight: 700; min-width: 20px">5.</span>
+              <span style="font-weight: 600">Google Ads onboarding</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Guarantee -->
+        <div
+          class="glass-card"
+          style="
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 18px 28px;
+            margin-top: 20px;
+            max-width: 480px;
+            width: 100%;
+            background: rgba(4, 107, 210, 0.08);
+            border-color: rgba(4, 107, 210, 0.2);
+          "
+        >
+          <span style="font-size: 28px">&#128737;&#65039;</span>
+          <div>
+            <div
+              style="
+                font-weight: 700;
+                font-size: 15px;
+                color: var(--text);
+                font-family: var(--font-emphasis);
+              "
+            >
+              2x Conversion Guarantee
+            </div>
+            <div
+              style="
+                font-size: 13px;
+                color: rgba(10, 10, 10, 0.5);
+                line-height: 1.5;
+                font-family: var(--font-secondary);
+              "
+            >
+              Your new website will get double the conversion rate of your
+              current one, or you get a full refund.
+            </div>
+          </div>
+        </div>
+
+        <a
+          class="cta-btn"
+          href="https://nilsdigital.com/client"
+          target="_blank"
+          onclick="event.stopPropagation()"
+          style="margin-top: 24px"
+        >
+          Get Started
+          <span class="cta-arrow">
+            <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+              <path
+                d="M5 12h14m-6-6 6 6-6 6"
+                stroke="#fff"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </span>
+        </a>
+      </div>
+      <!-- ━━━ SLIDE 8: Call-Only Bonuses ━━━ -->
+      <div class="slide slide-glass" data-theme="light" style="justify-content: flex-start; align-items: center; padding: 40px 48px 40px; overflow-y: auto">
+        <div class="glass-orb glass-orb--1"></div>
+        <div class="glass-orb glass-orb--2"></div>
+        <div class="glass-orb glass-orb--3"></div>
+
+        <div class="badge" style="background: rgba(4,107,210,0.85); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.2); font-size: 11px">Call-Only Offer</div>
+        <h2 class="headline" style="font-size: clamp(28px, 4.5vw, 52px); letter-spacing: -0.03em; margin-bottom: 4px">Why make a decision today?</h2>
+        <p class="subtext" style="max-width: 560px; color: rgba(10,10,10,0.55); font-size: clamp(15px, 1.6vw, 20px)">
+          Receive <span style="color: var(--blue); font-weight: 700">$700 in free value.</span> These bonuses are only available if you move forward on this call. Once we hang up, this offer is gone.
+        </p>
+
+        <!-- Bonus grid -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; max-width: 820px; width: 100%">
+
+          <!-- Bonus 1 -->
+          <div class="glass-card" style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
+            <div style="display: flex; align-items: center; justify-content: space-between">
+              <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); font-family: var(--font-emphasis)">Bonus 1</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--blue); font-family: var(--font-emphasis)">Value: $250</div>
+            </div>
+            <div style="font-size: 17px; font-weight: 700; color: var(--text); font-family: var(--font-emphasis)">Custom KPI Dashboard</div>
+            <p style="font-size: 13px; color: rgba(10,10,10,0.5); line-height: 1.5; font-family: var(--font-secondary); margin: 0">A fully custom dashboard built around the exact numbers that matter to your business — leads, calls, revenue, bookings, ad spend. Everything in one place.</p>
+          </div>
+
+          <!-- Bonus 2 -->
+          <div class="glass-card" style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
+            <div style="display: flex; align-items: center; justify-content: space-between">
+              <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); font-family: var(--font-emphasis)">Bonus 2</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--blue); font-family: var(--font-emphasis)">Value: $150</div>
+            </div>
+            <div style="font-size: 17px; font-weight: 700; color: var(--text); font-family: var(--font-emphasis)">Free Business Phone Number</div>
+            <p style="font-size: 13px; color: rgba(10,10,10,0.5); line-height: 1.5; font-family: var(--font-secondary); margin: 0">A dedicated business line with A2P registration so your texts land in inboxes. Keeps your personal number separate. No monthly fee — we cover it.</p>
+          </div>
+
+          <!-- Bonus 3 -->
+          <div class="glass-card" style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
+            <div style="display: flex; align-items: center; justify-content: space-between">
+              <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); font-family: var(--font-emphasis)">Bonus 3</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--blue); font-family: var(--font-emphasis)">Value: $200</div>
+            </div>
+            <div style="font-size: 17px; font-weight: 700; color: var(--text); font-family: var(--font-emphasis)">Google Business Profile Optimization</div>
+            <p style="font-size: 13px; color: rgba(10,10,10,0.5); line-height: 1.5; font-family: var(--font-secondary); margin: 0">We optimize every section of your GBP — service areas, keywords, photos, hours, descriptions, and Q&A — so you show up where customers are already searching.</p>
+          </div>
+
+          <!-- Bonus 4 -->
+          <div class="glass-card" style="padding: 24px; display: flex; flex-direction: column; gap: 10px">
+            <div style="display: flex; align-items: center; justify-content: space-between">
+              <div style="font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); font-family: var(--font-emphasis)">Bonus 4</div>
+              <div style="font-size: 13px; font-weight: 700; color: var(--blue); font-family: var(--font-emphasis)">Value: $100</div>
+            </div>
+            <div style="font-size: 17px; font-weight: 700; color: var(--text); font-family: var(--font-emphasis)">Review Filtering System</div>
+            <p style="font-size: 13px; color: rgba(10,10,10,0.5); line-height: 1.5; font-family: var(--font-secondary); margin: 0">A custom site that filters reviews — 4-5 stars go to Google, 1-3 stars come privately to you. Fully branded, supports unlimited locations.</p>
+          </div>
+
+        </div>
+
+        <!-- Total value bar -->
+        <div class="glass-card" style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 16px 32px; margin-top: 20px; max-width: 820px; width: 100%; background: rgba(4,107,210,0.1); border-color: rgba(4,107,210,0.25)">
+          <span style="font-size: 16px; font-weight: 700; color: var(--text); font-family: var(--font-emphasis)">Total value included at no extra cost:</span>
+          <span style="font-size: 24px; font-weight: 800; color: var(--blue); font-family: var(--font-emphasis); text-decoration: line-through; text-decoration-color: rgba(4,107,210,0.4)">$700</span>
+          <span style="font-size: 24px; font-weight: 800; color: var(--blue); font-family: var(--font-emphasis)">FREE</span>
+        </div>
+      </div>
+
+    </div>
+    <!-- /deck -->
+
+    <div class="nav-dots" id="navDots"></div>
+    <div
+      class="click-hint"
+      id="clickHint"
+      style="color: rgba(255, 255, 255, 0.4)"
+    >
+      Click anywhere to continue &rarr;
+    </div>
+
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightboxImg" src="" alt="Preview" />
+    </div>
+
+    <script>
+      const slides = Array.from(document.querySelectorAll(".slide"));
+      const total = slides.length;
+      const dotsEl = document.getElementById("navDots");
+      const barEl = document.getElementById("progressBar");
+      const counterEl = document.getElementById("counter");
+      const brandEl = document.getElementById("brandMark");
+      const hintEl = document.getElementById("clickHint");
+      const prevBtn = document.getElementById("arrowPrev");
+      const nextBtn = document.getElementById("arrowNext");
+      let cur = 0;
+
+      const visibleTotal = total - 2; // hide downsell + call-only offer
+      slides.forEach((_, i) => {
+        if (i >= visibleTotal) return; // no dots for hidden slides
+        const d = document.createElement("div");
+        d.className = "dot";
+        d.addEventListener("click", (e) => {
+          e.stopPropagation();
+          goTo(i);
+        });
+        dotsEl.appendChild(d);
+      });
+
+      function isLight(theme) {
+        return theme === "light";
+      }
+
+      function updateChrome() {
+        const theme = slides[cur].dataset.theme;
+        const light = isLight(theme);
+
+        const isHidden = cur >= visibleTotal;
+        barEl.style.width = (isHidden ? 100 : ((cur + 1) / visibleTotal) * 100) + "%";
+        barEl.style.background = light ? "var(--blue)" : "#4fa3f7";
+
+        const textColor = light ? "rgba(0,0,0,0.3)" : "rgba(255,255,255,0.35)";
+        counterEl.style.color = textColor;
+        counterEl.textContent = isHidden ? "" : (cur + 1 + " / " + visibleTotal);
+        brandEl.style.color = textColor;
+
+        document.body.className = light ? "light-chrome" : "";
+        prevBtn.classList.toggle("hidden", cur === 0);
+        nextBtn.classList.toggle("hidden", cur === total - 1);
+
+        hintEl.style.opacity = cur >= 3 || isHidden ? "0" : "1";
+        hintEl.style.color = light
+          ? "rgba(0,0,0,0.3)"
+          : "rgba(255,255,255,0.4)";
+
+        dotsEl.style.opacity = isHidden ? "0" : "1";
+        const dots = dotsEl.querySelectorAll(".dot");
+        dots.forEach((d, i) => {
+          const active = i === cur;
+          d.style.width = active ? "22px" : "6px";
+          d.style.background = light
+            ? active
+              ? "var(--blue)"
+              : "rgba(0,0,0,0.18)"
+            : active
+              ? "#fff"
+              : "rgba(255,255,255,0.25)";
+        });
+      }
+
+      function goTo(index) {
+        if (index < 0 || index >= total || index === cur) return;
+        const leaving = cur;
+        slides[leaving].classList.remove("active");
+        slides[leaving].classList.add("leaving");
+        setTimeout(() => slides[leaving].classList.remove("leaving"), 320);
+        cur = index;
+        slides[cur].classList.add("active");
+        updateChrome();
+      }
+
+      function next() {
+        goTo(cur + 1);
+      }
+      function prev() {
+        goTo(cur - 1);
+      }
+
+      document.getElementById("deck").addEventListener("click", next);
+
+      // ArrowDown to jump to call-only offer slide
+      let savedSlide = null;
+      const bonusSlide = total - 1; // last slide
+      const downsellSlide = total - 2;
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowDown") {
+          e.preventDefault();
+          if (cur !== bonusSlide) {
+            savedSlide = cur;
+            goTo(bonusSlide);
+          }
+          return;
+        }
+        if (e.key === "ArrowUp") {
+          e.preventDefault();
+          if (cur === bonusSlide && savedSlide !== null) {
+            goTo(savedSlide);
+            savedSlide = null;
+          }
+          return;
+        }
+        if (e.key === "Escape" && cur === bonusSlide && savedSlide !== null) {
+          e.preventDefault();
+          goTo(savedSlide);
+          savedSlide = null;
+          return;
+        }
+        if (["ArrowRight", " ", "Enter"].includes(e.key)) {
+          e.preventDefault();
+          next();
+        }
+        if (["ArrowLeft", "Backspace"].includes(e.key)) {
+          e.preventDefault();
+          prev();
+        }
+      });
+
+      let touchX = 0;
+      document.addEventListener("touchstart", (e) => {
+        touchX = e.touches[0].clientX;
+      });
+      document.addEventListener("touchend", (e) => {
+        const dx = e.changedTouches[0].clientX - touchX;
+        if (Math.abs(dx) > 50) dx < 0 ? next() : prev();
+      });
+
+      updateChrome();
+
+      // Pause gallery scroll on hover + lightbox on click
+      const lightboxEl = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightboxImg");
+
+      document.querySelectorAll(".scroll-gallery").forEach((gallery) => {
+        const track = gallery.querySelector(".scroll-track");
+        gallery.addEventListener("mouseenter", () =>
+          track.classList.add("paused"),
+        );
+        gallery.addEventListener("mouseleave", () =>
+          track.classList.remove("paused"),
+        );
+      });
+
+      document
+        .querySelectorAll(".scroll-track img, .vcol img")
+        .forEach((img) => {
+          img.addEventListener("click", (e) => {
+            e.stopPropagation();
+            lightboxImg.src = img.src;
+            lightboxEl.classList.add("open");
+          });
+        });
+
+      function closeLightbox() {
+        lightboxEl.classList.remove("open");
+      }
+
+      document.querySelectorAll(".lightbox-trigger").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const img = el.querySelector("img");
+          if (img) {
+            lightboxImg.src = img.src;
+            lightboxEl.classList.add("open");
+          }
+        });
+      });
+
+      lightboxEl.addEventListener("click", (e) => {
+        if (e.target !== lightboxImg) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && lightboxEl.classList.contains("open")) {
+          e.stopPropagation();
+          closeLightbox();
+        }
+      });
+    </script>
+  </body>
+</html>

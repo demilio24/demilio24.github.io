@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --green:#0fbf7a; --green-light:#34d399; --neon:#00ff88; --neon-soft:#6dffa6;
+    --bg:#03110a; --bg2:#06180e;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{
+    width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(120% 90% at 50% 8%, rgba(0,255,136,.14), transparent 55%),
+      radial-gradient(90% 70% at 50% 110%, rgba(15,191,122,.18), transparent 60%),
+      var(--bg);
+    font-family:'IBM Plex Sans',sans-serif;color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;padding:120px 96px;
+  }
+  /* matrix grid */
+  .art::before{
+    content:"";position:absolute;inset:0;
+    background-image:
+      linear-gradient(rgba(0,255,136,.045) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(0,255,136,.045) 1px,transparent 1px);
+    background-size:48px 48px;
+    -webkit-mask-image:radial-gradient(120% 100% at 50% 50%,#000 35%,transparent 78%);
+            mask-image:radial-gradient(120% 100% at 50% 50%,#000 35%,transparent 78%);
+  }
+  .brand{
+    position:relative;display:flex;align-items:center;gap:14px;
+    font-family:'Inter',sans-serif;font-weight:700;letter-spacing:.42em;
+    font-size:24px;color:var(--neon-soft);text-transform:uppercase;
+    margin-bottom:54px;text-indent:.42em;
+  }
+  .brand .dot{width:11px;height:11px;border-radius:50%;background:var(--neon);
+    box-shadow:0 0 16px var(--neon);text-indent:0}
+  .headline{position:relative;font-weight:700;font-size:118px;line-height:.96;letter-spacing:-.02em}
+  .headline .g{
+    background:linear-gradient(135deg,var(--neon-soft) 0%,var(--green) 70%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .rule{position:relative;width:96px;height:5px;border-radius:5px;margin:56px 0 34px;
+    background:linear-gradient(90deg,var(--neon),var(--green));box-shadow:0 0 22px rgba(0,255,136,.5)}
+  .sub{position:relative;font-family:'Inter',sans-serif;font-weight:600;font-size:34px;
+    letter-spacing:.06em;color:#bdd9cb}
+  .corner{position:absolute;bottom:46px;font-family:'Inter',sans-serif;font-weight:600;
+    font-size:21px;letter-spacing:.04em;color:#6f9684}
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="brand"><span class="dot"></span>Nils Digital · Automation</div>
+    <div class="headline">We don't sell<br>AI tools.<br>We install <span class="g">AI<br>into your<br>business.</span></div>
+    <div class="rule"></div>
+    <div class="sub">AI Audit + Buildout</div>
+    <div class="corner">nilsdigital.com</div>
+  </div>
+</body>
+</html>

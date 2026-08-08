@@ -1,0 +1,7 @@
+{
+  "location": "JL5Xsreqcpi8naffNZWe",
+  "totalToDelete": 0,
+  "mode": "DRY-RUN",
+  "contacts": [],
+  "next_step": "Re-run with --apply to actually delete these contacts."
+}

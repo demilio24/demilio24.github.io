@@ -1,0 +1,5547 @@
+/* intput-form class is deprecated.  Use .form-table in a #Declutter div in its place.
+*/
+table.input-form {
+  border-collapse: collapse;
+}
+
+/*can't pad rows so give top/bottom pad to each cell in a row */
+table.input-form > tbody > tr > td {
+  white-space: normal;
+}
+
+/* use labels / inputs to create row spacing. This will ensure we're only having spacing on form rows ''*/
+table.input-form  > tbody > tr > td > input ~ label,
+table.input-form  > tbody > tr > td > select ~ label, /*this selects labels AFTER an input of some sort. These elements need to be middle aligned.*/
+table.input-form  > tbody > tr > td > select,
+table.input-form  > tbody > tr > td input:not(.ui-pg-input),
+table.input-form  > tbody > tr > td textarea,
+table.input-form  > tbody > tr > td label,
+table.input-form .sub-table,
+table.input-form tr td button {
+  margin-bottom: 0.5rem;
+}
+
+table.input-form.condensed > tbody > tr > td > input ~ label,
+table.input-form.condensed > tbody > tr > td > select ~ label, /*this selects labels AFTER an input of some sort. These elements need to be middle aligned.*/
+table.input-form.condensed > tbody > tr > td > select,
+table.input-form.condensed > tbody > tr > td input:not(.ui-pg-input),
+table.input-form.condensed > tbody > tr > td textarea,
+table.input-form.condensed > tbody > tr > td label,
+table.input-form.condensed .sub-table,
+table.input-form.condensed tr td button {
+  margin-bottom: 0.25rem;
+}
+
+table.input-form > tbody > tr > td label {
+  display: inline-block;
+  margin-right: 0.25rem;
+}
+
+/*add space to right of inputs to separate label/input sets from each other */
+table.input-form > tbody > tr > td select,
+table.input-form
+  > tbody
+  > tr
+  > td
+  input:not([type="checkbox"]):not(.ui-pg-input),
+table.input-form > tbody > tr > td textarea {
+  margin-right: 1rem;
+}
+
+/*compensate for above right margin when we have imgs or spans (notes) after an input. Offset margin with negative left and add right margin to this element */
+table.input-form > tbody > tr > td > label ~ img,
+table.input-form > tbody > tr > td > input:not([type="hidden"]) ~ img,
+table.input-form > tbody > tr > td > select ~ img,
+table.input-form > tbody > tr > td > textarea ~ img,
+table.input-form > tbody > tr > td select ~ i,
+table.input-form > tbody > tr > td input ~ i,
+table.input-form > tbody > tr > td textarea ~ i,
+table.input-form
+  > tbody
+  > tr
+  > td
+  > input
+  ~ span:not([id$="toppager"]):not(.fnt-bld),
+table.input-form
+  > tbody
+  > tr
+  > td
+  > select
+  ~ span:not([id$="toppager"]):not(.fnt-bld)
+  table.input-form
+  > tbody
+  > tr
+  > td
+  > textarea
+  ~ span {
+  margin-right: 1rem;
+  margin-left: -0.85rem;
+}
+
+table.input-form > tbody > tr > td:first-child > label ~ i,
+table.input-form > tbody > tr > td:first-child > label ~ img {
+  margin: 0;
+}
+
+.field-container > input ~ i,
+.field-container > select ~ i,
+.field-container > textarea ~ i,
+.field-container > input ~ img,
+.field-container > select ~ img,
+.field-container > textarea ~ img {
+  margin-right: 1rem;
+  margin-left: -0.85rem;
+}
+.field-container > input ~ button,
+.field-container > select ~ button,
+.field-container > textarea ~ button {
+  margin-right: 1rem;
+  margin-left: -0.85rem;
+}
+
+table.input-form > tbody > tr > td > label + i,
+table.input-form > tbody > tr > td > label + img {
+  margin-left: -0.25rem;
+  margin-right: 1rem;
+}
+
+/* the first column only contains 1 label so it needs no left margin */
+table.input-form > tbody > tr > td:first-child > label {
+  margin-left: 0;
+}
+
+/* give some small padding to nested display tables */
+table.input-form > tbody > tr > td table {
+  border-collapse: collapse;
+}
+
+/*styling for sub tables. Have to have class for this as with so much table nesting we can easily say every table should look like this '*/
+table.input-form > tbody > tr > td table.sub-table tr td,
+table.input-form > tbody > tr > td table.sub-table tr th {
+  padding: 0.175rem 0.35rem;
+  border-bottom: 1px solid #bebebe;
+  vertical-align: top;
+}
+
+/* don't bottom border last column to prevent double border (last column + bottom table)'*/
+table.input-form > tbody > tr > td table.sub-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* border the whole table as well */
+table.input-form > tbody > tr > td table.sub-table {
+  border: thin solid #bebebe;
+}
+
+/* let padding of subtable td/th handle position of inputs in subtables.*/
+table.input-form .sub-table input,
+table.input-form .sub-table select,
+table.input-form .sub-table textarea,
+table.input-form .sub-table label {
+  margin: 0 !important;
+}
+
+/*tool tip ui fix
+*/
+table.input-form .tooltip {
+  z-index: 5;
+}
+
+/* put label/field pairs in this container and they will wrap together */
+table.input-form .field-container {
+  white-space: nowrap;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+body {
+  margin: 0;
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 10pt;
+}
+@media print {
+  .noprint {
+    display: none;
+  }
+  .prt {
+    display: block !important;
+  }
+  .overlay,
+  #overlay {
+    display: none;
+  }
+}
+
+button,
+textarea,
+input,
+select {
+  font-family: "Lato", Arial, sans-serif;
+}
+img {
+  border: 0;
+}
+.hide {
+  display: none;
+}
+td.ph {
+  vertical-align: bottom;
+  text-align: center;
+  height: 44px;
+}
+
+.list-style-none {
+  list-style: none;
+}
+
+.lbl,
+#divEditor label:not(.reset) {
+  font-size: 10pt;
+  font-weight: bold;
+  padding-right: 1.5px;
+}
+#divEditor label.lbl-no-bold {
+  font-weight: normal;
+}
+
+td.lbl span {
+  font-weight: bold;
+}
+
+table.label-right-align td.lbl {
+  text-align: right;
+}
+
+tr.bottom-black-border td {
+  border-bottom: black thin solid;
+}
+
+h3 {
+  color: #0018ab;
+  margin-bottom: 0.15rem;
+}
+
+h1.inline-text,
+h2.inline-text,
+h3.inline-text,
+h4.inline-text,
+h5.inline-text,
+h6.inline-text {
+  display: inline-block;
+  margin-bottom: 0;
+}
+
+.jrblue {
+  color: #2d69ac;
+}
+.jrlightblue {
+  color: #1998d5;
+}
+.amt,
+.n {
+  text-align: right;
+}
+td.amt-width {
+  width: 75px;
+}
+input.amt-margin {
+  margin-right: -2px;
+}
+.sub {
+  background: #eaeaea;
+}
+.fnt-bld {
+  font-weight: bold !important;
+}
+.l {
+  text-align: left;
+}
+.t,
+.note {
+  font-size: 8pt;
+}
+.ptr,
+.color,
+.colhdrrow {
+  cursor: pointer;
+}
+.nn {
+  font-weight: bold;
+  font-size: 10pt;
+  color: #002d96;
+  text-decoration: none;
+}
+.r {
+  text-align: right;
+}
+.c {
+  text-align: center;
+}
+.tip {
+  font-size: 10pt;
+  font-style: italic;
+}
+#listnamehdr,
+.listnamehdr {
+  font-weight: bold;
+  font-size: 12pt;
+  background: #eaeaea;
+  height: auto;
+  vertical-align: middle;
+}
+.listnamehdr.div-listnamehdr-separator {
+  padding-top: 1px;
+  padding-bottom: 3px;
+  margin: 5px -4px 5px -4px;
+}
+.listnamehdr.dotnet-div-listnamehdr-separator {
+  padding: 1px 0 3px 2px;
+  margin: 5px -4px 5px 0;
+}
+#ListDesc {
+  font-size: 10pt;
+  width: 98%;
+  overflow: auto;
+}
+#listnamehdr {
+  font-weight: bold;
+  font-size: 12pt;
+}
+.list-no-style {
+  list-style: none;
+}
+.list-horizontal li {
+  display: inline;
+  padding-right: 5px;
+}
+.list-horizontal-block li {
+  display: inline-block;
+  padding-right: 5px;
+}
+.noTransform {
+  text-transform: none !important;
+}
+
+.hl {
+  background: rgba(255, 255, 0, 0.2);
+}
+.hl2 {
+  background: #ffffcc;
+}
+.lb {
+  background: #daf0f9;
+}
+.padtop {
+  padding-top: 10px;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.inline-block {
+  display: inline-block;
+}
+.reportContainer table {
+  width: 100%;
+}
+.block {
+  display: block;
+}
+.line {
+  font-size: 9pt;
+  cursor: pointer;
+}
+.transamount {
+  font-weight: bold;
+  background: rgba(40, 150, 255, 0.1);
+}
+
+.font-7pt {
+  font-size: 7pt;
+}
+.font-8pt {
+  font-size: 8pt;
+}
+.font-9pt {
+  font-size: 9pt;
+}
+.font-9px {
+  font-size: 9px;
+}
+.font-10pt {
+  font-size: 10pt;
+}
+.font-11pt {
+  font-size: 11pt;
+}
+.font-12pt {
+  font-size: 12pt;
+}
+.font-10px {
+  font-size: 10px;
+}
+.font-11px {
+  font-size: 11px;
+}
+.font-13px {
+  font-size: 13px;
+}
+.font-18px {
+  font-size: 18px;
+}
+.tableCollapsed {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+.z9 {
+  z-index: 9000;
+}
+.Itextsmall {
+  font-size: 10pt;
+  font-weight: bold;
+}
+.Itext {
+  font-size: 11pt;
+  font-weight: bold;
+}
+.required-field,
+.red-error,
+.reqdOn,
+.red-msg,
+.hit {
+  color: #cd2027;
+}
+
+label.required:after {
+  content: "*";
+  color: red;
+  vertical-align: top;
+}
+.selectsm {
+  font-weight: normal;
+  font-size: 9pt;
+}
+a.srch {
+  font-size: 10pt;
+}
+a.srchsm {
+  font-size: 9pt;
+}
+.linktext {
+  font-weight: bold;
+  font-size: 10pt;
+  color: #002d96;
+  text-decoration: none;
+}
+.heading,
+#tblMain .heading {
+  font-size: 10pt;
+  text-decoration: underline;
+}
+#heading {
+  /*Used in classenroll.asp, classenrollv2.asp, eventenroll.asp, studentenroll.asp, and studentenrollv2.asp*/
+  font-size: 16pt;
+  font-weight: bold;
+}
+
+#tblPS TD.r,
+#tblPS input {
+  text-align: right;
+}
+#tblPS,
+#tblPS span,
+#tblPS input {
+  font-size: 10px;
+  font-weight: normal;
+}
+.trhead {
+  text-decoration: underline;
+  font-size: 8pt;
+  font-weight: bold;
+}
+.tblPmt,
+.tblPmt span {
+  font-size: 8pt;
+  font-weight: bold;
+}
+.tblPmt input,
+.tblPmt select {
+  font-size: 8pt;
+  font-weight: bold;
+}
+#tblPS TD.r,
+#tblPS input {
+  text-align: right;
+}
+
+.itemnote {
+  font-size: 10pt;
+  font-weight: normal;
+  padding: 0 3px;
+}
+
+.fullWidth100 {
+    width: 100%;
+    border-spacing: 0;
+}
+
+.fullWidth {
+  width: 98%;
+  border-spacing: 0;
+}
+@media screen and (min-width: 0\0) {
+  table.fullWidth {
+    width: 98%;
+    border-spacing: 0;
+  }
+}
+
+#page {
+  width: 100%;
+}
+#tblMain {
+  width: 100%;
+}
+
+table#tblMain.tableCollapsed > tbody > tr > td {
+  padding: 0px;
+}
+
+#frmForm table.srchtbl td {
+  vertical-align: middle;
+}
+.ta {
+  font-family: "Lato", sans-serif;
+}
+input.rd {
+  background: #ffffff;
+  height: 17px;
+  position: relative;
+  top: -1px;
+  border: 1px solid #9999cc;
+}
+
+#chooselist,
+.chooselist {
+  font-weight: bold;
+  border-bottom: 1px solid black;
+  font-size: 11pt;
+}
+.lists TD {
+  cursor: pointer;
+  font-size: 10pt;
+}
+.lists TD:active {
+  cursor: pointer;
+  color: #1998d5;
+}
+
+.inputrow {
+  background: #e1ceab;
+  color: #231f20;
+  font-size: 9pt;
+}
+
+#modal-window-title {
+  background: #1998d5;
+  color: #ffffff;
+  text-align: center;
+  font-size: 12pt;
+  padding: 3px 0;
+  font-weight: bold;
+}
+#modal-window-title.orange-title {
+  background: #fd9727;
+}
+#modal-window-title.red-title {
+  background: #eb5757;
+}
+
+#dup-search-head,
+#lookup-trans-hist {
+  background-color: #1998d5;
+  color: white;
+  margin: 0;
+  width: 100%;
+}
+
+#divPageHdr {
+  width: 100%;
+}
+
+/* Highlight classes!!!!    USED FOR STATUSES AND SUCH*/
+.red-highlight {
+  background: #faa0a0;
+}
+.green-highlight {
+  background: #b4edb2;
+}
+.yellow-highlight {
+  background: #f2c779;
+}
+
+.Check-in-out-table button.dark-red-highlight {
+  background: #c60f13;
+  color: #ffffff;
+}
+
+#divTabBodyTransactions button.style_UnpaidAmt_Button {
+  background: #99ff99;
+}
+
+.Check-in-out-table button.dark-red-highlight:hover {
+  background-color: #9e0c0f;
+  color: #ffffff;
+}
+
+.Check-in-out-table button.dark-green-highlight {
+  background: #5da423;
+  border-color: #4a831c;
+  color: #ffffff;
+}
+
+.Check-in-out-table button.dark-green-highlight:hover {
+  background-color: #4a831c;
+  color: #ffffff;
+}
+
+/*   blueheader */
+#blueheader-wrapper {
+  background-color: #1998d5;
+  padding-top: 3px;
+}
+#blueheader td {
+  vertical-align: middle;
+}
+.ms-sectionline {
+  background-color: #2254b1;
+}
+.ms-banner {
+  font-size: 11pt;
+  color: #231f20;
+  vertical-align: middle;
+}
+.ms-banner a:link {
+  color: #231f20;
+  text-decoration: none;
+}
+.ms-banner a:visited {
+  color: #231f20;
+  text-decoration: none;
+}
+.ms-banner a:hover {
+  color: #1998d5;
+}
+
+.ms-bannerframe {
+  vertical-align: middle;
+  width: 100%;
+  background-color: #ffffff;
+  background-image: none;
+  background: #ffffff;
+}
+.ms-bannerframe td {
+  vertical-align: middle;
+}
+
+div.menu {
+  background: #1998d5;
+}
+/* style the links for the top level */
+.menu a,
+.menu a:visited {
+  display: block;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 12pt;
+  font-weight: bold;
+  line-height: 24px;
+  padding-left: 3px;
+  padding-right: 12px;
+}
+
+/* style the second level background */
+.menu ul ul a.drop,
+.menu ul ul a.drop:visited {
+  font-size: 7pt;
+}
+/* style the second level hover */
+.menu ul ul a.drop:hover,
+.secondLevelHover {
+  color: #1998d5;
+  background: #ffffff;
+  background-color: #ffffff;
+}
+.menu ul ul :hover > a.drop,
+.secondLevelHover {
+  color: #1998d5;
+  background: #ffffff;
+  background-color: #ffffff;
+}
+
+/* hide the sub levels and give them a positon absolute so that they take up no room */
+.menu ul ul {
+  display: none;
+  position: absolute;
+  top: 24px;
+  left: 0px;
+  width: 157px;
+}
+
+/* style the third level background */
+/*.menu ul ul ul a, .menu ul ul ul a:visited {background:#e2dfa8;}*/
+/* style the third level hover */
+.menu ul ul ul li,
+.menu ul ul ul li a:hover {
+  background: #1998d5;
+  background-color: #1998d5;
+}
+.menu ul ul ul li,
+.menu ul ul ul li > a {
+  background: #0080c7;
+  color: white;
+}
+
+/* position the third level flyout menu */
+.menu ul ul ul {
+  left: 208px;
+  top: -1px;
+  width: 119px;
+  padding-left: 1px;
+}
+/* position the third level flyout menu for a left flyout */
+.menu ul ul ul.left {
+  left: -139px;
+}
+
+/* style the second level links */
+.menu ul ul a,
+.menu ul ul a:visited {
+  line-height: 1em;
+  font-weight: normal;
+  font-size: 11pt;
+  padding: 4px;
+  width: 200px;
+}
+
+/* style the top level hover */
+.menu > ul > li > a:hover,
+.menu > ul > li:hover > a,
+.firstLevelHover {
+  color: #1998d5;
+  background: #ffffff;
+  background-color: #ffffff;
+  border: 0px solid transparent;
+} /* The 0px border is set to fix an IE8 quirk.  Total hack, but it works.  Remove once we drop IE8 support (LSP-05/25/2014)*/
+
+.menu ul ul li:hover,
+.menu ul ul :hover > a,
+.firstLevelHover {
+  color: #ffffff;
+  background: #0080c7;
+}
+
+/* make the second level visible when hover on first level list OR link */
+/*.menu ul li:hover ul, .menu ul a:hover ul{display:block}
+/* keep the third level hidden when you hover on first level list OR link */
+/*.menu ul :hover ul ul{display:none}*/
+/* make the third level visible when you hover over second level list OR link */
+/*.menu ul :hover ul :hover ul{display:block}*/
+
+.menu {
+  width: 100%;
+  height: 22px;
+  font-size: 0.85em;
+  position: relative;
+  z-index: 50;
+}
+/* remove all the bullets, borders and padding from the default list styling */
+.menu ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+/* float the list to make it horizontal and a relative positon so that you can control the dropdown menu positon */
+.menu li {
+  float: left;
+  padding-right: 12px;
+  position: relative;
+}
+.menu li li {
+  float: left;
+  padding-right: 1px;
+  background-color: #1998d5;
+}
+/* style the table so that it takes no ppart in the layout - required for IE to work */
+.menu table {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-collapse: collapse;
+}
+
+/*New styles for split menu*/
+.menu li.menu-report-items-container {
+  width: 75px;
+}
+
+.menu-report-items-anchor-div {
+  width: 430px;
+  position: absolute;
+  background-color: #1998d5;
+}
+
+.menu ul ul.menu-report-items-right {
+  float: left;
+  position: relative;
+  width: 200px;
+  top: 0;
+  padding-right: 20px;
+}
+.menu ul ul.menu-report-items-left {
+  float: left;
+  position: relative;
+  width: 210px;
+  top: 0;
+  height: 100%;
+}
+/*End of new styles for split menu*/
+
+.link {
+  color: #1998d5;
+  font-size: 10pt;
+  font-weight: bold;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#PageHdr {
+  font-size: 22pt;
+  font-weight: bold;
+}
+#divDateUserMode {
+  font-size: 9pt;
+  padding-right: 10px;
+}
+
+/*#divMsgBar {
+	width:99%;
+	margin-left:4px;
+	margin-top:2px;
+	height:18px;
+	background-color: #fefefe;
+	vertical-align:top;
+}
+#divMessage {
+	margin:0px;
+	padding-right:2px;
+	color:#FFFFFF;
+	background-color: #cd2027;
+	font-size:9pt;
+	font-weight:bold;
+}
+
+ #divCmdBtns {
+	width:100%;
+}
+#divCmdBtns button:enabled:hover {
+	color:#1998d5;
+} */
+
+input[readonly]:where(:not([class*=Mui])),
+select[disabled]:where(:not([class*=Mui])) {
+  color: #555;
+  background-color: #e5e5e5;
+}
+
+/*buttons*/
+.buttons {
+  min-height: 23px;
+  text-decoration: none;
+  font-size: 12pt;
+  display: inline-block;
+}
+
+.gobtn {
+  color: #1998d5;
+  margin-left: 4px;
+  margin: 0 20px 0 4px;
+  vertical-align: middle;
+}
+
+a.buttons {
+  color: black;
+  padding: 0.025em 0.25em;
+  min-height: 0px !important;
+}
+
+a.buttons:hover {
+  text-decoration: none !important;
+}
+
+button:disabled,
+.buttons:disabled,
+.gobtn:disabled,
+input[type="button"]:disabled:where(:not([class*=Mui])) {
+  color: graytext;
+  cursor: not-allowed;
+}
+
+button:disabled:hover,
+.buttons:disabled:hover,
+.gobtn:disabled:hover,
+input[type="button"]:disabled:hover:where(:not([class*=Mui])) {
+  color: graytext;
+  cursor: not-allowed;
+}
+
+@media not handheld {
+  button:hover,
+  .buttons:hover,
+  .gobtn:hover,
+  input[type="button"]:hover:where(:not([class*=Mui])) {
+    color: #0080c7;
+  }
+}
+
+/*
+  Applies a gray gradient background to buttons.
+  We use :not to exclude buttons that have their own styling (like Telerik, Material UI, Tailwind, etc).
+  We use :where to drop :not specificity to 0 so that these styles can be more easily overridden.
+  
+  You can use .btn-ignore-gradient class to exclude any button from this styling.
+*/
+button:where(:not(.btn-ignore-gradient, button.component-button, a.component-button, .code-block
+    button, .tailwind button, .k-button, ._pendo-button, .chip-component, .adyen-checkout__button, [class*=Mui])),
+.buttons,
+.gobtn,
+input[type="button"]:where(:not(.btn-ignore-gradient, [class*=Mui])),
+input[type="submit"]:where(:not(.btn-ignore-gradient, [class*=Mui])),
+#CommandButtons div.cmdbtn {
+  font-weight: bold;
+  background: #e6e6e6; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #e6e6e6 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #ffffff),
+    color-stop(100%, #e6e6e6)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #ffffff 0%,
+    #e6e6e6 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #ffffff 0%,
+    #e6e6e6 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffffff 0%, #e6e6e6 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, #e6e6e6 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#e6e6e6',GradientType=0 ); /* IE6-9 */
+  border: 1px solid #a6a6a6;
+  cursor: pointer;
+}
+.buttons a.cmdbtn:hover,
+button.cmdbtn:hover {
+  background-color: #e6efc2;
+  text-decoration: underline;
+}
+.buttons a.cmdbtn:active {
+  background-color: #529214;
+  border: 1px solid #529214;
+  color: #ffffff;
+}
+
+/*cmd buttons*/
+.cmd {
+  cursor: pointer;
+  height: 23px;
+  background: url(/assets/Content/images/formbg_gr.gif) repeat-x left top;
+}
+
+.cmd:hover {
+  border: 1px solid blue;
+}
+
+#tblMain td {
+  vertical-align: top;
+}
+#tblMain td.right-bottom {
+  text-align: right;
+  vertical-align: bottom;
+}
+
+/* min-height is needed to allow our footer to stay at the bottom of the page.  The relative position will inform the footer's absolute position as relative to the entire page */
+html.has-admin-footer {
+  min-height: 100%;
+  position: relative;
+}
+
+/* With a 30px footer, a 60px margin on the bottom of the body gives us space for both the footer and an extra 30px of padding for any content */
+html.has-admin-footer body:not(.grid-layout) {
+  margin-bottom: 60px;
+}
+
+#trFooter {
+  background-color: #dcdede;
+}
+
+/* 	Our footer will be absolutely positioned at the bottom of the entire document, which will always go to 100% of the window (see above) */
+html.has-admin-footer #trFooter {
+  height: 30px;
+  line-height: 30px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  white-space: nowrap;
+  color: #777;
+}
+/* when in a grid layout, we don't need to absolutely position the footer */
+#trFooter.grid-admin-footer {
+  position: static;
+}
+html.has-admin-footer body.grid-layout {
+    --footer-height: 30px;
+}
+
+#trFooter td {
+  padding: 3px 0;
+  font-size: 9pt;
+  font-weight: bold;
+}
+#trFooter a {
+  color: #231f20;
+}
+
+/* tabs */
+#tableTabs TD {
+  min-width: 10px;
+  text-align: center;
+  font-size: 12pt;
+  padding: 3px 10px;
+}
+
+.divTab {
+  padding: 3px;
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #bababa;
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+}
+
+.divTabSelected,
+#timeclock-tabs li a.selected {
+  background-color: #f6f6f6;
+  background: #f6f6f6;
+  border-top: 1px solid #bcbcc9;
+  border-bottom: none;
+}
+.divTabDeselected,
+#timeclock-tabs li a {
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+  border-left: 1px solid #bcbcc9;
+  border-top: 1px solid #bcbcc9;
+  border-bottom: 1px solid #bcbcc9;
+}
+#tableTabs td.tab:first-child {
+  border-left: none;
+}
+#tableTabs td.tab:last-child {
+  border-right: 1px solid #bcbcc9;
+}
+
+.tab {
+  color: #231f20;
+  font-weight: bold;
+}
+.tab a {
+  color: #231f20;
+  text-decoration: none;
+}
+
+td.tab A {
+  font-size: 10pt;
+  font-weight: bold;
+  background: transparent;
+  color: #231f20;
+  text-decoration: none;
+  padding: 3px 0;
+  display: block;
+}
+
+/* select Div */
+ul.selectDiv {
+  margin: 1px;
+  padding: 1px;
+  cursor: pointer;
+  font-size: 9pt;
+}
+ul.selectDiv li {
+  display: block;
+}
+ul.selectDiv li:hover {
+  color: #1998d5;
+  background: #ffff88;
+}
+
+/* Old select Div */
+.roinput {
+  vertical-align: top;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+}
+div.selectDiv {
+  z-index: 999;
+  left: 100px;
+  visibility: hidden;
+  background-color: #ffffff;
+  font-size: 8pt;
+  position: absolute;
+  top: 100px;
+  border: 1px solid black;
+  overflow: auto;
+}
+table.selectDiv {
+  background-color: #ffffff;
+}
+table.selectDiv tr {
+  background-color: #ffffff;
+  font-size: 9px;
+}
+table.selectDiv td {
+  font-size: 9px;
+}
+table.selectDiv tr.onMouseOut {
+  color: #231f20;
+  font-weight: normal;
+  vertical-align: top;
+}
+table.selectDiv tr.onMouseOver {
+  background-color: #ffff00;
+  cursor: pointer;
+  vertical-align: top;
+}
+
+/*embed grid*/
+.divCont {
+  text-align: center;
+  padding: 4px 4px 4px 4px;
+}
+.divCont span.hdg {
+  font-weight: bold;
+  font-size: 12pt;
+}
+.divCont .divResults {
+  margin-top: 5px;
+}
+.gridnav A {
+  margin-right: 10px;
+}
+.nav {
+  text-align: center;
+}
+.nav a {
+  font-weight: bold;
+  margin-right: 15px;
+}
+.nav a:hover {
+  font-weight: bold;
+}
+.data input,
+.data select,
+.data textarea {
+  font-size: 11pt;
+}
+
+/* fixes for tablesort in embed grid*/
+table.tablesorter.detailsort tbody.data td {
+  padding: 2px;
+  background: none repeat scroll 0 0 #f6f6f6;
+  font-size: 9pt;
+}
+table.tablesorter.detailsort thead tr.searchresulthdr th,
+th.searchresulthdr {
+  font-size: 10pt;
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+}
+
+.combo {
+  padding: 1px 1px 1px 1px;
+  border-right: #000 1px solid;
+  border-top: #ffffff 1px solid;
+  display: none;
+  font-size: smaller;
+  background: #eaeaea;
+  left: 0px;
+  border-left: #ffffff 1px solid;
+  width: 4em;
+  cursor: default;
+  border-bottom: #000 1px solid;
+  position: absolute;
+  top: 0px;
+}
+.combo .label {
+  padding: 1px 1px 1px 1px;
+  color: #231f20;
+  padding-top: 1px;
+  text-align: center;
+}
+.combo .active {
+  border-right: #ffffff 1px solid;
+  padding-right: 0px;
+  border-top: #000 1px solid;
+  padding-left: 0px;
+  padding-bottom: 0px;
+  border-left: #000 1px solid;
+  color: #231f20;
+  padding-top: 0px;
+  border-bottom: #fff 1px solid;
+}
+.combo .hilite {
+  background: white;
+  color: #231f20;
+}
+
+label.plain,
+#divEditor label.plain {
+  font-weight: normal;
+}
+
+A.red {
+  font-weight: bold;
+  font-size: 9pt;
+  text-decoration: none;
+  background-color: transparent;
+  margin: 1px 2px 2px 2px;
+  border-top: #ffffff solid 2px;
+  border-left: #ffffff solid 2px;
+  border-bottom: #777777 solid 2px;
+  border-right: #777777 solid 2px;
+  padding: 0 2px;
+}
+A.red:link {
+  color: #b00b09;
+}
+A.red:visited {
+  color: #900b09;
+}
+A.red:active {
+  text-decoration: underline;
+  color: #ff0000;
+}
+A.red:hover {
+  text-decoration: underline;
+  color: #ff0000;
+}
+A.tablink {
+  font-size: 9pt;
+  font-weight: bold;
+  background: transparent;
+  color: #231f20;
+  text-decoration: none;
+}
+
+#tblR th {
+  padding: 4px 2px;
+  cursor: pointer;
+}
+#tblR td {
+  padding: 2px 2px;
+}
+
+#xtblR thead th {
+  font-size: 10pt;
+  font-weight: bold;
+  color: #231f20;
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+  text-decoration: none;
+  border: 1px solid;
+  border-color: #bcbcc9;
+  cursor: pointer;
+}
+#tblR table {
+  /* width:90%; */
+  border-top: 1px solid #e5eff8;
+  border-right: 1px solid #e5eff8;
+  margin: 1em auto;
+  border-collapse: collapse;
+  empty-cells: show;
+}
+#tblR tbody td {
+  text-align: center;
+}
+#tblR tbody td.n {
+  text-align: right;
+}
+#tblR tbody td.l {
+  text-align: left;
+}
+
+/* old tablesort */
+.sort-table {
+  border: 1px solid #a6a6a6;
+  background-color: #eee;
+}
+.sort-table thead td,
+table.enhancements tr.bdy,
+.login-table-title-row {
+  font-size: 10pt;
+  color: #231f20;
+  font-weight: bold;
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+  text-decoration: none;
+  border: 1px solid #bcbcc9;
+  cursor: default;
+}
+.sort-table thead td:active {
+  border-color: #bcbcc9;
+  padding: 3px 3px 1px 6px;
+}
+.sort-table td {
+  padding: 2px 2px;
+} /* cannot set background color here because it overwrites alternating row color. */
+.sort-arrow {
+  width: 7px;
+  height: 7px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 0 1px;
+}
+.sort-arrow.descending {
+  background-image: url("/assets/Content/images/downsimple.png");
+}
+.sort-arrow.ascending {
+  background-image: url("/assets/Content/images/upsimple.png");
+}
+
+/* tables tablesorter */
+table.tablesorter,
+table.student-info-sheet {
+  background: #dcdede; /* Old browsers */
+  font-size: 10pt;
+  width: 100%;
+  text-align: left;
+  text-align: center;
+  border: 1px solid #ccc;
+}
+/*embedded grids sort*/
+table.tablesorter.detailsort {
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+  width: 100%;
+  text-align: left;
+  text-align: center;
+  background: Window;
+  color: WindowText;
+}
+
+table.tablesorter thead tr th,
+table.student-info-sheet thead tr th {
+  margin: 2px 0px 2px;
+  font-size: 10pt;
+  font-weight: bold;
+  padding: 3px;
+  cursor: pointer;
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+  border-right: 1px solid #8f959f;
+  border-left: none;
+  border-bottom: 1px solid #8f959f;
+  border-top: none;
+}
+
+table.tablesorter tfoot {
+  background-color: #dcdede;
+}
+
+table.tablesorter thead tr .header {
+  background-repeat: no-repeat;
+  background-position: center right;
+  border-right: 1px solid #8f959f;
+  border-left: none;
+  border-bottom: 1px solid #8f959f;
+  border-top: 1px solid #8f959f;
+}
+
+table.student-info-sheet tbody td {
+  padding: 3px;
+}
+
+table.tablesorter tbody td {
+  padding: 3px;
+  border-right: solid 1px #bcbcc9;
+  border-left: none;
+  border-top: solid 1px #bcbcc9;
+  border-bottom: none;
+}
+
+table.tablesorter tbody,
+table.student-info-sheet tbody {
+  border: 1px solid #bcbcc9;
+  background-color: #ffffff;
+}
+table.tablesorter thead tr .headerSortUp {
+  background-image: url(/assets/Content/images/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+  background-image: url(/assets/Content/images/desc.gif);
+}
+
+/* Overlay */
+#simplemodal-overlay {
+  background-color: #000;
+  cursor: wait;
+}
+
+/* Container */
+#simplemodal-container {
+  height: 300px;
+  width: 600px;
+  background-color: #eaeaea;
+  border: 1px solid black;
+}
+#simplemodal-container #basicModalContent {
+  padding: 8px;
+}
+
+/*Hiding blank line under logos. No idea why it is here. Easier to do this than edit 100 million files */
+#BlueLine {
+  display: none;
+}
+#divPageHdr table img:nth-child(2) {
+  display: none;
+}
+
+/*Email/SMS message and criteria page*/
+.email-subsection-separator {
+  padding-bottom: 20px;
+}
+
+.email-table-template {
+  margin-left: -3px;
+}
+
+.email-table-fields {
+  border-spacing: 0 4px;
+  width: 100%;
+}
+
+.email-table-fields > tbody > tr > td:first-child {
+  width: 20%;
+  padding-right: 5px;
+}
+
+table.email-table-fields > tbody > tr > td:last-child {
+  width: 80%;
+  padding-right: 5px;
+}
+
+/* border-spacing (h): A small tweak to get labels on the right edge of a td to match the inter-element spacing of a label next to its field in space.
+   border-spacing (v): Vertical space between rows. */
+table.form-table {
+  border-collapse: separate;
+  border-spacing: 0.05rem 0.35rem;
+  white-space: nowrap;
+}
+
+div.search-criteria-sub-note {
+  margin: 0.35rem;
+}
+
+div.search-criteria-sub-note.no-divider-below {
+  margin-bottom: 0.55rem;
+}
+
+table.form-table.two-column > tbody > tr > td:first-child {
+  width: 16rem;
+}
+
+table.form-table.two-column.modal > tbody > tr > td:first-child {
+  width: auto;
+}
+
+table.form-table.two-column > tbody > tr > td:last-child {
+  width: auto;
+}
+
+table.form-table.two-column.in-fieldset {
+  margin-left: -1.35rem;
+}
+
+/*text and select elements are fixed at 22px which pushes the box to 24px.  This setting makes all rows consistent.*/
+table.form-table td {
+  height: 22px;
+}
+
+table.form-table tr.group-spacer td,
+tr.group-spacer td {
+  height: 0.75rem;
+}
+
+/*This centers these icons vertically.*/
+table.form-table img.calendar-icon,
+table.form-table img.globe-icon {
+  vertical-align: text-bottom;
+}
+
+table.form-table div.required {
+  width: 0;
+  height: 0;
+  box-sizing: border-box;
+}
+
+#Declutter table.form-table label.required {
+  margin-right: 0;
+}
+
+#Declutter .content-padding {
+  padding: 0.3rem 0.3rem;
+}
+
+#Declutter table.form-table label.required:after {
+  content: "*";
+  color: red;
+  vertical-align: top;
+  position: relative;
+  top: -0.2rem;
+}
+
+/* #Declutter div to override #divEditor in _pageLayout.cshtml*/
+#Declutter .black-border-box {
+  border: 1px solid black;
+}
+#Declutter .black-border-box-padded {
+  border: 1px solid black;
+  margin: 0 5px;
+}
+
+/*Get input type=text and select elements to have the same height*/
+#Declutter table.form-table input[type="text"]:where(:not([class*=Mui])),
+#Declutter table.form-table select:not([multiple]),
+table.form-table input[type="text"]:where(:not([class*=Mui])),
+table.form-table select:not([multiple]) {
+  box-sizing: border-box;
+  height: 22px;
+}
+
+/*vertical-align: baseline is the default. Using the default seems to save us from using so many shims on other elements.*/
+#Declutter table.form-table label,
+table.form-table label {
+  margin-right: 0.3rem;
+  padding-right: 0;
+  vertical-align: baseline;
+  display: inline-block;
+}
+
+#Declutter table.form-table td,
+table.form-table td {
+  vertical-align: baseline;
+}
+
+#Declutter table.form-table td.label-top,
+table.form-table td.label-top,
+#Declutter table.form-table .tall-element-label {
+  vertical-align: top;
+}
+
+/* radio-label is also used on checkbox labels.*/
+#Declutter table.form-table label.radio-label,
+table.form-table label.radio-label {
+  font-weight: normal;
+  margin-right: 0;
+}
+
+#Declutter table.form-table label.sub-label,
+table.form-table label.sub-label {
+  font-weight: normal;
+}
+
+#Declutter table.form-table div.field-value,
+table.form-table div.field-value {
+  margin-right: 0.175rem;
+  float: left;
+  padding-top: 0.1rem;
+}
+
+/* .label-adjacent-element: When a label/field pair are on the same line, put space between the pairs of fields.
+   Place this class on labels following the first label/field pair. */
+#Declutter table.form-table label.label-adjacent-element,
+table.form-table label.label-adjacent-element,
+.adjacent-element {
+  margin-left: 1rem;
+  padding: 0;
+}
+
+#Declutter table.form-table td div.form-subgroup {
+  margin-top: 0.4rem;
+  margin-left: 1rem;
+}
+
+#Declutter table.form-table td .row-spacer-lg {
+  margin-bottom: 1rem;
+}
+#Declutter table.form-table td.row-spacer {
+  padding-bottom: 0.5rem;
+}
+#Declutter table.form-table td .row-spacer {
+  margin-bottom: 0.5rem;
+}
+
+#Declutter .listnamehdr {
+  padding: 0.25rem;
+}
+
+#Declutter tr.listnamehdr > td,
+#Declutter > form > div,
+#Declutter h3 {
+  padding-left: 0.4rem;
+}
+
+#Declutter div.listnamehdr {
+  padding: 0.25rem;
+}
+
+#Declutter .listnamehdr-spacer {
+  margin-top: 20px;
+}
+
+#Declutter .sub-section {
+  margin-left: 2.2rem;
+}
+
+#Declutter table.sub-section {
+  /*tables have 2px border-spacing*/
+  margin-left: 2rem;
+}
+
+#Declutter span.info-badge {
+  display: inline-block;
+  font-size: 0.7rem;
+  margin-left: 1rem;
+  background: #808080;
+  color: white;
+  border-radius: 10px;
+  padding: 0.15rem 0.5rem;
+}
+
+#Declutter .but-expand-collapse.expand:after {
+  content: "Expand All";
+}
+
+#Declutter .but-expand-collapse i:before {
+  padding-right: 0.5em;
+}
+
+#Declutter .but-expand-collapse.expand i:before {
+  content: "\f0da";
+}
+
+#Declutter .but-expand-collapse.collapse:after {
+  content: "Collapse All";
+}
+
+#Declutter .but-expand-collapse.collapse i:before {
+  content: "\f0d7";
+}
+
+#Declutter .first-el-in-group {
+  margin-top: 0.7rem;
+}
+
+div.info-text,
+span.info-text {
+  font-weight: bold;
+  color: #0080c7;
+}
+
+.daysofweek {
+  border-spacing: 0 0;
+  border-style: none;
+}
+
+.daysofweek-row-head th {
+  width: 2.1em;
+}
+
+.email-row-spacer {
+  height: 16px;
+}
+
+.email-subject {
+  width: 806px;
+}
+
+/*Default TinyMCE status bar has 8px vertical padding. Knock it down a bit.*/
+.mce-statusbar div.mce-last {
+  padding: 2px 8px 2px 8px;
+}
+
+/*For field labels placed to the right of other elements.  Like cat1, cat2, cat3*/
+.label-adjacent-element {
+  padding-left: 8px;
+}
+
+/* Email Preview */
+#emailContents {
+  width: 50%;
+  margin: auto;
+  min-width: 800px;
+}
+
+.no-icon {
+  background-image: none !important;
+}
+
+.alert-box {
+  color: #555;
+  border-radius: 10px;
+  padding: 10px 10px 10px 36px;
+  margin: 10px;
+}
+
+.alert-box-tight {
+  color: #555;
+  border-radius: 10px;
+  padding: 10px 10px 10px 36px;
+}
+
+.alert-box.slim {
+  padding: 5px 5px 5px 36px;
+  background-position-y: 5px !important;
+}
+
+.alert-box span :not(#NewPortalPwd) {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+/* Why did we do the above? Now I need a class to not uppercase!!*/
+.alert-box span.normal-span :not(#NewPortalPwd) {
+  font-weight: inherit;
+  text-transform: inherit;
+}
+
+.alert-box.half-width {
+  min-width: 30rem;
+  width: 50%;
+}
+
+.alert-box-tight:before,
+.alert-box:before {
+  font-family: "Font Awesome 6 Pro";
+  font-weight: 900;
+  font-size: 18px;
+  vertical-align: -2px;
+  padding-right: 5px;
+  margin-left: -26px;
+}
+
+.error:not([disabled]):not(.disabled) {
+  background-color: #ffecec;
+  border: 1px solid #f5aca6;
+}
+.alert-box.error-small {
+  background-color: #ffecec;
+  border: 1px solid #f5aca6;
+}
+.alert-box.error:before,
+.alert-box-tight.error:before,
+.alert-box-tight.error-small:before,
+.alert-box.error-small:before {
+  content: "\f057";
+  color: #cd2027;
+}
+
+.error-exclamation {
+  background: #ffecec url("/assets/Content/images/red-icon-alert2-25x25.png")
+    no-repeat 5px 5px;
+  border: 1px solid #f5aca6;
+}
+
+input.error,
+select.error,
+textarea.error {
+  background-image: none;
+}
+input.warning,
+select.warning,
+textarea.warning {
+  background-image: none;
+}
+
+label.error {
+  display: block;
+  background: none;
+  border: none;
+  color: #cd2027;
+  font-weight: bold;
+}
+
+.success:not(.jr-react-simple-dialog) {
+  background-color: #e9ffd9;
+  border: 1px solid #a6ca8a;
+}
+.warning {
+  background-color: #fff8c4;
+  border: 1px solid #f2c779;
+}
+.alert-box.success:before,
+.alert-box.error:before,
+.alert-box.notice-large:before,
+.alert-box.warning:before {
+  font-size: 30px;
+  vertical-align: -6px;
+  margin-left: -37px;
+}
+.notice {
+  background-color: #e3f7fc;
+  border: 1px solid #8ed9f6;
+}
+.success-small {
+  background-color: #e9ffd9;
+  border: 1px solid #a6ca8a;
+}
+.alert-box.success:before,
+.alert-box-tight.success:before,
+.alert-box-tight.success-small:before,
+.alert-box.success-small:before {
+  content: "\f058";
+  color: green;
+}
+.warning-small {
+  background-color: #fff8c4;
+  border: 1px solid #f2c779;
+}
+.alert-box.warning:before,
+.alert-box-tight.warning:before,
+.alert-box-tight.warning-small:before,
+.alert-box.warning-small:before {
+  content: "\f071";
+  color: #f2994a;
+}
+.notice-small {
+  background-color: #e3f7fc;
+  border: 1px solid #8ed9f6;
+}
+.alert-box.notice-large:before,
+.alert-box-tight.notice-large:before,
+.alert-box-tight.notice-small:before,
+.alert-box.notice-small:before {
+  content: "\f05a";
+  color: #0080c7;
+}
+.notice-large {
+  background-color: #e3f7fc;
+  border: 1px solid #8ed9f6;
+  padding: 10px 10px 10px 50px;
+  margin: 10px 0;
+}
+.notice-header {
+  padding: 0px 5px !important;
+  margin: 0px !important;
+  position: relative;
+}
+
+.alert-box.notice-header:before {
+  position: absolute;
+  vertical-align: 0;
+  top: 10px;
+  left: 10px;
+  margin-left: 0;
+}
+.notice-header {
+  padding: 0px 5px !important;
+  margin: 0px !important;
+}
+
+.top {
+  vertical-align: top;
+}
+
+/*FLAT TABLE CSS. FOUND ONLINE. JUST USING AS A PLACE HOLDER. COULD BE EXPANDED ON AS WELL.*/
+.flat-table {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  border: none;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+}
+.flat-table th,
+.flat-table td {
+  box-shadow: inset 0 -1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(0, 0, 0, 0.25);
+}
+.flat-table th {
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  padding: 10px;
+  color: #336ca6;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+}
+.flat-table td {
+  color: #231f20;
+  padding: 5px;
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+}
+.flat-table tr {
+  -webkit-transition: background 0.3s, box-shadow 0.3s;
+  -moz-transition: background 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+.flat-table-1 {
+  background: #efefef;
+}
+.flat-table-1 tr:hover {
+  background: rgba(0, 0, 0, 0.19);
+}
+.flat-table-2 tr:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+.flat-table-2 {
+  background: #f06060;
+}
+.flat-table-3 {
+  background: #52be7f;
+}
+.flat-table-3 tr:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* basic text tables */
+table.plainText tbody tr td,
+table.plainText thead tr th {
+  padding: 0.1em 0.15em;
+}
+
+table.inline {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.inherit-font {
+  font: inherit;
+  font-size: inherit;
+}
+
+.centertext {
+  text-align: center;
+}
+
+.centered,
+.ui-jqgrid tr.footrow-ltr td.centered,
+.ui-jqgrid .ui-jqgrid-bdiv tr.ui-row-ltr > td.centered {
+  text-align: center;
+}
+
+.align-right,
+.ui-jqgrid tr.footrow-ltr td.align-right,
+.ui-jqgrid .ui-jqgrid-bdiv tr.ui-row-ltr > td.align-right {
+  text-align: right;
+}
+
+.align-left,
+.ui-jqgrid tr.footrow-ltr td.align-left,
+.ui-jqgrid .ui-jqgrid-bdiv tr.ui-row-ltr > td.align-left {
+  text-align: left;
+}
+
+/* Pager */
+.pager {
+  margin: 8px 3px;
+  padding: 0.3em;
+}
+
+.pager .disabled {
+  border: 1px solid #ddd;
+  color: #999;
+  margin-top: 4px;
+  padding: 3px;
+  text-align: center;
+}
+
+.pager .current {
+  background-color: #1998d5;
+  border: 1px solid #009;
+  color: #ffffff;
+  font-weight: bold;
+  margin-top: 4px;
+  padding: 3px 5px;
+  text-align: center;
+}
+
+.pager span,
+.pager a {
+  margin: 4px 3px;
+}
+
+.pager a {
+  border: 1px solid #c0c0c0;
+  padding: 3px 5px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Clock Styles */
+.Check-in-out-table {
+  font-size: 20px;
+}
+
+.Check-in-out-table button {
+  height: 50px;
+  width: 100px;
+  font-size: 14px;
+  display: block;
+  border: 1px solid;
+  border-color: #aaa #231f20 #231f20 #aaa;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2em;
+}
+
+.Check-in-out-table button:hover {
+  position: relative;
+  top: 1px;
+  left: 1px;
+  border-color: #231f20 #aaa #aaa #231f20;
+}
+
+@media not screen and (min-width: 768px) and (max-width: 1024px) {
+  #keypad button {
+    height: 100px;
+    font-size: 25px;
+    display: block;
+    border: 1px solid;
+    border-color: #aaa #231f20 #231f20 #aaa;
+    width: 200px;
+    text-decoration: none;
+    text-align: center;
+    line-height: 2em;
+  }
+}
+@media not screen and (min-width: 768px) and (max-width: 1024px) {
+  #keypad button:hover {
+    position: relative;
+    top: 1px;
+    left: 1px;
+    border-color: #000 #aaa #aaa #000;
+  }
+}
+
+.button-size {
+  font-size: 60px;
+}
+.yellow-button {
+  height: 50px;
+  font-size: 15px;
+  display: block;
+  border: 1px solid;
+  border-color: #aaa #231f20 #231f20 #aaa;
+  width: 150px;
+  text-decoration: none;
+  text-align: center;
+  line-height: 2em;
+  float: right;
+  margin-left: 5px;
+}
+
+.yellow-button:hover {
+  position: relative;
+  top: 1px;
+  left: 1px;
+  border-color: #231f20 #aaa #aaa #231f20;
+}
+
+.highlightGray {
+  background-color: #808080;
+  color: White;
+}
+
+#check-in-out-container {
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 100px;
+}
+
+#check-in-container {
+  width: 100%;
+  font-size: 14px;
+  background-color: #ffffff;
+  margin-bottom: -50px;
+  clear: both;
+}
+
+#check-in-container legend {
+  font-size: 20px;
+}
+
+#check-out-container legend {
+  font-size: 20px;
+}
+
+#check-out-container {
+  width: 100%;
+  font-size: 14px;
+  background-color: #ffffff;
+}
+
+.confirmation-container {
+  margin-left: 25%;
+  margin-right: 25%;
+  margin-top: 200px;
+}
+
+#family-msg {
+  font-size: 16px;
+  color: #cd2027;
+}
+#family-bal {
+  font-size: 14px;
+  width: 200px;
+  color: #231f20;
+  padding-top: 22px;
+}
+
+.hidden-warning {
+  color: #cd2027;
+  display: none;
+}
+
+#fsos {
+  color: #cd2027;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Buttons---------------------------------------------------------------------*/
+.btn-inline {
+  display: inline-block !important;
+}
+
+/* Time card */
+#timecard {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0em;
+}
+#timecard td {
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.timecard-head {
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+  border-color: #8f959f;
+  border-style: solid;
+  border-width: 0 1px;
+  padding-right: 14px;
+  text-align: center;
+}
+
+.timecard-head h2 {
+  color: #231f20;
+  font-size: 10pt;
+  font-weight: bold;
+  line-height: 10pt;
+  margin: 0;
+  padding: 4px 0 0 10px;
+}
+
+.timecard-body {
+  border: 1px solid #ded7d9;
+  color: #231f20;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 18px;
+  text-align: center;
+}
+
+.timecard-body input {
+  width: 50px;
+  height: 20px;
+  text-align: center;
+}
+
+.timecard-body-3 {
+  background-color: #e7f9c9;
+  border-bottom: 1px solid #e7ffc9;
+}
+.timecard-total-row {
+  background-color: #dcdede;
+}
+#timeclock-tabs {
+  margin-right: 5px;
+}
+
+#timeclockNavContainer {
+  background-color: #dcdede;
+  padding-bottom: 0.59em;
+}
+
+#timeclock-tabs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 17px;
+}
+#timeclock-tabs li {
+  display: inline;
+  border: none;
+  margin: 0;
+}
+#timeclock-tabs li a {
+  padding: 0.5em 2em;
+  text-decoration: none;
+  font-weight: bold;
+  height: 2em;
+  color: #231f20;
+}
+
+.timeclock-news-section {
+  background: #ffffff;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #bcbcc9;
+}
+
+/* message boxes */
+div.info,
+div.success:not(.jr-react-simple-dialog),
+div.warning,
+div.white-warning,
+div.error,
+div.validation {
+  border: 1px solid;
+  margin: 10px 0px;
+  padding: 10px 10px 10px 50px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+div.info {
+  color: #00529b;
+  background-color: #bde5f8;
+  background-repeat: no-repeat;
+}
+div.success:not(.jr-kendo-bootstrap-dialog) {
+  color: #4f8a10;
+  background-color: #dff2bf;
+  background-repeat: no-repeat;
+}
+div.warning {
+  color: #9f6000;
+  background-color: #feefb3;
+  background-repeat: no-repeat;
+}
+div.white-warning {
+  color: #cd2027;
+  background-color: #ffffff;
+  background-image: url("/assets/Content/images/attentionsmaller.png");
+  background-repeat: no-repeat;
+}
+div.error {
+  color: #d8000c;
+  background-color: #ffecec;
+  background-repeat: no-repeat;
+}
+
+/*Special input error/valid stuff*/
+input.error:not([disabled]):not(.disabled),
+select.error:not([disabled]):not(.disabled),
+textarea.error:not([disabled], .disabled) {
+  background-color: #ffecec !important;
+  border-color: #f5aca6 !important;
+  background-image: none;
+}
+
+/*highlight bg yellow*/
+.bgYellow {
+  background-color: #ffffcc !important;
+}
+
+/*highlight bg ping*/
+.bgPink {
+  background-color: #ffcccc !important;
+}
+
+/*highlight bg red*/
+.bgRed {
+  background-color: #ff9999 !important;
+}
+.bgBlack {
+  background-color: #000;
+}
+.bgRedRed {
+  background-color: #cd2027;
+}
+.bgGreen {
+  background-color: #488801;
+}
+.bgLightGrey {
+  background-color: #d3d3d3;
+}
+.bgWhite {
+  background-color: #ffffff;
+}
+
+/*DataTable Overrides */
+.dataTables_filter {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+}
+
+.dataTables_info {
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+}
+
+/* crossbrowser centering */
+.centered {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* get rid of margins
+(good for removing the top-bottom margins browsers place on form tags)*/
+.form-margins {
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+/*Make a Sale css */
+.add-span {
+  /* padding-left: 1px; */
+}
+
+#pcent {
+  width: 256px;
+}
+
+.yellow {
+  background-color: #ffff99;
+  padding: 0;
+  border: solid #ffffcc 1px;
+}
+
+.yellow input#ItemNumber {
+  background-color: #ffff99;
+}
+
+.white {
+  background-color: white;
+  border: solid 1px white;
+}
+
+.grey input#ItemNumber {
+  background-color: white;
+}
+
+.grey {
+  background-color: #ebebeb;
+  border: solid 1px #ebebeb;
+}
+
+.grey input#ItemNumber {
+  background-color: #ebebeb;
+}
+
+.left {
+  float: left;
+}
+
+.r-margin {
+  padding: 0 0 0 0;
+}
+
+.right {
+  float: right;
+}
+
+fieldset {
+  border-radius: 4px;
+}
+
+/*reduce header margins directly under fieldsets*/
+fieldset > h1,
+fieldset > h2,
+fieldset > h3,
+fieldset > h4,
+fieldset > h5,
+fieldset > h6 {
+  margin-top: 0.375em;
+}
+
+#sale-container {
+  margin-top: 2px;
+  margin-bottom: 0px;
+  margin-left: 1em;
+  margin-right: 1em;
+  -moz-border-radius: 5px;
+  border-radius: 15px;
+  height: inherit;
+  background-color: #f6f6f6;
+  width: 940px;
+  border: 1px solid #e8e8e8;
+}
+
+#hor-minimalist-b tr.item-row:last-child .delete-btn {
+  display: none;
+}
+
+#other-fee-table tr.item-row:last-child .delete-btn {
+  display: none;
+}
+
+#top-wrapper {
+  width: 940px;
+  margin-bottom: -10px;
+}
+
+#left-side {
+  float: left;
+  width: 526px;
+}
+
+#sale-container fieldset legend {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 3px;
+}
+
+#account-details {
+  height: 163px;
+  margin-left: 20px;
+  margin-top: 10px;
+  width: 424px;
+}
+
+#account-details table tr:first-child td {
+  padding-bottom: 0px;
+}
+
+#account-details table tr td {
+  padding-bottom: 12px;
+}
+
+#account-details table tr td.address {
+  padding-bottom: 0;
+}
+
+#account-details table tr td.city {
+  height: 15px;
+}
+
+#sale-details {
+  margin-top: 10px;
+}
+
+#sale-details fieldset {
+  width: 874px;
+  margin-left: 20px;
+}
+
+#sale-summary {
+  padding-top: 1px;
+}
+
+#sale-summary-fieldset {
+  height: 163px;
+  margin-top: 9px;
+  width: 367px;
+}
+#sale-summary tr {
+  height: 22px;
+}
+
+#sale-summary fieldset legend {
+  font-weight: bold;
+  font-size: 16px;
+  margin-top: 3px;
+  margin-left: 8px;
+}
+
+.btn-row {
+  background-color: gainsboro;
+  border: none;
+}
+
+#post-other-fee-btn-div {
+  margin-left: 20px;
+}
+
+#other-fee-container {
+  margin: 15px 40px 0 20px;
+  width: 900px;
+}
+
+#other-fee-tax-cell,
+#end-amount-cell {
+  white-space: nowrap;
+}
+
+#other-fee-table {
+  width: 870px;
+}
+
+#hor-minimalist-b {
+  width: 870px;
+}
+
+#total-amount {
+  font-size: 14px;
+}
+
+#trans-hist-link-div {
+  margin-top: 10px;
+  white-space: nowrap;
+}
+
+#trans-hist-link-div a {
+  color: #2d69ac;
+  text-decoration: none;
+}
+
+#trans-hist-link-div a:hover {
+  text-shadow: 0 0 20px #4783f3;
+}
+
+.btn-size {
+  margin-right: 4px;
+  padding: 3px 1px 2px 3px;
+}
+
+#tdFamName {
+  font-size: 16px;
+  color: #2d69ac;
+  font-weight: bold;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+.align-left {
+  text-align: left;
+}
+.align-right {
+  text-align: right;
+}
+.align-center {
+  text-align: center;
+}
+
+.vert-middle {
+  vertical-align: middle;
+}
+
+.vert-top {
+  vertical-align: top !important;
+}
+.vert-bottom {
+  vertical-align: bottom;
+}
+.item-row {
+  vertical-align: middle;
+}
+
+#hor-minimalist-b .item-row td,
+#ItemNumber .item-row td {
+  vertical-align: middle;
+}
+
+.push {
+  clear: both;
+}
+
+.jq_watermark {
+  font-weight: bold;
+  color: #6c6969;
+}
+
+.jq_watermark:focus {
+  background: none;
+  color: #231f20;
+}
+
+.table-grid {
+  font-size: 11px;
+  background: #ffffff;
+  margin: 2px 2px 4px 2px;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: left;
+  border: 1px solid #808080;
+}
+
+.table-grid td {
+  color: #2d69ac;
+  font-size: 13px;
+  font-weight: normal;
+  padding: 2px 2px 2px 4px;
+}
+
+.table-grid .th {
+  border-bottom: 2px solid #2d69ac;
+  color: #2d69ac;
+  font-size: 13px;
+  font-weight: normal;
+  padding: 2px 6px 0 5px;
+  vertical-align: middle;
+}
+
+.table-grid tr:hover td {
+  color: #009;
+}
+
+.item-num-toggle {
+  border: none;
+  background-color: white;
+  color: #231f20;
+}
+
+.FinalAmount {
+  padding: 0 1px 0 1px;
+  text-align: right;
+  font-size: 14px;
+}
+
+.TransAmount {
+  padding: 0 1px 0 1px;
+  text-align: right;
+  font-size: 14px;
+}
+
+.border-right {
+  border-right: #808080 solid 1px;
+}
+
+#lblQtyOnHand {
+  width: 25px;
+  text-align: center;
+}
+
+.disabled {
+  background-color: #ccc;
+}
+
+.delete-btn:hover {
+  cursor: pointer;
+}
+
+.adj {
+  margin-left: 13px;
+  margin-top: 3px;
+}
+
+.delete-btn {
+}
+
+#sale-container select {
+  width: 10em;
+}
+
+#sale-container #other-fee-table select#Student,
+#sale-container #other-fee-table select#Class {
+  width: 15em;
+}
+
+#sale-container select#TransType,
+#sale-container select#TransCat1,
+#sale-container select#TransClassSession {
+  width: 14em;
+}
+
+#sale-container input,
+#sale-container select,
+#sale-container textarea {
+  font-size: 8pt;
+}
+
+#Qty {
+  width: 2em;
+}
+
+#ListStoresJQGrid tr.ui-state-hover {
+  background: url("/assets/Content/themes/custom/Spring2014/images/ui-bg_flat_0_ffffff_40x100.png")
+    repeat-x scroll 50% 50% #ffff88;
+  border: 1px solid #aaaaaa;
+  color: #231f20;
+}
+
+div#ListStoresJQGrid_toppager.ui-state-default,
+div#ListStoresJQGrid_pager.ui-state-default {
+  height: 26px !important;
+}
+
+.right-pad {
+  padding-right: 1em;
+}
+
+.right-pad-seven {
+  padding-right: 7em;
+}
+#ListStoresJQGrid_pager_center,
+#ListStoresJQGrid_toppager_center {
+  /*vertical-align:top !important; */
+}
+
+#tdAddress1,
+#tdCityStateZip,
+#tdAddress2 {
+  font-size: 8pt;
+}
+
+/*End Make a Sale css*/
+
+table #FutureDetails {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #666666;
+  border-collapse: collapse;
+  background-color: #ffffff;
+}
+
+#FutureDetails td {
+  border: 1px solid #666666;
+  text-align: center;
+}
+
+#FutureDetails th {
+  border: 1px solid #666666;
+  border: 1px solid #666666;
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+  color: #231f20;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  width: 16%;
+}
+
+#divlistvals {
+  border: 1px solid black;
+  width: 98%;
+  height: 450px;
+  overflow: scroll;
+  padding: 2px;
+}
+
+.nt {
+  font-size: 8pt;
+  font-weight: normal;
+}
+
+.pgbtns {
+  font-size: 9pt;
+  padding: 3px 8px;
+}
+
+.modalButtons {
+  font-size: 10pt;
+  padding: 3px 8px;
+  margin: 5px;
+}
+table.data input {
+  font-size: 8pt;
+}
+tbody.data td.bl {
+  font-weight: bold;
+  color: #0033ff;
+}
+tbody.data td {
+  vertical-align: top;
+}
+
+.hidden {
+  display: none;
+}
+tbody.data td img {
+  position: relative;
+}
+
+/*Seldom used classes*/
+.pink-row {
+  background-color: pink;
+  background: pink;
+}
+
+div.SectionTable {
+  border: 1px solid #eaeaea;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+}
+.isFutureDrop {
+  font-size: 9px;
+  font-weight: bold;
+  color: red;
+}
+.err {
+  font-weight: bold;
+  color: #cd2027;
+}
+.errBg {
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #cd2027;
+}
+.problemAccount {
+  background-color: #cd2027;
+  color: #ffffff;
+}
+.legendbox {
+  display: inline;
+  width: 20px;
+  height: 20px;
+}
+.bal {
+  color: #cd2027;
+}
+.birthdayColor,
+.order-class-row,
+.batchv2-row,
+.yellow-row-blue-text {
+  background-color: #ffff99;
+  color: #1998d5;
+}
+.c {
+  text-align: center;
+}
+.m {
+  vertical-align: middle;
+}
+.bg2white {
+  background-color: White;
+}
+.grey {
+  color: #808080;
+  font-weight: normal;
+}
+#tblPage table td {
+  width: auto !important;
+}
+tr.email-row:hover {
+  background: white;
+  color: #4a7ac9;
+}
+tr.email-row.selected {
+  background: white;
+  color: #4a7ac9;
+}
+.refundR {
+  font-weight: 700;
+  color: #1998d5 !important;
+  font-size: 22px;
+  text-decoration: none !important;
+}
+.bold-blue {
+  font-weight: bold;
+  color: #1998d5;
+}
+.conflict {
+  background-color: #ffecec;
+  border: 1px solid #f5aca6;
+}
+.ErrorMsg {
+  font: 12pt verdana;
+  font-weight: 500;
+  color: #cd2027;
+}
+.CompensationBaseRateStyle {
+  background-color: #ffff99;
+}
+.TimeCardIsApprovedStyle {
+  background-color: #ffff99 !important;
+}
+.TimeCardIsSplitStyle,
+.PinNumber {
+  background-color: #e1ceab !important;
+}
+.TimeCardIsTotalTimeAdjustedStyle {
+  color: #cd2027 !important;
+}
+.error-hl {
+  background-color: #ff0000;
+  color: white;
+}
+#afterGridTitleMsg {
+  text-align: center;
+}
+.style_UnpaidAmt {
+  background-color: #99ff99;
+}
+.weekday {
+  background: #ffffcc;
+}
+.weekend {
+  background: #ddffff;
+}
+span.bl {
+  color: #0033ff;
+}
+.ui-widget-content .ui-state-highlight {
+  border: none;
+  border-color: #aaa;
+  background: none;
+  color: #231f20;
+}
+.classname {
+  width: 95%;
+}
+div.bar {
+  height: 12px;
+  border: 1px black solid;
+  overflow: hidden;
+}
+div.bar span {
+  margin: 0;
+  height: 12px;
+  background-color: #1998d5;
+}
+div.bar span img {
+  height: 12px;
+}
+.actTbl {
+  width: 100%;
+  border: 1px solid #808080;
+  border-spacing: 0px;
+  border-collapse: separate;
+}
+.actTd {
+  height: 20px;
+  vertical-align: middle;
+  text-align: left;
+  border: 1px inset threedshadow;
+  background-color: #f6f6f6;
+}
+.actTdImg {
+  height: 17px;
+  width: 13px;
+  vertical-align: middle;
+  text-align: left;
+  border: 1px inset threedshadow;
+  background-color: #f6f6f6;
+}
+/* Used on timeclock pages*/
+#container {
+  margin-top: 20px;
+  margin-left: 5px;
+  min-width: 980px;
+}
+
+#timeclock-menu {
+  height: 50px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+#news-container {
+  margin-top: 10px;
+  width: 750px;
+}
+
+#detail-container {
+  padding: 5px 5px 5px 5px;
+  min-height: 350px;
+  margin-right: 5px;
+  min-width: 980px;
+  background-color: #f6f6f6;
+}
+
+.forms li {
+  position: relative;
+}
+.show-password-link {
+  display: block;
+  font-size: 10px;
+  padding-bottom: 5px;
+}
+.password-showing {
+  width: 300px;
+  font-size: 16px;
+}
+.pickLocation-btn {
+  height: 50px;
+  width: 200px;
+  font-size: 15px;
+  display: block;
+  border: 1px solid;
+  border-color: #aaa #231f20 #231f20 #aaa;
+}
+
+.pickLocation-btn:hover {
+  position: relative;
+  top: 1px;
+  left: 1px;
+  border-color: #231f20 #aaa #aaa #231f20;
+}
+#pickclass-btn {
+  height: 50px;
+  width: 200px;
+  font-size: 15px;
+  display: block;
+  border: 1px solid;
+  border-color: #aaa #231f20 #231f20 #aaa;
+}
+
+#pickclass-btn:hover {
+  position: relative;
+  top: 1px;
+  left: 1px;
+  border-color: #231f20 #aaa #aaa #231f20;
+}
+
+#javascript_countdown_time {
+  font-weight: bold;
+  font-size: 14px;
+}
+#status {
+  font-size: 10px;
+  color: #cd2027;
+}
+.highlight {
+  background-color: #ffffcc;
+  font-size: 20px;
+}
+
+#timecard input,
+#timecard select {
+  font-size: 10pt;
+  min-width: 70px;
+}
+
+.time-readonly {
+  border: none;
+  background-color: #f4f4f4;
+}
+
+#timecard tr {
+  height: 45px;
+}
+#timecard tr.header-row {
+  height: 25px;
+}
+#timeclock-getting-started ol.outer {
+  margin-top: 0.2em;
+}
+
+#timeclock-getting-started ol.outer li {
+  margin-bottom: 0.8em;
+}
+#timeclock-getting-started ol.inner {
+  counter-reset: item;
+  list-style-type: none;
+}
+#timeclock-getting-started ol.inner li {
+  display: block;
+}
+#timeclock-getting-started ol.inner li:before {
+  content: none;
+}
+.timeclock-modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.8) url("http://i.stack.imgur.com/FhHRx.gif")
+    50% 50% no-repeat;
+}
+body.loading {
+  overflow: hidden;
+}
+body.loading .timeclock-modal {
+  display: block;
+}
+
+.timeclock-button-alert {
+  border: solid red 2px;
+}
+
+/* Student Pages */
+tbody tr.hl {
+  background: #ffffcc;
+}
+
+/* /Store/ Pages */
+#receipt-table {
+  border-collapse: collapse;
+  border-bottom: 2px solid #231f20;
+  border-top: 2px solid #231f20;
+  border-right: 2px solid #231f20;
+  width: 100%;
+}
+
+#receipt-table thead tr,
+.bgGrey {
+  background-color: #ccc;
+}
+
+#receipt-table td {
+  border-left: 2px solid #231f20;
+  padding: 0.5em;
+}
+#receipt-table th {
+  border-left: 2px solid #231f20;
+  font-weight: bold;
+}
+.total {
+  float: right;
+}
+.even {
+  background-color: #ebebeb;
+}
+.bgGray {
+  background-color: #d8d8d8;
+}
+.autocompleteGray {
+  color: #7d7d7d !important;
+}
+.borderRed {
+  border: 1px solid #cd2027;
+}
+.borderBlue {
+  border: 1px solid #1998d5;
+}
+
+div #divFeeBoxes {
+  border: 1px solid black;
+  max-height: 90%;
+  height: 105px;
+  width: 97%;
+  position: relative;
+  overflow: auto;
+}
+#fname-id {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+#fname-name {
+  float: left;
+  height: 32px;
+  width: 32px;
+}
+#fname-billingcontact {
+  float: left;
+  height: 32px;
+  width: 32px;
+}
+#fname-addr1 {
+  float: left;
+  height: 32px;
+  width: 32px;
+}
+.no-close .ui-dialog-titlebar-close {
+  display: none;
+}
+input[type="checkbox"]:not(.PrivateSwitchBase-input) {
+  vertical-align: middle;
+  position: relative;
+  bottom: 1px;
+} 
+
+/* Style for /Report/ Pages */
+body.purchase-order {
+  margin: 10px;
+}
+
+#mainTable td.headerRow {
+  height: 47px;
+  background-color: #4a7ac9;
+  font-size: 18pt;
+  font-weight: bold;
+  color: White;
+  vertical-align: middle;
+}
+
+#mainTable td.subHeadings {
+  background-color: #4a7ac9;
+  font-size: 14pt;
+  font-weight: bold;
+  color: White;
+  width: 400px;
+}
+
+#mainTable td.midSeperator {
+  width: 100px;
+}
+
+#mainTable {
+  width: 900px;
+  border: 1px solid #666666;
+  border-collapse: none;
+}
+
+#mainTable td.details {
+  font-size: 11px;
+  width: 200px;
+}
+
+#mainTable td.lbl {
+  width: 100px;
+}
+
+table #shippingDetails th.shippingfield {
+  width: 300px;
+  background-color: #4a7ac9;
+  color: White;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+table #shippingDetails,
+#OrderItems {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #666666;
+  border-collapse: collapse;
+}
+
+#shippingDetails td {
+  border: 1px solid #666666;
+}
+
+#OrderItems td {
+  border: 1px solid #666666;
+}
+
+#OrderItems th {
+  border: 1px solid #666666;
+  border: 1px solid #666666;
+  background-color: #4a7ac9;
+  color: White;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+#shippingDetails th {
+  border: 1px solid #666666;
+  border: 1px solid #666666;
+  background-color: #4a7ac9;
+  color: White;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Order Lines */
+#OrderItems #ItemNum {
+  width: 150px;
+}
+#OrderItems #ItemName {
+  width: 200px;
+}
+#OrderItems #Style {
+  width: 100px;
+}
+#OrderItems #Color {
+  width: 100px;
+}
+#OrderItems #Qty {
+  width: 25px;
+}
+#OrderItems #Size {
+  width: 175px;
+}
+#OrderItems #ListPrice {
+  width: 75px;
+}
+#OrderItems #Total {
+  width: 75px;
+}
+
+#OrderItems td.totalLine {
+  text-align: right;
+  font-size: 11px;
+}
+#OrderItems td.money {
+  text-align: right;
+  font-size: 9pt;
+}
+
+#OrderItems #notes {
+  font-size: 13px;
+  vertical-align: top;
+}
+
+#OrderItems tr.lineItems {
+  font-size: 9pt;
+}
+.group {
+  background-color: #e8e8e8;
+  font-weight: bold;
+  color: #333;
+}
+.bl,
+.fontblue {
+  color: #0080c7 !important;
+}
+.fontred {
+  color: #cd2027 !important;
+}
+.fontblack {
+  color: #231f20 !important;
+}
+.fontwhite {
+  color: white !important;
+}
+.fontyellow {
+  color: #faec22;
+}
+.fontgreen {
+  color: #488801;
+}
+.fontgrey {
+  color: #808080;
+}
+.fontorange {
+  color: #ff9802 !important;
+}
+.red,
+.jqgrow.ui-row-ltr.red,
+.jqgrow.ui-row-ltr.ui-priority-secondary.red {
+  background-color: #cd2027;
+  color: white;
+}
+.red a,
+.jqgrow.ui-row-ltr.red a,
+.jqgrow.ui-row-ltr.ui-priority-secondary.red a {
+  color: white;
+}
+
+.jqgrow.ui-row-ltr.ui-priority-secondary.red.ui-state-highlight,
+.jqgrow.ui-row-ltr.ui-priority-secondary.red.ui-state-highlight a,
+.jqgrow.ui-row-ltr.red.ui-state-highlight,
+.jqgrow.ui-row-ltr.red.ui-state-highlight a {
+  color: #231f20;
+}
+
+.pad-top-25 {
+  padding-top: 25px !important;
+}
+.pad-bottom-25 {
+  padding-bottom: 25px !important;
+}
+.marg-left {
+  margin-left: 10px;
+}
+.marg-left-5 {
+  margin-left: 5px;
+}
+.marg-right {
+  margin-right: 10px;
+}
+.marg-top {
+  margin-top: 10px;
+}
+
+.marg-top-5 {
+  margin-top: 5px;
+}
+
+.marg-top-20 {
+  margin-top: 20px;
+}
+
+.marg-top-50 {
+  margin-top: 50px;
+}
+
+.marg-bottom {
+  margin-bottom: 10px;
+}
+
+.marg-bottom-20 {
+  margin-bottom: 20px;
+}
+tr.no-menu-wrapper {
+  background-color: #1998d5;
+  color: white;
+  font-size: 16px;
+}
+td.no-menu-empty {
+  color: white;
+}
+/* Used on the saved search template pages (typically implemented by Advanced Searches) */
+.SearchTemplateYellowBG {
+  background-color: rgba(255, 255, 0, 0.2) !important;
+}
+.YellowBG {
+  background-color: rgba(255, 255, 0, 0.2);
+}
+.TanBG {
+  background-color: #ffd0a7;
+}
+.SearchTemplateRedBG {
+  background-color: #ff9999;
+}
+.SearchTemplateYellowOutline {
+  outline: #ffffcc solid 4px;
+}
+#listitem td {
+  color: #231f20;
+}
+#listitem td:hover {
+  color: #0080c7;
+}
+.password {
+  font-size: 12px;
+  border: 1px solid #cc9933;
+  width: 120px;
+  font-family: arial, sans-serif;
+}
+.pstrength-minchar {
+  font-size: 10px;
+}
+
+#divMain {
+  margin-bottom: 5px;
+}
+
+.divMain-with-margin {
+  margin-left: 1px;
+}
+
+.divMain-full-width {
+  margin-bottom: 5px;
+  padding: 0.5rem 1rem;
+}
+
+/* main containers that are properly sized / centered. */
+/* better for criteria screens or screens with smaller amounts of content */
+.divMain-960px-center {
+  width: 960px;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+.divMain-1280px-center {
+  width: 1280px;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+table.form {
+  border-collapse: collapse;
+}
+
+table.form thead tr th {
+  padding: 0.15em 0.2em;
+}
+
+table.form tbody tr td {
+  padding: 0.1em 0.15em;
+}
+
+.divMain-grey {
+  background-color: #ffffff;
+}
+.approve-time-prior {
+  background-color: #ffff99 !important;
+  background: #ffff99 !important;
+}
+.approve-time-split {
+  background-color: #e1ceab !important;
+  background: #e1ceab !important;
+}
+.approve-time-overscheduled,
+.card-acct-alert {
+  background-color: #ff9999 !important;
+  background: #ff9999 !important;
+}
+.edit-all-classes-tip,
+.dark-blue-tip,
+.Font002d96 {
+  color: #0080c7;
+}
+.dark-blue-tip-italic {
+  /*no italics for Spring 2014 look*/
+}
+.edit-all-classes-master {
+  background: #ffff99 !important;
+  background-color: #ffff99 !important;
+}
+.i {
+  font-style: italic;
+}
+.WhiteBG {
+  background-color: white !important;
+}
+.medical-info-hl {
+  background-color: #cd2027 !important;
+  background: #cd2027;
+}
+.medical-info-hl a {
+  color: #ffffff !important;
+}
+.class-enroll-post-fees {
+  background-color: #fffebf;
+}
+#MasterClassPerDayClassOpeningsTable thead {
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+  border: 0;
+}
+
+table#tblMain.tableCollapsed > tbody > tr > td.action-button-row {
+  height: 30px;
+  padding-top: 3px;
+}
+
+.action-button-row,
+#divTabRow {
+  background-color: #dcdede;
+}
+
+a {
+  color: #094fa3;
+  cursor: pointer;
+}
+a:hover:not([role="button"], .k-link) {
+  color: #0080c7;
+}
+a:visited:not([role="button"], .k-link) {
+  color: #660066;
+}
+
+.dialogButtons {
+  border-right: #666666 1px solid;
+  border-top: #ffffff 1px solid;
+  font-weight: bold;
+  font-size: 10px;
+  vertical-align: middle;
+  border-left: #ffffff 1px solid;
+  width: 85px;
+  border-bottom: #666666 1px solid;
+  height: 20px;
+  background-color: #cccccc;
+  text-align: center;
+}
+
+button.okCancel {
+  width: 20%;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.jrDialog .ui-dialog-titlebar {
+  background: #1998d5;
+}
+.jrDialog .ui-dialog-title {
+  text-align: center;
+  font-family: "Lato", Arial, sans-serif;
+  font-size: 12pt;
+  font-weight: bold;
+}
+.jrDialog .ui-widget-header {
+  border: none;
+}
+
+.ui-draggable .modal-window-draggable {
+  cursor: move;
+}
+.modal-window-content {
+}
+
+.LightGreyBG {
+  background-color: #f6f6f6 !important;
+}
+
+td.MonthlyCal_DayOfWeek {
+  border-left: 0px none;
+  border-color: #8f959f;
+  padding: 5px 0px;
+  border: 1pt solid #ebebeb;
+  font-weight: bold;
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+}
+
+td.Month a {
+  color: #0080c7;
+}
+td.Month {
+  border-left: 0px none;
+  border-color: #8f959f;
+  padding: 5px 0px;
+  font-weight: bold;
+  background: #a5aab3; /* Old browsers */
+  background: -moz-linear-gradient(top, #ededed 0%, #bbbbbb 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #ededed),
+    color-stop(100%, #bbbbbb)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #ededed 0%,
+    #bbbbbb 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #ededed 0%,
+    #bbbbbb 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ededed 0%, #bbbbbb 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #ededed 0%, #bbbbbb 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#bbbbbb',GradientType=0 ); /* IE6-9 */
+}
+
+table.MonthlyCal {
+  border: 1pt solid #ebebeb;
+}
+
+table.MonthlyCal a.Navlink {
+  line-height: 98%;
+  font-weight: normal;
+  font-size: 8pt;
+  color: #231f20;
+  text-decoration: none;
+}
+table.MonthlyCal a.Navlink:hover {
+  text-decoration: underline;
+}
+td.MonthlyCal_NotInMonth {
+  background-color: #dddddd;
+  border: 1pt solid #ebebeb;
+}
+td.MonthlyCal_InMonth {
+  background-color: #ffffff;
+  border: 1pt solid #ebebeb;
+  vertical-align: top;
+}
+td.MonthlyCal_Today {
+  background-color: #ffffcc;
+  height: 16px;
+  border: 1pt solid #ebebeb;
+}
+#lblEvent.smalltext {
+  font-size: 9pt;
+}
+.org-cal-linkText {
+  font-size: 9pt;
+}
+
+/* Dashboard Styles */
+TR.ms-banner TD {
+  font-size: 11pt;
+  vertical-align: middle;
+}
+.padr {
+  padding-right: 20px;
+}
+.padr-30 {
+  padding-right: 30px;
+}
+.padr-50 {
+  padding-right: 50px;
+}
+.padr-100 {
+  padding-right: 100px;
+}
+.padl {
+  padding-left: 20px;
+}
+.padl-50 {
+  padding-left: 50px;
+}
+.mr {
+  margin-right: 20px;
+}
+.ml {
+  margin-left: 20px;
+}
+#PageHdrName {
+  font-size: 18pt;
+  font-weight: bold;
+}
+#divlogo {
+  width: 260px;
+  overflow: hidden;
+}
+#divlogo img {
+  margin-left: 1px;
+  border-style: none;
+}
+
+.Task_ColHeader {
+  font-weight: bold;
+  padding: 0px 10px;
+}
+.boxlabel {
+  width: 100%;
+  border-color: #8f959f;
+  padding: 5px 0px;
+  border: 1pt solid #bababa;
+  font-weight: bold;
+  font-size: 10pt;
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+}
+.boxlabel a,
+#dashb-viewcomplete {
+  font-size: 9pt;
+}
+
+.OddRow {
+  background-color: #dcdede;
+  border: 1px solid #bcbcc9;
+}
+.EvenRow {
+  background-color: #ffffff;
+  border: 1px solid #bcbcc9;
+}
+.boxlabel2 {
+  height: 18px;
+  text-align: center;
+  background: #4a7ac9;
+  color: #ffffff;
+  font-size: 10pt;
+  font-weight: bold;
+  border: 1px solid #000;
+  border: 1px 1px 1px 1px solid black;
+  border-bottom: 0px;
+}
+.dashbox {
+  width: 100%;
+  overflow: auto;
+  border-left: 1px solid #bababa;
+  border-right: 1px solid #bababa;
+  border-bottom: 1px solid #bababa;
+  border-top: 0px;
+}
+img.col {
+  background-image: url("/assets/Content/images/Spring2014/ns-collapse.png");
+  background-repeat: no-repeat;
+}
+img.exp {
+  background-image: url("/assets/Content/images/Spring2014/ns-expand.png");
+  background-repeat: no-repeat;
+}
+.thdr {
+  text-decoration: underline;
+}
+#tblTasks {
+  font-size: 9pt;
+}
+#tblEnrollCatValues {
+  font-size: 8pt;
+}
+.msg-div {
+  padding: 0.4em 1em;
+}
+
+.lists .list-item {
+  cursor: pointer;
+}
+
+.listOver,
+.lists .list-item.selected,
+.lists .list-item:hover {
+  background-color: #0080c7 !important;
+  color: #ffffff !important;
+}
+
+.fam-reg-col-header,
+.order-actions-col-header {
+  background-color: #dcdede;
+}
+#dashAnnouncements {
+  text-align: center;
+}
+#tblEnhancements thead tr td {
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+
+  border-color: #8f959f;
+  border-left: 0 none #8f959f;
+}
+#lookuptbl tr td {
+  border-right: 1px solid #8f959f;
+  border-left: none;
+  border-bottom: 1px solid #8f959f;
+  border-top: none;
+}
+.EnhancementsDiv {
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+  border: 1px solid #ebebeb;
+  font-weight: bold;
+  padding: 5px 0;
+  /*background-color: #DDDDDD;*/
+}
+/* MiniCalendar */
+#MiniCalHeader {
+  background-color: #ebebeb;
+  font-family: Lato;
+  color: #231f20;
+  font-size: 11pt;
+}
+#MiniCal-DayView TD {
+  background-color: #dadada;
+} /* default background to grey for the day calendar view*/
+#MiniCal,
+#MiniCal-DayView {
+  font-family: Lato;
+  color: #231f20;
+  font-size: 11pt;
+}
+#MiniCalHeader TD.criteria {
+  font-size: 11pt;
+  font-weight: bold;
+}
+#MiniCalHeader TD.title {
+  font-size: 11pt;
+  font-weight: normal;
+}
+#MiniCalHeader span.header {
+  font-size: 11pt;
+  font-weight: bold;
+}
+#MiniCalHeader span.content {
+  font-size: 11pt;
+  font-weight: normal;
+}
+#MiniCalHeader input,
+#MiniCalHeader button {
+  font-size: 11pt;
+  font-weight: normal;
+}
+#MiniCal TD,
+#MiniCal-DayView TD {
+  vertical-align: top;
+  font-size: 11pt;
+  border-bottom: 1px solid grey;
+  border-right: 1px solid grey;
+  height: 20px;
+  padding: 1px;
+}
+#MiniCal TD.time,
+#MiniCal-DayView TD.time {
+  text-align: center;
+  padding: 5px 0px;
+  font-weight: bold;
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+}
+#MiniCal TD.t,
+#MiniCal-DayView TD.t {
+  background-color: #e1ceab;
+  border-left: 1px solid black;
+  text-align: center;
+}
+#MiniCal TD.mkpschedday,
+#MiniCal-DayView TD.mkpschedday {
+  background-color: #d5e7f7;
+  border-top: 1px solid black;
+  text-decoration: underline;
+  color: black;
+}
+
+#MiniCal TD.day,
+#MiniCal-DayView TD.day {
+  border: 0px none;
+  border-color: #8f959f;
+  padding: 5px 0px;
+  color: #ffffff;
+  font-size: 11pt;
+  font-weight: bold;
+  background: #a5aab3; /* Old browsers */
+  background: -moz-linear-gradient(top, #a5aab3 0%, #8f959f 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #a5aab3),
+    color-stop(100%, #8f959f)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #a5aab3 0%,
+    #8f959f 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #a5aab3 0%,
+    #8f959f 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a5aab3 0%, #8f959f 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #a5aab3 0%, #8f959f 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5aab3', endColorstr='#8f959f',GradientType=0 ); /* IE6-9 */
+}
+#MiniCal TD.dayhover,
+#MiniCal-DayView TD.dayhover {
+  cursor: pointer;
+  border: 0px none;
+  border-color: #8f959f;
+  padding: 5px 0px;
+  color: #ffffff;
+  font-size: 11pt;
+  font-weight: bold;
+  background: #a5aab3; /* Old browsers */
+  background: -moz-linear-gradient(top, #a5aab3 0%, #8f959f 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #a5aab3),
+    color-stop(100%, #8f959f)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #a5aab3 0%,
+    #8f959f 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #a5aab3 0%,
+    #8f959f 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a5aab3 0%, #8f959f 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #a5aab3 0%, #8f959f 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a5aab3', endColorstr='#8f959f',GradientType=0 ); /* IE6-9 */
+}
+
+#MiniCal tr.lastrow td,
+#MiniCal-DayView tr.lastrow td {
+  border-top: 0px;
+}
+#MiniCal DIV.event,
+#MiniCal-DayView DIV.event {
+  background-color: #ffff99;
+  border: 1px solid black;
+  width: 95%;
+  padding: 1px;
+  margin-bottom: 3px;
+  cursor: pointer;
+  font-size: 8pt;
+}
+#MiniCal div.event:hover,
+#MiniCal-DayView div.event:hover {
+  outline: 2px solid black;
+}
+#MiniCal TD.criteria,
+#MiniCal-DayView TD.criteria {
+  font-size: 10pt;
+  border: 0px solid black;
+}
+#MiniCal .slist,
+#MiniCal-DayView .slist {
+  margin-left: 10px;
+}
+#MiniCal .btn-prev-next,
+#MiniCal-DayView .btn-prev-next {
+  font-size: 9pt;
+}
+#MiniCal .tiphdr,
+#MiniCal-DayView .tiphdr {
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 9pt;
+  text-decoration: underline;
+  color: #0080c7;
+}
+#MiniCal .noBorder,
+#MiniCal-DayView .noBorder {
+  padding: 5px;
+  border: none;
+}
+#MiniCal .time:hover {
+  text-decoration: underline;
+}
+
+.none_line a {
+  text-decoration: none;
+}
+.student-select-attn {
+  font-size: 12pt;
+}
+.student-select-mouseover {
+  background-color: #ffffcc;
+}
+.student-select-header {
+  background: #e6e6e6; /* Old browsers */
+  background: -moz-linear-gradient(top, #ffffff 0%, #e6e6e6 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #ffffff),
+    color-stop(100%, #e6e6e6)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #ffffff 0%,
+    #e6e6e6 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #ffffff 0%,
+    #e6e6e6 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffffff 0%, #e6e6e6 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #ffffff 0%, #e6e6e6 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FFFFFF', endColorstr='#e6e6e6',GradientType=0 ); /* IE6-9 */
+}
+.student-select-header a {
+  font-size: 10pt;
+}
+.student-select-search-by {
+  color: #0080c7;
+  font-weight: bold;
+}
+.student-select-title {
+  font-size: 18px;
+  font-weight: bold;
+}
+.student-select-criteria-row {
+  font-size: 10pt;
+  font-weight: bold;
+}
+tr.class-event-select-group {
+  background-color: #dbdbdb;
+}
+
+.header-search-text {
+  font-weight: bold;
+  vertical-align: baseline;
+}
+.header-search-sub {
+  font-size: 9pt;
+  vertical-align: baseline;
+}
+
+#newClassDiv {
+  position: absolute;
+  border: 1px solid;
+  z-index: 50;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 5px;
+}
+
+#classFilters {
+  position: absolute;
+  border: 1px solid;
+  z-index: 50;
+  background-color: #ffffff;
+  font-size: 10pt;
+  text-align: center;
+  padding: 5px;
+}
+
+#divEditor table.ColTable label {
+  font-weight: normal;
+}
+
+.dup-search-title {
+  font-size: 18px;
+}
+.dup-search-head-text,
+a.dup-search-head-text,
+a.dup-search-head-text:hover,
+a.dup-search-head-text:visited {
+  font-size: 10pt;
+  color: white;
+}
+
+table.ms-main table.ms-bannerframe {
+  background-color: #1998d5;
+}
+table.ms-main table.ms-bannerframe a {
+  color: #ffffff;
+}
+
+table#tblMain.tableCollapsed > tbody > tr > td.student-det-fam-row {
+  padding: 7px 0 7px 5px;
+}
+
+table.no-menu-header table.ms-bannerframe {
+  background-color: #1998d5;
+}
+table.no-menu-header table.ms-bannerframe tbody tr td {
+  color: #ffffff;
+}
+tr.no-menu-header-row1,
+tr.no-menu-header-row2 {
+  background-color: #1998d5;
+  color: white;
+}
+
+table.alt-row-color-gray tr:nth-child(even) td {
+  background-color: #edeeee;
+}
+
+.asp-modal-div {
+  position: absolute;
+  z-index: 200;
+  background-color: #ffffff;
+  border: 1px solid black;
+}
+.blue-border {
+  border-color: #0080c7;
+}
+.not-enrolled {
+  background-color: #fac35c;
+}
+.qweb-reg-openings-row {
+  font-size: 16px;
+}
+
+.qweb-reg-openings-cat1name {
+  font-size: 10pt;
+}
+
+A.tinylink {
+  line-height: 98%;
+  font-weight: normal;
+  font-size: 8pt;
+  color: #333366;
+  text-decoration: none;
+}
+A.tinylink:active {
+  color: #3333bb;
+}
+A.tinylink:visited {
+  color: #3333bb;
+}
+A.tinylink:link {
+  color: #3333bb;
+}
+A.tinylink:hover {
+  color: #ff0000;
+}
+textarea.add-payrate-textarea {
+  font-size: 9pt;
+}
+
+.rpttitle {
+  font-weight: bold;
+  font-size: 14pt;
+  vertical-align: top;
+}
+.ins {
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: 12pt;
+  vertical-align: top;
+}
+.cos {
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: 10pt;
+  vertical-align: top;
+}
+
+table.costume-measurement,
+table.costume-measurement td {
+  border-color: #600;
+  border-style: solid;
+}
+
+table.costume-measurement {
+  border-width: 0 0 1px 1px;
+  border-spacing: 0;
+}
+
+table.costume-measurement td {
+  margin: 0;
+  padding: 4px;
+  border-width: 1px 1px 0 0;
+}
+.costume-measurement-days {
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: 8pt;
+  vertical-align: top;
+}
+.search-criteria-sub-note {
+  font-size: 10pt;
+  margin-left: 5px;
+}
+.portalLink {
+  font-size: 14pt;
+  text-decoration: underline;
+}
+.reg-hdg {
+  font-weight: bold;
+  text-decoration: underline;
+}
+td.qweb-reg-openings-cat1name.fontblue {
+  color: #ffffff !important;
+}
+
+#linkedtrans table.tbldata {
+  border: 1px solid #bcbcc9;
+  font-size: 8pt;
+  border-collapse: collapse;
+}
+
+#linkedtrans table.tbldata tr.tblhdr,
+#unpaid-trans-preview tr.tblhdr {
+  background: #daf0f9; /* Old browsers */
+  background: -moz-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #daf0f9),
+    color-stop(100%, #b6d7ec)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #daf0f9 0%,
+    #b6d7ec 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #daf0f9 0%, #b6d7ec 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#daf0f9', endColorstr='#b6d7ec',GradientType=0 ); /* IE6-9 */
+}
+
+#linkedtrans table.tbldata td {
+  padding: 2px 5px;
+}
+
+#linkedtrans table.tbldata tr.linked-total-row {
+  background-color: #ebebeb;
+}
+
+table.cell-padding-2 tbody tr td,
+table.cell-padding-2 thead tr th {
+  padding: 2px 7px;
+}
+
+table thead tr.blueCellBorder th,
+table tbody tr.blueCellBorder td {
+  border: 1px solid #d6e2ff;
+  border-right: none;
+}
+
+table thead tr.blueCellBorder th:last-child,
+table tbody tr.blueCellBorder td:last-child {
+  border: 1px solid #d6e2ff;
+}
+
+table thead tr.grayHeaderBorder th {
+  border-left: 1px solid gray;
+}
+
+table thead tr.grayHeaderBorder th:first-child {
+  border-left: none;
+}
+
+#CommandButtons {
+  width: 100%;
+  background-color: #dcdede;
+  min-height: 22px;
+  padding: 3px 0 2px 4px;
+}
+
+#CommandButtons div.cmdbtn {
+  padding: 0 3px;
+  min-height: 22px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+#CommandButtons div.cmdbtn a:link {
+  text-decoration: none;
+  border: none;
+}
+
+#CommandButtons div.cmdbtn a {
+  text-decoration: none;
+}
+
+#CommandButtons div.cmdbtn div {
+  color: #231f20;
+  display: inline;
+  font-size: 10pt;
+  font-weight: bold;
+  position: relative;
+  top: -1px;
+  margin-left: 2px;
+  margin-right: 4px;
+}
+#CommandButtons div.cmdbtn div:hover {
+  color: #0080c7;
+}
+
+#divMessage.edit-recital-msg {
+  color: #000;
+  background-color: transparent;
+  font-weight: normal;
+  font-size: 10pt;
+  margin-left: 5px;
+}
+
+button.x-btn-text:hover {
+  color: #000;
+}
+
+#unpaid-trans-preview {
+  width: 712px;
+  border: 1px solid #bcbcc9;
+  font-size: 8pt;
+}
+
+.boxlabel a.exp {
+  display: inline;
+  width: 50px;
+  background-image: url("/assets/Content/images/Spring2014/ns-expand.png");
+  background-repeat: no-repeat;
+}
+.boxlabel a.col {
+  display: inline;
+  width: 50px;
+  background-image: url("/assets/Content/images/Spring2014/ns-collapse.png");
+  background-repeat: no-repeat;
+}
+
+/*  NEW MARKETING MODAL STYLES  */
+
+.new-marketing-modal {
+  font-size: 14px;
+  font-family: Arial;
+  color: #5c5d64 !important;
+}
+
+.new-marketing-modal .ui-dialog-titlebar {
+  height: 99px !important;
+  line-height: 99px !important;
+  vertical-align: middle !important;
+  background-image: url("/images/marketing-modal-header-blue.png");
+  background-repeat: repeat-x;
+  padding: 0px !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.new-marketing-modal .bigger {
+  font-size: 32pt;
+  font-weight: bold;
+}
+.new-marketing-modal .big {
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+.new-marketing-modal .ui-dialog-title {
+  text-align: center;
+  font-size: 35pt;
+  width: 100% !important;
+  font-family: Arial;
+}
+
+.new-marketing-modal body {
+  color: #5c5d64;
+}
+
+.new-marketing-modal a,
+.new-marketing-modal a:visited {
+  color: #5c5d64 !important;
+}
+
+.new-marketing-green {
+  height: 65px;
+  width: 355px;
+  background-image: url("/images/ok-thanks-button.png");
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.new-marketing-green:focus,
+.new-marketing-buy-now:focus {
+  border: none;
+  outline: none;
+}
+
+.new-marketing-buy-now {
+  height: 68px;
+  width: 307px;
+  background-image: url("/images/buy-now-button.png");
+  background-repeat: no-repeat;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: inline-block;
+}
+
+/* Completely CSS buttons . Trying to match images provided with added flexibility*/
+.new-marketing-button {
+  padding: 10px 25px;
+  border-radius: 50px;
+  outline: none;
+  border: none;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+  box-shadow: 0px 2px 5px 0px rgba(50, 50, 50, 0.75);
+  text-shadow: 0px 2px 5px rgba(150, 150, 150, 1);
+  color: white !important;
+  font-size: 24px;
+  font-weight: bold !important;
+  font-family: Lato, Arial !important;
+  cursor: pointer;
+}
+
+a.new-marketing-button,
+a.new-marketing-button:visited {
+  color: white !important;
+  font-style: normal;
+  text-decoration: none !important;
+}
+
+.new-marketing-button.green {
+  background: #bbd04e; /* Old browsers */
+  background: -moz-linear-gradient(top, #bbd04e 55%, #a1bd27 100%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(55%, #bbd04e),
+    color-stop(100%, #a1bd27)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #bbd04e 55%,
+    #a1bd27 100%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #bbd04e 55%,
+    #a1bd27 100%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #bbd04e 55%, #a1bd27 100%); /* IE10+ */
+  background: linear-gradient(to bottom, #bbd04e 55%, #a1bd27 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bbd04e', endColorstr='#a1bd27',GradientType=0 ); /* IE6-9 */
+}
+
+.new-marketing-button.green:hover {
+  background: #a1bd27; /* Old browsers */
+  background: -moz-linear-gradient(top, #a1bd27 0%, #bbd04e 45%); /* FF3.6+ */
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0%, #a1bd27),
+    color-stop(45%, #bbd04e)
+  ); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(
+    top,
+    #a1bd27 0%,
+    #bbd04e 45%
+  ); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(
+    top,
+    #a1bd27 0%,
+    #bbd04e 45%
+  ); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #a1bd27 0%, #bbd04e 45%); /* IE10+ */
+  background: linear-gradient(to bottom, #a1bd27 0%, #bbd04e 45%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a1bd27', endColorstr='#bbd04e',GradientType=0 ); /* IE6-9 */
+  color: white;
+}
+
+.new-marketing-button.fixed-width {
+  padding: 10px 0px 10px 0px;
+}
+
+.new-marketing-button._200px {
+  width: 200px;
+}
+
+.buttonContainer {
+  text-align: center;
+}
+
+.buttonContainer .new-marketing-button {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.buttonContainer .new-marketing-button:last-child {
+  margin-right: 0;
+}
+
+.icon-row {
+  height: 32px;
+  padding-left: 38px;
+  margin-bottom: 10px;
+  vertical-align: middle;
+  line-height: 32px;
+}
+
+.icon-webinar {
+  background-image: url("/images/icon-webinar.png");
+  background-repeat: no-repeat;
+}
+
+.icon-tutorials {
+  background-image: url("/images/icon-tutorials.png");
+  background-repeat: no-repeat;
+}
+
+.icon-gs-guide {
+  background-image: url("/images/icon-gs-guide.png");
+  background-repeat: no-repeat;
+}
+/*  END NEW MARKING MODAL STYLES    */
+
+#btnLogin {
+  height: 30px;
+  width: 120px;
+}
+#btnSendForgot {
+  height: 30px;
+  width: 120px;
+}
+
+.bgDashboardRed {
+  background-color: #cd2027;
+  width: 40px;
+  height: 12px;
+  border: 1px black solid;
+}
+.bgDashboardGreen {
+  background-color: #488801;
+  width: 40px;
+  height: 12px;
+  border: 1px black solid;
+}
+
+.bgDashboardYellow {
+  background-color: #f4d600;
+  width: 40px;
+  height: 12px;
+  border: 1px black solid;
+}
+table.enhancements {
+  font-size: 9pt;
+  border-collapse: collapse;
+}
+.login-table-title-row {
+  font-size: 10pt;
+}
+
+.login-table-inputrow {
+  background-color: #dcdede;
+  font-size: 10pt;
+}
+table.login-table tbody,
+#forgotDialog tbody {
+  border: 1px solid #bcbcc9;
+}
+.browser-check-text {
+  font-size: 9pt;
+}
+.forgot-pwd-submit {
+  height: 30px;
+  width: 120px;
+}
+
+/** REFUND GRID **/
+.refund-grid {
+  table-layout: auto;
+  font-size: 11px;
+  background: #ffffff;
+  margin: 2px 2px 4px 2px;
+  border-collapse: collapse;
+}
+
+.refund-grid .alt-row {
+  background: rgb(246, 246, 246);
+}
+
+/*
+	Some rows will have item sub-rows
+	We want to squish these rows together so
+	they look more compact.
+*/
+.refund-grid td {
+  color: #2d69ac;
+  font-size: 13px;
+  font-weight: normal;
+  padding: 2px 2px 2px 2px;
+}
+
+.refund-grid tr.itemRow td {
+  padding: 0px 2px 2px 2px;
+}
+
+.refund-grid tr.disabled-row td {
+  color: gray;
+}
+
+.refund-grid tr.itemRow td.item-lbl {
+  font-size: 11px;
+  font-weight: bold;
+  text-align: right;
+  padding-right: 0px;
+}
+
+.refund-grid tr.qtyRow td {
+  padding: 2px 2px 2px -2px;
+}
+
+.refund-grid tr.hover td {
+  color: #009;
+}
+
+/* Make Chrome's number spin boxes always show instead of only when hovering or editing */
+.refund-grid input[type="number"]:where(:not([class*=Mui]))::-webkit-inner-spin-button {
+  opacity: 1;
+}
+
+/** STUDENT SKILLS GRID **/
+.studentSkills-grid {
+  table-layout: auto;
+  font-size: 11px;
+  background: #ffffff;
+  margin: 2px 2px 4px 2px;
+  border-collapse: collapse;
+}
+
+.studentSkills-grid .alt-row {
+  background: rgb(246, 246, 246);
+}
+
+.studentSkills-grid td {
+  height: 22px;
+  color: #2d69ac;
+  font-size: 13px;
+  font-weight: normal;
+  padding: 2px 2px 2px 2px;
+  cursor: default;
+}
+
+.studentSkills-grid tr:hover td {
+  color: #009;
+  background-color: #ffff99;
+}
+
+.studentSkills-grid-scroll {
+  max-height: 250px;
+  overflow: auto;
+}
+.studentSkills-grid-scroll.mobile-grid {
+  max-height: inherit;
+  overflow: inherit;
+}
+
+/* Trying out new table css */
+table.fancy {
+  margin: 1em 0;
+}
+table.fancy tbody tr td,
+table.fancy thead tr th {
+  padding: 0.2em 0.5em;
+}
+table.fancy tbody tr td:first-child,
+table.fancy thead tr th:first-child {
+  padding-left: 0;
+}
+table.fancy tbody tr.validation td {
+  padding-bottom: 1em;
+}
+
+/*New Layout CSS*/
+
+/* Trans Batch Tables - Process Credit Cards / Bank Accounts*/
+table.eBatch {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+}
+table.eBatch td:first-child {
+  width: 320px;
+  text-align: right;
+}
+
+/* Little per day table on web reg */
+/*table.perDay tr th:first-child {
+	background: none;
+}*/
+table.perDay {
+  font-size: 10pt;
+}
+table.perDay tr th {
+  background: #ced4c1;
+  font-weight: bold;
+}
+table.perDay tr th:first-child {
+  border-radius: 3px 0 0 3px;
+}
+table.perDay tr th:last-child {
+  border-radius: 0 3px 3px 0;
+}
+table.perDay tr td,
+table.perDay tr th {
+  padding: 3px 5px;
+}
+/*table.perDay tr td:first-child { padding-right: 15px;}*/
+div.perDayContainer {
+  margin: 5px 0 10px 0;
+  font-size: 10pt;
+}
+div.perDayContainer .inline-block {
+  vertical-align: text-top;
+}
+
+.fee-row .cell {
+  margin: 0.3em;
+  display: inline-block;
+  width: 11%;
+  vertical-align: text-top;
+}
+
+.fee-row .cell input,
+.fee-row .cell select {
+  max-width: 70%;
+}
+
+/*mini grid system! 8 columns should be enough for us */
+.grid-container {
+  min-width: 960px;
+}
+
+/* NOTE: renamed from .row to .jr-row to prevent collision with Bootstrap. Refactored the places using this. */
+.jr-row {
+  box-sizing: border-box !important;
+  width: 100%;
+  margin-top: 0.3em;
+}
+
+.jr-row:after {
+  clear: both;
+  display: table;
+  content: "";
+}
+
+.jr-row:after,
+.jr-row:before {
+  box-sizing: border-box !important;
+}
+
+.col {
+  box-sizing: inherit;
+  float: left;
+  padding: 0.25em 0.5em 0.25em 0.25em;
+}
+
+.col-1 {
+  width: 12.5%;
+}
+.col-2 {
+  width: 25%;
+}
+.col-3 {
+  width: 37.5%;
+}
+.col-4 {
+  width: 50%;
+}
+.col-5 {
+  width: 62.5%;
+}
+.col-6 {
+  width: 75%;
+}
+.col-7 {
+  width: 87.5%;
+}
+.col-8 {
+  width: 100%;
+}
+
+/*end mini grid system*/
+
+/*Key-Value pair table, label bold and right aligned, two column only*/
+table.keyValueTable {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+table.keyValueTable td:first-child {
+  font-weight: bold;
+  text-align: right;
+  padding-right: 2px;
+}
+
+.field-validation-error {
+  color: red;
+  font-weight: bold;
+}
+.input-validation-error {
+  background: #fbdfdd;
+}
+.negativeFee {
+  color: red;
+}
+.incomplete {
+  background-color: #95d2ff;
+}
+/* Jr Alert Modal */
+div.alert-modal {
+  min-width: 450px;
+  padding: 15px;
+}
+
+div.noneJrModal {
+  width: 40rem;
+}
+
+/* If the screen is less than 450px, allow it to crush.*/
+@media only screen and (max-width: 449px) {
+  div.alert-modal {
+    min-width: 150px;
+  }
+}
+
+div.alert-modal div.button-container button {
+  padding: 5px;
+  margin: 5px;
+}
+
+/* Info Box Tables */
+table.infoTable {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-left: 40px;
+}
+
+table.infoTable td {
+  padding-left: 10px;
+}
+
+.fadeflash {
+  -moz-animation: fadeflash 1s ease-out;
+  -moz-animation-iteration-count: 20;
+
+  -webkit-animation: fadeflash 1s ease-out;
+  -webkit-animation-iteration-count: 20;
+
+  -ms-animation: fadeflash 1s ease-out;
+  -ms-animation-iteration-count: 20;
+}
+
+@-webkit-keyframes fadeflash {
+  0% {
+    color: inherit;
+  }
+  50% {
+    color: transparent;
+  }
+  100% {
+    color: inherit;
+  }
+}
+
+@-moz-keyframes fadeflash {
+  0% {
+    color: inherit;
+  }
+  50% {
+    color: transparent;
+  }
+  100% {
+    color: inherit;
+  }
+}
+
+@-ms-keyframes fadeflash {
+  0% {
+    color: inherit;
+  }
+  50% {
+    color: transparent;
+  }
+  100% {
+    color: inherit;
+  }
+}
+
+/* class for container to enforce a minimum height.
+    good to use for els being validated as the extra height allows the message below without changing height.
+*/
+.input-row {
+  margin-bottom: 0.875em;
+  box-sizing: border-box;
+  margin-right: 5px;
+}
+
+.long-labels .input-row > label {
+  width: 175px;
+}
+
+.input-row > label {
+  width: 135px;
+  display: inline-block;
+  font-weight: normal !important;
+  font-size: 1em !important;
+  vertical-align: top;
+  padding-right: 3px !important;
+  text-align: right;
+}
+
+.input-row > input[type="checkbox"]:where(:not([class*=Mui])) + label {
+  text-align: left;
+}
+
+.input-row > span.header {
+  font-weight: bold !important;
+  width: 50%;
+  float: left;
+  text-align: center;
+}
+
+/*use to offset inputs to the right underneath an input-row label*/
+.input-row-offset-container {
+  margin-left: 128px;
+}
+
+.long-labels .input-row-offset-container {
+  margin-left: 178px;
+}
+
+.instructor-list-container {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.instructor-list-container input,
+.instructor-list-container input[type="text"]:where(:not([class*=Mui])),
+.instructor-list-container select,
+.instructor-list-container span {
+  width: 125px;
+}
+
+.instructor-list-container input[type="radio"]:where(:not([class*=Mui])),
+.instructor-list-container input[type="checkbox"]:where(:not([class*=Mui])) {
+  width: 50px;
+}
+
+.fixed-label-150 {
+  display: inline-block;
+  width: 150px;
+}
+
+/*Used on ClassDatesConflictModal, but maybe could be the new standard?*/
+table.boxtable {
+  border-collapse: collapse;
+}
+table.boxtable,
+table.boxtable th,
+table.boxtable td {
+  border: 1px solid grey;
+  text-align: center;
+  padding: 3px 5px;
+}
+table.boxtable th {
+  background: linear-gradient(to bottom, #daf0f9 0%, #b6d7ec 100%);
+}
+
+div.asp-header {
+  background: #eaeaea;
+  font-weight: bold;
+  font-size: 12pt;
+  padding: 0.25rem;
+  margin: 0.5rem 0;
+}
+
+table.asp-form td {
+  padding: 0.25rem 0;
+  white-space: nowrap;
+}
+
+table.asp-form .lbl {
+  padding-right: 0.45rem;
+}
+
+table.asp-form .asp-left-pad {
+  padding-left: 0.25rem;
+}
+
+/* Popup Help Styles */
+.popup-help-titlebar {
+  background: #1998d5;
+  width: 100%;
+  display: inline-block;
+}
+.popup-help-title {
+  background: #1998d5;
+  color: #ffffff;
+  text-align: left;
+  font-size: 16pt;
+  padding: 5px 10px 8px 10px;
+  font-weight: bold;
+}
+
+.popup-help-content {
+  overflow: auto;
+  height: 425px;
+}
+
+div.popup-help-content.modal-window-content {
+  padding: 0px;
+}
+
+.popup-help-new-win {
+  float: right;
+  padding-top: 10px;
+  font-size: 10pt;
+}
+
+#popupHelpText {
+  padding: 10px;
+}
+
+.popup-help-footer {
+  background: #1998d5;
+  color: #ffffff;
+  text-align: center;
+  font-size: 10pt;
+  padding: 3px;
+  font-weight: normal;
+}
+.popup-help-footer a.popup-help-support-link,
+.popup-help-footer a.popup-help-support-link:hover,
+.popup-help-footer a.popup-help-support-link:visited {
+  color: #fff;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.jr-popup-help-newwin.pgbtns {
+  width: 130px;
+  font-size: 10pt;
+  margin-top: 10px;
+  cursor: pointer;
+}
+.jr-popup-help-close.pgbtns {
+  width: 60px;
+  font-size: 10pt;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.popup-help-btn-img {
+  display: inline-block;
+  padding-top: 3px;
+  vertical-align: bottom;
+}
+.popup-help-btn-text {
+  display: inline-block;
+  padding-bottom: 1.5px;
+  padding-top: 1.5px;
+}
+
+/* These classes are used with the HTML Preview Box fields */
+div.html-preview-box-wrapper {
+  position: relative;
+}
+div.html-preview-box {
+  cursor: pointer;
+  border: 2px solid lightgray;
+  border-style: inset;
+  background-color: #e5e5e5;
+  display: inline-block;
+  height: 100px;
+  width: 600px;
+  overflow: auto;
+  padding: 2px;
+  white-space: normal;
+}
+
+div.html-preview-box p {
+  margin: 0 0 1em 0;
+}
+
+div.html-preview-box-edit {
+  position: absolute;
+  top: 0;
+  left: 610px;
+  display: inline-flex;
+}
+
+/*Begin Report Favorites Section*/
+/*non favorite heart. show on hover.*/
+.report-item .heart {
+  visibility: hidden;
+  position: absolute;
+  color: black;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.report-item:hover .heart {
+  visibility: visible;
+  position: relative;
+  opacity: 1;
+}
+
+.report-item .heart:hover {
+  cursor: pointer;
+}
+
+.report-item .heart:before {
+  font-weight: 400;
+  content: "\f004";
+}
+
+/*favorite heart. always show.*/
+.report-item.favorite .heart {
+  visibility: visible;
+  opacity: 1;
+  position: relative;
+  color: #cd2027;
+}
+
+.report-item.favorite .heart:before {
+  font-weight: 900;
+  content: "\f004";
+}
+/*End Report Favorites Section*/
+
+/*New Styles for Discounting and Prorating Menu */
+/* Added 6/18/18 Hu Anderson*/
+.dp-option {
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 65px 65px;
+  padding-left: 80px;
+  padding-bottom: 30px;
+}
+
+.dp-option-billingsettings {
+  background-image: url("/assets/Content/Images/ico-dpoption-billingsettings.svg");
+}
+
+.dp-option-discountrules {
+  background-image: url("/assets/Content/Images/ico-dpoption-discountrules.svg");
+}
+
+.dp-option-totalhours {
+  background-image: url("/assets/Content/Images/ico-dpoption-totalhours.svg");
+}
+
+.dp-option-proratingoptions {
+  background-image: url("/assets/Content/Images/ico-dpoption-proratingoptions.svg");
+}
+
+.dp-option-tuitionfeesettings {
+  background-image: url("/assets/Content/Images/ico-dpoption-tuitionfeesettings.svg");
+}
+
+.dp-option-promocodesettings {
+    background-image: url("/assets/Content/Images/ico-dpoption-promocode.svg");
+}
+
+.dp-option-closeddates {
+  background-image: url("/assets/Content/Images/ico-dpoption-closedDates.svg");
+}
+
+.dp-option-check {
+  background-image: url("/assets/Content/Images/ico-dpoption-check.svg");
+}
+
+.dp-option-credit-card {
+  background-image: url("/assets/Content/Images/ico-dpoption-credit-card.svg");
+}
+
+.dp-option-users {
+  background-image: url("/assets/Content/Images/ico-dpoption-users.svg");
+}
+
+.dp-option-bunny-image {
+  width: 205px;
+}
+/*End New Styles for Discounting and Prorating Menu */
+
+/*Start New Styles for Discounting and Prorating Total Hours */
+.disc-setup-discount {
+  padding-top: 30px;
+}
+/*End New Styles for Discounting and Prorating Total Hours */
+
+.fa.fa-jr-blue.fa-jr-blue-disabled {
+  color: #c2dceb;
+  cursor: not-allowed;
+}
+
+a.buttons:visited {
+  color: black;
+}
+a.buttons:visited:hover {
+  color: #0080c7;
+}
+
+.m-s-0 {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.p-t-0 {
+  padding-top: 0;
+}
+
+/* SECTION: as seen here - https://jackrabbittech.atlassian.net/browse/ST1-349 */
+.section {
+  border: 1px solid #bdbdbd;
+  margin-bottom: 15px;
+}
+
+.section-header {
+  padding-left: 5px;
+  min-height: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #595c63;
+  line-height: 30px;
+  background-color: #eeeeee;
+  border-bottom: 1px solid #bdbdbd;
+}
+
+.section-content + .section-header,
+.section-content + .section-content {
+  border-top: 1px solid #bdbdbd;
+}
+
+.section-content {
+  padding: 15px;
+}
+
+.section h3 {
+  margin-top: 0;
+}
+/* End SECTION */
+
+.buttons {
+  cursor: pointer;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.p-r-5 {
+  padding-right: 5px;
+}
+
+#divMsgBar:not(.bootstrap-jr) #divMessage {
+  margin: 0px;
+  padding-right: 2px;
+  color: #ffffff;
+  background-color: #cd2027;
+  font-size: 9pt;
+  font-weight: bold;
+}

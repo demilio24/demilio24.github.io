@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 5: Process</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e0e0e0; }
+  h1 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 6px; text-align: center; padding-top: 32px; }
+  .sub { font-size: 13px; color: #555; text-align: center; margin-bottom: 32px; padding: 0 24px; }
+  .variation { margin: 0 24px 40px; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #1e1e1e; cursor: pointer; transition: border-color .4s, box-shadow .4s; }
+  .variation:hover { border-color: rgba(184,154,106,.35); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 48px rgba(184,154,106,.12); }
+  .vl { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #1a1a1a; }
+  .vn { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  .vt { font-size: 14px; font-weight: 500; color: #fff; }
+  .vd { font-size: 12px; color: #555; padding: 12px 24px; line-height: 1.7; border-top: 1px solid #1a1a1a; }
+  .selected .vn { background: #fff; color: #B89A6A; }
+  .mock { background: #FAF6F0; padding: 48px 40px; }
+  img { max-width: 100%; display: block; }
+</style>
+</head>
+<body>
+
+<h1>Section 5: Process — Five Steps</h1>
+<p class="sub">How to get started. Her real 5-step process with portfolio images. All images shown fully.</p>
+
+<!-- A: Cinematic strips with gold numbers (already approved direction, refined) -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">A</div><div class="vt">Cinematic Strips — Gold Numbers on Images</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">How to Get Started</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Five Steps to Your<br>Fully Realized Home</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <!-- Step 1 -->
+        <div style="display:grid;grid-template-columns:200px 1fr;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);min-height:120px;transition:all .3s ease;">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8c170be3-32a7-47ec-8259-4a29aebaa377.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond';font-size:48px;font-weight:300;color:rgba(243,235,221,.6);text-shadow:0 2px 12px rgba(0,0,0,.3);">01</div>
+          </div>
+          <div style="padding:24px 28px;display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:'Cormorant Garamond';font-size:22px;color:#3A241E;margin-bottom:6px;">Discovery Call</div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.7;">We begin by understanding your project scope, lifestyle needs, and overall vision for the space.</div>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div style="display:grid;grid-template-columns:200px 1fr;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);min-height:120px;">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/b60a85e5-0b51-4eef-ac4f-4ab388187cc5.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond';font-size:48px;font-weight:300;color:rgba(243,235,221,.6);text-shadow:0 2px 12px rgba(0,0,0,.3);">02</div>
+          </div>
+          <div style="padding:24px 28px;display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:'Cormorant Garamond';font-size:22px;color:#3A241E;margin-bottom:6px;">In-Home Consultation</div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.7;">We visit the space to evaluate existing conditions, understand architectural context, and begin shaping early design direction.</div>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div style="display:grid;grid-template-columns:200px 1fr;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);min-height:120px;">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond';font-size:48px;font-weight:300;color:rgba(243,235,221,.6);text-shadow:0 2px 12px rgba(0,0,0,.3);">03</div>
+          </div>
+          <div style="padding:24px 28px;display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:'Cormorant Garamond';font-size:22px;color:#3A241E;margin-bottom:6px;">Design Presentation</div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.7;">We present a fully developed design concept, including space planning, material direction, finishes, and furnishings.</div>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div style="display:grid;grid-template-columns:200px 1fr;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);min-height:120px;">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e23f4a3d-37ee-4d7b-a01b-9ebb95cc6901.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond';font-size:48px;font-weight:300;color:rgba(243,235,221,.6);text-shadow:0 2px 12px rgba(0,0,0,.3);">04</div>
+          </div>
+          <div style="padding:24px 28px;display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:'Cormorant Garamond';font-size:22px;color:#3A241E;margin-bottom:6px;">Procurement + Coordination</div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.7;">We manage the sourcing and procurement of all specified furnishings, fixtures, and materials.</div>
+          </div>
+        </div>
+        <!-- Step 5 -->
+        <div style="display:grid;grid-template-columns:200px 1fr;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);min-height:120px;">
+          <div style="position:relative;overflow:hidden;">
+            <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e74a0b20-884a-4e6c-8ccb-4c60e682cd28.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+            <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond';font-size:48px;font-weight:300;color:rgba(243,235,221,.6);text-shadow:0 2px 12px rgba(0,0,0,.3);">05</div>
+          </div>
+          <div style="padding:24px 28px;display:flex;flex-direction:column;justify-content:center;">
+            <div style="font-family:'Cormorant Garamond';font-size:22px;color:#3A241E;margin-bottom:6px;">Installation + Completion</div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.7;">We oversee the full installation process, bringing the design to life through placement, detailing, and final styling.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Horizontal strips — image left with gold number overlay, title + description right. All strips same height. Clean, scannable, consistent with the services section's numbered approach. Matches what you originally approved.</div>
+</div>
+
+<!-- B: Alternating image+text rows like services section -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">B</div><div class="vt">Alternating Rows — Matches Services Style</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">How to Get Started</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Five Steps to Your<br>Fully Realized Home</div>
+      </div>
+      <!-- Step 1: image left -->
+      <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center;margin-bottom:48px;">
+        <div style="border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(42,30,26,.1);position:relative;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8c170be3-32a7-47ec-8259-4a29aebaa377.jpg" alt="" style="width:100%;height:280px;object-fit:cover;object-position:center;">
+          <div style="position:absolute;top:16px;left:20px;font-family:'Cormorant Garamond';font-size:56px;color:rgba(243,235,221,.35);font-weight:300;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.2);">01</div>
+        </div>
+        <div>
+          <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;margin-bottom:12px;">Discovery Call</div>
+          <div style="font-size:14px;color:#7A6B62;line-height:1.8;">We begin by understanding your project scope, lifestyle needs, and overall vision for the space. This initial conversation allows us to determine alignment and identify the potential of the project.</div>
+          <div style="width:48px;height:1px;background:linear-gradient(90deg,#B89A6A,transparent);margin-top:16px;"></div>
+        </div>
+      </div>
+      <!-- Step 2: text left -->
+      <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:36px;align-items:center;margin-bottom:48px;">
+        <div>
+          <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;margin-bottom:12px;">In-Home Consultation</div>
+          <div style="font-size:14px;color:#7A6B62;line-height:1.8;">We visit the space to evaluate existing conditions, understand architectural context, and begin shaping early design direction through observation and initial recommendations.</div>
+          <div style="width:48px;height:1px;background:linear-gradient(90deg,#B89A6A,transparent);margin-top:16px;"></div>
+        </div>
+        <div style="border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(42,30,26,.1);position:relative;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/b60a85e5-0b51-4eef-ac4f-4ab388187cc5.jpg" alt="" style="width:100%;height:280px;object-fit:cover;object-position:center;">
+          <div style="position:absolute;top:16px;right:20px;font-family:'Cormorant Garamond';font-size:56px;color:rgba(243,235,221,.35);font-weight:300;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.2);">02</div>
+        </div>
+      </div>
+      <!-- Step 3: image left -->
+      <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center;margin-bottom:48px;">
+        <div style="border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(42,30,26,.1);position:relative;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg" alt="" style="width:100%;height:280px;object-fit:cover;object-position:center;">
+          <div style="position:absolute;top:16px;left:20px;font-family:'Cormorant Garamond';font-size:56px;color:rgba(243,235,221,.35);font-weight:300;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.2);">03</div>
+        </div>
+        <div>
+          <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;margin-bottom:12px;">Design Presentation</div>
+          <div style="font-size:14px;color:#7A6B62;line-height:1.8;">We present a fully developed design concept, including space planning, material direction, finishes, and furnishings. This phase is collaborative, allowing for refinement.</div>
+          <div style="width:48px;height:1px;background:linear-gradient(90deg,#B89A6A,transparent);margin-top:16px;"></div>
+        </div>
+      </div>
+      <!-- Step 4: text left -->
+      <div style="display:grid;grid-template-columns:1fr 1.3fr;gap:36px;align-items:center;margin-bottom:48px;">
+        <div>
+          <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;margin-bottom:12px;">Procurement + Coordination</div>
+          <div style="font-size:14px;color:#7A6B62;line-height:1.8;">We manage the sourcing and procurement of all specified furnishings, fixtures, and materials, coordinating with vendors and tracking timelines to ensure seamless execution.</div>
+          <div style="width:48px;height:1px;background:linear-gradient(90deg,#B89A6A,transparent);margin-top:16px;"></div>
+        </div>
+        <div style="border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(42,30,26,.1);position:relative;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e23f4a3d-37ee-4d7b-a01b-9ebb95cc6901.jpg" alt="" style="width:100%;height:280px;object-fit:cover;object-position:center;">
+          <div style="position:absolute;top:16px;right:20px;font-family:'Cormorant Garamond';font-size:56px;color:rgba(243,235,221,.35);font-weight:300;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.2);">04</div>
+        </div>
+      </div>
+      <!-- Step 5: image left -->
+      <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:36px;align-items:center;">
+        <div style="border-radius:14px;overflow:hidden;box-shadow:0 12px 40px rgba(42,30,26,.1);position:relative;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e74a0b20-884a-4e6c-8ccb-4c60e682cd28.jpg" alt="" style="width:100%;height:280px;object-fit:cover;object-position:center;">
+          <div style="position:absolute;top:16px;left:20px;font-family:'Cormorant Garamond';font-size:56px;color:rgba(243,235,221,.35);font-weight:300;line-height:1;text-shadow:0 2px 8px rgba(0,0,0,.2);">05</div>
+        </div>
+        <div>
+          <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;margin-bottom:12px;">Installation + Completion</div>
+          <div style="font-size:14px;color:#7A6B62;line-height:1.8;">We oversee the full installation process, bringing the design to life through placement, detailing, and final styling for a cohesive and fully realized interior.</div>
+          <div style="width:48px;height:1px;background:linear-gradient(90deg,#B89A6A,transparent);margin-top:16px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Zigzag alternating layout — exactly matches the services section (option 2 you picked). Image left/right alternating, gold faded numbers on images, gold line separator. Consistent visual language throughout the page. All images 280px height.</div>
+</div>
+
+<!-- C: Vertical timeline with images -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">C</div><div class="vt">Vertical Timeline + Images — Journey</div></div>
+  <div class="mock">
+    <div style="max-width:900px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">How to Get Started</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Five Steps to Your<br>Fully Realized Home</div>
+      </div>
+      <!-- Timeline -->
+      <div style="position:relative;padding-left:60px;">
+        <!-- Vertical line -->
+        <div style="position:absolute;left:24px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(184,154,106,.3),rgba(184,154,106,.1));"></div>
+        <!-- Step 1 -->
+        <div style="position:relative;margin-bottom:48px;">
+          <div style="position:absolute;left:-48px;top:0;width:36px;height:36px;border-radius:50%;background:#FAF6F0;border:2px solid #B89A6A;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond';font-size:16px;color:#B89A6A;font-weight:400;">1</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+            <div>
+              <div style="font-family:'Cormorant Garamond';font-size:26px;color:#3A241E;margin-bottom:10px;">Discovery Call</div>
+              <div style="font-size:13px;color:#7A6B62;line-height:1.8;">We begin by understanding your project scope, lifestyle needs, and overall vision for the space.</div>
+            </div>
+            <div style="border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(42,30,26,.08);">
+              <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8c170be3-32a7-47ec-8259-4a29aebaa377.jpg" alt="" style="width:100%;height:200px;object-fit:cover;">
+            </div>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div style="position:relative;margin-bottom:48px;">
+          <div style="position:absolute;left:-48px;top:0;width:36px;height:36px;border-radius:50%;background:#FAF6F0;border:2px solid rgba(184,154,106,.3);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond';font-size:16px;color:#B89A6A;font-weight:400;">2</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+            <div style="border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(42,30,26,.08);">
+              <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/b60a85e5-0b51-4eef-ac4f-4ab388187cc5.jpg" alt="" style="width:100%;height:200px;object-fit:cover;">
+            </div>
+            <div>
+              <div style="font-family:'Cormorant Garamond';font-size:26px;color:#3A241E;margin-bottom:10px;">In-Home Consultation</div>
+              <div style="font-size:13px;color:#7A6B62;line-height:1.8;">We visit the space to evaluate existing conditions and begin shaping early design direction.</div>
+            </div>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div style="position:relative;margin-bottom:48px;">
+          <div style="position:absolute;left:-48px;top:0;width:36px;height:36px;border-radius:50%;background:#FAF6F0;border:2px solid rgba(184,154,106,.3);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond';font-size:16px;color:#B89A6A;font-weight:400;">3</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+            <div>
+              <div style="font-family:'Cormorant Garamond';font-size:26px;color:#3A241E;margin-bottom:10px;">Design Presentation</div>
+              <div style="font-size:13px;color:#7A6B62;line-height:1.8;">A fully developed concept with space planning, material direction, finishes, and furnishings.</div>
+            </div>
+            <div style="border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(42,30,26,.08);">
+              <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg" alt="" style="width:100%;height:200px;object-fit:cover;">
+            </div>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div style="position:relative;margin-bottom:48px;">
+          <div style="position:absolute;left:-48px;top:0;width:36px;height:36px;border-radius:50%;background:#FAF6F0;border:2px solid rgba(184,154,106,.3);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond';font-size:16px;color:#B89A6A;font-weight:400;">4</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+            <div style="border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(42,30,26,.08);">
+              <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e23f4a3d-37ee-4d7b-a01b-9ebb95cc6901.jpg" alt="" style="width:100%;height:200px;object-fit:cover;">
+            </div>
+            <div>
+              <div style="font-family:'Cormorant Garamond';font-size:26px;color:#3A241E;margin-bottom:10px;">Procurement + Coordination</div>
+              <div style="font-size:13px;color:#7A6B62;line-height:1.8;">We manage sourcing and procurement of all furnishings, fixtures, and materials.</div>
+            </div>
+          </div>
+        </div>
+        <!-- Step 5 -->
+        <div style="position:relative;">
+          <div style="position:absolute;left:-48px;top:0;width:36px;height:36px;border-radius:50%;background:#FAF6F0;border:2px solid rgba(184,154,106,.3);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond';font-size:16px;color:#B89A6A;font-weight:400;">5</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:center;">
+            <div>
+              <div style="font-family:'Cormorant Garamond';font-size:26px;color:#3A241E;margin-bottom:10px;">Installation + Completion</div>
+              <div style="font-size:13px;color:#7A6B62;line-height:1.8;">Full installation oversight with placement, detailing, and final styling for a cohesive result.</div>
+            </div>
+            <div style="border-radius:12px;overflow:hidden;box-shadow:0 8px 28px rgba(42,30,26,.08);">
+              <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e74a0b20-884a-4e6c-8ccb-4c60e682cd28.jpg" alt="" style="width:100%;height:200px;object-fit:cover;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Vertical gold timeline line on the left with numbered circles. Each step has text + image side by side, alternating which side the image is on. Feels like a journey — you follow the line from start to finish. Images are 200px rectangles. Converts well to mobile (stack vertically).</div>
+</div>
+
+<!-- D: Numbered cards with images on top -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">D</div><div class="vt">Stacked Cards — Image on Top, Text Below</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">How to Get Started</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Five Steps to Your<br>Fully Realized Home</div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <!-- Step 1 -->
+        <div style="border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 4px 20px rgba(42,30,26,.04);">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8c170be3-32a7-47ec-8259-4a29aebaa377.jpg" alt="" style="width:100%;height:300px;object-fit:cover;object-position:center;">
+          <div style="padding:28px 32px;display:flex;gap:20px;align-items:flex-start;">
+            <div style="font-family:'Cormorant Garamond';font-size:48px;color:rgba(184,154,106,.2);font-weight:300;line-height:1;flex-shrink:0;">01</div>
+            <div>
+              <div style="font-family:'Cormorant Garamond';font-size:24px;color:#3A241E;margin-bottom:8px;">Discovery Call</div>
+              <div style="font-size:13px;color:#7A6B62;line-height:1.8;">We begin by understanding your project scope, lifestyle needs, and overall vision for the space. This initial conversation allows us to determine alignment.</div>
+            </div>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div style="border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);box-shadow:0 4px 20px rgba(42,30,26,.04);">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/b60a85e5-0b51-4eef-ac4f-4ab388187cc5.jpg" alt="" style="width:100%;height:300px;object-fit:cover;object-position:center;">
+          <div style="padding:28px 32px;display:flex;gap:20px;align-items:flex-start;">
+            <div style="font-family:'Cormorant Garamond';font-size:48px;color:rgba(184,154,106,.2);font-weight:300;line-height:1;flex-shrink:0;">02</div>
+            <div>
+              <div style="font-family:'Cormorant Garamond';font-size:24px;color:#3A241E;margin-bottom:8px;">In-Home Consultation</div>
+              <div style="font-size:13px;color:#7A6B62;line-height:1.8;">We visit the space to evaluate existing conditions, understand architectural context, and begin shaping early design direction.</div>
+            </div>
+          </div>
+        </div>
+        <!-- Steps 3-5 would follow same pattern -->
+        <div style="text-align:center;font-size:12px;color:#A89A90;padding:8px;">...steps 3, 4, 5 follow the same card pattern</div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Each step is a full-width card — large image on top (300px, fully visible), faded gold number + title + description below. Stacked vertically. The images are massive and dominant. Most image-forward approach. Each step feels like its own moment.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

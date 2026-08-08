@@ -1,0 +1,1323 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal de Administración | Savvy Compliance</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #ffffff;
+      color: #1e293b;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .portal-header {
+      background: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .header-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-logo {
+      height: 44px;
+      width: auto;
+    }
+    .header-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #64748b;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Tab Navigation ── */
+    .tab-nav {
+      max-width: 960px;
+      margin: 32px auto 0;
+      padding: 0 24px;
+      display: flex;
+      gap: 4px;
+      border-bottom: 2px solid #e2e8f0;
+    }
+    .tab-btn {
+      padding: 14px 28px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      color: #64748b;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -2px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tab-btn:hover { color: #1e293b; }
+    .tab-btn.active {
+      color: #2563eb;
+      border-bottom-color: #2563eb;
+    }
+    .tab-icon {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    /* ── Content ── */
+    .portal-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 24px 64px;
+    }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* ── Info Card ── */
+    .info-card {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 28px 28px 24px;
+      margin-bottom: 28px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .info-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 16px;
+    }
+    .info-card p {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .info-card p:last-child { margin-bottom: 0; }
+
+    /* ── Alert Box ── */
+    .alert {
+      display: flex;
+      gap: 12px;
+      padding: 16px 20px;
+      border-radius: 10px;
+      margin-bottom: 24px;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .alert-icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      margin-top: 2px;
+    }
+    /* flex item must be allowed to shrink so .code-example scrolls instead of overflowing */
+    .alert > div { min-width: 0; }
+    .alert--warning {
+      background: #fef9e7;
+      border: 1px solid #f5d060;
+      color: #78600a;
+    }
+    .alert--info {
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+      color: #1e40af;
+    }
+    .alert strong { font-weight: 700; }
+
+    /* ── Code Example ── */
+    .code-example {
+      background: #0f172a;
+      color: #e2e8f0;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 14px;
+      margin: 12px 0 4px;
+      overflow-x: auto;
+    }
+    .code-example .code-label {
+      color: #64748b;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      display: block;
+      margin-bottom: 6px;
+    }
+    .code-highlight { color: #60a5fa; }
+
+    /* ── Form Card ── */
+    .form-card {
+      background: transparent;
+    }
+    .form-card iframe {
+      display: block;
+      width: 100%;
+      border: none;
+      min-height: 780px;
+    }
+
+    /* ── Guide Section ── */
+    .guide-section {
+      margin-bottom: 3rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .guide-section:last-child { border-bottom: none; }
+    .guide-section h2 {
+      color: #1e293b;
+      margin-bottom: 1.25rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .guide-section h2::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 60%;
+      background: linear-gradient(135deg, #2563eb, #1d4ed8);
+      border-radius: 2px;
+    }
+    .guide-section p {
+      font-size: 15px;
+      color: #475569;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .guide-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 2rem;
+    }
+    .guide-nav a {
+      padding: 8px 16px;
+      background: #f1f5f9;
+      color: #475569;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: 1px solid #e2e8f0;
+    }
+    .guide-nav a:hover {
+      background: #e2e8f0;
+      color: #2563eb;
+    }
+
+    .video-container {
+      margin: 1.5rem 0;
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 45%;
+      height: 0;
+      background: #000;
+    }
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .video-timeline {
+      padding: 1.25rem;
+      background: #f8fafc;
+      border-top: 1px solid #e2e8f0;
+    }
+    .timeline-header {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 0.75rem;
+      color: #475569;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid #e2e8f0;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-item:hover {
+      background: #e2e8f0;
+      border-radius: 8px;
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
+    .timestamp {
+      background: #2563eb;
+      color: white;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-right: 12px;
+      min-width: 44px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .timeline-text {
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    /* Guide alert boxes */
+    .g-box {
+      padding: 1.25rem 1.25rem 1.25rem 3rem;
+      margin: 1.25rem 0;
+      border-radius: 10px;
+      position: relative;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    .g-box::before {
+      position: absolute;
+      top: 1.1rem;
+      left: 1rem;
+      font-size: 1.1rem;
+    }
+    .g-box strong { font-weight: 700; }
+    .g-critical {
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-left: 4px solid #dc2626;
+      color: #7f1d1d;
+    }
+    .g-critical::before { content: '\01F6A8'; }
+    .g-warning {
+      background: #fefce8;
+      border: 1px solid #fde047;
+      border-left: 4px solid #f59e0b;
+      color: #78350f;
+    }
+    .g-warning::before { content: '\026A0\0FE0F'; }
+    .g-info {
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+      border-left: 4px solid #2563eb;
+      color: #1e3a5f;
+    }
+    .g-info::before { content: '\02139\0FE0F'; }
+    .g-tip {
+      background: #ecfdf5;
+      border: 1px solid #6ee7b7;
+      border-left: 4px solid #059669;
+      color: #064e3b;
+    }
+    .g-tip::before { content: '\01F4A1'; }
+    .g-box ol, .g-box ul { margin-top: 0.5rem; margin-left: 1.25rem; }
+
+    .step-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.25rem 0;
+    }
+    .step-list li {
+      display: flex;
+      align-items: flex-start;
+      padding: 0.85rem 1rem;
+      margin-bottom: 6px;
+      background: #f8fafc;
+      border-radius: 8px;
+      border-left: 4px solid #cbd5e1;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    .step-list li:hover {
+      background: #e2e8f0;
+      border-left-color: #2563eb;
+    }
+    .step-num {
+      background: #2563eb;
+      color: white;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+
+    /* Language switcher */
+    .lang-switcher {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      z-index: 200;
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 50px;
+      padding: 4px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      display: none;
+    }
+    .lang-switcher.visible { display: flex; }
+    .lang-btn {
+      background: none;
+      border: none;
+      padding: 8px 14px;
+      cursor: pointer;
+      font-size: 14px;
+      border-radius: 25px;
+      font-weight: 500;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { background: #f1f5f9; }
+    .lang-btn.active { background: #2563eb; color: white; }
+
+    /* ── Onboarding Tab ── */
+    .onboarding-hero {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      padding: 2.5rem 2rem;
+      border-radius: 16px;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .onboarding-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.06)"/></svg>') repeat;
+    }
+    .onboarding-hero h2 {
+      font-size: 2rem;
+      font-weight: 800;
+      position: relative;
+      margin-bottom: 0.5rem;
+    }
+    .onboarding-hero p {
+      position: relative;
+      opacity: 0.92;
+      font-size: 15px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .ob-video {
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid #d1fae5;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .ob-video .video-wrapper { padding-bottom: 56.25%; }
+
+    .checklist-wrap {
+      background: linear-gradient(135deg, #f0fdf4, #ecfdf5);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 2px solid #a7f3d0;
+      margin-bottom: 2rem;
+    }
+    .checklist-wrap h3 {
+      font-size: 1.25rem;
+      color: #065f46;
+      text-align: center;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    .ob-progress {
+      background: #e5e7eb;
+      height: 8px;
+      border-radius: 4px;
+      margin-bottom: 0.5rem;
+      overflow: hidden;
+    }
+    .ob-progress-fill {
+      background: linear-gradient(90deg, #10b981, #059669);
+      height: 100%;
+      width: 0%;
+      transition: width 0.4s ease;
+      border-radius: 4px;
+    }
+    .ob-progress-text {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 600;
+      color: #065f46;
+      margin-bottom: 1.25rem;
+    }
+    .ob-checklist { list-style: none; padding: 0; }
+    .ob-check-item {
+      display: flex;
+      align-items: flex-start;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.5rem;
+      background: white;
+      border-radius: 10px;
+      border-left: 4px solid #10b981;
+      box-shadow: 0 2px 8px rgba(16,185,129,0.08);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .ob-check-item:hover {
+      transform: translateX(4px);
+      box-shadow: 0 4px 14px rgba(16,185,129,0.12);
+    }
+    .ob-check-item.completed {
+      background: linear-gradient(135deg, #ecfdf5, #d1fae5);
+      border-left-color: #059669;
+    }
+    .ob-checkbox {
+      width: 22px;
+      height: 22px;
+      border: 2px solid #10b981;
+      border-radius: 6px;
+      margin-right: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .ob-checkbox.checked {
+      background: #10b981;
+      border-color: #059669;
+    }
+    .ob-checkbox.checked::after {
+      content: '\2713';
+      color: white;
+      font-weight: bold;
+      font-size: 13px;
+    }
+    .ob-check-main {
+      font-size: 15px;
+      font-weight: 600;
+      color: #065f46;
+    }
+    .ob-check-main a {
+      color: #10b981;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .ob-check-sub {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 6px;
+    }
+    .ob-check-sub li {
+      font-size: 13px;
+      color: #6b7280;
+      padding-left: 1rem;
+      position: relative;
+      margin-bottom: 2px;
+    }
+    .ob-check-sub li::before {
+      content: '\2022';
+      color: #10b981;
+      position: absolute;
+      left: 0;
+    }
+    .ob-completion {
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 1.25rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: all 0.4s;
+    }
+    .ob-completion.show { opacity: 1; transform: translateY(0); }
+    .ob-completion h3 { font-size: 1.15rem; font-weight: 700; }
+
+    .bonus-card {
+      background: linear-gradient(135deg, #e0f2fe, #b3e5fc);
+      padding: 2rem;
+      border-radius: 16px;
+      border: 2px solid #81d4fa;
+      text-align: center;
+    }
+    .bonus-card h3 {
+      font-size: 1.25rem;
+      color: #0277bd;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .bonus-card p {
+      font-size: 14px;
+      color: #01579b;
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+    .bonus-card .ob-video { margin-bottom: 1.25rem; border-color: #81d4fa; }
+    .template-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #10b981, #059669);
+      color: white;
+      padding: 12px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 15px;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(16,185,129,0.25);
+    }
+    .template-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(16,185,129,0.35);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      .header-title { display: none; }
+      .header-inner { justify-content: center; }
+      .tab-nav { padding: 0 16px; overflow-x: auto; flex-wrap: nowrap; }
+      .tab-btn { padding: 12px 14px; font-size: 13px; white-space: nowrap; }
+      .info-card { padding: 20px; }
+      .info-card h2 { font-size: 19px; }
+      .portal-content { padding: 24px 16px 48px; }
+      .code-example { font-size: 12px; padding: 12px 14px; }
+      .video-wrapper { padding-bottom: 56.25%; }
+      .guide-section h2 { font-size: 1.25rem; }
+    }
+    /* ── Password Gate ── */
+    .pw-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pw-gate.hidden { display: none; }
+    .pw-card {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 16px;
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 100%;
+      margin: 0 20px;
+      text-align: center;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+    .pw-card img {
+      height: 48px;
+      margin: 0 auto 24px;
+    }
+    .pw-card h2 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+    .pw-card p {
+      font-size: 14px;
+      color: #64748b;
+      margin-bottom: 24px;
+    }
+    .pw-input {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #e2e8f0;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      outline: none;
+      transition: border-color 0.2s;
+      margin-bottom: 12px;
+    }
+    .pw-input:focus { border-color: #2563eb; }
+    .pw-input.error { border-color: #dc2626; }
+    .pw-field {
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .pw-field .pw-input { margin-bottom: 0; padding-right: 48px; }
+    .pw-toggle {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: #94a3b8;
+      transition: color 0.2s;
+    }
+    .pw-toggle:hover { color: #475569; }
+    .pw-btn {
+      width: 100%;
+      padding: 14px;
+      background: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .pw-btn:hover { background: #1d4ed8; }
+    .pw-error {
+      color: #dc2626;
+      font-size: 13px;
+      margin-top: 8px;
+      display: none;
+    }
+    .pw-error.show { display: block; }
+    /* iOS Safari: prevent auto-zoom on form-field focus (font-size must be >= 16px) */
+    @media (max-width: 768px) { input:not([type="hidden"]), select, textarea { font-size: 16px !important; } }
+  </style>
+</head>
+<body>
+
+<!-- Password Gate -->
+<div class="pw-gate" id="pwGate">
+  <div class="pw-card">
+    <img
+      src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/Hcu6uHQKmO8IeN93taxz/media/b0992a4e-16d8-4975-8770-180623cdb803.png"
+      alt="Savvy Compliance"
+    >
+    <h2 data-es="Portal de Administración" data-en="Admin Portal">Portal de Administración</h2>
+    <p data-es="Ingrese la contraseña para acceder" data-en="Enter the password to access">Ingrese la contraseña para acceder</p>
+    <form onsubmit="return checkPw(event)">
+      <div class="pw-field">
+        <input type="text" name="username" value="savvy_admin" style="display: none;" autocomplete="username">
+        <input type="password" name="password" class="pw-input" id="pwInput" placeholder="Contraseña" autocomplete="current-password">
+        <button type="button" class="pw-toggle" onclick="togglePwVis()" aria-label="Mostrar contraseña">
+          <svg id="eyeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <button type="submit" class="pw-btn" data-es="Acceder" data-en="Enter">Acceder</button>
+      <div class="pw-error" id="pwError" data-es="Contraseña incorrecta. Intente de nuevo." data-en="Incorrect password. Try again.">Contraseña incorrecta. Intente de nuevo.</div>
+    </form>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="portal-header">
+  <div class="header-inner">
+    <img
+      src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/Hcu6uHQKmO8IeN93taxz/media/b0992a4e-16d8-4975-8770-180623cdb803.png"
+      alt="Savvy Compliance"
+      class="header-logo"
+    >
+    <span class="header-title" data-es="Portal de Administración" data-en="Admin Portal">Portal de Administración</span>
+  </div>
+</header>
+
+<!-- Tabs -->
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="crear-cuenta" type="button">
+    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <line x1="19" y1="8" x2="19" y2="14"/>
+      <line x1="16" y1="11" x2="22" y2="11"/>
+    </svg>
+    <span data-es="Crear Cuenta" data-en="Create Account">Crear Cuenta</span>
+  </button>
+  <button class="tab-btn" data-tab="agregar-miembros" type="button">
+    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+      <circle cx="9" cy="7" r="4"/>
+      <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+      <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+    </svg>
+    <span data-es="Agregar Miembros" data-en="Add Members">Agregar Miembros</span>
+  </button>
+  <button class="tab-btn" data-tab="pausar-cuenta" type="button">
+    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="10"/>
+      <line x1="10" y1="15" x2="10" y2="9"/>
+      <line x1="14" y1="15" x2="14" y2="9"/>
+    </svg>
+    <span data-es="Pausar Cuenta" data-en="Pause Account">Pausar Cuenta</span>
+  </button>
+  <button class="tab-btn" data-tab="guia-completa" type="button">
+    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+    </svg>
+    <span data-es="Guía Completa" data-en="Full Guide">Guía Completa</span>
+  </button>
+  <button class="tab-btn" data-tab="onboarding" type="button">
+    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="9 11 12 14 22 4"/>
+      <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+    </svg>
+    <span data-es="Onboarding para Clientes" data-en="Client Onboarding">Onboarding para Clientes</span>
+  </button>
+</nav>
+
+<!-- Content -->
+<main class="portal-content">
+
+  <!-- Tab 1: Crear Cuenta -->
+  <div class="tab-panel active" id="crear-cuenta">
+
+    <div class="info-card">
+      <h2 data-es="Portal de Creación de Cuentas" data-en="Account Creation Portal">Portal de Creación de Cuentas</h2>
+      <p data-es="Complete el formulario a continuación para crear una nueva cuenta en la plataforma." data-en="Complete the form below to create a new account on the platform.">Complete el formulario a continuación para crear una nueva cuenta en la plataforma.</p>
+    </div>
+
+    <div class="alert alert--warning">
+      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <div>
+        <strong>Importante:</strong> El nombre de la compañía debe seguir estrictamente el formato <strong>CÓDIGO-SUFIJO - Nombre Comercial Completo</strong>, donde el código identificador y el nombre comercial se separan con un guion medio seguido de un espacio, otro guion medio y otro espacio ( - ). Está prohibido el uso del símbolo de barra vertical (|) en cualquier parte de la nomenclatura, ya que esto causará conflictos en el sistema.
+        <div class="code-example">
+          <span class="code-label">Ejemplo</span>
+          <span class="code-highlight">FCI-ZLC</span> - FCI Logistics
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <iframe
+        src="https://link.nilsdigital.com/widget/form/GuC8AHs8jD2UjItpkXSu"
+        id="inline-GuC8AHs8jD2UjItpkXSu"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Savvy Link Partnership"
+        data-height="763"
+        data-layout-iframe-id="inline-GuC8AHs8jD2UjItpkXSu"
+        data-form-id="GuC8AHs8jD2UjItpkXSu"
+        title="Crear Cuenta - Savvy Link Partnership"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- Tab 2: Agregar Miembros -->
+  <div class="tab-panel" id="agregar-miembros">
+
+    <div class="info-card">
+      <h2 data-es="Agregar Miembros del Equipo" data-en="Add Team Members">Agregar Miembros del Equipo</h2>
+      <p data-es="Este formulario es exclusivamente para agregar usuarios que ya existen dentro de la plataforma y necesitan ser agregados a otras cuentas." data-en="This form is exclusively for adding users who already exist on the platform and need to be added to other accounts.">Este formulario es exclusivamente para agregar usuarios que <strong>ya existen dentro de la plataforma</strong> y necesitan ser agregados a otras cuentas.</p>
+    </div>
+
+    <div class="alert" style="background:#fef2f2;border:1px solid #fca5a5;color:#7f1d1d;">
+      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <div>
+        <strong>Importante:</strong> Si necesita agregar usuarios nuevos que <strong>no existen</strong> dentro de la plataforma, NO use este formulario. Debe hacerlo directamente desde la pestaña <strong>"My Staff"</strong> dentro de la configuración de la cuenta (Settings → My Staff → Add User).
+      </div>
+    </div>
+
+    <div class="form-card">
+      <iframe
+        src="https://link.nilsdigital.com/widget/form/iSWfLX9YvzqS485xjHCJ"
+        id="inline-iSWfLX9YvzqS485xjHCJ"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Agregar Miembros del Equipo"
+        data-height="600"
+        data-layout-iframe-id="inline-iSWfLX9YvzqS485xjHCJ"
+        data-form-id="iSWfLX9YvzqS485xjHCJ"
+        title="Agregar Miembros del Equipo"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- Tab 3: Pausar Cuenta -->
+  <div class="tab-panel" id="pausar-cuenta">
+
+    <div class="info-card">
+      <h2 data-es="Solicitud de Pausa de Cuenta" data-en="Account Pause Request">Solicitud de Pausa de Cuenta</h2>
+      <p data-es="Cuando un cliente deje de usar Savvy Compliance, complete este formulario para solicitar la pausa de su cuenta. Nuestro equipo pausará la cuenta y desactivará los flujos de seguimiento en un plazo de 1-3 días hábiles." data-en="When a client stops using Savvy Compliance, complete this form to request their account pause. Our team will pause the account and deactivate its follow-up flows within 1-3 business days.">Cuando un cliente deje de usar Savvy Compliance, complete este formulario para solicitar la pausa de su cuenta. Nuestro equipo pausará la cuenta y desactivará los flujos de seguimiento en un plazo de 1-3 días hábiles.</p>
+    </div>
+
+    <div class="alert alert--warning">
+      <svg class="alert-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+        <line x1="12" y1="9" x2="12" y2="13"/>
+        <line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      <div>
+        <strong>¿Dónde encuentro el ID de la cuenta?</strong> Entre a la cuenta del cliente en app.nilsdigital.com y copie el código que aparece en la barra de direcciones después de <strong>/location/</strong>.
+        <div class="code-example">
+          <span class="code-label">Ejemplo</span>
+          app.nilsdigital.com/v2/location/<span class="code-highlight">Ab1Cd2Ef3Gh4Ij5Kl6Mn</span>/dashboard
+        </div>
+      </div>
+    </div>
+
+    <div class="form-card">
+      <iframe
+        src="https://link.nilsdigital.com/widget/form/URn5de8hP7PUj1H41wwj"
+        id="inline-URn5de8hP7PUj1H41wwj"
+        data-layout="{'id':'INLINE'}"
+        data-trigger-type="alwaysShow"
+        data-trigger-value=""
+        data-activation-type="alwaysActivated"
+        data-activation-value=""
+        data-deactivation-type="neverDeactivate"
+        data-deactivation-value=""
+        data-form-name="Solicitud de pausa de cuenta"
+        data-height="900"
+        data-layout-iframe-id="inline-URn5de8hP7PUj1H41wwj"
+        data-form-id="URn5de8hP7PUj1H41wwj"
+        title="Solicitud de pausa de cuenta"
+      ></iframe>
+    </div>
+  </div>
+
+  <!-- Tab 4: Guía Completa -->
+  <div class="tab-panel" id="guia-completa">
+
+    <div class="info-card">
+      <h2>Guía Completa del Sistema</h2>
+      <p data-es="Savvy Compliance es una plataforma integral de evaluación y gestión de riesgos que permite a las empresas evaluar los perfiles de riesgo de los clientes de manera automatizada y eficiente. Esta guía te llevará paso a paso desde la creación de cuenta hasta el manejo avanzado de contactos." data-en="Savvy Compliance is a comprehensive risk assessment and management platform that enables businesses to evaluate client risk profiles in an automated and efficient manner. This guide will take you step by step from account creation to advanced contact management.">Savvy Compliance es una plataforma integral de evaluación y gestión de riesgos que permite a las empresas evaluar los perfiles de riesgo de los clientes de manera automatizada y eficiente. Esta guía te llevará paso a paso desde la creación de cuenta hasta el manejo avanzado de contactos.</p>
+    </div>
+
+    <div class="guide-nav">
+      <a href="#g-account-creation" data-es="1. Creación de Cuenta" data-en="1. Account Creation">1. Creación de Cuenta</a>
+      <a href="#g-client-setup" data-es="2. Configuración del Cliente" data-en="2. Client Setup">2. Configuración del Cliente</a>
+      <a href="#g-import-contacts" data-es="3. Importar Contactos" data-en="3. Import Contacts">3. Importar Contactos</a>
+      <a href="#g-contact-management" data-es="4. Manejo de Contactos" data-en="4. Contact Management">4. Manejo de Contactos</a>
+    </div>
+
+    <!-- 1. Creación de Cuenta -->
+    <div class="guide-section" id="g-account-creation">
+      <h2 data-es="1. Creación de Cuenta" data-en="1. Account Creation">1. Creación de Cuenta</h2>
+
+      <div class="video-container">
+        <div class="video-wrapper">
+          <iframe src="https://www.loom.com/embed/564e4eb27643440ca3261a336098da73" allowfullscreen></iframe>
+        </div>
+        <div class="video-timeline">
+          <div class="timeline-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span data-es="Navegación Rápida del Video" data-en="Quick Video Navigation">Navegación Rápida del Video</span>
+          </div>
+          <div class="timeline-item"><span class="timestamp">0:00</span><span class="timeline-text" data-es="Introducción al portal de creación de cuentas" data-en="Introduction to account creation portal">Introducción al portal de creación de cuentas</span></div>
+          <div class="timeline-item"><span class="timestamp">0:08</span><span class="timeline-text" data-es="Acceso con contraseña SL2025" data-en="Access with password SL2025">Acceso con contraseña SL2025</span></div>
+          <div class="timeline-item"><span class="timestamp">0:28</span><span class="timeline-text" data-es="Completar información del cliente y administrador" data-en="Complete client and admin information">Completar información del cliente y administrador</span></div>
+          <div class="timeline-item"><span class="timestamp">0:56</span><span class="timeline-text" data-es="Seleccionar opción de pago y crear cuenta" data-en="Select payment option and create account">Seleccionar opción de pago y crear cuenta</span></div>
+          <div class="timeline-item"><span class="timestamp">1:25</span><span class="timeline-text" data-es="Activar cuenta desde el correo electrónico" data-en="Activate account from email">Activar cuenta desde el correo electrónico</span></div>
+        </div>
+      </div>
+
+      <div class="g-box g-critical">
+        <strong data-es="MUY IMPORTANTE:" data-en="VERY IMPORTANT:">MUY IMPORTANTE:</strong>
+        <span data-es="El correo electrónico que ingreses aquí recibirá las facturas y notificaciones administrativas. NO uses el correo del cliente si no quieres que reciban estos emails." data-en="The email address you enter here will receive invoices and administrative notifications. DO NOT use the client's email if you don't want them to receive these emails.">El correo electrónico que ingreses aquí recibirá las facturas y notificaciones administrativas. NO uses el correo del cliente si no quieres que reciban estos emails.</span>
+      </div>
+
+      <div class="g-box g-warning">
+        <strong data-es="Revisar Spam:" data-en="Check Spam:">Revisar Spam:</strong>
+        <span data-es="El correo de activación puede llegar a la carpeta de spam. Siempre revisar spam si no aparece en la bandeja principal." data-en="The activation email may arrive in the spam folder. Always check spam if it doesn't appear in the main inbox.">El correo de activación puede llegar a la carpeta de spam. Siempre revisar spam si no aparece en la bandeja principal.</span>
+      </div>
+
+      <ul class="step-list">
+        <li><span class="step-num">1</span><span data-es="Dirígete al portal de creación: Enlace disponible en la descripción del video" data-en="Go to the creation portal: Link available in video description">Dirígete al portal de creación: Enlace disponible en la descripción del video</span></li>
+        <li><span class="step-num">2</span><span data-es="Ingresa la contraseña de acceso: SL2025 (en mayúscula)" data-en="Enter access password: SL2025 (uppercase)">Ingresa la contraseña de acceso: SL2025 (en mayúscula)</span></li>
+        <li><span class="step-num">3</span><span data-es="Completa el nombre de la compañía del cliente" data-en="Complete the client company name">Completa el nombre de la compañía del cliente</span></li>
+        <li><span class="step-num">4</span><span data-es="Ingresa TU nombre como administrador (no del cliente)" data-en="Enter YOUR name as administrator (not the client's)">Ingresa TU nombre como administrador (no del cliente)</span></li>
+        <li><span class="step-num">5</span><span data-es="Usa TU correo electrónico (recibirás facturas y notificaciones)" data-en="Use YOUR email address (you'll receive invoices and notifications)">Usa TU correo electrónico (recibirás facturas y notificaciones)</span></li>
+        <li><span class="step-num">6</span><span data-es="Activa la cuenta desde el correo de confirmación (revisar spam)" data-en="Activate account from confirmation email (check spam)">Activa la cuenta desde el correo de confirmación (revisar spam)</span></li>
+      </ul>
+    </div>
+
+    <!-- 2. Configuración del Cliente -->
+    <div class="guide-section" id="g-client-setup">
+      <h2 data-es="2. Configuración del Cliente" data-en="2. Client Setup">2. Configuración del Cliente</h2>
+
+      <div class="video-container">
+        <div class="video-wrapper">
+          <iframe src="https://www.loom.com/embed/fc63d44256d84e0d80ba0bef2f060d0e" allowfullscreen></iframe>
+        </div>
+        <div class="video-timeline">
+          <div class="timeline-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span data-es="Navegación Rápida del Video" data-en="Quick Video Navigation">Navegación Rápida del Video</span>
+          </div>
+          <div class="timeline-item"><span class="timestamp">0:01</span><span class="timeline-text" data-es="Introducción al setup de configuración inicial" data-en="Introduction to initial configuration setup">Introducción al setup de configuración inicial</span></div>
+          <div class="timeline-item"><span class="timestamp">0:12</span><span class="timeline-text" data-es="Navegar a Sites → Formularios" data-en="Navigate to Sites → Forms">Navegar a Sites → Formularios</span></div>
+          <div class="timeline-item"><span class="timestamp">0:22</span><span class="timeline-text" data-es="Abrir previsualización de los primeros 4 formularios" data-en="Open preview of the first 4 forms">Abrir previsualización de los primeros 4 formularios</span></div>
+          <div class="timeline-item"><span class="timestamp">0:56</span><span class="timeline-text" data-es="Personalizar cuenta según segmento de negocio" data-en="Customize account according to business segment">Personalizar cuenta según segmento de negocio</span></div>
+          <div class="timeline-item"><span class="timestamp">1:33</span><span class="timeline-text" data-es="Copiar enlaces de formularios en orden correcto" data-en="Copy form links in correct order">Copiar enlaces de formularios en orden correcto</span></div>
+          <div class="timeline-item"><span class="timestamp">2:11</span><span class="timeline-text" data-es="Configurar nombre de compañía y correo para seguimientos" data-en="Set up company name and email for follow-ups">Configurar nombre de compañía y correo para seguimientos</span></div>
+          <div class="timeline-item"><span class="timestamp">3:13</span><span class="timeline-text" data-es="Agregar miembros del equipo masivamente" data-en="Add team members in bulk">Agregar miembros del equipo masivamente</span></div>
+          <div class="timeline-item"><span class="timestamp">4:01</span><span class="timeline-text" data-es="Agregar usuarios individualmente con permisos granulares" data-en="Add users individually with granular permissions">Agregar usuarios individualmente con permisos granulares</span></div>
+          <div class="timeline-item"><span class="timestamp">6:11</span><span class="timeline-text" data-es="Personalizar página de inicio estilo Linktree" data-en="Customize Linktree-style homepage">Personalizar página de inicio estilo Linktree</span></div>
+          <div class="timeline-item"><span class="timestamp">8:01</span><span class="timeline-text" data-es="Configurar reportes automáticos y programados" data-en="Set up automatic and scheduled reports">Configurar reportes automáticos y programados</span></div>
+        </div>
+      </div>
+
+      <div class="g-box g-critical">
+        <strong data-es="ORDEN CRÍTICO:" data-en="CRITICAL ORDER:">ORDEN CRÍTICO:</strong>
+        <span data-es="Los enlaces DEBEN copiarse en este orden exacto o no funcionará correctamente:" data-en="Links MUST be copied in this exact order or it won't work correctly:">Los enlaces DEBEN copiarse en este orden exacto o no funcionará correctamente:</span>
+        <ol>
+          <li data-es="Primera caja: Formulario de Diligencia Mínima" data-en="First box: Minimum Diligence Form">Primera caja: Formulario de Diligencia Mínima</li>
+          <li data-es="Segunda caja: Formulario de Diligencia Básica" data-en="Second box: Basic Diligence Form">Segunda caja: Formulario de Diligencia Básica</li>
+          <li data-es="Tercera caja: Formulario de Persona Jurídica" data-en="Third box: Legal Entity Form">Tercera caja: Formulario de Persona Jurídica</li>
+          <li data-es="Cuarta caja: Formulario de Abogados" data-en="Fourth box: Lawyers Form">Cuarta caja: Formulario de Abogados</li>
+        </ol>
+      </div>
+
+      <div class="g-box g-warning">
+        <strong data-es="Configuración de Seguimientos:" data-en="Follow-up Configuration:">Configuración de Seguimientos:</strong>
+        <span data-es="Los correos de seguimiento automático se enviarán desde el correo que configures aquí, usando el nombre de la compañía. Esto evita tener que perseguir manualmente a los clientes." data-en="Automatic follow-up emails will be sent from the email you configure here, using the company name. This avoids having to manually chase clients.">Los correos de seguimiento automático se enviarán desde el correo que configures aquí, usando el nombre de la compañía. Esto evita tener que perseguir manualmente a los clientes.</span>
+      </div>
+
+      <div class="g-box g-tip">
+        <strong data-es="Recomendación de Seguridad:" data-en="Security Recommendation:">Recomendación de Seguridad:</strong>
+        <span data-es="Para medidas de seguridad, es mejor agregar usuarios individualmente desde Settings → MyStaff → Add User en lugar de usar la carga masiva del formulario 6." data-en="For security measures, it's better to add users individually from Settings → MyStaff → Add User instead of using bulk upload from form 6.">Para medidas de seguridad, es mejor agregar usuarios individualmente desde Settings → MyStaff → Add User en lugar de usar la carga masiva del formulario 6.</span>
+      </div>
+
+      <ul class="step-list">
+        <li><span class="step-num">1</span><span data-es="Ir a Sites (Sitios) → Formularios → Abrir preview de los primeros 4 formularios" data-en="Go to Sites → Forms → Open preview of first 4 forms">Ir a Sites (Sitios) → Formularios → Abrir preview de los primeros 4 formularios</span></li>
+        <li><span class="step-num">2</span><span data-es="Llenar formulario 5: Seleccionar categoría comercial y copiar enlaces en orden correcto" data-en="Fill form 5: Select business category and copy links in correct order">Llenar formulario 5: Seleccionar categoría comercial y copiar enlaces en orden correcto</span></li>
+        <li><span class="step-num">3</span><span data-es="Configurar nombre de la compañía y correo para seguimientos automáticos" data-en="Set up company name and email for automatic follow-ups">Configurar nombre de la compañía y correo para seguimientos automáticos</span></li>
+        <li><span class="step-num">4</span><span data-es="Opcional: Usar formulario 6 para agregar miembros masivamente" data-en="Optional: Use form 6 to add members in bulk">Opcional: Usar formulario 6 para agregar miembros masivamente</span></li>
+        <li><span class="step-num">5</span><span data-es="Recomendado: Ir a Settings → MyStaff → Add User para control granular" data-en="Recommended: Go to Settings → MyStaff → Add User for granular control">Recomendado: Ir a Settings → MyStaff → Add User para control granular</span></li>
+      </ul>
+    </div>
+
+    <!-- 3. Importar Contactos -->
+    <div class="guide-section" id="g-import-contacts">
+      <h2 data-es="3. Importar y Procesar Contactos" data-en="3. Import and Process Contacts">3. Importar y Procesar Contactos</h2>
+
+      <div class="video-container">
+        <div class="video-wrapper">
+          <iframe src="https://www.loom.com/embed/38584359e538485597fb34a4cf108b31" allowfullscreen></iframe>
+        </div>
+        <div class="video-timeline">
+          <div class="timeline-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span data-es="Navegación Rápida del Video" data-en="Quick Video Navigation">Navegación Rápida del Video</span>
+          </div>
+          <div class="timeline-item"><span class="timestamp">0:00</span><span class="timeline-text" data-es="Introducción a importación de contactos" data-en="Introduction to contact import">Introducción a importación de contactos</span></div>
+          <div class="timeline-item"><span class="timestamp">0:16</span><span class="timeline-text" data-es="Pestañas del documento: Diligencia Mínima, Básica y Abogados" data-en="Document tabs: Minimum, Basic Diligence and Lawyers">Pestañas del documento: Diligencia Mínima, Básica y Abogados</span></div>
+          <div class="timeline-item"><span class="timestamp">0:42</span><span class="timeline-text" data-es="Crear copia de la plantilla (File → Make a copy)" data-en="Create template copy (File → Make a copy)">Crear copia de la plantilla (File → Make a copy)</span></div>
+          <div class="timeline-item"><span class="timestamp">1:36</span><span class="timeline-text" data-es="Campos de menú desplegable y su importancia" data-en="Dropdown menu fields and their importance">Campos de menú desplegable y su importancia</span></div>
+          <div class="timeline-item"><span class="timestamp">3:05</span><span class="timeline-text" data-es="Formato de fecha: DD-MM-YYYY con dos dígitos" data-en="Date format: DD-MM-YYYY with two digits">Formato de fecha: DD-MM-YYYY con dos dígitos</span></div>
+          <div class="timeline-item"><span class="timestamp">4:15</span><span class="timeline-text" data-es="Formato de teléfono: incluir código de país" data-en="Phone format: include country code">Formato de teléfono: incluir código de país</span></div>
+          <div class="timeline-item"><span class="timestamp">4:39</span><span class="timeline-text" data-es="Email como clave principal de identificación" data-en="Email as primary identification key">Email como clave principal de identificación</span></div>
+          <div class="timeline-item"><span class="timestamp">7:09</span><span class="timeline-text" data-es="Descargar como CSV (File → Download → CSV)" data-en="Download as CSV (File → Download → CSV)">Descargar como CSV (File → Download → CSV)</span></div>
+          <div class="timeline-item"><span class="timestamp">8:11</span><span class="timeline-text" data-es="Importar en plataforma: Contactos → Import" data-en="Import to platform: Contacts → Import">Importar en plataforma: Contactos → Import</span></div>
+          <div class="timeline-item"><span class="timestamp">9:25</span><span class="timeline-text" data-es="Mapeo de campos automático y manual" data-en="Automatic and manual field mapping">Mapeo de campos automático y manual</span></div>
+          <div class="timeline-item"><span class="timestamp">10:30</span><span class="timeline-text" data-es='CRÍTICO: Agregar tag "enviar análisis"' data-en="CRITICAL: Add 'send analysis' tag">CRÍTICO: Agregar tag "enviar análisis"</span></div>
+          <div class="timeline-item"><span class="timestamp">11:47</span><span class="timeline-text" data-es="Verificar resultados del análisis de riesgo" data-en="Verify risk analysis results">Verificar resultados del análisis de riesgo</span></div>
+        </div>
+      </div>
+
+      <div class="g-box g-critical">
+        <strong data-es="PASO OBLIGATORIO:" data-en="MANDATORY STEP:">PASO OBLIGATORIO:</strong>
+        <span data-es='Sin el tag "enviar análisis", los contactos se agregarán a la plataforma pero NO se procesarán por riesgo. Este tag es obligatorio para que funcione el análisis.' data-en="Without the 'send analysis' tag, contacts will be added to the platform but will NOT be processed for risk. This tag is mandatory for the analysis to work.">Sin el tag "enviar análisis", los contactos se agregarán a la plataforma pero NO se procesarán por riesgo. Este tag es obligatorio para que funcione el análisis.</span>
+      </div>
+
+      <div class="g-box g-critical">
+        <strong data-es="FORMATO DE FECHA CRÍTICO:" data-en="CRITICAL DATE FORMAT:">FORMATO DE FECHA CRÍTICO:</strong>
+        <span data-es="Los días y meses SIEMPRE deben tener dos dígitos. Ejemplo correcto: 03-05-2030. Ejemplo INCORRECTO: 3-5-2030. Si no sigues este formato exacto, la importación fallará." data-en="Days and months MUST always have two digits. Correct example: 03-05-2030. WRONG example: 3-5-2030. If you don't follow this exact format, the import will fail.">Los días y meses SIEMPRE deben tener dos dígitos. Ejemplo correcto: 03-05-2030. Ejemplo INCORRECTO: 3-5-2030. Si no sigues este formato exacto, la importación fallará.</span>
+      </div>
+
+      <div class="g-box g-warning">
+        <strong data-es="Solo Usar Menús Desplegables:" data-en="Only Use Dropdown Menus:">Solo Usar Menús Desplegables:</strong>
+        <span data-es="Es súper importante usar SOLO los menús desplegables. Si escribes manualmente (en mayúscula, minúscula, con tilde), no va a funcionar. Los menús tienen las opciones predeterminadas correctas." data-en="It's super important to use ONLY the dropdown menus. If you type manually (uppercase, lowercase, with accents), it won't work. The menus have the correct predetermined options.">Es súper importante usar SOLO los menús desplegables. Si escribes manualmente (en mayúscula, minúscula, con tilde), no va a funcionar. Los menús tienen las opciones predeterminadas correctas.</span>
+      </div>
+
+      <div class="g-box g-warning">
+        <strong data-es="Email = Clave Principal:" data-en="Email = Primary Key:">Email = Clave Principal:</strong>
+        <span data-es="El email es la clave principal del contacto, así es como lo identificamos. Hay países donde el número de documento cambia, donde el teléfono cambia, pero el correo no. Es uno de los campos más importantes." data-en="Email is the contact's primary key, that's how we identify them. There are countries where document numbers change, where phone numbers change, but email doesn't. It's one of the most important fields.">El email es la clave principal del contacto, así es como lo identificamos. Hay países donde el número de documento cambia, donde el teléfono cambia, pero el correo no. Es uno de los campos más importantes.</span>
+      </div>
+
+      <div class="g-box g-tip">
+        <strong data-es="Truco para Copiar Campos:" data-en="Field Copy Trick:">Truco para Copiar Campos:</strong>
+        <span data-es="Si necesitas importar muchos contactos, puedes seleccionar toda la fila y arrastrar el punto azul hacia abajo para copiar los menús desplegables a todas las filas que necesites." data-en="If you need to import many contacts, you can select the entire row and drag the blue dot down to copy the dropdown menus to all the rows you need.">Si necesitas importar muchos contactos, puedes seleccionar toda la fila y arrastrar el punto azul hacia abajo para copiar los menús desplegables a todas las filas que necesites.</span>
+      </div>
+
+      <ul class="step-list">
+        <li><span class="step-num">1</span><span data-es="Hacer copia de la plantilla de Google Sheets (File → Make a copy)" data-en="Make copy of Google Sheets template (File → Make a copy)">Hacer copia de la plantilla de Google Sheets (File → Make a copy)</span></li>
+        <li><span class="step-num">2</span><span data-es="Llenar datos usando SOLO menús desplegables (crítico para formato correcto)" data-en="Fill data using ONLY dropdown menus (critical for correct format)">Llenar datos usando SOLO menús desplegables (crítico para formato correcto)</span></li>
+        <li><span class="step-num">3</span><span data-es="Fechas con formato DD-MM-YYYY (siempre dos dígitos: 03-05-2030)" data-en="Dates with DD-MM-YYYY format (always two digits: 03-05-2030)">Fechas con formato DD-MM-YYYY (siempre dos dígitos: 03-05-2030)</span></li>
+        <li><span class="step-num">4</span><span data-es="Teléfono con código de país (+507 6000-0000)" data-en="Phone with country code (+507 6000-0000)">Teléfono con código de país (+507 6000-0000)</span></li>
+        <li><span class="step-num">5</span><span data-es="Descargar cada pestaña como archivo CSV separado" data-en="Download each tab as separate CSV file">Descargar cada pestaña como archivo CSV separado</span></li>
+        <li><span class="step-num">6</span><span data-es="Ir a Contactos → Import en la plataforma" data-en="Go to Contacts → Import in platform">Ir a Contactos → Import en la plataforma</span></li>
+        <li><span class="step-num">7</span><span data-es="Subir archivo CSV y verificar mapeo de campos (algunos requieren mapeo manual)" data-en="Upload CSV file and verify field mapping (some require manual mapping)">Subir archivo CSV y verificar mapeo de campos (algunos requieren mapeo manual)</span></li>
+        <li><span class="step-num">8</span><span data-es='OBLIGATORIO: Agregar tag "enviar análisis" antes de importar' data-en="MANDATORY: Add 'send analysis' tag before importing">OBLIGATORIO: Agregar tag "enviar análisis" antes de importar</span></li>
+        <li><span class="step-num">9</span><span data-es="Verificar procesamiento en Bulk Actions y resultados de riesgo" data-en="Verify processing in Bulk Actions and risk results">Verificar procesamiento en Bulk Actions y resultados de riesgo</span></li>
+      </ul>
+    </div>
+
+    <!-- 4. Manejo de Contactos -->
+    <div class="guide-section" id="g-contact-management">
+      <h2 data-es="4. Manejo de Contactos" data-en="4. Contact Management">4. Manejo de Contactos</h2>
+
+      <div class="video-container">
+        <div class="video-wrapper">
+          <iframe src="https://www.loom.com/embed/d4235f60381f4362a01509486f82ea5c" allowfullscreen></iframe>
+        </div>
+        <div class="video-timeline">
+          <div class="timeline-header">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span data-es="Navegación Rápida del Video" data-en="Quick Video Navigation">Navegación Rápida del Video</span>
+          </div>
+          <div class="timeline-item"><span class="timestamp">0:00</span><span class="timeline-text" data-es="Introducción al manejo de contactos" data-en="Introduction to contact management">Introducción al manejo de contactos</span></div>
+          <div class="timeline-item"><span class="timestamp">0:16</span><span class="timeline-text" data-es="Visualizar campos del contacto en la barra lateral" data-en="View contact fields in sidebar">Visualizar campos del contacto en la barra lateral</span></div>
+          <div class="timeline-item"><span class="timestamp">0:40</span><span class="timeline-text" data-es='Folder "Contact": Información crítica para diligencia mínima' data-en="'Contact' folder: Critical info for minimum diligence">Folder "Contact": Información crítica para diligencia mínima</span></div>
+          <div class="timeline-item"><span class="timestamp">1:21</span><span class="timeline-text" data-es="Seguimiento automático: Seleccionar formulario para follow-up" data-en="Automatic follow-up: Select form for follow-up">Seguimiento automático: Seleccionar formulario para follow-up</span></div>
+          <div class="timeline-item"><span class="timestamp">2:27</span><span class="timeline-text" data-es="Procesar contacto individual con tag de análisis" data-en="Process individual contact with analysis tag">Procesar contacto individual con tag de análisis</span></div>
+          <div class="timeline-item"><span class="timestamp">3:30</span><span class="timeline-text" data-es="Verificar resultado del análisis de riesgo" data-en="Verify risk analysis result">Verificar resultado del análisis de riesgo</span></div>
+          <div class="timeline-item"><span class="timestamp">4:25</span><span class="timeline-text" data-es="Uso de Smart Lists para filtrar contactos" data-en="Using Smart Lists to filter contacts">Uso de Smart Lists para filtrar contactos</span></div>
+          <div class="timeline-item"><span class="timestamp">5:05</span><span class="timeline-text" data-es="Dashboard de estadísticas y gráficas de riesgo" data-en="Statistics dashboard and risk charts">Dashboard de estadísticas y gráficas de riesgo</span></div>
+        </div>
+      </div>
+
+      <div class="g-box g-info">
+        <strong data-es="Campos del Contacto:" data-en="Contact Fields:">Campos del Contacto:</strong>
+        <span data-es="La barra lateral muestra todos los campos personalizados organizados por folder: Contact (diligencia mínima), información adicional y resultados de análisis." data-en="The sidebar shows all custom fields organized by folder: Contact (minimum diligence), additional information, and analysis results.">La barra lateral muestra todos los campos personalizados organizados por folder: Contact (diligencia mínima), información adicional y resultados de análisis.</span>
+      </div>
+
+      <div class="g-box g-tip">
+        <strong data-es="Smart Lists:" data-en="Smart Lists:">Smart Lists:</strong>
+        <span data-es="Usa las Smart Lists preconfiguradas para filtrar contactos por nivel de riesgo, estado de diligencia, o cualquier criterio personalizado. Esto facilita el seguimiento y la gestión masiva." data-en="Use the preconfigured Smart Lists to filter contacts by risk level, diligence status, or any custom criteria. This facilitates tracking and bulk management.">Usa las Smart Lists preconfiguradas para filtrar contactos por nivel de riesgo, estado de diligencia, o cualquier criterio personalizado. Esto facilita el seguimiento y la gestión masiva.</span>
+      </div>
+
+      <ul class="step-list">
+        <li><span class="step-num">1</span><span data-es="Abrir contacto y revisar campos en la barra lateral" data-en="Open contact and review fields in sidebar">Abrir contacto y revisar campos en la barra lateral</span></li>
+        <li><span class="step-num">2</span><span data-es="Seleccionar formulario correspondiente para enviar follow-up" data-en="Select corresponding form to send follow-up">Seleccionar formulario correspondiente para enviar follow-up</span></li>
+        <li><span class="step-num">3</span><span data-es='Para procesar individualmente: agregar tag "enviar análisis"' data-en="To process individually: add 'send analysis' tag">Para procesar individualmente: agregar tag "enviar análisis"</span></li>
+        <li><span class="step-num">4</span><span data-es="Verificar resultado en los campos de análisis de riesgo" data-en="Verify result in risk analysis fields">Verificar resultado en los campos de análisis de riesgo</span></li>
+        <li><span class="step-num">5</span><span data-es="Usar Smart Lists para filtrar y gestionar contactos masivamente" data-en="Use Smart Lists to filter and manage contacts in bulk">Usar Smart Lists para filtrar y gestionar contactos masivamente</span></li>
+        <li><span class="step-num">6</span><span data-es="Revisar Dashboard para estadísticas visuales de riesgo" data-en="Review Dashboard for visual risk statistics">Revisar Dashboard para estadísticas visuales de riesgo</span></li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- Tab 5: Onboarding -->
+  <div class="tab-panel" id="onboarding">
+
+    <div class="onboarding-hero">
+      <h2 data-es="Onboarding Savvy Compliance" data-en="Savvy Compliance Onboarding">Onboarding Savvy Compliance</h2>
+      <p data-es="En solo 5 pasos aprenderás todo lo necesario para dominar Savvy Compliance y gestionar tus contactos de manera profesional" data-en="In just 5 steps you'll learn everything you need to master Savvy Compliance and manage your contacts professionally">En solo 5 pasos aprenderás todo lo necesario para dominar Savvy Compliance y gestionar tus contactos de manera profesional</p>
+    </div>
+
+    <div class="info-card">
+      <h2 data-es="Tutorial Completo de la Plataforma" data-en="Complete Platform Tutorial">Tutorial Completo de la Plataforma</h2>
+      <p data-es="Este video te guiará paso a paso a través de todas las funciones principales de Savvy Compliance. Te recomendamos verlo completo antes de comenzar con el checklist." data-en="This video will guide you step by step through all the main features of Savvy Compliance. We recommend watching it completely before starting the checklist.">Este video te guiará paso a paso a través de todas las funciones principales de Savvy Compliance. Te recomendamos verlo completo antes de comenzar con el checklist.</p>
+    </div>
+
+    <div class="ob-video">
+      <div class="video-wrapper">
+        <iframe src="https://www.loom.com/embed/e0146cbf53ab4cebb66b382a9f0ff767" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="checklist-wrap">
+      <h3 data-es="Lista de Verificación - 5 Pasos Esenciales" data-en="Checklist - 5 Essential Steps">Lista de Verificación - 5 Pasos Esenciales</h3>
+
+      <div class="ob-progress">
+        <div class="ob-progress-fill" id="obProgressBar"></div>
+      </div>
+      <div class="ob-progress-text" id="obProgressText">0 de 5 pasos completados (0%)</div>
+
+      <ul class="ob-checklist">
+        <li class="ob-check-item" data-step="1">
+          <div class="ob-checkbox" onclick="obToggle(this)"></div>
+          <div>
+            <div class="ob-check-main" data-es="1. Entrar en la cuenta en app.nilsdigital.com" data-en="1. Log in at app.nilsdigital.com">1. Entrar en la cuenta en <a href="https://app.nilsdigital.com/" target="_blank">app.nilsdigital.com</a></div>
+            <ul class="ob-check-sub">
+              <li data-es="Usar tu correo electrónico" data-en="Use your email address">Usar tu correo electrónico</li>
+              <li data-es="Ingresar tu contraseña" data-en="Enter your password">Ingresar tu contraseña</li>
+            </ul>
+          </div>
+        </li>
+        <li class="ob-check-item" data-step="2">
+          <div class="ob-checkbox" onclick="obToggle(this)"></div>
+          <div>
+            <div class="ob-check-main" data-es="2. Familiarizarse con las pestañas" data-en="2. Get familiar with the tabs">2. Familiarizarse con las pestañas</div>
+            <ul class="ob-check-sub">
+              <li>Dashboard</li>
+              <li data-es="Sitios y Formularios" data-en="Sites and Forms">Sitios y Formularios</li>
+              <li data-es="Reportes" data-en="Reports">Reportes</li>
+              <li data-es="Centro de Búsqueda" data-en="Search Center">Centro de Búsqueda</li>
+            </ul>
+          </div>
+        </li>
+        <li class="ob-check-item" data-step="3">
+          <div class="ob-checkbox" onclick="obToggle(this)"></div>
+          <div><div class="ob-check-main" data-es="3. Compartir los formularios" data-en="3. Share the forms">3. Compartir los formularios</div></div>
+        </li>
+        <li class="ob-check-item" data-step="4">
+          <div class="ob-checkbox" onclick="obToggle(this)"></div>
+          <div><div class="ob-check-main" data-es="4. Ver los resultados y gestionar los contactos" data-en="4. View results and manage contacts">4. Ver los resultados y gestionar los contactos</div></div>
+        </li>
+        <li class="ob-check-item" data-step="5">
+          <div class="ob-checkbox" onclick="obToggle(this)"></div>
+          <div><div class="ob-check-main" data-es="5. Revisar/Agendar los reportes" data-en="5. Review/Schedule reports">5. Revisar/Agendar los reportes</div></div>
+        </li>
+      </ul>
+
+      <div class="ob-completion" id="obCompletion">
+        <h3 data-es="¡Felicitaciones!" data-en="Congratulations!">¡Felicitaciones!</h3>
+        <p data-es="Has completado el onboarding de Savvy Compliance" data-en="You've completed the Savvy Compliance onboarding">Has completado el onboarding de Savvy Compliance</p>
+      </div>
+    </div>
+
+    <div class="bonus-card">
+      <h3 data-es="Bonus: Importación Masiva de Contactos" data-en="Bonus: Bulk Contact Import">Bonus: Importación Masiva de Contactos</h3>
+      <p data-es="Aprende cómo importar múltiples contactos de una sola vez usando nuestra plantilla de Google Sheets. Este proceso te ahorrará tiempo y asegurará que todos tus datos estén correctamente formateados." data-en="Learn how to import multiple contacts at once using our Google Sheets template. This process will save you time and ensure all your data is correctly formatted.">Aprende cómo importar múltiples contactos de una sola vez usando nuestra plantilla de Google Sheets. Este proceso te ahorrará tiempo y asegurará que todos tus datos estén correctamente formateados.</p>
+
+      <div class="ob-video">
+        <div class="video-wrapper">
+          <iframe src="https://www.loom.com/embed/38584359e538485597fb34a4cf108b31" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <a href="https://docs.google.com/spreadsheets/d/1VyhzOMu3EFA_fwGlibhdvGr7pPv7HiKFCxWbf1ktN80/edit?usp=sharing" class="template-btn" target="_blank">📊 Plantilla</a>
+      <p style="margin-top: 0.75rem; font-size: 13px; color: #01579b;">Haz una copia de la plantilla, llena los datos usando los menús desplegables, y descárgala como CSV para importar.</p>
+    </div>
+
+  </div>
+
+</main>
+
+<div class="lang-switcher visible" id="langSwitcher">
+  <button class="lang-btn active" onclick="setLanguage('es')">ES</button>
+  <button class="lang-btn" onclick="setLanguage('en')">EN</button>
+</div>
+
+<script src="https://link.nilsdigital.com/js/form_embed.js"></script>
+<script>
+  // Password visibility toggle
+  function togglePwVis() {
+    var input = document.getElementById('pwInput');
+    var icon = document.getElementById('eyeIcon');
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.innerHTML = '<path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/>';
+    } else {
+      input.type = 'password';
+      icon.innerHTML = '<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>';
+    }
+  }
+
+  // Password gate
+  function checkPw(e) {
+    e.preventDefault();
+    var input = document.getElementById('pwInput');
+    if (input.value === 'Savvy26!') {
+      document.getElementById('pwGate').classList.add('hidden');
+      localStorage.setItem('savvy_auth', '1');
+    } else {
+      input.classList.add('error');
+      document.getElementById('pwError').classList.add('show');
+      input.value = '';
+      setTimeout(function() { input.classList.remove('error'); }, 1500);
+    }
+    return false;
+  }
+  // Auto-unlock if already authenticated on this device/browser
+  if (localStorage.getItem('savvy_auth') === '1') {
+    document.getElementById('pwGate').classList.add('hidden');
+  }
+
+  // Tab switching
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+      document.getElementById('langSwitcher').classList.add('visible');
+    });
+  });
+
+  // Guide anchor links — activate guide tab first
+  document.querySelectorAll('.guide-nav a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      e.preventDefault();
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  // Onboarding checklist
+  var obCompleted = 0;
+  var obTotal = 5;
+  function obToggle(cb) {
+    var checked = cb.classList.contains('checked');
+    var item = cb.closest('.ob-check-item');
+    if (checked) { cb.classList.remove('checked'); item.classList.remove('completed'); obCompleted--; }
+    else { cb.classList.add('checked'); item.classList.add('completed'); obCompleted++; }
+    var pct = Math.round((obCompleted / obTotal) * 100);
+    document.getElementById('obProgressBar').style.width = pct + '%';
+    document.getElementById('obProgressText').textContent = obCompleted + ' de ' + obTotal + ' pasos completados (' + pct + '%)';
+    document.getElementById('obCompletion').classList.toggle('show', obCompleted === obTotal);
+  }
+
+  // Language switcher
+  function setLanguage(lang) {
+    document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+    document.querySelector('.lang-btn[onclick*="' + lang + '"]').classList.add('active');
+    document.querySelectorAll('[data-' + lang + ']').forEach(function(el) {
+      var text = el.getAttribute('data-' + lang);
+      if (text) el.textContent = text;
+    });
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+/* ─── CONTACT HERO ─── */
+.contact-hero { padding: var(--space-8) 0 var(--space-6); text-align: center; }
+.contact-hero h1, .contact-hero h2 { max-width: 880px; margin: 0 auto var(--space-4); font-family: var(--font-serif); font-size: var(--fs-h1); font-weight: var(--fw-serif-regular); line-height: var(--lh-tight); letter-spacing: -0.025em; color: var(--ink); }
+.contact-hero p.lead { max-width: 720px; margin: 0 auto; color: var(--ink-soft); }
+
+/* Closing route-halves echo at the bottom of contact, bookends the page */
+.contact-routes-echo {
+  margin-top: var(--space-7);
+  padding: 0;
+}
+.contact-routes-echo .route-halves {
+  border-top: 1px solid var(--ink-line-soft);
+  border-bottom: 1px solid var(--ink-line-soft);
+}
+
+/* ─── CONTACT MAILTO FOOTNOTE ─── */
+.contact-mailto {
+  text-align: center;
+  padding: var(--space-6) 0 var(--space-8);
+  color: var(--ink-mute);
+  font-size: var(--fs-meta);
+  font-family: var(--font-body);
+}
+.contact-mailto a {
+  color: var(--marketing);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+}
+.contact-mailto a:hover { color: var(--marketing-dark); }
+
+/* ─── CONTACT ROUTES wrapper (uses .route-halves from components.css) ─── */
+.contact-routes {
+  /* Section padding inherited from globals.css `section { padding: ... }` */
+  /* No additional styles needed; route halves already styled in components.css */
+}

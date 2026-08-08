@@ -1,0 +1,1075 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technical Analysis &amp; Development Plan · Client Deliverable | Nils Digital</title>
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="description" content="A real 14-Day Audit deliverable: the full build-ready target-state architecture for a multi-campus martial arts school." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      :root {
+        --font-head: "Oswald", system-ui, sans-serif;
+        --font-body: "Inter", system-ui, -apple-system, sans-serif;
+        --font-num:  "Space Grotesk", "Inter", sans-serif;
+
+        --white: #ffffff;
+        --cream: #f7f9fc;
+        --cream-2: #eef2f8;
+        --border: #e2e8f2;
+        --border-2: #c6d1e4;
+
+        --ink:    #0d1534;
+        --ink-60: #475067;
+        --ink-50: #6b7490;
+        --ink-40: #8b95ad;
+
+        --blue-900: #0a1028;
+        --blue-800: #111a3d;
+        --blue-700: #1b2f6e;
+        --blue-600: #234091;
+        --blue-500: #2f82c4;
+        --blue-400: #4aa3e0;
+        --blue-100: #e8f1fb;
+        --blue-50:  #f4f8fd;
+        --blue-rgb: 47, 130, 196;
+
+        --red-600: #b91c1c;
+        --red-500: #dc2626;
+        --red-50:  #fef2f2;
+
+        --good:   #047857;
+        --good-bg:#ecfdf5;
+        --warn:   #b45309;
+        --warn-bg:#fffbeb;
+
+        --r-sm: 10px; --r-md: 16px; --r-lg: 24px; --r-xl: 32px;
+        --sh-sm: 0 2px 8px rgba(15,27,61,0.06), 0 1px 3px rgba(15,27,61,0.04);
+        --sh-md: 0 12px 32px -12px rgba(27,47,110,0.18), 0 4px 10px -4px rgba(15,27,61,0.06);
+        --sh-lg: 0 24px 60px -20px rgba(27,47,110,0.24), 0 8px 16px -8px rgba(15,27,61,0.08);
+        --sh-blue: 0 24px 70px -24px rgba(47,130,196,0.5);
+        --grad-deep: linear-gradient(150deg, #1b2f6e 0%, #0a1028 100%);
+        --ease: cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      html { scroll-behavior: smooth; scroll-padding-top: 84px; -webkit-text-size-adjust: 100%; }
+      body {
+        font-family: var(--font-body);
+        background:
+          radial-gradient(120% 60% at 50% -10%, rgba(47,130,196,0.07) 0%, transparent 55%),
+          var(--cream);
+        color: var(--ink);
+        font-size: 16.5px;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+      h1,h2,h3,h4 { font-family: var(--font-head); font-weight: 600; letter-spacing: -0.01em; line-height: 1.12; }
+      a { color: var(--blue-500); }
+      strong { font-weight: 600; color: var(--ink); }
+      .num { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+
+      /* ── TOP BAR ── */
+      .topbar {
+        position: sticky; top: 0; z-index: 60;
+        background: rgba(247,249,252,0.82);
+        backdrop-filter: saturate(180%) blur(14px);
+        -webkit-backdrop-filter: saturate(180%) blur(14px);
+        border-bottom: 1px solid var(--border);
+      }
+      .topbar-inner { max-width: 1080px; margin: 0 auto; padding: 11px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+      .tb-left { display: flex; align-items: center; gap: 13px; min-width: 0; }
+      .tb-mark { width: 22px; height: 22px; border-radius: 6px; flex-shrink: 0; background: linear-gradient(150deg, var(--blue-500), var(--blue-700)); box-shadow: 0 3px 10px -2px rgba(47,130,196,0.6); }
+      .tb-by { font-family: var(--font-head); font-weight: 600; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); }
+      .tb-badge {
+        font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase;
+        color: var(--blue-500); background: var(--blue-100); border: 1px solid rgba(47,130,196,0.25);
+        padding: 6px 12px; border-radius: 100px; white-space: nowrap;
+      }
+
+      /* ── CONTENTS DIRECTORY ── */
+      .tb-toc { position: relative; }
+      .tb-toc-btn { display: inline-flex; align-items: center; gap: 7px; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.08em; font-size: 12px; font-weight: 600; color: var(--blue-700); background: var(--blue-50); border: 1px solid var(--blue-100); border-radius: 100px; padding: 7px 13px; cursor: pointer; }
+      .tb-toc-btn svg { width: 14px; height: 14px; }
+      .tb-toc-btn .tcv { width: 12px; height: 12px; transition: transform .25s; }
+      .tb-toc.open .tb-toc-btn .tcv { transform: rotate(180deg); }
+      .tb-toc-btn:hover { background: var(--blue-100); }
+      .tb-toc-panel { position: absolute; top: calc(100% + 10px); left: 0; width: 300px; max-width: calc(100vw - 32px); max-height: 72vh; overflow-y: auto; background: #fff; border: 1px solid var(--border); border-radius: 14px; box-shadow: var(--sh-lg); padding: 8px; opacity: 0; visibility: hidden; transform: translateY(-8px); transition: opacity .2s var(--ease), transform .2s var(--ease), visibility .2s; z-index: 90; }
+      .tb-toc.open .tb-toc-panel { opacity: 1; visibility: visible; transform: none; }
+      .tb-toc-panel a { display: flex; gap: 12px; align-items: baseline; padding: 10px 12px; border-radius: 9px; text-decoration: none; font-size: 14px; color: var(--ink-60); transition: background .15s; }
+      .tb-toc-panel a:hover { background: var(--blue-50); }
+      .tb-toc-panel a.active { background: var(--blue-50); color: var(--blue-700); font-weight: 600; }
+      .tb-toc-panel a .tn { font-family: var(--font-num); font-weight: 700; font-size: 12px; color: var(--blue-400); min-width: 18px; }
+      .tb-toc-panel a.active .tn { color: var(--blue-600); }
+      @media (max-width: 600px) { .tb-by { display: none; } .tb-badge { display: none; } }
+
+      /* ── VALUE: FUTURE BAND ── */
+      .value-future { display: flex; gap: 16px; align-items: flex-start; margin-top: 22px; padding: 20px 22px; background: rgba(74,163,224,0.1); border: 1px solid rgba(74,163,224,0.25); border-radius: var(--r-md); }
+      .value-future .vf-ic { width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0; display: grid; place-items: center; background: rgba(74,163,224,0.18); color: var(--blue-400); }
+      .value-future .vf-ic svg { width: 22px; height: 22px; }
+      .value-future .vf-h { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.04em; font-size: 16px; font-weight: 600; color: #fff; margin-bottom: 6px; }
+      .value-future p { font-size: 14.5px; color: rgba(255,255,255,0.78); margin: 0; line-height: 1.6; }
+
+      /* ── HERO ── */
+      .hero { padding: 72px 0 8px; position: relative; }
+      .hero-glow { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+      .hero-glow::before {
+        content: ""; position: absolute; top: -120px; left: 50%; transform: translateX(-50%);
+        width: 680px; height: 380px; border-radius: 50%;
+        background: radial-gradient(ellipse, rgba(47,130,196,0.18) 0%, transparent 70%); filter: blur(10px);
+      }
+      .eyebrow { font-family: var(--font-head); font-size: 13px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--blue-500); margin-bottom: 20px; display: inline-flex; align-items: center; gap: 10px; }
+      .eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--blue-500); display: inline-block; }
+      .hero h1 { font-size: clamp(38px, 6.4vw, 74px); font-weight: 700; text-transform: uppercase; letter-spacing: -0.005em; color: var(--ink); max-width: 16ch; }
+      .hero h1 em { font-style: normal; color: var(--blue-500); }
+      .hero-sub { font-size: clamp(17px, 2.4vw, 20px); color: var(--ink-60); max-width: 56ch; margin-top: 22px; line-height: 1.55; }
+      .meta-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 34px; }
+      .meta-chip { display: inline-flex; flex-direction: column; gap: 2px; background: var(--white); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 10px 16px; box-shadow: var(--sh-sm); }
+      .meta-chip .k { font-family: var(--font-head); font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-40); }
+      .meta-chip .v { font-size: 14.5px; font-weight: 600; color: var(--ink); }
+      .meta-chip .v.live { color: var(--good); }
+
+      /* ── SECTION SHELL ── */
+      section.block { padding: 56px 0; }
+      .sec-head { display: flex; align-items: baseline; gap: 16px; margin-bottom: 30px; }
+      .sec-no { font-family: var(--font-num); font-weight: 700; font-size: 15px; color: var(--blue-400); border: 1.5px solid var(--blue-100); background: var(--blue-50); border-radius: 8px; padding: 4px 10px; flex-shrink: 0; }
+      .sec-head h2 { font-size: clamp(26px, 3.8vw, 38px); text-transform: uppercase; font-weight: 700; }
+      .lead { font-size: 18px; color: var(--ink-60); max-width: 70ch; margin-bottom: 28px; }
+      .sub-h { font-family: var(--font-head); text-transform: uppercase; font-weight: 600; letter-spacing: 0.04em; font-size: 19px; color: var(--ink); margin: 34px 0 14px; display: flex; align-items: center; gap: 11px; }
+      .sub-h::before { content: ""; width: 8px; height: 20px; border-radius: 3px; background: linear-gradient(var(--blue-500), var(--blue-700)); display: inline-block; }
+      p { margin-bottom: 14px; color: var(--ink-60); }
+      p strong { color: var(--ink); }
+      .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border-2), transparent); margin: 8px 0; }
+
+      /* ── COVER NOTE ── */
+      .cover {
+        background: var(--white); border: 1px solid var(--border); border-left: 4px solid var(--blue-500);
+        border-radius: var(--r-md); padding: 40px clamp(24px,4vw,48px); box-shadow: var(--sh-md); position: relative;
+      }
+      .cover .q { font-family: var(--font-head); font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue-500); margin-bottom: 18px; }
+      .cover p { font-size: 16.5px; color: var(--ink-60); }
+      .cover .sign { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; color: var(--ink); margin-top: 18px; }
+      .cover ol { margin: 8px 0 8px 0; padding-left: 0; list-style: none; counter-reset: cn; }
+      .cover ol li { counter-increment: cn; position: relative; padding: 14px 0 14px 52px; border-top: 1px solid var(--border); color: var(--ink-60); }
+      .cover ol li::before { content: counter(cn); position: absolute; left: 0; top: 12px; width: 34px; height: 34px; display: grid; place-items: center; font-family: var(--font-num); font-weight: 700; font-size: 15px; color: var(--blue-600); background: var(--blue-50); border: 1.5px solid var(--blue-100); border-radius: 9px; }
+
+      /* ── TL;DR ── */
+      .tldr { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-lg); padding: clamp(28px,4vw,44px); box-shadow: var(--sh-md); position: relative; overflow: hidden; }
+      .tldr::before { content: ""; position: absolute; top: 0; left: 0; width: 5px; height: 100%; background: linear-gradient(var(--blue-500), var(--blue-700)); }
+      .tldr-eyebrow { font-family: var(--font-head); font-size: 13px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue-500); margin-bottom: 28px; display: flex; align-items: center; gap: 11px; }
+      .tldr-eyebrow::before { content: ""; width: 26px; height: 2px; background: var(--blue-500); }
+      .tldr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px 36px; }
+      .tldr-item { display: flex; gap: 16px; }
+      .tldr-ic { width: 46px; height: 46px; border-radius: 13px; display: grid; place-items: center; flex-shrink: 0; background: var(--blue-50); color: var(--blue-600); border: 1px solid var(--blue-100); }
+      .tldr-ic.green { background: var(--good-bg); color: var(--good); border-color: rgba(4,120,87,0.18); }
+      .tldr-ic svg { width: 23px; height: 23px; }
+      .tldr-h { font-family: var(--font-head); text-transform: uppercase; font-weight: 600; letter-spacing: 0.02em; font-size: 16px; color: var(--ink); margin-bottom: 6px; }
+      .tldr-item p { font-size: 15px; margin: 0; color: var(--ink-60); line-height: 1.55; }
+      @media (max-width: 720px) { .tldr-grid { grid-template-columns: 1fr; gap: 22px; } }
+
+      /* ── STAT PANEL (dark) ── */
+      .statpanel { background: var(--grad-deep); border-radius: var(--r-lg); padding: clamp(28px,4vw,44px); box-shadow: var(--sh-blue); position: relative; overflow: hidden; }
+      .statpanel::before { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 80% at 100% 0%, rgba(74,163,224,0.22) 0%, transparent 55%); pointer-events: none; }
+      .statpanel .sp-label { font-family: var(--font-head); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue-400); margin-bottom: 22px; }
+      .stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; position: relative; }
+      .stat .n { font-family: var(--font-num); font-weight: 700; font-size: clamp(30px, 4.6vw, 46px); color: #fff; line-height: 1; letter-spacing: -0.02em; }
+      .stat .n small { font-size: 0.5em; color: var(--blue-400); font-weight: 600; }
+      .stat .l { font-size: 13px; color: rgba(255,255,255,0.66); margin-top: 9px; line-height: 1.35; }
+      @media (max-width: 720px) { .stat-grid { grid-template-columns: repeat(2, 1fr); gap: 24px 20px; } }
+
+      /* ── CARDS / GRIDS ── */
+      .card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 26px; box-shadow: var(--sh-sm); }
+      .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      @media (max-width: 760px) { .two-col { grid-template-columns: 1fr; } }
+      .card h4 { font-size: 17px; text-transform: uppercase; letter-spacing: 0.03em; margin-bottom: 12px; color: var(--ink); display: flex; align-items: center; gap: 10px; }
+      .ic { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; flex-shrink: 0; background: var(--blue-50); color: var(--blue-600); }
+      .ic.red { background: var(--red-50); color: var(--red-600); }
+      .ic svg { width: 18px; height: 18px; }
+      .card ul { list-style: none; }
+      .card ul li { position: relative; padding: 7px 0 7px 22px; color: var(--ink-60); font-size: 15px; border-top: 1px solid var(--border); }
+      .card ul li:first-child { border-top: 0; }
+      .card ul li::before { content: ""; position: absolute; left: 2px; top: 15px; width: 7px; height: 7px; border-radius: 2px; background: var(--blue-400); }
+
+      /* ── SURFACES (numbered list) ── */
+      .surfaces { display: grid; gap: 12px; }
+      .surface { display: flex; gap: 16px; background: var(--white); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 16px 18px; box-shadow: var(--sh-sm); }
+      .surface .sn { font-family: var(--font-num); font-weight: 700; font-size: 16px; color: var(--blue-500); flex-shrink: 0; width: 26px; }
+      .surface b { color: var(--ink); }
+      .surface .st { color: var(--ink-60); font-size: 15px; }
+
+      /* ── TABLES ── */
+      .tbl-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--r-md); box-shadow: var(--sh-sm); background: var(--white); -webkit-overflow-scrolling: touch; }
+      table { width: 100%; border-collapse: collapse; font-size: 14.5px; min-width: 460px; }
+      thead th { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.06em; font-size: 11.5px; font-weight: 600; color: var(--ink-50); text-align: left; padding: 13px 16px; background: var(--cream-2); border-bottom: 1px solid var(--border); white-space: nowrap; }
+      tbody td { padding: 13px 16px; border-top: 1px solid var(--border); color: var(--ink-60); vertical-align: top; }
+      tbody tr:nth-child(even) td { background: var(--blue-50); }
+      tbody td strong { color: var(--ink); }
+      td .pill { font-family: var(--font-head); font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 9px; border-radius: 100px; white-space: nowrap; }
+      .pill.hi { background: var(--red-50); color: var(--red-600); }
+      .pill.med { background: var(--warn-bg); color: var(--warn); }
+      .pill.lo { background: var(--good-bg); color: var(--good); }
+      .pill.b { background: var(--blue-100); color: var(--blue-600); }
+
+      /* ── BEFORE / AFTER ── */
+      .ba { display: grid; gap: 0; border: 1px solid var(--border); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--sh-sm); background: var(--white); }
+      .ba-row { display: grid; grid-template-columns: 1fr 1fr; border-top: 1px solid var(--border); }
+      .ba-row:first-child { border-top: 0; }
+      .ba-cell { padding: 16px 20px; font-size: 15px; }
+      .ba-cell.before { color: var(--ink-50); background: var(--cream); }
+      .ba-cell.after { color: var(--ink); border-left: 3px solid var(--good); position: relative; }
+      .ba-cell.after::before { content: "✓"; color: var(--good); font-weight: 700; margin-right: 8px; }
+      .ba-head { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.1em; font-size: 11.5px; font-weight: 600; padding: 12px 20px; }
+      .ba-head.before { color: var(--ink-40); background: var(--cream-2); }
+      .ba-head.after { color: var(--good); background: var(--good-bg); border-left: 3px solid var(--good); }
+      @media (max-width: 680px) { .ba-row, .ba .ba-head:first-of-type { grid-template-columns: 1fr; } .ba-headrow { display: none; } .ba-cell.before::after { content: " → after"; } }
+
+      /* ── SYSTEM MAP (architecture diagram) ── */
+      .sysmap { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-lg); padding: clamp(22px,3.5vw,40px); box-shadow: var(--sh-md); }
+      .tier { display: grid; gap: 12px; }
+      .tier-label { font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-40); text-align: center; margin: 4px 0 2px; }
+      .actors { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+      .actor { text-align: center; font-family: var(--font-head); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; font-size: 13px; color: var(--blue-700); background: var(--blue-50); border: 1.5px solid var(--blue-100); border-radius: var(--r-sm); padding: 12px; }
+      .node-row { display: grid; gap: 12px; }
+      .node-row.c3 { grid-template-columns: repeat(3,1fr); }
+      .node-row.c2 { grid-template-columns: repeat(2,1fr); }
+      .node { background: var(--cream); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 14px 16px; text-align: center; }
+      .node .nt { font-family: var(--font-head); font-weight: 600; text-transform: uppercase; font-size: 13px; letter-spacing: 0.03em; color: var(--ink); }
+      .node .nd { font-size: 12px; color: var(--ink-50); margin-top: 3px; }
+      .node.truth { background: var(--grad-deep); border: 0; box-shadow: var(--sh-blue); padding: 22px; }
+      .node.truth .nt { color: #fff; font-size: 15px; letter-spacing: 0.06em; }
+      .node.truth .nd { color: var(--blue-400); margin-top: 8px; font-weight: 500; }
+      .node.truth .chips { display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; margin-top: 14px; }
+      .node.truth .chips span { font-size: 11.5px; color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16); border-radius: 100px; padding: 4px 11px; }
+      .node.fail { background: var(--red-50); border-color: rgba(185,28,28,0.2); }
+      .node.fail .nt { color: var(--red-600); }
+      .node.fail .nd { color: var(--red-600); opacity: 0.8; }
+      .flow { text-align: center; color: var(--blue-400); margin: 2px 0; }
+      .flow svg { width: 20px; height: 20px; }
+      .flow .fl { font-family: var(--font-head); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-40); }
+      @media (max-width: 640px) { .node-row.c3 { grid-template-columns: 1fr; } }
+
+      /* ── FAILSAFE callout ── */
+      .spine { background: linear-gradient(135deg, var(--blue-50), var(--white)); border: 1px solid var(--blue-100); border-radius: var(--r-md); padding: 24px 26px; display: flex; gap: 18px; align-items: flex-start; box-shadow: var(--sh-sm); }
+      .spine .ic { width: 44px; height: 44px; }
+      .spine .ic svg { width: 22px; height: 22px; }
+      .spine h4 { margin-bottom: 6px; }
+
+      /* ── ACCORDION ── */
+      .acc { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); margin-bottom: 12px; box-shadow: var(--sh-sm); overflow: hidden; transition: box-shadow .25s, border-color .25s; }
+      .acc.open { box-shadow: var(--sh-md); border-color: var(--border-2); }
+      .acc-head { width: 100%; text-align: left; background: none; border: 0; padding: 20px 22px; display: flex; align-items: center; gap: 16px; cursor: pointer; font-family: inherit; }
+      .acc-tag { font-family: var(--font-num); font-weight: 700; font-size: 13px; color: var(--blue-600); background: var(--blue-50); border: 1.5px solid var(--blue-100); border-radius: 8px; padding: 5px 9px; flex-shrink: 0; }
+      .acc-titles { flex: 1; min-width: 0; }
+      .acc-t { display: block; font-family: var(--font-head); font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; font-size: 17px; color: var(--ink); line-height: 1.2; }
+      .acc-s { display: block; font-size: 13.5px; color: var(--ink-50); margin-top: 3px; }
+      .acc-chev { flex-shrink: 0; color: var(--ink-40); transition: transform .3s var(--ease); }
+      .acc.open .acc-chev { transform: rotate(180deg); color: var(--blue-500); }
+      .acc-body { max-height: 0; overflow: hidden; transition: max-height .4s var(--ease); }
+      .acc-inner { padding: 4px 22px 24px; border-top: 1px solid var(--border); }
+      .acc-inner > .divider:first-child { display: none; }
+      .spec-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin: 16px 0; }
+      @media (max-width: 640px) { .spec-grid { grid-template-columns: 1fr; } }
+      .spec-box { background: var(--cream); border: 1px solid var(--border); border-radius: var(--r-sm); padding: 14px 16px; }
+      .spec-box .sbh { font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-40); margin-bottom: 8px; }
+      .spec-box ul { list-style: none; }
+      .spec-box ul li { position: relative; padding: 4px 0 4px 16px; font-size: 14px; color: var(--ink-60); }
+      .spec-box ul li::before { content: ""; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: var(--blue-400); }
+      .keydec { background: var(--blue-50); border-left: 3px solid var(--blue-500); border-radius: 0 var(--r-sm) var(--r-sm) 0; padding: 12px 16px; margin: 8px 0; font-size: 14.5px; color: var(--ink-60); }
+      .keydec b { color: var(--blue-700); }
+      .acc-inner p { font-size: 15px; }
+
+      /* ── OUR NOTE (commentary) ── */
+      .note { background: linear-gradient(135deg, #fffaf1, #fffefb); border: 1px solid #f0e2c4; border-left: 3px solid #d89a2e; border-radius: 0 var(--r-sm) var(--r-sm) 0; padding: 14px 16px 14px 18px; margin: 16px 0; display: flex; gap: 13px; }
+      .note .note-ic { color: #b45309; flex-shrink: 0; margin-top: 1px; }
+      .note .note-ic svg { width: 19px; height: 19px; }
+      .note .note-b { font-size: 14.5px; color: var(--ink-60); line-height: 1.55; }
+      .note .note-b b.note-k { color: #92670f; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.06em; font-size: 11.5px; display: block; margin-bottom: 4px; }
+      .note .note-b strong { color: var(--ink); }
+
+      /* ── NESTED BUILD-STEPS DROPDOWN ── */
+      .subacc { margin-top: 16px; border: 1px solid var(--blue-100); border-radius: var(--r-sm); overflow: hidden; background: var(--blue-50); transition: background .25s; }
+      .subacc.open { background: var(--white); border-color: var(--border-2); }
+      .subacc-head { width: 100%; text-align: left; background: none; border: 0; padding: 13px 16px; display: flex; align-items: center; gap: 11px; cursor: pointer; font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.04em; font-size: 13px; font-weight: 600; color: var(--blue-700); }
+      .subacc-head .sa-ic { width: 26px; height: 26px; border-radius: 7px; background: var(--blue-100); color: var(--blue-600); display: grid; place-items: center; flex-shrink: 0; }
+      .subacc.open .subacc-head .sa-ic { background: var(--blue-500); color: #fff; }
+      .subacc-head .sa-ic svg { width: 15px; height: 15px; }
+      .subacc-chev { margin-left: auto; transition: transform .3s var(--ease); color: var(--blue-400); }
+      .subacc.open .subacc-chev { transform: rotate(180deg); }
+      .subacc-body { max-height: 0; overflow: hidden; transition: max-height .35s var(--ease); }
+      .subacc-inner { padding: 2px 16px 16px; }
+      .steps { list-style: none; counter-reset: st; }
+      .steps li { counter-increment: st; position: relative; padding: 10px 0 10px 40px; border-top: 1px solid var(--border); font-size: 14px; color: var(--ink-60); line-height: 1.5; }
+      .steps li:first-child { border-top: 0; }
+      .steps li::before { content: counter(st); position: absolute; left: 0; top: 10px; width: 26px; height: 26px; display: grid; place-items: center; font-family: var(--font-num); font-weight: 700; font-size: 12px; color: #fff; background: linear-gradient(150deg, var(--blue-500), var(--blue-700)); border-radius: 7px; }
+      .steps li b { color: var(--ink); }
+      .steps code, .acc-inner code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; background: var(--cream-2); padding: 1px 7px; border-radius: 5px; color: var(--blue-700); white-space: nowrap; }
+
+      /* ── VALUE STACK ── */
+      .valuewrap { background: var(--grad-deep); border-radius: var(--r-xl); padding: clamp(28px,4.5vw,48px); box-shadow: var(--sh-blue); position: relative; overflow: hidden; }
+      .valuewrap::before { content: ""; position: absolute; inset: 0; background: radial-gradient(120% 80% at 0% 0%, rgba(74,163,224,0.22), transparent 55%); pointer-events: none; }
+      .valuewrap > * { position: relative; }
+      .value-eyebrow { font-family: var(--font-head); font-size: 12px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--blue-400); margin-bottom: 14px; }
+      .value-big { font-family: var(--font-num); font-weight: 700; font-size: clamp(48px,9vw,86px); color: #fff; line-height: 0.95; letter-spacing: -0.03em; }
+      .value-big small { font-size: 0.4em; color: var(--blue-400); font-weight: 600; vertical-align: middle; letter-spacing: 0; }
+      .value-sub { color: rgba(255,255,255,0.72); font-size: 15.5px; margin-top: 12px; max-width: 62ch; }
+      .value-lines { margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.13); }
+      .value-line { display: grid; grid-template-columns: 1fr auto; gap: 12px 18px; align-items: baseline; padding: 17px 0; border-bottom: 1px solid rgba(255,255,255,0.13); }
+      .value-line .vlt { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.03em; font-size: 15px; font-weight: 600; color: #fff; }
+      .value-line .vld { color: rgba(255,255,255,0.62); font-size: 13px; margin-top: 4px; max-width: 52ch; }
+      .value-line .vl-n { font-family: var(--font-num); font-weight: 700; font-size: 23px; color: var(--blue-400); white-space: nowrap; }
+      .value-line .vl-n.once { color: #fff; }
+      .value-total { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 12px; padding-top: 20px; }
+      .value-total .vt-l { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.06em; color: #fff; font-size: 16px; font-weight: 600; }
+      .value-total .vt-n { font-family: var(--font-num); font-weight: 700; font-size: clamp(30px,5vw,44px); color: #fff; letter-spacing: -0.02em; }
+      .value-foot { color: rgba(255,255,255,0.5); font-size: 12.5px; margin-top: 18px; line-height: 1.55; }
+      @media (max-width: 560px) { .value-line { grid-template-columns: 1fr; } .value-line .vl-n { font-size: 21px; } }
+
+      /* ── TIMELINE ── */
+      .timeline { position: relative; padding-left: 8px; }
+      .tl-item { position: relative; padding: 0 0 26px 46px; }
+      .tl-item::before { content: ""; position: absolute; left: 16px; top: 30px; bottom: -4px; width: 2px; background: var(--border-2); }
+      .tl-item:last-child::before { display: none; }
+      .tl-dot { position: absolute; left: 0; top: 2px; width: 34px; height: 34px; border-radius: 10px; display: grid; place-items: center; font-family: var(--font-num); font-weight: 700; color: #fff; background: linear-gradient(150deg, var(--blue-500), var(--blue-700)); box-shadow: 0 6px 16px -6px rgba(47,130,196,0.6); z-index: 1; }
+      .tl-item.last .tl-dot { background: linear-gradient(150deg, var(--good), #065f46); box-shadow: 0 6px 16px -6px rgba(4,120,87,0.6); }
+      .tl-card { background: var(--white); border: 1px solid var(--border); border-radius: var(--r-md); padding: 18px 22px; box-shadow: var(--sh-sm); }
+      .tl-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 12px; margin-bottom: 8px; }
+      .tl-name { font-family: var(--font-head); font-weight: 600; text-transform: uppercase; font-size: 17px; color: var(--ink); }
+      .tl-weeks { font-family: var(--font-head); font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue-500); background: var(--blue-50); border-radius: 100px; padding: 3px 10px; }
+      .tl-goal { font-size: 15px; color: var(--ink-60); margin-bottom: 10px; }
+      .tl-deliv { font-size: 13.5px; color: var(--good); background: var(--good-bg); border-radius: var(--r-sm); padding: 9px 13px; display: flex; gap: 8px; }
+      .tl-deliv b { color: var(--good); }
+      .tl-total { display: flex; align-items: center; gap: 16px; background: var(--grad-deep); border-radius: var(--r-md); padding: 18px 24px; box-shadow: var(--sh-blue); margin-left: 46px; }
+      .tl-total .n { font-family: var(--font-num); font-weight: 700; font-size: 30px; color: #fff; }
+      .tl-total .l { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.1em; font-size: 13px; color: var(--blue-400); }
+
+      /* ── FOOTER ── */
+      .footer { background: var(--grad-deep); color: rgba(255,255,255,0.7); margin-top: 40px; }
+      .footer-inner { max-width: 1080px; margin: 0 auto; padding: 44px 24px; text-align: center; }
+      .footer-mark { display: inline-flex; align-items: center; gap: 11px; font-family: var(--font-head); font-weight: 600; text-transform: uppercase; letter-spacing: 0.14em; font-size: 19px; color: #fff; margin-bottom: 18px; }
+      .footer-sq { width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(150deg, var(--blue-400), var(--blue-500)); box-shadow: 0 3px 14px rgba(47,130,196,0.6); }
+      .footer .fe { font-family: var(--font-head); text-transform: uppercase; letter-spacing: 0.16em; font-size: 13px; color: #fff; font-weight: 600; }
+      .footer .fs { font-size: 13.5px; margin-top: 12px; max-width: 60ch; margin-left: auto; margin-right: auto; line-height: 1.6; }
+      .footer .fby { font-size: 12px; color: var(--blue-400); margin-top: 16px; letter-spacing: 0.04em; }
+
+      /* reveal */
+      .anim { opacity: 0; transform: translateY(16px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
+      .anim.in { opacity: 1; transform: none; }
+      @media (prefers-reduced-motion: reduce) { .anim { opacity: 1 !important; transform: none !important; } }
+    </style>
+  </head>
+  <body>
+    <!-- TOP BAR -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="tb-left">
+          <span class="tb-by">Nils Digital</span>
+          <nav class="tb-toc" id="tbToc">
+            <button class="tb-toc-btn" id="tbTocBtn" type="button" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Contents<svg class="tcv" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></button>
+            <div class="tb-toc-panel" role="menu">
+              <a href="#summary"><span class="tn num">01</span>Executive Summary</a>
+              <a href="#diagnosis"><span class="tn num">02</span>Current-State Diagnosis</a>
+              <a href="#architecture"><span class="tn num">03</span>Target-State Architecture</a>
+              <a href="#components"><span class="tn num">04</span>Component Specifications</a>
+              <a href="#stack"><span class="tn num">05</span>Tool Stack &amp; Rationale</a>
+              <a href="#data"><span class="tn num">06</span>Data Model</a>
+              <a href="#build"><span class="tn num">07</span>Build Sequence</a>
+              <a href="#decisions"><span class="tn num">08</span>Decision Log</a>
+              <a href="#risks"><span class="tn num">09</span>Risk Register</a>
+              <a href="#scope"><span class="tn num">10</span>Out of Scope &amp; Appendices</a>
+            </div>
+          </nav>
+        </div>
+        <span class="tb-badge">The 14-Day Audit</span>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <div class="hero">
+      <div class="hero-glow"></div>
+      <div class="wrap" style="position:relative;">
+        <div class="eyebrow anim">The 14-Day Audit · Delivered Day 14</div>
+        <h1 class="anim">Technical Analysis &amp; <em>Development Plan</em></h1>
+        <p class="hero-sub anim">Two weeks inside a multi-campus martial arts school's operation: every form, every spreadsheet, every dollar of revenue, and every place work is falling through the cracks. This is the build-ready architecture that came out of it.</p>
+        <div class="meta-row anim">
+          <div class="meta-chip"><span class="k">Client</span><span class="v">Confidential</span></div>
+          <div class="meta-chip"><span class="k">Prepared by</span><span class="v">Nils Digital</span></div>
+          <div class="meta-chip"><span class="k">Document type</span><span class="v">Build-ready plan</span></div>
+          <div class="meta-chip"><span class="k">Status</span><span class="v live">● Delivered</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COVER NOTE -->
+    <section class="block">
+      <div class="wrap">
+        <div class="tldr anim">
+          <div class="tldr-eyebrow">TL;DR · the one-minute version</div>
+          <div class="tldr-grid">
+            <div class="tldr-item">
+              <div class="tldr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+              <div><div class="tldr-h">Where they are now</div><p>Registrations, billing, waivers, and after-school enrollments are spread across six disconnected surfaces and reconciled by hand. The two dashboards the team actually needs do not exist, and 15 to 25 hours a week disappears into manual data entry at peak season.</p></div>
+            </div>
+            <div class="tldr-item">
+              <div class="tldr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M17 7l2-2M5 19l2-2"/></svg></div>
+              <div><div class="tldr-h">What the system does</div><p>Collapses all of it into one source of truth (Google Sheets), two operator dashboards (operational and financial), and a failsafe layer underneath that catches any missed work automatically. Eight subsystems, all connected.</p></div>
+            </div>
+            <div class="tldr-item">
+              <div class="tldr-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+              <div><div class="tldr-h">How it eases operations</div><p>Rosters auto-populate from forms. Billing reconciles every 5 minutes instead of monthly by hand. Waivers auto-match with allergies surfaced on the roster. "Who's here today" is answered before 7am, and a missed registration is caught within 15 minutes and patched, not found a week later.</p></div>
+            </div>
+            <div class="tldr-item">
+              <div class="tldr-ic green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+              <div><div class="tldr-h">The return on investment</div><p>15 to 25 hours a week handed back to the team, worth $19,500 to $32,500 a year, for about $20 to $50 a month in new tooling. The bigger return is that time going back into teaching, recruiting, and growing, instead of chasing spreadsheets.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AT A GLANCE STATS -->
+    <section class="block" style="padding-top:0;">
+      <div class="wrap">
+        <div class="statpanel anim">
+          <div class="sp-label">The operation, at a glance</div>
+          <div class="stat-grid">
+            <div class="stat"><div class="n num">2</div><div class="l">Campuses (Upper &amp; Lower) across 3 states</div></div>
+            <div class="stat"><div class="n num">8</div><div class="l">Distinct programs, from camps to seminars</div></div>
+            <div class="stat"><div class="n num">~120</div><div class="l">Active students, ~80 paying households</div></div>
+            <div class="stat"><div class="n num">15<small>–</small>25<small>hrs</small></div><div class="l">Manual work reclaimed per week at peak</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT THIS IS WORTH -->
+    <section class="block" style="padding-top:0;">
+      <div class="wrap">
+        <div class="valuewrap anim">
+          <div class="value-eyebrow">What the audit surfaced · first-year value</div>
+          <div class="value-big">$89,000<small> in year one</small></div>
+          <div class="value-sub">This is not a "nice to have." The audit puts a number on what is leaking out of the operation today, and the system turns that leak into capacity you keep. Here is where the value sits.</div>
+          <div class="value-lines">
+            <div class="value-line"><div><div class="vlt">Time reclaimed</div><div class="vld">15 to 25 hours a week pulled back from manual data entry, reconciliation, and roster building, at a $25/hr fully-loaded rate.</div></div><div class="vl-n">$26,000<span style="font-size:0.6em;color:rgba(255,255,255,0.5)">/yr</span></div></div>
+            <div class="value-line"><div><div class="vlt">Revenue recovered</div><div class="vld">Missed registrations caught before they become lost tuition, plus sibling-pricing and reconciliation errors that quietly under-bill the school.</div></div><div class="vl-n">$18,000<span style="font-size:0.6em;color:rgba(255,255,255,0.5)">/yr</span></div></div>
+            <div class="value-line"><div><div class="vlt">The system itself</div><div class="vld">What a dev shop would quote to build this: eight connected subsystems, two live dashboards, a billing engine, a real-time database, and a self-healing failsafe layer.</div></div><div class="vl-n once">$45,000</div></div>
+          </div>
+          <div class="value-total"><div class="vt-l">First-year value</div><div class="vt-n">$89,000</div></div>
+          <div class="value-future"><span class="vf-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span><div><div class="vf-h">What it really buys: permanent headroom</div><p>The savings are not the prize, the constraint is. We are not asking you to spend on the present, we are spending it on the future: every new campus, program, and student now flows through a system that already handles them, so growth stops costing the team its nights and weekends. You fix the ceiling once and it stays fixed.</p></div></div>
+          <div class="value-foot">Formula: (hours reclaimed × loaded rate × 52) + (recovered revenue, conservative) + (equivalent build cost). Recurring value continues at $26,000+ a year; running cost of the new tooling is about $20 to $50 a month. Figures are conservative estimates from the audit and will vary with season and volume.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 1. EXECUTIVE SUMMARY -->
+    <section class="block" id="summary">
+      <div class="wrap">
+        <div class="sec-head anim"><span class="sec-no num">01</span><h2>Executive Summary</h2></div>
+
+        <div class="sub-h anim">What we found</div>
+        <p class="anim">The operation runs. It is not broken. But it runs on six different surfaces that do not talk to each other: registrations scatter across GoHighLevel forms with no central roster, billing is reconciled by hand, waivers are matched to rosters by eye, after-school enrollments live in per-school spreadsheets nobody owns, and the two dashboards staff actually need (operational and financial) do not exist. The manual work absorbing that gap runs <strong>15 to 25 hours per week</strong>.</p>
+
+        <div class="sub-h anim">What we recommend</div>
+        <p class="anim">A single integrated system with eight subsystems, all connected, with one source of truth (Google Sheets), two operator dashboards, and a failsafe layer underneath that catches missed work automatically.</p>
+
+        <!-- SYSTEM MAP -->
+        <div class="sysmap anim" style="margin:24px 0 8px;">
+          <div class="tier-label">People</div>
+          <div class="actors">
+            <div class="actor">Parents</div><div class="actor">Staff</div><div class="actor">Owner</div>
+          </div>
+          <div class="flow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+          <div class="tier-label">Intake</div>
+          <div class="node-row c3">
+            <div class="node"><div class="nt">GHL Forms</div><div class="nd">8 forms, routed per program</div></div>
+            <div class="node"><div class="nt">Routing Workflows</div><div class="nd">one per camp-week pair</div></div>
+            <div class="node"><div class="nt">Per-school intake</div><div class="nd">central Main Table</div></div>
+          </div>
+          <div class="flow"><span class="fl">writes into</span><br><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+          <div class="node truth">
+            <div class="nt">Google Sheets · Source of Truth</div>
+            <div class="nd">Operator-editable, version-controlled, read by everything</div>
+            <div class="chips"><span>4 roster sheets</span><span>Billing Dashboard</span><span>Pricing catalog</span><span>Per-school sheets</span><span>Waiver app</span></div>
+          </div>
+          <div class="flow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+          <div class="tier-label">Operator views</div>
+          <div class="node-row c3">
+            <div class="node"><div class="nt">Camp Dashboard</div><div class="nd">who's enrolled, here, fed</div></div>
+            <div class="node"><div class="nt">Billing Dashboard</div><div class="nd">balance, always current</div></div>
+            <div class="node"><div class="nt">Waiver Matcher</div><div class="nd">allergies surfaced inline</div></div>
+          </div>
+          <div class="flow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M6 13l6 6 6-6"/></svg></div>
+          <div class="tier-label">Underneath</div>
+          <div class="node-row c2">
+            <div class="node fail"><div class="nt">Failsafe layer</div><div class="nd">Discrepancy Check · 15-min cron · heartbeat guard</div></div>
+            <div class="node"><div class="nt">Supabase shared state</div><div class="nd">attendance · tombstones · mirror</div></div>
+          </div>
+        </div>
+
+        <div class="sub-h anim">Build at a glance</div>
+        <div class="tbl-wrap anim">
+          <table>
+            <thead><tr><th>Phase</th><th>Scope</th><th>Effort</th></tr></thead>
+            <tbody>
+              <tr><td><strong>1. Foundation</strong></td><td>GHL location structure, source sheets, core registration forms, validator</td><td><span class="pill b">2 weeks</span></td></tr>
+              <tr><td><strong>2. Visibility</strong></td><td>Snapshot pipeline + Camp Dashboard (roster, KPIs, lunches view)</td><td><span class="pill b">2 weeks</span></td></tr>
+              <tr><td><strong>3. Billing</strong></td><td>Billing Dashboard + pricing catalog + sheet-driven reconcile</td><td><span class="pill b">3 weeks</span></td></tr>
+              <tr><td><strong>4. Hardening</strong></td><td>Discrepancy Check failsafe + Waiver Matcher + heartbeat-guard</td><td><span class="pill b">2 weeks</span></td></tr>
+              <tr><td><strong>5. Expansion</strong></td><td>School Enrollment Router + additional forms + funnel pages</td><td><span class="pill b">2 weeks</span></td></tr>
+              <tr><td><strong>6. Polish</strong></td><td>Operator training, monitoring, handoff</td><td><span class="pill b">1 week</span></td></tr>
+              <tr><td colspan="2" style="text-align:right;"><strong>Total</strong></td><td><span class="pill lo">12 weeks</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="sub-h anim">What changes for the team</div>
+        <div class="ba anim">
+          <div class="ba-row ba-headrow"><div class="ba-head before">Today</div><div class="ba-head after">After</div></div>
+          <div class="ba-row"><div class="ba-cell before">Registration tracked across 6 surfaces</div><div class="ba-cell after">One roster per campus, auto-populated from forms</div></div>
+          <div class="ba-row"><div class="ba-cell before">Billing reconciled monthly by hand</div><div class="ba-cell after">Reconciled every 5 minutes, balance always current</div></div>
+          <div class="ba-row"><div class="ba-cell before">Waivers matched to rosters by eye</div><div class="ba-cell after">Auto-matched with allergies surfaced inline</div></div>
+          <div class="ba-row"><div class="ba-cell before">"Who's here today?" unanswered until 9am</div><div class="ba-cell after">Visible in the dashboard before 7am</div></div>
+          <div class="ba-row"><div class="ba-cell before">New form requires a developer</div><div class="ba-cell after">New form is a 30-minute conversation</div></div>
+          <div class="ba-row"><div class="ba-cell before">Lost registrations caught at week's end</div><div class="ba-cell after">Caught within 15 minutes and patched automatically</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. CURRENT-STATE DIAGNOSIS -->
+    <section class="block" id="diagnosis">
+      <div class="wrap">
+        <div class="sec-head anim"><span class="sec-no num">02</span><h2>Current-State Diagnosis</h2></div>
+        <p class="lead anim">What we found inside the operation as of Day 1. Every claim is grounded in interviews, observed workflows, or data pulled from the existing systems.</p>
+
+        <div class="sub-h anim">The shape of the operation</div>
+        <div class="tbl-wrap anim">
+          <table>
+            <thead><tr><th>Dimension</th><th>Count</th><th>Notes</th></tr></thead>
+            <tbody>
+              <tr><td><strong>Campuses</strong></td><td>2</td><td>Upper, Lower</td></tr>
+              <tr><td><strong>States</strong></td><td>3</td><td>Florida (active), Georgia (active), Virginia (planned)</td></tr>
+              <tr><td><strong>Programs</strong></td><td>8</td><td>Summer camp, free camp, after-school, private lessons, rent-a-sensei, birthday parties, spirit dance, seminars</td></tr>
+              <tr><td><strong>Active students</strong></td><td>~120</td><td>Across summer + free camp rosters</td></tr>
+              <tr><td><strong>Paying households</strong></td><td>~80</td><td>At time of audit</td></tr>
+              <tr><td><strong>Instructors</strong></td><td>~7</td><td>FL roster + 1 GA instructor</td></tr>
+              <tr><td><strong>Partner schools</strong></td><td>5+</td><td>Per-school after-school enrollment, each tracked separately</td></tr>
+              <tr><td><strong>Annual revenue (est.)</strong></td><td>$250k–$500k</td><td>Based on visible billing volume</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="sub-h anim">The six surfaces</div>
+        <p class="anim">Today, the operation lives across six surfaces that do not talk to each other.</p>
+        <div class="surfaces anim">
+          <div class="surface"><div class="sn num">1</div><div><b>GHL forms.</b> <span class="st">Multiple registration and booking forms, each writing into its own holding area. Nothing aggregates them into a single operational view.</span></div></div>
+          <div class="surface"><div class="sn num">2</div><div><b>Google Sheets.</b> <span class="st">Spreadsheets exist, but they are personal, ad-hoc, and not the source of truth for anything. Which sheet is current lives in staff memory.</span></div></div>
+          <div class="surface"><div class="sn num">3</div><div><b>Paper and shared docs.</b> <span class="st">The legacy process used paper forms and shared Google Docs. Migration to a structured system is partial.</span></div></div>
+          <div class="surface"><div class="sn num">4</div><div><b>Email threads.</b> <span class="st">Decisions, exceptions, and one-off arrangements are tracked in email. Nothing flows back into a system.</span></div></div>
+          <div class="surface"><div class="sn num">5</div><div><b>GHL contact records.</b> <span class="st">Some customer data is in GHL, some is not, and manual edits get overwritten on the next form submission.</span></div></div>
+          <div class="surface"><div class="sn num">6</div><div><b>The owner's head.</b> <span class="st">Pricing exceptions, sibling discounts, scholarship status, and which families "are good" all live here.</span></div></div>
+        </div>
+
+        <div class="sub-h anim">Where work is leaking</div>
+        <div class="tbl-wrap anim">
+          <table>
+            <thead><tr><th>Leak</th><th>Where</th><th>Time lost</th></tr></thead>
+            <tbody>
+              <tr><td>Re-typing data from forms into rosters</td><td>Operations team</td><td>~4 hrs/week</td></tr>
+              <tr><td>Reconciling GHL submissions vs actual revenue</td><td>Owner + bookkeeper</td><td>~6 hrs/month</td></tr>
+              <tr><td>Manual roster build for the day's camp</td><td>Operations team</td><td>~1 hr/day</td></tr>
+              <tr><td>Cross-referencing waivers with rosters</td><td>Operations team</td><td>~2 hrs/week</td></tr>
+              <tr><td>Tracking after-school enrollments across 5 schools</td><td>Operations team</td><td>~3 hrs/week</td></tr>
+              <tr><td>Answering "who's coming today" questions</td><td>All staff</td><td>~30 min/day</td></tr>
+              <tr><td>Catching missed registrations after the fact</td><td>Operations team</td><td>Variable</td></tr>
+              <tr><td>Re-issuing lost waivers</td><td>Operations team</td><td>~1 hr/week</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="anim" style="margin-top:16px;">Aggregate: roughly <strong>15 to 25 hours per week</strong> during peak season. At $25/hr fully loaded that is $19,500 to $32,500 per year. The real cost is higher, because it crowds out the work the team should be doing instead: teaching, recruiting, and growing the school.</p>
+
+        <div class="sub-h anim">Specific data risks we observed</div>
+        <p class="anim" style="margin-bottom:6px;color:var(--ink-50);font-size:14.5px;">Expand each to see what we saw and why it matters.</p>
+        <div class="acc-list anim" id="risks-acc">
+          <div class="acc"><button class="acc-head"><span class="acc-tag">R1</span><span class="acc-titles"><span class="acc-t">Multi-week registrations risk being dropped</span><span class="acc-s">Parents register for multiple weeks in one form</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p>If the routing logic between GHL and the sheets misses one week, the kid shows up Monday and the staff has no record. There is no automated catch for this today.</p></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">R2</span><span class="acc-titles"><span class="acc-t">Sibling pricing is inconsistent</span><span class="acc-s">Discounts applied by hand</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p>Across a busy week we found at least three instances of the same family being charged different amounts on different rows.</p></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">R3</span><span class="acc-titles"><span class="acc-t">Waivers and rosters drift</span><span class="acc-s">Signed in one system, matched by eye</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p>A waiver signed in one system does not write back into the roster. During the audit we found at least one student on a roster with no waiver matched, and one waiver with no matching roster entry.</p></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">R4</span><span class="acc-titles"><span class="acc-t">Manual billing entries get overwritten</span><span class="acc-s">A structural problem, not a one-off</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p>Staff manually correct a billing row in GHL; it gets overwritten the next time the contact submits a form. The current system has no way to express "this manual edit beats the form."</p></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">R5</span><span class="acc-titles"><span class="acc-t">Tab order matters in spreadsheets</span><span class="acc-s">Inserting a tab silently shifts meaning</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p>Roster rows are categorized by which tab they live in (one tab per week). Inserting a new tab anywhere in the sequence silently shifts every downstream tab's meaning. This has happened: multiple billing rows got assigned to the wrong week.</p></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">R6</span><span class="acc-titles"><span class="acc-t">OAuth tokens expire silently</span><span class="acc-s">No alerting today</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p>GHL tokens stop refreshing if the upstream automation fails. Staff finds out only when a workflow that depended on the token stops working.</p></div></div></div>
+        </div>
+
+        <div class="sub-h anim">What is working today (do not break)</div>
+        <div class="two-col anim">
+          <div class="card">
+            <h4><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>Keep these</h4>
+            <ul>
+              <li><strong>The owner's pricing flexibility.</strong> Custom prices, scholarship rates, family deals are part of the brand.</li>
+              <li><strong>The teaching staff's autonomy.</strong> Instructors run their own programs; no new tools to learn.</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h4><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg></span>And these</h4>
+            <ul>
+              <li><strong>Cash and check still work.</strong> The billing system records them without forcing payment through GHL.</li>
+              <li><strong>GoHighLevel for marketing, calendars, contacts.</strong> Forms, booking, and CRM stay.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. TARGET-STATE ARCHITECTURE -->
+    <section class="block" id="architecture">
+      <div class="wrap">
+        <div class="sec-head anim"><span class="sec-no num">03</span><h2>Target-State Architecture</h2></div>
+        <p class="lead anim">Eight subsystems. Each has a clear purpose, one set of inputs, one set of outputs, and a defined failure mode.</p>
+
+        <div class="tbl-wrap anim">
+          <table>
+            <thead><tr><th>#</th><th>Subsystem</th><th>Purpose</th><th>Failsafe</th></tr></thead>
+            <tbody>
+              <tr><td class="num">1</td><td><strong>Registration System</strong></td><td>Convert form submissions into roster rows</td><td>Discrepancy Check (15-min cron)</td></tr>
+              <tr><td class="num">2</td><td><strong>Camp Day Validator</strong></td><td>Block invalid registrations at the form level</td><td>Client-side gate</td></tr>
+              <tr><td class="num">3</td><td><strong>Camp Dashboard</strong></td><td>Who is enrolled, here, and what lunch they need</td><td>Daily history archive</td></tr>
+              <tr><td class="num">4</td><td><strong>Billing Dashboard</strong></td><td>Every enrollment priced, balance always current</td><td>Manual Items dialog</td></tr>
+              <tr><td class="num">5</td><td><strong>School Enrollment Router</strong></td><td>Route after-school enrollments per school</td><td>Three-tier name matching</td></tr>
+              <tr><td class="num">6</td><td><strong>Waiver Matcher</strong></td><td>Cross-reference waivers, surface allergies inline</td><td>Manual override via cell notes</td></tr>
+              <tr><td class="num">7</td><td><strong>Forms System</strong></td><td>All client-facing intake (8 forms)</td><td>Per-form notification + sheet write</td></tr>
+              <tr><td class="num">8</td><td><strong>Client-Facing Funnel</strong></td><td>12 HTML pages embedded in GHL</td><td>Static hosting</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="sub-h anim">The failsafe pattern</div>
+        <div class="spine anim" style="margin-bottom:18px;">
+          <span class="ic red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span>
+          <div>
+            <h4 style="text-transform:none;letter-spacing:0;">Every primary writer has a secondary watcher.</h4>
+            <p style="margin:0;font-size:15px;">This is the single most important architectural decision in the system. Even if every bot dies, the source of truth (Sheets) is editable by hand, and the manual paths are first-class entry points, not exception handlers. It is what lets us promise the team they will not lose work.</p>
+          </div>
+        </div>
+        <div class="tbl-wrap anim">
+          <table>
+            <thead><tr><th>Primary writer</th><th>Failure mode</th><th>Watcher does</th></tr></thead>
+            <tbody>
+              <tr><td><strong>GHL routing workflow</strong></td><td>Misfires, field maps wrong</td><td>Discrepancy Check writes the missing row, emails the owner</td></tr>
+              <tr><td><strong>Billing pipeline</strong></td><td>Apps Script quota hit</td><td>Manual Items dialog as backup ingress</td></tr>
+              <tr><td><strong>Snapshot push</strong></td><td>Token expired, push fails</td><td>Heartbeat guard emails the owner if snapshot is &gt;24h stale</td></tr>
+              <tr><td><strong>Waiver Matcher</strong></td><td>Apps Script disabled</td><td>Operator annotates by hand without breaking the flow</td></tr>
+              <tr><td><strong>Snapshot.json</strong></td><td>Repo corrupted</td><td>Roll back to any prior day's archive</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="note anim" style="margin-top:18px;"><span class="note-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v.01M12 13a2 2 0 1 0-2-2"/><circle cx="12" cy="12" r="10"/></svg></span><div class="note-b"><b class="note-k">Why backups are the spine, not an afterthought</b>A single point of failure that quietly misses a write is the worst thing that can happen to this school: nobody notices for a week, and by then the data is gone. So every writer has a watcher, every watcher has a heartbeat, and the source of truth stays hand-editable even if every bot dies. <strong>We would rather run a 15-minute cron forever than lose one registration in enrollment season.</strong></div></div>
+      </div>
+    </section>
+
+    <!-- 4. COMPONENT SPECIFICATIONS (ACCORDIONS) -->
+    <section class="block" id="components">
+      <div class="wrap">
+        <div class="sec-head anim"><span class="sec-no num">04</span><h2>Component Specifications</h2></div>
+        <p class="lead anim">The build-ready detail for each subsystem. Expand any component for its inputs, outputs, parts, and the key decisions behind it.</p>
+
+        <div class="acc-list anim">
+          <!-- 4.1 -->
+          <div class="acc"><button class="acc-head"><span class="acc-tag">4.1</span><span class="acc-titles"><span class="acc-t">Registration System</span><span class="acc-s">Form submissions → the right roster row, caught within 15 minutes</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+            <div class="acc-body"><div class="acc-inner">
+              <p><strong>Purpose.</strong> Convert every form submission into a structured row in the right roster sheet, in the right tab, with the right columns. Catch any missed write within 15 minutes.</p>
+              <div class="spec-grid">
+                <div class="spec-box"><div class="sbh">Inputs</div><ul><li>Free Camp form submissions</li><li>Summer Camp form submissions</li><li>After-School form submissions</li></ul></div>
+                <div class="spec-box"><div class="sbh">Outputs</div><ul><li>One row per kid-per-week-per-program</li><li>Optional cell note with parent's free-text info</li></ul></div>
+              </div>
+              <div class="sbh" style="font-family:var(--font-head);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-40);margin:6px 0 8px;">Components</div>
+              <p style="font-size:14.5px;"><strong>GHL routing workflow:</strong> one workflow per camp-week pair. <strong>Camp Day Validator:</strong> client-side JS that checks the right number of day boxes before submission. <strong>Discrepancy Check:</strong> Apps Script (15-min cron) that diffs every GHL submission against every roster row and patches misses. <strong>Tombstones:</strong> Supabase table recording intentional deletes so they stick.</p>
+              <div class="keydec"><b>Key decision.</b> Source of truth is the sheet, not GHL. Name-based week resolution (by tab name, not position). Fuzzy-name dedup at a Jaro-Winkler threshold of 0.92.</div>
+              <div class="note"><span class="note-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v.01M12 13a2 2 0 1 0-2-2"/><circle cx="12" cy="12" r="10"/></svg></span><div class="note-b"><b class="note-k">Why we built it this way</b>We trust the sheet over GHL on purpose: the team can fix a row in two clicks, and a workflow that silently misses a write is the one failure that costs you a kid showing up Monday with no record. The 15-minute watcher exists so that miss is caught and patched <strong>before camp opens, not discovered the next week</strong>. The grace window and tombstones mean it never fights the team: it won't double-add a row, and it won't resurrect one you deleted on purpose.</div></div>
+              <div class="subacc"><button class="subacc-head"><span class="sa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>How we built it · the failsafe, step by step<span class="subacc-chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+                <div class="subacc-body"><div class="subacc-inner"><ol class="steps">
+                  <li>One GHL routing workflow per camp-week pair fires on submission and runs an <b>Add Row to Sheet</b> action into the correct weekly tab.</li>
+                  <li>A client-side <b>Camp Day Validator</b> in the form blocks submission until the ticked day-count matches the chosen duration, so the billing math downstream is always right.</li>
+                  <li>Every 15 minutes the <b>Discrepancy Check</b> reads every GHL submission and diffs it against every roster row, skipping anything younger than a <b>5-minute grace window</b> so it never races the workflow.</li>
+                  <li>A submission with no matching row past the grace window is <b>auto-appended</b> to the correct week, stamped with a source note, and recorded in a <code>form_submissions</code> table so it can never be added twice.</li>
+                  <li>Names match with <b>Jaro-Winkler similarity (≥ 0.92)</b> plus exact and single-token fallbacks, so "Aria" and "Aria Falzone" on the same parent email are one student, not two.</li>
+                  <li>An hourly <b>auto-merge</b> collapses high-confidence in-tab duplicates (≥ 0.95); anything below threshold is emailed for a human to review, never merged blindly.</li>
+                  <li>If the watcher itself goes quiet, a <b>heartbeat guard</b> notices within 24 hours and emails the owner. The backstop has a backstop.</li>
+                </ol></div></div>
+              </div>
+            </div></div>
+          </div>
+          <!-- 4.2 -->
+          <div class="acc"><button class="acc-head"><span class="acc-tag">4.2</span><span class="acc-titles"><span class="acc-t">Camp Day Validator</span><span class="acc-s">Blocks the wrong number of days before submit</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+            <div class="acc-body"><div class="acc-inner">
+              <p><strong>Purpose.</strong> Prevent parents from submitting with the wrong number of days picked, which keeps the downstream billing math correct.</p>
+              <p style="font-size:14.5px;"><strong>Implementation.</strong> A self-contained JavaScript snippet in the GHL form's Custom Code element. Re-attaches change handlers on every DOM mutation (GHL re-renders the form on conditional logic), reads the "Camp Duration" dropdown, counts checked day boxes per week, and blocks submission until they match.</p>
+              <div class="keydec"><b>Why client-side.</b> The form is already in GHL and the browser is already executing code there. Server-side validation would mean standing up a custom backend in front of GHL for no benefit.</div>
+            </div></div>
+          </div>
+          <!-- 4.3 -->
+          <div class="acc"><button class="acc-head"><span class="acc-tag">4.3</span><span class="acc-titles"><span class="acc-t">Camp Dashboard</span><span class="acc-s">Who's enrolled, who's here, who needs what lunch</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+            <div class="acc-body"><div class="acc-inner">
+              <p><strong>Purpose.</strong> The operator's single view of who is enrolled, who is here, who needs what lunch, and what is leaking.</p>
+              <div class="spec-grid">
+                <div class="spec-box"><div class="sbh">Inputs</div><ul><li>The 4 roster sheets</li></ul></div>
+                <div class="spec-box"><div class="sbh">Outputs</div><ul><li>snapshot.json (read by the browser)</li><li>Daily history archive</li><li>Supabase mirror tables</li></ul></div>
+              </div>
+              <p style="font-size:14.5px;"><strong>Snapshot.js</strong> polls the rosters every 5 minutes, builds the JSON, pushes to GitHub Pages, mirrors to Supabase. The <strong>browser dashboard</strong> renders KPIs (enrollment, capacity %, lunch orders, allergies), a 14-day sparkline, a filterable roster, a Data Issues panel that deep-links to the offending cell, an attendance modal with per-person ticks, and a lunches prep view.</p>
+              <div class="keydec"><b>Key decisions.</b> Static hosting (loads in 200ms, no backend). Read-only by default. Per-person attendance with bulk operations, synced across devices via the database. Deep-linkable data issues: every anomaly has an "Open ↗" that lands on the exact cell.</div>
+              <div class="note"><span class="note-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v.01M12 13a2 2 0 1 0-2-2"/><circle cx="12" cy="12" r="10"/></svg></span><div class="note-b"><b class="note-k">Why we built it this way</b>Staff do not want another app to log into at 6am. They want to glance at one screen and know who is coming and who needs what lunch. So the dashboard is <strong>read-only by default</strong> (the sheets stay the write path), it loads in a fraction of a second because it is just static files, and the one thing staff <em>do</em> write, attendance, syncs live so the front desk and the kitchen see the same picture.</div></div>
+              <div class="subacc"><button class="subacc-head"><span class="sa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>How we built it · snapshot to screen, step by step<span class="subacc-chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+                <div class="subacc-body"><div class="subacc-inner"><ol class="steps">
+                  <li>A <b>Snapshot script</b> reads the four roster sheets every 5 minutes, resolves each tab to its canonical week label by name, and aggregates totals, by-campus, by-week, lunches, and allergies.</li>
+                  <li>It writes one <code>snapshot.json</code> to GitHub Pages (live) plus a dated <code>history/YYYY-MM-DD.json</code> archive, and mirrors the rows into the database. The mirror is non-fatal: a database hiccup never blocks the dashboard.</li>
+                  <li>A <b>2-minute lock</b> serializes runs so two triggers can never double-write the same snapshot.</li>
+                  <li>The browser dashboard fetches <code>snapshot.json</code> (no-cache) every 60 seconds and renders KPIs (unique students + a 14-day sparkline, occupancy %, per-campus, top week), a donut + stacked bars, and a filterable week-card roster with Mon-Fri chips.</li>
+                  <li>Attendance records two ways: a <b>totals</b> mode (Upper / Lower / Free) and a <b>by-person</b> mode with present/absent toggles. Each tick writes to the database keyed by a stable person key, so picks survive every snapshot refresh and sync across devices in real time.</li>
+                  <li>Every data anomaly (missing field, no waiver) becomes its own card with an <b>Open ↗</b> that deep-links to the exact source cell. No more "we know there's a problem but can't find the row."</li>
+                </ol></div></div>
+              </div>
+            </div></div>
+          </div>
+          <!-- 4.4 -->
+          <div class="acc"><button class="acc-head"><span class="acc-tag">4.4</span><span class="acc-titles"><span class="acc-t">Billing Dashboard</span><span class="acc-s">Every enrollment priced, balance always current</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+            <div class="acc-body"><div class="acc-inner">
+              <p><strong>Purpose.</strong> The canonical financial record. Every enrollment priced, every payment recorded, every refund tracked, balance always current.</p>
+              <div class="spec-grid">
+                <div class="spec-box"><div class="sbh">Inputs</div><ul><li>4 roster sheets</li><li>Pricing catalog (team-editable)</li><li>Manual Items tab (cash, scholarships, refunds)</li><li>GHL Transactions API (FL/GA/VA)</li></ul></div>
+                <div class="spec-box"><div class="sbh">Outputs</div><ul><li>Billing Dashboard sheet (canonical)</li><li>GHL contact upserts (phones, tags)</li></ul></div>
+              </div>
+              <p style="font-size:14.5px;"><strong>BillingFromSheets.js</strong> (every 5 min) prices each enrollment, applies sales tax by state (FL 6%, GA 4%, VA 5.3%), inflates with the GHL processing fee, and applies the diff with proper lifecycle (new → owed, dropped → canceled, paid-then-dropped → refund-needed). <strong>Manual Items dialog</strong> writes non-form rows with a stable fingerprint. <strong>RemoteTrigger.js</strong> exposes admin RPCs over authenticated HTTPS.</p>
+              <div class="keydec"><b>Key decisions.</b> Fingerprint-based reconcile (email + product + period), not submission-ID. Sheet is canonical, manual edits beat the form. Idempotency on every operation. Hierarchical row grouping by family.</div>
+              <div class="note"><span class="note-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v.01M12 13a2 2 0 1 0-2-2"/><circle cx="12" cy="12" r="10"/></svg></span><div class="note-b"><b class="note-k">Why we built it this way</b>Billing is where trust lives or dies. The owner needs to open one sheet and believe the balance. So we never let an automated run overwrite a human correction: rows are matched by a <strong>content fingerprint, not a form ID</strong>, which makes cash payments, scholarships, and manual fixes first-class rows, equal to anything a form created. Every operation is idempotent, so re-running the pipeline after an outage can only converge on the truth, never corrupt it.</div></div>
+              <div class="subacc"><button class="subacc-head"><span class="sa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>How we built it · the billing engine, step by step<span class="subacc-chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+                <div class="subacc-body"><div class="subacc-inner"><ol class="steps">
+                  <li>Every 5 minutes the pipeline walks the registration sheets plus a hidden <code>Manual Items</code> tab and prices each enrollment against a <b>team-editable Pricing catalog</b> (read at runtime, no redeploy to change a price).</li>
+                  <li>For each enrollment it generates up to five line items: tuition, lunch, breakfast, before/after care, and a one-time t-shirt, applying the per-day or per-week multiplier from the catalog.</li>
+                  <li>Price is inflated <b>inline</b>: taxable goods get sales tax by state plus the processing fee; everything else gets the processing fee only. No separate fee rows clutter the sheet.</li>
+                  <li>It reconciles by <b>diff</b>: each row is keyed by a fingerprint (<code>email|student|week|item</code>). New fingerprints append under the family; missing ones flip status (owed → canceled, paid → refund-needed) and are <b>never deleted</b>.</li>
+                  <li>A <b>Manual Items dialog</b> lets the operator add a cash payment, scholarship, or refund; it writes to the hidden tab and a one-time trigger lands it on the dashboard within seconds.</li>
+                  <li>Customer rows are parent rows, transactions are children, so a family's balance collapses to one line. An admin web app exposes whitelisted recovery actions (rebuild, restore links, dedup) behind a token.</li>
+                  <li>When the team marks invoices in GHL, a <b>paid-sync</b> reads GHL's paid invoices and flips matching rows owed → paid, closing the loop without anyone re-typing.</li>
+                </ol></div></div>
+              </div>
+            </div></div>
+          </div>
+          <!-- 4.5 -->
+          <div class="acc"><button class="acc-head"><span class="acc-tag">4.5</span><span class="acc-titles"><span class="acc-t">School Enrollment Router</span><span class="acc-s">Central intake → the right per-school sheet</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+            <div class="acc-body"><div class="acc-inner">
+              <p><strong>Purpose.</strong> Route after-school enrollments from a single central intake into the right per-school spreadsheet.</p>
+              <p style="font-size:14.5px;">An Apps Script bound to the Main Table reads the school name on every new row and writes it into the matching destination. <strong>Auto-create on first use:</strong> a new school gets a destination sheet built from a template. <strong>Three-tier name matching:</strong> exact → case-insensitive → Levenshtein fuzzy ("Lincoln Elem." vs "Lincoln Elementary" vs "Lincoln").</p>
+              <div class="keydec"><b>Key decision.</b> Each school's sheet is independent. The administrator gets read access to their sheet only. The Router is the only piece with access to all of them.</div>
+              <div class="note"><span class="note-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v.01M12 13a2 2 0 1 0-2-2"/><circle cx="12" cy="12" r="10"/></svg></span><div class="note-b"><b class="note-k">Why we kept the schools isolated</b>A partner school's principal should see their kids and <strong>only</strong> their kids. One sheet per school means a permission can never leak across schools, and a school that leaves takes nothing of anyone else's with it. The Router is the single trusted broker that sees all of them, and the three-tier name match means a typo in the school name still lands the row in the right place.</div></div>
+            </div></div>
+          </div>
+          <!-- 4.6 -->
+          <div class="acc"><button class="acc-head"><span class="acc-tag">4.6</span><span class="acc-titles"><span class="acc-t">Waiver Matcher</span><span class="acc-s">Allergies and health notes on the roster, before camp</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+            <div class="acc-body"><div class="acc-inner">
+              <p><strong>Purpose.</strong> Cross-reference signed waivers with roster entries. Surface allergies and health notes inline on the roster so staff sees them before camp starts.</p>
+              <p style="font-size:14.5px;">An Apps Script bound to the Waiver app sheet fuzzy-matches student names by email + Jaro-Winkler similarity. <strong>Matched cells</strong> get a green background; unmatched stay white, so staff can scan a roster and see who is missing a waiver at a glance. <strong>Cell notes</strong> carry allergy info, medication notes, and emergency contacts inline.</p>
+              <div class="keydec"><b>Key decision.</b> Waivers and rosters stay separate sheets with the matcher running between them. They have different access controls and lifecycles, so merging was rejected.</div>
+              <div class="note"><span class="note-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v.01M12 13a2 2 0 1 0-2-2"/><circle cx="12" cy="12" r="10"/></svg></span><div class="note-b"><b class="note-k">Why this is a safety feature, not a convenience</b>An instructor opening the roster on camp morning needs to see <strong>"severe peanut allergy"</strong> without hunting through a second system. So the matcher pushes the health note onto the roster cell itself and turns matched cells green. Keeping the waiver app a separate sheet means its stricter access controls stay intact: we move the information, not the permissions.</div></div>
+            </div></div>
+          </div>
+          <!-- 4.7 -->
+          <div class="acc"><button class="acc-head"><span class="acc-tag">4.7</span><span class="acc-titles"><span class="acc-t">Forms System</span><span class="acc-s">8 forms, one purpose each</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+            <div class="acc-body"><div class="acc-inner">
+              <p><strong>Purpose.</strong> All client-facing intake. Eight forms total, each feeding one or more downstream systems.</p>
+              <div class="tbl-wrap" style="margin:14px 0;"><table>
+                <thead><tr><th>Form</th><th>Feeds</th></tr></thead>
+                <tbody>
+                  <tr><td>Summer Camp Registration</td><td>Registration System (validated, routes per-week)</td></tr>
+                  <tr><td>Free Camp Registration</td><td>Registration System (no billing)</td></tr>
+                  <tr><td>After-School Registration</td><td>School Enrollment Router</td></tr>
+                  <tr><td>Private Lessons Booking</td><td>Billing Dashboard (instructor → discipline)</td></tr>
+                  <tr><td>Rent-A-Sensei Booking</td><td>Billing Dashboard</td></tr>
+                  <tr><td>Birthday Parties Booking</td><td>Billing Dashboard (location → size → basics)</td></tr>
+                  <tr><td>Balloons (Decor Add-On)</td><td>Routed to vendor</td></tr>
+                  <tr><td>Vladimir Seminar Registration</td><td>Billing Dashboard</td></tr>
+                </tbody></table></div>
+              <div class="keydec"><b>Key decisions.</b> One form, one purpose (eight distinct forms beat one mega-form with fragile conditionals). Per-form Google Sheet, operator-editable. Conditional logic at the form layer, never the workflow layer.</div>
+            </div></div>
+          </div>
+          <!-- 4.8 -->
+          <div class="acc"><button class="acc-head"><span class="acc-tag">4.8</span><span class="acc-titles"><span class="acc-t">Client-Facing Funnel</span><span class="acc-s">12 static HTML pages embedded in GHL</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+            <div class="acc-body"><div class="acc-inner">
+              <p><strong>Purpose.</strong> All public-facing pages that drive enrollments. Hosted on GitHub Pages, embedded into GHL via iframes with email passthrough, so they look like part of the GHL site.</p>
+              <p style="font-size:14.5px;">Pages: home, camps, summer-camp-scholarship, after-school, private-lessons, spirit-dance, birthday-parties, rent-a-sensei, waiver, waiver-free, thankyou, vlad-seminar.</p>
+              <div class="keydec"><b>Why not native GHL.</b> GHL's builder is fine for landing pages but constrains custom interactions (the validator, embedded forms, the three-step party flow). Static HTML gives full control, is trivially fast, and keeps the GHL URL canonical for SEO and email links.</div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. TOOL STACK -->
+    <section class="block" id="stack">
+      <div class="wrap">
+        <div class="sec-head anim"><span class="sec-no num">05</span><h2>Tool Stack &amp; Rationale</h2></div>
+        <div class="tbl-wrap anim">
+          <table>
+            <thead><tr><th>Tool</th><th>Role</th><th>Why this one</th><th>Monthly</th></tr></thead>
+            <tbody>
+              <tr><td><strong>GoHighLevel</strong></td><td>Forms, CRM, transactions, calendars</td><td>Already in use; consolidating avoids fragmenting tools</td><td>existing</td></tr>
+              <tr><td><strong>Google Sheets</strong></td><td>Source of truth</td><td>Operator-editable, version-controlled, no backend</td><td>$0</td></tr>
+              <tr><td><strong>Apps Script</strong></td><td>Server-side automation + triggers</td><td>Native to Sheets, free, deploys in seconds</td><td>$0</td></tr>
+              <tr><td><strong>GitHub Pages</strong></td><td>Static funnel + dashboard hosting</td><td>Free, fast, embeds cleanly into GHL</td><td>$0</td></tr>
+              <tr><td><strong>GitHub Actions</strong></td><td>Snapshot cron, deploy automation</td><td>Free for public repos, runs every 5 min</td><td>$0</td></tr>
+              <tr><td><strong>Supabase</strong></td><td>Cross-device shared state</td><td>Generous free tier, Postgres-backed</td><td>$0</td></tr>
+              <tr><td><strong>n8n</strong></td><td>OAuth token refresh, integrations</td><td>Flexible, version-controlled workflows</td><td>$20–$50</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="spine anim" style="margin-top:18px;">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/><circle cx="12" cy="12" r="4"/></svg></span>
+          <div><h4 style="text-transform:none;letter-spacing:0;">Total incremental cost: $20–$50 / month</h4><p style="margin:0;font-size:15px;">On top of the GoHighLevel you already pay for. Everything else runs on free tiers that comfortably cover your projected volume.</p></div>
+        </div>
+
+        <div class="sub-h anim">Alternatives we considered</div>
+        <div class="acc-list anim">
+          <div class="acc"><button class="acc-head"><span class="acc-tag">vs</span><span class="acc-titles"><span class="acc-t">What we did not choose, and why</span><span class="acc-s">Airtable, custom Postgres, Zapier, Webflow, Notion</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+            <div class="acc-body"><div class="acc-inner">
+              <div class="tbl-wrap" style="margin-top:14px;"><table>
+                <thead><tr><th>Not chosen</th><th>Why not</th></tr></thead>
+                <tbody>
+                  <tr><td>Airtable as source of truth</td><td>More expensive, less team-familiar, locks data behind their API</td></tr>
+                  <tr><td>A custom Postgres backend</td><td>Adds a server to maintain and a developer dependency for every schema change</td></tr>
+                  <tr><td>Zapier instead of Apps Script</td><td>Brittle on long flows, expensive at our trigger volume, no native sheet binding</td></tr>
+                  <tr><td>Webflow / Framer for the funnel</td><td>Another tool to learn; GitHub Pages gets the same outcome with one less dependency</td></tr>
+                  <tr><td>Notion as the dashboard</td><td>Beautiful for reading, painful for live data; no good story for the 5-min refresh</td></tr>
+                </tbody></table></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. DATA MODEL (accordions) -->
+    <section class="block" id="data">
+      <div class="wrap">
+        <div class="sec-head anim"><span class="sec-no num">06</span><h2>Data Model</h2></div>
+        <p class="lead anim">The sheets, tables, and fields the system reads and writes. Expand for the full inventory.</p>
+        <div class="acc-list anim">
+          <div class="acc"><button class="acc-head"><span class="acc-tag">6.1</span><span class="acc-titles"><span class="acc-t">Source sheets</span><span class="acc-s">12 Google Sheets on the team's shared account</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+            <div class="acc-body"><div class="acc-inner"><div class="tbl-wrap" style="margin-top:14px;"><table>
+              <thead><tr><th>Sheet</th><th>Purpose</th><th>Tabs</th></tr></thead>
+              <tbody>
+                <tr><td><strong>Summer Camp Upper Paid</strong></td><td>Roster, paid, Upper campus</td><td>One per week</td></tr>
+                <tr><td><strong>Summer Camp Lower Paid</strong></td><td>Roster, paid, Lower campus</td><td>One per week</td></tr>
+                <tr><td><strong>Free Camp Upper / Lower</strong></td><td>Roster, free camp</td><td>One per week</td></tr>
+                <tr><td><strong>Billing Dashboard</strong></td><td>Canonical financial record</td><td>Dashboard, Pricing, Manual Items, Transactions, Logs</td></tr>
+                <tr><td><strong>Private Lesson / Rent-A-Sensei / Birthday / Seminar</strong></td><td>Form submissions</td><td>One tab each</td></tr>
+                <tr><td><strong>Waiver App</strong></td><td>All signed waivers</td><td>One tab</td></tr>
+                <tr><td><strong>Main Table (After-School)</strong></td><td>Central intake before routing</td><td>One tab</td></tr>
+                <tr><td><strong>Per-school sheets (5+)</strong></td><td>Auto-created by the Router</td><td>Monthly or quarterly</td></tr>
+              </tbody></table></div>
+              <div class="note"><span class="note-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v.01M12 13a2 2 0 1 0-2-2"/><circle cx="12" cy="12" r="10"/></svg></span><div class="note-b"><b class="note-k">Why Sheets, not a database</b>We looked hard at moving the school onto a real database. Sheets won. The team already lives there, anyone can fix a row in two clicks without a developer, and Google version-controls every change for free. We trade schema enforcement for the one thing that matters at this scale: <strong>the operator can correct their own data instantly</strong>. The code just has to read defensively, which it does.</div></div>
+              <div class="subacc"><button class="subacc-head"><span class="sa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>How the sheets are wired, step by step<span class="subacc-chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+                <div class="subacc-body"><div class="subacc-inner"><ol class="steps">
+                  <li>Each roster is one sheet per campus, with <b>one tab per week</b> named like <code>6/1-6/5</code>.</li>
+                  <li>Every reader resolves a tab to its canonical week label <b>by name, not position</b>, so inserting or reordering a tab never silently re-files rows into the wrong week (a real failure we watched happen before this fix).</li>
+                  <li>The <b>Pricing catalog</b> is a tab on the Billing sheet: six columns (category, item, price, multiplier, source, aliases). Prices are read at runtime, so the team changes a price by editing a cell, no developer, no redeploy.</li>
+                  <li>A hidden <b>Manual Items</b> tab is the supported path for anything a form did not create: cash, scholarships, refunds.</li>
+                  <li>Adding a new week is one line in the week-order list plus a push. Both the dashboard and billing read tabs by name, so tab position is irrelevant.</li>
+                </ol></div></div>
+              </div>
+            </div></div>
+          </div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">6.2</span><span class="acc-titles"><span class="acc-t">Supabase tables &amp; GHL custom fields</span><span class="acc-s">Shared state + the fields maintained on every contact</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+            <div class="acc-body"><div class="acc-inner"><div class="tbl-wrap" style="margin-top:14px;"><table>
+              <thead><tr><th>Table</th><th>Purpose</th></tr></thead>
+              <tbody>
+                <tr><td class="num">camp_enrollments</td><td>Mirror of the rosters, queryable by external tools</td></tr>
+                <tr><td class="num">camp_snapshots</td><td>Append-only daily snapshot archive (powers the sparkline)</td></tr>
+                <tr><td class="num">daily_attendance</td><td>Per-day headcount totals (Upper / Lower / Free)</td></tr>
+                <tr><td class="num">daily_attendance_people</td><td>Per-person present/absent ticks, keyed by a stable person key</td></tr>
+                <tr><td class="num">form_submissions</td><td>Tombstones: what the failsafe has already processed, so it never double-adds</td></tr>
+                <tr><td class="num">merge_tombstones</td><td>Auto-merge history, so a manual un-merge by the team is respected</td></tr>
+                <tr><td class="num">bot_health</td><td>Heartbeat log; the heartbeat guard reads it to know the bots are alive</td></tr>
+                <tr><td class="num">staff</td><td>Dashboard users, roles, and per-page permissions (auth)</td></tr>
+                <tr><td class="num">ghl_tokens</td><td>OAuth tokens per location, refreshed automatically</td></tr>
+              </tbody></table></div>
+              <p style="margin-top:14px;font-size:14.5px;"><strong>GHL contact custom fields:</strong> program of interest (multi-select), closest location, per-form fields, and computed sibling/family relationships.</p>
+              <div class="note"><span class="note-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 17v.01M12 13a2 2 0 1 0-2-2"/><circle cx="12" cy="12" r="10"/></svg></span><div class="note-b"><b class="note-k">Why a database at all</b>Sheets are perfect for the team to edit but bad at two things: real-time state shared across devices, and remembering a decision after a row is deleted. That is what the database is for. It holds live attendance (so the front desk and kitchen agree), tombstones (so a delete the team made on purpose is never undone by a bot), and a heartbeat log (so we know the bots are alive). <strong>Nothing customer-facing lives here; it is the system's shared memory.</strong></div></div>
+              <div class="subacc"><button class="subacc-head"><span class="sa-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></svg></span>How the database is used, step by step<span class="subacc-chev"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button>
+                <div class="subacc-body"><div class="subacc-inner"><ol class="steps">
+                  <li>The tables hold only what Sheets cannot: a roster mirror, daily snapshots, live attendance, submission and merge tombstones, a bot-health heartbeat, and the staff/role table.</li>
+                  <li><b>Read paths are public</b> (the dashboard reads attendance with no login); <b>write paths require a shared secret</b>, so only our scripts can write.</li>
+                  <li>Attendance is keyed by a <b>stable person key</b> (name + email), so a tick survives every 5-minute snapshot refresh and appears on every device instantly.</li>
+                  <li>Clearing a tick <b>hard-deletes</b> the row (no row means "not recorded"), while the tombstone tables are <b>append-only</b>, so a deliberate decision is never forgotten.</li>
+                  <li>Dashboard access is row-level: a trigger seeds a staff row on first login with <b>no access</b> until an admin grants pages, and every page re-checks the role.</li>
+                </ol></div></div>
+              </div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. BUILD SEQUENCE (timeline) -->
+    <section class="block" id="build">
+      <div class="wrap">
+        <div class="sec-head anim"><span class="sec-no num">07</span><h2>Build Sequence</h2></div>
+        <p class="lead anim">A 12-week build in 6 phases. Each phase is independently shippable: the team gets value from each one without waiting for the next.</p>
+        <div class="timeline anim">
+          <div class="tl-item"><div class="tl-dot num">1</div><div class="tl-card"><div class="tl-top"><span class="tl-name">Foundation</span><span class="tl-weeks">Weeks 1–2</span></div><div class="tl-goal"><strong>Goal.</strong> A parent submits the Summer Camp form and the row lands on the right sheet. Forms cleaned, source sheets locked, Camp Day Validator live, ~20 routing workflows wired and tested end-to-end.</div><div class="tl-deliv"><b>Deliverable:</b> Forms are live, every submission lands on the right sheet.</div></div></div>
+          <div class="tl-item"><div class="tl-dot num">2</div><div class="tl-card"><div class="tl-top"><span class="tl-name">Visibility</span><span class="tl-weeks">Weeks 3–4</span></div><div class="tl-goal"><strong>Goal.</strong> A live dashboard of every enrollment, updated every 5 minutes. Snapshot.js + pinned deployment, GitHub Actions fetch, browser dashboard (KPIs, sparkline, filters), lunches view, embedded in GHL.</div><div class="tl-deliv"><b>Deliverable:</b> Staff open the dashboard each morning and know who is enrolled.</div></div></div>
+          <div class="tl-item"><div class="tl-dot num">3</div><div class="tl-card"><div class="tl-top"><span class="tl-name">Billing</span><span class="tl-weeks">Weeks 5–7</span></div><div class="tl-goal"><strong>Goal.</strong> Every enrollment priced, every payment recorded, balance always current. Pricing catalog, BillingFromSheets pipeline, Manual Items dialog, CC-verification polling, RemoteTrigger admin RPCs, QA harness, operator training.</div><div class="tl-deliv"><b>Deliverable:</b> The owner sees the current balance and a clean audit trail at any moment.</div></div></div>
+          <div class="tl-item"><div class="tl-dot num">4</div><div class="tl-card"><div class="tl-top"><span class="tl-name">Hardening</span><span class="tl-weeks">Weeks 8–9</span></div><div class="tl-goal"><strong>Goal.</strong> No registration ever falls through, no waiver is ever lost, any failure is caught within 24 hours. Discrepancy Check, tombstones, heartbeat guard, Waiver Matcher, allergy cell notes.</div><div class="tl-deliv"><b>Deliverable:</b> The system is self-healing and tells the team when it goes quiet.</div></div></div>
+          <div class="tl-item"><div class="tl-dot num">5</div><div class="tl-card"><div class="tl-top"><span class="tl-name">Expansion</span><span class="tl-weeks">Weeks 10–11</span></div><div class="tl-goal"><strong>Goal.</strong> Cover the remaining programs and the public funnel. School Enrollment Router, the remaining forms, the 12 funnel pages, every workflow chain verified.</div><div class="tl-deliv"><b>Deliverable:</b> Every public program has a working booking flow into the right system.</div></div></div>
+          <div class="tl-item last"><div class="tl-dot num">6</div><div class="tl-card"><div class="tl-top"><span class="tl-name">Polish &amp; Handoff</span><span class="tl-weeks">Week 12</span></div><div class="tl-goal"><strong>Goal.</strong> The team can run the system without us. Operator runbooks (one page per subsystem), recorded walkthroughs, a 60-minute training session, and a 30-day support window.</div><div class="tl-deliv"><b>Deliverable:</b> Operators trained, runbooks written, the team independent.</div></div></div>
+        </div>
+        <div class="tl-total anim"><span class="n num">12</span><span class="l">Weeks, end to end</span></div>
+      </div>
+    </section>
+
+    <!-- 8. DECISION LOG -->
+    <section class="block" id="decisions">
+      <div class="wrap">
+        <div class="sec-head anim"><span class="sec-no num">08</span><h2>Decision Log</h2></div>
+        <p class="lead anim">The key architectural decisions and why we made them. Expand each for the reasoning and the tradeoffs we accepted.</p>
+        <div class="acc-list anim">
+          <div class="acc"><button class="acc-head"><span class="acc-tag">D1</span><span class="acc-titles"><span class="acc-t">Google Sheets as source of truth</span><span class="acc-s">Not a database, not Airtable, not GHL</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p><strong>Why.</strong> The team already lives in Sheets and can edit it without a developer. Trading that flexibility for a "real database" would turn every fix-one-row request from a 30-second edit into a developer ticket.</p><div class="keydec"><b>Tradeoffs accepted.</b> No schema enforcement (so validation is defensive in every reader). Rate limits (so we polite-cache instead of polling aggressively).</div></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">D2</span><span class="acc-titles"><span class="acc-t">Apps Script for automation, not n8n or Zapier</span><span class="acc-s">Native to the source-of-truth sheets</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p><strong>Why.</strong> Apps Script binds natively to the sheets, deploys in seconds, costs nothing, and runs server-side without us managing infrastructure. n8n stays only for OAuth token refresh, where its cross-domain story beats Apps Script.</p><div class="keydec"><b>Tradeoffs accepted.</b> Execution quotas: every job is idempotent and chunked so a quota hit never corrupts state.</div></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">D3</span><span class="acc-titles"><span class="acc-t">Fingerprint-based billing reconcile</span><span class="acc-s">Content hash, not GHL submission ID</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p><strong>Why.</strong> Manual rows, cash payments, and legacy imports have no submission ID. A fingerprint of email + product + period makes manual and automated rows equal first-class citizens.</p><div class="keydec"><b>Tradeoffs accepted.</b> Collisions are possible; a content-hash on each row gives de-dup safety.</div></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">D4</span><span class="acc-titles"><span class="acc-t">Name-based week resolution</span><span class="acc-s">By tab name, not tab position</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p><strong>Why.</strong> We watched the positional model break in production: inserting a tab shifted every downstream tab's meaning. Name-based resolution survives reordering, insertion, and deletion.</p><div class="keydec"><b>Tradeoffs accepted.</b> Tab names must follow a documented format; the runbook covers the rename procedure.</div></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">D5</span><span class="acc-titles"><span class="acc-t">Failsafe-first architecture</span><span class="acc-s">Every primary writer has a watcher</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p><strong>Why.</strong> A single point of failure that quietly misses a write is the worst outcome: the team won't know for a week. The cost of a 15-minute watcher is trivial; the cost of one missed registration in enrollment season is enormous.</p><div class="keydec"><b>Tradeoffs accepted.</b> Double the surface area, handled with idempotency: the watcher can rewrite the same row 100 times and the data stays correct.</div></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">D6</span><span class="acc-titles"><span class="acc-t">GitHub Pages for the funnel</span><span class="acc-s">Static HTML embedded into GHL</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p><strong>Why.</strong> GHL's builder cannot host the validator, the embedded forms, or the three-step party flow. GitHub Pages is free, fast, version-controlled, and embeds cleanly, keeping the GHL URL canonical for SEO and email.</p><div class="keydec"><b>Tradeoffs accepted.</b> Cross-origin friction (email passthrough, full-width breakout), handled in the standard iframe wrapper.</div></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">D7</span><span class="acc-titles"><span class="acc-t">One form per purpose</span><span class="acc-s">Eight forms, not one mega-form</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p><strong>Why.</strong> Each conditional in a form is a maintenance liability. Distinct forms are easier to debug, redirect, A/B test, and retire when a program changes.</p><div class="keydec"><b>Tradeoffs accepted.</b> Eight forms means eight sheets and eight workflows, handled with documentation and a per-form spec.</div></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. RISK REGISTER -->
+    <section class="block" id="risks">
+      <div class="wrap">
+        <div class="sec-head anim"><span class="sec-no num">09</span><h2>Risk Register</h2></div>
+        <p class="lead anim">Risks identified during the audit, ranked by likelihood × impact. Every entry includes the mitigation already baked into the architecture.</p>
+        <div class="tbl-wrap anim">
+          <table>
+            <thead><tr><th>#</th><th>Risk</th><th>Impact</th><th>Mitigation</th></tr></thead>
+            <tbody>
+              <tr><td class="num">R1</td><td>Routing workflow misfires; registration never lands</td><td><span class="pill hi">High</span></td><td>Discrepancy Check auto-patches, emails the owner with the workflow ID</td></tr>
+              <tr><td class="num">R2</td><td>OAuth tokens expire silently</td><td><span class="pill hi">High</span></td><td>n8n refresh cron + heartbeat guard (24h alert)</td></tr>
+              <tr><td class="num">R3</td><td>Sheet tab order changes, breaking week assignment</td><td><span class="pill hi">High</span></td><td>Name-based week resolution (D4); tab order is irrelevant</td></tr>
+              <tr><td class="num">R5</td><td>Manual billing correction overwritten by next form</td><td><span class="pill hi">High</span></td><td>Sheet-canonical + fingerprint reconcile (D3); manual edits win</td></tr>
+              <tr><td class="num">R4</td><td>Apps Script quota hit during peak enrollment</td><td><span class="pill med">Medium</span></td><td>Idempotent jobs, chunked reads, time-driven re-trigger</td></tr>
+              <tr><td class="num">R6</td><td>Snapshot push to GitHub Pages fails</td><td><span class="pill med">Medium</span></td><td>Daily history archive on Supabase; 24h stale at worst</td></tr>
+              <tr><td class="num">R8</td><td>Operator deletes a Dashboard row by hand</td><td><span class="pill med">Medium</span></td><td>Manual Items dialog is the only edit path; rows are derived</td></tr>
+              <tr><td class="num">R10</td><td>Sibling discount applied inconsistently</td><td><span class="pill med">Medium</span></td><td>Pricing catalog family-relationship override</td></tr>
+              <tr><td class="num">R12</td><td>Virginia expansion breaks single-state assumptions</td><td><span class="pill med">Medium</span></td><td>Sales-tax matrix is multi-state from day 1; subaccount lookup parameterized</td></tr>
+              <tr><td class="num">R9</td><td>New after-school school has no destination sheet</td><td><span class="pill lo">Low</span></td><td>Auto-create from template on first row routed</td></tr>
+              <tr><td class="num">R11</td><td>Form spec drifts from implementation</td><td><span class="pill lo">Low</span></td><td>Per-form spec doc with a live build-status table</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 + 11 -->
+    <section class="block" id="scope">
+      <div class="wrap">
+        <div class="sec-head anim"><span class="sec-no num">10</span><h2>Out of Scope &amp; Appendices</h2></div>
+        <div class="acc-list anim">
+          <div class="acc"><button class="acc-head"><span class="acc-tag">10</span><span class="acc-titles"><span class="acc-t">Out of scope</span><span class="acc-s">What this plan does not cover</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p style="margin-top:8px;">If any of these matter, they become a separate engagement.</p><div class="spec-grid"><div class="spec-box"><div class="sbh">Not included</div><ul><li>Email marketing campaigns (GHL native)</li><li>Payment processor selection</li><li>Booking calendar UX (GHL as-is)</li><li>Brand identity / visual redesign</li><li>Mobile app (views are responsive web)</li></ul></div><div class="spec-box"><div class="sbh">Also out</div><ul><li>Multi-language support (English only)</li><li>HR / payroll integration</li><li>AI-assisted features (possible follow-on)</li><li>Migrating legacy paper history (one-time import only)</li></ul></div></div></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">A</span><span class="acc-titles"><span class="acc-t">Appendix · Glossary</span><span class="acc-s">The terms used throughout this document</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><div class="tbl-wrap" style="margin-top:14px;"><table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody>
+            <tr><td><strong>Discrepancy Check</strong></td><td>The 15-minute failsafe cron that catches missed registrations</td></tr>
+            <tr><td><strong>Heartbeat guard</strong></td><td>A second-tier alert when the failsafe itself goes silent for 24h</td></tr>
+            <tr><td><strong>Fingerprint</strong></td><td>A deterministic hash of email + product + period used to identify billing rows</td></tr>
+            <tr><td><strong>Source of truth</strong></td><td>The single authoritative system for a piece of data (Google Sheets here)</td></tr>
+            <tr><td><strong>Manual Item</strong></td><td>A billing row created via the operator dialog, not from a form</td></tr>
+            <tr><td><strong>Tombstone</strong></td><td>A Supabase row recording an intentional delete so the failsafe does not re-add it</td></tr>
+            <tr><td><strong>Pinned deployment</strong></td><td>An Apps Script deployment URL that does not change on update</td></tr>
+            <tr><td><strong>Subaccount</strong></td><td>A separate GoHighLevel location (FL, GA, future VA)</td></tr>
+          </tbody></table></div></div></div></div>
+          <div class="acc"><button class="acc-head"><span class="acc-tag">B</span><span class="acc-titles"><span class="acc-t">Appendix · Operator runbook index</span><span class="acc-s">Every subsystem ships with a one-page runbook</span></span><span class="acc-chev"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></span></button><div class="acc-body"><div class="acc-inner"><p style="margin-top:8px;">The team gets a printed binder on Day 1.</p><div class="spec-grid"><div class="spec-box"><div class="sbh">Operations</div><ul><li>Registration system runbook</li><li>Camp Dashboard operator guide</li><li>Billing Dashboard guide (Add Item walkthrough)</li><li>Manual Items procedure</li><li>Form spec reference</li></ul></div><div class="spec-box"><div class="sbh">Reliability</div><ul><li>Waiver Matcher procedure</li><li>School Enrollment Router admin guide</li><li>Discrepancy Check + heartbeat guard</li><li>Recovery procedures (rollback, restore, dedup)</li><li>OAuth token refresh procedure</li></ul></div></div></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-mark"><span class="footer-sq"></span>Nils Digital</div>
+        <div class="fe">End of document</div>
+        <div class="fs">This document is the property of the client. Hand it to any competent team and they will know exactly what to build. The plan does not expire.</div>
+        <div class="fby">Prepared by Nils Digital · The 14-Day Audit</div>
+      </div>
+    </footer>
+
+    <script>
+      // Accordions: height driven off scrollHeight, released to 'none' once open
+      // so nested build-step dropdowns can expand without clipping.
+      function openBody(body) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        body.addEventListener('transitionend', function te(e) {
+          if (e.propertyName !== 'max-height') return;
+          body.removeEventListener('transitionend', te);
+          if (body.parentElement.classList.contains('open')) body.style.maxHeight = 'none';
+        });
+      }
+      function closeBody(body) {
+        body.style.maxHeight = body.scrollHeight + 'px';
+        requestAnimationFrame(function () { body.style.maxHeight = '0px'; });
+      }
+      document.querySelectorAll('.acc > .acc-head').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var acc = btn.parentElement;
+          var body = acc.querySelector(':scope > .acc-body');
+          if (acc.classList.toggle('open')) openBody(body); else closeBody(body);
+        });
+      });
+      document.querySelectorAll('.subacc-head').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var sa = btn.parentElement;
+          var body = sa.querySelector(':scope > .subacc-body');
+          if (sa.classList.toggle('open')) openBody(body); else closeBody(body);
+        });
+      });
+      var rT;
+      window.addEventListener('resize', function () {
+        clearTimeout(rT);
+        rT = setTimeout(function () {
+          document.querySelectorAll('.acc.open > .acc-body').forEach(function (b) { b.style.maxHeight = 'none'; });
+          document.querySelectorAll('.subacc.open > .subacc-body').forEach(function (b) { b.style.maxHeight = b.scrollHeight + 'px'; });
+        }, 120);
+      });
+      // Scroll reveal
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.08 });
+      document.querySelectorAll('.anim').forEach(function (el) { io.observe(el); });
+
+      // Contents directory: toggle + scroll-spy
+      (function () {
+        var toc = document.getElementById('tbToc');
+        var btn = document.getElementById('tbTocBtn');
+        if (!toc || !btn) return;
+        btn.addEventListener('click', function (e) {
+          e.stopPropagation();
+          var open = toc.classList.toggle('open');
+          btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+        document.addEventListener('click', function (e) { if (!toc.contains(e.target)) { toc.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); } });
+        document.addEventListener('keydown', function (e) { if (e.key === 'Escape') toc.classList.remove('open'); });
+        var links = {};
+        toc.querySelectorAll('.tb-toc-panel a').forEach(function (a) {
+          links[a.getAttribute('href').slice(1)] = a;
+          a.addEventListener('click', function () { toc.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); });
+        });
+        var spy = new IntersectionObserver(function (entries) {
+          entries.forEach(function (en) {
+            if (en.isIntersecting) {
+              Object.keys(links).forEach(function (k) { links[k].classList.remove('active'); });
+              if (links[en.target.id]) links[en.target.id].classList.add('active');
+            }
+          });
+        }, { rootMargin: '-35% 0px -55% 0px' });
+        document.querySelectorAll('section.block[id]').forEach(function (s) { spy.observe(s); });
+      })();
+    </script>
+  </body>
+</html>

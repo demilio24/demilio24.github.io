@@ -1,0 +1,152 @@
+[
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": null,
+        "selectedField": "full_name",
+        "selectedOperation": "isEmpty"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide Multiple",
+      "type": "showHideFields",
+      "value": [
+        "student_1_-_name",
+        "student_1_-_date_of_birth",
+        "student_2_-_name",
+        "student_1_-_health_issues_/_allergies",
+        "student_2_-_date_of_birth",
+        "student_2_-_health_issues_/_allergies",
+        "student_3_-_name",
+        "student_3_-_date_of_birth",
+        "student_3_-_health_issues_/_allergies",
+        "student_4_-_name",
+        "student_4_-_date_of_birth",
+        "student_4_-_health_issues_/_allergies"
+      ]
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": null,
+        "selectedField": "full_name",
+        "selectedOperation": "isFilled"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide Multiple",
+      "type": "showHideFields",
+      "value": [
+        "student_1_-_name",
+        "student_1_-_date_of_birth",
+        "student_1_-_health_issues_/_allergies",
+        "student_2_-_name",
+        "student_2_-_date_of_birth",
+        "student_2_-_health_issues_/_allergies",
+        "student_3_-_name",
+        "student_3_-_date_of_birth",
+        "student_3_-_health_issues_/_allergies",
+        "student_4_-_name",
+        "student_4_-_date_of_birth",
+        "student_4_-_health_issues_/_allergies"
+      ]
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "1",
+        "selectedField": "how_many_students_are_you_registering_today?",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show Multiple",
+      "type": "showHideFields",
+      "value": [
+        "student_1_-_name",
+        "student_1_-_date_of_birth",
+        "student_1_-_health_issues_/_allergies"
+      ]
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "2",
+        "selectedField": "how_many_students_are_you_registering_today?",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show Multiple",
+      "type": "showHideFields",
+      "value": [
+        "student_1_-_name",
+        "student_1_-_date_of_birth",
+        "student_1_-_health_issues_/_allergies",
+        "student_2_-_name",
+        "student_2_-_date_of_birth",
+        "student_2_-_health_issues_/_allergies"
+      ]
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "3",
+        "selectedField": "how_many_students_are_you_registering_today?",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show Multiple",
+      "type": "showHideFields",
+      "value": [
+        "student_1_-_date_of_birth",
+        "student_1_-_health_issues_/_allergies",
+        "student_2_-_name",
+        "student_2_-_date_of_birth",
+        "student_2_-_health_issues_/_allergies",
+        "student_3_-_name",
+        "student_3_-_date_of_birth",
+        "student_3_-_health_issues_/_allergies",
+        "student_1_-_name"
+      ]
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "4",
+        "selectedField": "how_many_students_are_you_registering_today?",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show Multiple",
+      "type": "showHideFields",
+      "value": [
+        "student_1_-_name",
+        "student_1_-_date_of_birth",
+        "student_1_-_health_issues_/_allergies",
+        "student_2_-_name",
+        "student_2_-_date_of_birth",
+        "student_2_-_health_issues_/_allergies",
+        "student_3_-_name",
+        "student_3_-_date_of_birth",
+        "student_3_-_health_issues_/_allergies",
+        "student_4_-_name",
+        "student_4_-_date_of_birth",
+        "student_4_-_health_issues_/_allergies"
+      ]
+    }
+  }
+]

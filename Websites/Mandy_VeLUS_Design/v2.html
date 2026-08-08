@@ -1,0 +1,1988 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1" />
+    <title>VELUS Interiors | Luxury Interior Design | Chicago</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <!-- v2 (split-test variant) — Google Ads landing only -->
+
+    <meta
+      name="description"
+      content="VELUS Interiors is a full-service luxury interior design and remodel studio in Chicago and the North Shore. Led by Mandy VELUS."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      @font-face {
+        font-family: 'Canela';
+        src: url('Fonts/Canela Family/Canela-Regular-Trial.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Canela';
+        src: url('Fonts/Canela Family/Canela-Light-Trial.otf') format('opentype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Neue Haas Grotesk';
+        src: url('Fonts/neuehaasgrotdisp-45light-trial.otf') format('opentype');
+        font-weight: 300;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Neue Haas Grotesk';
+        src: url('Fonts/neuehaasgrottext-55roman-trial.otf') format('opentype');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Neue Haas Grotesk';
+        src: url('Fonts/neuehaasgrottext-65medium-trial.otf') format('opentype');
+        font-weight: 500;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'Neue Haas Grotesk';
+        src: url('Fonts/neuehaasgrottext-75bold-trial.otf') format('opentype');
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* ===== RESET & VARIABLES (v5 design system) ===== */
+      *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+      :root {
+        --bg: #F6F3EF;
+        --ink: #1A1A1A;
+        --body-color: #2B2B2B;
+        --hairline: #D0D0D0;
+        --choc: #4a2f24;
+        --editorial: #D1C7BC;
+        --heading: 'Canela', 'Playfair Display', Georgia, serif;
+        --body: 'Neue Haas Grotesk', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        --max: 1280px;
+
+        /* TYPOGRAPHY TOKENS */
+        --fs-h1: 30px;
+        --fs-h2: 27px;
+        --fs-p: 16px;
+        --fs-cta: 13px;
+
+        /* SPACING TOKENS */
+        --sp-xs: 14px;
+        --sp-sm: 24px;
+        --sp-md: 40px;
+        --sp-lg: 60px;
+      }
+      @media(min-width: 769px) {
+        :root {
+          --fs-h1: 34px;
+          --fs-h2: 31px;
+          --sp-sm: 28px;
+          --sp-md: 60px;
+          --sp-lg: 80px;
+        }
+      }
+      html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+      body {
+        font-family: var(--body); font-weight: 400;
+        color: var(--body-color); background: var(--bg);
+        font-size: var(--fs-p); line-height: 1.55; letter-spacing: .01em;
+        overflow-x: hidden; -webkit-font-smoothing: antialiased;
+        hyphens: none; -webkit-hyphens: none; -ms-hyphens: none;
+      }
+      img { display: block; max-width: 100%; }
+      a { text-decoration: none; color: inherit; }
+      button { cursor: pointer; border: none; font-family: inherit; background: none; color: inherit; padding: 0; }
+      input, select, textarea { font-family: var(--body); font-size: var(--fs-p); }
+
+      /* TYPOGRAPHY BASE */
+      h1, h2, h3, h4 { font-family: var(--heading); font-weight: 400; color: var(--ink); text-wrap: balance; }
+      h1 { font-size: var(--fs-h1); line-height: 1.15; letter-spacing: .04em; text-transform: uppercase; }
+      h2 { font-size: var(--fs-h2); line-height: 1.15; letter-spacing: .04em; text-transform: uppercase; }
+      h3 { font-size: var(--fs-h2); line-height: 1.2; letter-spacing: .04em; text-transform: uppercase; }
+      h4 { font-size: var(--fs-p); line-height: 1.2; letter-spacing: .04em; text-transform: uppercase; }
+      p { line-height: 1.55; text-wrap: pretty; }
+      em, i { font-style: normal; }
+
+      /* ===== UTILS ===== */
+      .cta {
+        display: inline-block;
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); line-height: 1;
+        letter-spacing: .22em; text-transform: uppercase;
+        color: var(--ink);
+        padding: 6px 0 8px; border-bottom: .5px solid var(--ink);
+        background: none; border-radius: 0;
+        transition: opacity .4s ease;
+      }
+      .cta:hover { opacity: .55; }
+      hr.rule { border: 0; height: 1px; background: var(--hairline); width: 100%; margin: 0; }
+
+      /* ===== SCROLL ANIMATIONS ===== */
+      .anim {
+        opacity: 0; transform: translateY(28px);
+        transition: opacity .9s cubic-bezier(.22,1,.36,1), transform .9s cubic-bezier(.22,1,.36,1);
+      }
+      .anim.anim-visible { opacity: 1; transform: none; }
+      .anim-delay-1 { transition-delay: .12s; }
+      .anim-delay-2 { transition-delay: .24s; }
+      .anim-delay-3 { transition-delay: .36s; }
+      .anim-delay-4 { transition-delay: .48s; }
+
+      /* ===== NAV ===== */
+      .nav {
+        position: fixed; top: 0; left: 0; width: 100%; z-index: 1000;
+        padding: 0; height: 88px;
+        display: flex; align-items: center;
+        transition: background .4s ease, border-color .4s ease, height .4s ease;
+      }
+      .nav.scrolled {
+        background: var(--bg);
+        border-bottom: 1px solid rgba(26,26,26,.08);
+        height: 72px;
+      }
+      .nav-inner {
+        width: 100%; max-width: var(--max); margin: 0 auto;
+        padding: 0 40px;
+        display: grid; grid-template-columns: 1fr auto 1fr;
+        align-items: center; gap: 24px;
+      }
+      .nav-logo {
+        position: relative; display: inline-grid; place-items: center;
+        height: 60px; width: 140px; justify-self: center;
+        grid-column: 2; transition: height .4s ease;
+      }
+      .nav.scrolled .nav-logo { height: 48px; }
+      .logo-light, .logo-dark {
+        grid-area: 1 / 1; height: 100%; width: 100%;
+        object-fit: contain; transition: opacity .4s ease;
+      }
+      .logo-dark { opacity: 0; filter: brightness(0.18); }
+      .nav.scrolled .logo-light { opacity: 0; }
+      .nav.scrolled .logo-dark { opacity: 1; }
+      .nav-links {
+        grid-column: 3; justify-self: end;
+        display: none; align-items: center; gap: 36px;
+      }
+      .nav-links a {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em;
+        text-transform: uppercase; color: #FFFFFF;
+        opacity: .9; transition: color .3s ease, opacity .3s ease;
+      }
+      .nav.scrolled .nav-links a { color: var(--ink); opacity: .8; }
+      .nav-links a:hover { opacity: 1; }
+      .nav-cta {
+        display: inline-block; white-space: nowrap;
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em; text-transform: uppercase;
+        color: #FFFFFF !important;
+        padding: 6px 0 8px;
+        border-bottom: .5px solid #FFFFFF;
+        background: none; border-radius: 0;
+        transition: opacity .4s ease, color .4s ease, border-color .4s ease;
+      }
+      .nav-cta:hover { opacity: .7; transform: none; box-shadow: none; }
+      .nav.scrolled .nav-cta {
+        color: var(--ink) !important;
+        border-bottom-color: var(--ink);
+      }
+
+      /* Menu trigger — v5 "+" rotates 45° to × on open */
+      .hamburger {
+        display: flex; align-items: center; justify-content: center;
+        background: none; padding: 6px; z-index: 1100;
+        grid-column: 3; justify-self: end;
+        width: 42px; height: 42px;
+        font-family: var(--body); font-weight: 300;
+        font-size: 32px; line-height: 1;
+        color: #FFFFFF;
+        transform: translateY(-10px);
+        transition: color .4s ease, transform .45s ease;
+      }
+      .nav.scrolled .hamburger { color: var(--ink); }
+      .hamburger.open { transform: translateY(-7px) rotate(45deg); color: var(--ink); }
+      body.menu-open .nav { background: transparent !important; border-bottom: none !important; z-index: 1100; }
+      body.menu-open .hamburger { color: var(--ink); }
+      body.menu-open .logo-light { opacity: 0; }
+      body.menu-open .logo-dark { opacity: 1; }
+
+      /* Mobile menu */
+      .mobile-menu {
+        position: fixed; inset: 0; width: 100%; height: 100vh;
+        background: var(--bg); z-index: 1050;
+        display: flex; flex-direction: column;
+        align-items: center; justify-content: center;
+        opacity: 0; pointer-events: none;
+        transition: opacity .65s ease;
+        overflow-y: auto;
+      }
+      .mobile-menu.open { opacity: 1; pointer-events: auto; }
+      .mobile-menu a {
+        display: block;
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-h2); letter-spacing: .06em;
+        text-transform: none; color: var(--ink);
+        opacity: .85; padding: 14px 0; text-align: center;
+        transition: opacity .3s;
+      }
+      .mobile-menu a:hover { opacity: .5; }
+      .mobile-menu .nav-cta {
+        margin-top: 28px;
+        color: var(--ink) !important;
+        border-bottom-color: var(--ink);
+        font-size: var(--fs-cta); padding: 6px 0 8px;
+      }
+      .mobile-close { display: none; }
+
+      /* ===== HERO ===== */
+      .hero {
+        position: relative; min-height: 100vh;
+        display: flex; align-items: center;
+        overflow: hidden; background: #1e1612;
+      }
+      .hero-bg { position: absolute; inset: 0; }
+      .hero-bg img {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: center;
+        opacity: 0; animation: heroFade 24s infinite;
+      }
+      .hero-bg img:nth-child(1) { animation-delay: 0s; }
+      .hero-bg img:nth-child(2) { animation-delay: 8s; }
+      .hero-bg img:nth-child(3) { animation-delay: 16s; }
+      @keyframes heroFade {
+        0% { opacity: 0; }
+        4% { opacity: 1; }
+        33.33% { opacity: 1; }
+        37.33% { opacity: 0; }
+        100% { opacity: 0; }
+      }
+      .hero-overlay {
+        position: absolute; inset: 0;
+        background: linear-gradient(180deg, rgba(20,14,10,.55) 0%, rgba(20,14,10,.45) 50%, rgba(20,14,10,.65) 100%);
+      }
+      .hero-content {
+        position: relative; z-index: 2; width: 100%;
+        max-width: var(--max); margin: 0 auto;
+        padding: 140px 40px 100px;
+        display: grid; grid-template-columns: 1fr 460px;
+        gap: 80px; align-items: center;
+      }
+      .hero-eyebrow {
+        display: inline-block;
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em; text-transform: uppercase;
+        color: rgba(255,255,255,.85);
+        margin-bottom: var(--sp-md);
+      }
+      .hero-eyebrow::after {
+        content: ""; display: block;
+        width: 40px; height: 1px;
+        background: rgba(255,255,255,.55); margin-top: 12px;
+      }
+      .hero h1 {
+        font-family: var(--heading); font-weight: 400;
+        font-size: var(--fs-h1); line-height: 1.15; letter-spacing: .04em;
+        text-transform: uppercase;
+        color: #FFFFFF; margin-bottom: var(--sp-sm);
+        text-wrap: balance;
+      }
+      .hero-sub {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-p); line-height: 1.65;
+        color: rgba(243,235,221,.85);
+        max-width: 480px; margin-bottom: var(--sp-md);
+        letter-spacing: .01em;
+      }
+      .hero-stats {
+        display: flex; gap: 0;
+        border-top: 1px solid rgba(255,255,255,.18);
+        border-bottom: 1px solid rgba(255,255,255,.18);
+        background: none; backdrop-filter: none;
+        border-radius: 0; max-width: 520px;
+      }
+      .hero-stat {
+        flex: 1; padding: 18px 16px; text-align: left;
+        border-right: 1px solid rgba(255,255,255,.12);
+      }
+      .hero-stat:last-child { border-right: none; }
+      .hero-stat-value {
+        font-family: var(--heading); font-weight: 400;
+        font-size: var(--fs-h2); color: #FFFFFF;
+        line-height: 1; letter-spacing: .04em;
+        text-transform: uppercase;
+      }
+      .hero-stat-label {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .18em;
+        text-transform: uppercase;
+        color: rgba(243,235,221,.6); margin-top: 8px; line-height: 1;
+      }
+
+      /* ===== HERO INQUIRY FORM (3-slide) ===== */
+      .hero-form-card {
+        background: var(--bg);
+        border: none; border-radius: 0;
+        padding: 44px 40px 36px;
+        margin: 0;
+        box-shadow: 0 20px 60px rgba(0,0,0,.18);
+        backdrop-filter: none; -webkit-backdrop-filter: none;
+      }
+      .v1-inq-title {
+        font-family: var(--heading); font-weight: 400;
+        font-size: var(--fs-h2); line-height: 1.15;
+        letter-spacing: .04em; text-transform: uppercase;
+        color: var(--ink); margin-bottom: 12px;
+      }
+      .v1-inq-lede {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-p); line-height: 1.55;
+        color: var(--body-color); margin-bottom: var(--sp-sm);
+      }
+      .v1-inq-progress {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em;
+        text-transform: uppercase; color: var(--ink);
+        opacity: .55; margin-bottom: var(--sp-md);
+      }
+      .v1-inq-progress .sep { margin: 0 8px; opacity: .6; }
+      .v1-inq-slide { display: none; }
+      .v1-inq-slide.active {
+        display: block;
+        animation: v1InqFade .55s ease both;
+      }
+      @keyframes v1InqFade {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      .v1-inq-field { padding-top: 22px; margin-bottom: 0; }
+      .v1-inq-field:first-child { padding-top: 0; }
+      .v1-inq-label {
+        display: block;
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em; text-transform: uppercase;
+        color: var(--ink); opacity: .85;
+        margin-bottom: 12px;
+      }
+      .v1-inq-field input,
+      .v1-inq-field textarea {
+        width: 100%; background: transparent;
+        border: 0; border-bottom: 1px solid rgba(26,26,26,.18);
+        border-radius: 0;
+        padding: 10px 0; margin-bottom: 0;
+        font-size: var(--fs-p); font-weight: 400;
+        color: var(--body-color); outline: none;
+        font-family: var(--body); transition: border-color .4s ease;
+      }
+      .v1-inq-field input:focus,
+      .v1-inq-field textarea:focus { border-bottom-color: var(--ink); }
+      .v1-inq-field textarea { resize: vertical; min-height: 100px; line-height: 1.65; }
+      .v1-inq-field input::placeholder,
+      .v1-inq-field textarea::placeholder {
+        color: #8A8A8A; opacity: 1;
+        font-weight: 400; font-style: italic;
+      }
+      .v1-inq-actions {
+        margin-top: var(--sp-md);
+        display: flex; justify-content: center; line-height: 1;
+      }
+      .hero-form-btn {
+        background: none; border: none; border-radius: 0;
+        padding: 6px 0 8px;
+        border-bottom: .5px solid var(--ink);
+        color: var(--ink);
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em; text-transform: uppercase;
+        transition: opacity .4s ease;
+        width: auto;
+      }
+      .hero-form-btn:hover { opacity: .55; transform: none; box-shadow: none; }
+      .v1-inq-note {
+        margin-top: var(--sp-sm);
+        font-family: var(--body); font-size: var(--fs-p); line-height: 1.55;
+        color: var(--body-color); opacity: .82;
+        text-align: center; min-height: 1em;
+      }
+      .v1-inq-note.error { color: #8a3a3a; opacity: 1; }
+
+      /* ===== SHARED SECTION RHYTHM ===== */
+      .about, .services, .gallery, .process, .reviews, .cta-section {
+        padding: var(--sp-lg) 40px;
+      }
+      section.services { padding-bottom: 0; }
+      section.gallery { padding-top: var(--sp-md); }
+      .section-cta {
+        text-align: center;
+        padding: var(--sp-md) 24px 0;
+      }
+
+      /* ===== ABOUT ===== */
+      .about {
+        background: var(--bg);
+      }
+      .about-inner {
+        max-width: var(--max); margin: 0 auto;
+        display: grid; grid-template-columns: 1fr 1.2fr;
+        gap: 80px; align-items: stretch;
+      }
+      .about-portrait-wrap { position: relative; }
+      .about-portrait {
+        position: absolute; inset: 0;
+        width: 100%; height: 100%; border-radius: 0;
+        object-fit: cover; object-position: left top;
+      }
+      .about-text { padding-top: 8px; max-width: 560px; }
+      .about-label {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em; text-transform: uppercase;
+        color: var(--ink); opacity: .65;
+        margin-bottom: var(--sp-sm);
+      }
+      .about-label::after {
+        content: ""; display: block;
+        width: 48px; height: 1px;
+        background: var(--hairline); margin-top: var(--sp-sm);
+      }
+      .about-text h2 {
+        font-family: var(--heading); font-weight: 400;
+        font-size: var(--fs-h1); line-height: 1.15;
+        letter-spacing: .04em; text-transform: uppercase;
+        color: var(--ink); margin-bottom: var(--sp-sm);
+      }
+      .about-bio {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-p); line-height: 1.55;
+        color: var(--body-color); letter-spacing: .01em;
+        margin-bottom: var(--sp-sm);
+      }
+      .about-bio:last-of-type { margin-bottom: 0; }
+
+      /* ===== SECTION INTRO ===== */
+      .section-intro {
+        text-align: center; max-width: 720px;
+        margin: 0 auto var(--sp-md);
+        padding: 0;
+      }
+      .section-label {
+        display: inline-block;
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em; text-transform: uppercase;
+        color: var(--ink); opacity: .65;
+        margin-bottom: var(--sp-sm);
+      }
+      .section-label::after {
+        content: ""; display: block;
+        width: 40px; height: 1px;
+        background: var(--hairline); margin: var(--sp-sm) auto 0;
+      }
+      .section-heading {
+        font-family: var(--heading); font-weight: 400;
+        font-size: var(--fs-h1); line-height: 1.15;
+        letter-spacing: .04em; text-transform: uppercase;
+        color: var(--ink); text-wrap: balance;
+      }
+
+      /* ===== SERVICES ===== */
+      .services-list {
+        max-width: var(--max); margin: 0 auto;
+        display: flex; flex-direction: column; gap: calc(var(--sp-md) * 1.4);
+      }
+      .service-row {
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 60px; align-items: center;
+      }
+      .service-row.reverse { direction: rtl; }
+      .service-row.reverse > * { direction: ltr; }
+      .service-img-wrap {
+        position: relative; overflow: hidden;
+        border-radius: 0; box-shadow: none;
+        height: 380px; background: #1e1612;
+      }
+      .service-img-wrap img {
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: center;
+      }
+      .service-number {
+        position: absolute; bottom: 24px; right: 28px;
+        font-family: var(--heading); font-weight: 400;
+        font-size: var(--fs-h2); color: rgba(255,255,255,.78);
+        letter-spacing: .04em; line-height: 1;
+        text-shadow: 0 2px 12px rgba(0,0,0,.4);
+      }
+      .service-row.reverse .service-number { color: rgba(255,255,255,.78); }
+      .service-text { padding: 0; }
+      .service-icon { display: none; }
+      .service-text h3 {
+        font-family: var(--heading); font-weight: 400;
+        font-size: var(--fs-h2); line-height: 1.2;
+        letter-spacing: .04em; text-transform: uppercase;
+        color: var(--ink); margin-bottom: var(--sp-sm);
+      }
+      .service-text p {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-p); line-height: 1.55;
+        color: var(--body-color); letter-spacing: .01em;
+        margin-bottom: var(--sp-sm); max-width: 480px;
+      }
+      .service-line {
+        width: 40px; height: 1px;
+        background: var(--hairline); border-radius: 0;
+      }
+
+      /* ===== GALLERY ===== */
+      .gallery-inner { max-width: var(--max); margin: 0 auto; }
+      .gallery-filters {
+        display: flex; justify-content: center; gap: 8px;
+        margin-bottom: var(--sp-md); flex-wrap: wrap;
+      }
+      .gallery-pill {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .18em; text-transform: uppercase;
+        padding: 10px 20px;
+        border-radius: 0;
+        border: 1px solid rgba(26,26,26,.2);
+        background: transparent; color: var(--ink); opacity: .75;
+        cursor: pointer; transition: all .3s;
+      }
+      .gallery-pill:hover { opacity: 1; border-color: var(--ink); color: var(--ink); }
+      .gallery-pill.active {
+        background: var(--ink); color: var(--bg);
+        border-color: var(--ink); opacity: 1;
+      }
+      .gallery-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      }
+      .gallery-item {
+        aspect-ratio: 4/5; overflow: hidden;
+        border-radius: 0; cursor: pointer; position: relative;
+        transition: opacity .4s; background: #1e1612;
+      }
+      .gallery-item img {
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: center;
+        transition: transform 1.2s cubic-bezier(.2,.7,.25,1);
+      }
+      .gallery-item:hover img { transform: scale(1.025); }
+      .gallery-item.hidden { display: none; }
+      .gallery-controls {
+        display: none;
+        justify-content: center; align-items: center; gap: 24px;
+        margin-top: var(--sp-md);
+      }
+      .gallery-arrow {
+        background: none; border: none;
+        font-family: var(--body); font-weight: 300;
+        font-size: 28px; line-height: 1;
+        color: var(--ink); cursor: pointer;
+        width: 44px; height: 44px;
+        display: flex; align-items: center; justify-content: center;
+        opacity: .85; transition: opacity .3s, transform .3s;
+        padding: 0;
+      }
+      .gallery-arrow:hover { opacity: 1; }
+      .gallery-counter {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em; text-transform: uppercase;
+        color: var(--ink); opacity: .7; min-width: 80px; text-align: center;
+      }
+      .gallery-counter .sep { margin: 0 6px; opacity: .55; }
+      .gallery-cta {
+        text-align: center; margin-top: var(--sp-lg);
+      }
+      .gallery-cta p {
+        font-family: var(--heading); font-weight: 400;
+        font-size: var(--fs-h2); line-height: 1.15;
+        letter-spacing: .04em; text-transform: uppercase;
+        color: var(--ink); margin-bottom: var(--sp-sm);
+      }
+
+      /* ===== PROCESS ===== */
+      .process { background: var(--bg); }
+      .process-inner { max-width: var(--max); margin: 0 auto; }
+      .process-timeline {
+        display: flex; align-items: flex-start;
+        position: relative; padding: var(--sp-md) 0 0;
+        gap: 24px;
+      }
+      .process-line {
+        position: absolute; top: calc(var(--sp-md) + 18px);
+        left: 8%; right: 8%;
+        height: 1px; background: var(--hairline);
+      }
+      .process-step {
+        flex: 1; text-align: center;
+        position: relative; z-index: 1;
+      }
+      .process-circle {
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        border: 1px solid var(--ink);
+        background: var(--bg);
+        margin: 0 auto var(--sp-sm);
+        display: flex; align-items: center; justify-content: center;
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .04em;
+        color: var(--ink); transition: all .3s;
+      }
+      .process-step:first-child .process-circle {
+        background: var(--ink); color: var(--bg);
+      }
+      .process-step h4 {
+        font-family: var(--heading); font-weight: 400;
+        font-size: var(--fs-p); line-height: 1.2;
+        letter-spacing: .04em; text-transform: uppercase;
+        color: var(--ink); margin-bottom: 8px;
+      }
+      .process-step p {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .01em;
+        line-height: 1.55; color: var(--body-color); opacity: .78;
+        max-width: 200px; margin: 0 auto;
+        text-transform: none;
+      }
+      .process-cta {
+        text-align: center; margin-top: var(--sp-lg);
+      }
+      .process-cta p {
+        font-family: var(--heading); font-weight: 400;
+        font-size: var(--fs-h2); line-height: 1.15;
+        letter-spacing: .04em; text-transform: uppercase;
+        color: var(--ink); margin-bottom: var(--sp-sm);
+      }
+
+      /* ===== REVIEWS ===== */
+      .reviews-inner { max-width: var(--max); margin: 0 auto; }
+      .reviews-grid {
+        display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+      }
+      .review-card {
+        background: #FFFFFF; border-radius: 0;
+        padding: 36px 32px;
+        border: 1px solid rgba(26,26,26,.08);
+        box-shadow: none;
+        transition: transform .3s, box-shadow .3s;
+      }
+      .review-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(0,0,0,.06);
+      }
+      .review-card-header {
+        display: flex; align-items: center;
+        gap: 12px; margin-bottom: var(--sp-sm);
+      }
+      .review-google { width: 22px; height: 22px; flex-shrink: 0; }
+      .review-stars {
+        color: #b89a6a; font-size: var(--fs-p);
+        letter-spacing: 2px;
+      }
+      .review-card p {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-p); line-height: 1.65;
+        color: var(--body-color); letter-spacing: .01em;
+        margin-bottom: var(--sp-sm);
+      }
+      .review-card p u {
+        text-decoration: underline;
+        text-decoration-color: rgba(26,26,26,.4);
+        text-underline-offset: 3px;
+      }
+      .review-card .review-name {
+        display: block;
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em;
+        text-transform: uppercase; color: var(--ink); opacity: .7;
+      }
+
+      /* ===== CTA SECTION ===== */
+      .cta-section { background: var(--editorial); }
+      .cta-inner {
+        max-width: var(--max); margin: 0 auto;
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 80px; align-items: center;
+      }
+      .cta-img {
+        height: 460px; overflow: hidden;
+        border-radius: 0; box-shadow: none;
+      }
+      .cta-img img {
+        width: 100%; height: 100%;
+        object-fit: cover; object-position: center;
+      }
+      .cta-text .section-label {
+        text-align: left; margin-bottom: var(--sp-sm);
+        color: #2A1E1A; opacity: .75;
+      }
+      .cta-text .section-label::after { margin: var(--sp-sm) 0 0; }
+      .cta-text h2 {
+        font-family: var(--heading); font-weight: 400;
+        font-size: var(--fs-h1); line-height: 1.15;
+        letter-spacing: .04em; text-transform: uppercase;
+        color: #2A1E1A; margin-bottom: var(--sp-sm);
+        text-wrap: balance;
+      }
+      .cta-text p {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-p); line-height: 1.65;
+        color: #2A1E1A; opacity: .9;
+        margin-bottom: var(--sp-md); max-width: 480px;
+      }
+      .cta-text .btn-gold,
+      .cta-text .cta {
+        color: #2A1E1A; border-bottom-color: #2A1E1A;
+      }
+      .cta-signature {
+        width: 140px; opacity: .55;
+        margin-top: var(--sp-sm);
+      }
+
+      /* ===== FOOTER ===== */
+      .footer {
+        padding: var(--sp-md) 40px var(--sp-sm);
+        background: var(--bg);
+      }
+      .footer-line {
+        width: 100%; height: 1px;
+        background: var(--hairline);
+        margin-bottom: var(--sp-md);
+      }
+      .footer-inner {
+        max-width: var(--max); margin: 0 auto;
+        display: grid; grid-template-columns: 1fr 1fr;
+        gap: 40px; padding-bottom: var(--sp-sm); align-items: start;
+      }
+      .footer-brand .footer-logo {
+        width: 100px; margin-bottom: var(--sp-sm);
+      }
+      .footer-brand p {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); line-height: 1.7;
+        color: var(--body-color); opacity: .65;
+        letter-spacing: .02em; margin: 8px 0 0; max-width: 320px;
+      }
+      .footer-brand a { color: var(--ink); }
+      .footer-right {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+      }
+      .footer h4 {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em; text-transform: uppercase;
+        color: var(--ink); opacity: .85;
+        margin-bottom: var(--sp-sm);
+      }
+      .footer-links { display: flex; flex-direction: column; gap: 8px; }
+      .footer-links a {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); line-height: 1.45;
+        color: var(--body-color); opacity: .72;
+        letter-spacing: .02em; transition: opacity .3s;
+      }
+      .footer-links a:hover { opacity: 1; }
+      .footer-contact {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); line-height: 1.7;
+        color: var(--body-color); opacity: .72;
+        letter-spacing: .02em;
+      }
+      .footer-contact a { color: var(--body-color); transition: opacity .3s; }
+      .footer-contact a:hover { opacity: 1; color: var(--ink); }
+      .footer-contact p { margin-bottom: 4px; }
+      .footer-copy {
+        text-align: center;
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); color: var(--body-color);
+        opacity: .45; letter-spacing: .04em;
+        padding-top: var(--sp-sm);
+        border-top: 1px solid rgba(26,26,26,.06);
+        max-width: var(--max); margin: 0 auto;
+      }
+
+      /* ===== LIGHTBOX ===== */
+      .lightbox {
+        position: fixed; inset: 0;
+        background: rgba(20,14,10,.94);
+        z-index: 2000;
+        display: none; align-items: center; justify-content: center;
+        opacity: 0; transition: opacity .4s;
+        backdrop-filter: none; -webkit-backdrop-filter: none;
+      }
+      .lightbox.open { display: flex; opacity: 1; }
+      .lightbox img {
+        max-width: 90vw; max-height: 85vh;
+        border-radius: 0; object-fit: contain;
+      }
+      .lightbox-close {
+        position: absolute; top: 32px; right: 36px;
+        background: none; border: none;
+        color: #EDE8E3; font-size: 32px; line-height: 1;
+        font-weight: 300; opacity: .7; transition: opacity .3s;
+        width: 48px; height: 48px;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .lightbox-close:hover { opacity: 1; }
+      .lightbox-prev, .lightbox-next {
+        position: absolute; top: 50%; transform: translateY(-50%);
+        background: none; border: none;
+        color: #EDE8E3; width: 56px; height: 56px;
+        display: flex; align-items: center; justify-content: center;
+        font-family: var(--body); font-weight: 300;
+        font-size: 32px; line-height: 1;
+        cursor: pointer; opacity: .7; border-radius: 0;
+        transition: opacity .3s, transform .3s;
+      }
+      .lightbox-prev { left: 32px; }
+      .lightbox-next { right: 32px; }
+      .lightbox-prev:hover { opacity: 1; transform: translate(-4px, -50%); background: none; }
+      .lightbox-next:hover { opacity: 1; transform: translate(4px, -50%); background: none; }
+
+      /* ===== BTN-GOLD MAPPED TO V5 UNDERLINED CTA ===== */
+      .btn-gold {
+        display: inline-block;
+        background: none; border: none;
+        border-bottom: .5px solid var(--ink); border-radius: 0;
+        padding: 6px 0 8px;
+        color: var(--ink);
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em; text-transform: uppercase;
+        transition: opacity .4s ease;
+      }
+      .btn-gold:hover { opacity: .55; transform: none; box-shadow: none; background: none; }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 960px) {
+        .hero-content {
+          grid-template-columns: 1fr; gap: 48px;
+          padding: 120px 24px 60px;
+        }
+        .hero-form-card { max-width: 100%; margin: 0; padding: 36px 28px 28px; }
+        .about-inner { grid-template-columns: 1fr; gap: 48px; align-items: start; }
+        .about-portrait-wrap { max-width: 460px; margin: 0 auto; }
+        .about-portrait { position: static; aspect-ratio: 3/4; height: auto; }
+        .about-text { max-width: 600px; padding-top: 0; }
+        .service-row, .service-row.reverse {
+          grid-template-columns: 1fr; gap: 28px; direction: ltr;
+        }
+        .service-row.reverse > * { direction: ltr; }
+        .service-img-wrap { height: 320px; }
+        .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+        .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+        .cta-inner { grid-template-columns: 1fr; gap: 40px; }
+        .cta-img { max-width: 600px; margin: 0 auto; height: 360px; }
+        .cta-text { text-align: center; }
+        .cta-text .section-label { text-align: center; }
+        .cta-text .section-label::after { margin: var(--sp-sm) auto 0; }
+        .cta-text p { margin-left: auto; margin-right: auto; }
+        .cta-signature { margin: var(--sp-sm) auto 0; }
+        .footer-inner { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 768px) {
+        .nav { padding: 0; height: 68px; }
+        .nav-inner { padding: 0 24px; }
+        .nav.scrolled { height: 60px; }
+        .nav-logo { height: 42px; width: 120px; }
+        .nav.scrolled .nav-logo { height: 36px; }
+        .hamburger { transform: translate(4px, -12px); }
+        .hamburger.open { transform: translate(4px, -12px) rotate(45deg); }
+        .hero-content {
+          padding: 100px 24px 60px;
+          align-items: start; text-align: center;
+        }
+        .hero-eyebrow::after { margin: 12px auto 0; }
+        .hero h1 { white-space: normal; }
+        .hero-sub { margin-left: auto; margin-right: auto; }
+        .hero-stats { flex-direction: row; max-width: 100%; }
+        .hero-stat { padding: 14px 10px; text-align: center; }
+        .hero-form-card { padding: 32px 24px 24px; }
+        .about, .services, .gallery, .process, .reviews, .cta-section { padding: var(--sp-lg) 24px; }
+        /* Mobile carousel: one slide at a time, swipe + arrows */
+        .gallery-grid {
+          display: flex; flex-wrap: nowrap;
+          grid-template-columns: none;
+          overflow-x: auto;
+          scroll-snap-type: x mandatory;
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+          gap: 0;
+          padding: 0 24px;
+          margin: 0 -24px;
+          scroll-behavior: smooth;
+        }
+        .gallery-grid::-webkit-scrollbar { display: none; }
+        .gallery-item {
+          flex: 0 0 100%;
+          aspect-ratio: 4/5;
+          scroll-snap-align: center;
+        }
+        .gallery-controls { display: flex; }
+        .process-timeline {
+          flex-direction: column; align-items: flex-start;
+          gap: 28px; padding: var(--sp-md) 0 0 40px; position: relative;
+        }
+        .process-line { display: none; }
+        .process-step {
+          text-align: left; display: flex;
+          gap: 18px; align-items: flex-start; width: 100%;
+          position: relative;
+        }
+        .process-step::before {
+          content: ""; position: absolute;
+          left: -22px; top: 36px; bottom: -28px;
+          width: 1px; background: var(--hairline);
+        }
+        .process-step:last-child::before { display: none; }
+        .process-circle {
+          margin: 0; flex-shrink: 0;
+          position: relative; left: -40px; margin-right: -40px;
+        }
+        .process-step h4 { margin-bottom: 6px; }
+        .process-step p { max-width: none; text-align: left; margin: 0; }
+        .reviews-grid { grid-template-columns: 1fr; }
+        .cta-img { height: 320px; }
+        .footer { padding: var(--sp-md) 24px; }
+        .footer-inner { grid-template-columns: 1fr; gap: 32px; }
+        .footer-right { grid-template-columns: 1fr 1fr; gap: 24px; }
+        .mobile-menu a { font-size: 24px; padding: 12px 0; }
+        .section-intro { padding: var(--sp-md) 24px 0; }
+      }
+      @media (max-width: 480px) {
+        .hero-form-card { padding: 28px 22px 22px; }
+        .gallery-pill { font-size: 11px; padding: 8px 14px; letter-spacing: .14em; }
+        .gallery-filters { gap: 6px; }
+        .service-img-wrap { height: 240px; }
+        .cta-img { height: 240px; }
+      }
+
+      /* ===== V2 ADDITIONS (split-test variant) ===== */
+
+      /* Editorial pull-quote above the hero form */
+      .v2-pullquote {
+        margin: 0 0 var(--sp-sm);
+        padding: 0 0 var(--sp-sm);
+        border-bottom: 1px solid rgba(26,26,26,.12);
+      }
+      .v2-pullquote p {
+        font-family: var(--heading); font-weight: 300;
+        font-size: var(--fs-p); line-height: 1.55;
+        font-style: italic; color: var(--ink);
+        letter-spacing: .01em;
+        margin-bottom: 10px;
+        text-wrap: pretty;
+      }
+      .v2-pullquote figcaption {
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em;
+        text-transform: uppercase; color: var(--ink); opacity: .6;
+      }
+
+      /* Reassurance microcopy under the hero form submit */
+      .v2-form-reassure {
+        margin-top: var(--sp-sm);
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .12em;
+        text-transform: uppercase;
+        text-align: center;
+        color: var(--ink); opacity: .55;
+      }
+
+      /* Slim form embedded in the final CTA section — card-styled so it reads as a form */
+      .v2-cta-form {
+        display: flex; flex-direction: column;
+        gap: 14px;
+        max-width: 480px;
+        margin: 0 0 var(--sp-md);
+        background: var(--bg);
+        border: 1px solid rgba(42,30,26,.14);
+        border-radius: 0;
+        padding: 28px;
+        box-shadow: 0 16px 40px rgba(42,30,26,.08);
+      }
+      .v2-cta-row {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 14px;
+      }
+      .v2-cta-form input,
+      .v2-cta-form textarea {
+        width: 100%;
+        background: #FFFFFF;
+        border: 1px solid rgba(42,30,26,.18);
+        border-radius: 0;
+        padding: 12px 14px;
+        font-size: var(--fs-p); font-weight: 400;
+        color: #2A1E1A; outline: none;
+        font-family: var(--body);
+        transition: border-color .25s ease, box-shadow .25s ease;
+      }
+      .v2-cta-form input:focus,
+      .v2-cta-form textarea:focus {
+        border-color: #2A1E1A;
+        box-shadow: 0 0 0 1px rgba(42,30,26,.08);
+      }
+      .v2-cta-form textarea { resize: vertical; min-height: 96px; line-height: 1.55; }
+      .v2-cta-form input::placeholder,
+      .v2-cta-form textarea::placeholder {
+        color: rgba(42,30,26,.45); opacity: 1;
+        font-weight: 400; font-style: normal;
+      }
+      .v2-cta-actions {
+        display: flex; align-items: center; gap: 18px;
+        margin-top: 8px; flex-wrap: wrap;
+      }
+      .v2-cta-submit {
+        color: #2A1E1A; border-bottom-color: #2A1E1A;
+      }
+      .cta-text .v2-cta-form { margin-left: 0; }
+
+      /* Mobile sticky CTA, hairline editorial */
+      .v2-mobile-sticky {
+        display: none;
+        position: fixed; left: 0; right: 0; bottom: 0;
+        z-index: 900;
+        background: var(--bg);
+        border-top: 1px solid rgba(26,26,26,.12);
+        padding: 14px 24px calc(14px + env(safe-area-inset-bottom));
+        text-align: center;
+        font-family: var(--body); font-weight: 400;
+        font-size: var(--fs-cta); letter-spacing: .22em;
+        text-transform: uppercase;
+        color: var(--ink); opacity: .9;
+        text-decoration: none;
+        transition: opacity .3s ease, transform .3s ease;
+      }
+      .v2-mobile-sticky:hover { opacity: 1; }
+
+      @media (max-width: 960px) {
+        .v2-cta-form { max-width: 100%; margin: 0 auto var(--sp-md); }
+        .cta-text .v2-cta-form { margin: 0 auto var(--sp-md); }
+        .v2-cta-actions { justify-content: center; }
+      }
+      @media (max-width: 768px) {
+        .v2-mobile-sticky { display: block; }
+        /* Reserve room above footer/lightbox so sticky never overlaps content */
+        body { padding-bottom: 56px; }
+        .v2-cta-row { grid-template-columns: 1fr; gap: 0; }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===== NAV ===== -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <img
+            src="Logo/white version.png"
+            alt="VELUS Interiors"
+            class="logo-light"
+          />
+          <img
+            src="Logo/SVG.svg"
+            alt="VELUS Interiors"
+            class="logo-dark"
+          />
+        </a>
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#gallery">Portfolio</a>
+          <a href="#process">Process</a>
+          <a href="#reviews">Reviews</a>
+          <a href="javascript:void(0)" class="nav-cta" onclick="openForm()"
+            >Get In Touch</a
+          >
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Menu">+</button>
+      </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="mobile-close" id="mobileClose">&times;</button>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#gallery" onclick="closeMenu()">Portfolio</a>
+      <a href="#process" onclick="closeMenu()">Process</a>
+      <a href="#reviews" onclick="closeMenu()">Reviews</a>
+      <a
+        href="javascript:void(0)"
+        class="nav-cta"
+        onclick="
+          closeMenu();
+          setTimeout(openForm, 400);
+        "
+        >Get In Touch</a
+      >
+    </div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-bg">
+        <img
+          src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/28bdc2e5-4df8-47f3-ba5a-4829ce549671.png"
+          alt="VELUS Interiors - Home Image 1"
+        />
+        <img
+          src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d5c52e21-dbcf-4288-8b8a-59bfd103a314.png"
+          alt="VELUS Interiors - Home Image 2"
+        />
+        <img
+          src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/69dd06e6caf24b80a0e1f0e0.jpg"
+          alt="VELUS Interiors - Luxury Interior"
+        />
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-left">
+          <div class="hero-eyebrow">
+            Full-Service Design &amp; Remodel &middot; Chicago
+          </div>
+          <h1>We'll Bring Your<br />Dream Space to Life</h1>
+          <p class="hero-sub">
+            We are drawn to spaces that feel quiet, luminous, and deeply
+            considered, where beauty is not stated, but felt in atmosphere.
+          </p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <div class="hero-stat-value">2018</div>
+              <div class="hero-stat-label">Founded</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-value hero-stat-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+              <div class="hero-stat-label">Full White Glove Service</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-form-card">
+          <figure class="v2-pullquote">
+            <p>&ldquo;From the start, we trusted Mandy to bring our vision to life, and we couldn&rsquo;t be happier with the result.&rdquo;</p>
+            <figcaption>Nicole &middot; Lincoln Park, Chicago</figcaption>
+          </figure>
+          <div class="v1-inq-title">A Considered Beginning</div>
+          <p class="v1-inq-lede">Share a little about your project. Mandy will reply personally within two business days.</p>
+          <form class="v1-inq-form" id="v2InquiryForm" onsubmit="event.preventDefault();v2SubmitForm(this)" data-form-location="hero">
+            <div class="v1-inq-field">
+              <label class="v1-inq-label">What is your name?</label>
+              <input type="text" name="firstName" placeholder="Full name" required />
+            </div>
+            <div class="v1-inq-field">
+              <label class="v1-inq-label">What is your email address?</label>
+              <input type="email" name="email" placeholder="Email address" required />
+            </div>
+            <div class="v1-inq-field">
+              <label class="v1-inq-label">What kind of project are you beginning?</label>
+              <input type="text" name="project_type" placeholder="New build, renovation, or furnishing" required />
+            </div>
+            <div class="v1-inq-field">
+              <label class="v1-inq-label">Tell us about your project</label>
+              <textarea name="design_intent" placeholder="A few words on the space, the feeling, and the timing..." required></textarea>
+            </div>
+            <div class="v1-inq-actions">
+              <button class="hero-form-btn" type="submit">Begin Your Project</button>
+            </div>
+            <p class="v2-form-reassure">No obligation. We reply within two business days.</p>
+          </form>
+          <div class="v1-inq-note" id="v2SentNote"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section class="about" id="about">
+      <div class="about-inner">
+        <!-- Left: portrait -->
+        <div class="about-portrait-wrap anim">
+          <img loading="lazy"
+            src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/ff23d6b7-73f4-4613-a42a-5cea1554979d.jpeg"
+            alt="Mandy VELUS"
+            class="about-portrait"
+          />
+        </div>
+        <!-- Right: heading + bio -->
+        <div class="about-text anim anim-delay-1">
+          <p class="about-label">Mandy Velus</p>
+          <h2>Founder, VELUS Interiors</h2>
+          <p class="about-bio">
+            Mandy Velus is the founder and principal designer of VELUS
+            Interiors, a luxury residential studio founded in 2018.
+          </p>
+          <p class="about-bio">
+            Raised in Guyana, a country of extraordinary natural richness, Mandy
+            grew up watching her father, a professional photographer, find the
+            essence of things through a lens. It was there she learned that
+            design begins not with ideas, but with attention.
+          </p>
+          <p class="about-bio">
+            Her work is defined by a disciplined approach to composition, where
+            space is understood through material, proportion, and light rather
+            than style or reference. Each project is developed as a study in
+            how environments are experienced over time. Not just how they
+            appear in a photograph.
+          </p>
+          <p class="about-bio">
+            She does not design through repetition or aesthetic formula. Each
+            interior is approached as its own inquiry, shaped through
+            observation, dialogue, and restraint, resulting in work that feels
+            composed, personal, and enduring.
+          </p>
+          <p class="about-bio">
+            With a foundation in both design and project management, she leads
+            every project from concept through completion with exacting
+            precision, ensuring continuity between intent, execution, and lived
+            experience. As a designer and a mother, she understands that a
+            home is more than what it looks like. It is how it feels to live
+            inside it every day, a structure for daily rhythm, shaped as much
+            by function as by feeling.
+          </p>
+          <p class="about-bio">
+            Through VELUS Interiors, she continues to shape residential
+            interiors across Chicago and beyond, defined by clarity, restraint,
+            and a quiet sense of permanence.
+          </p>
+        </div>
+      </div>
+      <div class="section-cta anim">
+        <button class="btn-gold" onclick="openForm()">Get In Touch</button>
+      </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services" id="services">
+      <div class="section-intro anim">
+        <p class="section-label">Practice</p>
+        <h2 class="section-heading">Full-Service Design &amp; Remodel</h2>
+      </div>
+      <div class="services-list">
+        <!-- Service 1 -->
+        <div class="service-row anim">
+          <div class="service-img-wrap">
+            <img loading="lazy"
+              src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0b3e2897-7da8-4c35-adce-755ed7523f3b.jpg"
+              alt="Remodel"
+            />
+            <span class="service-number">01</span>
+          </div>
+          <div class="service-text">
+            <img loading="lazy"
+              src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8cdcaa47-3154-4431-b56f-7b4039d5ef30.png"
+              alt=""
+              class="service-icon"
+            />
+            <h3>New Construction</h3>
+            <p>
+              We engage from the earliest architectural stages, contributing
+              spatial direction as structure takes form. Working in alignment
+              with architects and builders, we shape interiors that are
+              considered from the blueprint forward, ensuring clarity of
+              proportion, material intent, and spatial rhythm.
+            </p>
+            <div class="service-line"></div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-row reverse anim">
+          <div class="service-img-wrap">
+            <img loading="lazy"
+              src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg"
+              alt="Interior Design"
+            />
+            <span class="service-number">02</span>
+          </div>
+          <div class="service-text">
+            <img loading="lazy"
+              src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/1b436400-6249-4c8b-b713-58656e7ad027.png"
+              alt=""
+              class="service-icon"
+            />
+            <h3>Renovation Design</h3>
+            <p>
+              Existing spaces are approached with precision rather than
+              sentiment. We reassess structure, flow, and material presence,
+              refining what already exists into a more coherent spatial
+              language. Each renovation is resolved through context, not
+              repetition, allowing the architecture to dictate its own
+              evolution.
+            </p>
+            <div class="service-line"></div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-row anim">
+          <div class="service-img-wrap">
+            <img loading="lazy"
+              src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/1221be03-8b0e-4d43-a904-13b90ad9cc31.jpg"
+              alt="Bathroom"
+            />
+            <span class="service-number">03</span>
+          </div>
+          <div class="service-text">
+            <img loading="lazy"
+              src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8cdcaa47-3154-4431-b56f-7b4039d5ef30.png"
+              alt=""
+              class="service-icon"
+            />
+            <h3>Full Home Furnishing</h3>
+            <p>
+              We compose complete interior environments through a disciplined
+              layering of furnishings, lighting, and material tone. Each
+              selection is intentional within the broader spatial composition,
+              resulting in interiors that feel resolved, continuous, and
+              quietly intentional in their function and form.
+            </p>
+            <div class="service-line"></div>
+          </div>
+        </div>
+
+      </div>
+      <div class="section-cta anim">
+        <button class="btn-gold" onclick="openForm()">Get In Touch</button>
+      </div>
+    </section>
+
+    <!-- ===== GALLERY ===== -->
+    <section class="gallery" id="gallery">
+      <div class="section-intro anim">
+        <h2 class="section-heading">Our Work</h2>
+      </div>
+      <div class="gallery-inner">
+        <div class="gallery-filters anim">
+          <button class="gallery-pill active" data-filter="all">All</button>
+          <button class="gallery-pill" data-filter="karkalis">Karkalis</button>
+          <button class="gallery-pill" data-filter="vance">Vance</button>
+          <button class="gallery-pill" data-filter="havel">Havel</button>
+          <button class="gallery-pill" data-filter="stojka">Stojka</button>
+          <button class="gallery-pill" data-filter="oneill">O'Neill</button>
+          <button class="gallery-pill" data-filter="badger">Badger</button>
+          <button class="gallery-pill" data-filter="valmont">Valmont</button>
+          <button class="gallery-pill" data-filter="cooper">Cooper</button>
+        </div>
+        <div class="gallery-grid" id="galleryGrid">
+          <!-- Cooper Residence · Wilmette, Illinois -->
+          <div class="gallery-item" data-cat="cooper">
+            <img loading="lazy" src="collectionsphotos/cooper-1.jpeg" alt="Cooper Residence · Wilmette" />
+          </div>
+          <div class="gallery-item" data-cat="cooper">
+            <img loading="lazy" src="collectionsphotos/cooper-2.jpeg" alt="Cooper Residence · Wilmette" />
+          </div>
+          <!-- Karkalis Residence · Lincoln Park, Chicago -->
+          <div class="gallery-item" data-cat="karkalis">
+            <img loading="lazy" src="collectionsphotos/IMG_6757.jpeg" alt="Karkalis Residence · Lincoln Park" />
+          </div>
+          <div class="gallery-item" data-cat="karkalis">
+            <img loading="lazy" src="collectionsphotos/IMG_6775.jpeg" alt="Karkalis Residence · Lincoln Park" />
+          </div>
+          <div class="gallery-item" data-cat="karkalis">
+            <img loading="lazy" src="collectionsphotos/IMG_6758.jpeg" alt="Karkalis Residence · Lincoln Park" />
+          </div>
+          <div class="gallery-item" data-cat="karkalis">
+            <img loading="lazy" src="collectionsphotos/IMG_6773.jpeg" alt="Karkalis Residence · Lincoln Park" />
+          </div>
+          <!-- Vance Residence · West Loop, Chicago -->
+          <div class="gallery-item" data-cat="vance">
+            <img loading="lazy" src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/ef8fa439-e21b-488d-b53e-1edfe2146148.jpeg" alt="Vance Residence · West Loop" />
+          </div>
+          <div class="gallery-item" data-cat="vance">
+            <img loading="lazy" src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/c08e48b9-fc78-48b4-94d7-8af3b49e5d8f.jpeg" alt="Vance Residence · West Loop" />
+          </div>
+          <div class="gallery-item" data-cat="vance">
+            <img loading="lazy" src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e95a9993-a280-4bb8-8854-d1bd111cc91b.jpeg" alt="Vance Residence · West Loop" />
+          </div>
+          <!-- Havel Residence · West Loop, Chicago -->
+          <div class="gallery-item" data-cat="havel">
+            <img loading="lazy" src="collectionsphotos/IMG_3719.jpeg" alt="Havel Residence · West Loop" />
+          </div>
+          <div class="gallery-item" data-cat="havel">
+            <img loading="lazy" src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/485b090c-1e74-4c68-86b9-a90144a5dd9d.jpeg" alt="Havel Residence · West Loop" />
+          </div>
+          <!-- Stojka · Lincoln Park, Chicago -->
+          <div class="gallery-item" data-cat="stojka">
+            <img loading="lazy" src="collectionsphotos/IMG_3842.jpeg" alt="Stojka · Lincoln Park" />
+          </div>
+          <div class="gallery-item" data-cat="stojka">
+            <img loading="lazy" src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/69e8f5daa1636a6c653617c6.png" alt="Stojka · Lincoln Park" />
+          </div>
+          <!-- O'Neill Residence · River North, Chicago -->
+          <div class="gallery-item" data-cat="oneill">
+            <img loading="lazy" src="collectionsphotos/IMG_6682.jpeg" alt="O'Neill Residence · River North" />
+          </div>
+          <div class="gallery-item" data-cat="oneill">
+            <img loading="lazy" src="collectionsphotos/IMG_6667.jpeg" alt="O'Neill Residence · River North" />
+          </div>
+          <!-- Badger Residence · Lakeview, Illinois -->
+          <div class="gallery-item" data-cat="badger">
+            <img loading="lazy" src="collectionsphotos/badger-2B3D.jpeg" alt="Badger Residence · Lakeview" />
+          </div>
+          <div class="gallery-item" data-cat="badger">
+            <img loading="lazy" src="collectionsphotos/badger-57E0.jpeg" alt="Badger Residence · Lakeview" />
+          </div>
+          <div class="gallery-item" data-cat="badger">
+            <img loading="lazy" src="collectionsphotos/badger-BFDD.jpeg" alt="Badger Residence · Lakeview" />
+          </div>
+          <div class="gallery-item" data-cat="badger">
+            <img loading="lazy" src="collectionsphotos/badger-E119.jpeg" alt="Badger Residence · Lakeview" />
+          </div>
+          <div class="gallery-item" data-cat="badger">
+            <img loading="lazy" src="collectionsphotos/badger-FCE4.jpeg" alt="Badger Residence · Lakeview" />
+          </div>
+          <!-- Valmont Residence · Palm Beach, Florida -->
+          <div class="gallery-item" data-cat="valmont">
+            <img loading="lazy" src="collectionsphotos/valmont-1.jpeg" alt="Valmont Residence · Palm Beach" />
+          </div>
+          <div class="gallery-item" data-cat="valmont">
+            <img loading="lazy" src="collectionsphotos/valmont-2.jpeg" alt="Valmont Residence · Palm Beach" />
+          </div>
+        </div>
+        <div class="gallery-controls" id="galleryControls">
+          <button class="gallery-arrow" id="galleryPrev" aria-label="Previous">&#8592;</button>
+          <span class="gallery-counter"><span id="galleryCurrent">01</span><span class="sep">/</span><span id="galleryTotal">23</span></span>
+          <button class="gallery-arrow" id="galleryNext" aria-label="Next">&#8594;</button>
+        </div>
+        <div class="gallery-cta anim">
+          <p>See Something You Love?</p>
+          <button class="btn-gold" onclick="openForm()">Get In Touch</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PROCESS ===== -->
+    <section class="process" id="process">
+      <div class="section-intro anim">
+        <p class="section-label">Method</p>
+        <h2 class="section-heading">Five Steps to Your Fully Realized Home</h2>
+      </div>
+      <div class="process-inner">
+        <div class="process-timeline anim">
+          <div class="process-line"></div>
+          <div class="process-step">
+            <div class="process-circle">1</div>
+            <div>
+              <h4>Discovery</h4>
+              <p>
+                A conversation to understand the intent, scope, and vision of
+                the space.
+              </p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-circle">2</div>
+            <div>
+              <h4>Consultation</h4>
+              <p>
+                A considered review of the space and its architectural
+                conditions.
+              </p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-circle">3</div>
+            <div>
+              <h4>Design Development</h4>
+              <p>
+                Spatial direction, materiality, and furnishing concepts are
+                defined and refined.
+              </p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-circle">4</div>
+            <div>
+              <h4>Procurement and Coordination</h4>
+              <p>
+                Furnishings and materials are sourced, ordered, and coordinated
+                with precision.
+              </p>
+            </div>
+          </div>
+          <div class="process-step">
+            <div class="process-circle">5</div>
+            <div>
+              <h4>Execution and Installation</h4>
+              <p>
+                The project is realized through construction, furnishing, and
+                final composition.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="process-cta anim">
+          <p>Have a Project in Mind?</p>
+          <button class="btn-gold" onclick="openForm()">Get In Touch</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== REVIEWS ===== -->
+    <section class="reviews" id="reviews">
+      <div class="section-intro anim">
+        <p class="section-label">Reflection</p>
+        <h2 class="section-heading">What Our Clients Say</h2>
+      </div>
+      <div class="reviews-inner">
+        <!-- Single row of Google-style reviews -->
+        <div class="reviews-grid">
+          <div class="review-card anim">
+            <div class="review-card-header">
+              <svg class="review-google" viewBox="0 0 24 24">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+              </svg>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <p>
+              We recently moved into a beautiful home in Lincoln Park and hired
+              VELUS Interiors to help renovate multiple spaces, including all
+              the bathrooms, our master bedroom, dining room, and living room.
+              <u>From the start, we trusted Mandy to bring our vision to life,
+              and we couldn't be happier with the result.</u>
+              The designs are not only kid-friendly, but they also strike the
+              perfect balance of fun, edgy, and sophisticated elements. Highly
+              recommend VELUS Interiors for anyone looking for a thoughtful and
+              beautiful transformation!
+            </p>
+            <span class="review-name">Nicole &middot; Lincoln Park, Chicago</span>
+          </div>
+          <div class="review-card anim anim-delay-1">
+            <div class="review-card-header">
+              <svg class="review-google" viewBox="0 0 24 24">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+              </svg>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <p>
+              We worked with Mandy Velus for a condo renovation in Lakeview,
+              Chicago. She redesigned our kitchen with custom cabinetry and
+              premium finishes, created a stunning fireplace, and updated our
+              flooring with sleek hardwood.
+              <u>The process was seamless.</u> Highly recommend her for custom
+              kitchen remodels and home renovations in Chicago.
+            </p>
+            <span class="review-name">Helen &amp; Terry &middot; Lakeview, Chicago</span>
+          </div>
+          <div class="review-card anim anim-delay-2">
+            <div class="review-card-header">
+              <svg class="review-google" viewBox="0 0 24 24">
+                <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
+                <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853" />
+                <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05" />
+                <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335" />
+              </svg>
+              <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            </div>
+            <p>
+              Mandy at VELUS Interiors transformed my bedroom in Atlanta with
+              moody tones and artistic elements that reflect my adventurous
+              style.
+              <u>The personalized service and attention to detail were exceptional.</u>
+              For custom bedroom design and full interior design services in
+              Atlanta and Chicago, I highly recommend VELUS Interiors.
+            </p>
+            <span class="review-name">Roni &middot; Atlanta</span>
+          </div>
+        </div>
+      </div>
+      <div class="section-cta anim">
+        <button class="btn-gold" onclick="openForm()">Get In Touch</button>
+      </div>
+    </section>
+
+    <!-- ===== CTA SECTION ===== -->
+    <section class="cta-section" id="cta">
+      <div class="cta-inner">
+        <div class="cta-img anim">
+          <img loading="lazy"
+            src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg"
+            alt="VELUS Interior Design"
+          />
+        </div>
+        <div class="cta-text anim anim-delay-1">
+          <p class="section-label">Let's Begin</p>
+          <h2>Connection Sparks Creation</h2>
+          <p>
+            Every extraordinary space starts with a single conversation. Tell us
+            about your home, your lifestyle, and your dreams. We'll show you
+            what's possible when design meets intention.
+          </p>
+          <form class="v2-cta-form" id="v2CtaForm" onsubmit="event.preventDefault();v2SubmitForm(this)" data-form-location="cta">
+            <div class="v2-cta-row">
+              <input type="text" name="firstName" placeholder="Full name" required />
+              <input type="email" name="email" placeholder="Email address" required />
+            </div>
+            <input type="text" name="project_type" placeholder="New build, renovation, or furnishing" required />
+            <textarea name="design_intent" placeholder="A few words on the space, the feeling, and the timing..." required></textarea>
+            <div class="v2-cta-actions">
+              <button class="btn-gold v2-cta-submit" type="submit">Begin Your Project</button>
+            </div>
+            <div class="v1-inq-note" id="v2CtaSentNote"></div>
+          </form>
+          <img loading="lazy"
+            src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png"
+            alt="Signature"
+            class="cta-signature"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer" id="footer">
+      <div class="footer-line"></div>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <img loading="lazy"
+            src="Logo/SVG.svg"
+            alt="VELUS Interiors"
+            class="footer-logo"
+          />
+          <p>
+            Luxury interior design and full-home remodel in Chicago and the
+            North Shore.
+          </p>
+        </div>
+        <div class="footer-right">
+          <div>
+            <h4>Studio</h4>
+            <div class="footer-links">
+              <a href="#services">Services</a>
+              <a href="#gallery">Portfolio</a>
+              <a href="#process">Process</a>
+              <a href="#reviews">Reviews</a>
+            </div>
+          </div>
+          <div>
+            <h4>Connect</h4>
+            <div class="footer-contact">
+              <p>Chicago, Illinois</p>
+              <p>
+                <a href="mailto:mandy@velusinteriors.com"
+                  >mandy@velusinteriors.com</a
+                >
+              </p>
+              <p><a href="tel:+19545409039">(954) 540-9039</a></p>
+              <p><a href="https://www.instagram.com/velusinteriors/" target="_blank" rel="noopener">@velusinteriors</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-copy">
+        <span>&copy; 2026 VELUS INTERIORS. All rights reserved.</span>
+        <span
+          style="
+            display: block;
+            margin-top: 4px;
+            font-size: 10px;
+            color: rgba(26, 26, 26, 0.25);
+          "
+          >Developed by
+          <a
+            href="https://nilsdigital.com"
+            target="_blank"
+            rel="noopener"
+            style="
+              color: rgba(26, 26, 26, 0.3);
+              text-decoration: none;
+              border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+            "
+            >Nils Digital</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <!-- ===== MOBILE STICKY CTA (v2 only, hairline) ===== -->
+    <a href="javascript:void(0)" class="v2-mobile-sticky" onclick="openForm()" aria-label="Begin a project">
+      Begin a Project &rarr;
+    </a>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox-close" id="lbClose">&times;</button>
+      <button class="lightbox-prev" id="lbPrev">&#8592;</button>
+      <button class="lightbox-next" id="lbNext">&#8594;</button>
+      <img src="" alt="Gallery Image" id="lbImg" />
+    </div>
+
+    <script>
+      /* ===== NAV SCROLL ===== */
+      const nav = document.getElementById("nav");
+      window.addEventListener("scroll", () => {
+        nav.classList.toggle("scrolled", window.scrollY > 60);
+      });
+
+      /* ===== MOBILE MENU ===== */
+      const hamburger = document.getElementById("hamburger");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const mobileClose = document.getElementById("mobileClose");
+
+      function openMenu() {
+        mobileMenu.classList.add("open");
+        hamburger.classList.add("open");
+        document.body.classList.add("menu-open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeMenu() {
+        mobileMenu.classList.remove("open");
+        hamburger.classList.remove("open");
+        document.body.classList.remove("menu-open");
+        document.body.style.overflow = "";
+      }
+      hamburger.addEventListener("click", () => {
+        if (mobileMenu.classList.contains("open")) closeMenu();
+        else openMenu();
+      });
+      mobileClose.addEventListener("click", closeMenu);
+
+      /* ===== SCROLL ANIMATIONS ===== */
+      const animEls = document.querySelectorAll(".anim");
+      const animObs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("anim-visible");
+              animObs.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      animEls.forEach((el) => animObs.observe(el));
+
+      /* ===== SMOOTH SCROLL ===== */
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          const target = document.querySelector(a.getAttribute("href"));
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+          }
+        });
+      });
+
+      /* ===== GALLERY FILTER + MOBILE CAROUSEL ===== */
+      const pills = document.querySelectorAll(".gallery-pill");
+      const items = document.querySelectorAll(".gallery-item");
+      const galleryGrid = document.getElementById("galleryGrid");
+      const galleryPrev = document.getElementById("galleryPrev");
+      const galleryNext = document.getElementById("galleryNext");
+      const galleryCurrent = document.getElementById("galleryCurrent");
+      const galleryTotal = document.getElementById("galleryTotal");
+
+      function visibleItems() {
+        return Array.from(galleryGrid.querySelectorAll(".gallery-item:not(.hidden)"));
+      }
+      function pad2(n) { return String(n).padStart(2, "0"); }
+      function updateCounter() {
+        const visible = visibleItems();
+        if (!visible.length) {
+          galleryCurrent.textContent = "00";
+          galleryTotal.textContent = "00";
+          return;
+        }
+        galleryTotal.textContent = pad2(visible.length);
+        // Find item nearest to scroll center
+        const gridRect = galleryGrid.getBoundingClientRect();
+        const center = gridRect.left + gridRect.width / 2;
+        let nearest = 0, minDist = Infinity;
+        visible.forEach((it, i) => {
+          const r = it.getBoundingClientRect();
+          const c = r.left + r.width / 2;
+          const d = Math.abs(c - center);
+          if (d < minDist) { minDist = d; nearest = i; }
+        });
+        galleryCurrent.textContent = pad2(nearest + 1);
+      }
+      function carouselStep(dir) {
+        const visible = visibleItems();
+        if (!visible.length) return;
+        const gridRect = galleryGrid.getBoundingClientRect();
+        const center = gridRect.left + gridRect.width / 2;
+        let cur = 0, minDist = Infinity;
+        visible.forEach((it, i) => {
+          const r = it.getBoundingClientRect();
+          const c = r.left + r.width / 2;
+          const d = Math.abs(c - center);
+          if (d < minDist) { minDist = d; cur = i; }
+        });
+        const next = (cur + dir + visible.length) % visible.length;
+        visible[next].scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+      }
+
+      pills.forEach((pill) => {
+        pill.addEventListener("click", () => {
+          pills.forEach((p) => p.classList.remove("active"));
+          pill.classList.add("active");
+          const filter = pill.dataset.filter;
+          items.forEach((item) => {
+            if (filter === "all" || item.dataset.cat === filter) {
+              item.classList.remove("hidden");
+            } else {
+              item.classList.add("hidden");
+            }
+          });
+          // Reset carousel to first item after filter change
+          galleryGrid.scrollTo({ left: 0, behavior: "smooth" });
+          setTimeout(updateCounter, 200);
+        });
+      });
+
+      galleryPrev.addEventListener("click", () => carouselStep(-1));
+      galleryNext.addEventListener("click", () => carouselStep(1));
+      galleryGrid.addEventListener("scroll", () => {
+        clearTimeout(galleryGrid._t);
+        galleryGrid._t = setTimeout(updateCounter, 80);
+      }, { passive: true });
+      window.addEventListener("resize", updateCounter);
+      updateCounter();
+
+      /* ===== LIGHTBOX ===== */
+      const lightbox = document.getElementById("lightbox");
+      const lbImg = document.getElementById("lbImg");
+      const lbClose = document.getElementById("lbClose");
+      const lbPrev = document.getElementById("lbPrev");
+      const lbNext = document.getElementById("lbNext");
+      let lbItems = [];
+      let lbIndex = 0;
+
+      function getVisibleItems() {
+        return Array.from(
+          document.querySelectorAll(".gallery-item:not(.hidden)"),
+        );
+      }
+
+      function openLightbox(index) {
+        lbItems = getVisibleItems();
+        lbIndex = index;
+        lbImg.src = lbItems[lbIndex].querySelector("img").src;
+        lightbox.classList.add("open");
+        document.body.style.overflow = "hidden";
+      }
+      function closeLightbox() {
+        lightbox.classList.remove("open");
+        document.body.style.overflow = "";
+      }
+      function lbNavigate(dir) {
+        lbIndex = (lbIndex + dir + lbItems.length) % lbItems.length;
+        lbImg.src = lbItems[lbIndex].querySelector("img").src;
+      }
+
+      items.forEach((item) => {
+        item.addEventListener("click", () => {
+          const visible = getVisibleItems();
+          const idx = visible.indexOf(item);
+          openLightbox(idx >= 0 ? idx : 0);
+        });
+      });
+
+      lbClose.addEventListener("click", closeLightbox);
+      lbPrev.addEventListener("click", () => lbNavigate(-1));
+      lbNext.addEventListener("click", () => lbNavigate(1));
+      lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+      });
+      document.addEventListener("keydown", (e) => {
+        if (!lightbox.classList.contains("open")) return;
+        if (e.key === "Escape") closeLightbox();
+        if (e.key === "ArrowLeft") lbNavigate(-1);
+        if (e.key === "ArrowRight") lbNavigate(1);
+      });
+
+      /* ===== FORM SCROLL ===== */
+      function openForm() {
+        if (window.innerWidth <= 768) {
+          document.querySelector('.hero-form-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        } else {
+          document.getElementById('hero').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      /* ===== GHL INQUIRY FORM (v2, single submit, Google Ads only) ===== */
+      const V2_GHL_TOKEN = 'PIT-REMOVED-ROTATE-ME';
+      const V2_GHL_LOCATION_ID = 'dYpRMKt41LMBrYEUoeLG';
+      const V2_GHL_VERSION = '2021-07-28';
+      const V2_THANKYOU_URL = 'https://velusinteriors.com/thank-you';
+
+      const V2_GHL_FIELD_MAP = {
+        project_type: 'what_kind_of_project_are_you_beginning',
+        design_intent: 'how_do_you_imagine_your_space_feeling'
+      };
+
+      async function v2UpsertContact(fd) {
+        const name = (fd.get('firstName') || '').trim();
+        const email = (fd.get('email') || '').trim();
+        const parts = name.split(' ').filter(Boolean);
+        const firstName = parts[0] || name;
+        const lastName = parts.slice(1).join(' ') || '';
+
+        const customFields = [];
+        Object.keys(V2_GHL_FIELD_MAP).forEach(k => {
+          const v = (fd.get(k) || '').trim();
+          if (v) customFields.push({ key: V2_GHL_FIELD_MAP[k], field_value: v });
+        });
+
+        const payload = {
+          locationId: V2_GHL_LOCATION_ID,
+          firstName, lastName, email,
+          customFields,
+          tags: ['site-v2', 'google-ads']
+        };
+        const res = await fetch('https://services.leadconnectorhq.com/contacts/upsert', {
+          method: 'POST',
+          headers: {
+            'Authorization': 'Bearer ' + V2_GHL_TOKEN,
+            'Version': V2_GHL_VERSION,
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('GHL upsert ' + res.status);
+        return res.json();
+      }
+
+      async function v2SubmitForm(form) {
+        const noteId = form.id === 'v2CtaForm' ? 'v2CtaSentNote' : 'v2SentNote';
+        const note = document.getElementById(noteId);
+        const btn = form.querySelector('button[type="submit"]');
+        const fd = new FormData(form);
+
+        const required = form.querySelectorAll('[required]');
+        for (const f of required) {
+          if (!(f.value || '').trim()) {
+            note.textContent = 'Please complete the highlighted field.';
+            note.classList.add('error');
+            f.focus();
+            return;
+          }
+        }
+        note.textContent = '';
+        note.classList.remove('error');
+
+        const originalLabel = btn.textContent;
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        try {
+          await v2UpsertContact(fd);
+          window.location.href = V2_THANKYOU_URL;
+        } catch (err) {
+          console.error(err);
+          note.textContent = 'Something went wrong. Please email mandy@velusinteriors.com directly.';
+          note.classList.add('error');
+          btn.disabled = false;
+          btn.textContent = originalLabel;
+        }
+      }
+    </script>
+  </body>
+</html>

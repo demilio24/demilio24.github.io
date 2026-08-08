@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery — Final Refined</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', sans-serif; background: #FAF6F0; color: #3A241E; }
+  img { max-width: 100%; display: block; }
+
+  .gallery-section { max-width: 1100px; margin: 0 auto; padding: 80px 24px; }
+  .gallery-header { text-align: center; margin-bottom: 32px; }
+  .gallery-label { font-size: 11px; letter-spacing: .2em; text-transform: uppercase; color: #B89A6A; margin-bottom: 12px; }
+  .gallery-title { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 300; color: #3A241E; line-height: 1.15; }
+
+  .filters { display: flex; gap: 8px; justify-content: center; margin-bottom: 36px; flex-wrap: wrap; }
+  .filter-pill { padding: 9px 22px; border-radius: 100px; font-size: 12px; font-weight: 400; letter-spacing: .03em; cursor: pointer; transition: all .3s ease; border: 1px solid rgba(58,36,30,.1); color: #7A6B62; background: transparent; font-family: inherit; }
+  .filter-pill.active { background: #3A241E; color: #F3EBDD; border-color: #3A241E; }
+  .filter-pill:hover:not(.active) { border-color: rgba(184,154,106,.4); color: #3A241E; }
+
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .gallery-item { border-radius: 10px; overflow: hidden; box-shadow: 0 4px 16px rgba(42,30,26,.06); cursor: pointer; transition: transform .3s ease, box-shadow .3s ease; aspect-ratio: 4/3; }
+  .gallery-item:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(42,30,26,.12); }
+  .gallery-item img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+  .gallery-item.hidden { display: none; }
+
+  /* Lightbox */
+  .lightbox { position: fixed; inset: 0; z-index: 9999; background: rgba(42,30,26,.92); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); display: flex; align-items: center; justify-content: center; padding: 40px; opacity: 0; pointer-events: none; transition: opacity .35s ease; }
+  .lightbox.open { opacity: 1; pointer-events: all; }
+  .lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 12px; box-shadow: 0 32px 80px rgba(0,0,0,.4); transform: scale(.92); transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+  .lightbox.open img { transform: scale(1); }
+  .lightbox-close { position: absolute; top: 24px; right: 32px; width: 44px; height: 44px; border-radius: 50%; background: rgba(243,235,221,.1); border: 1px solid rgba(243,235,221,.15); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #F3EBDD; font-size: 20px; transition: background .25s; }
+  .lightbox-close:hover { background: rgba(243,235,221,.2); }
+  .lightbox-nav { position: absolute; top: 50%; width: 44px; height: 44px; border-radius: 50%; background: rgba(243,235,221,.1); border: 1px solid rgba(243,235,221,.15); display: flex; align-items: center; justify-content: center; cursor: pointer; color: #F3EBDD; font-size: 18px; transition: background .25s; transform: translateY(-50%); }
+  .lightbox-nav:hover { background: rgba(243,235,221,.2); }
+  .lightbox-prev { left: 24px; }
+  .lightbox-next { right: 24px; }
+
+  .gallery-cta { text-align: center; margin-top: 56px; }
+  .gallery-cta-text { font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 300; color: #3A241E; margin-bottom: 8px; }
+  .gallery-cta-sub { font-size: 14px; color: #7A6B62; margin-bottom: 24px; line-height: 1.7; }
+  .btn-gold { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 16px 40px; background: linear-gradient(135deg, #9a6d1f 0%, #B89A6A 45%, #D4B87A 100%); color: #fff; font-size: 13px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; border: none; border-radius: 10px; cursor: pointer; text-decoration: none; box-shadow: 0 8px 28px rgba(184,154,106,.25); transition: all .3s ease; font-family: inherit; }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 14px 40px rgba(184,154,106,.35); }
+
+  @media (max-width: 768px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .lightbox-prev { left: 12px; }
+    .lightbox-next { right: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<section class="gallery-section">
+  <div class="gallery-header">
+    <div class="gallery-label">Our Work</div>
+    <div class="gallery-title">Spaces Fully Resolved</div>
+  </div>
+
+  <div class="filters" id="filters">
+    <button class="filter-pill active" data-filter="all">All</button>
+    <button class="filter-pill" data-filter="living">Living Rooms</button>
+    <button class="filter-pill" data-filter="kitchen">Kitchens</button>
+    <button class="filter-pill" data-filter="bathroom">Bathrooms</button>
+    <button class="filter-pill" data-filter="bedroom">Bedrooms</button>
+  </div>
+
+  <div class="gallery-grid" id="galleryGrid">
+    <!-- Living Rooms (deduplicated) -->
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e74a0b20-884a-4e6c-8ccb-4c60e682cd28.jpg" alt="Mountain retreat living room with illuminated bookshelf"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/015d8616-a468-40a7-b21c-45564aa022e6.jpg" alt="Contemporary living room with ribbed coffee table"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/4ad8cbdb-b492-415c-8ac6-3dde21d30e46.jpg" alt="Open living dining with walnut wall and gold chandelier"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/60658542-b879-441b-a986-955c15a46f2c.jpg" alt="Walnut media wall with pink ottoman"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/3fc94637-65b1-4d49-9b95-11d5a01f06f0.jpg" alt="Waterfront living room with lake views"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8c170be3-32a7-47ec-8259-4a29aebaa377.jpg" alt="Minimalist white living room"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/1a7dd7a7-7355-41fe-a085-6ee79bd13447.jpg" alt="Family room with built-in bunk beds"></div>
+    <div class="gallery-item" data-cat="living"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/b7ddbac2-55db-42ef-bf8e-49db2681e21e.jpg" alt="Grand living room with snowy forest view"></div>
+
+    <!-- Kitchens (deduplicated) -->
+    <div class="gallery-item" data-cat="kitchen"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/5c5f1580-b05f-4755-b41d-57d43533a552.jpg" alt="Two-tone kitchen with pendant lights"></div>
+    <div class="gallery-item" data-cat="kitchen"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e23f4a3d-37ee-4d7b-a01b-9ebb95cc6901.jpg" alt="Spacious L-shaped kitchen"></div>
+    <div class="gallery-item" data-cat="kitchen"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/5fedffc8-ce4a-4a2e-96d7-302bcbf1fb4e.jpg" alt="Classic charcoal kitchen with brass hardware"></div>
+    <div class="gallery-item" data-cat="kitchen"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0c7b09c7-acbc-4634-ad53-80c9a8906664.jpg" alt="Transitional kitchen with herringbone floor"></div>
+
+    <!-- Bathrooms (deduplicated) -->
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/faada81f-d8e3-4347-bf39-82dad0dad9d4.jpg" alt="Black and white geometric bathroom"></div>
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/c72114cd-c431-4ca9-a8ad-a80796049a56.jpg" alt="Luxury spa bathroom with floating vanity"></div>
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/dbd22cee-2ae9-4357-8a29-bcf6df705bea.jpg" alt="Kids bathroom with scallop tile"></div>
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/5820d685-7f2f-4ed2-8f3f-bfd98c6f4e80.jpg" alt="Marble bathroom with walnut vanity"></div>
+    <div class="gallery-item" data-cat="bathroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d96f32b5-f66f-416b-9651-6580b54002e6.jpg" alt="Modern bathroom with backlit mirror"></div>
+
+    <!-- Bedrooms (deduplicated) -->
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/9bc2e8a4-ae1b-49b8-82f2-1665e85cf35c.jpg" alt="High-rise bedroom with city view"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e12bb222-a6e7-4fb9-a581-6ad2645a0c39.jpg" alt="Blue chevron headboard master bedroom"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0fb4ff41-a5bc-4704-92df-a1f631b22a5d.jpg" alt="Blue upholstered headboard with gold accents"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e840332e-a0eb-42a4-a5a0-017db1243e67.jpg" alt="Serene high-rise bedroom"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/01e38a10-801a-4137-b041-bc842bae1765.jpg" alt="Industrial loft bedroom"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/4f57825e-0350-4dcd-ad71-a108efd708e1.jpg" alt="Colorful kids bedroom with world map"></div>
+    <div class="gallery-item" data-cat="bedroom"><img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e1e63659-7b45-4e99-873c-d2f20a80c1c9.jpg" alt="Kids bedroom with yellow wardrobes"></div>
+  </div>
+
+  <div class="gallery-cta">
+    <div class="gallery-cta-text">See Something You Love?</div>
+    <div class="gallery-cta-sub">Every project begins with a conversation about your space, your vision, and what's possible.</div>
+    <a href="#" class="btn-gold" onclick="if(typeof openForm==='function')openForm();return false">Get In Touch</a>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-close" id="lbClose">&times;</div>
+  <div class="lightbox-nav lightbox-prev" id="lbPrev">&#8249;</div>
+  <div class="lightbox-nav lightbox-next" id="lbNext">&#8250;</div>
+  <img src="" alt="Project detail" id="lbImg">
+</div>
+
+<script>
+// Filter
+const pills = document.querySelectorAll('.filter-pill');
+const items = document.querySelectorAll('.gallery-item');
+
+pills.forEach(pill => {
+  pill.addEventListener('click', () => {
+    const filter = pill.dataset.filter;
+    pills.forEach(p => p.classList.remove('active'));
+    pill.classList.add('active');
+    items.forEach(item => {
+      if (filter === 'all' || item.dataset.cat === filter) {
+        item.classList.remove('hidden');
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Lightbox
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+let visibleItems = [];
+let currentIdx = 0;
+
+function getVisible() {
+  return Array.from(items).filter(i => !i.classList.contains('hidden'));
+}
+
+function openLB(idx) {
+  visibleItems = getVisible();
+  currentIdx = idx;
+  lbImg.src = visibleItems[currentIdx].querySelector('img').src;
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLB() {
+  lb.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navLB(dir) {
+  visibleItems = getVisible();
+  currentIdx = (currentIdx + dir + visibleItems.length) % visibleItems.length;
+  lbImg.style.opacity = '0';
+  lbImg.style.transform = 'scale(.95)';
+  setTimeout(() => {
+    lbImg.src = visibleItems[currentIdx].querySelector('img').src;
+    lbImg.style.opacity = '1';
+    lbImg.style.transform = 'scale(1)';
+  }, 150);
+}
+
+items.forEach((item, i) => {
+  item.addEventListener('click', () => {
+    const vis = getVisible();
+    const visIdx = vis.indexOf(item);
+    openLB(visIdx >= 0 ? visIdx : 0);
+  });
+});
+
+document.getElementById('lbClose').addEventListener('click', closeLB);
+document.getElementById('lbPrev').addEventListener('click', () => navLB(-1));
+document.getElementById('lbNext').addEventListener('click', () => navLB(1));
+lb.addEventListener('click', (e) => { if (e.target === lb) closeLB(); });
+document.addEventListener('keydown', (e) => {
+  if (!lb.classList.contains('open')) return;
+  if (e.key === 'Escape') closeLB();
+  if (e.key === 'ArrowLeft') navLB(-1);
+  if (e.key === 'ArrowRight') navLB(1);
+});
+
+// Add transition for lightbox image
+lbImg.style.transition = 'opacity .2s ease, transform .3s ease';
+</script>
+
+</body>
+</html>

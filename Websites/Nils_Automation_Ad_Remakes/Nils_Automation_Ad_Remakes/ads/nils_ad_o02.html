@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Archivo+Black&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;background:#fbfbf9;font-family:'Archivo',sans-serif;color:#141414}
+  .gl{position:absolute;background:#e7e7e2}.gl.v{top:0;bottom:0;width:1px}.gl.h{left:0;right:0;height:1px}
+  .motif{position:absolute;right:-120px;bottom:-120px;width:540px;height:540px;z-index:1}
+  .wrap{position:absolute;left:84px;right:74px;top:104px;z-index:2}
+  .lead{font-family:'Archivo Black';font-weight:400;font-size:33px;color:#7c7c77;margin-bottom:12px;letter-spacing:-.01em}
+  h1{font-family:'Archivo Black';font-weight:400;font-size:82px;line-height:.99;letter-spacing:-.02em;color:#141414;margin-bottom:34px}
+  h1 .acc{color:#0f9e6a}
+  .bens{margin-bottom:38px}
+  .b{display:flex;align-items:flex-start;gap:18px;font-weight:600;font-size:31px;line-height:1.18;color:#2c2c2a;margin-bottom:17px}
+  .b .mk{flex:0 0 16px;width:16px;height:16px;margin-top:8px;border-radius:4px;background:#0f9e6a}
+  .cta{display:inline-block;background:#0f9e6a;color:#fff;font-family:'Archivo Black';font-weight:400;font-size:31px;padding:22px 38px;border-radius:18px;box-shadow:0 14px 30px rgba(0,0,0,.16)}
+  .foot{position:absolute;left:84px;bottom:40px;z-index:2;font-weight:600;font-size:18px;color:#a8a8a2}
+</style></head><body>
+  <div class="art">
+    <div class="gl v" style="left:48px"></div><div class="gl v" style="right:48px"></div>
+    <div class="gl h" style="top:60px"></div><div class="gl h" style="top:742px"></div>
+    <svg class="motif" viewBox="0 0 100 100"><g fill="#0f9e6a"><ellipse cx="50" cy="70" rx="40" ry="13"/><ellipse cx="50" cy="50" rx="40" ry="13"/><ellipse cx="50" cy="30" rx="40" ry="13"/></g><ellipse cx="50" cy="30" rx="40" ry="13" fill="#fff" opacity=".18"/></svg>
+    <div class="wrap">
+      <div class="lead">We implement AI so you can</div>
+      <h1>cut costs and <span class="acc">keep more profit.</span></h1>
+      <div class="bens"><div class="b"><span class="mk"></span>Eliminate the work that quietly bleeds money</div><div class="b"><span class="mk"></span>Kill the errors that cost you customers</div><div class="b"><span class="mk"></span>Do more without adding payroll</div></div>
+      <div class="cta">See where AI saves you money →</div>
+    </div>
+    <div class="foot">nilsdigital.com/automation</div>
+  </div>
+<script>function fit(){var w=document.querySelector('.wrap'),h=document.querySelector('h1');if(!w)return;var g=0;while(w.scrollHeight>880&&g<70){h.style.fontSize=(parseFloat(getComputedStyle(h).fontSize)-3)+'px';g++;}}if(document.fonts&&document.fonts.ready)document.fonts.ready.then(fit);window.addEventListener('load',fit);</script>
+</body></html>

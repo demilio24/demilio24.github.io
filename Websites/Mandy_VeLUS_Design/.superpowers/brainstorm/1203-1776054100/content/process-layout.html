@@ -1,0 +1,121 @@
+<h2>Process Section: Which layout?</h2>
+<p class="subtitle">Currently 5 equal columns — too cramped, text is tiny. Which layout improves readability while keeping the premium feel?</p>
+
+<div class="cards">
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#F3EBDD;padding:24px;min-height:220px;">
+      <!-- Timeline layout -->
+      <div style="text-align:center;margin-bottom:16px;">
+        <div style="font-size:9px;color:#B89A6A;letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px;">How to Get Started</div>
+        <div style="font-family:Georgia,serif;font-size:18px;color:#3A241E;font-weight:300;">Five Steps to Your Home</div>
+      </div>
+      <!-- Horizontal timeline -->
+      <div style="position:relative;display:flex;justify-content:space-between;align-items:flex-start;padding:0 8px;">
+        <!-- Connecting line -->
+        <div style="position:absolute;top:14px;left:24px;right:24px;height:1px;background:linear-gradient(90deg,transparent,rgba(184,154,106,.3) 10%,rgba(184,154,106,.3) 90%,transparent);"></div>
+        <!-- Steps -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative;z-index:1;">
+          <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#9a6d1f,#B89A6A);display:flex;align-items:center;justify-content:center;color:#fff;font-size:10px;font-weight:600;box-shadow:0 4px 12px rgba(184,154,106,.3);">1</div>
+          <div style="font-family:Georgia;font-size:11px;color:#3A241E;text-align:center;">Discovery<br>Call</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative;z-index:1;">
+          <div style="width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(184,154,106,.4);background:rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center;color:#B89A6A;font-size:10px;font-weight:600;">2</div>
+          <div style="font-family:Georgia;font-size:11px;color:#3A241E;text-align:center;">In-Home<br>Visit</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative;z-index:1;">
+          <div style="width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(184,154,106,.4);background:rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center;color:#B89A6A;font-size:10px;font-weight:600;">3</div>
+          <div style="font-family:Georgia;font-size:11px;color:#3A241E;text-align:center;">Design<br>Concept</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative;z-index:1;">
+          <div style="width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(184,154,106,.4);background:rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center;color:#B89A6A;font-size:10px;font-weight:600;">4</div>
+          <div style="font-family:Georgia;font-size:11px;color:#3A241E;text-align:center;">Procure-<br>ment</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;position:relative;z-index:1;">
+          <div style="width:28px;height:28px;border-radius:50%;border:1.5px solid rgba(184,154,106,.4);background:rgba(255,255,255,.8);display:flex;align-items:center;justify-content:center;color:#B89A6A;font-size:10px;font-weight:600;">5</div>
+          <div style="font-family:Georgia;font-size:11px;color:#3A241E;text-align:center;">Install &<br>Styling</div>
+        </div>
+      </div>
+      <div style="margin-top:12px;text-align:center;font-size:8px;color:#7A6B62;">Each step has description text below on hover/expand</div>
+    </div>
+    <div class="card-body">
+      <h3>A. Horizontal Timeline</h3>
+      <p>Gold connecting line with numbered circles. Clean, compact, professional. Collapses to vertical on mobile. Description text appears on hover or below each step.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#F3EBDD;padding:24px;min-height:220px;">
+      <!-- 3-2 staggered grid -->
+      <div style="text-align:center;margin-bottom:14px;">
+        <div style="font-size:9px;color:#B89A6A;letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px;">How to Get Started</div>
+        <div style="font-family:Georgia,serif;font-size:18px;color:#3A241E;font-weight:300;">Five Steps to Your Home</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:8px;">
+        <div style="background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-radius:10px;padding:12px 10px;text-align:center;">
+          <div style="font-family:Georgia;font-size:24px;color:rgba(184,154,106,.25);margin-bottom:4px;">01</div>
+          <div style="font-family:Georgia;font-size:12px;color:#3A241E;margin-bottom:3px;">Discovery Call</div>
+          <div style="font-size:8px;color:#7A6B62;line-height:1.5;">Understand scope & vision</div>
+        </div>
+        <div style="background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-radius:10px;padding:12px 10px;text-align:center;">
+          <div style="font-family:Georgia;font-size:24px;color:rgba(184,154,106,.25);margin-bottom:4px;">02</div>
+          <div style="font-family:Georgia;font-size:12px;color:#3A241E;margin-bottom:3px;">In-Home Visit</div>
+          <div style="font-size:8px;color:#7A6B62;line-height:1.5;">Evaluate the space</div>
+        </div>
+        <div style="background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-radius:10px;padding:12px 10px;text-align:center;">
+          <div style="font-family:Georgia;font-size:24px;color:rgba(184,154,106,.25);margin-bottom:4px;">03</div>
+          <div style="font-family:Georgia;font-size:12px;color:#3A241E;margin-bottom:3px;">Design Concept</div>
+          <div style="font-size:8px;color:#7A6B62;line-height:1.5;">Full concept presentation</div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:66%;margin:0 auto;">
+        <div style="background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-radius:10px;padding:12px 10px;text-align:center;">
+          <div style="font-family:Georgia;font-size:24px;color:rgba(184,154,106,.25);margin-bottom:4px;">04</div>
+          <div style="font-family:Georgia;font-size:12px;color:#3A241E;margin-bottom:3px;">Procurement</div>
+          <div style="font-size:8px;color:#7A6B62;line-height:1.5;">Source all materials</div>
+        </div>
+        <div style="background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-radius:10px;padding:12px 10px;text-align:center;">
+          <div style="font-family:Georgia;font-size:24px;color:rgba(184,154,106,.25);margin-bottom:4px;">05</div>
+          <div style="font-family:Georgia;font-size:12px;color:#3A241E;margin-bottom:3px;">Installation</div>
+          <div style="font-size:8px;color:#7A6B62;line-height:1.5;">Final styling & reveal</div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. 3-2 Staggered Grid</h3>
+      <p>Top row has 3 steps, bottom row has 2 centered. More breathing room, no orphans, keeps the glass card style. Each card has enough space for description text.</p>
+    </div>
+  </div>
+
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#F3EBDD;padding:24px;min-height:220px;">
+      <!-- Alternating left-right -->
+      <div style="text-align:center;margin-bottom:14px;">
+        <div style="font-size:9px;color:#B89A6A;letter-spacing:.15em;text-transform:uppercase;margin-bottom:6px;">How to Get Started</div>
+        <div style="font-family:Georgia,serif;font-size:18px;color:#3A241E;font-weight:300;">Five Steps to Your Home</div>
+      </div>
+      <!-- Vertical timeline with alternating sides -->
+      <div style="position:relative;padding:0 0 0 28px;">
+        <div style="position:absolute;left:12px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,rgba(184,154,106,.4),rgba(184,154,106,.1));"></div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;align-items:flex-start;gap:10px;position:relative;">
+            <div style="position:absolute;left:-22px;width:20px;height:20px;border-radius:50%;background:#B89A6A;display:flex;align-items:center;justify-content:center;color:#fff;font-size:8px;font-weight:600;">1</div>
+            <div><div style="font-family:Georgia;font-size:11px;color:#3A241E;">Discovery Call</div><div style="font-size:8px;color:#7A6B62;">Understand scope & vision</div></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;position:relative;">
+            <div style="position:absolute;left:-22px;width:20px;height:20px;border-radius:50%;border:1px solid rgba(184,154,106,.4);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-size:8px;font-weight:600;">2</div>
+            <div><div style="font-family:Georgia;font-size:11px;color:#3A241E;">In-Home Consultation</div><div style="font-size:8px;color:#7A6B62;">Evaluate conditions & direction</div></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px;position:relative;">
+            <div style="position:absolute;left:-22px;width:20px;height:20px;border-radius:50%;border:1px solid rgba(184,154,106,.4);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-size:8px;font-weight:600;">3</div>
+            <div><div style="font-family:Georgia;font-size:11px;color:#3A241E;">Design Presentation</div><div style="font-size:8px;color:#7A6B62;">Full concept with materials</div></div>
+          </div>
+        </div>
+      </div>
+      <div style="text-align:center;font-size:8px;color:#7A6B62;margin-top:6px;">...continues for steps 4 & 5</div>
+    </div>
+    <div class="card-body">
+      <h3>C. Vertical Timeline</h3>
+      <p>Gold vertical line with numbered nodes. Naturally mobile-friendly since it's already vertical. Most readable but takes more vertical space. Feels like a luxury brand journey.</p>
+    </div>
+  </div>
+</div>

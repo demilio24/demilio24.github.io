@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:linear-gradient(160deg,#e8efe9 0%,#d4ddd6 45%,#c3cec7 100%)}
+  /* blurred office scene behind glass */
+  .scene{position:absolute;inset:0;filter:blur(7px);opacity:.92}
+  .win{position:absolute;top:-60px;right:-40px;width:620px;height:760px;border-radius:18px;
+    background:linear-gradient(180deg,#f5f9f6,#dde7e0);box-shadow:inset 0 0 60px rgba(255,255,255,.6)}
+  .mull{position:absolute;top:0;bottom:0;width:10px;background:#b9c5be}
+  .plant1{position:absolute;bottom:-30px;right:70px;width:230px;height:340px;border-radius:50% 50% 46% 46%;
+    background:radial-gradient(circle at 50% 30%,#3f7d52,#234a31)}
+  .plant2{position:absolute;bottom:-40px;left:30px;width:170px;height:260px;border-radius:50%;
+    background:radial-gradient(circle at 50% 30%,#4c8a5f,#2a5238)}
+  .desk{position:absolute;bottom:0;left:0;right:0;height:200px;background:linear-gradient(180deg,#cbb79a,#a98f6e)}
+  .chairblur{position:absolute;bottom:70px;left:280px;width:200px;height:200px;border-radius:30px;background:#33413a}
+  /* glass sheen */
+  .sheen{position:absolute;inset:0;background:
+      linear-gradient(115deg,transparent 38%,rgba(255,255,255,.35) 48%,transparent 56%),
+      linear-gradient(115deg,transparent 60%,rgba(255,255,255,.18) 66%,transparent 72%);pointer-events:none}
+  .edge{position:absolute;inset:26px;border:2px solid rgba(255,255,255,.45);border-radius:8px;pointer-events:none}
+  /* handwriting */
+  .txt{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:0 120px}
+  .blue{font-family:'Caveat',cursive;font-weight:700;color:#1c63c0;font-size:104px;line-height:1.02;
+    transform:rotate(-2deg);text-shadow:0 1px 0 rgba(255,255,255,.5)}
+  .red{font-family:'Caveat',cursive;font-weight:600;color:#cf3030;font-size:60px;line-height:1.12;
+    transform:rotate(-1.5deg);margin-top:48px;max-width:760px;text-shadow:0 1px 0 rgba(255,255,255,.4)}
+  .red .up{font-weight:700;text-decoration:underline;text-decoration-thickness:3px}
+  /* marker tip bottom-right */
+  .marker{position:absolute;bottom:150px;right:90px;width:34px;height:230px;border-radius:8px;transform:rotate(34deg);
+    background:linear-gradient(180deg,#1b6fd0 0%,#1b6fd0 26%,#2a2f33 26%,#2a2f33 100%);box-shadow:0 14px 30px rgba(0,0,0,.3)}
+  .marker::after{content:"";position:absolute;bottom:-14px;left:9px;width:16px;height:18px;border-radius:0 0 6px 6px;
+    background:#0f4fa0}
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="scene">
+      <div class="desk"></div>
+      <div class="chairblur"></div>
+      <div class="win"><div class="mull" style="left:300px"></div></div>
+      <div class="plant1"></div>
+      <div class="plant2"></div>
+    </div>
+    <div class="sheen"></div>
+    <div class="edge"></div>
+    <div class="txt">
+      <div class="blue">What is your<br>business actually<br>costing you to run?</div>
+      <div class="red">Not your expenses. Your <span class="up">WASTED</span> time, duplicated effort, and broken processes.</div>
+    </div>
+    <div class="marker"></div>
+  </div>
+</body>
+</html>

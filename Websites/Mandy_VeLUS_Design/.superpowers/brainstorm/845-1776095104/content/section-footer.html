@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 8: Footer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e0e0e0; }
+  h1 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 6px; text-align: center; padding-top: 32px; }
+  .sub { font-size: 13px; color: #555; text-align: center; margin-bottom: 32px; padding: 0 24px; }
+  .variation { margin: 0 24px 40px; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #1e1e1e; cursor: pointer; transition: border-color .4s, box-shadow .4s; }
+  .variation:hover { border-color: rgba(184,154,106,.35); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 48px rgba(184,154,106,.12); }
+  .vl { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #1a1a1a; }
+  .vn { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  .vt { font-size: 14px; font-weight: 500; color: #fff; }
+  .vd { font-size: 12px; color: #555; padding: 12px 24px; line-height: 1.7; border-top: 1px solid #1a1a1a; }
+  .selected .vn { background: #fff; color: #B89A6A; }
+  img { max-width: 100%; display: block; }
+</style>
+</head>
+<body>
+
+<h1>Section 8: Footer</h1>
+<p class="sub">The final element. Should feel premium and match the page. Using her real contact info.</p>
+
+<!-- A: Dark footer — classic 3-column -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">A</div><div class="vt">Dark Footer — Classic 3-Column</div></div>
+  <div style="background:#2A1E1A;padding:56px 40px 32px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;margin-bottom:40px;">
+        <!-- Brand -->
+        <div>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/ba8849c4-3a31-4cff-b52b-131a44f4f6d1.png" alt="VELUS Interiors" style="height:28px;width:auto;margin-bottom:16px;opacity:.7;">
+          <p style="font-size:13px;color:rgba(243,235,221,.3);line-height:1.75;max-width:280px;">Full-service design & remodel studio. Transforming homes with intention since 2018.</p>
+        </div>
+        <!-- Studio links -->
+        <div>
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#B89A6A;margin-bottom:18px;">Studio</div>
+          <a href="#" style="display:block;font-size:14px;color:rgba(243,235,221,.35);margin-bottom:10px;text-decoration:none;">Portfolio</a>
+          <a href="#" style="display:block;font-size:14px;color:rgba(243,235,221,.35);margin-bottom:10px;text-decoration:none;">Services</a>
+          <a href="#" style="display:block;font-size:14px;color:rgba(243,235,221,.35);margin-bottom:10px;text-decoration:none;">Process</a>
+          <a href="#" style="display:block;font-size:14px;color:rgba(243,235,221,.35);text-decoration:none;">Reviews</a>
+        </div>
+        <!-- Connect -->
+        <div>
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#B89A6A;margin-bottom:18px;">Connect</div>
+          <a href="mailto:mandy@velusinteriors.com" style="display:block;font-size:14px;color:rgba(243,235,221,.35);margin-bottom:10px;text-decoration:none;">mandy@velusinteriors.com</a>
+          <a href="tel:9545409039" style="display:block;font-size:14px;color:rgba(243,235,221,.35);margin-bottom:10px;text-decoration:none;">954-540-9039</a>
+          <span style="display:block;font-size:14px;color:rgba(243,235,221,.35);">Chicago, IL 60607</span>
+        </div>
+      </div>
+      <!-- Bottom bar -->
+      <div style="border-top:1px solid rgba(243,235,221,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+        <span style="font-size:12px;color:rgba(243,235,221,.25);">© 2025 VELUS INTERIORS. All rights reserved.</span>
+        <a href="https://instagram.com/velusinteriors" target="_blank" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(243,235,221,.1);color:rgba(243,235,221,.3);text-decoration:none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Classic dark footer. Logo at top left, description, Studio links center, Contact info right. Thin separator, copyright + Instagram icon at the bottom. Clean, professional, proven layout.</div>
+</div>
+
+<!-- B: Dark footer — centered minimal -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">B</div><div class="vt">Dark Footer — Centered Minimal</div></div>
+  <div style="background:#2A1E1A;padding:56px 40px 32px;">
+    <div style="max-width:600px;margin:0 auto;text-align:center;">
+      <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/ba8849c4-3a31-4cff-b52b-131a44f4f6d1.png" alt="VELUS Interiors" style="height:32px;width:auto;margin:0 auto 20px;opacity:.6;">
+      <p style="font-size:13px;color:rgba(243,235,221,.3);line-height:1.75;margin-bottom:28px;">Full-service design & remodel studio<br>Chicago, IL 60607</p>
+      <!-- Links in a single row -->
+      <div style="display:flex;justify-content:center;gap:28px;margin-bottom:28px;flex-wrap:wrap;">
+        <a href="#" style="font-size:12px;color:rgba(243,235,221,.35);text-decoration:none;letter-spacing:.06em;">Portfolio</a>
+        <a href="#" style="font-size:12px;color:rgba(243,235,221,.35);text-decoration:none;letter-spacing:.06em;">Services</a>
+        <a href="#" style="font-size:12px;color:rgba(243,235,221,.35);text-decoration:none;letter-spacing:.06em;">Process</a>
+        <a href="#" style="font-size:12px;color:rgba(243,235,221,.35);text-decoration:none;letter-spacing:.06em;">Reviews</a>
+      </div>
+      <!-- Contact -->
+      <div style="display:flex;justify-content:center;gap:24px;margin-bottom:28px;flex-wrap:wrap;">
+        <a href="mailto:mandy@velusinteriors.com" style="font-size:12px;color:rgba(243,235,221,.35);text-decoration:none;">mandy@velusinteriors.com</a>
+        <a href="tel:9545409039" style="font-size:12px;color:rgba(243,235,221,.35);text-decoration:none;">954-540-9039</a>
+      </div>
+      <!-- Social -->
+      <div style="display:flex;justify-content:center;gap:12px;margin-bottom:28px;">
+        <a href="https://instagram.com/velusinteriors" target="_blank" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(243,235,221,.1);color:rgba(243,235,221,.3);text-decoration:none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+      <div style="border-top:1px solid rgba(243,235,221,.06);padding-top:20px;">
+        <span style="font-size:11px;color:rgba(243,235,221,.2);">© 2025 VELUS INTERIORS. All rights reserved.</span>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Everything centered — logo, description, nav links in a row, contact in a row, Instagram, copyright. Ultra minimal. Victoria Hagan style. The footer is quiet and unobtrusive. Works great on mobile since it's already stacked.</div>
+</div>
+
+<!-- C: Ivory footer (matches page) -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">C</div><div class="vt">Ivory Footer — Matches Page Background</div></div>
+  <div style="background:#FAF6F0;padding:56px 40px 32px;border-top:1px solid rgba(58,36,30,.06);">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;margin-bottom:40px;">
+        <div>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/ba8849c4-3a31-4cff-b52b-131a44f4f6d1.png" alt="VELUS" style="height:28px;filter:brightness(0.2);margin-bottom:16px;">
+          <p style="font-size:13px;color:#7A6B62;line-height:1.75;max-width:280px;">Full-service design & remodel studio. Transforming homes with intention since 2018.</p>
+        </div>
+        <div>
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#B89A6A;margin-bottom:18px;">Studio</div>
+          <a href="#" style="display:block;font-size:14px;color:#7A6B62;margin-bottom:10px;text-decoration:none;">Portfolio</a>
+          <a href="#" style="display:block;font-size:14px;color:#7A6B62;margin-bottom:10px;text-decoration:none;">Services</a>
+          <a href="#" style="display:block;font-size:14px;color:#7A6B62;margin-bottom:10px;text-decoration:none;">Process</a>
+          <a href="#" style="display:block;font-size:14px;color:#7A6B62;text-decoration:none;">Reviews</a>
+        </div>
+        <div>
+          <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#B89A6A;margin-bottom:18px;">Connect</div>
+          <a href="mailto:mandy@velusinteriors.com" style="display:block;font-size:14px;color:#7A6B62;margin-bottom:10px;text-decoration:none;">mandy@velusinteriors.com</a>
+          <a href="tel:9545409039" style="display:block;font-size:14px;color:#7A6B62;margin-bottom:10px;text-decoration:none;">954-540-9039</a>
+          <span style="display:block;font-size:14px;color:#7A6B62;">Chicago, IL 60607</span>
+        </div>
+      </div>
+      <div style="border-top:1px solid rgba(58,36,30,.06);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+        <span style="font-size:12px;color:#A89A90;">© 2025 VELUS INTERIORS. All rights reserved.</span>
+        <a href="https://instagram.com/velusinteriors" target="_blank" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(58,36,30,.08);color:#7A6B62;text-decoration:none;">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Same 3-column layout as A but on ivory — matches the page background so there's no visual break. Darkened logo, muted text. The footer just... continues the page. No dark section at the bottom at all. Most unified with the "no transitions" approach. Subtle top border separates it.</div>
+</div>
+
+<!-- D: Dark rounded card footer (matches gallery/CTA card approach) -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">D</div><div class="vt">Dark Card Footer — Floating on Ivory</div></div>
+  <div style="background:#FAF6F0;padding:0 40px 40px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="background:#2A1E1A;border-radius:20px;padding:48px 48px 32px;box-shadow:0 16px 48px rgba(42,30,26,.1);">
+        <div style="display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:48px;margin-bottom:36px;">
+          <div>
+            <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/ba8849c4-3a31-4cff-b52b-131a44f4f6d1.png" alt="VELUS" style="height:28px;width:auto;margin-bottom:16px;opacity:.7;">
+            <p style="font-size:13px;color:rgba(243,235,221,.3);line-height:1.75;max-width:280px;">Full-service design & remodel studio. Transforming homes with intention since 2018.</p>
+          </div>
+          <div>
+            <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#B89A6A;margin-bottom:18px;">Studio</div>
+            <a href="#" style="display:block;font-size:14px;color:rgba(243,235,221,.35);margin-bottom:10px;text-decoration:none;">Portfolio</a>
+            <a href="#" style="display:block;font-size:14px;color:rgba(243,235,221,.35);margin-bottom:10px;text-decoration:none;">Services</a>
+            <a href="#" style="display:block;font-size:14px;color:rgba(243,235,221,.35);margin-bottom:10px;text-decoration:none;">Process</a>
+            <a href="#" style="display:block;font-size:14px;color:rgba(243,235,221,.35);text-decoration:none;">Reviews</a>
+          </div>
+          <div>
+            <div style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#B89A6A;margin-bottom:18px;">Connect</div>
+            <a href="mailto:mandy@velusinteriors.com" style="display:block;font-size:14px;color:rgba(243,235,221,.35);margin-bottom:10px;text-decoration:none;">mandy@velusinteriors.com</a>
+            <a href="tel:9545409039" style="display:block;font-size:14px;color:rgba(243,235,221,.35);margin-bottom:10px;text-decoration:none;">954-540-9039</a>
+            <span style="display:block;font-size:14px;color:rgba(243,235,221,.35);">Chicago, IL 60607</span>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(243,235,221,.06);padding-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;">
+          <span style="font-size:12px;color:rgba(243,235,221,.2);">© 2025 VELUS INTERIORS. All rights reserved.</span>
+          <a href="https://instagram.com/velusinteriors" target="_blank" style="width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid rgba(243,235,221,.1);color:rgba(243,235,221,.3);text-decoration:none;">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Dark rounded card floating on ivory — same treatment as the gallery section. Consistent with the "dark sections are cards" approach. 3-column inside. Ivory peeks around the edges. The page ends with this dark card as the final anchoring element.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

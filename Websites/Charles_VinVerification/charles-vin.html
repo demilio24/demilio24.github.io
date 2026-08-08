@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miami VIN Verification Services | Same-Day Florida VIN Inspections</title>
+  <meta name="description" content="Licensed Florida VIN verification specialists. Cars, motorcycles, boats, trailers & rebuilt titles. Same-day service. Serving all Miami-Dade County.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    /* ─────────────────────────────────────────────
+       DESIGN TOKENS
+    ───────────────────────────────────────────── */
+    :root {
+      --color-primary:        #1E5FA8;
+      --color-primary-dark:   #174E8C;
+      --color-primary-deeper: #0F2844;
+      --color-primary-light:  #EBF4FF;
+      --color-primary-medium: #BFDBFF;
+      --color-accent:         #F97316;
+      --color-accent-dark:    #EA6C0A;
+      --color-accent-light:   #FFF3E8;
+      --color-accent-glow:    rgba(249,115,22,0.25);
+      --color-background:     #FFFFFF;
+      --color-bg-alt:         #F4F9FF;
+      --color-bg-blue:        #EBF4FF;
+      --color-text:           #0F172A;
+      --color-text-light:     #64748B;
+      --color-border:         #D6E8FF;
+      --color-white:          #FFFFFF;
+
+      --font-heading: 'Instrument Sans', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      --radius-sm:   6px;
+      --radius-md:   12px;
+      --radius-lg:   20px;
+      --radius-xl:   32px;
+      --radius-full: 9999px;
+
+      --shadow-sm:   0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-md:   0 4px 6px rgba(0,0,0,0.06), 0 10px 30px rgba(30,95,168,0.08);
+      --shadow-lg:   0 10px 40px rgba(30,95,168,0.12), 0 4px 12px rgba(0,0,0,0.08);
+      --shadow-card: 0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(30,95,168,0.10), 0 20px 48px rgba(30,95,168,0.06);
+      --shadow-accent: 0 4px 16px rgba(249,115,22,0.35), 0 2px 6px rgba(249,115,22,0.20);
+
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      --nav-h: 72px;
+    }
+
+    /* ─────────────────────────────────────────────
+       RESET & BASE
+    ───────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+    body {
+      font-family: var(--font-body);
+      background: var(--color-background);
+      color: var(--color-text);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    ul { list-style: none; }
+    button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+    /* ─────────────────────────────────────────────
+       TYPOGRAPHY
+    ───────────────────────────────────────────── */
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      line-height: 1.15;
+      color: var(--color-primary-deeper);
+    }
+    h1 { font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.75rem); }
+    h3 { font-size: clamp(1.2rem, 2.5vw, 1.5rem); }
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-heading);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      border: 1px solid rgba(249,115,22,0.25);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 16px;
+    }
+    .section-title { margin-bottom: 16px; }
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--color-text-light);
+      max-width: 600px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    /* ─────────────────────────────────────────────
+       LAYOUT
+    ───────────────────────────────────────────── */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    section { padding: 96px 0; }
+    .text-center { text-align: center; }
+
+    /* ─────────────────────────────────────────────
+       BUTTONS
+    ───────────────────────────────────────────── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      border-radius: var(--radius-md);
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition);
+      position: relative;
+      overflow: hidden;
+      white-space: nowrap;
+      border: 2px solid transparent;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.35) 50%, transparent 60%);
+      transform: translateX(-100%) skewX(-15deg);
+      transition: transform 0.55s ease;
+    }
+    .btn:hover::before { transform: translateX(200%) skewX(-15deg); }
+
+    .btn-accent {
+      background: var(--color-accent);
+      color: #fff;
+      box-shadow: var(--shadow-accent);
+    }
+    .btn-accent:hover {
+      background: var(--color-accent-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(249,115,22,0.45), 0 2px 8px rgba(249,115,22,0.25);
+    }
+    .btn-primary {
+      background: var(--color-primary);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(30,95,168,0.30);
+    }
+    .btn-primary:hover {
+      background: var(--color-primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(30,95,168,0.40);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--color-primary);
+      border-color: var(--color-primary-medium);
+    }
+    .btn-outline:hover {
+      background: var(--color-primary-light);
+      border-color: var(--color-primary);
+      transform: translateY(-2px);
+    }
+    .btn-lg { padding: 18px 36px; font-size: 1.1rem; border-radius: var(--radius-lg); }
+    .btn-pulse {
+      animation: btnPulse 2.2s ease-in-out infinite;
+    }
+    @keyframes btnPulse {
+      0%, 100% { box-shadow: 0 4px 16px rgba(249,115,22,0.4), 0 0 0 0 rgba(249,115,22,0.35); }
+      50%       { box-shadow: 0 4px 16px rgba(249,115,22,0.4), 0 0 0 10px rgba(249,115,22,0); }
+    }
+    .btn-full { width: 100%; justify-content: center; }
+
+    /* ─────────────────────────────────────────────
+       NAVBAR
+    ───────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(214,232,255,0.6);
+      transition: all var(--transition);
+    }
+    .navbar.scrolled {
+      box-shadow: 0 4px 24px rgba(30,95,168,0.10);
+      background: rgba(255,255,255,0.98);
+    }
+    .navbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .navbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .navbar-logo-icon {
+      width: 42px;
+      height: 42px;
+      background: linear-gradient(145deg, #1E5FA8 0%, #0F2844 100%);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(15,40,68,0.30), 0 1px 3px rgba(0,0,0,0.15), inset 0 1px 0 rgba(255,255,255,0.12);
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+    .navbar-logo-icon::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 50%;
+      background: rgba(255,255,255,0.07);
+      border-radius: 10px 10px 0 0;
+    }
+    .navbar-logo:hover .navbar-logo-icon {
+      transform: scale(1.06) rotate(-4deg);
+      box-shadow: 0 4px 18px rgba(15,40,68,0.40), 0 2px 6px rgba(0,0,0,0.20);
+    }
+    .brand-text {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: var(--color-primary-deeper);
+      line-height: 1.2;
+    }
+    .brand-text em {
+      font-style: normal;
+      color: var(--color-accent);
+    }
+    .navbar-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .navbar-links a {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--color-text-light);
+      transition: color var(--transition);
+    }
+    .navbar-links a:hover { color: var(--color-primary); }
+    .navbar-phone {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--color-primary);
+    }
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      width: 28px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      height: 2px;
+      background: var(--color-primary);
+      border-radius: 2px;
+      transition: all var(--transition);
+    }
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      background: #fff;
+      padding: 24px;
+      border-bottom: 2px solid var(--color-border);
+      z-index: 999;
+      box-shadow: var(--shadow-lg);
+      flex-direction: column;
+      gap: 20px;
+    }
+    .mobile-menu.active { display: flex; }
+    .mobile-menu a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      color: var(--color-text);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--color-bg-alt);
+    }
+
+    /* ─────────────────────────────────────────────
+       HERO
+    ───────────────────────────────────────────── */
+    .hero-section {
+      display: flex;
+      flex-direction: column;
+      padding-top: 0;
+      padding-bottom: 0;
+      background: url('https://assets.cdn.filesafe.space/PS0acYKgC8fpdVADeApH/media/699b379555d8bc6acf4295e6.png') center center / cover no-repeat;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Light overlay so content stays readable */
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(255,255,255,0.82);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(80px);
+      opacity: 0.5;
+      animation: blobFloat 8s ease-in-out infinite alternate;
+    }
+    .hero-blob-1 {
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(30,95,168,0.15) 0%, rgba(30,95,168,0.04) 70%);
+      top: -100px;
+      right: -100px;
+    }
+    .hero-blob-2 {
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(249,115,22,0.12) 0%, rgba(249,115,22,0.02) 70%);
+      bottom: 0;
+      left: 0;
+      animation-delay: -4s;
+    }
+    @keyframes blobFloat {
+      0%   { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(20px, -20px) scale(1.08); }
+    }
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 480px;
+      gap: 64px;
+      align-items: center;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: calc(var(--nav-h) + 40px) 24px 48px;
+    }
+    .hero-content { display: flex; flex-direction: column; gap: 24px; }
+    .urgency-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-heading);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      background: var(--color-accent-light);
+      border: 1.5px solid rgba(249,115,22,0.3);
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      width: fit-content;
+      animation: badgePulse 2.5s ease-in-out infinite;
+    }
+    @keyframes badgePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(249,115,22,0.3); }
+      50%       { box-shadow: 0 0 0 8px rgba(249,115,22,0); }
+    }
+    .hero-h1 { color: var(--color-primary-deeper); }
+    .hero-h1 .highlight {
+      background: linear-gradient(135deg, var(--color-accent) 0%, #F59E0B 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+    .hero-trust-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .hero-trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--color-text);
+    }
+    .hero-trust-icon {
+      width: 28px;
+      height: 28px;
+      background: var(--color-primary-light);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+      color: var(--color-primary);
+    }
+    .hero-photo-wrap {
+      margin-top: 8px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-card);
+      height: 220px;
+      position: relative;
+    }
+    .hero-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-photo-caption {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(8px);
+      border-radius: var(--radius-sm);
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--color-primary-deeper);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Hero inline stats grid */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--color-border);
+      box-shadow: 0 4px 16px rgba(15,40,68,0.08);
+      border: 1px solid var(--color-border);
+      gap: 1px;
+    }
+    .hero-stat {
+      padding: 20px 22px;
+      background: #fff;
+      position: relative;
+      transition: background 0.2s;
+    }
+    .hero-stat::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 22px; right: 22px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-accent), transparent);
+      opacity: 0;
+      border-radius: 2px;
+      transition: opacity 0.2s;
+    }
+    .hero-stat:hover::after { opacity: 1; }
+    .hero-stat-number {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--color-accent);
+      line-height: 1.1;
+      margin-bottom: 5px;
+      letter-spacing: -0.02em;
+    }
+    .hero-stat-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--color-text-light);
+      line-height: 1.3;
+    }
+
+    /* Hero Form Card */
+    .hero-form-card {
+      background: #fff;
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-card);
+      border: 1px solid var(--color-border);
+      overflow: hidden;
+      position: relative;
+    }
+    .hero-form-header {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      padding: 28px 32px;
+      color: #fff;
+    }
+    .hero-form-header h3 {
+      font-family: var(--font-heading);
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .hero-form-header p {
+      font-size: 0.9rem;
+      opacity: 0.85;
+      color: #fff;
+    }
+    .hero-form-body { padding: 28px 32px; }
+    .hero-form-iframe-wrap { padding: 0; overflow: hidden; }
+    .form-group { margin-bottom: 16px; }
+    .form-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--color-text);
+      background: var(--color-bg-alt);
+      transition: all var(--transition);
+      outline: none;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--color-primary);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(30,95,168,0.12);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .form-submit-wrap { margin-top: 8px; }
+    .form-disclaimer {
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--color-text-light);
+      margin-top: 10px;
+    }
+
+    /* ─────────────────────────────────────────────
+       SOCIAL PROOF BAR
+    ───────────────────────────────────────────── */
+    .proof-bar {
+      background: var(--color-primary-deeper);
+      padding: 0;
+    }
+    .proof-bar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: stretch;
+      overflow: hidden;
+    }
+    .proof-item {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 28px 20px;
+      border-right: 1px solid rgba(255,255,255,0.12);
+      transition: background var(--transition);
+    }
+    .proof-item:last-child { border-right: none; }
+    .proof-item:hover { background: rgba(255,255,255,0.05); }
+    .proof-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .proof-content { text-align: left; }
+    .proof-number {
+      display: block;
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      background: linear-gradient(90deg, #F97316 0%, #FBBF24 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+    .proof-label {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    /* ─────────────────────────────────────────────
+       PROBLEM SECTION
+    ───────────────────────────────────────────── */
+    .problem-section { background: var(--color-bg-alt); }
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .problem-list { margin-top: 28px; display: flex; flex-direction: column; gap: 20px; }
+    .problem-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px;
+      background: #fff;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+    }
+    .problem-item:hover {
+      transform: translateX(6px);
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
+    .problem-item-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--color-accent-light);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .problem-item-text strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 4px;
+    }
+    .problem-item-text p { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; }
+    .problem-image {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      height: 480px;
+    }
+    .problem-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ─────────────────────────────────────────────
+       SERVICES
+    ───────────────────────────────────────────── */
+    .services-section { background: var(--color-background); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+    .service-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition);
+      display: flex;
+      flex-direction: column;
+    }
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 60px rgba(30,95,168,0.15), 0 8px 24px rgba(0,0,0,0.08);
+      border-color: var(--color-primary-medium);
+    }
+    .service-img {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .service-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .service-card:hover .service-img img { transform: scale(1.07); }
+    .service-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 40%, rgba(15,40,68,0.5) 100%);
+    }
+    .service-body { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--color-primary-light);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 16px;
+      transition: all var(--transition);
+    }
+    .service-card:hover .service-icon {
+      background: var(--color-primary);
+      filter: drop-shadow(0 0 10px rgba(30,95,168,0.4));
+    }
+    .service-body h3 { font-size: 1.15rem; margin-bottom: 10px; }
+    .service-body p { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; flex: 1; }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-family: var(--font-heading);
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: var(--color-accent);
+      transition: gap var(--transition);
+    }
+    .service-card:hover .service-link { gap: 10px; }
+
+    /* ─────────────────────────────────────────────
+       COMPARISON
+    ───────────────────────────────────────────── */
+    .comparison-section { background: #fff; }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: 0 12px 48px rgba(15,40,68,0.12);
+      margin-top: 48px;
+    }
+    .comparison-col {
+      padding: 40px 44px;
+    }
+    .comparison-col--diy {
+      background: linear-gradient(160deg, #EA580C 0%, #F97316 100%);
+      border-right: none;
+    }
+    .comparison-col--vin {
+      background: linear-gradient(160deg, #0F2844 0%, #1E5FA8 100%);
+    }
+    .comparison-col-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+    .comparison-col-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .comparison-col--diy .comparison-col-badge { background: rgba(0,0,0,0.15); }
+    .comparison-col--vin .comparison-col-badge { background: rgba(249,115,22,0.2); }
+    .comparison-col-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+    .comparison-col--diy .comparison-col-title { color: #fff; }
+    .comparison-col--vin .comparison-col-title { color: #fff; }
+    .comparison-rows { display: flex; flex-direction: column; gap: 12px; }
+    .comparison-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 14px 16px;
+      border-radius: var(--radius-md);
+    }
+    .comparison-col--diy .comparison-row {
+      background: #fff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    }
+    .comparison-col--vin .comparison-row { background: rgba(255,255,255,0.07); }
+    .comparison-icon {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 800;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .comparison-col--diy .comparison-icon { background: #FEE2E2; color: #DC2626; }
+    .comparison-col--vin .comparison-icon { background: var(--color-accent); color: #fff; }
+    .comparison-row-text strong {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .comparison-col--diy .comparison-row-text strong { color: var(--color-dark); }
+    .comparison-col--vin .comparison-row-text strong { color: #fff; }
+    .comparison-row-text span {
+      font-size: 0.82rem;
+      line-height: 1.45;
+    }
+    .comparison-col--diy .comparison-row-text span { color: #6B7280; }
+    .comparison-col--vin .comparison-row-text span { color: rgba(255,255,255,0.65); }
+    .comparison-cta {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      text-align: center;
+    }
+    @media (max-width: 768px) {
+      .comparison-grid { grid-template-columns: 1fr; }
+      .comparison-col--diy { border-right: none; border-bottom: 1px solid var(--color-border); }
+      .comparison-col { padding: 28px 24px; }
+    }
+
+    /* ─────────────────────────────────────────────
+       PROCESS
+    ───────────────────────────────────────────── */
+    .process-section { background: var(--color-bg-alt); }
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 36px;
+      left: calc(12.5% + 24px);
+      right: calc(12.5% + 24px);
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary-medium) 0%, var(--color-accent) 100%);
+      z-index: 0;
+    }
+    .process-step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 32px 20px 28px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(214,232,255,0.8);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+    }
+    .process-step:hover {
+      background: #fff;
+      box-shadow: var(--shadow-card);
+      transform: translateY(-6px);
+    }
+    .step-num {
+      width: 72px;
+      height: 72px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-heading);
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      box-shadow: 0 0 0 4px var(--color-primary-light),
+                  0 0 20px rgba(30,95,168,0.25),
+                  0 4px 12px rgba(30,95,168,0.30);
+    }
+    .process-step h3 { font-size: 1.05rem; margin-bottom: 10px; }
+    .process-step p { font-size: 0.88rem; color: var(--color-text-light); line-height: 1.6; }
+
+    /* ─────────────────────────────────────────────
+       BENEFITS
+    ───────────────────────────────────────────── */
+    .benefits-section { background: var(--color-background); }
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .benefits-list { display: flex; flex-direction: column; gap: 24px; margin-top: 32px; }
+    .benefit-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 24px;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      transition: all var(--transition);
+    }
+    .benefit-item:hover {
+      background: var(--color-primary-light);
+      border-color: var(--color-primary-medium);
+    }
+    .benefit-icon {
+      width: 52px;
+      height: 52px;
+      background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary-medium) 100%);
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      transition: all var(--transition);
+    }
+    .benefit-item:hover .benefit-icon {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+      filter: drop-shadow(0 0 12px rgba(30,95,168,0.35));
+    }
+    .benefit-text strong {
+      display: block;
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--color-text);
+      margin-bottom: 6px;
+    }
+    .benefit-text p { font-size: 0.9rem; color: var(--color-text-light); line-height: 1.6; }
+    .benefits-image {
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      height: 560px;
+    }
+    .benefits-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    /* ─────────────────────────────────────────────
+       WHO WE HELP
+    ───────────────────────────────────────────── */
+    .who-section { background: var(--color-bg-alt); }
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+    .who-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      padding: 28px 20px;
+      text-align: center;
+      border: 1px solid var(--color-border);
+      box-shadow: var(--shadow-sm);
+      transition: all var(--transition);
+    }
+    .who-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-card);
+      border-color: var(--color-primary-medium);
+    }
+    .who-icon { font-size: 2.2rem; margin-bottom: 14px; }
+    .who-card h4 { font-size: 1rem; font-weight: 700; color: var(--color-text); margin-bottom: 8px; }
+    .who-card p { font-size: 0.85rem; color: var(--color-text-light); line-height: 1.6; }
+
+    /* ─────────────────────────────────────────────
+       GALLERY
+    ───────────────────────────────────────────── */
+    .gallery-section { background: var(--color-background); }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 48px;
+    }
+    .gallery-item {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      box-shadow: var(--shadow-sm);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.08); }
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15,40,68,0.7) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity var(--transition);
+      display: flex;
+      align-items: flex-end;
+      padding: 16px;
+    }
+    .gallery-item:hover .gallery-item-overlay { opacity: 1; }
+    .gallery-item-label {
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: var(--font-heading);
+    }
+    .gallery-item.tall { grid-row: span 2; }
+
+    /* ─────────────────────────────────────────────
+       FAQ
+    ───────────────────────────────────────────── */
+    .faq-section { background: var(--color-bg-alt); }
+    .faq-list { max-width: 780px; margin: 48px auto 0; display: flex; flex-direction: column; gap: 12px; }
+    .faq-item {
+      background: #fff;
+      border-radius: var(--radius-md);
+      border: 1.5px solid var(--color-border);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: border-color var(--transition);
+    }
+    .faq-item.open { border-color: var(--color-accent); }
+    .faq-question {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 24px;
+      cursor: pointer;
+      gap: 16px;
+    }
+    .faq-question h4 {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-text);
+      transition: color var(--transition);
+    }
+    .faq-item.open .faq-question h4 { color: var(--color-accent); }
+    .faq-toggle {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--color-bg-alt);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      transition: all var(--transition);
+      color: var(--color-text-light);
+    }
+    .faq-item.open .faq-toggle {
+      background: var(--color-accent);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s ease;
+    }
+    .faq-answer-inner {
+      padding: 0 24px 24px;
+      font-size: 0.95rem;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+
+    /* ─────────────────────────────────────────────
+       URGENCY / CTA STRIP
+    ───────────────────────────────────────────── */
+    .cta-strip {
+      background: linear-gradient(135deg, var(--color-accent) 0%, #F59E0B 100%);
+      padding: 64px 0;
+    }
+    .cta-strip-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .cta-strip-content h2 {
+      color: #fff;
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      margin-bottom: 10px;
+    }
+    .cta-strip-content p { color: rgba(255,255,255,0.88); font-size: 1.05rem; }
+    .cta-strip-actions { display: flex; align-items: center; gap: 20px; flex-shrink: 0; }
+    .cta-phone-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(8px);
+      border: 2px solid rgba(255,255,255,0.5);
+      border-radius: var(--radius-lg);
+      padding: 16px 28px;
+      color: #fff;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.3rem;
+      transition: all var(--transition);
+    }
+    .cta-phone-link:hover { background: rgba(255,255,255,0.25); transform: scale(1.03); }
+    .btn-cta-strip {
+      background: #fff;
+      color: var(--color-accent);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      padding: 18px 32px;
+      border-radius: var(--radius-lg);
+      font-size: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: all var(--transition);
+      display: inline-block;
+    }
+    .btn-cta-strip:hover {
+      background: var(--color-accent-light);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.20);
+    }
+
+    /* ─────────────────────────────────────────────
+       FOOTER
+    ───────────────────────────────────────────── */
+    footer {
+      background: var(--color-primary-deeper);
+      color: rgba(255,255,255,0.75);
+      padding: 72px 0 32px;
+    }
+    .footer-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.6fr 1fr 1fr 1.2fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand { display: flex; flex-direction: column; gap: 16px; }
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #fff;
+    }
+    .footer-logo-icon { display: none; }
+    .footer-logo span { color: var(--color-accent); }
+    .footer-brand p { font-size: 0.9rem; line-height: 1.7; max-width: 280px; }
+    .footer-badges { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 8px; }
+    .footer-badge {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-sm);
+      padding: 5px 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: rgba(255,255,255,0.8);
+    }
+    .footer-col h5 {
+      font-family: var(--font-heading);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.05em;
+      margin-bottom: 20px;
+    }
+    .footer-col ul { display: flex; flex-direction: column; gap: 10px; }
+    .footer-col ul li a {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.65);
+      transition: color var(--transition);
+    }
+    .footer-col ul li a:hover { color: var(--color-accent); }
+    .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 16px; }
+    .footer-contact-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(255,255,255,0.08);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+    .footer-contact-text { font-size: 0.88rem; line-height: 1.5; }
+    .footer-contact-text strong { display: block; color: #fff; font-size: 0.8rem; margin-bottom: 2px; }
+    .footer-bottom {
+      padding-top: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .footer-bottom p { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+    .footer-bottom-links { display: flex; gap: 24px; }
+    .footer-bottom-links a {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      transition: color var(--transition);
+    }
+    .footer-bottom-links a:hover { color: rgba(255,255,255,0.8); }
+
+    /* ─────────────────────────────────────────────
+       ANIMATE ON SCROLL
+    ───────────────────────────────────────────── */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: 0.10s; }
+    .delay-2 { transition-delay: 0.20s; }
+    .delay-3 { transition-delay: 0.30s; }
+    .delay-4 { transition-delay: 0.40s; }
+    .delay-5 { transition-delay: 0.50s; }
+
+    /* ─────────────────────────────────────────────
+       RESPONSIVE
+    ───────────────────────────────────────────── */
+    /* ── 1024px tablet ── */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 36px; padding: calc(var(--nav-h) + 32px) 24px 40px; }
+      .hero-form-card { max-width: 620px; width: 100%; }
+      .hero-photo-wrap { height: 200px; }
+      .problem-grid, .benefits-grid { grid-template-columns: 1fr; gap: 40px; }
+      .problem-image, .benefits-image { height: 340px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .process-steps::before { display: none; }
+      .who-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(4, 200px); }
+      .gallery-item.tall { grid-row: span 1; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    /* ── 768px mobile ── */
+    @media (max-width: 768px) {
+      :root { --nav-h: 64px; }
+      section { padding: 56px 0; }
+      .container { padding: 0 18px; }
+      h1 { font-size: clamp(1.75rem, 6vw, 2.2rem); }
+      h2 { font-size: clamp(1.4rem, 5vw, 1.9rem); }
+      .section-subtitle { font-size: 1rem; margin-bottom: 32px; }
+
+      /* Navbar */
+      .navbar-links { display: none; }
+      .navbar-phone { display: none; }
+      .navbar-book-btn { display: inline-flex; padding: 9px 14px !important; font-size: 0.8rem !important; white-space: nowrap; }
+      .hamburger { display: flex; }
+      .brand-text { font-size: 0.95rem; }
+      .navbar-logo-icon { width: 38px; height: 38px; }
+
+      /* Mobile menu polish */
+      .mobile-menu {
+        padding: 16px 18px 24px;
+        gap: 0;
+      }
+      .mobile-menu a {
+        padding: 14px 0;
+        font-size: 1.05rem;
+        border-bottom: 1px solid var(--color-bg-alt);
+        display: flex;
+        align-items: center;
+      }
+      .mobile-menu a:last-child { border-bottom: none; }
+      .mobile-menu .btn { margin-bottom: 8px; padding: 16px; font-size: 1rem; border-bottom: none !important; }
+
+      /* Hero */
+      .hero-inner { padding: calc(var(--nav-h) + 24px) 18px 36px; }
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+      .urgency-badge { font-size: 0.75rem; }
+      .hero-subtitle { font-size: 1rem; max-width: 100%; }
+      .hero-trust-item { font-size: 0.875rem; }
+      .hero-trust-icon { width: 24px; height: 24px; font-size: 0.75rem; }
+      .hero-photo-wrap { height: 180px; }
+
+      /* Hero form */
+      .hero-form-card { border-radius: var(--radius-lg); }
+      .hero-form-header { padding: 22px 22px; }
+      .hero-form-header h3 { font-size: 1.15rem; }
+      .hero-form-body { padding: 20px 22px; }
+      .form-row { grid-template-columns: 1fr; }
+      .btn-lg { padding: 16px 28px; font-size: 1rem; }
+
+      /* Proof bar */
+      .proof-bar-inner { flex-wrap: wrap; }
+      .proof-item {
+        flex: 1 1 48%;
+        border-right: none;
+        border-bottom: 1px solid rgba(255,255,255,0.12);
+        padding: 20px 12px;
+      }
+      .proof-number { font-size: 1.35rem; }
+
+      /* Services */
+      .services-grid { grid-template-columns: 1fr; gap: 20px; }
+      .service-img { height: 180px; }
+
+      /* Process */
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 36px; }
+      .step-num { width: 56px; height: 56px; font-size: 1.2rem; margin-bottom: 14px; }
+      .process-step { padding: 24px 16px 20px; }
+
+      /* Benefits */
+      .benefit-item { padding: 16px; gap: 14px; }
+      .benefit-icon { width: 44px; height: 44px; font-size: 1.3rem; }
+
+      /* Who */
+      .who-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+      .who-card { padding: 22px 14px; }
+
+      /* Gallery */
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, 180px);
+        gap: 12px;
+      }
+      .gallery-item.tall { grid-row: span 1; }
+
+      /* CTA strip */
+      .cta-strip { padding: 48px 0; }
+      .cta-strip-inner { flex-direction: column; text-align: center; gap: 28px; }
+      .cta-strip-actions { flex-direction: column; width: 100%; align-items: center; gap: 14px; }
+      .cta-phone-link { justify-content: center; font-size: 1.1rem; padding: 14px 24px; }
+      .btn-cta-strip { text-align: center; width: 100%; padding: 16px 28px; }
+
+      /* Footer */
+      footer { padding: 56px 0 28px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; padding-bottom: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 12px; }
+      .footer-bottom-links { justify-content: center; }
+    }
+
+    /* ── 480px small phones ── */
+    @media (max-width: 480px) {
+      .container { padding: 0 14px; }
+      section { padding: 48px 0; }
+
+      /* Navbar brand */
+      .brand-text { display: none; }
+      .navbar-logo-icon { width: 40px; height: 40px; }
+
+      /* Hero */
+      .hero-inner { padding: 0 14px; gap: 28px; }
+      .hero-trust-list { gap: 8px; }
+      .hero-photo-wrap { height: 150px; }
+
+      /* Form */
+      .hero-form-header { padding: 18px; }
+      .hero-form-body { padding: 16px 18px; }
+
+      /* Proof */
+      .proof-item { flex: 1 1 100%; }
+
+      /* Process */
+      .process-steps { grid-template-columns: 1fr; gap: 12px; }
+
+      /* Who */
+      .who-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .who-card { padding: 18px 12px; }
+      .who-icon { font-size: 1.8rem; margin-bottom: 10px; }
+
+      /* Gallery */
+      .gallery-grid { grid-template-columns: 1fr; grid-template-rows: auto; gap: 10px; }
+      .gallery-item, .gallery-item.tall { height: 200px; grid-row: span 1; }
+      .gallery-item-overlay { opacity: 1; }
+
+      /* CTA strip */
+      .cta-phone-link { font-size: 1rem; padding: 12px 20px; }
+
+      /* Footer */
+      .footer-bottom-links { flex-direction: column; gap: 10px; }
+
+      /* Sticky mobile CTA */
+      body { padding-bottom: 72px; }
+      .sticky-cta {
+        display: flex;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 998;
+        background: var(--color-white);
+        padding: 12px 18px;
+        box-shadow: 0 -2px 12px rgba(0,0,0,0.1);
+        border-top: 2px solid var(--color-accent);
+      }
+      .sticky-cta a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        background: var(--color-primary);
+        color: var(--color-white);
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        font-weight: 700;
+        padding: 14px;
+        border-radius: var(--radius);
+        text-decoration: none;
+        letter-spacing: 0.02em;
+      }
+      .sticky-cta a svg { width: 18px; height: 18px; flex-shrink: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════ NAVBAR ══════════════ -->
+  <nav class="navbar" id="navbar">
+    <div class="navbar-inner">
+      <a href="#home" class="navbar-logo">
+        <div class="navbar-logo-icon">
+          <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="9.5" cy="9.5" r="5.8" stroke="white" stroke-width="2.2"/>
+            <line x1="9.5" y1="6.5" x2="9.5" y2="12.5" stroke="rgba(255,255,255,0.45)" stroke-width="1.4" stroke-linecap="round"/>
+            <line x1="6.5" y1="9.5" x2="12.5" y2="9.5" stroke="rgba(255,255,255,0.45)" stroke-width="1.4" stroke-linecap="round"/>
+            <path d="M14.1 14.1L20 20" stroke="#F97316" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <span class="brand-text">Miami VIN <em>Verification</em></span>
+      </a>
+      <div class="navbar-links">
+        <a href="#services">Services</a>
+        <a href="#process">How It Works</a>
+        <a href="#faq">FAQ</a>
+        <a target="_top" href="tel:+13056133300" class="navbar-phone">📞 (305) 613-3300</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <a href="#hero-form" class="btn btn-accent navbar-book-btn" style="padding:10px 22px;font-size:0.9rem;">Get a Free Quote</a>
+        <div class="hamburger" id="hamburger" aria-label="Menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#services">🚗 Services</a>
+    <a href="#process">⚡ How It Works</a>
+    <a href="#why">❓ Why Choose Us</a>
+    <a href="#faq">💬 FAQ</a>
+    <a target="_top" href="tel:+13056133300" style="color:var(--color-primary);font-weight:700;">📞 (305) 613-3300</a>
+  </div>
+
+  <!-- ══════════════ HERO ══════════════ -->
+  <section class="hero-section" id="home">
+
+    <div class="hero-inner">
+      <!-- Left: Copy -->
+      <div class="hero-content">
+        <span class="urgency-badge">⚡ Same-Day Service Available</span>
+
+        <h1 class="hero-h1">
+          Get Your Vehicle<br>
+          <span class="highlight">Florida Legal.</span> <span style="text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:3px;">Today</span>
+        </h1>
+
+        <p class="hero-subtitle">
+          Licensed VIN inspectors serving all Miami-Dade County. Cars, motorcycles, boats, trailers and rebuilt titles, handled with speed and precision.
+        </p>
+
+        <ul class="hero-trust-list">
+          <li class="hero-trust-item">
+            <div class="hero-trust-icon">✓</div>
+            <span>Florida DHSMV Licensed Inspector, License #FL-VIN-2847</span>
+          </li>
+          <li class="hero-trust-item">
+            <div class="hero-trust-icon">✓</div>
+            <span>Results in 24–48 hours, same-day rush available</span>
+          </li>
+          <li class="hero-trust-item">
+            <div class="hero-trust-icon">✓</div>
+            <span>All vehicles: cars, motorcycles, boats, RVs, trailers</span>
+          </li>
+          <li class="hero-trust-item">
+            <div class="hero-trust-icon">✓</div>
+            <span>Mobile service. We come to your location.</span>
+          </li>
+        </ul>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number" data-target="500" data-suffix="+">500+</span>
+            <span class="hero-stat-label">Inspections Completed</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">5.0 ⭐</span>
+            <span class="hero-stat-label">Google Rating</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number" data-target="13" data-suffix="+">13+</span>
+            <span class="hero-stat-label">Years Licensed</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number" data-target="100" data-suffix="%">100%</span>
+            <span class="hero-stat-label">DMV Acceptance Rate</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Booking Form -->
+      <div class="hero-form-card" id="hero-form">
+        <div class="hero-form-header">
+          <h3>Schedule Your Inspection</h3>
+          <p>Free quote · Same-day available · Takes 30 seconds</p>
+        </div>
+        <div class="hero-form-body hero-form-iframe-wrap">
+          <iframe
+            src="https://link.nilsdigital.com/widget/form/pm7eRvmrIgTDgJtpdCri"
+            style="width:100%;height:483px;border:none;display:block;"
+            id="inline-pm7eRvmrIgTDgJtpdCri"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Website Form (Do not edit)"
+            data-height="483"
+            data-layout-iframe-id="inline-pm7eRvmrIgTDgJtpdCri"
+            data-form-id="pm7eRvmrIgTDgJtpdCri"
+            title="Website Form (Do not edit)"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ══════════════ PROBLEM ══════════════ -->
+  <section class="problem-section" id="why">
+    <div class="container">
+      <div class="problem-grid">
+        <div class="problem-content animate-on-scroll">
+          <span class="section-label">The Problem</span>
+          <h2 class="section-title">Florida's VIN Rules Are No Joke. <span style="color:var(--color-accent);">Don't Get Caught Off Guard.</span></h2>
+          <p style="color:var(--color-text-light);line-height:1.7;">Florida requires a licensed VIN verification for out-of-state vehicles, rebuilt titles, and more. Getting it wrong means delays, fines, and possibly losing your vehicle.</p>
+
+          <ul class="problem-list">
+            <li class="problem-item">
+              <div class="problem-item-icon">⏱️</div>
+              <div class="problem-item-text">
+                <strong>DMV Lines Waste Hours</strong>
+                <p>Miami-Dade DMV offices routinely have 2–4 hour wait times. We come to you and get it done in minutes.</p>
+              </div>
+            </li>
+            <li class="problem-item">
+              <div class="problem-item-icon">📋</div>
+              <div class="problem-item-text">
+                <strong>Wrong Inspector = Rejected Forms</strong>
+                <p>Florida only accepts certifications from licensed inspectors. One error and you're starting over from scratch.</p>
+              </div>
+            </li>
+            <li class="problem-item">
+              <div class="problem-item-icon">💸</div>
+              <div class="problem-item-text">
+                <strong>Delays Cost Real Money</strong>
+                <p>Every day without title is a day you can't legally drive, sell, insure, or register your vehicle.</p>
+              </div>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="problem-right-col animate-on-scroll delay-2">
+          <div class="problem-image">
+            <img
+              src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=700&auto=format&fit=crop&q=80"
+              alt="Vehicle registration documents Florida"
+              loading="lazy"
+            >
+          </div>
+          <div style="margin-top:20px;text-align:center;">
+            <a href="#hero-form" class="btn btn-accent btn-pulse" style="width:100%;justify-content:center;">Request Your Free Quote →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ SERVICES ══════════════ -->
+  <section class="services-section" id="services">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-label">Our Services</span>
+        <h2 class="section-title">Every Vehicle. Every Situation. Handled.</h2>
+        <p class="section-subtitle">From standard cars to specialty vehicles and complex rebuilt titles. We're the Miami team that gets it right the first time.</p>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card animate-on-scroll delay-1">
+          <div class="service-img">
+            <img src="https://assets.cdn.filesafe.space/PS0acYKgC8fpdVADeApH/media/699b41e94c8da29fdf9a4075.jpg" alt="Car VIN verification" loading="lazy">
+            <div class="service-img-overlay"></div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🚗</div>
+            <h3>Standard Vehicle Inspection</h3>
+            <p>Cars, SUVs, and pickup trucks from out-of-state or with title issues. Fast, accurate DHSMV-compliant certification.</p>
+            <a href="#hero-form" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <div class="service-card animate-on-scroll delay-2">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1558981033-0f0309284409?w=600&auto=format&fit=crop&q=80" alt="Motorcycle VIN verification" loading="lazy">
+            <div class="service-img-overlay"></div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🏍️</div>
+            <h3>Motorcycle &amp; Scooter</h3>
+            <p>Motorcycles, mopeds, dirt bikes, and scooters. We know the specific Florida requirements for two-wheelers.</p>
+            <a href="#hero-form" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <div class="service-card animate-on-scroll delay-3">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600&auto=format&fit=crop&q=80" alt="Boat VIN verification" loading="lazy">
+            <div class="service-img-overlay"></div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">⛵</div>
+            <h3>Boat &amp; Watercraft</h3>
+            <p>HIN verification for boats, jet skis, and personal watercraft. Florida boating regulations handled correctly.</p>
+            <a href="#hero-form" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <div class="service-card animate-on-scroll delay-1">
+          <div class="service-img">
+            <img src="https://assets.cdn.filesafe.space/PS0acYKgC8fpdVADeApH/media/699b40774c8da24f2b9984ff.png" alt="Trailer RV VIN verification" loading="lazy">
+            <div class="service-img-overlay"></div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🚛</div>
+            <h3>Trailer &amp; RV</h3>
+            <p>Travel trailers, boat trailers, utility trailers, and motorhomes. We handle the full spectrum of towed vehicles.</p>
+            <a href="#hero-form" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <div class="service-card animate-on-scroll delay-2">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&auto=format&fit=crop&q=80" alt="Rebuilt salvage title inspection" loading="lazy">
+            <div class="service-img-overlay"></div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🔧</div>
+            <h3>Rebuilt &amp; Salvage Titles</h3>
+            <p>Complex rebuilt title inspections requiring additional documentation. We guide you through every step.</p>
+            <a href="#hero-form" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <div class="service-card animate-on-scroll delay-3">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&auto=format&fit=crop&q=80" alt="Mobile VIN inspection service" loading="lazy">
+            <div class="service-img-overlay"></div>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">📍</div>
+            <h3>Mobile Inspection Service</h3>
+            <p>We come to your home, dealership, or storage facility across all Miami-Dade County. No travel required from you.</p>
+            <a href="#hero-form" class="service-link">Book Now →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ COMPARISON ══════════════ -->
+  <section class="comparison-section section-pad">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-label">The Smart Way to Get Legal</span>
+        <h2 class="section-title">Why Risk It When You Don't Have To?</h2>
+        <p class="section-subtitle">Most people don't realize how stressful the DIY route really is. Until they're stuck in it.</p>
+      </div>
+
+      <div class="comparison-grid animate-on-scroll">
+
+        <!-- DIY Column -->
+        <div class="comparison-col comparison-col--diy">
+          <div class="comparison-col-header">
+            <div class="comparison-col-badge">⚠️</div>
+            <span class="comparison-col-title">The DIY Way</span>
+          </div>
+          <p style="color:rgba(255,255,255,0.85);font-size:0.82rem;margin:-16px 0 24px;font-weight:500;letter-spacing:0.04em;text-transform:uppercase;">Warning: Read before attempting</p>
+          <div class="comparison-rows">
+            <div class="comparison-row">
+              <div class="comparison-icon">✕</div>
+              <div class="comparison-row-text">
+                <strong>Drive Unregistered. Risk a Ticket.</strong>
+                <span>You can't legally drive an out-of-state vehicle to the DMV without Florida registration. But you can't register without the VIN inspection first. It's a catch-22 with real fines.</span>
+              </div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-icon">✕</div>
+              <div class="comparison-row-text">
+                <strong>4+ Hours at the Miami-Dade DMV</strong>
+                <span>Miami's tax collector offices are legendary for brutal wait times. Half your workday gone, just to stand in line.</span>
+              </div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-icon">✕</div>
+              <div class="comparison-row-text">
+                <strong>One Paperwork Error = Start Over</strong>
+                <span>Rebuilt titles require extra scrutiny. A single mistake on your forms means rejection and another trip to the back of the line.</span>
+              </div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-icon">✕</div>
+              <div class="comparison-row-text">
+                <strong>No Guarantee of Acceptance</strong>
+                <span>Unlicensed or out-of-state inspectors are routinely rejected by Florida DMV. You may not find out until it's too late.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Miami VIN Column -->
+        <div class="comparison-col comparison-col--vin">
+          <div class="comparison-col-header">
+            <div class="comparison-col-badge">🏅</div>
+            <span class="comparison-col-title">The Miami VIN Way</span>
+          </div>
+          <div class="comparison-rows">
+            <div class="comparison-row">
+              <div class="comparison-icon">✓</div>
+              <div class="comparison-row-text">
+                <strong>We Come to Your Driveway</strong>
+                <span>No driving required. We come to your home, office, or wherever your vehicle is parked. Zero legal risk, zero hassle.</span>
+              </div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-icon">✓</div>
+              <div class="comparison-row-text">
+                <strong>Done in 15 Minutes. Any Time.</strong>
+                <span>We work after hours and on lunch breaks. No waiting rooms, no wasted days. Just a fast, professional inspection on your schedule.</span>
+              </div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-icon">✓</div>
+              <div class="comparison-row-text">
+                <strong>Rebuilt Title Specialists</strong>
+                <span>We know exactly what Florida DMV requires for salvage and rebuilt vehicles. Precise documentation, zero surprises.</span>
+              </div>
+            </div>
+            <div class="comparison-row">
+              <div class="comparison-icon">✓</div>
+              <div class="comparison-row-text">
+                <strong>100% DMV Acceptance Rate</strong>
+                <span>Florida DHSMV Licensed Inspector #FL-VIN-2847. Every inspection we complete is accepted. Guaranteed.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="text-center animate-on-scroll" style="margin-top:32px;">
+        <a href="#hero-form" class="btn btn-accent btn-lg btn-pulse" style="width:100%;justify-content:center;max-width:100%;">Request Your Free Quote. Same-Day Available →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ PROCESS ══════════════ -->
+  <section class="process-section" id="process">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-label">How It Works</span>
+        <h2 class="section-title">Four Steps to a Clean Florida Title</h2>
+        <p class="section-subtitle">We've made getting your VIN verified as simple and painless as possible.</p>
+      </div>
+
+      <div class="process-steps">
+        <div class="process-step animate-on-scroll delay-1">
+          <div class="step-num">1</div>
+          <h3>Book in 30 Seconds</h3>
+          <p>Fill out the form above or call us directly. Tell us your vehicle type and preferred time.</p>
+        </div>
+        <div class="process-step animate-on-scroll delay-2">
+          <div class="step-num">2</div>
+          <h3>We Come to You</h3>
+          <p>Our licensed inspector arrives at your location anywhere in Miami-Dade County: home, work, or dealer.</p>
+        </div>
+        <div class="process-step animate-on-scroll delay-3">
+          <div class="step-num">3</div>
+          <h3>Inspection Completed</h3>
+          <p>Full physical VIN verification conducted on-site. Typically takes 15–30 minutes.</p>
+        </div>
+        <div class="process-step animate-on-scroll delay-4">
+          <div class="step-num">4</div>
+          <h3>Get Your Documents</h3>
+          <p>Receive certified, DMV-ready paperwork within 24–48 hours. Rush same-day available.</p>
+        </div>
+      </div>
+
+      <div class="text-center animate-on-scroll" style="margin-top:56px;">
+        <a href="#hero-form" class="btn btn-accent btn-lg btn-pulse">Fill Out the Form. Get Legal in 15 Min →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ BENEFITS ══════════════ -->
+  <section class="benefits-section" id="benefits">
+    <div class="container">
+      <div class="benefits-grid">
+        <div>
+          <span class="section-label animate-on-scroll">Why Choose Us</span>
+          <h2 class="section-title animate-on-scroll">The Miami VIN Inspector You Can Actually Trust</h2>
+
+          <div class="benefits-list">
+            <div class="benefit-item animate-on-scroll delay-1">
+              <div class="benefit-icon">🛡️</div>
+              <div class="benefit-text">
+                <strong>100% DMV Acceptance Guaranteed</strong>
+                <p>Our forms have never been rejected by Florida DHSMV. If they are, we redo the inspection for free.</p>
+              </div>
+            </div>
+            <div class="benefit-item animate-on-scroll delay-2">
+              <div class="benefit-icon">⚡</div>
+              <div class="benefit-text">
+                <strong>Same-Day Rush Service</strong>
+                <p>Need it done today? We offer same-day appointments for urgent titling situations at no extra charge.</p>
+              </div>
+            </div>
+            <div class="benefit-item animate-on-scroll delay-3">
+              <div class="benefit-icon">📱</div>
+              <div class="benefit-text">
+                <strong>Real-Time Status Updates</strong>
+                <p>Track your inspection status via text and email. No wondering where your paperwork is.</p>
+              </div>
+            </div>
+            <div class="benefit-item animate-on-scroll delay-4">
+              <div class="benefit-icon">🎖️</div>
+              <div class="benefit-text">
+                <strong>Veteran-Owned Business</strong>
+                <p>Founded and operated by a U.S. military veteran. We bring the same discipline, precision, and commitment to service that we gave to our country.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="animate-on-scroll delay-5" style="margin-top:36px;">
+            <a href="#hero-form" class="btn btn-accent btn-lg btn-pulse">Request Your Free Quote →</a>
+          </div>
+        </div>
+
+        <div class="benefits-image animate-on-scroll delay-2">
+          <img
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=700&auto=format&fit=crop&q=80"
+            alt="Professional vehicle inspection service Miami"
+            loading="lazy"
+          >
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ WHO WE HELP ══════════════ -->
+  <section class="who-section" id="who">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-label">Who We Serve</span>
+        <h2 class="section-title">We Help Everyone Navigate Florida's VIN Process</h2>
+        <p class="section-subtitle">Whether you're a first-time buyer or a seasoned dealer, we've got you covered.</p>
+      </div>
+
+      <div class="who-grid">
+        <div class="who-card animate-on-scroll delay-1">
+          <div class="who-icon">🧑‍🤝‍🧑</div>
+          <h4>Private Buyers &amp; Sellers</h4>
+          <p>Just bought a car from another state? We make Florida registration painless.</p>
+        </div>
+        <div class="who-card animate-on-scroll delay-2">
+          <div class="who-icon">🏢</div>
+          <h4>Dealerships</h4>
+          <p>Volume inspections with priority scheduling and consolidated billing for your dealership.</p>
+        </div>
+        <div class="who-card animate-on-scroll delay-3">
+          <div class="who-icon">🔩</div>
+          <h4>Auto Shops &amp; Rebuilders</h4>
+          <p>Rebuilt and salvage title experts. We've handled thousands of complex re-title situations.</p>
+        </div>
+        <div class="who-card animate-on-scroll delay-4">
+          <div class="who-icon">📦</div>
+          <h4>Importers &amp; Shippers</h4>
+          <p>Vehicles arriving from outside the US or from other states need fast, accurate VIN verification.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ GALLERY ══════════════ -->
+  <section class="gallery-section" id="gallery">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-label">Our Work</span>
+        <h2 class="section-title">Inspections Across All Miami-Dade County</h2>
+        <p class="section-subtitle">Every vehicle, every neighborhood. We bring the inspection to you.</p>
+      </div>
+
+      <div class="gallery-grid animate-on-scroll">
+        <div class="gallery-item">
+          <img src="https://assets.cdn.filesafe.space/PS0acYKgC8fpdVADeApH/media/699b3d2f20c0353c7205d00f.png" alt="VIN inspection Miami" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">VIN Inspection</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://assets.cdn.filesafe.space/PS0acYKgC8fpdVADeApH/media/699b3d2ff714eebeb6d84ae6.png" alt="Mobile VIN verification service" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Mobile Service</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://assets.cdn.filesafe.space/PS0acYKgC8fpdVADeApH/media/699b3d2f55d8bc1f85455290.png" alt="Florida VIN verification" loading="lazy">
+          <div class="gallery-item-overlay"><span class="gallery-item-label">Florida Licensed</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FAQ ══════════════ -->
+  <section class="faq-section" id="faq">
+    <div class="container">
+      <div class="text-center animate-on-scroll">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Your Questions, Answered</h2>
+        <p class="section-subtitle">Everything you need to know before booking your VIN inspection.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item animate-on-scroll delay-1">
+          <div class="faq-question">
+            <h4>Do I need a VIN verification to register my out-of-state car in Florida?</h4>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Yes. Florida requires a physical VIN verification for all vehicles titled in another state before they can be registered here. This must be performed by a Florida DHSMV-licensed inspector (not a police officer or DMV clerk).</div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll delay-2">
+          <div class="faq-question">
+            <h4>How long does the inspection take?</h4>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">The on-site inspection typically takes 15–30 minutes. We verify the VIN on the dashboard, door jamb, and engine bay, cross-reference with official databases, and complete all required documentation on the spot. Your certified paperwork is ready within 24–48 hours (same-day rush available).</div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll delay-3">
+          <div class="faq-question">
+            <h4>What documents do I need to have ready?</h4>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">You'll need: the original out-of-state title, your government-issued photo ID, and the vehicle itself. For rebuilt/salvage titles, you'll also need repair receipts and photos. We'll send you a complete checklist when you book.</div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll delay-4">
+          <div class="faq-question">
+            <h4>Do you inspect boats, motorcycles, and trailers?</h4>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Absolutely. We inspect all types of vehicles including motorcycles, scooters, boats, jet skis, travel trailers, utility trailers, RVs, and commercial vehicles. Each vehicle type has specific Florida requirements, and we're experts in all of them.</div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll delay-5">
+          <div class="faq-question">
+            <h4>What if the DMV rejects my paperwork?</h4>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">This has never happened. Our 100% DMV acceptance rate speaks for itself. But if it ever did, we'd redo your inspection at absolutely no charge. We stand behind our work completely.</div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll delay-1">
+          <div class="faq-question">
+            <h4>How much does a VIN inspection cost?</h4>
+            <div class="faq-toggle">+</div>
+          </div>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Pricing varies by vehicle type and whether you need standard or rush service. Book your inspection using the form above and we'll provide a free, exact quote when we call to confirm your appointment, usually within 1 business hour.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center animate-on-scroll" style="margin-top:48px;">
+        <p style="color:var(--color-text-light);margin-bottom:20px;">Still have questions? We're happy to help.</p>
+        <a href="#hero-form" class="btn btn-accent btn-lg btn-pulse">Get Your Free Quote. Takes 30 Seconds →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ URGENCY / CTA STRIP ══════════════ -->
+  <div class="cta-strip">
+    <div class="cta-strip-inner">
+      <div class="cta-strip-content animate-on-scroll">
+        <h2>Don't Let Your Vehicle Sit Idle One More Day</h2>
+        <p>Same-day appointments available. Get Florida-legal before the week is over.</p>
+      </div>
+      <div class="cta-strip-actions animate-on-scroll delay-2">
+        <a target="_top" href="tel:+13056133300" class="cta-phone-link">📞 (305) 613-3300</a>
+        <a href="#hero-form" class="btn-cta-strip">Book Online Now →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <div style="width:36px;height:36px;background:rgba(255,255,255,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(255,255,255,0.15);">
+              <svg width="20" height="20" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <circle cx="9.5" cy="9.5" r="5.8" stroke="white" stroke-width="2.2"/>
+                <line x1="9.5" y1="6.5" x2="9.5" y2="12.5" stroke="rgba(255,255,255,0.5)" stroke-width="1.4" stroke-linecap="round"/>
+                <line x1="6.5" y1="9.5" x2="12.5" y2="9.5" stroke="rgba(255,255,255,0.5)" stroke-width="1.4" stroke-linecap="round"/>
+                <path d="M14.1 14.1L20 20" stroke="#F97316" stroke-width="2.6" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <span>Miami VIN <span style="color:var(--color-accent);">Verification</span></span>
+          </div>
+          <p>Licensed Florida DHSMV VIN inspectors serving all of Miami-Dade County. Fast, accurate, guaranteed.</p>
+          <div class="footer-badges">
+            <span class="footer-badge">DHSMV Licensed</span>
+            <span class="footer-badge">🎖️ Veteran-Owned</span>
+            <span class="footer-badge">Mobile Service</span>
+            <span class="footer-badge">13+ Years</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5>Services</h5>
+          <ul>
+            <li><a href="#hero-form">Car Inspections</a></li>
+            <li><a href="#hero-form">Motorcycle Inspections</a></li>
+            <li><a href="#hero-form">Boat / HIN Verification</a></li>
+            <li><a href="#hero-form">Trailer &amp; RV</a></li>
+            <li><a href="#hero-form">Rebuilt Titles</a></li>
+            <li><a href="#hero-form">Mobile Service</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#why">Why Choose Us</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#gallery">Our Work</a></li>
+            <li><a href="#who">Who We Serve</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact Us</h5>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">📞</div>
+            <div class="footer-contact-text">
+              <strong>Phone</strong>
+              <a target="_top" href="tel:+13056133300" style="color:rgba(255,255,255,0.75);">(305) 613-3300</a>
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">📍</div>
+            <div class="footer-contact-text">
+              <strong>Service Area</strong>
+              All Miami-Dade County, FL
+            </div>
+          </div>
+          <div class="footer-contact-item">
+            <div class="footer-contact-icon">🕐</div>
+            <div class="footer-contact-text">
+              <strong>Hours</strong>
+              Mon–Sat 8 AM – 7 PM
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          <p>© 2025 Miami VIN Verification Services. All rights reserved.</p>
+          <p style="margin-top:6px;font-size:0.78rem;color:rgba(255,255,255,0.35);">Website &amp; marketing systems developed by <a href="https://nilsdigital.com" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.5);text-decoration:underline;text-underline-offset:3px;">Nils Digital</a></p>
+        </div>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ══════════════ STICKY MOBILE CTA ══════════════ -->
+  <div class="sticky-cta">
+    <a target="_top" href="tel:+13056133300">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call Now: (305) 613-3300
+    </a>
+  </div>
+
+  <!-- ══════════════ JAVASCRIPT ══════════════ -->
+  <script>
+    /* ── Navbar scroll ── */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    /* ── Mobile menu ── */
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', String(open));
+      const [s1, s2, s3] = hamburger.querySelectorAll('span');
+      if (open) {
+        s1.style.transform = 'translateY(7px) rotate(45deg)';
+        s2.style.opacity   = '0';
+        s3.style.transform = 'translateY(-7px) rotate(-45deg)';
+      } else {
+        s1.style.transform = s3.style.transform = '';
+        s2.style.opacity = '';
+      }
+    });
+    function closeMenu() {
+      mobileMenu.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+      const [s1, s2, s3] = hamburger.querySelectorAll('span');
+      s1.style.transform = s3.style.transform = '';
+      s2.style.opacity = '';
+    }
+    mobileMenu.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('click', (e) => {
+      if (mobileMenu.classList.contains('active') &&
+          !mobileMenu.contains(e.target) &&
+          !hamburger.contains(e.target)) {
+        closeMenu();
+      }
+    });
+
+    /* ── Counter animation ── */
+    function animateCounter(el) {
+      const target = parseFloat(el.dataset.target);
+      const suffix = el.dataset.suffix || '';
+      if (isNaN(target)) return;
+      const duration = 2000;
+      const start = performance.now();
+      (function tick(now) {
+        const p = Math.min((now - start) / duration, 1);
+        const e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(target * e) + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      })(start);
+    }
+
+    /* ── Intersection observer ── */
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -48px 0px' });
+    document.querySelectorAll('.animate-on-scroll').forEach(el => io.observe(el));
+
+    /* ── Counter observer ── */
+    document.querySelectorAll('[data-target]').forEach(el => {
+      const co = new IntersectionObserver(entries => {
+        if (entries[0].isIntersecting) {
+          animateCounter(entries[0].target);
+          co.unobserve(entries[0].target);
+        }
+      }, { threshold: 0.5 });
+      co.observe(el);
+    });
+
+    /* ── FAQ accordion ── */
+    document.querySelectorAll('.faq-question').forEach(q => {
+      q.addEventListener('click', () => {
+        const item   = q.parentElement;
+        const answer = item.querySelector('.faq-answer');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => {
+          i.classList.remove('open');
+          i.querySelector('.faq-answer').style.maxHeight = '0';
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    /* ── Smooth scroll + highlight for #hero-form links ── */
+    document.querySelectorAll('a[href="#hero-form"]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.getElementById('hero-form');
+        if (!target) return;
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+        target.style.transition = 'box-shadow 0.3s ease';
+        target.style.boxShadow  = '0 0 0 4px rgba(249,115,22,0.45), 0 2px 4px rgba(0,0,0,0.04), 0 8px 24px rgba(30,95,168,0.10)';
+        setTimeout(() => { target.style.boxShadow = ''; }, 1800);
+      });
+    });
+  </script>
+
+  <!-- GHL form embed -->
+  <script src="https://link.nilsdigital.com/js/form_embed.js"></script>
+
+  <!-- Fix tel: links inside GHL iframe -->
+  <script>
+    document.addEventListener('click', function(e) {
+      var link = e.target.closest('a[href^="tel:"]');
+      if (link && window.top !== window.self) {
+        e.preventDefault();
+        window.top.location.href = link.href;
+      }
+    });
+  </script>
+
+</body>
+</html>

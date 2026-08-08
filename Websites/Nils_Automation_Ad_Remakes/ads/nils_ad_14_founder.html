@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{--green:#0fbf7a;--neon:#00ff88;--neon-soft:#6dffa6;--mint:#d8f3e4;--mint2:#c4ecd6;--panel:#08160f;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:radial-gradient(120% 90% at 50% 0%,#e6f8ee,var(--mint) 45%,var(--mint2) 100%);
+    font-family:'Inter',sans-serif;display:flex;flex-direction:column;align-items:center;padding:46px 50px}
+  .brand{display:flex;align-items:center;gap:14px;font-weight:800;font-size:42px;letter-spacing:-.01em;color:#0a2419;margin-bottom:30px}
+  .brand .dot{width:16px;height:16px;border-radius:50%;background:var(--green);box-shadow:0 0 14px rgba(15,191,122,.6)}
+  .panel{position:relative;flex:1;width:100%;background:var(--panel);border-radius:34px;overflow:hidden;
+    box-shadow:0 34px 70px rgba(10,40,28,.3)}
+  /* founder photo */
+  .photo{position:absolute;top:0;right:0;bottom:0;width:50%;overflow:hidden}
+  .photo img{width:100%;height:100%;object-fit:cover;object-position:50% 22%;
+    filter:grayscale(1) contrast(1.06) brightness(1.06)}
+  .photo .tint{position:absolute;inset:0;background:var(--green);mix-blend-mode:color;opacity:.85}
+  .photo .tint2{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,255,136,.18),rgba(8,22,15,.25))}
+  .photo .fade{position:absolute;inset:0;background:linear-gradient(90deg,var(--panel) 2%,rgba(8,22,15,.4) 30%,transparent 62%)}
+  /* text */
+  .copy{position:absolute;top:0;left:0;bottom:0;width:64%;padding:56px 50px;display:flex;flex-direction:column;justify-content:center;color:#eaf3ee}
+  .copy h2{font-weight:800;font-size:50px;line-height:1.1;letter-spacing:-.01em;margin-bottom:26px}
+  .copy h2 .r{color:#ff6a5a}
+  .built{font-weight:500;font-size:34px;color:#bcd8c9;margin-bottom:16px}
+  .pill{display:inline-block;align-self:flex-start;font-weight:800;font-size:33px;letter-spacing:.01em;color:#04140c;
+    background:linear-gradient(135deg,var(--neon-soft),var(--green));padding:16px 28px;border-radius:999px;margin-bottom:26px}
+  .desc{font-weight:500;font-size:33px;line-height:1.4;color:#dcebe3;margin-bottom:36px;max-width:560px}
+  .reviews{display:flex;align-items:center;gap:12px;font-weight:800;font-size:38px;color:var(--neon-soft)}
+  .reviews .stars{color:#ffd34d;font-size:36px}
+  .foot{display:flex;align-items:center;gap:14px;font-weight:700;font-size:30px;color:#0a2419;margin-top:28px}
+  .foot .chk{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:50%;
+    background:var(--green);color:#04140c;font-size:19px}
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="brand"><span class="dot"></span>Nils Digital</div>
+    <div class="panel">
+      <div class="photo">
+        <img src="../source-originals/generated/founder_cand_2.jpg" alt="founder" />
+        <div class="tint"></div>
+        <div class="tint2"></div>
+        <div class="fade"></div>
+      </div>
+      <div class="copy">
+        <h2>After watching businesses <span class="r">try and fail to integrate AI &amp; automations…</span></h2>
+        <div class="built">We built a</div>
+        <div class="pill">14-DAY OPERATIONS AUDIT</div>
+        <div class="desc">That maps your business first and shows you exactly where AI fits.</div>
+        <div class="reviews"><span class="stars">★</span> 50 Five-Star Reviews</div>
+      </div>
+    </div>
+    <div class="foot"><span class="chk">✓</span> U.S.-Built AI Systems &nbsp;|&nbsp; Trusted by SMBs Nationwide</div>
+  </div>
+</body>
+</html>

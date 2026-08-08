@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Kalam:wght@400;700&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:linear-gradient(180deg,#dfe4e2 0%,#cdd6d1 30%,#b9c4be 100%)}
+  /* office hints */
+  .ceiling{position:absolute;top:0;left:0;right:0;height:120px;
+    background:linear-gradient(180deg,#eef1ef,#d3dad6);border-bottom:1px solid #b7c0bb}
+  .ceiling::after{content:"";position:absolute;top:30px;left:120px;width:260px;height:46px;border-radius:8px;
+    background:linear-gradient(180deg,#fafdfb,#e7ece9);box-shadow:0 6px 18px rgba(0,0,0,.08)}
+  .chair{position:absolute;bottom:-40px;left:-30px;width:240px;height:300px;border-radius:40px;
+    background:radial-gradient(circle at 40% 30%,#2a3a33,#10201a);opacity:.55;filter:blur(2px)}
+  .glass{position:absolute;top:60px;right:-60px;width:300px;height:1000px;
+    background:linear-gradient(120deg,rgba(180,210,200,.5),rgba(140,170,160,.25));transform:skewX(-6deg);filter:blur(1px)}
+  /* whiteboard */
+  .board{position:absolute;top:120px;left:96px;right:96px;bottom:96px;border-radius:10px;
+    background:linear-gradient(135deg,#ffffff 0%,#f4f7f6 55%,#eef2f1 100%);
+    border:14px solid;border-image:linear-gradient(135deg,#e9edec,#c7cfcc,#eef1f0) 1;
+    box-shadow:0 30px 70px rgba(0,0,0,.28),inset 0 2px 0 rgba(255,255,255,.9);
+    padding:64px 70px;display:flex;flex-direction:column;align-items:center;overflow:hidden}
+  /* light streak reflection */
+  .board::before{content:"";position:absolute;top:-40px;left:-10%;width:55%;height:160%;
+    background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.65) 50%,transparent 60%);transform:rotate(8deg);pointer-events:none}
+  /* faint ghost of old marker */
+  .board::after{content:"";position:absolute;top:40%;left:10%;width:34%;height:18%;
+    background:repeating-linear-gradient(92deg,rgba(120,140,135,.10) 0 60px,transparent 60px 130px);filter:blur(1px);pointer-events:none}
+  .h{position:relative;font-family:'Permanent Marker',cursive;color:#1f63c8;font-size:62px;line-height:1.05;text-align:center;
+    letter-spacing:.5px;transform:rotate(-1.2deg);margin-bottom:30px}
+  .h .u{text-decoration:underline;text-decoration-thickness:5px;text-underline-offset:8px}
+  .qmark{position:relative;font-family:'Permanent Marker',cursive;color:#d22f2f;font-size:120px;line-height:1;
+    width:188px;height:188px;display:flex;align-items:center;justify-content:center;border:7px solid #d22f2f;border-radius:50%;
+    transform:rotate(2deg);margin:6px 0 8px}
+  .noidea{position:relative;font-family:'Permanent Marker',cursive;color:#d22f2f;font-size:48px;letter-spacing:1px;
+    transform:rotate(-1.5deg);margin-bottom:34px}
+  .steps{position:relative;border:5px solid #11a36a;border-radius:6px;padding:30px 40px;transform:rotate(-.6deg);
+    font-family:'Kalam',cursive;color:#15201b;font-size:40px;line-height:1.55;align-self:stretch;margin:0 8px}
+  .steps b{font-weight:700}
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="ceiling"></div>
+    <div class="chair"></div>
+    <div class="glass"></div>
+    <div class="board">
+      <div class="h"><span class="u">AI</span> - WHERE THE F*CK<br>DO WE START?</div>
+      <div class="qmark">?</div>
+      <div class="noidea">NO IDEA</div>
+      <div class="steps">
+        <div><b>Step 1:</b> Stop guessing.</div>
+        <div><b>Step 2:</b> Get an AI Audit.</div>
+        <div><b>Step 3:</b> Build only what actually<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;saves time + money.</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

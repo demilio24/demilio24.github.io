@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="36" viewBox="0 0 150 36" preserveAspectRatio="none">
+  <!--
+    LANE ROPE TILE
+    Single-buoy tile designed to repeat seamlessly with background-repeat:repeat-x.
+    Both seams (x=0 and x=150) sit at y=30 with horizontal tangents, so adjacent tiles
+    join into one continuous rope curve with no kink and no double-buoy artifact.
+
+    Dimensions (viewBox 150 x 36, vertically centered around y=18):
+      • Buoy:    ellipse cx=75 cy=18 rx=24 ry=10  →  x=51..99, y=8..28
+      • Rope at seam (sagging between buoys): y=30, horizontal tangent
+      • Rope through buoy (threaded):         y=18, horizontal
+      • Disc separators (stacked-float detail): vertical at x=63 and x=87, y=12..24
+
+    At 28px tall (production), each tile is ~117px wide → ~12 buoys per 1440px viewport,
+    matching the original site's density.
+
+    Styling: each element has a class so when inlined into the DOM you can recolor /
+    restyle parts independently with CSS. When used as a CSS mask (current usage in
+    home.html), inner stroke colors are ignored — only alpha matters — and a single
+    background-color on .rope-divider drives the visible color.
+  -->
+  <style>
+    .rope, .buoy, .disc-separator {
+      fill: none;
+      stroke: #3ad8d4;
+      stroke-width: 2.4;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+    }
+  </style>
+
+  <!-- Rope: continuous wavy line. Dips to y=30 at seams, threads through buoy at y=18. -->
+  <path class="rope" d="M 0 30 C 18 30 38 18 53 18 H 97 C 112 18 132 30 150 30" />
+
+  <!-- Buoy: ellipse for a natural floating shape -->
+  <ellipse class="buoy" cx="75" cy="18" rx="24" ry="10" />
+
+  <!-- Disc separators: vertical strokes suggesting the buoy is a stack of disc floats -->
+  <path class="disc-separator" d="M 63 12 V 24 M 87 12 V 24" />
+</svg>

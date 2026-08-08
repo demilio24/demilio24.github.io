@@ -1,0 +1,31 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;background:#f5f8f6;
+    font-family:'Inter',sans-serif;color:#08160f;display:flex;flex-direction:column;justify-content:center;padding:96px 84px}
+  .bar{position:absolute;top:0;left:0;right:0;height:11px;background:linear-gradient(90deg,#14c982,#0a8c5a)}
+  .art::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(15,191,122,.10) 1.5px,transparent 1.7px);background-size:60px 60px;
+    -webkit-mask-image:radial-gradient(120% 90% at 100% 100%,#000,transparent 60%);mask-image:radial-gradient(120% 90% at 100% 100%,#000,transparent 60%)}
+  .tick{position:relative;width:74px;height:5px;border-radius:5px;background:linear-gradient(90deg,#14c982,#0a8c5a);margin-bottom:34px}
+  h1{position:relative;font-weight:800;font-size:86px;line-height:1.06;letter-spacing:-.025em;margin-bottom:26px;max-width:940px}
+  h1 .g{color:#0fbf7a}
+  .sub{position:relative;font-weight:500;font-size:34px;line-height:1.36;color:#41524b;max-width:840px;margin-bottom:44px}
+  .cta{position:relative;display:inline-flex;align-items:center;gap:12px;align-self:flex-start;background:linear-gradient(135deg,#1ee087,#0fbf7a);
+    color:#04140c;font-weight:800;font-size:32px;padding:24px 46px;border-radius:999px;box-shadow:0 14px 38px rgba(15,191,122,.32)}
+  .foot{position:absolute;left:84px;right:84px;bottom:46px;display:flex;align-items:center;gap:10px;font-weight:600;font-size:19px;color:#9bb0a6}
+  .foot .nlogo{height:20px;width:auto;opacity:.65}
+  .foot .rev{color:#0a7d4f;font-weight:700}
+  .foot .url{margin-left:auto;font-size:17px;color:#9bb0a6}
+</style></head><body>
+  <div class="art">
+    <div class="bar"></div>
+    <div class="tick"></div>
+    <h1>What's your business <span class="g">actually costing you</span> to run?</h1>
+    <div class="sub">Not your expenses. Wasted time, duplicated effort, broken process. We find it.</div>
+    <div class="cta">Book a free strategy call →</div>
+    <div class="foot"><img class="nlogo" src="../brand/n-black.png" alt=""><span class="rev">★★★★★ 200+ businesses</span><span class="url">nilsdigital.com/automation</span></div>
+  </div>
+</body></html>

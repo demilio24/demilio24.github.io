@@ -1,0 +1,70 @@
+<h2>Full Redesign Plan — VELUS Interiors</h2>
+<p class="subtitle">All 10 improvements for home-v2.html. Review each section — click any you want to change or discuss further.</p>
+
+<div class="section">
+  <h3>1. Hero — Refined Current Layout</h3>
+  <p>Keep the 2-column layout (text left, swipe gallery right). Keep current stats (2018/Chicago/Full). Tighten spacing, improve CTA prominence with larger gold button. Add subtle entrance animations stagger.</p>
+  <div class="pros-cons">
+    <div class="pros"><h4>Changes</h4><ul><li>Larger "Get In Touch" gold CTA button</li><li>Tighter vertical spacing</li><li>Better animation stagger timing</li></ul></div>
+    <div class="cons"><h4>Keeping</h4><ul><li>Stats content (2018, Chicago, Full)</li><li>Swipe gallery on right</li><li>Eyebrow pill + headline + sub</li></ul></div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>2. Process — Hybrid: Cinematic Strips (Desktop) + Interactive Image (Mobile)</h3>
+  <p><strong>Desktop:</strong> Full-width horizontal strips — each has a VELUS portfolio photo on the left (aspect ~1:1) and step title + description on the right. Gold step number overlay on the photo. Hover lifts the strip with a gold border glow.</p>
+  <p><strong>Mobile:</strong> Large image at top that swaps when you tap each step. Below it, a vertical list of steps with active state highlighting (gold background + expanded description on the active step). Tapping a step swaps the image and expands its text.</p>
+  <p>Uses 5 images from VELUS portfolio — one per phase (e.g., measuring tape/floorplan for Discovery, empty room for Consultation, material boards for Design, fixtures for Procurement, styled room for Installation).</p>
+</div>
+
+<div class="section">
+  <h3>3. Section Transitions — Premium Multi-Layer</h3>
+  <p>Every section boundary gets treatment scaled to its importance:</p>
+  <ul style="margin:8px 0;padding-left:20px;list-style:disc;font-size:14px;color:#888;line-height:1.8;">
+    <li><strong>Services → Gallery</strong> (cream→dark): Gradient fade + thin gold SVG wave divider</li>
+    <li><strong>Gallery → Process</strong> (dark→cream): Gradient fade + decorative gold line with diamond center</li>
+    <li><strong>Reviews → CTA</strong> (cream→dark): Gradient fade + subtle gold dots line</li>
+    <li><strong>All other transitions:</strong> Soft gradient fades only (no divider — the fade is enough)</li>
+  </ul>
+</div>
+
+<div class="section">
+  <h3>4. Why-Points — Gold Numbered Accents</h3>
+  <p>Each of the 4 cards gets a large faded gold number (01, 02, 03, 04) in the top-left corner and a left gold border accent (3px). Creates visual hierarchy and reading order. The numbers echo the process section's numbered approach for design coherence.</p>
+</div>
+
+<div class="section">
+  <h3>5. Services — Featured Card Layout</h3>
+  <p>First service (Space Planning) spans 2 columns as a hero card — larger, more prominent. Remaining 5 in a standard grid below. Creates visual hierarchy instead of 6 identical cards. CTA at bottom: "Explore Our Services" linking to the contact form.</p>
+</div>
+
+<div class="section">
+  <h3>6. Gallery — Improved Mobile Grid</h3>
+  <p>Keep 4-col masonry on desktop. On mobile, use 2-col grid (not 1-col) with alternating heights. Keep one full-width hero image at the top of the mobile gallery. Maintains visual interest instead of becoming a boring vertical stack.</p>
+</div>
+
+<div class="section">
+  <h3>7. Reviews — Photos + Platform Badges</h3>
+  <p>Each review card gets a small circular image (lifestyle home photo — not client face photos since we don't have them) and a subtle "Google" or "Houzz" platform indicator. Adds credibility without requiring actual client headshots.</p>
+</div>
+
+<div class="section">
+  <h3>8. Glass Effect — Strategic Reduction</h3>
+  <p>Reserve glass (blur + white overlay) for: hero stats bar, hero eyebrow, and CTA card only. Change repeating cards (process strips, review cards) to solid subtle backgrounds (#fff with light border). Why-points keep glass since they overlay the textured cream section. This makes the glass feel special where it appears.</p>
+</div>
+
+<div class="section">
+  <h3>9. Mobile Nav — Premium Polish</h3>
+  <p>Add VELUS logo at the top of the mobile menu. Gold accent line separators between links. "Get In Touch" as a full-width gold button at the bottom. Smooth slide-in animation from right instead of the current fade. Close button gets a subtle circular background.</p>
+</div>
+
+<div class="section">
+  <h3>10. CTA Section — Personalized Copy + Visual</h3>
+  <p>Change headline from "Ready to Transform Your Home?" to "Let's Discuss Your Home". Add subtext: "Every project begins with a 20-minute discovery call. No commitment." Add a small 3-image strip above the CTA text showing before/after or portfolio highlights. Makes the CTA feel personal, not generic.</p>
+</div>
+
+<div class="section" style="background:rgba(184,154,106,.08);border:1px solid rgba(184,154,106,.2);border-radius:12px;padding:20px;">
+  <h3 style="color:#6B4E2A;">Implementation Plan</h3>
+  <p>Clone <code>home.html</code> → <code>home-v2.html</code>. All changes in the cloned file. Original stays untouched.</p>
+  <p style="margin-top:8px;"><strong>File:</strong> <code>Websites/Mandy_VELUS_Design/home-v2.html</code></p>
+</div>

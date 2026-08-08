@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Drafts and tooling not for indexing
+Disallow: /Nils/website/_drafts/
+Disallow: /Nils/website/scripts/
+Disallow: /Nils/website/pagefind/
+
+Sitemap: https://nilsdigital.com/Nils/website/sitemap.xml

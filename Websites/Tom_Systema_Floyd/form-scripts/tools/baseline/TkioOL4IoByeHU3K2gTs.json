@@ -1,0 +1,42 @@
+{
+  "name": "after-school",
+  "id": "TkioOL4IoByeHU3K2gTs",
+  "fields": [
+    {
+      "label": "Student Name (After School Registration)",
+      "options": []
+    },
+    {
+      "label": "Select Class *",
+      "options": []
+    },
+    {
+      "label": "Neighborhood Kids Schools - Additional Information",
+      "options": []
+    },
+    {
+      "label": "Child Grade *",
+      "options": []
+    },
+    {
+      "label": "T-Shirt Size (After School Registration) *",
+      "options": []
+    },
+    {
+      "label": "Notes",
+      "options": []
+    },
+    {
+      "label": "Parent/Guardian Name",
+      "options": []
+    },
+    {
+      "label": "Phone Number *",
+      "options": []
+    },
+    {
+      "label": "Email Address *",
+      "options": []
+    }
+  ]
+}

@@ -1,0 +1,1234 @@
+{
+  "upper": [
+    {
+      "index": 0,
+      "name": "6/1-6/5",
+      "rows": 11,
+      "highlighted": 2,
+      "sample": [
+        {
+          "row": 10,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 11,
+          "name": "Tevet Topor"
+        }
+      ],
+      "all": [
+        {
+          "row": 10,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 11,
+          "name": "Tevet Topor"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "name": "6/8-6/12",
+      "rows": 20,
+      "highlighted": 6,
+      "sample": [
+        {
+          "row": 15,
+          "name": "Lyla Falzone"
+        },
+        {
+          "row": 16,
+          "name": "Matias McCollum"
+        },
+        {
+          "row": 17,
+          "name": "Vladimir Aheyev"
+        },
+        {
+          "row": 18,
+          "name": "Nelson Gonzalez"
+        },
+        {
+          "row": 19,
+          "name": "Hawthorn Fennell"
+        }
+      ],
+      "all": [
+        {
+          "row": 15,
+          "name": "Lyla Falzone"
+        },
+        {
+          "row": 16,
+          "name": "Matias McCollum"
+        },
+        {
+          "row": 17,
+          "name": "Vladimir Aheyev"
+        },
+        {
+          "row": 18,
+          "name": "Nelson Gonzalez"
+        },
+        {
+          "row": 19,
+          "name": "Hawthorn Fennell"
+        },
+        {
+          "row": 20,
+          "name": "Hope Jean-Francois"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "name": "6/15-6/19",
+      "rows": 17,
+      "highlighted": 11,
+      "sample": [
+        {
+          "row": 7,
+          "name": "Akasha Smith"
+        },
+        {
+          "row": 8,
+          "name": "Benjamin Mosst"
+        },
+        {
+          "row": 9,
+          "name": "Hawthorn Fennell"
+        },
+        {
+          "row": 10,
+          "name": "Lyla Falzone"
+        },
+        {
+          "row": 11,
+          "name": "Nelson Gonzalez"
+        }
+      ],
+      "all": [
+        {
+          "row": 7,
+          "name": "Akasha Smith"
+        },
+        {
+          "row": 8,
+          "name": "Benjamin Mosst"
+        },
+        {
+          "row": 9,
+          "name": "Hawthorn Fennell"
+        },
+        {
+          "row": 10,
+          "name": "Lyla Falzone"
+        },
+        {
+          "row": 11,
+          "name": "Nelson Gonzalez"
+        },
+        {
+          "row": 12,
+          "name": "Tevet Topor"
+        },
+        {
+          "row": 13,
+          "name": "Vladimir Aheyev"
+        },
+        {
+          "row": 14,
+          "name": "Wilder Scott"
+        },
+        {
+          "row": 15,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 16,
+          "name": "Madelyn Rogers"
+        },
+        {
+          "row": 17,
+          "name": "Taavi Horn"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "name": "6/22-6/26",
+      "rows": 11,
+      "highlighted": 1,
+      "sample": [
+        {
+          "row": 11,
+          "name": "Nelson Gonzalez"
+        }
+      ],
+      "all": [
+        {
+          "row": 11,
+          "name": "Nelson Gonzalez"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "name": "6/29-7/3",
+      "rows": 10,
+      "highlighted": 4,
+      "sample": [
+        {
+          "row": 7,
+          "name": "Matias McCollum"
+        },
+        {
+          "row": 8,
+          "name": "Hawthorn Fennell"
+        },
+        {
+          "row": 9,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 10,
+          "name": "Wilder Scott"
+        }
+      ],
+      "all": [
+        {
+          "row": 7,
+          "name": "Matias McCollum"
+        },
+        {
+          "row": 8,
+          "name": "Hawthorn Fennell"
+        },
+        {
+          "row": 9,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 10,
+          "name": "Wilder Scott"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "name": "7/6-7/10",
+      "rows": 14,
+      "highlighted": 4,
+      "sample": [
+        {
+          "row": 11,
+          "name": "Matias McCollum"
+        },
+        {
+          "row": 12,
+          "name": "Hawthorn Fennell"
+        },
+        {
+          "row": 13,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 14,
+          "name": "Wilder Scott"
+        }
+      ],
+      "all": [
+        {
+          "row": 11,
+          "name": "Matias McCollum"
+        },
+        {
+          "row": 12,
+          "name": "Hawthorn Fennell"
+        },
+        {
+          "row": 13,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 14,
+          "name": "Wilder Scott"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "name": "7/13-7/17",
+      "rows": 7,
+      "highlighted": 2,
+      "sample": [
+        {
+          "row": 6,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 7,
+          "name": "Wilder Scott"
+        }
+      ],
+      "all": [
+        {
+          "row": 6,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 7,
+          "name": "Wilder Scott"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "name": "7/20-7/24",
+      "rows": 13,
+      "highlighted": 2,
+      "sample": [
+        {
+          "row": 12,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 13,
+          "name": "Wilder Scott"
+        }
+      ],
+      "all": [
+        {
+          "row": 12,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 13,
+          "name": "Wilder Scott"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "name": "7/27-7/31",
+      "rows": 10,
+      "highlighted": 2,
+      "sample": [
+        {
+          "row": 9,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 10,
+          "name": "Wilder Scott"
+        }
+      ],
+      "all": [
+        {
+          "row": 9,
+          "name": "Jacob Perna"
+        },
+        {
+          "row": 10,
+          "name": "Wilder Scott"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "name": "8/3-8/7",
+      "rows": 7,
+      "highlighted": 0,
+      "sample": [],
+      "all": []
+    },
+    {
+      "index": 10,
+      "name": "8/10-8/14",
+      "rows": 6,
+      "highlighted": 0,
+      "sample": [],
+      "all": []
+    },
+    {
+      "index": 11,
+      "name": "8/17-8/21",
+      "rows": 12,
+      "highlighted": 2,
+      "sample": [
+        {
+          "row": 11,
+          "name": "Herbst Capri"
+        },
+        {
+          "row": 12,
+          "name": "Hawthorn Fennell"
+        }
+      ],
+      "all": [
+        {
+          "row": 11,
+          "name": "Herbst Capri"
+        },
+        {
+          "row": 12,
+          "name": "Hawthorn Fennell"
+        }
+      ]
+    }
+  ],
+  "lower": [
+    {
+      "index": 0,
+      "name": "6/1-6/5",
+      "rows": 24,
+      "highlighted": 12,
+      "sample": [
+        {
+          "row": 13,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 14,
+          "name": "Campbell Rathlev"
+        },
+        {
+          "row": 15,
+          "name": "Dawson Denney"
+        },
+        {
+          "row": 16,
+          "name": "Georgie Wright"
+        },
+        {
+          "row": 17,
+          "name": "Lotan Topor"
+        }
+      ],
+      "all": [
+        {
+          "row": 13,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 14,
+          "name": "Campbell Rathlev"
+        },
+        {
+          "row": 15,
+          "name": "Dawson Denney"
+        },
+        {
+          "row": 16,
+          "name": "Georgie Wright"
+        },
+        {
+          "row": 17,
+          "name": "Lotan Topor"
+        },
+        {
+          "row": 18,
+          "name": "Paul McIntosh"
+        },
+        {
+          "row": 19,
+          "name": "Reagan Olowin"
+        },
+        {
+          "row": 20,
+          "name": "Ryder Tarantino"
+        },
+        {
+          "row": 21,
+          "name": "Theo Wright"
+        },
+        {
+          "row": 22,
+          "name": "Wyld Torrealba"
+        },
+        {
+          "row": 23,
+          "name": "Wheeler Wilson"
+        },
+        {
+          "row": 24,
+          "name": "Luka DeAraujo"
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "name": "6/8-6/12",
+      "rows": 16,
+      "highlighted": 5,
+      "sample": [
+        {
+          "row": 12,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 13,
+          "name": "Campbell Rathlev"
+        },
+        {
+          "row": 14,
+          "name": "Paul McIntosh"
+        },
+        {
+          "row": 15,
+          "name": "Lotan Topor"
+        },
+        {
+          "row": 16,
+          "name": "Dawson Denney"
+        }
+      ],
+      "all": [
+        {
+          "row": 12,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 13,
+          "name": "Campbell Rathlev"
+        },
+        {
+          "row": 14,
+          "name": "Paul McIntosh"
+        },
+        {
+          "row": 15,
+          "name": "Lotan Topor"
+        },
+        {
+          "row": 16,
+          "name": "Dawson Denney"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "name": "6/15-6/19",
+      "rows": 30,
+      "highlighted": 11,
+      "sample": [
+        {
+          "row": 20,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 21,
+          "name": "Campbell Rathlev"
+        },
+        {
+          "row": 22,
+          "name": "Dawson Denney"
+        },
+        {
+          "row": 23,
+          "name": "Iyar Topor"
+        },
+        {
+          "row": 24,
+          "name": "LJ Howe"
+        }
+      ],
+      "all": [
+        {
+          "row": 20,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 21,
+          "name": "Campbell Rathlev"
+        },
+        {
+          "row": 22,
+          "name": "Dawson Denney"
+        },
+        {
+          "row": 23,
+          "name": "Iyar Topor"
+        },
+        {
+          "row": 24,
+          "name": "LJ Howe"
+        },
+        {
+          "row": 25,
+          "name": "Lotan Topor"
+        },
+        {
+          "row": 26,
+          "name": "Luka DeAraujo"
+        },
+        {
+          "row": 27,
+          "name": "Reagan Olowin"
+        },
+        {
+          "row": 28,
+          "name": "Ryder Tarantino"
+        },
+        {
+          "row": 29,
+          "name": "Wyld Torrealba"
+        },
+        {
+          "row": 30,
+          "name": "Wheeler Wilson"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "name": "6/22-6/26",
+      "rows": 19,
+      "highlighted": 10,
+      "sample": [
+        {
+          "row": 10,
+          "name": "JJ Molinari"
+        },
+        {
+          "row": 11,
+          "name": "LJ Howe"
+        },
+        {
+          "row": 12,
+          "name": "Reagan Olowin"
+        },
+        {
+          "row": 13,
+          "name": "Graham Olowin"
+        },
+        {
+          "row": 14,
+          "name": "Grant 'Geo' Olowin"
+        }
+      ],
+      "all": [
+        {
+          "row": 10,
+          "name": "JJ Molinari"
+        },
+        {
+          "row": 11,
+          "name": "LJ Howe"
+        },
+        {
+          "row": 12,
+          "name": "Reagan Olowin"
+        },
+        {
+          "row": 13,
+          "name": "Graham Olowin"
+        },
+        {
+          "row": 14,
+          "name": "Grant 'Geo' Olowin"
+        },
+        {
+          "row": 15,
+          "name": "Ryder Tarantino"
+        },
+        {
+          "row": 16,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 17,
+          "name": "Dawson Denney"
+        },
+        {
+          "row": 18,
+          "name": "Theo Wright"
+        },
+        {
+          "row": 19,
+          "name": "Georgie Wright"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "name": "6/29-7/3",
+      "rows": 15,
+      "highlighted": 9,
+      "sample": [
+        {
+          "row": 7,
+          "name": "LJ Howe"
+        },
+        {
+          "row": 8,
+          "name": "Reagan Olowin"
+        },
+        {
+          "row": 9,
+          "name": "Graham Olowin"
+        },
+        {
+          "row": 10,
+          "name": "Grant 'Geo' Olowin"
+        },
+        {
+          "row": 11,
+          "name": "Austin Shue"
+        }
+      ],
+      "all": [
+        {
+          "row": 7,
+          "name": "LJ Howe"
+        },
+        {
+          "row": 8,
+          "name": "Reagan Olowin"
+        },
+        {
+          "row": 9,
+          "name": "Graham Olowin"
+        },
+        {
+          "row": 10,
+          "name": "Grant 'Geo' Olowin"
+        },
+        {
+          "row": 11,
+          "name": "Austin Shue"
+        },
+        {
+          "row": 12,
+          "name": "Vincent Molinari"
+        },
+        {
+          "row": 13,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 14,
+          "name": "Dawson Denney"
+        },
+        {
+          "row": 15,
+          "name": "Ryder Tarantino"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "name": "7/6-7/10",
+      "rows": 24,
+      "highlighted": 13,
+      "sample": [
+        {
+          "row": 12,
+          "name": "Lilly Heyes"
+        },
+        {
+          "row": 13,
+          "name": "Sebastian Martinat"
+        },
+        {
+          "row": 14,
+          "name": "Vincent Vallier"
+        },
+        {
+          "row": 15,
+          "name": "Austin Shue"
+        },
+        {
+          "row": 16,
+          "name": "LJ Howe"
+        }
+      ],
+      "all": [
+        {
+          "row": 12,
+          "name": "Lilly Heyes"
+        },
+        {
+          "row": 13,
+          "name": "Sebastian Martinat"
+        },
+        {
+          "row": 14,
+          "name": "Vincent Vallier"
+        },
+        {
+          "row": 15,
+          "name": "Austin Shue"
+        },
+        {
+          "row": 16,
+          "name": "LJ Howe"
+        },
+        {
+          "row": 17,
+          "name": "Reagan Olowin"
+        },
+        {
+          "row": 18,
+          "name": "Graham Olowin"
+        },
+        {
+          "row": 19,
+          "name": "Grant 'Geo' Olowin"
+        },
+        {
+          "row": 20,
+          "name": "Wyld Torrealba"
+        },
+        {
+          "row": 21,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 22,
+          "name": "Dawson Denney"
+        },
+        {
+          "row": 23,
+          "name": "Vincent Molinari"
+        },
+        {
+          "row": 24,
+          "name": "Ryder Tarantino"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "name": "7/13-7/17",
+      "rows": 25,
+      "highlighted": 13,
+      "sample": [
+        {
+          "row": 13,
+          "name": "Lilly Heyes"
+        },
+        {
+          "row": 14,
+          "name": "Theo Trochet"
+        },
+        {
+          "row": 15,
+          "name": "Ainslee Sheridan"
+        },
+        {
+          "row": 16,
+          "name": "Beckham Fox"
+        },
+        {
+          "row": 17,
+          "name": "LJ Howe"
+        }
+      ],
+      "all": [
+        {
+          "row": 13,
+          "name": "Lilly Heyes"
+        },
+        {
+          "row": 14,
+          "name": "Theo Trochet"
+        },
+        {
+          "row": 15,
+          "name": "Ainslee Sheridan"
+        },
+        {
+          "row": 16,
+          "name": "Beckham Fox"
+        },
+        {
+          "row": 17,
+          "name": "LJ Howe"
+        },
+        {
+          "row": 18,
+          "name": "Reagan Olowin"
+        },
+        {
+          "row": 19,
+          "name": "Graham Olowin"
+        },
+        {
+          "row": 20,
+          "name": "Grant 'Geo' Olowin"
+        },
+        {
+          "row": 21,
+          "name": "Wyld Torrealba"
+        },
+        {
+          "row": 22,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 23,
+          "name": "Dawson Denney"
+        },
+        {
+          "row": 24,
+          "name": "Jayden Vititoe"
+        },
+        {
+          "row": 25,
+          "name": "Ryder Tarantino"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "name": "7/20-7/24",
+      "rows": 23,
+      "highlighted": 12,
+      "sample": [
+        {
+          "row": 12,
+          "name": "Lilly Heyes"
+        },
+        {
+          "row": 13,
+          "name": "James 'Duncan' Zahringer III"
+        },
+        {
+          "row": 14,
+          "name": "Isaiah Plummer"
+        },
+        {
+          "row": 15,
+          "name": "Vincent Vallier"
+        },
+        {
+          "row": 16,
+          "name": "Luka DeAraujo"
+        }
+      ],
+      "all": [
+        {
+          "row": 12,
+          "name": "Lilly Heyes"
+        },
+        {
+          "row": 13,
+          "name": "James 'Duncan' Zahringer III"
+        },
+        {
+          "row": 14,
+          "name": "Isaiah Plummer"
+        },
+        {
+          "row": 15,
+          "name": "Vincent Vallier"
+        },
+        {
+          "row": 16,
+          "name": "Luka DeAraujo"
+        },
+        {
+          "row": 17,
+          "name": "LJ Howe"
+        },
+        {
+          "row": 18,
+          "name": "Reagan Olowin"
+        },
+        {
+          "row": 19,
+          "name": "Graham Olowin"
+        },
+        {
+          "row": 20,
+          "name": "Grant 'Geo' Olowin"
+        },
+        {
+          "row": 21,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 22,
+          "name": "Vincent Molinari"
+        },
+        {
+          "row": 23,
+          "name": "Ryder Tarantino"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "name": "7/27-7/31",
+      "rows": 19,
+      "highlighted": 9,
+      "sample": [
+        {
+          "row": 11,
+          "name": "Lilly Heyes"
+        },
+        {
+          "row": 12,
+          "name": "Olive White"
+        },
+        {
+          "row": 13,
+          "name": "Ozzie White"
+        },
+        {
+          "row": 14,
+          "name": "Vincent Vallier"
+        },
+        {
+          "row": 15,
+          "name": "LJ Howe"
+        }
+      ],
+      "all": [
+        {
+          "row": 11,
+          "name": "Lilly Heyes"
+        },
+        {
+          "row": 12,
+          "name": "Olive White"
+        },
+        {
+          "row": 13,
+          "name": "Ozzie White"
+        },
+        {
+          "row": 14,
+          "name": "Vincent Vallier"
+        },
+        {
+          "row": 15,
+          "name": "LJ Howe"
+        },
+        {
+          "row": 16,
+          "name": "Dawson Denney"
+        },
+        {
+          "row": 17,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 18,
+          "name": "Jayden Vititoe"
+        },
+        {
+          "row": 19,
+          "name": "Ryder Tarantino"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "name": "8/3-8/7",
+      "rows": 30,
+      "highlighted": 16,
+      "sample": [
+        {
+          "row": 15,
+          "name": "Grant 'Geo' Olowin"
+        },
+        {
+          "row": 16,
+          "name": "Carter Grant"
+        },
+        {
+          "row": 17,
+          "name": "Owen Grant"
+        },
+        {
+          "row": 18,
+          "name": "LJ Howe"
+        },
+        {
+          "row": 19,
+          "name": "Charlotte Eady"
+        }
+      ],
+      "all": [
+        {
+          "row": 15,
+          "name": "Grant 'Geo' Olowin"
+        },
+        {
+          "row": 16,
+          "name": "Carter Grant"
+        },
+        {
+          "row": 17,
+          "name": "Owen Grant"
+        },
+        {
+          "row": 18,
+          "name": "LJ Howe"
+        },
+        {
+          "row": 19,
+          "name": "Charlotte Eady"
+        },
+        {
+          "row": 20,
+          "name": "Liam Eady"
+        },
+        {
+          "row": 21,
+          "name": "Henry Reynolds"
+        },
+        {
+          "row": 22,
+          "name": "Jack Morrison"
+        },
+        {
+          "row": 23,
+          "name": "Lydia Gioia"
+        },
+        {
+          "row": 24,
+          "name": "Alex Gioia"
+        },
+        {
+          "row": 25,
+          "name": "Aria Falzone"
+        },
+        {
+          "row": 26,
+          "name": "Collyn"
+        },
+        {
+          "row": 27,
+          "name": "Hunter"
+        },
+        {
+          "row": 28,
+          "name": "Ballapiatt Ryan"
+        },
+        {
+          "row": 29,
+          "name": "Scott Wilder"
+        },
+        {
+          "row": 30,
+          "name": "Lakow Wiley"
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "name": "8/10-8/14",
+      "rows": 14,
+      "highlighted": 6,
+      "sample": [
+        {
+          "row": 9,
+          "name": "Tilly Robinson"
+        },
+        {
+          "row": 10,
+          "name": "Cosmo Robinson"
+        },
+        {
+          "row": 11,
+          "name": "Maciej Kozakowski"
+        },
+        {
+          "row": 12,
+          "name": "Julia Kozakowska"
+        },
+        {
+          "row": 13,
+          "name": "Marlow Rollins"
+        }
+      ],
+      "all": [
+        {
+          "row": 9,
+          "name": "Tilly Robinson"
+        },
+        {
+          "row": 10,
+          "name": "Cosmo Robinson"
+        },
+        {
+          "row": 11,
+          "name": "Maciej Kozakowski"
+        },
+        {
+          "row": 12,
+          "name": "Julia Kozakowska"
+        },
+        {
+          "row": 13,
+          "name": "Marlow Rollins"
+        },
+        {
+          "row": 14,
+          "name": "Wyld Torrealba"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "name": "8/17-8/21",
+      "rows": 14,
+      "highlighted": 7,
+      "sample": [
+        {
+          "row": 8,
+          "name": "Marlow Rollins"
+        },
+        {
+          "row": 9,
+          "name": "Lily Johnson"
+        },
+        {
+          "row": 10,
+          "name": "August Johnson"
+        },
+        {
+          "row": 11,
+          "name": "Reagan Olowin"
+        },
+        {
+          "row": 12,
+          "name": "Wyld Torrealba"
+        }
+      ],
+      "all": [
+        {
+          "row": 8,
+          "name": "Marlow Rollins"
+        },
+        {
+          "row": 9,
+          "name": "Lily Johnson"
+        },
+        {
+          "row": 10,
+          "name": "August Johnson"
+        },
+        {
+          "row": 11,
+          "name": "Reagan Olowin"
+        },
+        {
+          "row": 12,
+          "name": "Wyld Torrealba"
+        },
+        {
+          "row": 13,
+          "name": "Leo Hamric"
+        },
+        {
+          "row": 14,
+          "name": "Truett Rogers"
+        }
+      ]
+    }
+  ]
+}

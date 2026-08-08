@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" /><style>
+  *{margin:0;padding:0;box-sizing:border-box}html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;font-family:'Inter',sans-serif;
+    display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;padding:88px 84px}
+  .inner{position:relative;width:100%;z-index:2}
+  .eyebrow{display:flex;align-items:center;gap:13px;font-weight:800;letter-spacing:.34em;font-size:21px;text-transform:uppercase;text-indent:.34em;margin-bottom:30px}
+  .eyebrow .dot{width:12px;height:12px;border-radius:50%;text-indent:0}
+  h1{font-family:'Anton',sans-serif;font-weight:400;line-height:1.26;letter-spacing:.5px;text-transform:uppercase;margin-bottom:34px}
+  .sub{font-weight:600;line-height:1.32;margin-bottom:42px}
+  .cta{display:inline-flex;align-items:center;gap:13px;font-weight:800;border-radius:999px}
+  .foot{position:absolute;left:84px;bottom:50px;font-weight:600;font-size:22px;letter-spacing:.02em;z-index:2}
+  
+    .art{background:radial-gradient(130% 80% at 0% 0%,rgba(0,255,136,.12),transparent 55%),#03110a;color:#fff}
+    .art::before{content:"";position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(0,255,136,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,.045) 1px,transparent 1px);background-size:50px 50px;-webkit-mask-image:linear-gradient(120deg,#000 30%,transparent 85%);mask-image:linear-gradient(120deg,#000 30%,transparent 85%)}
+    .ghost{position:absolute;right:-40px;bottom:-30px;font-family:'Anton';font-size:520px;line-height:.7;color:rgba(0,255,136,.05);transform:rotate(8deg);z-index:1}
+    .eyebrow{color:#6dffa6}.eyebrow .dot{background:#00ff88;box-shadow:0 0 16px #00ff88}
+    h1{font-size:104px;max-width:900px}.flex{}
+    .hl{color:#04140c;padding:0 .1em;border-radius:6px;background:linear-gradient(135deg,#6dffa6,#00ff88);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+    .sub{font-size:36px;color:#cfe7da;max-width:780px}
+    .cta{background:linear-gradient(135deg,#6dffa6,#00ff88);color:#04140c;font-size:33px;padding:25px 48px;box-shadow:0 16px 44px rgba(0,255,136,.3)}
+    .foot{color:#7fa392}.foot b{color:#cfe7da}</style></head><body><div class="art"><div class="ghost">↗</div><div class="inner"><div class="eyebrow"><span class="dot"></span>Nils Digital · AI Audit</div><h1 class="flex">The #1 AI mistake: buying tools before an <span class="hl">audit.</span></h1><div class="sub">We find the 3-5 places AI actually pays. Then build them.</div><div class="cta">Book your audit →</div></div><div class="foot"><b>50 five-star reviews</b> &nbsp;·&nbsp; nilsdigital.com/automation</div></div><script>
+  function fit(){var inner=document.querySelector('.inner');if(!inner)return;
+    var big=document.querySelector('.big');
+    if(big){var avW=inner.clientWidth,bs=parseFloat(getComputedStyle(big).fontSize),gw=0;
+      while(big.scrollWidth>avW&&bs>60&&gw<200){bs-=4;big.style.fontSize=bs+'px';gw++;}}
+    var avail=1080-176-86;var els=inner.querySelectorAll('.flex');if(!els.length)return;
+    var g=0;
+    while(inner.scrollHeight>avail&&g<160){els.forEach(function(e){e.style.fontSize=(parseFloat(getComputedStyle(e).fontSize)-2)+'px'});g++;if(parseFloat(getComputedStyle(els[0]).fontSize)<=38)break;}
+  }
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}window.addEventListener('load',fit);
+</script></body></html>

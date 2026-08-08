@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Responses — Swim Instructor Retreat 2026</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap');
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blue: #2b3a8e;
+            --blue-light: #4158D0;
+            --blue-sky: #5ba3d9;
+            --yellow: #FFD700;
+            --dark: #1a2a5e;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #e8f4fc;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--dark);
+        }
+
+        #water-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        .bubbles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; overflow: hidden; }
+        .bubble { position: absolute; bottom: -80px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), rgba(91,163,217,0.15)); border: 1px solid rgba(255,255,255,0.5); animation: rise linear infinite; }
+        @keyframes rise { 0% { transform: translateY(0) scale(1); opacity: 0.6; } 50% { opacity: 0.4; } 100% { transform: translateY(-110vh) scale(0.3); opacity: 0; } }
+        .caustics { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; opacity: 0.06; background: repeating-conic-gradient(rgba(43,58,142,0.15) 0% 25%, transparent 0% 50%) 50% / 60px 60px; animation: caustic-move 12s linear infinite; }
+        @keyframes caustic-move { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(-20px,15px) scale(1.05); } 100% { transform: translate(0,0) scale(1); } }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 32px 20px 80px;
+        }
+
+        /* ── Swimmer ── */
+        .swimmer-track { width: 100%; height: 24px; position: relative; margin-bottom: 20px; overflow: hidden; }
+        .swimmer-emoji { position: absolute; font-size: 1.2rem; animation: swim-across 8s linear infinite; }
+        @keyframes swim-across { 0% { left: -30px; } 100% { left: calc(100% + 30px); } }
+
+        /* ── Header ── */
+        .header { text-align: center; margin-bottom: 28px; }
+        .retreat-badge { display: inline-block; font-size: 0.72rem; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; background: linear-gradient(135deg, var(--yellow), #ffa726); color: var(--dark); padding: 5px 18px; border-radius: 6px; margin-bottom: 12px; box-shadow: 0 3px 12px rgba(255,215,0,0.3); }
+        .header-title { font-size: 1.75rem; font-weight: 900; letter-spacing: -0.03em; color: var(--dark); }
+        .header-sub { font-size: 0.83rem; color: var(--blue); font-weight: 600; letter-spacing: 1px; margin-top: 6px; opacity: 0.75; }
+
+        /* ── Wave ── */
+        .wave-divider { width: 100%; height: 28px; position: relative; overflow: hidden; margin: 18px 0; }
+        .wave-divider svg { position: absolute; width: 200%; height: 100%; animation: wave-slide 6s linear infinite; }
+        @keyframes wave-slide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+
+        /* ── Toolbar ── */
+        .toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .count-badge {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--blue);
+            background: rgba(255,255,255,0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255,255,255,0.75);
+            padding: 7px 14px;
+            border-radius: 10px;
+        }
+        .toolbar-btns { display: flex; gap: 8px; flex-wrap: wrap; }
+        .btn {
+            padding: 8px 16px;
+            border-radius: 10px;
+            border: none;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.82rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-export {
+            background: linear-gradient(135deg, var(--blue), var(--blue-light));
+            color: white;
+            box-shadow: 0 3px 12px rgba(43,58,142,0.2);
+        }
+        .btn-export:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(43,58,142,0.28); }
+        .btn-clear {
+            background: rgba(255,255,255,0.6);
+            color: #c0392b;
+            border: 1px solid rgba(192,57,43,0.2);
+        }
+        .btn-clear:hover { background: rgba(255,255,255,0.85); }
+
+        /* ── Empty state ── */
+        .empty-state {
+            text-align: center;
+            padding: 48px 24px;
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.78);
+            border-radius: 22px;
+        }
+        .empty-icon { font-size: 3rem; margin-bottom: 14px; }
+        .empty-title { font-size: 1.2rem; font-weight: 800; color: var(--dark); margin-bottom: 6px; }
+        .empty-msg { font-size: 0.87rem; color: var(--blue); opacity: 0.7; }
+        .empty-link { display: inline-block; margin-top: 16px; padding: 10px 22px; background: linear-gradient(135deg, var(--blue), var(--blue-light)); color: white; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 0.87rem; }
+
+        /* ── Response Card ── */
+        .response-card {
+            background: rgba(255,255,255,0.62);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(255,255,255,0.78);
+            border-radius: 22px;
+            padding: 24px 22px;
+            margin-bottom: 16px;
+            box-shadow: 0 4px 28px rgba(43,58,142,0.09);
+        }
+
+        /* ── Card header ── */
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(43,58,142,0.08);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .respondent-name {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: var(--dark);
+        }
+        .respondent-meta {
+            font-size: 0.75rem;
+            color: var(--blue-sky);
+            font-weight: 500;
+        }
+        .card-timestamp {
+            font-size: 0.72rem;
+            color: rgba(43,58,142,0.45);
+            font-weight: 500;
+        }
+
+        /* ── Section block inside card ── */
+        .answer-section {
+            margin-bottom: 18px;
+        }
+        .answer-section:last-child { margin-bottom: 0; }
+        .answer-section-title {
+            font-size: 0.65rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--blue-sky);
+            margin-bottom: 10px;
+        }
+
+        /* ── Answer row ── */
+        .answer-row {
+            margin-bottom: 10px;
+        }
+        .answer-row:last-child { margin-bottom: 0; }
+        .answer-q {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--blue);
+            margin-bottom: 3px;
+        }
+        .answer-a {
+            font-size: 0.87rem;
+            color: var(--dark);
+            line-height: 1.5;
+            background: rgba(43,58,142,0.04);
+            border-radius: 8px;
+            padding: 7px 10px;
+        }
+        .answer-a.tag {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(65,88,208,0.12), rgba(91,163,217,0.12));
+            border: 1px solid rgba(65,88,208,0.15);
+            border-radius: 20px;
+            padding: 4px 12px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--blue-light);
+        }
+        .tags-wrap { display: flex; flex-wrap: wrap; gap: 6px; }
+
+        /* ── Footer ── */
+        .footer { text-align: center; margin-top: 28px; padding-top: 20px; border-top: 1px solid rgba(43,58,142,0.08); font-size: 0.72rem; color: #000; letter-spacing: 1px; }
+
+        /* ── Fade Up ── */
+        .fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 0.5s ease forwards; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<canvas id="water-canvas"></canvas>
+<div class="caustics"></div>
+<div class="bubbles-container" id="bubbles"></div>
+
+<div class="container">
+
+    <div class="swimmer-track fade-up">
+        <span class="swimmer-emoji" style="animation-delay:0s;">🏊</span>
+        <span class="swimmer-emoji" style="animation-delay:3s;">🏊</span>
+        <span class="swimmer-emoji" style="animation-delay:6s;">🏊</span>
+    </div>
+
+    <div class="header fade-up" style="animation-delay:0.1s">
+        <div class="retreat-badge">RETREAT 2026</div>
+        <div class="header-title">Feedback Responses</div>
+        <div class="header-sub">Swim Instructor Retreat 2026</div>
+    </div>
+
+    <div class="wave-divider fade-up" style="animation-delay:0.2s">
+        <svg viewBox="0 0 1200 28" preserveAspectRatio="none">
+            <path d="M0,14 Q150,0 300,14 T600,14 T900,14 T1200,14 T1500,14 T1800,14 T2100,14 T2400,14"
+                  fill="none" stroke="rgba(43,58,142,0.12)" stroke-width="2"/>
+        </svg>
+    </div>
+
+    <div class="toolbar fade-up" style="animation-delay:0.3s">
+        <div class="count-badge" id="count-badge">Loading…</div>
+        <div class="toolbar-btns">
+            <button class="btn btn-export" onclick="exportCSV()">Export CSV</button>
+            <button class="btn btn-clear" onclick="clearAll()">Clear All</button>
+        </div>
+    </div>
+
+    <div id="responses-container"></div>
+
+    <div class="footer fade-up" style="animation-delay:0.4s">
+        🌊 SWIM INSTRUCTOR RETREAT &bull; 2026
+    </div>
+
+</div>
+
+<script>
+// ── Water Canvas ──
+(function() {
+    const canvas = document.getElementById('water-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h, cols, rows;
+    const spacing = 28;
+    function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; cols = Math.ceil(w/spacing)+1; rows = Math.ceil(h/spacing)+1; }
+    resize(); window.addEventListener('resize', resize);
+    function draw(t) {
+        ctx.clearRect(0,0,w,h);
+        const grad = ctx.createLinearGradient(0,0,0,h);
+        grad.addColorStop(0,'#dceefb'); grad.addColorStop(0.3,'#c4e0f4'); grad.addColorStop(0.6,'#a8d4f0'); grad.addColorStop(1,'#8ac4e8');
+        ctx.fillStyle = grad; ctx.fillRect(0,0,w,h);
+        ctx.fillStyle = 'rgba(43,58,142,0.04)';
+        for (let i=0;i<cols;i++) for (let j=0;j<rows;j++) { const x=i*spacing+Math.sin(t*0.0008+j*0.3)*6; const y=j*spacing+Math.cos(t*0.001+i*0.3)*6; const s=1.2+Math.sin(t*0.002+i+j)*0.6; ctx.beginPath(); ctx.arc(x,y,s,0,Math.PI*2); ctx.fill(); }
+        for (let k=0;k<5;k++) { ctx.beginPath(); ctx.strokeStyle=`rgba(255,255,255,${0.15+k*0.04})`; ctx.lineWidth=1.5; const yBase=h*0.15+k*(h*0.18); for (let x=0;x<=w;x+=4) { const y=yBase+Math.sin(x*0.004+t*0.0008+k)*25+Math.sin(x*0.008+t*0.0012+k*2)*12; x===0?ctx.moveTo(x,y):ctx.lineTo(x,y); } ctx.stroke(); }
+        requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+})();
+
+// ── Bubbles ──
+(function() {
+    const container = document.getElementById('bubbles');
+    function createBubble() { const b=document.createElement('div'); b.classList.add('bubble'); const s=Math.random()*18+5; b.style.width=s+'px'; b.style.height=s+'px'; b.style.left=Math.random()*100+'%'; b.style.animationDuration=(Math.random()*8+6)+'s'; b.style.animationDelay=(Math.random()*4)+'s'; container.appendChild(b); setTimeout(()=>b.remove(),16000); }
+    setInterval(createBubble,800); for(let i=0;i<12;i++) setTimeout(createBubble,i*120);
+})();
+
+// ── Ripple ──
+document.addEventListener('click', function(e) { const r=document.createElement('div'); r.classList.add('ripple'); r.style.cssText=`position:fixed;border-radius:50%;border:2px solid rgba(43,58,142,0.3);animation:ripple-out 0.8s ease-out forwards;pointer-events:none;z-index:100;left:${e.clientX-100}px;top:${e.clientY-100}px`; document.body.appendChild(r); setTimeout(()=>r.remove(),800); });
+document.head.insertAdjacentHTML('beforeend','<style>@keyframes ripple-out{0%{width:0;height:0;opacity:1}100%{width:200px;height:200px;opacity:0}}</style>');
+
+// ── Question labels ──
+const QUESTIONS = {
+    name:               { section: 'About You',                       label: 'Name' },
+    email:              { section: 'About You',                       label: 'Email' },
+    heard_via:          { section: 'Finding Out About the Retreat',   label: 'How did you find out about the retreat?' },
+    promotion:          { section: 'Finding Out About the Retreat',   label: 'Was there enough promotion and online presence?' },
+    promotion_detail:   { section: 'Finding Out About the Retreat',   label: 'Additional thoughts on promotion' },
+    value:              { section: 'Booking Your Space',              label: 'Did the value meet your expectations?' },
+    most_valuable:      { section: 'Booking Your Space',              label: 'Most valuable part of the experience' },
+    valuable_session:   { section: 'Education',                       label: 'Most valuable session or topic' },
+    unclear_topic:      { section: 'Education',                       label: 'Topics that felt unclear or could be expanded' },
+    future_topics:      { section: 'Education',                       label: 'Topics to explore at a future retreat' },
+    connected:          { section: 'Connection',                      label: 'Did you feel connected to other instructors?' },
+    connected_why:      { section: 'Connection',                      label: 'Why or why not?' },
+    community_ideas:    { section: 'Connection',                      label: 'What could strengthen the community next time?' },
+    schedule:           { section: 'Overall',                         label: 'How did the schedule feel?' },
+    practical_tools:    { section: 'Overall',                         label: 'Did you leave with practical tools?' },
+    no_brainer:         { section: 'More Retreats',                   label: 'What would make the next retreat a no-brainer?' },
+    recommend:          { section: 'More Retreats',                   label: 'Would you recommend this retreat?' },
+    belief_shift:       { section: 'Transformation',                  label: 'What belief about teaching swimming was challenged or expanded?' },
+    differentiation:    { section: 'Implementation & Real World Impact', label: 'What makes this retreat different from other PD?' },
+    suited_for:         { section: 'Implementation & Real World Impact', label: 'Who is this retreat most suited for?' },
+    interests:          { section: "What's Next?",                    label: 'Interested in' },
+    anything_else:      { section: "What's Next?",                    label: 'Anything else' },
+};
+
+const TAG_FIELDS = new Set(['heard_via','promotion','value','connected','schedule','practical_tools','recommend']);
+
+function formatDate(iso) {
+    try {
+        const d = new Date(iso);
+        return d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })
+             + ' · ' + d.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' });
+    } catch(e) { return iso; }
+}
+
+const RAW_URL = 'https://raw.githubusercontent.com/demilio24/Websites/main/Retreat_2026/answers.json';
+
+async function renderResponses() {
+    const container = document.getElementById('responses-container');
+    const countBadge = document.getElementById('count-badge');
+    countBadge.textContent = 'Loading…';
+
+    let responses = [];
+    try {
+        const res = await fetch(RAW_URL + '?t=' + Date.now());
+        if (res.ok) responses = await res.json();
+    } catch(e) { /* file not yet created */ }
+
+    countBadge.textContent = responses.length === 0
+        ? 'No responses yet'
+        : responses.length === 1
+            ? '1 response'
+            : `${responses.length} responses`;
+
+    if (responses.length === 0) {
+        container.innerHTML = `
+            <div class="empty-state fade-up" style="animation-delay:0.35s">
+                <div class="empty-icon">📋</div>
+                <div class="empty-title">No responses yet</div>
+                <div class="empty-msg">Once instructors submit feedback it will appear here.</div>
+                <a class="empty-link" href="post.html">Go to Feedback Form</a>
+            </div>`;
+        return;
+    }
+
+    container.innerHTML = '';
+
+    // Newest first
+    [...responses].reverse().forEach(function(resp, idx) {
+        const name = resp.name ? resp.name : 'Anonymous';
+        const email = resp.email || '';
+        const ts = resp._submitted ? formatDate(resp._submitted) : '';
+
+        // Group answers by section
+        const sections = {};
+        Object.entries(QUESTIONS).forEach(function([key, meta]) {
+            if (key === 'name' || key === 'email') return;
+            const val = resp[key];
+            if (!val || (Array.isArray(val) && val.length === 0)) return;
+            if (!sections[meta.section]) sections[meta.section] = [];
+            sections[meta.section].push({ key, label: meta.label, value: val });
+        });
+
+        const sectionsHTML = Object.entries(sections).map(function([sec, rows]) {
+            const rowsHTML = rows.map(function(row) {
+                const isTag = TAG_FIELDS.has(row.key);
+                const isArray = Array.isArray(row.value);
+                let answerHTML;
+                if (isArray) {
+                    answerHTML = `<div class="tags-wrap">${row.value.map(v => `<span class="answer-a tag">${v}</span>`).join('')}</div>`;
+                } else if (isTag) {
+                    answerHTML = `<span class="answer-a tag">${row.value}</span>`;
+                } else {
+                    answerHTML = `<div class="answer-a">${row.value.replace(/\n/g,'<br>')}</div>`;
+                }
+                return `<div class="answer-row"><div class="answer-q">${row.label}</div>${answerHTML}</div>`;
+            }).join('');
+            return `<div class="answer-section"><div class="answer-section-title">${sec}</div>${rowsHTML}</div>`;
+        }).join('');
+
+        const card = document.createElement('div');
+        card.className = 'response-card fade-up';
+        card.style.animationDelay = (0.35 + idx * 0.05) + 's';
+        card.innerHTML = `
+            <div class="card-header">
+                <div>
+                    <div class="respondent-name">${name}</div>
+                    ${email ? `<div class="respondent-meta">${email}</div>` : ''}
+                </div>
+                <div class="card-timestamp">${ts}</div>
+            </div>
+            ${sectionsHTML || '<div style="font-size:0.85rem;opacity:0.5;text-align:center;padding:8px 0">No answers provided</div>'}
+        `;
+        container.appendChild(card);
+    });
+}
+
+async function exportCSV() {
+    let responses = [];
+    try {
+        const res = await fetch(RAW_URL + '?t=' + Date.now());
+        if (res.ok) responses = await res.json();
+    } catch(e) {}
+    if (responses.length === 0) { alert('No responses to export.'); return; }
+
+    const allKeys = ['_submitted', ...Object.keys(QUESTIONS)];
+    const header = allKeys.map(k => `"${(QUESTIONS[k] ? QUESTIONS[k].label : k).replace(/"/g,'""')}"`).join(',');
+
+    const rows = responses.map(function(resp) {
+        return allKeys.map(function(k) {
+            const val = resp[k] || '';
+            const str = Array.isArray(val) ? val.join('; ') : String(val);
+            return `"${str.replace(/"/g,'""')}"`;
+        }).join(',');
+    });
+
+    const csv = [header, ...rows].join('\r\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'retreat-2026-feedback.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+function clearAll() {
+    alert('To clear all responses, delete or empty the Retreat_2026/answers.json file in your GitHub repo.');
+}
+
+renderResponses().catch(console.error);
+</script>
+
+</body>
+</html>

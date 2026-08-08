@@ -1,0 +1,100 @@
+{
+  "name": "birthday-balloons",
+  "id": "SvXq0KmUb1Ct2AR2t8Yl",
+  "fields": [
+    {
+      "label": "Full Name *",
+      "options": []
+    },
+    {
+      "label": "Email *",
+      "options": []
+    },
+    {
+      "label": "Phone *",
+      "options": []
+    },
+    {
+      "label": "Columns",
+      "options": []
+    },
+    {
+      "label": "Add-Ons (range-priced)",
+      "options": []
+    },
+    {
+      "label": "Garland",
+      "options": [
+        "None",
+        "5 ft Garland ($140)",
+        "Custom length — base 5 ft ($140)"
+      ]
+    },
+    {
+      "label": "Additional Feet of Garland",
+      "options": [
+        "1 ft ($30)",
+        "2 ft ($60)",
+        "3 ft ($90)",
+        "4 ft ($120)",
+        "5 ft ($150)"
+      ]
+    },
+    {
+      "label": "Arch",
+      "options": [
+        "None",
+        "Standard Arch ($450)",
+        "Deluxe Arch — includes vinyl wording ($600)",
+        "Walk-Through Arch ($750+)"
+      ]
+    },
+    {
+      "label": "Balloon Wall / Backdrop",
+      "options": [
+        "None",
+        "Starting at $800 — request quote"
+      ]
+    },
+    {
+      "label": "Delivery Fee *",
+      "options": [
+        "Local (+$25)",
+        "Mid-distance (+$50)",
+        "Long-distance (+$75)"
+      ]
+    },
+    {
+      "label": "Setup Complexity *",
+      "options": [
+        "Simple setup (+$50)",
+        "Standard setup (+$100)",
+        "Complex install (+$150)"
+      ]
+    },
+    {
+      "label": "Optional Fees",
+      "options": []
+    },
+    {
+      "label": "Party Theme",
+      "options": []
+    },
+    {
+      "label": "Primary Color *",
+      "options": []
+    },
+    {
+      "label": "Secondary Color",
+      "options": []
+    },
+    {
+      "label": "Accent Color",
+      "options": []
+    },
+    {
+      "label": "Notes for Emily",
+      "options": []
+    }
+  ]
+}

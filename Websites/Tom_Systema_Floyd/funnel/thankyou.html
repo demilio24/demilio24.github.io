@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#ffffff" />
+<title>All Done | Systema Floyd Martial Arts</title>
+<meta name="description" content="You're all set. Check your email for confirmation." />
+<meta name="robots" content="noindex" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="https://assets.cdn.filesafe.space/8IWtNFlmgJ8bif9DivHT/media/5d66f583-c02a-4140-91aa-5f3362ec9b01.png" />
+
+<style>
+:root{
+  --sf-white:#fff;
+  --sf-cream:#f7f9fc;
+  --sf-border:#e2e8f2;
+  --sf-ink:#0d1534;
+  --sf-ink-60:#475067;
+  --sf-ink-40:#8b95ad;
+  --sf-blue-500:#2f82c4;
+  --sf-blue-700:#1b2f6e;
+  --sf-blue-50:#f4f8fd;
+  --ease-out:cubic-bezier(0.16,1,0.3,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Inter',system-ui,sans-serif;
+  font-size:16px;
+  line-height:1.6;
+  color:var(--sf-ink);
+  background:var(--sf-white);
+  -webkit-font-smoothing:antialiased;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+a{color:inherit;text-decoration:none}
+h1{font-family:'Oswald',sans-serif;font-weight:700;line-height:1;margin:0;text-transform:uppercase;letter-spacing:.01em}
+p{margin:0;color:var(--sf-ink-60)}
+
+.page{
+  flex:1;
+  padding:64px 24px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#1b2f6e 0%,#0a1028 100%);
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+.page::before{content:'';position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse 50% 40% at 20% 20%,rgba(47,130,196,.25),transparent 60%),radial-gradient(ellipse 50% 40% at 80% 80%,rgba(244,182,58,.1),transparent 60%)}
+.page::after{content:'';position:absolute;inset:0;z-index:-1;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:28px 28px;mask-image:radial-gradient(ellipse at center,black 40%,transparent 80%);-webkit-mask-image:radial-gradient(ellipse at center,black 40%,transparent 80%);opacity:.8}
+
+.card{
+  max-width:520px;
+  width:100%;
+  text-align:center;
+  padding:48px 36px 40px;
+  background:var(--sf-white);
+  border:1px solid var(--sf-border);
+  border-radius:20px;
+  box-shadow:0 40px 100px -30px rgba(0,0,0,.55),0 20px 50px -20px rgba(27,47,110,.4);
+}
+
+.logo{height:72px;width:auto;margin:0 auto 32px;display:block}
+
+.check{
+  width:84px;height:84px;
+  margin:0 auto 26px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#22c55e,#15803d);
+  display:grid;place-items:center;
+  color:#fff;
+  box-shadow:0 20px 50px -16px rgba(34,197,94,.5),0 0 0 8px rgba(34,197,94,.12);
+  animation:pop .6s var(--ease-out);
+}
+.check svg{width:42px;height:42px;stroke-width:3}
+@keyframes pop{0%{transform:scale(.4);opacity:0}100%{transform:scale(1);opacity:1}}
+
+h1{font-size:clamp(30px,4.4vw,42px);margin-bottom:14px;color:var(--sf-ink)}
+h1 .accent{color:#15803d}
+
+.lede{font-size:15px;line-height:1.6;color:var(--sf-ink-60);margin:0 0 28px;max-width:400px;margin-left:auto;margin-right:auto}
+.lede b{color:var(--sf-ink);font-weight:600}
+
+.email-note{
+  display:inline-flex;align-items:center;gap:10px;
+  padding:14px 20px;
+  background:var(--sf-blue-50);
+  border:1px solid var(--sf-border);
+  border-radius:10px;
+  font-family:'Space Grotesk',sans-serif;
+  font-size:12px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;
+  color:var(--sf-blue-700);
+}
+.email-note svg{width:18px;height:18px;flex-shrink:0;color:var(--sf-blue-500)}
+
+.sf-footer{
+  padding:20px;
+  background:var(--sf-cream);
+  border-top:1px solid var(--sf-border);
+  text-align:center;
+  color:var(--sf-ink-40);
+  font-size:12px;
+}
+
+@media(max-width:640px){
+  .page{padding:40px 18px}
+  .card{padding:36px 24px 32px}
+  .logo{height:56px;margin-bottom:26px}
+  .check{width:72px;height:72px;margin-bottom:22px}
+  .check svg{width:36px;height:36px}
+}
+@media(prefers-reduced-motion:reduce){*{animation-duration:.01ms !important;transition-duration:.01ms !important}.check{animation:none}}
+</style>
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wkegmhcdim");
+</script>
+</head>
+<body>
+
+<main class="page">
+  <div class="card">
+    <a href="https://www.systemafloyd.com/" target="_top" aria-label="Systema Floyd home">
+      <img class="logo" src="https://assets.cdn.filesafe.space/8IWtNFlmgJ8bif9DivHT/media/5d66f583-c02a-4140-91aa-5f3362ec9b01.png" alt="Systema Floyd" />
+    </a>
+    <div class="check" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+    </div>
+    <h1>All <span class="accent">done.</span></h1>
+    <p class="lede">Thanks, you're all set. <b>Check your email for your confirmation.</b></p>
+    <div class="email-note">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      Check your inbox
+    </div>
+  </div>
+</main>
+
+<footer class="sf-footer">
+  © <span id="yr"></span> Systema Floyd Martial Arts. Raise a warrior.
+</footer>
+
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>

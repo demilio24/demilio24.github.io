@@ -1,0 +1,365 @@
+/* ─────────────────────────────────────────────────────────
+   Nils Digital — About Page Styles
+   Three sections, each with three variations:
+     1. .about-hero      (v1 editorial centered, v2 portrait asymmetric, v3 mission italic)
+     2. .about-story     (v1 prose + grid, v2 timeline + strip, v3 founder card + strip)
+     3. .about-process   (v1 numbered steps + route-halves, v2 pillar cards + single CTA, v3 FAQ + route-halves)
+
+   Token discipline: zero raw hex codes, only var(--token) references.
+   ───────────────────────────────────────────────────────── */
+
+
+/* ─── ABOUT HERO ─── */
+.about-hero { padding: var(--space-8) 0 var(--space-7); }
+
+.about-hero.v1 { text-align: center; }
+.about-hero.v1 h1 { max-width: 880px; margin: 0 auto var(--space-4); }
+.about-hero.v1 p.lead { max-width: 620px; margin: 0 auto; color: var(--ink-soft); }
+
+.about-hero.v2 .inner {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: var(--space-7);
+  align-items: center;
+}
+.about-hero.v2 .portrait {
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--ink-line) 0%, var(--ink-line-soft) 100%);
+  border: 1px solid var(--ink-line);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.about-hero.v2 h1, .about-hero.v2 h2 { margin-bottom: var(--space-4); font-family: var(--font-serif); font-size: var(--fs-h1); font-weight: var(--fw-serif-regular); line-height: var(--lh-tight); letter-spacing: -0.025em; color: var(--ink); }
+.about-hero.v2 p.lead { color: var(--ink-soft); max-width: 540px; }
+
+.about-hero.v3 { text-align: center; }
+.about-hero.v3 h1 {
+  max-width: 880px;
+  margin: 0 auto var(--space-4);
+  font-style: italic;
+  color: var(--marketing);
+}
+.about-hero.v3 p.lead { max-width: 620px; margin: 0 auto; color: var(--ink-soft); }
+
+@media (max-width: 720px) {
+  .about-hero.v2 .inner { grid-template-columns: 1fr; }
+}
+
+
+/* ─── ABOUT STORY + TEAM ─── */
+.about-story { padding: var(--space-7) 0; }
+.about-story h2 { margin-bottom: var(--space-5); }
+.about-story .body p {
+  color: var(--ink-soft);
+  max-width: 760px;
+  margin: 0 auto var(--space-4);
+  line-height: var(--lh-relaxed);
+}
+
+/* V1 — Story prose + 4-up team grid */
+.about-story.v1 .body {
+  text-align: left;
+  max-width: 760px;
+  margin: 0 auto var(--space-7);
+}
+.about-story.v1 .team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  max-width: 1080px;
+  margin: 0 auto;
+}
+.about-story.v1 .team-card {
+  text-align: center;
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+.about-story.v1 .team-card .portrait {
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ink-line) 0%, var(--ink-line-soft) 100%);
+  border: 1px solid var(--ink-line);
+  margin: 0 auto var(--space-3);
+  max-width: 100px;
+}
+.about-story.v1 .team-card .name {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-bold);
+  font-size: var(--fs-meta);
+  color: var(--ink);
+  display: block;
+}
+.about-story.v1 .team-card .role {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: 2px;
+}
+
+/* V2 — Vertical timeline + horizontal team strip */
+.about-story.v2 .timeline {
+  max-width: 760px;
+  margin: 0 auto var(--space-7);
+}
+.about-story.v2 .milestone {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: var(--space-5);
+  padding: var(--space-5) 0;
+  border-bottom: 1px solid var(--ink-line);
+  align-items: baseline;
+}
+.about-story.v2 .milestone:last-child { border-bottom: 0; }
+.about-story.v2 .milestone .year {
+  font-family: var(--font-serif);
+  font-size: clamp(28px, 3vw, 36px);
+  color: var(--marketing);
+  letter-spacing: -0.02em;
+}
+.about-story.v2 .milestone p {
+  color: var(--ink-soft);
+  margin: 0;
+}
+.about-story.v2 .team-strip {
+  display: flex;
+  gap: var(--space-5);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.about-story.v2 .team-strip .member {
+  text-align: center;
+}
+.about-story.v2 .team-strip .portrait {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ink-line) 0%, var(--ink-line-soft) 100%);
+  border: 1px solid var(--ink-line);
+  margin: 0 auto var(--space-2);
+}
+.about-story.v2 .team-strip .name {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-bold);
+  font-size: var(--fs-meta);
+  display: block;
+}
+.about-story.v2 .team-strip .role {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: 2px;
+}
+
+/* V3 — Big founder card + small team strip */
+.about-story.v3 .founder-card {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--space-7);
+  background: var(--bg);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-7);
+}
+.about-story.v3 .founder-card .portrait {
+  aspect-ratio: 1;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--ink-line) 0%, var(--ink-line-soft) 100%);
+  border: 1px solid var(--ink-line);
+}
+.about-story.v3 .founder-card h3 {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-4);
+}
+.about-story.v3 .founder-card p {
+  color: var(--ink-soft);
+  margin-bottom: var(--space-3);
+}
+.about-story.v3 .team-strip {
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.about-story.v3 .team-strip .member { text-align: center; }
+.about-story.v3 .team-strip .portrait {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--ink-line) 0%, var(--ink-line-soft) 100%);
+  border: 1px solid var(--ink-line);
+  margin: 0 auto var(--space-2);
+}
+.about-story.v3 .team-strip .name {
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-bold);
+  font-size: 12px;
+  display: block;
+}
+.about-story.v3 .team-strip .role {
+  font-family: var(--font-body);
+  font-size: 11px;
+  color: var(--ink-soft);
+  display: block;
+  margin-top: 2px;
+}
+
+@media (max-width: 720px) {
+  .about-story.v1 .team-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-story.v3 .founder-card { grid-template-columns: 1fr; }
+}
+
+
+/* ─── ABOUT PROCESS + CTA ─── */
+.about-process { padding: var(--space-7) 0; }
+.about-process h2 {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+.about-process p.lead {
+  text-align: center;
+  color: var(--ink-soft);
+  max-width: 620px;
+  margin: 0 auto var(--space-6);
+}
+
+/* V1 — Numbered process cards */
+.about-process.v1 .steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-7);
+}
+.about-process.v1 .step {
+  background: var(--bg);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  text-align: center;
+}
+.about-process.v1 .step .num {
+  font-family: var(--font-serif);
+  font-size: clamp(36px, 4vw, 56px);
+  color: var(--marketing);
+  letter-spacing: -0.02em;
+  display: block;
+  margin-bottom: var(--space-3);
+  line-height: 1;
+}
+.about-process.v1 .step h4 {
+  font-family: var(--font-display);
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-display-bold);
+  margin-bottom: var(--space-2);
+}
+.about-process.v1 .step p {
+  color: var(--ink-soft);
+  font-size: var(--fs-meta);
+  margin: 0;
+}
+
+/* V2 — Pillar cards + single centered CTA */
+.about-process.v2 .pillars {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-7);
+}
+.about-process.v2 .pillar {
+  background: var(--bg);
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+}
+.about-process.v2 .pillar h4 {
+  font-family: var(--font-display);
+  font-size: var(--fs-body-lg);
+  font-weight: var(--fw-display-bold);
+  margin-bottom: var(--space-2);
+  color: var(--ink);
+}
+.about-process.v2 .pillar p {
+  color: var(--ink-soft);
+  margin: 0;
+}
+.about-process.v2 .single-cta {
+  text-align: center;
+  border: 1px solid var(--ink-line);
+  border-radius: var(--radius-lg);
+  padding: var(--space-7);
+  background: var(--bg);
+  max-width: 720px;
+  margin: 0 auto;
+}
+.about-process.v2 .single-cta h3 {
+  font-family: var(--font-serif);
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-3);
+}
+.about-process.v2 .single-cta p {
+  color: var(--ink-soft);
+  margin-bottom: var(--space-5);
+}
+.about-process.v2 .single-cta .btn {
+  background: var(--marketing);
+  color: white;
+  padding: var(--space-3) var(--space-6);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-weight: var(--fw-display-bold);
+  display: inline-block;
+}
+.about-process.v2 .single-cta .btn:hover {
+  background: var(--marketing-dark);
+}
+
+/* V3 — FAQ-style collapsible process */
+.about-process.v3 .faq-article {
+  max-width: 760px;
+  margin: 0 auto var(--space-7);
+}
+.about-process.v3 .faq-article .entry {
+  padding: var(--space-6) 0;
+  border-top: 1px solid var(--ink-line);
+}
+.about-process.v3 .faq-article .entry:last-child {
+  border-bottom: 1px solid var(--ink-line);
+}
+.about-process.v3 .faq-article .index {
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink-mute);
+  font-weight: var(--fw-display-bold);
+  margin-bottom: var(--space-3);
+  display: block;
+}
+.about-process.v3 .faq-article h3 {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: var(--lh-tight);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: var(--space-4);
+}
+.about-process.v3 .faq-article p {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-lg);
+  color: var(--ink-soft);
+  line-height: var(--lh-relaxed);
+  margin: 0;
+}
+
+@media (max-width: 720px) {
+  .about-process.v1 .steps { grid-template-columns: 1fr; }
+  .about-process.v2 .pillars { grid-template-columns: 1fr; }
+}

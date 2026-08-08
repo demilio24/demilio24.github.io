@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+  :root{--green:#0fbf7a;--green-dark:#087a4d;--ink:#0a1f17;--bg:#f4f7f5;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;background:var(--bg);
+    font-family:'Inter',sans-serif;color:var(--ink);display:flex;flex-direction:column}
+  .topbar{height:14px;background:linear-gradient(90deg,#14c982,#0a8c5a)}
+  .head{background:#08160f;color:#fff;display:flex;justify-content:space-between;align-items:center;padding:26px 60px}
+  .head .brand{display:flex;align-items:center;gap:14px;font-weight:800;font-size:38px;letter-spacing:-.01em}
+  .head .brand .dot{width:15px;height:15px;border-radius:50%;background:#00ff88;box-shadow:0 0 14px #00ff88}
+  .head .tag{font-weight:600;font-size:30px;color:#bcd8c9}
+  .body{padding:36px 60px 0;flex:1}
+  h1{font-weight:800;font-size:64px;line-height:1.02;letter-spacing:-.02em;margin-bottom:18px}
+  .lead{font-weight:500;font-size:31px;line-height:1.38;color:#3c5249;margin-bottom:34px;max-width:900px}
+  .tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:24px}
+  .tile{background:#fff;border:1.5px solid #e2eae5;border-radius:18px;padding:24px 14px;text-align:center;box-shadow:0 8px 22px rgba(10,40,28,.05)}
+  .tile .n{font-weight:900;font-size:42px;letter-spacing:-.02em}
+  .tile .l{font-weight:600;font-size:20px;line-height:1.2;color:#6c8378;margin-top:8px;text-transform:uppercase;letter-spacing:.02em}
+  .hero{background:#e6f6ee;border:1.5px solid #bfe6d2;border-radius:20px;text-align:center;padding:28px 20px;margin-bottom:30px}
+  .hero .n{font-weight:900;font-size:80px;letter-spacing:-.03em;color:#0a1f17}
+  .hero .l{font-weight:700;font-size:25px;letter-spacing:.06em;color:#0a7d4f;text-transform:uppercase;margin-top:4px}
+  .q{text-align:center;font-weight:800;font-size:42px;letter-spacing:-.01em}
+  .foot{background:#08160f;color:#fff;text-align:center;font-weight:700;font-size:34px;padding:30px}
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="topbar"></div>
+    <div class="head">
+      <div class="brand"><span class="dot"></span>Nils Digital</div>
+      <div class="tag">AI Audit · Executive Summary</div>
+    </div>
+    <div class="body">
+      <h1>What we found inside<br>one client's business:</h1>
+      <div class="lead">U.S. small business. 6 audit sessions. Every workflow mapped. Here's what was hiding in plain sight:</div>
+      <div class="tiles">
+        <div class="tile"><div class="n">38</div><div class="l">Pain points</div></div>
+        <div class="tile"><div class="n">15</div><div class="l">Opportunities</div></div>
+        <div class="tile"><div class="n">$120,000</div><div class="l">Annual waste</div></div>
+        <div class="tile"><div class="n">54 hrs</div><div class="l">Weekly hours wasted</div></div>
+        <div class="tile"><div class="n">17</div><div class="l">Proposed changes</div></div>
+      </div>
+      <div class="hero"><div class="n">$204,880</div><div class="l">Annual value unlocked</div></div>
+      <div class="q">Want to see what's hiding in yours?</div>
+    </div>
+    <div class="foot">Call to book your AI audit →</div>
+  </div>
+</body>
+</html>

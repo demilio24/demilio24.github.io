@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Oswald:wght@500;600;700&family=Roboto+Slab:wght@500;700&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:#cdbf9f;display:flex;align-items:center;justify-content:center;padding:46px}
+  .paper{width:988px;height:988px;background:#efe7d2;padding:44px 48px;position:relative;
+    box-shadow:inset 0 0 120px rgba(120,100,60,.25),0 30px 60px rgba(0,0,0,.5);color:#1a1712;
+    font-family:'Roboto Slab',serif}
+  .paper::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(120% 120% at 80% 90%,rgba(150,120,70,.28),transparent 40%),
+               radial-gradient(80% 80% at 10% 10%,rgba(150,120,70,.18),transparent 45%)}
+  .masthead{text-align:center;font-family:'Oswald';font-weight:600;letter-spacing:.18em;font-size:24px;
+    border-bottom:3px double #1a1712;padding-bottom:14px;margin-bottom:20px;text-transform:uppercase}
+  h1{font-family:'Playfair Display';font-weight:900;font-size:76px;line-height:.98;text-align:center;
+    letter-spacing:-.01em;padding-bottom:22px;border-bottom:5px solid #1a1712;margin-bottom:24px}
+  .cols{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:26px;align-items:stretch;margin-bottom:26px}
+  .col-h{font-family:'Oswald';font-weight:700;font-size:40px;line-height:1.04;text-transform:uppercase}
+  .col-h .amt{color:#1a1712}
+  .photo{position:relative;background:#b9ad8f;border:3px solid #1a1712;overflow:hidden;min-height:300px}
+  .photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.18) brightness(1.02);mix-blend-mode:multiply;display:block}
+  .photo::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(0,0,0,.55) 1px,transparent 1.4px);background-size:5px 5px;opacity:.32;mix-blend-mode:multiply;pointer-events:none}
+  .photo .cap{position:absolute;left:0;right:0;bottom:0;background:rgba(26,23,18,.82);color:#efe7d2;font-family:'Oswald';font-weight:500;font-size:18px;letter-spacing:.04em;text-align:center;padding:8px 6px;z-index:2}
+  .left,.right{display:flex;align-items:center}
+  .box{border:3px solid #1a1712;padding:22px 26px;margin-top:8px}
+  .box .bh{font-family:'Oswald';font-weight:700;text-align:center;font-size:28px;letter-spacing:.06em;
+    border-bottom:2px solid #1a1712;padding-bottom:12px;margin-bottom:16px;text-transform:uppercase}
+  .box ul{list-style:none;font-family:'Roboto Slab';font-weight:700;font-size:34px;line-height:1.5}
+  .box li::before{content:"▪ ";}
+  .pageno{text-align:center;font-family:'Oswald';font-weight:600;letter-spacing:.2em;font-size:22px;
+    margin-top:22px;border-top:2px solid #1a1712;padding-top:14px;text-transform:uppercase}
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="paper">
+      <div class="masthead">The Business Journal &nbsp;·&nbsp; June 2026 &nbsp;·&nbsp; Vol. 14, No. 23</div>
+      <h1>EVERY BUSINESS IS TALKING ABOUT AI.<br>ALMOST NONE KNOW WHERE TO START.</h1>
+      <div class="cols">
+        <div class="left"><div class="col-h">U.S. SMALL BUSINESSES LOSING <span class="amt">$5K–$15K</span> MONTHLY TO OPERATIONAL INEFFICIENCY</div></div>
+        <div class="photo"><img src="../source-originals/generated/news_busy_3.jpg" alt="operators at work" /><span class="cap">Operators at work, pre-automation era</span></div>
+        <div class="right"><div class="col-h">14-DAY OPERATIONS AUDIT REVEALS WHERE AI ACTUALLY FITS</div></div>
+      </div>
+      <div class="box">
+        <div class="bh">What the experts recommend</div>
+        <ul>
+          <li>Audit your workflows first.</li>
+          <li>Find the 3–5 places AI saves real money.</li>
+          <li>Build only those. Skip the rest.</li>
+        </ul>
+      </div>
+      <div class="pageno">Page 1</div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,3099 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Splash Auburn Swim School with Miss Kris: private swim lessons for infants, toddlers & young children in Auburn & Opelika, AL. Summer 2026 is fully booked: join the waitlist for indoor and year-round lessons."
+    />
+    <meta name="keywords" content="swim lessons Auburn AL, swim lessons Opelika AL, private swim lessons Auburn, toddler swim lessons Auburn, infant swim lessons, Splash Auburn Swim School, Miss Kris swim lessons, learn to swim Auburn, baby swim classes Opelika" />
+    <meta name="author" content="Splash Auburn Swim School" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://splashauburn.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Splash Auburn Swim School | Miss Kris | Private Swim Lessons Auburn & Opelika" />
+    <meta property="og:description" content="Private swim lessons for infants, toddlers & young children in Auburn & Opelika, AL with Miss Kris. Summer 2026 is fully booked: join the waitlist." />
+    <meta property="og:image" content="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/698ab8d97305aae9e318ecf5.png" />
+    <meta property="og:url" content="https://splashauburn.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Splash Auburn Swim School | Miss Kris | Private Swim Lessons Auburn & Opelika" />
+    <meta name="twitter:description" content="Private swim lessons for infants, toddlers & young children in Auburn & Opelika, AL with Miss Kris. Summer 2026 is fully booked: join the waitlist." />
+    <meta name="twitter:image" content="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/698ab8d97305aae9e318ecf5.png" />
+
+    <title>Splash Auburn Swim School | Miss Kris | Private Swim Lessons Auburn & Opelika</title>
+
+    <!-- Local business structured data for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": ["SportsActivityLocation", "SwimSchool"],
+      "name": "Splash Auburn Swim School",
+      "alternateName": "Splash Swim School of Auburn",
+      "description": "Private swim lessons for infants, toddlers, and young children in Auburn and Opelika, Alabama, taught one-on-one by Miss Kris.",
+      "url": "https://splashauburn.com/",
+      "image": "https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/698ab8d97305aae9e318ecf5.png",
+      "logo": "https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/698ab8d97305aae9e318ecf5.png",
+      "telephone": "+1-210-535-2093",
+      "email": "Info@splashauburn.com",
+      "founder": { "@type": "Person", "name": "Miss Kris" },
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "901 Gwynne's Way",
+        "addressLocality": "Opelika",
+        "addressRegion": "AL",
+        "postalCode": "36804",
+        "addressCountry": "US"
+      },
+      "areaServed": [
+        { "@type": "City", "name": "Auburn", "addressRegion": "AL" },
+        { "@type": "City", "name": "Opelika", "addressRegion": "AL" }
+      ],
+      "knowsAbout": ["Private swim lessons", "Infant swim lessons", "Toddler swim lessons", "Learn to swim"],
+      "sameAs": ["https://swimwithmisskris.com/"]
+    }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Montserrat:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --primary: #2a5a84;
+        --primary-dark: #1e4466;
+        --primary-light: #e9eff4;
+        --secondary: #8ec6d8;
+        --secondary-light: #a9ddeb;
+        --bg: #f6f5f1;
+        --white: #ffffff;
+        --text: #2a5a84;
+        --text-light: #5a7a94;
+        --gradient: linear-gradient(135deg, #2a5a84 0%, #8ec6d8 100%);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--text);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      /* Navigation - Floating Style with Enhanced Glassmorphism */
+      .nav {
+        position: fixed;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 15px 40px;
+        border-radius: 50px;
+        box-shadow:
+          0 4px 6px rgba(0, 0, 0, 0.07),
+          0 8px 16px rgba(0, 0, 0, 0.07),
+          0 16px 32px rgba(0, 0, 0, 0.05);
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 40px;
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        transition: all 0.3s ease-out;
+      }
+
+      .nav.scrolled {
+        box-shadow:
+          0 8px 12px rgba(0, 0, 0, 0.1),
+          0 16px 32px rgba(0, 0, 0, 0.08),
+          0 32px 64px rgba(0, 0, 0, 0.06);
+      }
+
+      .nav-logo img {
+        height: 50px;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        list-style: none;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+        font-size: 14px;
+        transition: all 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: var(--secondary);
+      }
+
+      /* Mobile Menu Dropdown */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 90px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(20px);
+        border-radius: 20px;
+        padding: 20px;
+        width: 90%;
+        max-width: 400px;
+        box-shadow:
+          0 8px 16px rgba(0, 0, 0, 0.1),
+          0 16px 32px rgba(0, 0, 0, 0.08);
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        border: 1px solid rgba(142, 198, 216, 0.2);
+      }
+
+      .mobile-menu.active {
+        display: block;
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      .mobile-menu-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .mobile-menu-links li {
+        margin-bottom: 15px;
+      }
+
+      .mobile-menu-links li:last-child {
+        margin-bottom: 0;
+      }
+
+      .mobile-menu-links a {
+        display: block;
+        padding: 12px 16px;
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+        border-radius: 10px;
+        transition: all 0.3s ease-out;
+      }
+
+      .mobile-menu-links a:hover {
+        background: var(--primary-light);
+        color: var(--primary);
+      }
+
+      .nav-cta {
+        background: var(--gradient);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 14px;
+        transition: all 0.3s ease-out;
+        position: relative;
+        box-shadow:
+          0 4px 8px rgba(42, 90, 132, 0.25),
+          0 8px 16px rgba(42, 90, 132, 0.15);
+      }
+
+      .nav-cta:hover {
+        transform: translateY(-2px) scale(1.05);
+        box-shadow:
+          0 6px 12px rgba(42, 90, 132, 0.3),
+          0 12px 24px rgba(42, 90, 132, 0.2),
+          0 0 40px rgba(142, 198, 216, 0.4);
+        filter: brightness(1.1);
+      }
+
+      /* Hero - Full Width with Gradient Overlay */
+      .hero {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+
+      .hero-bg video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(42, 90, 132, 0.85) 0%,
+          rgba(142, 198, 216, 0.75) 100%
+        );
+        z-index: 1;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 900px;
+        padding: 0 20px;
+        color: white;
+      }
+
+      .hero-eyebrow {
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 20px;
+        opacity: 0.9;
+      }
+
+      .hero-notice {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.95);
+        color: var(--primary-dark);
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 1.4;
+        padding: 12px 22px;
+        border-radius: 30px;
+        margin-bottom: 28px;
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+      }
+
+      .booking-notice {
+        max-width: 760px;
+        margin: 0 auto 50px;
+        background: var(--primary-light);
+        border: 2px solid var(--secondary);
+        color: var(--primary-dark);
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.55;
+        text-align: center;
+        padding: 20px 28px;
+        border-radius: 18px;
+      }
+      .booking-notice strong {
+        color: var(--primary);
+      }
+
+      .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: 72px;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 30px;
+        text-shadow:
+          0 2px 4px rgba(0, 0, 0, 0.2),
+          0 4px 12px rgba(0, 0, 0, 0.15),
+          0 0 40px rgba(142, 198, 216, 0.3);
+      }
+
+      .highlight-text {
+        position: relative;
+        display: inline;
+        padding: 2px 6px;
+        margin: 0;
+        background: linear-gradient(
+          120deg,
+          rgba(255, 255, 255, 0.2) 0%,
+          rgba(255, 255, 255, 0.2) 100%
+        );
+        background-repeat: no-repeat;
+        background-size: 0% 100%;
+        background-position: 0 0;
+        border-radius: 4px;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        animation: highlightSweep 1.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        animation-delay: 0.6s;
+      }
+
+      @keyframes highlightSweep {
+        0% {
+          background-size: 0% 100%;
+        }
+        100% {
+          background-size: 100% 100%;
+        }
+      }
+
+      .hero-subtitle {
+        font-size: 24px;
+        font-weight: 400;
+        margin-bottom: 40px;
+        opacity: 0.95;
+      }
+
+      /* Flowing water border wrapper */
+      .hero-btn-border {
+        position: relative;
+        display: inline-block;
+        padding: 3px;
+        border-radius: 18px;
+        background: conic-gradient(
+          from var(--border-angle, 0deg),
+          #ffffff 0%,
+          #8ec6d8 25%,
+          #2a5a84 40%,
+          #8ec6d8 55%,
+          #b8e2f0 70%,
+          #ffffff 85%,
+          #8ec6d8 100%
+        );
+        animation: flowBorder 3s linear infinite;
+        transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+      }
+
+      @property --border-angle {
+        syntax: "<angle>";
+        initial-value: 0deg;
+        inherits: false;
+      }
+
+      @keyframes flowBorder {
+        to { --border-angle: 360deg; }
+      }
+
+      .hero-btn-border:hover {
+        transform: translateY(-5px) scale(1.06);
+        box-shadow:
+          0 8px 25px rgba(42, 90, 132, 0.25),
+          0 18px 50px rgba(142, 198, 216, 0.2),
+          0 0 60px rgba(142, 198, 216, 0.15);
+      }
+
+      .hero-btn {
+        display: block;
+        background: linear-gradient(135deg, #ffffff 0%, #f0f9fc 40%, #e4f4fa 100%);
+        color: var(--primary-dark);
+        padding: 22px 55px;
+        border-radius: 15px;
+        text-decoration: none;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 700;
+        font-size: 18px;
+        letter-spacing: 0.5px;
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      /* Foam highlight along the top */
+      .hero-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 45%;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.5) 0%,
+          transparent 100%
+        );
+        border-radius: 15px 15px 0 0;
+        pointer-events: none;
+      }
+
+      .hero-subtext {
+        display: block;
+        margin-top: 15px;
+        font-size: 13px;
+        font-family: 'Playfair Display', serif;
+        opacity: 0.85;
+      }
+
+      .section-wave {
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        z-index: 2;
+      }
+
+      .section-wave svg {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 140px;
+      }
+
+      /* Social Proof - Floating Cards */
+      .social-proof {
+        position: relative;
+        margin-top: -100px;
+        z-index: 10;
+        padding: 0 20px 80px;
+        background: linear-gradient(180deg, transparent 0%, var(--bg) 50%);
+      }
+
+      .social-proof-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+      }
+
+      .proof-card {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow:
+          0 8px 16px rgba(0, 0, 0, 0.08),
+          0 16px 32px rgba(0, 0, 0, 0.06),
+          0 32px 64px rgba(0, 0, 0, 0.04);
+        transition: all 0.3s ease-out;
+        border: 1px solid rgba(142, 198, 216, 0.1);
+      }
+
+      .proof-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow:
+          0 12px 24px rgba(0, 0, 0, 0.1),
+          0 24px 48px rgba(0, 0, 0, 0.08),
+          0 40px 80px rgba(0, 0, 0, 0.06),
+          0 0 40px rgba(142, 198, 216, 0.2);
+      }
+
+      .proof-icon {
+        margin-bottom: 15px;
+      }
+
+      .proof-icon svg {
+        width: 48px;
+        height: 48px;
+      }
+
+      .proof-label {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: var(--text-light);
+        margin-bottom: 10px;
+      }
+
+      .proof-value {
+        font-size: 18px;
+        font-weight: 700;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Video Highlights Section */
+      .video-highlights {
+        background: var(--bg);
+        padding: 80px 20px;
+        text-align: center;
+      }
+
+      .video-grid {
+        max-width: 1200px;
+        margin: 60px auto 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+      }
+
+      .video-item {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.3s ease-out;
+        background: white;
+        aspect-ratio: 9/16;
+        padding: 4px;
+        background: linear-gradient(135deg, #2a5a84 0%, #8ec6d8 50%, #2a5a84 100%);
+        cursor: pointer;
+      }
+
+      .video-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg,
+          rgba(42, 90, 132, 0.1) 0%,
+          rgba(142, 198, 216, 0.1) 50%,
+          rgba(42, 90, 132, 0.1) 100%);
+        border-radius: 20px;
+        pointer-events: none;
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+
+      .video-item:hover::before {
+        opacity: 1;
+      }
+
+      .video-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        border-radius: 16px;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .video-item:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow:
+          0 12px 24px rgba(42, 90, 132, 0.2),
+          0 24px 48px rgba(42, 90, 132, 0.15),
+          0 40px 80px rgba(42, 90, 132, 0.1),
+          0 0 60px rgba(142, 198, 216, 0.4);
+      }
+
+      .video-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        display: block;
+      }
+
+      .video-play-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, rgba(42, 90, 132, 0.7) 0%, rgba(142, 198, 216, 0.7) 100%);
+        z-index: 2;
+        transition: opacity 0.3s;
+        pointer-events: none;
+      }
+
+      .video-play-overlay.hidden {
+        opacity: 0;
+      }
+
+      .video-play-button {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ffffff 0%, #e4f4fa 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow:
+          0 8px 24px rgba(0, 0, 0, 0.3),
+          0 0 40px rgba(142, 198, 216, 0.6);
+        transition: all 0.3s;
+      }
+
+      .video-item:hover .video-play-button {
+        transform: scale(1.1);
+        box-shadow:
+          0 12px 32px rgba(0, 0, 0, 0.4),
+          0 0 60px rgba(142, 198, 216, 0.8);
+      }
+
+      .video-play-button svg {
+        width: 32px;
+        height: 32px;
+        margin-left: 4px;
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 120px 20px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--primary-dark);
+        color: white;
+        padding: 80px 20px 40px;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 60px;
+        margin-bottom: 60px;
+      }
+
+      .footer-logo img {
+        height: 120px;
+        filter: brightness(0) invert(1);
+        margin-bottom: 20px;
+      }
+
+      .footer h4 {
+        font-size: 18px;
+        margin-bottom: 25px;
+        font-family: "Playfair Display", serif;
+      }
+
+      .footer a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        display: block;
+        margin-bottom: 12px;
+        transition: color 0.3s;
+      }
+
+      .footer a:hover {
+        color: var(--secondary);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        padding-top: 40px;
+        text-align: center;
+        color: rgba(255, 255, 255, 0.6);
+        font-size: 14px;
+      }
+
+      .footer-credit {
+        margin-top: 15px;
+      }
+
+      .footer-credit a {
+        color: var(--secondary);
+        text-decoration: underline;
+      }
+
+      /* Mobile Navigation */
+      .nav-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+      }
+
+      .nav-toggle span {
+        width: 25px;
+        height: 3px;
+        background: var(--primary);
+        border-radius: 2px;
+        transition: all 0.3s;
+      }
+
+      /* Problem Section */
+      .problem-section {
+        background: linear-gradient(to bottom, var(--bg) 0%, var(--bg) 50%, white 70%);
+        text-align: center;
+        position: relative;
+        padding-bottom: 180px;
+      }
+
+      .section-eyebrow {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--secondary);
+        margin-bottom: 20px;
+      }
+
+      .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 56px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--primary);
+        margin-bottom: 30px;
+        max-width: 900px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .section-intro {
+        font-size: 20px;
+        color: var(--text-light);
+        max-width: 800px;
+        margin: 0 auto 80px;
+        line-height: 1.8;
+      }
+
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 40px;
+        margin-bottom: 80px;
+      }
+
+      .problem-card {
+        background: white;
+        padding: 50px 40px;
+        border-radius: 20px;
+        box-shadow:
+          0 8px 16px rgba(0, 0, 0, 0.06),
+          0 16px 32px rgba(0, 0, 0, 0.04),
+          0 24px 48px rgba(0, 0, 0, 0.03);
+        transition: all 0.3s ease-out;
+        text-align: left;
+        border: 1px solid rgba(142, 198, 216, 0.08);
+      }
+
+      .problem-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow:
+          0 12px 24px rgba(0, 0, 0, 0.1),
+          0 24px 48px rgba(0, 0, 0, 0.08),
+          0 40px 80px rgba(0, 0, 0, 0.06);
+        border-color: rgba(142, 198, 216, 0.3);
+      }
+
+      .problem-icon {
+        font-size: 56px;
+        margin-bottom: 25px;
+        display: block;
+      }
+
+      .problem-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: var(--primary);
+      }
+
+      .problem-card p {
+        color: var(--text-light);
+        line-height: 1.8;
+        font-size: 16px;
+      }
+
+      .problem-transition {
+        max-width: 800px;
+        margin: 0 auto 40px;
+        font-size: 18px;
+        line-height: 1.8;
+        color: var(--text);
+      }
+
+      .problem-cta {
+        display: inline-block;
+        background: var(--gradient);
+        color: white;
+        padding: 18px 45px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 16px;
+        transition: all 0.3s ease-out;
+        box-shadow:
+          0 4px 8px rgba(42, 90, 132, 0.25),
+          0 8px 20px rgba(42, 90, 132, 0.15),
+          0 16px 40px rgba(42, 90, 132, 0.1);
+      }
+
+      .problem-cta:hover {
+        transform: translateY(-3px) scale(1.05);
+        box-shadow:
+          0 6px 12px rgba(42, 90, 132, 0.3),
+          0 12px 30px rgba(42, 90, 132, 0.2),
+          0 20px 50px rgba(42, 90, 132, 0.15),
+          0 0 60px rgba(142, 198, 216, 0.4);
+        filter: brightness(1.1);
+      }
+
+      .btn-subtext {
+        display: block;
+        margin-top: 6px;
+        font-size: 11px;
+        font-weight: 400;
+        opacity: 0.85;
+        letter-spacing: 0.3px;
+      }
+
+      /* Services Section */
+      .services-section {
+        background: white;
+        position: relative;
+      }
+
+      .services-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: white;
+      }
+
+      .services-intro {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+        gap: 40px;
+      }
+
+      .service-card {
+        background: var(--primary-light);
+        padding: 50px 40px;
+        border-radius: 20px;
+        text-align: center;
+        transition: all 0.3s ease-out;
+        position: relative;
+        overflow: hidden;
+        box-shadow:
+          0 4px 8px rgba(0, 0, 0, 0.06),
+          0 8px 16px rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(142, 198, 216, 0.15);
+      }
+
+      .service-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--gradient);
+      }
+
+      .service-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow:
+          0 8px 16px rgba(0, 0, 0, 0.1),
+          0 16px 32px rgba(0, 0, 0, 0.08),
+          0 32px 64px rgba(0, 0, 0, 0.06),
+          0 0 40px rgba(142, 198, 216, 0.2);
+        border-color: rgba(142, 198, 216, 0.4);
+      }
+
+      .service-featured {
+        background: var(--gradient);
+        color: white;
+        transform: scale(1.05);
+      }
+
+      .service-featured h3,
+      .service-featured p,
+      .service-featured .service-price,
+      .service-featured .service-duration {
+        color: white;
+      }
+
+      .service-featured .service-price {
+        background: none;
+        -webkit-background-clip: unset;
+        -webkit-text-fill-color: white;
+        background-clip: unset;
+        filter: none;
+      }
+
+      .service-featured::before {
+        background: white;
+      }
+
+      .service-badge {
+        display: inline-block;
+        background: white;
+        color: var(--primary);
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-bottom: 25px;
+      }
+
+      .service-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 32px;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .service-card.service-featured h3 {
+        color: white;
+      }
+
+      .service-price {
+        font-size: 48px;
+        font-weight: 700;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        margin-bottom: 10px;
+        filter: drop-shadow(0 2px 4px rgba(42, 90, 132, 0.2));
+      }
+
+      .service-duration {
+        font-size: 14px;
+        color: var(--text-light);
+        margin-bottom: 30px;
+      }
+
+      .service-features {
+        list-style: none;
+        margin-bottom: 35px;
+        text-align: left;
+      }
+
+      .service-features li {
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(42, 90, 132, 0.1);
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+      }
+
+      .service-featured .service-features li {
+        border-bottom-color: rgba(255, 255, 255, 0.2);
+        color: white;
+      }
+
+      .service-features li::before {
+        content: "✓";
+        font-weight: 700;
+        color: var(--secondary);
+        font-size: 18px;
+        flex-shrink: 0;
+      }
+
+      .service-featured .service-features li::before {
+        color: white;
+      }
+
+      .service-btn {
+        display: block;
+        width: 100%;
+        background: var(--primary);
+        color: white;
+        padding: 16px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.3s;
+        border: 2px solid var(--primary);
+      }
+
+      .service-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      .service-featured .service-btn {
+        background: white;
+        color: var(--primary);
+        border-color: white;
+      }
+
+      .service-featured .service-btn:hover {
+        background: var(--primary-light);
+      }
+
+      /* Process Section */
+      .process-section {
+        background: var(--bg);
+        text-align: center;
+      }
+
+      .process-timeline {
+        max-width: 900px;
+        margin: 0 auto;
+        position: relative;
+        padding: 40px 0;
+      }
+
+      .process-timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 3px;
+        background: var(--gradient);
+        transform: translateX(-50%);
+      }
+
+      .process-step {
+        position: relative;
+        margin-bottom: 80px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      .process-step:last-child {
+        margin-bottom: 0;
+      }
+
+      .process-step:nth-child(even) .process-content {
+        order: 1;
+      }
+
+      .process-step:nth-child(even) .process-number {
+        order: 2;
+      }
+
+      .process-number {
+        width: 100px;
+        height: 100px;
+        background: var(--gradient);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        font-weight: 700;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 10px 40px rgba(42, 90, 132, 0.2);
+      }
+
+      .process-content {
+        text-align: left;
+        background: white;
+        padding: 40px;
+        border-radius: 20px;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+      }
+
+      .process-step:nth-child(even) .process-content {
+        text-align: left;
+      }
+
+      .process-content h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 28px;
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      .process-content p {
+        color: var(--text-light);
+        line-height: 1.8;
+      }
+
+      /* Timeline Scrolling Arrow */
+      .timeline-arrow {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%) translateY(0);
+        width: 40px;
+        height: 40px;
+        z-index: 5;
+        will-change: transform, opacity;
+        transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+        filter: drop-shadow(0 4px 12px rgba(42, 90, 132, 0.35));
+      }
+
+      .timeline-arrow svg {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.3s ease;
+      }
+
+      .timeline-arrow.pulse svg {
+        animation: arrowPulse 0.6s ease-out;
+      }
+
+      .timeline-arrow.reached-step svg circle {
+        fill: url(#arrowGrad);
+      }
+
+      @keyframes arrowPulse {
+        0% { transform: scale(1); }
+        30% { transform: scale(1.4); }
+        60% { transform: scale(0.95); }
+        100% { transform: scale(1); }
+      }
+
+      .process-step.step-reached .process-number {
+        animation: numberGlow 0.6s ease-out;
+      }
+
+      @keyframes numberGlow {
+        0% { box-shadow: 0 10px 40px rgba(42, 90, 132, 0.2); }
+        50% { box-shadow: 0 10px 40px rgba(42, 90, 132, 0.2), 0 0 40px rgba(142, 198, 216, 0.6); }
+        100% { box-shadow: 0 10px 40px rgba(42, 90, 132, 0.2); }
+      }
+
+      /* Benefits Section */
+      .benefits-section {
+        background: white;
+        text-align: center;
+      }
+
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 40px;
+      }
+
+      .benefit-card {
+        background: var(--primary-light);
+        padding: 45px 35px;
+        border-radius: 20px;
+        transition: all 0.3s;
+      }
+
+      .benefit-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+      }
+
+      .benefit-icon {
+        width: 70px;
+        height: 70px;
+        background: var(--gradient);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 32px;
+        margin: 0 auto 25px;
+        box-shadow:
+          0 4px 8px rgba(42, 90, 132, 0.2),
+          0 8px 16px rgba(42, 90, 132, 0.15),
+          0 0 30px rgba(142, 198, 216, 0.3);
+        transition: all 0.3s ease-out;
+      }
+
+      .benefit-card:hover .benefit-icon {
+        transform: scale(1.1);
+        box-shadow:
+          0 6px 12px rgba(42, 90, 132, 0.25),
+          0 12px 24px rgba(42, 90, 132, 0.2),
+          0 0 50px rgba(142, 198, 216, 0.5);
+      }
+
+      .benefit-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 24px;
+        color: var(--primary);
+        margin-bottom: 15px;
+      }
+
+      .benefit-card p {
+        color: var(--text-light);
+        line-height: 1.8;
+      }
+
+      /* Who We Help Section */
+      .who-section {
+        background: var(--bg);
+      }
+
+      .who-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 80px;
+        align-items: center;
+      }
+
+      .who-text h2 {
+        margin-bottom: 30px;
+      }
+
+      .who-text p {
+        font-size: 18px;
+        line-height: 1.8;
+        color: var(--text-light);
+        margin-bottom: 25px;
+      }
+
+      .who-list {
+        list-style: none;
+        margin: 40px 0;
+      }
+
+      .who-list li {
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(42, 90, 132, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 18px;
+        color: var(--text);
+      }
+
+      .who-list li:last-child {
+        border-bottom: none;
+      }
+
+      .who-list li::before {
+        content: '✓';
+        width: 40px;
+        height: 40px;
+        background: var(--gradient);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .who-image {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+      }
+
+      .who-image img {
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        display: block;
+      }
+
+      /* Gallery Section - Conveyor Belt */
+      .gallery-section {
+        background: white;
+        text-align: center;
+        overflow: hidden;
+      }
+
+      .gallery-conveyor {
+        margin-top: 60px;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .gallery-track {
+        display: flex;
+        gap: 30px;
+        animation: scroll 60s linear infinite;
+        width: max-content;
+      }
+
+      .gallery-track.reverse {
+        animation: scrollReverse 60s linear infinite;
+      }
+
+      .gallery-track:hover {
+        animation-play-state: paused;
+      }
+
+      @keyframes scroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+
+      @keyframes scrollReverse {
+        0% {
+          transform: translateX(-50%);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .gallery-item {
+        position: relative;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+        transition: transform 0.3s;
+        flex-shrink: 0;
+        width: 400px;
+        height: 300px;
+      }
+
+      .gallery-item:hover {
+        transform: scale(1.05);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+      }
+
+      .gallery-placeholder {
+        background: var(--primary-light);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        height: 100%;
+      }
+
+      /* FAQ Section */
+      .faq-section {
+        background: var(--bg);
+      }
+
+      .faq-intro {
+        text-align: center;
+        margin-bottom: 80px;
+      }
+
+      .faq-container {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+
+      .faq-item {
+        background: white;
+        border-radius: 20px;
+        margin-bottom: 25px;
+        overflow: hidden;
+        box-shadow:
+          0 4px 8px rgba(0,0,0,0.04),
+          0 8px 16px rgba(0,0,0,0.03);
+        transition: all 0.3s ease-out;
+        border: 1px solid rgba(142, 198, 216, 0.1);
+      }
+
+      .faq-item:hover {
+        box-shadow:
+          0 8px 16px rgba(0,0,0,0.08),
+          0 16px 32px rgba(0,0,0,0.06);
+        border-color: rgba(142, 198, 216, 0.3);
+      }
+
+      .faq-item.active {
+        box-shadow:
+          0 8px 16px rgba(42, 90, 132, 0.15),
+          0 16px 32px rgba(42, 90, 132, 0.1),
+          0 0 40px rgba(142, 198, 216, 0.2);
+        border-color: rgba(142, 198, 216, 0.5);
+      }
+
+      .faq-question {
+        padding: 30px 40px;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+        transition: all 0.3s;
+      }
+
+      .faq-question:hover {
+        background: var(--primary-light);
+      }
+
+      .faq-question h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 22px;
+        color: var(--primary);
+        margin: 0;
+        flex: 1;
+      }
+
+      .faq-toggle {
+        width: 32px;
+        height: 32px;
+        background: var(--gradient);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 24px;
+        font-weight: 700;
+        transition: transform 0.3s;
+        flex-shrink: 0;
+      }
+
+      .faq-item.active .faq-toggle {
+        transform: rotate(45deg);
+      }
+
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      .faq-answer-content {
+        padding: 0 40px 30px;
+        color: var(--text-light);
+        line-height: 1.8;
+        font-size: 16px;
+      }
+
+      .faq-item.active .faq-answer {
+        max-height: 500px;
+      }
+
+      /* Final CTA Section */
+      .final-cta {
+        background: var(--gradient);
+        color: white;
+        text-align: center;
+        position: relative;
+        padding: 150px 20px;
+      }
+
+      .final-cta .section-eyebrow {
+        color: white;
+        opacity: 0.9;
+      }
+
+      .final-cta .section-title {
+        color: white;
+      }
+
+      .final-cta .section-intro {
+        color: white;
+        opacity: 0.95;
+        margin-bottom: 50px;
+      }
+
+      .cta-form {
+        max-width: 600px;
+        margin: 0 auto;
+        background: white;
+        padding: 10px;
+        border-radius: 30px;
+        box-shadow:
+          0 8px 16px rgba(0, 0, 0, 0.15),
+          0 16px 32px rgba(0, 0, 0, 0.12),
+          0 32px 64px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        min-height: 680px;
+      }
+
+      .cta-form iframe {
+        display: block;
+        width: 100%;
+        min-height: 648px;
+        border: none;
+        border-radius: 20px;
+      }
+
+      /* Scroll Reveal Animations */
+      .fade-in-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      }
+
+      .fade-in-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Stagger animation delays */
+      .fade-in-up:nth-child(1) { transition-delay: 0.1s; }
+      .fade-in-up:nth-child(2) { transition-delay: 0.2s; }
+      .fade-in-up:nth-child(3) { transition-delay: 0.3s; }
+      .fade-in-up:nth-child(4) { transition-delay: 0.4s; }
+      .fade-in-up:nth-child(5) { transition-delay: 0.5s; }
+      .fade-in-up:nth-child(6) { transition-delay: 0.6s; }
+
+      /* Desktop adjustments */
+      @media (min-width: 969px) {
+        .hero {
+          height: calc(100vh - 100px);
+        }
+      }
+
+      /* Responsive */
+      @media (max-width: 968px) {
+        .video-highlights {
+          padding: 60px 20px;
+        }
+
+        .video-grid {
+          position: relative;
+          display: block;
+          height: 600px;
+          max-width: 400px;
+          margin: 60px auto 40px;
+        }
+
+        .video-item {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 90%;
+          height: 500px;
+          transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+          cursor: grab;
+          aspect-ratio: 9/16;
+        }
+
+        .video-item:active {
+          cursor: grabbing;
+        }
+
+        .video-item.hidden {
+          opacity: 0;
+          pointer-events: none;
+          transform: translate(-50%, -50%) scale(0.8);
+        }
+
+        .video-item.prev {
+          transform: translate(-50%, -50%) scale(0.95) translateX(-30px);
+          opacity: 0.5;
+          z-index: 1;
+          pointer-events: none;
+        }
+
+        .video-item.active {
+          transform: translate(-50%, -50%) scale(1);
+          opacity: 1;
+          z-index: 3;
+        }
+
+        .video-item.next {
+          transform: translate(-50%, -50%) scale(0.95) translateX(30px);
+          opacity: 0.5;
+          z-index: 2;
+          pointer-events: none;
+        }
+
+        .video-dots {
+          display: flex;
+          justify-content: center;
+          gap: 8px;
+          margin-top: 20px;
+        }
+
+        .video-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+          background: rgba(42, 90, 132, 0.3);
+          transition: all 0.3s;
+        }
+
+        .video-dot.active {
+          background: var(--primary);
+          width: 24px;
+          border-radius: 4px;
+        }
+
+        .gallery-item {
+          width: 280px;
+          height: 210px;
+        }
+
+        .gallery-track {
+          gap: 20px;
+        }
+
+        .nav {
+          padding: 15px 25px;
+          gap: 20px;
+          width: 90%;
+        }
+      }
+
+      @media (min-width: 969px) {
+        .video-dots {
+          display: none;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .nav-links {
+          display: none !important;
+        }
+
+        .nav-toggle {
+          display: flex;
+        }
+
+        .nav-toggle.active span:nth-child(1) {
+          transform: rotate(45deg) translate(6px, 6px);
+        }
+
+        .nav-toggle.active span:nth-child(2) {
+          opacity: 0;
+        }
+
+        .nav-toggle.active span:nth-child(3) {
+          transform: rotate(-45deg) translate(6px, -6px);
+        }
+
+        .hero-title {
+          font-size: 48px;
+        }
+
+        .highlight-text {
+          background: none;
+          animation: none;
+          padding: 0;
+        }
+
+        .hero-subtitle {
+          font-size: 18px;
+        }
+
+        .social-proof {
+          margin-top: 40px;
+        }
+
+        .section-title {
+          font-size: 38px;
+        }
+
+        .problem-grid {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .who-content {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+
+        .who-image img {
+          height: 400px;
+        }
+
+        .process-timeline::before {
+          display: none;
+        }
+
+        .timeline-arrow {
+          display: none;
+        }
+
+        .process-step {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .process-step:nth-child(even) .process-content {
+          order: 1;
+          text-align: left;
+        }
+
+        .process-step:nth-child(even) .process-number {
+          order: 1;
+        }
+
+        .faq-question {
+          padding: 20px 25px;
+        }
+
+        .faq-question h3 {
+          font-size: 18px;
+        }
+
+        .faq-answer-content {
+          padding: 0 25px 20px;
+        }
+
+        .cta-form {
+          padding: 5px;
+          min-height: 660px;
+        }
+
+        /* Reduce transform effects on mobile for performance */
+        .proof-card:hover,
+        .problem-card:hover,
+        .service-card:hover,
+        .benefit-card:hover {
+          transform: translateY(-5px);
+        }
+
+        .hero-btn-border:hover,
+        .problem-cta:hover,
+        .form-submit:hover {
+          transform: translateY(-2px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Floating Navigation -->
+    <nav class="nav">
+      <div class="nav-logo">
+        <img
+          src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/698ab8d97305aae9e318ecf5.png"
+          alt="Splash Auburn"
+        />
+      </div>
+      <ul class="nav-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#lessons">Lessons</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#waitlist" class="nav-cta">Join the Waitlist</a>
+      <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <!-- Mobile Menu Dropdown -->
+    <div class="mobile-menu">
+      <ul class="mobile-menu-links">
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#lessons">Lessons</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#waitlist">Join the Waitlist</a></li>
+      </ul>
+    </div>
+
+    <!-- Hero Section - Full Screen with Video Background -->
+    <section class="hero">
+      <div class="hero-bg">
+        <video autoplay loop muted playsinline>
+          <source
+            src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/699120ee0084988041998522.mov"
+            type="video/mp4"
+          />
+        </video>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Private Swim Lessons | Auburn & Opelika, AL</div>
+        <h1 class="hero-title"><span class="highlight-text">Swimming lessons</span> children love and parents trust.</h1>
+        <p class="hero-subtitle">
+          Gentle, one-on-one swim instruction for infants, toddlers, and young
+          children in Auburn and Opelika.
+        </p>
+        <div class="hero-notice">
+          Summer 2026 is fully booked. Join the waitlist for indoor &amp; year-round lessons.
+        </div>
+        <div class="hero-btn-border">
+          <a href="#waitlist" class="hero-btn">
+            Join the Waitlist
+            <span class="hero-subtext"
+              >Be first in line for indoor &amp; future openings.</span
+            >
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Social Proof - Floating Cards -->
+    <section class="social-proof">
+      <div class="social-proof-container">
+        <div class="proof-card">
+          <div class="proof-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Mom head -->
+              <circle cx="17" cy="10" r="5.5" fill="url(#momGrad)"/>
+              <!-- Mom hair detail -->
+              <path d="M11.5 9C11.5 5.5 14 3 17 3C20 3 22.5 5.5 22.5 9C22.5 7 20.5 5.5 17 5.5C13.5 5.5 11.5 7 11.5 9Z" fill="#1E4466"/>
+              <!-- Mom body -->
+              <path d="M10 22C10 18.5 13 17 17 17C21 17 24 18.5 24 22V30C24 31.1 23.1 32 22 32H12C10.9 32 10 31.1 10 30V22Z" fill="url(#momGrad)"/>
+              <!-- Mom arm reaching to child -->
+              <path d="M24 22C24 22 27 21 29 22" stroke="#2A5A84" stroke-width="2" stroke-linecap="round"/>
+              <!-- Child head -->
+              <circle cx="33" cy="16" r="4" fill="url(#childGrad)"/>
+              <!-- Child body -->
+              <path d="M28 28C28 25.5 30 24 33 24C36 24 38 25.5 38 28V32C38 33.1 37.1 34 36 34H30C28.9 34 28 33.1 28 32V28Z" fill="url(#childGrad)"/>
+              <!-- Water ripple under both -->
+              <path d="M6 38C10 36 14 40 18 38C22 36 26 40 30 38C34 36 38 40 42 38" stroke="#8EC6D8" stroke-width="2" stroke-linecap="round"/>
+              <path d="M8 42C12 40 16 44 20 42C24 40 28 44 32 42C36 40 40 44 44 42" stroke="#A9DDEB" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- Heart between them -->
+              <path d="M25.5 14C25.5 13 26.2 12.2 27 12.2C27.8 12.2 28.2 13 28.2 13C28.2 13 28.6 12.2 29.4 12.2C30.2 12.2 30.9 13 30.9 14C30.9 15.5 28.2 17 28.2 17C28.2 17 25.5 15.5 25.5 14Z" fill="#8EC6D8"/>
+              <defs>
+                <linearGradient id="momGrad" x1="17" y1="4" x2="17" y2="32" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#2A5A84"/>
+                  <stop offset="1" stop-color="#1E4466"/>
+                </linearGradient>
+                <linearGradient id="childGrad" x1="33" y1="12" x2="33" y2="34" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#8EC6D8"/>
+                  <stop offset="1" stop-color="#2A5A84"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="proof-label">Trusted By</div>
+          <div class="proof-value">100+ Auburn & Opelika Families</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="8" y="12" width="32" height="28" rx="2" fill="url(#gradient2)" stroke="#2A5A84" stroke-width="2"/>
+              <line x1="8" y1="18" x2="40" y2="18" stroke="#2A5A84" stroke-width="2"/>
+              <line x1="16" y1="8" x2="16" y2="14" stroke="#2A5A84" stroke-width="2" stroke-linecap="round"/>
+              <line x1="32" y1="8" x2="32" y2="14" stroke="#2A5A84" stroke-width="2" stroke-linecap="round"/>
+              <circle cx="16" cy="26" r="1.5" fill="#2A5A84"/>
+              <circle cx="24" cy="26" r="1.5" fill="#2A5A84"/>
+              <circle cx="32" cy="26" r="1.5" fill="#2A5A84"/>
+              <circle cx="16" cy="32" r="1.5" fill="#2A5A84"/>
+              <circle cx="24" cy="32" r="1.5" fill="#2A5A84"/>
+              <defs>
+                <linearGradient id="gradient2" x1="24" y1="12" x2="24" y2="40" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#A9DDEB" stop-opacity="0.3"/>
+                  <stop offset="1" stop-color="#8EC6D8" stop-opacity="0.5"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="proof-label">Est.</div>
+          <div class="proof-value">Serving Families Since 2021</div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-icon">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="24" cy="24" r="20" fill="url(#gradient3)"/>
+              <path d="M14 24L20 30L34 16" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="24" cy="24" r="20" stroke="#2A5A84" stroke-width="2" fill="none"/>
+              <defs>
+                <linearGradient id="gradient3" x1="24" y1="4" x2="24" y2="44" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#2A5A84"/>
+                  <stop offset="1" stop-color="#8EC6D8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="proof-label">Certified</div>
+          <div class="proof-value">CPR, First Aid & Swim Certified</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Highlights Section -->
+    <section class="video-highlights">
+      <div class="container">
+        <div class="section-eyebrow">SEE US IN ACTION</div>
+        <h2 class="section-title">Real Lessons, Real Progress</h2>
+        <p class="section-intro">
+          Watch how we work with children of all ages and comfort levels. These are real moments from our private swim lessons in Auburn and Opelika.
+        </p>
+
+        <div class="video-grid" id="videoCarousel">
+          <div class="video-item active" data-index="0">
+            <video autoplay muted loop playsinline>
+              <source src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/699120ee899b8856fdb35f6e.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-item next" data-index="1">
+            <video autoplay muted loop playsinline>
+              <source src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/699120ee899b887437b35f6d.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-item hidden" data-index="2">
+            <video autoplay muted loop playsinline>
+              <source src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/699120eec08665abb7fea5cd.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-item hidden" data-index="3">
+            <video autoplay muted loop playsinline>
+              <source src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/699120ee00849809b0998521.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-item hidden" data-index="4">
+            <video autoplay muted loop playsinline>
+              <source src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/699120ee899b882ccbb35f6f.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="video-item hidden" data-index="5">
+            <video autoplay muted loop playsinline>
+              <source src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/699120eec0866518fbfea5cc.mov" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="video-dots" id="videoDots">
+          <div class="video-dot active"></div>
+          <div class="video-dot"></div>
+          <div class="video-dot"></div>
+          <div class="video-dot"></div>
+          <div class="video-dot"></div>
+          <div class="video-dot"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="section problem-section" id="lessons">
+      <div class="container">
+        <div class="section-eyebrow">SOUND FAMILIAR?</div>
+        <h2 class="section-title">
+          When Swimming Lessons Create More Fear Than Confidence
+        </h2>
+        <p class="section-intro">
+          We hear it all the time from parents: their child tried swimming
+          lessons once… and now they're terrified of the water. Between
+          overcrowded classes, impatient instructors, and one-size-fits-all
+          teaching methods, many swim programs do more harm than good.
+        </p>
+
+        <div class="problem-grid">
+          <div class="problem-card">
+            <span class="problem-icon">👥</span>
+            <h3>Crowded Group Classes</h3>
+            <p>
+              Your child gets lost in a sea of students. They don't get the
+              attention they need, fall behind, and quickly lose confidence. One
+              instructor can't watch everyone at once, and that's when fear
+              takes root.
+            </p>
+          </div>
+          <div class="problem-card">
+            <span class="problem-icon">😰</span>
+            <h3>Fear-Based Instruction</h3>
+            <p>
+              Some programs push children too hard, too fast. Being forced
+              underwater before they're ready doesn't teach them to swim. It
+              teaches them to be afraid. Fear-based training creates swimmers
+              who never want to go near the water again.
+            </p>
+          </div>
+          <div class="problem-card">
+            <span class="problem-icon">🔄</span>
+            <h3>Inconsistent Instructors</h3>
+            <p>
+              Every week, a new face. Your child has to start over, rebuild
+              trust, and relearn their comfort level. Consistency is everything
+              when teaching young swimmers, and most programs can't offer that.
+            </p>
+          </div>
+        </div>
+
+        <p class="problem-transition">
+          <strong
+            >The truth is, most swim lessons weren't designed for infants,
+            toddlers, and young children.</strong
+          >
+          They were designed for efficiency and scale. But learning to swim
+          isn't about rushing through a curriculum. It's about patience, trust,
+          and meeting each child exactly where they are.
+        </p>
+
+        <a href="#waitlist" class="problem-cta">Join the Waitlist<span class="btn-subtext">Summer is full. Be first in line for indoor &amp; fall lessons</span></a>
+      </div>
+      <div class="section-wave">
+        <svg viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 L1440,120 L0,120 Z" fill="white"/>
+          <path d="M0,70 C240,110 480,20 720,70 C960,110 1200,20 1440,70 L1440,120 L0,120 Z" fill="white" opacity="0.5"/>
+          <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60" fill="none" stroke="url(#waveGrad)" stroke-width="3"/>
+          <defs>
+            <linearGradient id="waveGrad" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#2A5A84"/>
+              <stop offset="50%" stop-color="#8EC6D8"/>
+              <stop offset="100%" stop-color="#2A5A84"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services-section">
+      <div class="container">
+        <div class="services-intro">
+          <div class="section-eyebrow">OUR APPROACH</div>
+          <h2 class="section-title">
+            Private, One-on-One Swim Lessons Built Around Your Child
+          </h2>
+          <p class="section-intro">
+            Every child learns differently. That's why we offer completely
+            private, customized swim instruction in a calm, home-pool
+            environment. No distractions. No pressure. Just your child, our
+            certified instructor, and a proven curriculum that builds real water
+            confidence.
+          </p>
+        </div>
+
+        <div class="booking-notice">
+          <strong>Summer 2026 lessons are fully booked.</strong> Pricing is shown below for reference. To reserve your place for indoor, year-round, or future openings, join the waitlist.
+        </div>
+
+        <div class="services-grid">
+          <!-- Single Lesson -->
+          <div class="service-card">
+            <h3>Single Lesson</h3>
+            <div class="service-price">$65</div>
+            <div class="service-duration">per 30-minute lesson</div>
+            <ul class="service-features">
+              <li>One private 30-minute lesson</li>
+              <li>Personalized curriculum</li>
+              <li>Certified instructor</li>
+              <li>Perfect for trial or one-time use</li>
+            </ul>
+            <a href="#waitlist" class="service-btn">Join the Waitlist<span class="btn-subtext">Reserve your spot for upcoming openings</span></a>
+          </div>
+
+          <!-- 4-Lesson Package (Featured) -->
+          <div class="service-card service-featured">
+            <span class="service-badge">Most Popular</span>
+            <h3>4-Lesson Package</h3>
+            <div class="service-price">$240</div>
+            <div class="service-duration">$60/lesson • Best value</div>
+            <ul class="service-features">
+              <li>Four private 30-minute lessons</li>
+              <li>Consistent instructor & schedule</li>
+              <li>Progress tracking & updates</li>
+              <li>Save $20 vs. single lessons</li>
+            </ul>
+            <a href="#waitlist" class="service-btn">Join the Waitlist<span class="btn-subtext">Most popular. Join the list for what's next</span></a>
+          </div>
+
+          <!-- 8-Lesson Package -->
+          <div class="service-card">
+            <h3>8-Lesson Package</h3>
+            <div class="service-price">$460</div>
+            <div class="service-duration">$57.50/lesson • Maximum results</div>
+            <ul class="service-features">
+              <li>Eight private 30-minute lessons</li>
+              <li>Deepest skill development</li>
+              <li>Weekly progress reports</li>
+              <li>Save $60 vs. single lessons</li>
+            </ul>
+            <a href="#waitlist" class="service-btn">Join the Waitlist<span class="btn-subtext">Best value. Reserve your spot for what's next</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process-section" id="how">
+      <div class="container">
+        <div class="section-eyebrow">HOW IT WORKS</div>
+        <h2 class="section-title">From First Contact to Confident Swimmer</h2>
+        <p class="section-intro">
+          We've streamlined every step to make swim lessons easy, stress-free,
+          and effective. Here's exactly what to expect when you work with Splash
+          Swim School of Auburn.
+        </p>
+
+        <div class="process-timeline">
+          <div class="timeline-arrow" id="timelineArrow">
+            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="16" cy="16" r="14" fill="url(#arrowGrad)" stroke="white" stroke-width="2"/>
+              <path d="M16 10L16 22M16 22L11 17M16 22L21 17" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="arrowGrad" x1="0" y1="0" x2="32" y2="32">
+                  <stop stop-color="#2A5A84"/>
+                  <stop offset="1" stop-color="#8EC6D8"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="process-step">
+            <div class="process-number">1</div>
+            <div class="process-content">
+              <h3>Reach Out</h3>
+              <p>
+                Fill out our quick contact form or give us a call. We'll ask a
+                few questions about your child's age, current comfort level with
+                water, and any past swim experience. No pressure, no obligation
+                . Just a friendly conversation.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-number">2</div>
+            <div class="process-content">
+              <h3>Schedule Your First Lesson</h3>
+              <p>
+                We'll work with your schedule to find a consistent day and time
+                that works for your family. All lessons take place in our
+                private, heated home pool in Opelika, a safe, calm environment
+                where your child can focus and feel comfortable.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-number">3</div>
+            <div class="process-content">
+              <h3>Meet Your Instructor</h3>
+              <p>
+                Your child will work with the same certified instructor every
+                single week. We believe consistency is everything. Building
+                trust takes time, and we're in no rush. Your instructor will
+                meet your child where they are and move at their pace.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-number">4</div>
+            <div class="process-content">
+              <h3>Learn & Grow</h3>
+              <p>
+                Each 30-minute lesson is fully customized to your child's needs.
+                We use gentle, positive reinforcement to build skills
+                step-by-step: water comfort, breath control, floating, kicking,
+                and eventually independent swimming. Progress happens at your
+                child's pace, never faster.
+              </p>
+            </div>
+          </div>
+
+          <div class="process-step">
+            <div class="process-number">5</div>
+            <div class="process-content">
+              <h3>Watch Them Thrive</h3>
+              <p>
+                Parents love watching the transformation. What starts as
+                nervousness becomes curiosity. Curiosity becomes confidence. And
+                confidence becomes a skill they'll carry for life. You'll get
+                progress updates after each lesson so you can celebrate every
+                milestone together.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section benefits-section">
+      <div class="container">
+        <div class="section-eyebrow">WHY SPLASH AUBURN?</div>
+        <h2 class="section-title">What Makes Our Swim Lessons Different</h2>
+        <p class="section-intro">
+          We're not the biggest swim school in Auburn. We're not trying to be.
+          What we are is deeply committed to doing right by every single child
+          who comes through our program.
+        </p>
+
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-icon">👶</div>
+            <h3>Designed for the Youngest Swimmers</h3>
+            <p>
+              We specialize in infants, toddlers, and young children. Our entire
+              curriculum is built around their developmental stage, attention
+              span, and emotional needs. We understand how little ones learn,
+              and we meet them where they are.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🏡</div>
+            <h3>Private, Home-Pool Setting</h3>
+            <p>
+              Lessons take place in our calm, private home pool in Opelika. No
+              crowds, no chaos, no distractions. Just a safe, comfortable
+              environment where your child can focus, relax, and actually enjoy
+              learning.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🎯</div>
+            <h3>100% Customized Instruction</h3>
+            <p>
+              Every lesson is tailored to your child's unique needs, pace, and
+              personality. Nervous in the water? We slow down. Ready for a
+              challenge? We'll push just enough. This is truly one-on-one,
+              personalized teaching.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">❤️</div>
+            <h3>Gentle, Confidence-First Approach</h3>
+            <p>
+              We never force, rush, or pressure. Our method is built on trust,
+              patience, and positive reinforcement. Swimming should be joyful,
+              not scary. We help kids fall in love with the water, not fear it.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">📊</div>
+            <h3>Consistent Instructor & Progress Tracking</h3>
+            <p>
+              Your child works with the same certified instructor every single
+              week. No rotating faces, no starting over. We track progress
+              closely and keep you updated after every lesson so you can see the
+              growth happening in real time.
+            </p>
+          </div>
+
+          <div class="benefit-card">
+            <div class="benefit-icon">🏆</div>
+            <h3>Proven Track Record</h3>
+            <p>
+              Since 2021, we've helped hundreds of Auburn and Opelika families
+              raise safe, confident swimmers. Parents trust us because we
+              deliver results, and because we genuinely care about every child
+              who steps into our pool.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Who We Help Section -->
+    <section class="section who-section" id="about">
+      <div class="container">
+        <div class="who-content">
+          <div class="who-text">
+            <div class="section-eyebrow">PERFECT FOR</div>
+            <h2 class="section-title">Is Splash Right for Your Family?</h2>
+            <p>
+              Our private swim lessons are designed specifically for families in
+              Auburn and Opelika with young children who want a safe, gentle
+              introduction to swimming.
+            </p>
+            <p>
+              <strong>We're the perfect fit if your child is:</strong>
+            </p>
+            <ul class="who-list">
+              <li>Between 6 months and 6 years old</li>
+              <li>Nervous, scared, or hesitant around water</li>
+              <li>
+                Looking to build foundational swim skills in a calm, private
+                setting
+              </li>
+              <li>
+                Ready to learn at their own pace without the pressure of group
+                classes
+              </li>
+              <li>Seeking consistent, one-on-one instruction</li>
+            </ul>
+            <p>
+              If you've tried group swim classes before and they didn't work out
+              , or if this is your child's first time learning to swim, you're
+              in the right place.
+            </p>
+            <a href="#waitlist" class="problem-cta">Join the Waitlist<span class="btn-subtext">Be first in line when spots open</span></a>
+          </div>
+          <div class="who-image">
+            <img
+              src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b885180905c89.jpg"
+              alt="Instructor with student at Splash Swim School"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="section gallery-section">
+      <div class="container">
+        <div class="section-eyebrow">SEE OUR SWIMMERS</div>
+        <h2 class="section-title">Moments That Matter</h2>
+        <p class="section-intro">
+          Every smile, every milestone, every moment of confidence gained. Here
+          are just a few of the families we've had the honor of teaching.
+        </p>
+
+        <div class="gallery-conveyor">
+          <!-- First Row - Scrolls Left -->
+          <div class="gallery-track">
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca008498255d768052.jpeg" alt="Happy student in yellow swimsuit">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca0084985d0476804e.jpg" alt="Young swimmer with football">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813cdbe280d763.jpg" alt="Confident swimmer giving thumbs up">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a392c9e337c1dc.jpg" alt="Student enjoying pool time">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a39209ae37c1e1.jpg" alt="Happy young swimmer">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c6d9680d75d.jpg" alt="Cheerful student by the pool">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086657dc1daae0b.jpg" alt="Smiling swimmer in purple">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b885b61905c8c.jpg" alt="Student enjoying swim lesson">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a392ec8637c1db.jpg" alt="Proud swimmer showing progress">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086650a73daae0c.jpg" alt="Young student in colorful swimsuit">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca0084984b03768054.jpg" alt="Two students learning together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c133380d75f.jpg" alt="Student with swim equipment">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b88719e905c8a.jpg" alt="Happy child at poolside">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b884fc0905c91.jpg" alt="Excited young swimmer">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813cb55980d762.jpg" alt="Two children by the pool">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca008498673f76804d.jpg" alt="Boy ready for swim lesson">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086651deddaae08.jpg" alt="Students in the pool together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086656b78daae09.jpg" alt="Children playing in pool with flotation devices">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac08665795cdaae0a.jpg" alt="Four happy swimmers together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c5ec880d764.jpg" alt="Student learning to swim">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086650770daae10.jpg" alt="Two boys enjoying swim lessons">
+            </div>
+            <!-- Duplicate images for seamless loop -->
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca008498255d768052.jpeg" alt="Happy student in yellow swimsuit">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca0084985d0476804e.jpg" alt="Young swimmer with football">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813cdbe280d763.jpg" alt="Confident swimmer giving thumbs up">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a392c9e337c1dc.jpg" alt="Student enjoying pool time">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a39209ae37c1e1.jpg" alt="Happy young swimmer">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c6d9680d75d.jpg" alt="Cheerful student by the pool">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086657dc1daae0b.jpg" alt="Smiling swimmer in purple">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b885b61905c8c.jpg" alt="Student enjoying swim lesson">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a392ec8637c1db.jpg" alt="Proud swimmer showing progress">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086650a73daae0c.jpg" alt="Young student in colorful swimsuit">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca0084984b03768054.jpg" alt="Two students learning together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c133380d75f.jpg" alt="Student with swim equipment">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b88719e905c8a.jpg" alt="Happy child at poolside">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b884fc0905c91.jpg" alt="Excited young swimmer">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813cb55980d762.jpg" alt="Two children by the pool">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca008498673f76804d.jpg" alt="Boy ready for swim lesson">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086651deddaae08.jpg" alt="Students in the pool together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086656b78daae09.jpg" alt="Children playing in pool with flotation devices">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac08665795cdaae0a.jpg" alt="Four happy swimmers together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c5ec880d764.jpg" alt="Student learning to swim">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086650770daae10.jpg" alt="Two boys enjoying swim lessons">
+            </div>
+          </div>
+
+          <!-- Second Row - Scrolls Right -->
+          <div class="gallery-track reverse">
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca008498255d768052.jpeg" alt="Happy student in yellow swimsuit">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca0084985d0476804e.jpg" alt="Young swimmer with football">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813cdbe280d763.jpg" alt="Confident swimmer giving thumbs up">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a392c9e337c1dc.jpg" alt="Student enjoying pool time">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a39209ae37c1e1.jpg" alt="Happy young swimmer">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c6d9680d75d.jpg" alt="Cheerful student by the pool">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086657dc1daae0b.jpg" alt="Smiling swimmer in purple">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b885b61905c8c.jpg" alt="Student enjoying swim lesson">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a392ec8637c1db.jpg" alt="Proud swimmer showing progress">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086650a73daae0c.jpg" alt="Young student in colorful swimsuit">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca0084984b03768054.jpg" alt="Two students learning together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c133380d75f.jpg" alt="Student with swim equipment">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b88719e905c8a.jpg" alt="Happy child at poolside">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b884fc0905c91.jpg" alt="Excited young swimmer">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813cb55980d762.jpg" alt="Two children by the pool">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca008498673f76804d.jpg" alt="Boy ready for swim lesson">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086651deddaae08.jpg" alt="Students in the pool together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086656b78daae09.jpg" alt="Children playing in pool with flotation devices">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac08665795cdaae0a.jpg" alt="Four happy swimmers together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c5ec880d764.jpg" alt="Student learning to swim">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086650770daae10.jpg" alt="Two boys enjoying swim lessons">
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca008498255d768052.jpeg" alt="Happy student in yellow swimsuit">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca0084985d0476804e.jpg" alt="Young swimmer with football">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813cdbe280d763.jpg" alt="Confident swimmer giving thumbs up">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a392c9e337c1dc.jpg" alt="Student enjoying pool time">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a39209ae37c1e1.jpg" alt="Happy young swimmer">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c6d9680d75d.jpg" alt="Cheerful student by the pool">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086657dc1daae0b.jpg" alt="Smiling swimmer in purple">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b885b61905c8c.jpg" alt="Student enjoying swim lesson">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca36a392ec8637c1db.jpg" alt="Proud swimmer showing progress">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086650a73daae0c.jpg" alt="Young student in colorful swimsuit">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca0084984b03768054.jpg" alt="Two students learning together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c133380d75f.jpg" alt="Student with swim equipment">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b88719e905c8a.jpg" alt="Happy child at poolside">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca899b884fc0905c91.jpg" alt="Excited young swimmer">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813cb55980d762.jpg" alt="Two children by the pool">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca008498673f76804d.jpg" alt="Boy ready for swim lesson">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086651deddaae08.jpg" alt="Students in the pool together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086656b78daae09.jpg" alt="Children playing in pool with flotation devices">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac08665795cdaae0a.jpg" alt="Four happy swimmers together">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990beca24813c5ec880d764.jpg" alt="Student learning to swim">
+            </div>
+            <div class="gallery-item">
+              <img src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/6990becac086650770daae10.jpg" alt="Two boys enjoying swim lessons">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="faq-intro">
+          <div class="section-eyebrow">QUESTIONS?</div>
+          <h2 class="section-title">Everything You Need to Know</h2>
+          <p class="section-intro">
+            We know you have questions. Here are the answers to the most common
+            ones we hear from Auburn and Opelika families.
+          </p>
+        </div>
+
+        <div class="faq-container">
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>What age range do you teach?</h3>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                We specialize in teaching infants, toddlers, and young children
+                , typically between 6 months and 6 years old. Our curriculum is
+                designed specifically for this age group, focusing on gentle
+                water introduction, comfort-building, and foundational swim
+                skills.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Where do lessons take place?</h3>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                All lessons are held in our private, heated home pool in
+                Opelika, AL. It's a calm, safe, and distraction-free environment
+                , perfect for young learners. The address is shared once you
+                book your first lesson.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>How long are the lessons?</h3>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Each private lesson is 30 minutes long. For young children, 30
+                minutes is the ideal length: long enough to make real progress,
+                but short enough to keep them engaged and avoid fatigue.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Do parents get in the water?</h3>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                For our youngest swimmers (typically under 2 years old), we
+                encourage parent participation in the water. For older toddlers
+                and young children, lessons are usually one-on-one with the
+                instructor while parents watch from poolside. We'll work with
+                you to decide what's best for your child.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>What if my child is afraid of the water?</h3>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                This is exactly why we do what we do. Many of the children we
+                teach are nervous or fearful around water, often because of a
+                past negative experience. Our gentle, patient approach is
+                designed to rebuild trust and confidence. We go at your child's
+                pace, always.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>How many lessons does it take to learn to swim?</h3>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Every child is different. Some kids gain water confidence in
+                just a few lessons, while others need more time to build skills
+                and comfort. On average, families book 4-8 lessons to see
+                meaningful progress. We'll give you honest feedback after your
+                first lesson about what to expect.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>What's your cancellation policy?</h3>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                We ask for at least 24 hours' notice if you need to cancel or
+                reschedule. We understand life happens, especially with young
+                kids, and we'll always work with you to find a new time that
+                fits your schedule.
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">
+              <h3>Are you CPR and First Aid certified?</h3>
+              <div class="faq-toggle">+</div>
+            </div>
+            <div class="faq-answer">
+              <div class="faq-answer-content">
+                Absolutely. Our instructors are fully certified in CPR, First
+                Aid, and swim instruction. Your child's safety is our top
+                priority, and we maintain all required certifications to ensure
+                you have complete peace of mind.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="final-cta" id="waitlist">
+      <div class="container">
+        <div class="section-eyebrow">JOIN THE WAITLIST</div>
+        <h2 class="section-title">Summer 2026 Is Fully Booked</h2>
+        <p class="section-intro">
+          Summer lessons are full, but more spots are coming. Join the waitlist
+          below and you'll be the first to hear about openings for indoor
+          lessons, year-round lessons, and future sessions. It only takes a
+          minute and there's no commitment.
+        </p>
+
+        <div class="cta-form">
+          <iframe
+            id="JotFormIFrame-261587648384069"
+            title="Splash Auburn Swim School Waitlist"
+            src="https://form.jotform.com/261587648384069"
+            scrolling="no"
+            allow="geolocation; microphone; camera; fullscreen"
+            frameborder="0"
+          ></iframe>
+        </div>
+        <p style="margin-top: 24px; font-size: 15px; opacity: 0.95;">
+          Form not loading?
+          <a
+            href="https://form.jotform.com/261587648384069"
+            target="_blank"
+            rel="noopener"
+            style="color: #fff; font-weight: 700; text-decoration: underline;"
+            >Open the waitlist form in a new tab &#8599;</a
+          >
+        </p>
+      </div>
+    </section>
+
+    <!-- Jotform auto-resize handler -->
+    <script src="https://cdn.jotfor.ms/s/umd/latest/for-form-embed-handler.js"></script>
+    <script>
+      window.jotformEmbedHandler(
+        "iframe[id='JotFormIFrame-261587648384069']",
+        "https://form.jotform.com"
+      );
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div>
+          <div class="footer-logo">
+            <img
+              src="https://assets.cdn.filesafe.space/vXDv5ymXhoCaKQEDNCQk/media/698ab8d97305aae9e318ecf5.png"
+              alt="Splash Auburn"
+            />
+          </div>
+          <p>
+            Gentle, private swim instruction for Auburn and Opelika families.
+          </p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <a href="#how">How It Works</a>
+          <a href="#lessons">Lessons & Pricing</a>
+          <a href="#faq">FAQ</a>
+          <a href="#waitlist">Join the Waitlist</a>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <a target="_top" href="mailto:Info@splashauburn.com">Info@splashauburn.com</a>
+          <a target="_top" href="tel:+12105352093">(210) 535-2093</a>
+          <p style="color: rgba(255, 255, 255, 0.8); margin-top: 10px">
+            901 Gwynne's Way, Opelika, AL 36804
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Splash Swim School of Auburn. All rights reserved.</p>
+        <p class="footer-credit">
+          Website and marketing systems developed by
+          <a href="https://nilsdigital.com" target="_blank">Nilsdigital.com</a>
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({ behavior: "smooth" });
+          }
+        });
+      });
+
+      // Mobile menu toggle
+      document.querySelector(".nav-toggle").addEventListener("click", function () {
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const navToggle = document.querySelector(".nav-toggle");
+
+        mobileMenu.classList.toggle("active");
+        navToggle.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking a link
+      document.querySelectorAll(".mobile-menu-links a").forEach(link => {
+        link.addEventListener("click", function() {
+          const mobileMenu = document.querySelector(".mobile-menu");
+          const navToggle = document.querySelector(".nav-toggle");
+
+          mobileMenu.classList.remove("active");
+          navToggle.classList.remove("active");
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener("click", function(event) {
+        const mobileMenu = document.querySelector(".mobile-menu");
+        const navToggle = document.querySelector(".nav-toggle");
+        const nav = document.querySelector(".nav");
+
+        if (!nav.contains(event.target) && !mobileMenu.contains(event.target)) {
+          mobileMenu.classList.remove("active");
+          navToggle.classList.remove("active");
+        }
+      });
+
+      // FAQ Accordion
+      document.querySelectorAll(".faq-question").forEach((question) => {
+        question.addEventListener("click", function () {
+          const faqItem = this.parentElement;
+          const isActive = faqItem.classList.contains("active");
+
+          // Close all FAQ items
+          document.querySelectorAll(".faq-item").forEach((item) => {
+            item.classList.remove("active");
+          });
+
+          // Open clicked item if it wasn't active
+          if (!isActive) {
+            faqItem.classList.add("active");
+          }
+        });
+      });
+
+      // Scroll reveal animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, observerOptions);
+
+      // Observe all sections and cards
+      document.addEventListener('DOMContentLoaded', () => {
+        // Add fade-in-up class to sections
+        document.querySelectorAll('.section').forEach(section => {
+          section.classList.add('fade-in-up');
+          observer.observe(section);
+        });
+
+        // Add fade-in-up to cards within sections
+        document.querySelectorAll('.problem-card, .service-card, .benefit-card, .faq-item').forEach(card => {
+          card.classList.add('fade-in-up');
+          observer.observe(card);
+        });
+
+        // Add scrolled class to nav on scroll
+        window.addEventListener('scroll', () => {
+          const nav = document.querySelector('.nav');
+          if (window.scrollY > 100) {
+            nav.classList.add('scrolled');
+          } else {
+            nav.classList.remove('scrolled');
+          }
+        });
+
+        // Timeline scrolling arrow
+        const timelineArrow = document.getElementById('timelineArrow');
+        const processTimeline = document.querySelector('.process-timeline');
+        const processSteps = document.querySelectorAll('.process-step');
+
+        if (timelineArrow && processTimeline && processSteps.length > 0) {
+          const reachedSteps = new Set();
+          let ticking = false;
+
+          function updateTimelineArrow() {
+            const timelineRect = processTimeline.getBoundingClientRect();
+            const timelineTop = timelineRect.top;
+            const timelineHeight = timelineRect.height;
+
+            const viewportCenter = window.innerHeight * 0.45;
+            const progress = (viewportCenter - timelineTop) / timelineHeight;
+            const clampedProgress = Math.max(0, Math.min(1, progress));
+            const arrowY = clampedProgress * timelineHeight;
+
+            timelineArrow.style.transform = 'translateX(-50%) translateY(' + arrowY + 'px)';
+
+            if (progress < -0.1 || progress > 1.1) {
+              timelineArrow.style.opacity = '0';
+            } else {
+              timelineArrow.style.opacity = '1';
+            }
+
+            processSteps.forEach((step, index) => {
+              const stepRect = step.getBoundingClientRect();
+              const stepCenter = stepRect.top + stepRect.height / 2;
+              const distanceFromViewCenter = Math.abs(stepCenter - viewportCenter);
+
+              if (distanceFromViewCenter < 80 && !reachedSteps.has(index)) {
+                reachedSteps.add(index);
+                step.classList.add('step-reached');
+
+                timelineArrow.classList.remove('pulse');
+                void timelineArrow.offsetWidth;
+                timelineArrow.classList.add('pulse');
+              }
+            });
+
+            ticking = false;
+          }
+
+          function onScroll() {
+            if (!ticking) {
+              requestAnimationFrame(updateTimelineArrow);
+              ticking = true;
+            }
+          }
+
+          window.addEventListener('scroll', onScroll, { passive: true });
+          updateTimelineArrow();
+        }
+
+        // Video Carousel Swipe (Mobile Only)
+        const carousel = document.getElementById('videoCarousel');
+        const dots = document.querySelectorAll('.video-dot');
+
+        if (carousel && window.innerWidth <= 968) {
+          let currentIndex = 0;
+          const totalVideos = 6;
+          let startX = 0;
+          let isDragging = false;
+
+          function updateCarousel() {
+            const items = carousel.querySelectorAll('.video-item');
+
+            items.forEach((item, index) => {
+              item.classList.remove('active', 'prev', 'next', 'hidden');
+
+              if (index === currentIndex) {
+                item.classList.add('active');
+              } else if (index === (currentIndex - 1 + totalVideos) % totalVideos) {
+                item.classList.add('prev');
+              } else if (index === (currentIndex + 1) % totalVideos) {
+                item.classList.add('next');
+              } else {
+                item.classList.add('hidden');
+              }
+            });
+
+            // Update dots
+            dots.forEach((dot, index) => {
+              dot.classList.toggle('active', index === currentIndex);
+            });
+          }
+
+          function nextVideo() {
+            currentIndex = (currentIndex + 1) % totalVideos;
+            updateCarousel();
+          }
+
+          function prevVideo() {
+            currentIndex = (currentIndex - 1 + totalVideos) % totalVideos;
+            updateCarousel();
+          }
+
+          // Touch events
+          carousel.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            isDragging = true;
+          }, { passive: true });
+
+          carousel.addEventListener('touchmove', (e) => {
+            if (!isDragging) return;
+          }, { passive: true });
+
+          carousel.addEventListener('touchend', (e) => {
+            if (!isDragging) return;
+
+            const endX = e.changedTouches[0].clientX;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > 50) {
+              if (diff > 0) {
+                nextVideo();
+              } else {
+                prevVideo();
+              }
+            }
+
+            isDragging = false;
+          });
+
+          // Mouse events for desktop testing
+          carousel.addEventListener('mousedown', (e) => {
+            startX = e.clientX;
+            isDragging = true;
+            e.preventDefault();
+          });
+
+          carousel.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+          });
+
+          carousel.addEventListener('mouseup', (e) => {
+            if (!isDragging) return;
+
+            const endX = e.clientX;
+            const diff = startX - endX;
+
+            if (Math.abs(diff) > 50) {
+              if (diff > 0) {
+                nextVideo();
+              } else {
+                prevVideo();
+              }
+            }
+
+            isDragging = false;
+          });
+
+          // Dot click navigation
+          dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+              currentIndex = index;
+              updateCarousel();
+            });
+          });
+        }
+      });
+    </script>
+    <script src="https://link.nilsdigital.com/js/form_embed.js"></script>
+  </body>
+</html>

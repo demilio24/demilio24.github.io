@@ -1,0 +1,265 @@
+[
+  {
+    "conditionalOperation": "and",
+    "conditions": [
+      {
+        "inputValue": "Florida",
+        "selectedField": "state",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Ryan",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "header_1"
+    }
+  },
+  {
+    "conditionalOperation": "and",
+    "conditions": [
+      {
+        "inputValue": "Virginia",
+        "selectedField": "state",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Ryan",
+        "selectedField": "instructor",
+        "selectedOperation": "isNotEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "header_2"
+    }
+  },
+  {
+    "conditionalOperation": "or",
+    "conditions": [
+      {
+        "inputValue": "Jessica (Dance)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Bianca (Dance)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Carolina (Dance)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "training_type_dance"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Evenson (Boxing Only)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "training_boxing"
+    }
+  },
+  {
+    "conditionalOperation": "and",
+    "conditions": [
+      {
+        "inputValue": "Georgia",
+        "selectedField": "state",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Sean Nasiff",
+        "selectedField": "instructor",
+        "selectedOperation": "isNotEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "header_3"
+    }
+  },
+  {
+    "conditionalOperation": "and",
+    "conditions": [
+      {
+        "inputValue": "Georgia",
+        "selectedField": "state",
+        "selectedOperation": "isNotEqualTo"
+      },
+      {
+        "inputValue": "Sean",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "header_4"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Evenson (Boxing Only)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide",
+      "type": "showHideFields",
+      "value": "training_type"
+    }
+  },
+  {
+    "conditionalOperation": "or",
+    "conditions": [
+      {
+        "inputValue": "Jessica (Dance)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Bianca (Dance)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Carolina (Dance)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide",
+      "type": "showHideFields",
+      "value": "training_type"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Mr. Floyd (Premium)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide",
+      "type": "showHideFields",
+      "value": "lesson_length_&_price"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Mr. Floyd (Premium)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "mr._floyd_(premium)"
+    }
+  },
+  {
+    "conditionalOperation": "or",
+    "conditions": [
+      {
+        "inputValue": "Alex",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "George",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "James",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Sean Nasiff",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Evenson (Boxing Only)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Jessica (Dance)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Bianca (Dance)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Carolina (Dance)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Ryan",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "lesson_length_&_price"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Joann Floyd (Piano/Music)",
+        "selectedField": "instructor",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show Multiple",
+      "type": "showHideFields",
+      "value": [
+        "piano",
+        "lesson_length_&_price"
+      ]
+    }
+  }
+]

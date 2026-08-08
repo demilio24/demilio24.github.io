@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nils Automation — Ad Remakes (APG → Nils)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{--green:#0fbf7a;--green-light:#34d399;--neon:#00ff88;--neon-soft:#6dffa6;
+    --bg:#03110a;--bg2:#06180e;--card:#0a1b13;--line:#16322458;--muted:#8fb0a1;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:
+      radial-gradient(120% 60% at 50% -10%,rgba(0,255,136,.10),transparent 55%),
+      var(--bg);
+    color:#eaf3ee;font-family:'Inter',sans-serif;min-height:100vh;padding:0 0 90px}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 28px}
+  header{text-align:center;padding:70px 28px 18px}
+  .kicker{display:inline-flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.34em;
+    font-size:14px;text-transform:uppercase;color:var(--neon-soft);margin-bottom:20px}
+  .kicker .dot{width:10px;height:10px;border-radius:50%;background:var(--neon);box-shadow:0 0 14px var(--neon)}
+  h1{font-family:'IBM Plex Sans';font-weight:700;font-size:clamp(34px,5vw,58px);line-height:1.05;letter-spacing:-.02em}
+  h1 .g{background:linear-gradient(135deg,var(--neon-soft),var(--green));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:var(--muted);font-size:19px;max-width:680px;margin:18px auto 0;line-height:1.5}
+  .legend{display:flex;gap:26px;justify-content:center;flex-wrap:wrap;margin:30px 0 10px;font-size:14px;color:var(--muted)}
+  .legend b{color:#eaf3ee}
+  .grid{display:grid;grid-template-columns:1fr;gap:30px;margin-top:40px}
+  .pair{background:linear-gradient(180deg,var(--card),#08160f);border:1px solid var(--line);
+    border-radius:22px;padding:24px;box-shadow:0 24px 60px rgba(0,0,0,.35)}
+  .pair .ph{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+  .pair .ph .name{font-weight:700;font-size:20px;letter-spacing:-.01em}
+  .pair .ph .name .num{color:var(--neon-soft);font-weight:800;margin-right:10px}
+  .pair .ph .badge{font-weight:600;font-size:13px;color:var(--muted);border:1px solid var(--line);
+    padding:6px 13px;border-radius:999px;white-space:nowrap}
+  .two{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;align-items:start}
+  .col{display:flex;flex-direction:column;gap:12px}
+  .tag{display:flex;align-items:center;gap:9px;font-weight:700;font-size:13px;letter-spacing:.12em;
+    text-transform:uppercase}
+  .tag.orig{color:#c97d6b}
+  .tag.new{color:var(--neon-soft)}
+  .tag.hz{color:#ffcf5c}
+  .tag .pip{width:9px;height:9px;border-radius:50%}
+  .tag.orig .pip{background:#c97d6b}
+  .tag.new .pip{background:var(--neon);box-shadow:0 0 10px var(--neon)}
+  .tag.hz .pip{background:#ffcf5c;box-shadow:0 0 10px #ffcf5c}
+  .frame{position:relative;border-radius:14px;overflow:hidden;background:#000;
+    border:1px solid var(--line);aspect-ratio:1/1}
+  .frame img{width:100%;height:100%;object-fit:contain;display:block}
+  .arrow{display:none}
+  .pending{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;
+    text-align:center;gap:14px;color:var(--muted);padding:24px;
+    background:repeating-linear-gradient(45deg,#0a1b13,#0a1b13 14px,#0c2018 14px,#0c2018 28px)}
+  .pending .big{font-family:'IBM Plex Sans';font-weight:700;font-size:22px;color:#cfe7da}
+  .pending .pill{font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--neon-soft);border:1px dashed var(--neon-soft);padding:7px 14px;border-radius:999px}
+  .sec-label{margin:64px 0 8px;font-family:'IBM Plex Sans';font-weight:700;font-size:24px}
+  .sec-label .m{color:var(--muted);font-weight:500;font-size:16px;margin-left:10px}
+  footer{text-align:center;color:var(--muted);font-size:14px;margin-top:70px}
+  @media(max-width:720px){
+    .two{grid-template-columns:1fr;gap:26px}
+    .pair{padding:16px}
+  }
+</style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="kicker"><span class="dot"></span>Nils Digital · Automation</div>
+    <h1>APG ad library, <span class="g">remade in our brand</span></h1>
+    <p class="sub">Every active static ad from APG Software Solutions, rebuilt in the Nils Automation design system. Same copy, swapped to U.S. small businesses. Three versions per row: the original (left), our faithful remake (middle), and an Alex Hormozi-style cut (right).</p>
+    <div class="legend">
+      <span><b style="color:#c97d6b">●</b> Original (APG)</span>
+      <span><b style="color:#6dffa6">●</b> Nils remake</span>
+      <span><b style="color:#ffcf5c">●</b> Hormozi cut</span>
+      <span>14 concepts · 3 versions each</span>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="sec-label" style="margin-top:6px">★ Headline-led (outcome highlighted)<span class="m">outcome popped with an accent underline + low-key "by implementing AI…" + "Get your free audit" · real AI logos</span></div>
+    <div class="grid" id="nbatch"></div>
+
+    <div class="sec-label">Minimal one-liner<span class="m">"We will implement AI in your business" + the big "so you can…" benefit changes · least text · designer style</span></div>
+    <div class="grid" id="mbatch"></div>
+
+    <div class="sec-label">Outcome ads — designer style<span class="m">outcome-first copy ("so you can…") + 3 benefits + reward CTA · matched to the designer set · 10 angles</span></div>
+    <div class="grid" id="obatch"></div>
+
+    <div class="sec-label">Emotional imagery<span class="m">real moody photography + dark-green brand duotone · full-bleed (pain) + split (explainer)</span></div>
+    <div class="grid" id="ebatch"></div>
+
+    <div class="sec-label">Copy variations — liked style<span class="m">bold editorial · white+green (2 dark) · your hearted look · 10 new hooks</span></div>
+    <div class="grid" id="vbatch"></div>
+
+    <div class="sec-label">Real-photo batch<span class="m">white + green · your real client/student photos · authority / social-proof</span></div>
+    <div class="grid" id="photobatch"></div>
+
+    <div class="sec-label">Text-only white+green<span class="m">no photo · clean editorial · placement variety</span></div>
+    <div class="grid" id="textbatch"></div>
+
+    <div class="sec-label">ROI batch<span class="m">no button · no name · ROI-led copy · tiny URL only</span></div>
+    <div class="grid" id="roibatch"></div>
+
+    <div class="grid" id="grid"></div>
+
+    <div class="sec-label">Logo batch<span class="m">Claude · ChatGPT · Gemini — the "where they fit" angle for $200K+ buyers</span></div>
+    <div class="grid" id="logobatch"></div>
+
+    <div class="sec-label">Designer batch<span class="m">15 statics from an external designer — strong objection/pattern-interrupt copy, mixed palettes (not yet Nils green)</span></div>
+    <div class="grid" id="designerbatch"></div>
+
+    <div class="sec-label">Bonus cut<span class="m">extra money-led Hormozi concept, not in APG's library</span></div>
+    <div class="grid" id="variations"></div>
+
+    <div id="pendingSection" style="display:none">
+      <div class="sec-label">Pending<span class="m">photographic concepts</span></div>
+      <div class="grid" id="pending"></div>
+    </div>
+  </div>
+
+  <footer class="wrap">Nils_Automation_Ad_Remakes · originals in <code>source-originals/</code> · remakes in <code>renders/</code></footer>
+
+<style>
+  .frame.sel{cursor:pointer;position:relative;display:block}
+  .frame.sel .selbox{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none}
+  .frame.sel .selmark{position:absolute;top:10px;right:10px;z-index:3;display:none;align-items:center;gap:5px;
+    background:linear-gradient(135deg,#6dffa6,#00ff88);color:#04140c;font-weight:800;font-size:12px;
+    padding:6px 11px;border-radius:999px;box-shadow:0 4px 14px rgba(0,255,136,.45)}
+  .frame.sel::after{content:"";position:absolute;inset:0;border:3px solid transparent;border-radius:14px;pointer-events:none;transition:border-color .12s}
+  .frame.sel:hover::after{border-color:rgba(0,255,136,.45)}
+  .frame.sel.on::after{border-color:#00ff88}
+  .frame.sel.on .selmark{display:inline-flex}
+  .frame.sel .heart{position:absolute;top:10px;left:10px;z-index:4;width:42px;height:42px;border-radius:50%;
+    background:rgba(255,255,255,.92);box-shadow:0 3px 12px rgba(0,0,0,.28);display:flex;align-items:center;justify-content:center;
+    font-size:23px;line-height:1;color:#c2c7cc;cursor:pointer;transition:transform .1s,color .12s}
+  .frame.sel .heart:hover{transform:scale(1.12);color:#ff8aa0}
+  .frame.sel.liked .heart{color:#ff3b5c}
+  #selbar #heartcount{font-weight:800;color:#ff8aa0;font-size:15px;min-width:54px;text-align:center}
+  #selbar #heartcopy{background:#3a1722;color:#ff8aa0}
+  .cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(228px,1fr));gap:16px;margin-top:4px}
+  .cardgrid .card{display:flex;flex-direction:column;gap:7px}
+  .cardgrid .card .frame{border-radius:12px}
+  .cardgrid .card .cap{font-size:12px;line-height:1.3;color:#8fb0a1}
+  .cardgrid .card .cap b{color:#cfe7da;font-weight:700}
+  .cardgrid .frame.sel .selmark{font-size:11px;padding:4px 9px;top:7px;right:7px}
+  .cardgrid .frame.sel .heart{width:34px;height:34px;font-size:19px;top:7px;left:7px}
+  #selbar{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:60;display:flex;align-items:center;gap:12px;
+    background:rgba(6,24,15,.97);border:1px solid #1c3a2c;border-radius:999px;padding:11px 16px;
+    box-shadow:0 16px 50px rgba(0,0,0,.55);font-family:'Inter',sans-serif}
+  #selbar #selcount{font-weight:800;color:#eaf3ee;font-size:15px;min-width:92px;text-align:center}
+  #selbar button{font-family:inherit;font-weight:700;font-size:14px;border:none;border-radius:999px;padding:9px 16px;cursor:pointer}
+  #selbar #selcopy{background:linear-gradient(135deg,#6dffa6,#00ff88);color:#04140c}
+  #selbar #selall,#selbar #selclear{background:#16271f;color:#cfe7da}
+</style>
+<div id="selbar">
+  <span id="selcount">0 selected</span>
+  <span id="heartcount">0 ♥</span>
+  <button id="selall">Select all</button>
+  <button id="selclear">Clear</button>
+  <button id="selcopy">Copy list</button>
+  <button id="heartcopy">Copy ♥ liked</button>
+</div>
+<script>
+  var ORIG = 'source-originals/creative_image_';
+  var NAMES = {};
+  function srcOf(f){ return f.indexOf('/') >= 0 ? f : 'renders/' + f; }
+  function selFrame(file, name, extra){
+    var src = srcOf(file); NAMES[src] = name;
+    return '<label class="frame sel"' + (extra ? ' style="'+extra+'"' : '') + ' data-file="'+src+'">'+
+      '<input type="checkbox" class="selbox" value="'+src+'">'+
+      '<span class="heart" data-file="'+src+'" title="Like this design">♥</span>'+
+      '<span class="selmark">✓ Selected</span>'+
+      '<img loading="lazy" src="'+src+'" alt=""></label>';
+  }
+  var built = [
+    {n:'01', name:"We don't sell AI tools", id:'1719028609271577', file:'nils_ad_01_type.png', hz:'nils_ad_hz_01.png'},
+    {n:'02', name:'$204,880 value unlocked', id:'935963189305740', file:'nils_ad_02_stat.png', hz:'nils_ad_hz_02.png'},
+    {n:'03', name:'Monthly Waste Report receipt', id:'1445485510139256', file:'nils_ad_03_receipt.png', hz:'nils_ad_hz_03.png'},
+    {n:'04', name:'Name 5 places AI should run', id:'2121208365402376', file:'nils_ad_04_5places.png', hz:'nils_ad_hz_04.png'},
+    {n:'05', name:'We are sorry', id:'4260453497541344', file:'nils_ad_05_sorry.png', hz:'nils_ad_hz_05.png'},
+    {n:'06', name:'iPhone Notes — keeping me up at night', id:'1424464422814541', file:'nils_ad_06_notes.png', hz:'nils_ad_hz_06.png'},
+    {n:'07', name:'AI Audit · Executive Summary', id:'2239723273437308', file:'nils_ad_07_execsummary.png', hz:'nils_ad_hz_07.png'},
+    {n:'08', name:'iMessage + Marketing Workspace', id:'26674191232246120', file:'nils_ad_08_imessage.png', hz:'nils_ad_hz_08.png'},
+    {n:'09', name:'Fake Reddit thread', id:'958995050390044', file:'nils_ad_09_reddit.png', hz:'nils_ad_hz_09.png'},
+    {n:'10', name:'The Business Journal newspaper', id:'1495739982287682', file:'nils_ad_10_newspaper.png', hz:'nils_ad_hz_10.png'},
+    {n:'11', name:'Google + AI Overview', id:'737572046049403', file:'nils_ad_11_google.png', hz:'nils_ad_hz_11.png'},
+    {n:'12', name:'Whiteboard — "where do we start?"', id:'1512238203651181', file:'nils_ad_12_whiteboard.png', hz:'nils_ad_hz_12.png'},
+    {n:'13', name:'Glass-wall handwriting', id:'940197175288959', file:'nils_ad_13_glasswall.png', hz:'nils_ad_hz_13.png'},
+    {n:'14', name:'Mint founder-photo card', id:'1361219639362069', file:'nils_ad_14_founder.png', hz:'nils_ad_hz_14.png'}
+  ];
+  var pending = [];
+  var variations = [
+    {n:'V1', name:'Alex Hormozi style — money-led, minimal, hard-left', file:'nils_ad_15_hormozi.png', brand:'Net-new · Nils brand'}
+  ];
+  var logobatch = [
+    {n:'L1', name:'You pay for all three. You use 10%.', file:'nils_ad_logo_01.png', brand:'Tools-you-own angle'},
+    {n:'L2', name:"We don't sell you these. We show you where they pay off.", file:'nils_ad_logo_02.png', brand:'Contrarian / positioning'},
+    {n:'L3', name:'Which one should run your business?', file:'nils_ad_logo_03.png', brand:'Where, not which'},
+    {n:'L4', name:'Finance vs Ops — 6% adoption', file:'nils_ad_logo_04.png', brand:'Native chat pattern-interrupt'},
+    {n:'L5', name:"The $200K+ operator's AI stack", file:'nils_ad_logo_05.png', brand:'Authority / orchestrator'}
+  ];
+
+  function pairBuilt(a){
+    return '<div class="pair"><div class="ph"><div class="name"><span class="num">'+a.n+'</span>'+a.name+'</div></div>'+
+      '<div class="two">'+
+        '<div class="col"><div class="tag orig"><span class="pip"></span>Original — APG</div>'+
+          selFrame(ORIG+a.id+'.jpg', a.name+' — APG ORIGINAL')+'</div>'+
+        '<div class="col"><div class="tag new"><span class="pip"></span>Nils remake</div>'+
+          selFrame(a.file, a.name+' — remake')+'</div>'+
+        '<div class="col"><div class="tag hz"><span class="pip"></span>Hormozi cut</div>'+
+          selFrame(a.hz, a.name+' — Hormozi cut')+'</div>'+
+      '</div></div>';
+  }
+  function pairPending(a){
+    return '<div class="pair"><div class="ph"><div class="name"><span class="num">'+a.n+'</span>'+a.name+'</div>'+
+      '<div class="badge">'+a.note+'</div></div>'+
+      '<div class="two">'+
+        '<div class="col"><div class="tag orig"><span class="pip"></span>Original — APG</div>'+
+          '<div class="frame"><img loading="lazy" src="'+ORIG+a.id+'.jpg" alt="original"></div></div>'+
+        '<div class="col"><div class="tag new"><span class="pip"></span>Nils remake</div>'+
+          '<div class="frame"><div class="pending"><div class="big">Coming via Imagen</div>'+
+            '<div class="pill">Photographic — not HTML</div></div></div></div>'+
+      '</div></div>';
+  }
+  function single(a){
+    return '<div class="pair"><div class="ph"><div class="name"><span class="num">'+a.n+'</span>'+a.name+'</div>'+
+      '<div class="badge">'+a.brand+'</div></div>'+
+      '<div class="two" style="grid-template-columns:1fr">'+
+        '<div class="col"><div class="tag new"><span class="pip"></span>Nils creative</div>'+
+          selFrame(a.file, a.name, 'max-width:540px;margin:0 auto')+'</div>'+
+      '</div></div>';
+  }
+  function cardsGrid(arr){
+    return '<div class="cardgrid">' + arr.map(function(a){
+      return '<div class="card">' + selFrame(a.file, a.name) + '<div class="cap"><b>'+a.n+'</b> '+a.name+'</div></div>';
+    }).join('') + '</div>';
+  }
+  document.getElementById('grid').innerHTML = built.map(pairBuilt).join('');
+  document.getElementById('variations').innerHTML = cardsGrid(variations);
+  var designerbatch = [
+    {n:'D1', name:"You didn't hire great people to do data entry", file:'Designer/1-.png', brand:'Black / red'},
+    {n:'D2', name:'Your $80K/year employee is doing $15/hour work', file:'Designer/2-.png', brand:'White / blue'},
+    {n:'D3', name:"Hiring another person won't fix a broken process", file:'Designer/3-.png', brand:'Navy / blue'},
+    {n:'D4', name:"You've already tried AI. It didn't stick. Here's why", file:'Designer/4-.png', brand:'White / orange'},
+    {n:'D5', name:'The CRM promised to change everything. It didn\'t', file:'Designer/5-.png', brand:'White / red'},
+    {n:'D6', name:"You don't have an AI problem. You have a clarity problem", file:'Designer/6-.png', brand:'Green'},
+    {n:'D7', name:"Your competitor isn't working harder than you", file:'Designer/7-.png', brand:'Dark / blue'},
+    {n:'D8', name:"In 2026 the automation gap isn't closing — it's widening", file:'Designer/8-.png', brand:'White / red'},
+    {n:'D9', name:'Someone in your industry already automated this', file:'Designer/9-.png', brand:'Dark / blue'},
+    {n:'D10', name:'You started this business to have more freedom', file:'Designer/10-.png', brand:'Dark / orange'},
+    {n:'D11', name:"The business is growing. You're more stressed than ever", file:'Designer/11-.png', brand:'White / red'},
+    {n:'D12', name:'At some point, working harder stops working', file:'Designer/12-.png', brand:'Black / blue'},
+    {n:'D13', name:'"My business is too niche for AI to help"', file:'Designer/13-.png', brand:'Gray / green'},
+    {n:'D14', name:"You don't need to understand AI to benefit from it", file:'Designer/14-.png', brand:'White / red'},
+    {n:'D15', name:'"Can\'t afford to implement?" You keep the blueprint either way', file:'Designer/15-.png', brand:'Black / red'}
+  ];
+  document.getElementById('logobatch').innerHTML = cardsGrid(logobatch);
+  var photobatch = [
+    {n:'P1', name:"This is who you'll actually work with", file:'nils_ad_photo_01.png', brand:'White + green · real client photo'},
+    {n:'P2', name:'200+ businesses. One team that shows up.', file:'nils_ad_photo_02.png', brand:'White + green · real team photo'},
+    {n:'P3', name:"We don't just talk about AI. We build it.", file:'nils_ad_photo_03.png', brand:'White + green · students/presentation'},
+    {n:'P4', name:'…so you can buy back your time (Time/Freedom)', file:'nils_ad_photo_04.png', brand:'White + green · benefit bullets'},
+    {n:'P5', name:'…so you can scale without the headcount (Scale/Profit)', file:'nils_ad_photo_05.png', brand:'White + green · benefit bullets'},
+    {n:'P6', name:'…so you can leave competitors behind (Edge)', file:'nils_ad_photo_06.png', brand:'White + green · benefit bullets'},
+    {n:'P7', name:'Every week you wait, the busywork costs you more', file:'nils_ad_photo_07.png', brand:'White + green · cost-of-waiting'},
+    {n:'P8', name:"You don't need more AI tools, you need to know where they fit", file:'nils_ad_photo_08.png', brand:'White + green · the thesis'}
+  ];
+  var textbatch = [
+    {n:'T1', name:'You have a clarity problem, not an AI problem', file:'nils_ad_text_01.png', brand:'White + green · text-only'},
+    {n:'T2', name:'We find the $200K+ hiding in your business', file:'nils_ad_text_02.png', brand:'White + green · text-only'},
+    {n:'T3', name:'Stop guessing where AI fits. Get the map.', file:'nils_ad_text_03.png', brand:'White + green · text-only'},
+    {n:'T4', name:'What is your business actually costing you to run?', file:'nils_ad_text_04.png', brand:'White + green · text-only'}
+  ];
+  var roibatch = [
+    {n:'R1', name:'$204,880 in annual value, sitting unclaimed', file:'nils_ad_roi_01.png', brand:'ROI · no button · no name'},
+    {n:'R2', name:'$80,000 in savings per audit (avg) · $2.4M total', file:'nils_ad_roi_02.png', brand:'ROI · no button · no name'},
+    {n:'R3', name:'20+ hours/week and $50,000+/year are hiding', file:'nils_ad_roi_03.png', brand:'ROI · no button · no name'},
+    {n:'R4', name:'Your business quietly wastes $13,000 a month', file:'nils_ad_roi_04.png', brand:'ROI · no button · no name'},
+    {n:'R5', name:'Return in 3 months: +$64,000 and 32 hrs/week back', file:'nils_ad_roi_05.png', brand:'ROI · photo · no button · no name'}
+  ];
+  var vbatch = [
+    {n:'V1', name:'Build it in (done-for-you)', file:'nils_ad_v01.png'},
+    {n:'V2', name:'Clarity problem, not an AI problem', file:'nils_ad_v02.png'},
+    {n:'V3', name:'$50,000+/yr hiding in your operations', file:'nils_ad_v03.png'},
+    {n:'V4', name:'Stop running your business by hand', file:'nils_ad_v04.png'},
+    {n:'V5', name:'Someone in your industry already automated this', file:'nils_ad_v05.png'},
+    {n:'V6', name:'Free audit, keep the blueprint either way', file:'nils_ad_v06.png'},
+    {n:'V7', name:'Every week you wait costs you more', file:'nils_ad_v07.png'},
+    {n:'V8', name:'Every dollar AI can save you, free', file:'nils_ad_v08.png'},
+    {n:'V9', name:"You already pay for AI, using 10% of it", file:'nils_ad_v09.png'},
+    {n:'V10', name:'200+ businesses, $2.4M found', file:'nils_ad_v10.png'}
+  ];
+  var nbatch = [
+    {n:'N1', name:'Win back 20+ hours a week', file:'nils_ad_n01.png'},
+    {n:'N2', name:'Cut costs and keep more profit', file:'nils_ad_n02.png'},
+    {n:'N3', name:'Grow without hiring', file:'nils_ad_n03.png'},
+    {n:'N4', name:'Respond in seconds and close more deals', file:'nils_ad_n04.png'},
+    {n:'N5', name:'Get your team off $15/hour busywork', file:'nils_ad_n05.png'},
+    {n:'N6', name:'Never lose another lead', file:'nils_ad_n06.png'},
+    {n:'N7', name:'Step out of the day-to-day', file:'nils_ad_n07.png'},
+    {n:'N8', name:'Get results without the headache', file:'nils_ad_n08.png'},
+    {n:'N9', name:'Run leaner and faster', file:'nils_ad_n09.png'},
+    {n:'N10', name:'Unlock the $80K most owners miss', file:'nils_ad_n10.png'}
+  ];
+  document.getElementById('nbatch').innerHTML = cardsGrid(nbatch);
+  var mbatch = [
+    {n:'M1', name:'so you can win back 20+ hours a week', file:'nils_ad_m01.png'},
+    {n:'M2', name:'so you can cut costs and keep more profit', file:'nils_ad_m02.png'},
+    {n:'M3', name:'so you can grow without hiring', file:'nils_ad_m03.png'},
+    {n:'M4', name:'so you can respond in seconds and close more', file:'nils_ad_m04.png'},
+    {n:'M5', name:'so you can kill the $15/hour busywork', file:'nils_ad_m05.png'},
+    {n:'M6', name:'so you can never lose another lead', file:'nils_ad_m06.png'},
+    {n:'M7', name:'so you can work on it, not in it', file:'nils_ad_m07.png'},
+    {n:'M8', name:'so you can get results without the headache', file:'nils_ad_m08.png'},
+    {n:'M9', name:'so you can run a leaner, faster business', file:'nils_ad_m09.png'},
+    {n:'M10', name:'so you can unlock the $80K most owners miss', file:'nils_ad_m10.png'}
+  ];
+  document.getElementById('mbatch').innerHTML = cardsGrid(mbatch);
+  var obatch = [
+    {n:'O1', name:'Win back 20+ hours a week (time)', file:'nils_ad_o01.png'},
+    {n:'O2', name:'Cut costs, keep more profit', file:'nils_ad_o02.png'},
+    {n:'O3', name:'Grow without hiring (scale)', file:'nils_ad_o03.png'},
+    {n:'O4', name:'Respond in seconds, close more deals', file:'nils_ad_o04.png'},
+    {n:'O5', name:'Team stops doing $15/hr work', file:'nils_ad_o05.png'},
+    {n:'O6', name:'Never lose another lead', file:'nils_ad_o06.png'},
+    {n:'O7', name:'Work on your business, not in it', file:'nils_ad_o07.png'},
+    {n:'O8', name:'Results without the headache (done-for-you)', file:'nils_ad_o08.png'},
+    {n:'O9', name:'Run a leaner, faster business', file:'nils_ad_o09.png'},
+    {n:'O10', name:'Unlock the $80K most owners miss', file:'nils_ad_o10.png'}
+  ];
+  document.getElementById('obatch').innerHTML = cardsGrid(obatch);
+  var ebatch = [
+    {n:'E1', name:'Build it in (focused dev)', file:'nils_ad_e01.png'},
+    {n:'E2', name:'Almost nobody knows where it fits (clarity)', file:'nils_ad_e02.png'},
+    {n:'E3', name:'$50K+/yr you never see (money)', file:'nils_ad_e03.png'},
+    {n:'E4', name:'Still running it by hand (burnout)', file:'nils_ad_e04.png'},
+    {n:'E5', name:'Competitor automated what you do by hand', file:'nils_ad_e05.png'},
+    {n:'E6', name:'Keep the blueprint either way', file:'nils_ad_e06.png'},
+    {n:'E7', name:'The busywork costs you more (waiting)', file:'nils_ad_e07.png'},
+    {n:'E8', name:'Every dollar AI can save you. Free.', file:'nils_ad_e08.png'},
+    {n:'E9', name:'You already pay for AI, using 10%', file:'nils_ad_e09.png'},
+    {n:'E10', name:'200+ businesses, $2.4M found (proof)', file:'nils_ad_e10.png'}
+  ];
+  document.getElementById('ebatch').innerHTML = cardsGrid(ebatch);
+  document.getElementById('vbatch').innerHTML = cardsGrid(vbatch);
+  document.getElementById('photobatch').innerHTML = cardsGrid(photobatch);
+  document.getElementById('textbatch').innerHTML = cardsGrid(textbatch);
+  document.getElementById('roibatch').innerHTML = cardsGrid(roibatch);
+  document.getElementById('designerbatch').innerHTML = cardsGrid(designerbatch);
+  if (pending.length) {
+    document.getElementById('pendingSection').style.display = 'block';
+    document.getElementById('pending').innerHTML = pending.map(pairPending).join('');
+  }
+
+  /* ---- selection ("approve ads to push") ---- */
+  (function(){
+    var KEY='nils_ad_selection_v1';
+    var boxes=[].slice.call(document.querySelectorAll('.selbox'));
+    var saved={}; try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}'); }catch(e){}
+    function lbl(b){ return b.closest('.frame.sel'); }
+    function persist(){ var o={}; boxes.forEach(function(b){ if(b.checked) o[b.value]=1; }); try{ localStorage.setItem(KEY,JSON.stringify(o)); }catch(e){} }
+    function refresh(){ var n=0; boxes.forEach(function(b){ var on=b.checked; lbl(b).classList.toggle('on',on); if(on)n++; }); document.getElementById('selcount').textContent=n+' selected'; }
+    boxes.forEach(function(b){ if(saved[b.value]) b.checked=true; b.addEventListener('change',function(){ persist(); refresh(); }); });
+    refresh();
+    document.getElementById('selall').onclick=function(){ boxes.forEach(function(b){ b.checked=true; }); persist(); refresh(); };
+    document.getElementById('selclear').onclick=function(){ boxes.forEach(function(b){ b.checked=false; }); persist(); refresh(); };
+    document.getElementById('selcopy').onclick=function(){
+      var sel=boxes.filter(function(b){ return b.checked; });
+      if(!sel.length){ alert('No ads selected yet — click the ones you want to use.'); return; }
+      var txt='SELECTED ADS ('+sel.length+'):\n'+sel.map(function(b){ return '- '+b.value+'  —  '+(NAMES[b.value]||''); }).join('\n');
+      function done(){ var btn=document.getElementById('selcopy'); var o=btn.textContent; btn.textContent='Copied ✓'; setTimeout(function(){ btn.textContent=o; },1500); }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done,function(){ prompt('Copy this list and paste it back:',txt); }); }
+      else { prompt('Copy this list and paste it back:',txt); }
+    };
+  })();
+
+  /* ---- hearts ("design favorites" — separate from the use-this checkbox) ---- */
+  (function(){
+    var HKEY='nils_ad_hearts_v1';
+    var hsaved={}; try{ hsaved=JSON.parse(localStorage.getItem(HKEY)||'{}'); }catch(e){}
+    var hearts=[].slice.call(document.querySelectorAll('.heart'));
+    function lab(h){ return h.closest('.frame.sel'); }
+    function hpersist(){ var o={}; hearts.forEach(function(h){ if(lab(h).classList.contains('liked')) o[h.dataset.file]=1; }); try{ localStorage.setItem(HKEY,JSON.stringify(o)); }catch(e){} }
+    function hrefresh(){ var n=0; hearts.forEach(function(h){ if(lab(h).classList.contains('liked')) n++; }); document.getElementById('heartcount').textContent=n+' ♥'; }
+    hearts.forEach(function(h){
+      if(hsaved[h.dataset.file]) lab(h).classList.add('liked');
+      h.addEventListener('click',function(e){ e.preventDefault(); e.stopPropagation(); lab(h).classList.toggle('liked'); hpersist(); hrefresh(); });
+    });
+    hrefresh();
+    document.getElementById('heartcopy').onclick=function(){
+      var liked=hearts.filter(function(h){ return lab(h).classList.contains('liked'); });
+      if(!liked.length){ alert('No designs hearted yet — click the ♥ on the looks you like most.'); return; }
+      var txt='LIKED DESIGNS ('+liked.length+'):\n'+liked.map(function(h){ return '- '+h.dataset.file+'  —  '+(NAMES[h.dataset.file]||''); }).join('\n');
+      function done(){ var b=document.getElementById('heartcopy'); var o=b.textContent; b.textContent='Copied ♥'; setTimeout(function(){ b.textContent=o; },1500); }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(done,function(){ prompt('Copy your liked designs and paste them back:',txt); }); }
+      else { prompt('Copy your liked designs and paste them back:',txt); }
+    };
+  })();
+</script>
+</body>
+</html>

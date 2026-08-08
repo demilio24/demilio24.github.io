@@ -1,0 +1,1386 @@
+<script>
+  /*
+  Consolidated validator (Birthday + Summer Camp) - FIXED + MERGED
+  ------------------------------------------------------------------
+  PASTE this ENTIRE file (including <script> tags) into ONE Custom
+  Code element at the bottom of the GHL form. Delete the two old
+  validator Custom Code elements.
+  ------------------------------------------------------------------
+  Functionality preserved from both originals:
+    Birthday side:
+      - Validates Date Of Birth (Birthday / DOB / Date of Birth labels)
+      - Min age: kid must be >= 2.5 years old by June 1 of current year
+      - Inline hint near the picker (warn / err / future-date)
+      - Blocks submit click when DOB is invalid
+    Summer Camp side:
+      - Reads "Select Camp Duration" (Full Week / Four / Three / Two / One)
+      - Caps each "Which day(s) ..." week at the chosen count
+      - Auto-fills all days when "Full Week" is picked
+      - Adds "Select All / Deselect All" button on Select Camp Dates
+      - Adds "Copy to all weeks" button on each visible week
+      - Per-week status hint (need N more / all selected)
+      - Blocks submit click when any selected week is incomplete
+
+  Fixes vs originals:
+    1. Single shared submit-click guard (capture phase) — both
+       validators run; if EITHER fails, submit is blocked.
+    2. NO more 400ms / 700ms setIntervals. One narrow MutationObserver
+       on document.body, auto-stops after 60s once Vue is settled.
+    3. autoFillFullWeek runs ONLY when the user changes the
+       duration — not every 0.7s. (This was the big "I can't
+       deselect days" bug that made the form feel frozen.)
+    4. Hints, "Select All" and "Copy to all weeks" buttons are
+       rendered OUTSIDE the Vue-managed wrapper (as siblings),
+       so Vue re-renders never wipe them.
+    5. validateOnSubmit only validates week wrappers whose
+       corresponding "Select Camp Dates" checkbox is actually
+       checked (matches week label, normalises en-dash vs hyphen).
+    6. Visible red banner pinned at top of page whenever submit is
+       blocked. No more silent fails — user always sees WHY.
+    7. Console logs prefixed [VALIDATOR] for easy DevTools debugging.
+    8. Removed dead code:
+         - submit listener attached to <div id="_builder-form">
+           (never fires submit events)
+         - [data-v-btn] selector (matched nothing)
+*/
+  (function () {
+    "use strict";
+
+    if (window.__formValidatorLoaded) return;
+    window.__formValidatorLoaded = true;
+
+    var TAG = "[VALIDATOR]";
+    function log() {
+      try {
+        console.log.apply(console, [TAG].concat([].slice.call(arguments)));
+      } catch (e) {}
+    }
+
+    // ---- Mute flag: when true, MutationObserver ignores DOM changes
+    // we make ourselves (otherwise: infinite mutation -> callback ->
+    // mutation feedback loop that locks the page).
+    var muted = 0;
+    function mutate(fn) {
+      muted++;
+      try {
+        fn();
+      } finally {
+        // Defer un-mute until after this microtask so any mutations
+        // we caused are flushed under the muted flag.
+        setTimeout(function () {
+          if (muted > 0) muted--;
+        }, 0);
+      }
+    }
+
+    // ---- Tiny debounce so observer doesn't thrash
+    function debounce(fn, ms) {
+      var t = null;
+      return function () {
+        if (t) clearTimeout(t);
+        t = setTimeout(function () {
+          t = null;
+          fn();
+        }, ms);
+      };
+    }
+
+    // ============================================================
+    // SHARED: styles + top-of-page block banner
+    // ============================================================
+    var css = `
+    .bday-hint, .camp-week-hint {
+      margin: 8px 0 12px; padding: 9px 13px; border-radius: 8px;
+      font-family: 'Inter', system-ui, sans-serif; font-size: 13px;
+      line-height: 1.4; font-weight: 500;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .bday-hint.hint-warn,
+    .camp-week-hint.hint-warn { background:#FFF6E0; color:#8a5a00; border:1px solid #F0C26A; }
+    .bday-hint.hint-err       { background:#FFF0EE; color:#8a2a00; border:1px solid #F5A89A; }
+    .camp-week-hint.hint-ok   { background:#E8F7EE; color:#1b6b3a; border:1px solid #7FCB9B; }
+    .bday-hint .hint-icon, .camp-week-hint .hint-icon {
+      display:inline-flex; align-items:center; justify-content:center;
+      width:18px; height:18px; border-radius:50%;
+      font-size:12px; font-weight:700; flex-shrink:0;
+    }
+    .bday-hint.hint-warn .hint-icon,
+    .camp-week-hint.hint-warn .hint-icon { background:#F0C26A; color:#5a3a00; }
+    .bday-hint.hint-err  .hint-icon      { background:#F5A89A; color:#7a1500; }
+    .camp-week-hint.hint-ok .hint-icon   { background:#7FCB9B; color:#0f3a20; }
+
+    .camp-helper-btn {
+      display:inline-block; margin:0 0 0 10px;
+      padding:8px 14px; min-height:36px;
+      font-family:'Inter', system-ui, sans-serif;
+      font-size:13px; font-weight:600; line-height:1.2;
+      letter-spacing:.01em;
+      color:#1e4fd6 !important; background:#EAF1FF;
+      border:1px solid #B9CCF7; border-radius:999px;
+      cursor:pointer; vertical-align:middle;
+      transition:background .15s ease, color .15s ease, border-color .15s ease;
+    }
+    .camp-helper-btn:hover { background:#DCE7FF; border-color:#8FAEF0; }
+    .camp-helper-btn[disabled] { opacity:.45; cursor:not-allowed; }
+    .camp-helper-btn.is-active { background:#1e4fd6; color:#fff !important; border-color:#1e4fd6; }
+    .camp-helper-btn.is-flash  { background:#1e4fd6; color:#fff; border-color:#1e4fd6; }
+
+    @media (max-width: 480px) {
+      .camp-helper-btn {
+        display:block; width:fit-content; margin:8px 0 4px;
+        padding:10px 16px; min-height:40px; font-size:14px;
+      }
+    }
+
+    .form-block-banner {
+      position:fixed; top:0; left:0; right:0;
+      background:#B91C1C; color:#fff; z-index:999999;
+      padding:14px 20px; text-align:center;
+      font-family:'Inter', system-ui, sans-serif;
+      font-size:14px; font-weight:600;
+      box-shadow:0 2px 8px rgba(0,0,0,.25);
+      display:none;
+    }
+    .form-block-banner.is-visible { display:block; }
+
+    .camp-total-bar {
+      margin:16px 0 12px;
+      padding:14px 18px;
+      background:#F8FAFC;
+      border:1px solid #E5E7EB;
+      border-radius:10px;
+      font-family:'Inter', system-ui, sans-serif;
+      display:none;
+    }
+    .camp-total-bar.is-visible { display:block; }
+    .camp-total-content {
+      display:flex; align-items:center; justify-content:space-between;
+      gap:12px;
+    }
+    .camp-total-label {
+      font-size:12px; font-weight:600; color:#6B7280;
+      text-transform:uppercase; letter-spacing:.06em;
+    }
+    .camp-total-value {
+      font-size:22px; font-weight:700; color:#155EEF;
+      font-variant-numeric:tabular-nums;
+    }
+    .camp-total-bar.is-flash .camp-total-value {
+      animation:camp-total-flash .35s ease;
+    }
+    @keyframes camp-total-flash {
+      0% { transform:scale(1); }
+      50% { transform:scale(1.06); }
+      100% { transform:scale(1); }
+    }
+    @media (max-width: 480px) {
+      .camp-total-bar { padding:12px 14px; }
+      .camp-total-label { font-size:11px; }
+      .camp-total-value { font-size:20px; }
+    }
+
+    .camp-mismatch-text {
+      color:#B91C1C !important;
+      text-decoration:line-through;
+      text-decoration-color:#B91C1C;
+    }
+  `;
+    if (!document.getElementById("form-validator-css")) {
+      var s = document.createElement("style");
+      s.id = "form-validator-css";
+      s.textContent = css;
+      (document.head || document.documentElement).appendChild(s);
+    }
+
+    function ensureBanner() {
+      var b = document.getElementById("form-block-banner");
+      if (b) return b;
+      b = document.createElement("div");
+      b.id = "form-block-banner";
+      b.className = "form-block-banner";
+      document.body.appendChild(b);
+      return b;
+    }
+    function showBanner(msg) {
+      var b = ensureBanner();
+      b.textContent = msg;
+      b.classList.add("is-visible");
+      clearTimeout(b.__hideT);
+      b.__hideT = setTimeout(function () {
+        b.classList.remove("is-visible");
+      }, 5000);
+    }
+
+    // ============================================================
+    // BIRTHDAY validator
+    // ============================================================
+    var BDAY_RE = /birthday|date\s*of\s*birth|birth\s*date|\bDOB\b/i;
+    var bdayWatched = new WeakSet();
+
+    function bdayFindWrappers() {
+      var out = [];
+      document.querySelectorAll("label").forEach(function (lbl) {
+        if (!BDAY_RE.test(lbl.textContent)) return;
+        var w =
+          lbl.closest(".form-field-wrapper") ||
+          lbl.closest(".form-builder--item");
+        if (w && out.indexOf(w) === -1) out.push(w);
+      });
+      return out;
+    }
+
+    function bdayRemoveHint(wrapper) {
+      var holder = wrapper.parentNode || wrapper;
+      var h = holder.querySelector(":scope > .bday-hint");
+      if (h) h.parentNode.removeChild(h);
+    }
+    function bdayShowHint(wrapper, type, message) {
+      bdayRemoveHint(wrapper);
+      var icons = { warn: "!", err: "✕" };
+      var div = document.createElement("div");
+      div.className = "bday-hint hint-" + type;
+      div.innerHTML =
+        '<span class="hint-icon">' +
+        icons[type] +
+        "</span><span>" +
+        message +
+        "</span>";
+      var holder = wrapper.parentNode || wrapper;
+      if (wrapper.nextSibling) holder.insertBefore(div, wrapper.nextSibling);
+      else holder.appendChild(div);
+    }
+
+    function bdayIsToday(d) {
+      var t = new Date();
+      return (
+        d.getFullYear() === t.getFullYear() &&
+        d.getMonth() === t.getMonth() &&
+        d.getDate() === t.getDate()
+      );
+    }
+
+    function bdayMinBirthdate() {
+      var cutoffYear = new Date().getFullYear();
+      var june1 = new Date(cutoffYear, 5, 1);
+      var minDate = new Date(june1);
+      minDate.setMonth(minDate.getMonth() - 30);
+      return minDate;
+    }
+
+    function bdayGetPickerDate(pickerEl) {
+      var vue = pickerEl.__vue__;
+      if (vue && vue.value) return new Date(vue.value);
+      try {
+        var vp = pickerEl.__vueParentComponent;
+        if (vp && vp.props && vp.props.value) return new Date(vp.props.value);
+        if (vp && vp.setupState && vp.setupState.value)
+          return new Date(vp.setupState.value);
+      } catch (e) {}
+      var input = pickerEl.querySelector("input");
+      if (!input) return null;
+      var txt = input.value.trim();
+      if (!txt) return null;
+      var m = txt.match(/^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/);
+      if (m) return new Date(+m[3], +m[1] - 1, +m[2]);
+      var iso = txt.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+      if (iso) return new Date(+iso[1], +iso[2] - 1, +iso[3]);
+      return null;
+    }
+
+    function bdayGetHiddenValue(wrapper) {
+      var inputs = wrapper.querySelectorAll("input");
+      for (var i = 0; i < inputs.length; i++) {
+        var t = inputs[i].type;
+        if (t === "hidden" || t === "date") return inputs[i].value;
+      }
+      if (inputs[0]) return inputs[0].value;
+      return "";
+    }
+
+    function bdayValidateWrapper(wrapper) {
+      var pickerEl = wrapper.querySelector(".vdpWithInput");
+      var date = null;
+      if (pickerEl) date = bdayGetPickerDate(pickerEl);
+      if (!date) {
+        var hv = bdayGetHiddenValue(wrapper);
+        if (hv) {
+          var m = hv.match(/^(\d{1,2})[-\/](\d{1,2})[-\/](\d{4})$/);
+          if (m) date = new Date(+m[3], +m[1] - 1, +m[2]);
+          if (!date) {
+            var d2 = new Date(hv);
+            if (!isNaN(d2)) date = d2;
+          }
+        }
+      }
+      if (!date || isNaN(date.getTime())) {
+        bdayRemoveHint(wrapper);
+        return true;
+      }
+
+      var today = new Date();
+      today.setHours(0, 0, 0, 0);
+      if (date > today) {
+        bdayShowHint(
+          wrapper,
+          "err",
+          "This date is in the future. Please enter a valid date of birth.",
+        );
+        return false;
+      }
+      if (bdayIsToday(date)) {
+        bdayShowHint(
+          wrapper,
+          "warn",
+          "Today's date entered. Are you sure this is correct?",
+        );
+        return true;
+      }
+      var minBirthdate = bdayMinBirthdate();
+      if (date > minBirthdate) {
+        var cutoffYear = new Date().getFullYear();
+        bdayShowHint(
+          wrapper,
+          "err",
+          "Students must be at least 2.5 years old by June 1, " +
+            cutoffYear +
+            ". " +
+            "This student does not meet the minimum age requirement.",
+        );
+        return false;
+      }
+      bdayRemoveHint(wrapper);
+      return true;
+    }
+
+    function bdayValidateAll() {
+      var ok = true;
+      bdayFindWrappers().forEach(function (w) {
+        if (!bdayValidateWrapper(w)) ok = false;
+      });
+      return ok;
+    }
+
+    function bdayWatchWrapper(wrapper) {
+      if (bdayWatched.has(wrapper)) return;
+      bdayWatched.add(wrapper);
+      var picker = wrapper.querySelector(".vdpWithInput");
+      if (picker) {
+        var input = picker.querySelector("input");
+        if (input) {
+          ["input", "change", "blur"].forEach(function (evt) {
+            input.addEventListener(evt, function () {
+              setTimeout(function () {
+                bdayValidateWrapper(wrapper);
+              }, 100);
+            });
+          });
+        }
+        var mo = new MutationObserver(function () {
+          bdayValidateWrapper(wrapper);
+        });
+        mo.observe(picker, {
+          attributes: true,
+          childList: true,
+          subtree: true,
+          characterData: true,
+        });
+      }
+      log("Watching DOB wrapper");
+    }
+
+    function bdayScan() {
+      bdayFindWrappers().forEach(bdayWatchWrapper);
+    }
+
+    // ============================================================
+    // SUMMER CAMP validator
+    // ============================================================
+    // Accept both word-form ("Two days", "Full Week") and numeric-form
+    // ("2 days ($215/week)", "5 days ($365/week)") so the cap and Copy
+    // button work regardless of how the GHL options are labelled.
+    // Order matters: "5 days" / "Full Week" must be tried first.
+    var DURATION_MAP = [
+      { match: /\bfull\s*week\b|\b5\s*days?\b/i, count: 5, label: "Full Week" },
+      { match: /\bfour\s*days?\b|\b4\s*days?\b/i, count: 4, label: "Four days" },
+      { match: /\bthree\s*days?\b|\b3\s*days?\b/i, count: 3, label: "Three days" },
+      { match: /\btwo\s*days?\b|\b2\s*days?\b/i, count: 2, label: "Two days" },
+      { match: /\bone\s*day\b|\b1\s*day\b/i, count: 1, label: "One day" },
+    ];
+    var WEEK_LABEL_RE = /Which day\(s\) will you attend the week of/i;
+    var DURATION_LABEL_RE = /^\s*Select Camp Duration/i;
+    var DATES_LABEL_RE = /^\s*Select Camp Dates/i;
+
+    var tickOrder = new Map();
+    var enforcing = false;
+    var lastDurationLabel = null;
+
+    function findLabelContainer(regex) {
+      var labels = document.querySelectorAll(
+        ".form-builder--item label.field-label, .form-builder--item label",
+      );
+      for (var i = 0; i < labels.length; i++) {
+        if (regex.test(labels[i].textContent)) {
+          return {
+            label: labels[i],
+            wrapper:
+              labels[i].closest(".form-field-wrapper") ||
+              labels[i].closest(".form-builder--item"),
+          };
+        }
+      }
+      return null;
+    }
+
+    function matchDuration(text) {
+      if (!text) return null;
+      for (var i = 0; i < DURATION_MAP.length; i++) {
+        if (DURATION_MAP[i].match.test(text)) return DURATION_MAP[i];
+      }
+      return null;
+    }
+
+    // Robust read of the "Select Camp Duration" value. GHL's
+    // vue-multiselect can render the picked option in several places
+    // depending on single/multi mode and version. We try them all in
+    // priority order. Anything that finds a recognisable duration
+    // wins; if nothing does, we return null and the caps + Copy
+    // button silently disable (same as before — but with way more
+    // ways to succeed).
+    function getExpectedCount() {
+      var d = findLabelContainer(DURATION_LABEL_RE);
+      if (!d || !d.wrapper) return null;
+      var w = d.wrapper;
+      var r;
+
+      // 1. multiselect aria-selected option (works for many versions)
+      var ariaSel = w.querySelector(
+        'li.multiselect__element[aria-selected="true"], ' +
+          '[role="option"][aria-selected="true"], ' +
+          ".multiselect__option--selected",
+      );
+      if (ariaSel && (r = matchDuration(ariaSel.textContent))) return r;
+
+      // 2. single chip (single-select multiselect)
+      var single = w.querySelector(".multiselect__single");
+      if (single && (r = matchDuration(single.textContent))) return r;
+
+      // 3. tag chips (multi-select multiselect) — try each chip
+      var tags = w.querySelectorAll(".multiselect__tag");
+      for (var i = 0; i < tags.length; i++) {
+        if ((r = matchDuration(tags[i].textContent))) return r;
+      }
+
+      // 4. tags-wrap (older multiselect markup)
+      var tw = w.querySelector(".multiselect__tags-wrap");
+      if (tw && (r = matchDuration(tw.textContent))) return r;
+
+      // 5. native <select>
+      var nativeSel = w.querySelector("select");
+      if (nativeSel) {
+        var opt = nativeSel.options[nativeSel.selectedIndex];
+        if (opt && (r = matchDuration(opt.textContent))) return r;
+      }
+
+      // 6. checked radio's label
+      var radio = w.querySelector('input[type="radio"]:checked');
+      if (radio) {
+        var rlbl =
+          radio.closest("label") ||
+          (radio.id
+            ? document.querySelector('label[for="' + radio.id + '"]')
+            : null);
+        if (rlbl && (r = matchDuration(rlbl.textContent))) return r;
+        if ((r = matchDuration(radio.value))) return r;
+      }
+
+      // 7. hidden input value (vue-multiselect sometimes mirrors here)
+      var hidden = w.querySelector('input[type="hidden"]');
+      if (hidden && (r = matchDuration(hidden.value))) return r;
+
+      // 8. Vue instance value (last resort, version-tolerant)
+      try {
+        var holder = w.querySelector(".multiselect") || w;
+        var vue = holder.__vue__;
+        if (vue) {
+          var v = vue.value != null ? vue.value : vue.modelValue;
+          if (v != null && (r = matchDuration(String(
+            typeof v === "object" ? (v.label || v.name || v.value || v) : v
+          )))) return r;
+        }
+        var vp = holder.__vueParentComponent;
+        if (vp) {
+          var pv = vp.props && (vp.props.value || vp.props.modelValue);
+          if (pv != null && (r = matchDuration(String(
+            typeof pv === "object" ? (pv.label || pv.name || pv.value || pv) : pv
+          )))) return r;
+        }
+      } catch (e) {}
+
+      return null;
+    }
+
+    function isVisible(el) {
+      if (!el) return false;
+      if (el.offsetParent === null && getComputedStyle(el).position !== "fixed")
+        return false;
+      var s = getComputedStyle(el);
+      return s.display !== "none" && s.visibility !== "hidden";
+    }
+
+    function getAllWeekWrappers() {
+      var out = [];
+      var labels = document.querySelectorAll(
+        ".form-builder--item label.field-label, .form-builder--item label",
+      );
+      for (var i = 0; i < labels.length; i++) {
+        if (!WEEK_LABEL_RE.test(labels[i].textContent)) continue;
+        var w =
+          labels[i].closest(".form-field-wrapper") ||
+          labels[i].closest(".form-builder--item");
+        if (
+          w &&
+          !out.some(function (a) {
+            return a.wrapper === w;
+          })
+        ) {
+          out.push({ wrapper: w, labelText: labels[i].textContent });
+        }
+      }
+      return out;
+    }
+
+    function normaliseDateToken(s) {
+      return String(s)
+        .toLowerCase()
+        .replace(/[–—]/g, "-")
+        .replace(/(\d+)(st|nd|rd|th)\b/g, "$1")
+        .replace(/[^a-z0-9 \-]+/g, " ")
+        .replace(/\s*-\s*/g, "-")
+        .replace(/\s+/g, " ")
+        .trim();
+    }
+
+    // All week wrappers that are currently rendered. In GHL these are
+    // conditional fields tied to "Select Camp Dates" checkboxes, so
+    // visible == the user picked that week. Used by the Copy button
+    // gate and copy destination — sidesteps fragile label-token
+    // matching when a new option's checkbox label and its sub-field
+    // question use slightly different date formats.
+    function getVisibleWeekWrappers() {
+      return getAllWeekWrappers()
+        .filter(function (a) { return isVisible(a.wrapper); })
+        .map(function (a) { return a.wrapper; });
+    }
+
+    // Only week wrappers whose corresponding "Select Camp Dates"
+    // checkbox is actually checked. Used by the submit-time validator
+    // where the stricter check is correct.
+    function getRelevantWeekWrappers() {
+      var all = getAllWeekWrappers();
+      if (all.length === 0) return [];
+
+      var d = findLabelContainer(DATES_LABEL_RE);
+      if (!d || !d.wrapper) {
+        return all
+          .filter(function (a) {
+            return isVisible(a.wrapper);
+          })
+          .map(function (a) {
+            return a.wrapper;
+          });
+      }
+
+      var container =
+        d.wrapper.querySelector('[id$="-checkbox-container"]') || d.wrapper;
+      var checkedBoxes = container.querySelectorAll(
+        'input[type="checkbox"]:checked',
+      );
+      var checkedTokens = [];
+      checkedBoxes.forEach(function (cb) {
+        var lbl =
+          cb.closest("label") ||
+          (cb.id ? document.querySelector('label[for="' + cb.id + '"]') : null);
+        var t = lbl ? lbl.textContent.trim() : "";
+        if (t) checkedTokens.push(normaliseDateToken(t));
+      });
+      if (checkedTokens.length === 0) return [];
+
+      return all
+        .filter(function (a) {
+          var hay = normaliseDateToken(a.labelText);
+          return (
+            checkedTokens.some(function (tok) {
+              return hay.indexOf(tok) !== -1;
+            }) && isVisible(a.wrapper)
+          );
+        })
+        .map(function (a) {
+          return a.wrapper;
+        });
+    }
+
+    function getBoxes(wrapper) {
+      return Array.prototype.slice.call(
+        wrapper.querySelectorAll('input[type="checkbox"]'),
+      );
+    }
+    function getChecked(wrapper) {
+      return getBoxes(wrapper).filter(function (b) {
+        return b.checked;
+      });
+    }
+    function uncheckCheckbox(cb) {
+      if (!cb.checked) return;
+      cb.click();
+      if (cb.checked) {
+        cb.checked = false;
+        cb.dispatchEvent(new Event("input", { bubbles: true }));
+        cb.dispatchEvent(new Event("change", { bubbles: true }));
+      }
+    }
+
+    function enforceMaxForWrapper(wrapper, triggerCb) {
+      if (enforcing) return;
+      var expected = getExpectedCount();
+      if (!expected) return;
+      var checked = getChecked(wrapper);
+      if (checked.length <= expected.count) return;
+      checked.sort(function (a, b) {
+        return (tickOrder.get(a) || 0) - (tickOrder.get(b) || 0);
+      });
+      enforcing = true;
+      try {
+        while (checked.length > expected.count) {
+          var victim = checked.shift();
+          if (victim === triggerCb && checked.length > 0) {
+            var alt = checked.shift();
+            if (alt) victim = alt;
+          }
+          if (!victim) break;
+          tickOrder.delete(victim);
+          uncheckCheckbox(victim);
+        }
+      } finally {
+        enforcing = false;
+      }
+    }
+
+    // Only fires when duration changes — NOT every 700ms
+    function autoFillFullWeekIfNeeded() {
+      if (enforcing) return;
+      var expected = getExpectedCount();
+      if (!expected || expected.label !== "Full Week") return;
+      var wrappers = getRelevantWeekWrappers();
+      if (wrappers.length === 0) return;
+      enforcing = true;
+      try {
+        wrappers.forEach(function (w) {
+          getBoxes(w).forEach(function (b) {
+            if (!b.checked) {
+              b.click();
+              tickOrder.set(b, performance.now());
+            }
+          });
+        });
+      } finally {
+        enforcing = false;
+      }
+      log("Auto-filled Full Week across", wrappers.length, "weeks");
+    }
+
+    function watchDuration() {
+      var d = findLabelContainer(DURATION_LABEL_RE);
+      if (!d || !d.wrapper || d.wrapper.__campDurationWatched) return;
+      d.wrapper.__campDurationWatched = true;
+      var mo = new MutationObserver(function () {
+        var exp = getExpectedCount();
+        var lbl = exp ? exp.label : null;
+        if (lbl !== lastDurationLabel) {
+          lastDurationLabel = lbl;
+          log("Duration changed to", lbl);
+          if (lbl === "Full Week") autoFillFullWeekIfNeeded();
+          updateHints();
+          applyWeeklyOptionGating();
+          updateEstimator();
+        }
+      });
+      mo.observe(d.wrapper, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        characterData: true,
+      });
+    }
+
+    function updateHints() {
+      document.querySelectorAll(".camp-week-hint").forEach(function (h) {
+        if (h.parentNode) h.parentNode.removeChild(h);
+      });
+      var expected = getExpectedCount();
+      var wrappers = getRelevantWeekWrappers();
+      if (!expected || wrappers.length === 0) return;
+
+      wrappers.forEach(function (w) {
+        var checked = getChecked(w).length;
+        var hint = document.createElement("div");
+        hint.className = "camp-week-hint";
+        if (checked < expected.count) {
+          var need = expected.count - checked;
+          hint.classList.add("hint-warn");
+          hint.innerHTML =
+            '<span class="hint-icon">!</span>' +
+            "<span>Select <b>" +
+            need +
+            " more day" +
+            (need === 1 ? "" : "s") +
+            "</b> for this week " +
+            "(" +
+            checked +
+            " of " +
+            expected.count +
+            " selected)</span>";
+        } else if (checked === expected.count) {
+          hint.classList.add("hint-ok");
+          hint.innerHTML =
+            '<span class="hint-icon">&#10003;</span>' +
+            "<span>All " +
+            expected.count +
+            " day" +
+            (expected.count === 1 ? "" : "s") +
+            " selected for this week</span>";
+        } else {
+          hint.classList.add("hint-warn");
+          hint.innerHTML =
+            '<span class="hint-icon">!</span><span>Adjusting selections...</span>';
+        }
+        var parent = w.parentNode || w;
+        if (w.nextSibling) parent.insertBefore(hint, w.nextSibling);
+        else parent.appendChild(hint);
+      });
+    }
+
+    function campValidateOnSubmit() {
+      var expected = getExpectedCount();
+      if (!expected) return true;
+      var wrappers = getRelevantWeekWrappers();
+      if (wrappers.length === 0) return true;
+      var firstBad = null;
+      wrappers.forEach(function (w) {
+        if (getChecked(w).length !== expected.count && !firstBad) firstBad = w;
+      });
+      if (firstBad) {
+        updateHints();
+        if (firstBad.scrollIntoView)
+          firstBad.scrollIntoView({ behavior: "smooth", block: "center" });
+        return false;
+      }
+      return true;
+    }
+
+    // ----- Helper buttons rendered OUTSIDE the label -----
+    function installSelectAllButton() {
+      var d = findLabelContainer(DATES_LABEL_RE);
+      if (!d || !d.label) return;
+      if (d.label.querySelector(":scope > .camp-select-all-btn")) return;
+
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "camp-helper-btn camp-select-all-btn";
+      btn.textContent = "Select All";
+      btn.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var container =
+          d.wrapper && d.wrapper.querySelector('[id$="-checkbox-container"]');
+        if (!container) return;
+        var boxes = container.querySelectorAll('input[type="checkbox"]');
+        if (boxes.length === 0) return;
+        var allChecked = Array.prototype.every.call(boxes, function (b) {
+          return b.checked;
+        });
+        enforcing = true;
+        try {
+          boxes.forEach(function (b) {
+            if (allChecked && b.checked) b.click();
+            else if (!allChecked && !b.checked) b.click();
+          });
+        } finally {
+          enforcing = false;
+        }
+        setTimeout(function () {
+          updateHints();
+          syncSelectAllBtn();
+        }, 30);
+      });
+      d.label.appendChild(btn);
+    }
+
+    function syncSelectAllBtn() {
+      var d = findLabelContainer(DATES_LABEL_RE);
+      if (!d || !d.label) return;
+      var btn = d.label.querySelector(":scope > .camp-select-all-btn");
+      if (!btn) return;
+      var container =
+        d.wrapper && d.wrapper.querySelector('[id$="-checkbox-container"]');
+      if (!container) return;
+      var boxes = container.querySelectorAll('input[type="checkbox"]');
+      if (boxes.length === 0) return;
+      var allChecked = Array.prototype.every.call(boxes, function (b) {
+        return b.checked;
+      });
+      btn.textContent = allChecked ? "Deselect All" : "Select All";
+      btn.classList.toggle("is-active", allChecked);
+    }
+
+    function copyPatternFromWrapper(sourceWrapper) {
+      var sourceBoxes = getBoxes(sourceWrapper);
+      var pattern = sourceBoxes.map(function (b) {
+        return !!b.checked;
+      });
+      var wrappers = getVisibleWeekWrappers();
+      enforcing = true;
+      try {
+        wrappers.forEach(function (w) {
+          if (w === sourceWrapper) return;
+          var boxes = getBoxes(w);
+          var len = Math.min(boxes.length, pattern.length);
+          for (var i = 0; i < len; i++) {
+            var want = pattern[i],
+              box = boxes[i];
+            if (box.checked !== want) {
+              box.click();
+              if (want) tickOrder.set(box, performance.now() + i * 0.001);
+              else tickOrder.delete(box);
+            }
+          }
+        });
+      } finally {
+        enforcing = false;
+      }
+    }
+
+    function installCopyButtons() {
+      var entries = getAllWeekWrappers().filter(function (a) {
+        return isVisible(a.wrapper);
+      });
+      entries.forEach(function (a) {
+        var w = a.wrapper;
+        var label =
+          w.querySelector("label.field-label") || w.querySelector("label");
+        if (!label || !label.parentNode) return;
+        var anchorParent = label.parentNode;
+        var existing = anchorParent.querySelector(":scope > .camp-copy-btn");
+        if (entries.length < 2) {
+          if (existing) existing.parentNode.removeChild(existing);
+          return;
+        }
+        if (existing) {
+          syncCopyBtnState(w, existing);
+          return;
+        }
+        var btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "camp-helper-btn camp-copy-btn";
+        btn.textContent = "Copy to all weeks";
+        btn.addEventListener("click", function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          if (btn.disabled) return;
+          copyPatternFromWrapper(w);
+          btn.classList.add("is-flash");
+          btn.textContent = "Copied";
+          btn.disabled = true;
+          setTimeout(function () {
+            btn.classList.remove("is-flash");
+            btn.textContent = "Copy to all weeks";
+            btn.disabled = false;
+            syncCopyBtnState(w, btn);
+            updateHints();
+          }, 900);
+        });
+        if (label.nextSibling)
+          anchorParent.insertBefore(btn, label.nextSibling);
+        else anchorParent.appendChild(btn);
+        syncCopyBtnState(w, btn);
+      });
+    }
+
+    function syncCopyBtnState(wrapper, btn) {
+      var expected = getExpectedCount();
+      var checked = getChecked(wrapper).length;
+      var visibleCount = getVisibleWeekWrappers().length;
+      var ready = !!expected && checked === expected.count && visibleCount > 1;
+      btn.disabled = !ready;
+      btn.title = ready
+        ? "Apply this selection to every other selected week"
+        : "Pick your days for this week first, then copy to the others";
+    }
+
+    function findWeekWrapperContaining(cb) {
+      var entries = getAllWeekWrappers();
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].wrapper.contains(cb)) return entries[i].wrapper;
+      }
+      return null;
+    }
+
+    function onChange(e) {
+      var t = e.target;
+      if (!t) return;
+      // Update estimator + weekly-extra gating on every change —
+      // covers non-checkbox selects (T-shirt, Extra care, Breakfast,
+      // Lunch) and checkbox toggles alike.
+      applyWeeklyOptionGating();
+      updateEstimator();
+      if (t.type !== "checkbox") {
+        syncSelectAllBtn();
+        return;
+      }
+      var wrapper = findWeekWrapperContaining(t);
+      if (wrapper) {
+        if (t.checked) {
+          tickOrder.set(t, performance.now());
+          if (!enforcing) enforceMaxForWrapper(wrapper, t);
+        } else {
+          tickOrder.delete(t);
+        }
+        updateHints();
+        // Force a FULL resync of every Copy button — Vue can swap
+        // out a wrapper's children on re-render, leaving our cached
+        // button reference stale or our previous disabled-state
+        // overwritten. Cheap, ~13 buttons; runs only on actual
+        // user checkbox events.
+        installCopyButtons();
+        // Re-run estimator after cap may have unchecked extras
+        updateEstimator();
+      }
+      syncSelectAllBtn();
+    }
+
+    function onClickBubble(e) {
+      var liOption =
+        e.target.closest &&
+        e.target.closest("li.multiselect__element, .multiselect__option");
+      if (liOption) {
+        setTimeout(function () {
+          var exp = getExpectedCount();
+          var lbl = exp ? exp.label : null;
+          if (lbl !== lastDurationLabel) {
+            lastDurationLabel = lbl;
+            log("Duration changed via click to", lbl);
+            if (lbl === "Full Week") autoFillFullWeekIfNeeded();
+          }
+          updateHints();
+          applyWeeklyOptionGating();
+          updateEstimator();
+        }, 50);
+      }
+    }
+
+    // ============================================================
+    // SHARED submit guard — runs both validators
+    // ============================================================
+    var docGuard = false;
+    function attachDocGuard() {
+      if (docGuard) return;
+      docGuard = true;
+      document.addEventListener(
+        "click",
+        function (e) {
+          var btn =
+            e.target.closest &&
+            e.target.closest(
+              'button[type="submit"], .hl-submit-button, .ghl-submit-btn, .hl-btn-submit',
+            );
+          if (!btn) return;
+
+          var reasons = [];
+          if (!bdayValidateAll()) reasons.push("birthday");
+          if (!campValidateOnSubmit()) reasons.push("camp days");
+          if (hasWeeklyMismatch()) reasons.push("weekly extras");
+
+          if (reasons.length > 0) {
+            log("Blocking submit — reasons:", reasons);
+            var msg;
+            if (reasons.indexOf("weekly extras") !== -1) {
+              msg =
+                "A weekly lunch or extra-care option requires Full Week camp. " +
+                "Pick a different option or change your Camp Duration.";
+            } else if (
+              reasons.indexOf("birthday") !== -1 &&
+              reasons.indexOf("camp days") !== -1
+            ) {
+              msg =
+                "Please fix the birthday and camp-day selections before submitting.";
+            } else if (reasons.indexOf("birthday") !== -1) {
+              msg = "Please fix the birthday before submitting.";
+            } else {
+              var exp = getExpectedCount();
+              msg =
+                "Please select " +
+                (exp ? exp.count : "the required number of") +
+                " day(s) for each selected camp week before submitting.";
+            }
+            showBanner(msg);
+            e.preventDefault();
+            e.stopPropagation();
+            if (e.stopImmediatePropagation) e.stopImmediatePropagation();
+          } else {
+            log("Submit allowed");
+          }
+        },
+        true,
+      );
+    }
+
+    // ============================================================
+    // ESTIMATED TOTAL bar
+    // ============================================================
+    // Fields we read prices from. Order doesn't matter for math, but
+    // we list them so it's obvious what feeds the total.
+    var ESTIMATOR_FIELD_REs = [
+      /^\s*Select Camp Duration/i,
+      /^\s*Student T-Shirt/i,
+      /^\s*Extra care options/i,
+      /^\s*Select Breakfast Option/i,
+      /^\s*Select lunch option/i,
+    ];
+
+    // Parse "$215/week", "(+$30)", "($7.75/day)", "Pizza ($30/week)",
+    // "Special (Celis $15/day)" — returns { amount, unit } or null.
+    // Unit is "week" | "day" | "once". "None" / no $ returns null.
+    function parsePrice(text) {
+      if (!text) return null;
+      var m = String(text).match(
+        /\$\s*(\d+(?:\.\d{1,2})?)\s*(?:\/\s*(week|wk|day|d))?/i,
+      );
+      if (!m) return null;
+      var amount = parseFloat(m[1]);
+      if (!(amount > 0)) return null;
+      var u = (m[2] || "").toLowerCase();
+      var unit = u.charAt(0) === "w" ? "week" : u.charAt(0) === "d" ? "day" : "once";
+      return { amount: amount, unit: unit };
+    }
+
+    // Read the currently-selected option text from any GHL/Vue
+    // multiselect-ish wrapper. Mirrors getExpectedCount's strategy.
+    function readSelectedOptionText(wrapper) {
+      if (!wrapper) return null;
+      var ariaSel = wrapper.querySelector(
+        'li.multiselect__element[aria-selected="true"], ' +
+          '[role="option"][aria-selected="true"], ' +
+          ".multiselect__option--selected",
+      );
+      if (ariaSel && ariaSel.textContent.trim()) return ariaSel.textContent;
+      var single = wrapper.querySelector(".multiselect__single");
+      if (single && single.textContent.trim()) return single.textContent;
+      var tag = wrapper.querySelector(".multiselect__tag");
+      if (tag && tag.textContent.trim()) return tag.textContent;
+      var tw = wrapper.querySelector(".multiselect__tags-wrap");
+      if (tw && tw.textContent.trim()) return tw.textContent;
+      var nativeSel = wrapper.querySelector("select");
+      if (nativeSel) {
+        var opt = nativeSel.options[nativeSel.selectedIndex];
+        if (opt && opt.textContent.trim()) return opt.textContent;
+      }
+      var radio = wrapper.querySelector('input[type="radio"]:checked');
+      if (radio) {
+        var rl =
+          radio.closest("label") ||
+          (radio.id
+            ? document.querySelector('label[for="' + radio.id + '"]')
+            : null);
+        if (rl) return rl.textContent;
+      }
+      return null;
+    }
+
+    function countCheckedCampDates() {
+      var d = findLabelContainer(DATES_LABEL_RE);
+      if (!d || !d.wrapper) return 0;
+      var cont =
+        d.wrapper.querySelector('[id$="-checkbox-container"]') || d.wrapper;
+      return cont.querySelectorAll('input[type="checkbox"]:checked').length;
+    }
+
+    function countTotalDays() {
+      var total = 0;
+      getRelevantWeekWrappers().forEach(function (w) {
+        total += getChecked(w).length;
+      });
+      return total;
+    }
+
+    function computeEstimatedTotal() {
+      var weeks = countCheckedCampDates();
+      var days = countTotalDays();
+      var grand = 0;
+      ESTIMATOR_FIELD_REs.forEach(function (re) {
+        var d = findLabelContainer(re);
+        if (!d || !d.wrapper) return;
+        // Skip mismatched weekly extras — option no longer applies
+        if (d.wrapper.__campMismatch) return;
+        var text = readSelectedOptionText(d.wrapper);
+        if (!text) return;
+        var p = parsePrice(text);
+        if (!p) return;
+        if (p.unit === "week") grand += p.amount * weeks;
+        else if (p.unit === "day") grand += p.amount * days;
+        else grand += p.amount;
+      });
+      return grand;
+    }
+
+    function formatMoney(n) {
+      var s = (Math.round(n * 100) / 100).toFixed(2);
+      return "$" + s.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    }
+
+    function ensureTotalBar() {
+      var bar = document.getElementById("camp-total-bar");
+      if (bar && bar.parentNode) return bar;
+      bar = document.createElement("div");
+      bar.id = "camp-total-bar";
+      bar.className = "camp-total-bar";
+      bar.innerHTML =
+        '<div class="camp-total-content">' +
+        '<span class="camp-total-label">Estimated Total</span>' +
+        '<span class="camp-total-value" id="camp-total-value">$0.00</span>' +
+        "</div>";
+      // Insert right above the submit button's wrapper, inside the
+      // form's normal flow so the bar matches the form's width and
+      // doesn't overlay content.
+      var submit = document.querySelector(
+        'button[type="submit"], .hl-submit-button, .ghl-submit-btn, .hl-btn-submit',
+      );
+      var anchor =
+        submit &&
+        (submit.closest(".form-field-wrapper") ||
+          submit.closest(".form-builder--item") ||
+          submit.parentNode);
+      if (anchor && anchor.parentNode) {
+        anchor.parentNode.insertBefore(bar, anchor);
+      } else {
+        var form = document.getElementById("_builder-form");
+        (form || document.body).appendChild(bar);
+      }
+      return bar;
+    }
+
+    var lastEstimatorValue = -1;
+    function updateEstimator() {
+      var bar = ensureTotalBar();
+      var total = computeEstimatedTotal();
+      var v = bar.querySelector("#camp-total-value");
+      if (v) v.textContent = formatMoney(total);
+      bar.classList.toggle("is-visible", total > 0);
+      if (total !== lastEstimatorValue && total > 0) {
+        bar.classList.remove("is-flash");
+        // restart the flash animation
+        void bar.offsetWidth;
+        bar.classList.add("is-flash");
+      }
+      lastEstimatorValue = total;
+    }
+
+    // ============================================================
+    // WEEKLY-extra option gating
+    // ============================================================
+    // A /week-priced extra (e.g. "Pizza ($30/week)", "After care
+    // weekly option ($175/week)") only makes sense when the camp
+    // duration is Full Week (5 days). When duration is anything
+    // else, we HIDE those options from the dropdown so a parent
+    // can't pick them. If one was already selected before duration
+    // changed, we flag the wrapper as mismatched: the option's price
+    // is excluded from the total, an inline warning appears under
+    // the field, and submit is blocked until the parent picks a
+    // valid option (vue-multiselect's Vue instance is stripped by
+    // GHL so we can't programmatically deselect — but they only
+    // have valid options to pick from now).
+    var WEEKLY_GATED_FIELDS = [
+      { re: /^\s*Select lunch option/i, name: "lunch" },
+      { re: /^\s*Extra care options/i, name: "extra care" },
+    ];
+
+    function applyWeeklyOptionGating() {
+      var expected = getExpectedCount();
+      var isFullWeek = !!(expected && expected.count === 5);
+
+      WEEKLY_GATED_FIELDS.forEach(function (f) {
+        var d = findLabelContainer(f.re);
+        if (!d || !d.wrapper) return;
+        var opts = d.wrapper.querySelectorAll(
+          "li.multiselect__element, .multiselect__option",
+        );
+        opts.forEach(function (li) {
+          var p = parsePrice(li.textContent);
+          var weekly = !!(p && p.unit === "week");
+          if (weekly && !isFullWeek) {
+            li.style.display = "none";
+          } else if (li.style.display === "none") {
+            li.style.display = "";
+          }
+        });
+
+        // Flag mismatch on the wrapper so total/submit/hint logic
+        // can find it.
+        var currentText = readSelectedOptionText(d.wrapper);
+        var cp = parsePrice(currentText || "");
+        var mismatch = !isFullWeek && !!(cp && cp.unit === "week");
+        d.wrapper.__campMismatch = mismatch ? f.name : null;
+        var single = d.wrapper.querySelector(".multiselect__single");
+        if (single) single.classList.toggle("camp-mismatch-text", mismatch);
+      });
+
+      updateMismatchHints();
+    }
+
+    function updateMismatchHints() {
+      document
+        .querySelectorAll(".camp-mismatch-hint")
+        .forEach(function (n) {
+          if (n.parentNode) n.parentNode.removeChild(n);
+        });
+      WEEKLY_GATED_FIELDS.forEach(function (f) {
+        var d = findLabelContainer(f.re);
+        if (!d || !d.wrapper || !d.wrapper.__campMismatch) return;
+        var expected = getExpectedCount();
+        var dayWord = expected
+          ? expected.count + " day" + (expected.count === 1 ? "" : "s")
+          : "your selected";
+        var hint = document.createElement("div");
+        hint.className = "bday-hint hint-err camp-mismatch-hint";
+        hint.innerHTML =
+          '<span class="hint-icon">!</span>' +
+          "<span>This weekly " +
+          f.name +
+          " option doesn't fit a " +
+          dayWord +
+          " camp. Pick another option (the weekly one is now hidden) or set <b>Camp Duration</b> to Full Week.</span>";
+        var parent = d.wrapper.parentNode || d.wrapper;
+        if (d.wrapper.nextSibling)
+          parent.insertBefore(hint, d.wrapper.nextSibling);
+        else parent.appendChild(hint);
+      });
+    }
+
+    function hasWeeklyMismatch() {
+      return WEEKLY_GATED_FIELDS.some(function (f) {
+        var d = findLabelContainer(f.re);
+        return d && d.wrapper && d.wrapper.__campMismatch;
+      });
+    }
+
+    // ============================================================
+    // BOOT
+    // ============================================================
+    function syncCampUI() {
+      watchDuration();
+      installSelectAllButton();
+      syncSelectAllBtn();
+      installCopyButtons();
+      updateHints();
+      applyWeeklyOptionGating();
+      updateEstimator();
+    }
+
+    function onReady() {
+      // Birthday side
+      mutate(bdayScan);
+
+      // Camp side: seed tickOrder for any pre-checked boxes
+      getAllWeekWrappers().forEach(function (a) {
+        getChecked(a.wrapper).forEach(function (cb, i) {
+          tickOrder.set(cb, performance.now() - 1e6 + i);
+        });
+      });
+      document.addEventListener("change", onChange, true);
+      document.addEventListener("click", onClickBubble, true);
+      mutate(syncCampUI);
+
+      // Shared submit guard
+      attachDocGuard();
+
+      // Single MutationObserver to catch fields added later by Vue.
+      // Debounced + muted-aware so we never feedback-loop with our own
+      // hint/button insertions. Auto-stops after 60s.
+      var refresh = debounce(function () {
+        mutate(function () {
+          bdayScan();
+          syncCampUI();
+        });
+      }, 250);
+
+      var bodyMO = new MutationObserver(function () {
+        if (muted > 0) return; // ignore our own mutations
+        refresh();
+      });
+      bodyMO.observe(document.body, { childList: true, subtree: true });
+      setTimeout(function () {
+        bodyMO.disconnect();
+        log("Body observer stopped");
+      }, 60000);
+
+      log("Ready");
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", onReady);
+    } else {
+      onReady();
+    }
+
+    // Debug helper: in DevTools run `__campDebug()` to see what the
+    // script is reading for duration, dates, and visible weeks. Also
+    // forces a re-sync of every Copy button so we can inspect their
+    // gated state.
+    window.__campDebug = function () {
+      var d = findLabelContainer(DURATION_LABEL_RE);
+      var exp = getExpectedCount();
+      var weeks = getAllWeekWrappers().map(function (a) {
+        var fieldLabel =
+          a.wrapper.querySelector("label.field-label") ||
+          a.wrapper.querySelector("label");
+        var btn =
+          fieldLabel &&
+          fieldLabel.parentNode &&
+          fieldLabel.parentNode.querySelector(":scope > .camp-copy-btn");
+        return {
+          label: a.labelText.replace(/\s+/g, " ").trim().slice(0, 80),
+          visible: isVisible(a.wrapper),
+          checked: getChecked(a.wrapper).length,
+          copyBtnFound: !!btn,
+          copyBtnDisabled: btn ? btn.disabled : null,
+        };
+      });
+      var info = {
+        expectedCount: exp,
+        durationWrapperFound: !!(d && d.wrapper),
+        visibleWeekWrappers: getVisibleWeekWrappers().length,
+        relevantWeekWrappers: getRelevantWeekWrappers().length,
+        weeks: weeks,
+      };
+      console.log("[CAMP DEBUG]", info);
+      return info;
+    };
+
+    // Force-resync every Copy button — useful if the script's
+    // onChange listener missed a check event.
+    window.__campResync = function () {
+      installCopyButtons();
+      updateHints();
+      var weeks = getAllWeekWrappers().filter(function (a) { return isVisible(a.wrapper); });
+      var out = weeks.map(function (a) {
+        var fieldLabel = a.wrapper.querySelector("label.field-label") || a.wrapper.querySelector("label");
+        var btn = fieldLabel && fieldLabel.parentNode.querySelector(":scope > .camp-copy-btn");
+        if (btn) syncCopyBtnState(a.wrapper, btn);
+        return {
+          label: a.labelText.replace(/\s+/g, " ").trim().slice(0, 80),
+          checked: getChecked(a.wrapper).length,
+          btnDisabled: btn ? btn.disabled : "no-btn",
+        };
+      });
+      return out;
+    };
+  })();
+</script>

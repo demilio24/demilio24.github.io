@@ -1,0 +1,4 @@
+# Disable GitHub Pages Jekyll processing — this repo is static HTML only.
+# Jekyll's Liquid parser crashes on the {{merge-tag}} examples in several
+# PROJECT.md files (e.g. NILS-FUNNELS/PROJECT.md), which was failing every
+# Pages build repo-wide and freezing the live site. Serving files as-is fixes it.

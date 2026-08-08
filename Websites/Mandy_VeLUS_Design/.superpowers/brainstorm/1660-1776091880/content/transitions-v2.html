@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section Transitions — Services → Gallery</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #1a1a2e; color: #e0e0e0; padding: 32px; }
+  h1 { font-size: 24px; font-weight: 300; color: #fff; margin-bottom: 8px; text-align: center; }
+  .subtitle { font-size: 13px; color: #888; text-align: center; margin-bottom: 36px; }
+  .variation { margin-bottom: 32px; background: #222240; border-radius: 16px; overflow: hidden; border: 1px solid #333; cursor: pointer; transition: border-color .3s, box-shadow .3s; }
+  .variation:hover { border-color: #B89A6A; box-shadow: 0 0 20px rgba(184,154,106,.12); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 28px rgba(184,154,106,.2); }
+  .var-label { display: flex; align-items: center; gap: 10px; padding: 12px 20px; border-bottom: 1px solid #333; }
+  .var-letter { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
+  .var-title { font-size: 14px; font-weight: 600; color: #fff; }
+  .var-desc { font-size: 12px; color: #999; padding: 10px 20px; line-height: 1.6; border-top: 1px solid #2a2a45; }
+  .selected .var-letter { background: #fff; color: #B89A6A; }
+  .mock-label { font-size: 9px; color: #666; letter-spacing: .08em; text-transform: uppercase; padding: 4px 16px; }
+</style>
+</head>
+<body>
+
+<h1>Section Transitions: Cream → Dark</h1>
+<p class="subtitle">Each shows the exact boundary between Services (ivory #FAF6F0) and Gallery (dark #2A1E1A). Click your favorite.</p>
+
+<!-- A: Pure gradient -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">A</div><div class="var-title">Pure Gradient — Seamless</div></div>
+  <div class="mock-label">Services (ivory)</div>
+  <div style="height:60px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · cards · · ·</span></div>
+  <div style="height:120px;background:linear-gradient(to bottom, #FAF6F0 0%, #2A1E1A 100%);"></div>
+  <div style="height:60px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:rgba(243,235,221,.35);letter-spacing:.08em;">· · · gallery · · ·</span></div>
+  <div class="var-desc">No element — just a long CSS gradient. Invisible hand-off. Like Victoria Hagan's quiet transitions.</div>
+</div>
+
+<!-- B: Short gradient + thin gold line -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">B</div><div class="var-title">Gold Hairline — Refined</div></div>
+  <div class="mock-label">Services (ivory)</div>
+  <div style="height:60px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · cards · · ·</span></div>
+  <div style="height:40px;background:linear-gradient(to bottom, #FAF6F0, #c4b5a0);"></div>
+  <div style="height:1px;background:linear-gradient(90deg, transparent 5%, rgba(184,154,106,.5) 25%, rgba(184,154,106,.5) 75%, transparent 95%);"></div>
+  <div style="height:40px;background:linear-gradient(to bottom, #3a2e24, #2A1E1A);"></div>
+  <div style="height:60px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:rgba(243,235,221,.35);letter-spacing:.08em;">· · · gallery · · ·</span></div>
+  <div class="var-desc">Short gradient to a midpoint tone, single gold hairline, then fades into dark. Precise and intentional.</div>
+</div>
+
+<!-- C: Gold diamond ornament -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">C</div><div class="var-title">Gold Diamond — Classic</div></div>
+  <div class="mock-label">Services (ivory)</div>
+  <div style="height:60px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · cards · · ·</span></div>
+  <div style="height:24px;background:linear-gradient(to bottom, #FAF6F0, #e8ddd0);"></div>
+  <div style="background:#ddd2c4;display:flex;align-items:center;justify-content:center;padding:14px 0;gap:14px;">
+    <div style="flex:1;max-width:160px;height:1px;background:linear-gradient(90deg,transparent,rgba(184,154,106,.4));"></div>
+    <div style="width:7px;height:7px;background:#B89A6A;transform:rotate(45deg);opacity:.5;flex-shrink:0;"></div>
+    <div style="flex:1;max-width:160px;height:1px;background:linear-gradient(90deg,rgba(184,154,106,.4),transparent);"></div>
+  </div>
+  <div style="height:24px;background:linear-gradient(to bottom, #3a2e24, #2A1E1A);"></div>
+  <div style="height:60px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:rgba(243,235,221,.35);letter-spacing:.08em;">· · · gallery · · ·</span></div>
+  <div class="var-desc">Centered gold diamond with radiating lines. Old-world luxury feel. Echoes Studio Peregalli's ornamental sensibility.</div>
+</div>
+
+<!-- D: Hard edge + gold top border -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">D</div><div class="var-title">Gold Top Border — Architectural</div></div>
+  <div class="mock-label">Services (ivory)</div>
+  <div style="height:60px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · cards · · ·</span></div>
+  <div style="height:2px;background:linear-gradient(90deg, transparent 8%, rgba(184,154,106,.35) 25%, rgba(184,154,106,.5) 50%, rgba(184,154,106,.35) 75%, transparent 92%);"></div>
+  <div style="height:60px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:rgba(243,235,221,.35);letter-spacing:.08em;">· · · gallery · · ·</span></div>
+  <div class="var-desc">No gradient at all. Sharp, clean edge with a thin gold line. Bold, architectural, decisive. Like a room threshold.</div>
+</div>
+
+<!-- E: Subtle angled cut -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">E</div><div class="var-title">Angled Cut — Modern</div></div>
+  <div class="mock-label">Services (ivory)</div>
+  <div style="height:60px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · cards · · ·</span></div>
+  <div style="position:relative;height:50px;background:#2A1E1A;"><div style="position:absolute;top:0;left:0;right:0;height:50px;background:#FAF6F0;clip-path:polygon(0 0, 100% 0, 100% 20%, 0 100%);"></div></div>
+  <div style="height:60px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:rgba(243,235,221,.35);letter-spacing:.08em;">· · · gallery · · ·</span></div>
+  <div class="var-desc">Subtle diagonal — ivory angles down into dark. Adds movement. More contemporary than the others.</div>
+</div>
+
+<!-- F: Double gold lines -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">F</div><div class="var-title">Double Gold Lines — Luxury</div></div>
+  <div class="mock-label">Services (ivory)</div>
+  <div style="height:60px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · cards · · ·</span></div>
+  <div style="height:20px;background:linear-gradient(to bottom, #FAF6F0, #ebe0d2);"></div>
+  <div style="background:#e0d5c8;padding:6px 0;">
+    <div style="height:1px;background:linear-gradient(90deg, transparent 10%, rgba(184,154,106,.3) 30%, rgba(184,154,106,.3) 70%, transparent 90%);margin-bottom:6px;"></div>
+    <div style="height:1px;background:linear-gradient(90deg, transparent 10%, rgba(184,154,106,.3) 30%, rgba(184,154,106,.3) 70%, transparent 90%);"></div>
+  </div>
+  <div style="height:20px;background:linear-gradient(to bottom, #3a2e24, #2A1E1A);"></div>
+  <div style="height:60px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:rgba(243,235,221,.35);letter-spacing:.08em;">· · · gallery · · ·</span></div>
+  <div class="var-desc">Two thin parallel gold lines with a warm midpoint. Feels like a book page divider or picture frame detail. Quiet luxury.</div>
+</div>
+
+<!-- G: Dot row -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">G</div><div class="var-title">Gold Dots — Textural</div></div>
+  <div class="mock-label">Services (ivory)</div>
+  <div style="height:60px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:#7A6B62;letter-spacing:.08em;">· · · cards · · ·</span></div>
+  <div style="height:20px;background:linear-gradient(to bottom, #FAF6F0, #e8ddd0);"></div>
+  <div style="background:#ddd2c4;text-align:center;padding:10px 0;">
+    <div style="display:inline-flex;gap:6px;align-items:center;">
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(184,154,106,.2);"></span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(184,154,106,.3);"></span>
+      <span style="width:4px;height:4px;border-radius:50%;background:rgba(184,154,106,.4);"></span>
+      <span style="width:5px;height:5px;border-radius:50%;background:rgba(184,154,106,.5);"></span>
+      <span style="width:4px;height:4px;border-radius:50%;background:rgba(184,154,106,.4);"></span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(184,154,106,.3);"></span>
+      <span style="width:3px;height:3px;border-radius:50%;background:rgba(184,154,106,.2);"></span>
+    </div>
+  </div>
+  <div style="height:20px;background:linear-gradient(to bottom, #3a2e24, #2A1E1A);"></div>
+  <div style="height:60px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;"><span style="font-size:10px;color:rgba(243,235,221,.35);letter-spacing:.08em;">· · · gallery · · ·</span></div>
+  <div class="var-desc">Row of gold dots that fade outward from center. Adds texture without being ornamental. Feels handcrafted.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

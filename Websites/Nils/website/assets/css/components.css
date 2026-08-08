@@ -1,0 +1,97 @@
+/* ─── BUTTONS ─── */
+.btn { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-display); font-weight: var(--fw-display-bold); font-size: var(--fs-meta); padding: var(--space-3) var(--space-5); border-radius: var(--radius-pill); border: 1px solid transparent; transition: transform var(--dur-fast), box-shadow var(--dur-fast); cursor: pointer; }
+.btn:hover { transform: translateY(-1px); }
+.btn-marketing  { background: var(--marketing);  color: white; }
+.btn-automation { background: var(--automation); color: white; }
+.btn-ghost      { background: transparent; color: var(--ink); border-color: var(--ink-line); }
+.btn-ghost:hover { background: var(--ink); color: white; }
+
+/* ─── DOT-GRID BACKGROUND (Marketing VSL signature) ─── */
+.bg-dotgrid { position: relative; overflow: hidden; }
+.bg-dotgrid::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(var(--marketing-rgb), 0.1) 1px, transparent 1px);
+  background-size: 18px 18px;
+  opacity: 0.6;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-dotgrid > * { position: relative; z-index: 1; }
+
+/* ─── ROUTE HALVES (Netflix-style dual hero) ─── */
+.route-halves { display: grid; grid-template-columns: 1fr 1fr; }
+.route-half { padding: var(--space-7) var(--space-5); text-align: center; color: white; position: relative; overflow: hidden; min-height: 280px; display: flex; flex-direction: column; justify-content: center; transition: filter var(--dur-base); cursor: pointer; }
+.route-half:hover { filter: brightness(1.05); }
+
+.route-half.marketing { background: linear-gradient(135deg, var(--marketing) 0%, var(--marketing-dark) 100%); }
+.route-half.marketing::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(rgba(255, 255, 255, 0.18) 1px, transparent 1px); background-size: 16px 16px; mask-image: linear-gradient(135deg, black 30%, transparent 80%); pointer-events: none; }
+
+.route-half.automation {
+  background: linear-gradient(135deg, var(--automation) 0%, var(--automation-dark) 100%);
+}
+/* Static matrix-style binary pattern concentrated at top-right, fading toward
+   center/bottom-left — mirrors the marketing card's top-left dot fade. */
+.route-half.automation::before {
+  content: '01 10 11 01 10 00 11 01 10 11 00 01 10 11 01 00 11 10 01 11 00 10 11 01 10 11 01 10 00 11 10 01 10 01 11 00 01 10 11 01 00 11 01 10 11 00 10 11 01 10 11 01 10 00 11 10 01 10 01 11 00 11 01 10 11 00 01 10 11 01 00 11 10 01 11 00 10 11 01 10 11 01 10 00 11 10 01';
+  position: absolute;
+  inset: 0;
+  font-family: 'Courier New', monospace;
+  font-size: 13px;
+  color: rgba(220, 255, 230, 0.3);
+  letter-spacing: 3px;
+  line-height: 1.4;
+  padding: var(--space-3);
+  word-break: break-all;
+  mask-image: linear-gradient(225deg, black 30%, transparent 80%);
+  -webkit-mask-image: linear-gradient(225deg, black 30%, transparent 80%);
+  pointer-events: none;
+}
+
+.route-half > * { position: relative; z-index: 1; }
+.route-half .ico { font-size: 32px; margin-bottom: var(--space-3); }
+.route-half h3 { font-family: var(--font-display); font-size: 22px; font-weight: var(--fw-display-bold); color: white; margin-bottom: var(--space-2); letter-spacing: -0.005em; }
+.route-half p { color: rgba(255, 255, 255, 0.85); font-size: var(--fs-meta); margin-bottom: var(--space-4); max-width: 320px; margin-left: auto; margin-right: auto; }
+.route-half .btn {
+  background: white;
+  border: 0;
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 13px;
+  padding: 12px 20px;
+  border-radius: var(--radius-sm);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.25);
+  transition: transform var(--dur-fast), box-shadow var(--dur-fast);
+  display: inline-block;
+  margin: 0 auto;
+}
+.route-half.marketing .btn  { color: var(--marketing); }
+.route-half.automation .btn { color: var(--automation-dark); }
+.route-half:hover .btn {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.25);
+}
+
+/* Prominent CTA modifier — bigger type + padding, deeper hard-offset shadow.
+   Used on the marketing route-half "Get a free audit" button to make it
+   the primary visual call-to-action on the home page. */
+.route-half .btn.prominent {
+  font-size: 16px;
+  padding: var(--space-4) var(--space-6);
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.28);
+}
+.route-half:hover .btn.prominent {
+  transform: translate(3px, 3px);
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.28);
+}
+
+@media (max-width: 720px) {
+  .route-halves { grid-template-columns: 1fr; }
+  .route-half { min-height: 220px; padding: var(--space-6) var(--space-4); }
+}
+
+/* ─── GENERIC CARD ─── */
+.card { background: var(--bg); border: 1px solid var(--ink-line); border-radius: var(--radius-lg); padding: var(--space-5); box-shadow: var(--shadow-card); transition: transform var(--dur-fast), box-shadow var(--dur-fast); }
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }

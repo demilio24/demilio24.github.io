@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V2 — Premium Dark Glass</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #06080f;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0, 102, 255, 0.35) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 0% 100%, rgba(120, 60, 255, 0.22) 0%, transparent 60%),
+      radial-gradient(ellipse 80% 60% at 100% 100%, rgba(0, 200, 255, 0.18) 0%, transparent 60%),
+      #06080f;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 32px 32px;
+    pointer-events: none;
+  }
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, transparent 60%, rgba(6,8,15,0.6) 100%);
+    pointer-events: none;
+  }
+  .inner { max-width: 980px; width: 100%; position: relative; z-index: 1; text-align: center; }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(120, 200, 255, 0.95);
+    background: rgba(0, 120, 255, 0.08);
+    border: 1px solid rgba(120, 200, 255, 0.22);
+    border-radius: 100px;
+    padding: 8px 18px;
+    margin-bottom: 28px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+  .eyebrow::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #34d399;
+    box-shadow: 0 0 10px #34d399;
+  }
+  h1 {
+    font-size: clamp(38px, 5.6vw, 76px);
+    font-weight: 700;
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+    margin-bottom: 22px;
+    text-wrap: balance;
+    color: #fff;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+    padding: 4px 18px;
+    border-radius: 12px;
+    font-weight: 800;
+    border: 1px solid rgba(120, 200, 255, 0.4);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.12),
+      0 0 32px rgba(0, 120, 255, 0.45);
+    background-image: linear-gradient(180deg, rgba(120, 200, 255, 0.18), rgba(0, 100, 255, 0.08));
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+  .badge-num {
+    background: linear-gradient(180deg, #fff 0%, #aedcff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .tail {
+    display: block;
+    margin-top: 14px;
+    font-size: 1em;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+  }
+  .tail .accent {
+    background: linear-gradient(180deg, #aedcff 0%, #6bb6ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .desc {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.6);
+    max-width: 520px;
+    margin: 32px auto 0;
+    line-height: 1.6;
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 56px 20px; }
+    h1 { font-size: clamp(22px, 6.6vw, 34px); }
+    .desc { font-size: 14px; }
+    .badge { padding: 2px 12px; border-radius: 9px; }
+    .tail { margin-top: 12px; }
+  }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="inner">
+    <div class="eyebrow">Business owners trying to grow</div>
+    <h1>
+      Find out if you could be getting <span class="badge"><span class="badge-num">4X more clients</span></span>
+      <span class="tail">with a simple <span class="accent">website funnel + Google Ads</span> system</span>
+    </h1>
+    <p class="desc">Answer 4 quick questions to see if you qualify for a free strategy call.</p>
+  </div>
+</section>
+</body>
+</html>

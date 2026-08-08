@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow">
+<title>Ridings: Find Your Riding, Know Your Ground</title>
+<meta name="description" content="Advocacy at Western Charter House means organized members in all 93 BC ridings. Explore the riding intelligence map, find your district, and follow the work where you live.">
+<meta property="og:title" content="Ridings: Western Charter House">
+<meta property="og:description" content="Ninety-three ridings, organized. Find yours on the riding intelligence map and follow the work where you live.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/svg+xml" href="uploads/WesternCharterHouse-Logo-dark.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css?v=2.2">
+</head>
+<body>
+
+<header class="site">
+  <div class="head-inner">
+    <a class="head-brand" href="index.html" aria-label="Western Charter House home">
+      <span><span class="bn-1">Western</span> Charter House</span>
+    </a>
+    <nav class="head-nav" aria-label="Primary">
+      <a href="thought.html">Team</a>
+      <a href="research.html">Research &amp; Policy</a>
+      <a href="advocacy.html" class="active">Ridings</a>
+    </nav>
+  </div>
+</header>
+
+<section class="page-hero">
+  <div class="wrap">
+    <div class="page-hero-inner anim">
+      <div class="crumb"><a href="index.html">Home</a><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg><span>Ridings</span></div>
+      
+      <!-- MEMBERSHIP STATS BANNER -->
+      <div class="riding-stats-banner" data-i-total-banner style="display:none;">
+        <div class="rsb-metric">
+          <span class="rsb-num" data-i-total-count>0</span>
+          <span class="rsb-label">members organizing across BC's 93 ridings</span>
+        </div>
+        <div class="rsb-share">
+          <span class="rsb-share-label">Share this milestone</span>
+          <div class="rsb-share-btns" data-i-total-share></div>
+        </div>
+      </div>
+
+      <span class="kicker">Organized, riding by riding</span>
+      <h1>Find your riding. <span class="gold">Know your ground.</span></h1>
+      <p class="sub">Research and policy only matter if they reach the right place. British Columbia has 93 electoral districts, and our members organize in every one. Start with the map: find your riding, read the ground, and follow the work where you live.</p>
+      <div class="hero-cta">
+        <a href="#map" class="btn btn--on-navy">Open the map</a>
+        <a href="index.html#stay" class="btn btn--gold-outline">Sign up by riding</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RIDING MAP -->
+<section class="section section--navy" id="map">
+  <div class="wrap">
+    <div class="section-head anim">
+      <span class="eyebrow">Riding Intelligence</span>
+      <h2>The 93 ridings, mapped</h2>
+      <p class="lead">Find your district on the map of British Columbia's 93 electoral ridings. Select your riding to see its detail — the MLA, the 2024 result, and the work happening on the ground — then stay close to what's happening where you live.</p>
+    </div>
+    <div class="map-shell anim">
+      <div class="map-stage">
+        <div class="map-search">
+          <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input type="text" id="ridingSearch" placeholder="Search your riding by name..." autocomplete="off" aria-label="Search riding by name">
+          <div class="sugg" id="ridingSugg"></div>
+        </div>
+        <div style="position:relative">
+          <div class="map-zoom">
+            <button id="mapZoomIn" type="button" aria-label="Zoom in">+</button>
+            <button id="mapZoomOut" type="button" aria-label="Zoom out">&minus;</button>
+            <button id="mapZoomReset" type="button" aria-label="Reset zoom"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9V3h6M21 9V3h-6M3 15v6h6M21 15v6h-6"/></svg></button>
+          </div>
+          <svg class="bc-map" id="bcMap" viewBox="0 0 800 600" role="img" aria-label="Map of British Columbia electoral districts"></svg>
+          <div class="map-loading" id="mapLoading">
+            <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#c8a866" stroke-width="1.5"><path d="M12 21s-7-6.4-7-11a7 7 0 0 1 14 0c0 4.6-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            <div>Loading the riding map...</div>
+          </div>
+        </div>
+        <div class="map-note" id="mapNote"></div>
+        <div class="map-fallback" id="mapFallback"></div>
+      </div>
+      <aside class="riding-panel" id="ridingPanel">
+        <div class="rp-empty" id="rpEmpty">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-6.4-7-11a7 7 0 0 1 14 0c0 4.6-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <p>Select a riding on the map or search by name to see its details.</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section class="section">
+  <div class="wrap">
+    <div class="section-head center anim">
+      <span class="eyebrow">Get involved</span>
+      <h2>Getting involved is simple</h2>
+      <p class="lead">Signing up is free. We do not take government funding. The work exists to connect you to the research and the action happening in your own riding.</p>
+    </div>
+    <div class="step-grid">
+      <div class="step anim d1">
+        <div class="snum"></div>
+        <h3>Sign up by your riding</h3>
+        <p>Tell us your name and which of BC's 93 ridings you live in. It takes about thirty seconds, and it is free.</p>
+      </div>
+      <div class="step anim d2">
+        <div class="snum"></div>
+        <h3>Get the real picture</h3>
+        <p>Researched, FOI-backed briefs on the issues in your district, written in plain language and available as short videos.</p>
+      </div>
+      <div class="step anim d3">
+        <div class="snum"></div>
+        <h3>Follow the work where you live</h3>
+        <p>Join your riding's channel to follow the research, the policy work, and the issues that matter in your district.</p>
+      </div>
+    </div>
+    <div class="involve-cta anim">
+      <a href="index.html#stay" class="btn btn--primary">Find your riding and get involved
+        <svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PHOTO QUOTE BAND -->
+<section class="photoband">
+  <div class="photoband-img" aria-hidden="true">
+    <img src="uploads/wch-community.jpg" alt="Aerial view of Okanagan Lake and Kelowna under a clear blue sky, British Columbia" loading="lazy">
+  </div>
+  <div class="wrap photoband-inner anim">
+    <div class="ornament" aria-hidden="true"><span class="line"></span><svg viewBox="0 0 50 18"><path d="M2 9 H18 M25 3 C 21 6 21 12 25 15 C 29 12 29 6 25 3 Z M32 9 H48"/></svg><span class="line"></span></div>
+    <blockquote><span class="ph-hl">Ninety-three ridings. One British Columbia. Your ground is where it starts.</span></blockquote>
+    <a class="btn btn--gold-outline" href="#map" style="margin-top:30px">Find your riding</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <span class="brand"><img src="uploads/WesternCharterHouse-Logo-light.svg" alt=""> Western Charter House<small>Established in British Columbia</small></span>
+        <p class="foot-about">An independent, non-partisan civic institution advancing principled solutions for British Columbia, one riding at a time.</p>
+      </div>
+      <div class="foot-col">
+        <h4>The work</h4>
+        <a href="thought.html">Team</a>
+        <a href="research.html">Research &amp; Policy</a>
+        <a href="advocacy.html">Ridings</a>
+      </div>
+      <div class="foot-col">
+        <h4>Get involved</h4>
+        <a href="index.html#stay">Sign up by riding</a>
+        <a href="advocacy.html">Your riding map</a>
+        <a href="research.html">The issues</a>
+        <a href="index.html#faq">Questions</a>
+      </div>
+    </div>
+    <div class="foot-facts">
+      <div class="foot-fact"><b>93</b> BC electoral ridings mapped, each with its MLA and 2024 result.</div>
+      <div class="foot-fact"><b>4</b> regional chapters: Okanagan, Lower Mainland, Interior, Island.</div>
+      <div class="foot-fact"><b>$0</b> in government funding. Independent and member-backed.</div>
+      <div class="foot-fact"><b>Free</b> to join. Non-partisan, evidence-based, for British Columbia.</div>
+    </div>
+    <div class="foot-line">Western Thinking. Enduring Principles.</div>
+    <div class="foot-bottom">
+      <span>&copy; <span id="year"></span> Western Charter House. All rights reserved.</span>
+      <a href="https://x.com/CharterHouseBC" class="foot-x" target="_blank" rel="noopener" aria-label="Western Charter House on X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+      <span class="tag">Thought &bull; Policy &bull; Research &bull; Public Understanding</span>
+    </div>
+    <p class="foot-credit">Photography: Okanagan by Sunny Goel. Wikimedia Commons, CC BY.</p>
+    <p class="foot-credit">Designed and built by <a href="https://nilsdigital.com" target="_top" rel="noopener">Nils Digital</a>.</p>
+  </div>
+</footer>
+
+<script src="assets/site-data.js?v=2.2"></script>
+<script src="assets/site.js?v=2.2"></script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+﻿/*!
+* jquery.inputmask.jr.extensions.js
+* Jackrabbit add-ons for inputmask extension
+* ****************************************************
+* VERY IMPORTANT: We've fixed a bug in the validation getPlaceholder method in jquery.inputmask.js core. 
+* If it ever gets wiped out or updated, use this code below to replace and refix it.
+*   function getPlaceholder(pos, test) {
+*     return test = test || getTest(pos), void 0 != test.placeholder ? test.placeholder : null == test.fn ? test.def : pos >= opts.placeholder.length ? '' : opts.placeholder.charAt(pos % opts.placeholder.length);
+*   }
+*
+* The new part is at the end, the % was causing it to grab stuff from the place holder even when the placeholder was shorter than the string it was comparing.
+* Instead, it should return nothing if there's no placeholder at that position.
+* pos >= opts.placeholder.length ? '' : opts.placeholder.charAt(pos % opts.placeholder.length)
+* ****************************************************
+*/
+Inputmask.extendDefinitions({
+        // Match most ASCII chars except for non-printables
+        "?": {
+            validator: "[\x20-\x7e\u0410-\u044f\u0401\u0451\xc0-\xff\xb5]",
+            cardinality: 1,
+            prevalidator: null
+        }
+    });

@@ -1,0 +1,306 @@
+[
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": null,
+        "selectedField": "student_name",
+        "selectedOperation": "isEmpty"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide Multiple",
+      "type": "showHideFields",
+      "value": [
+        "celis_special_-_sandwich",
+        "celis_special_-_side",
+        "celis_special_-_smoothie",
+        "is_this_student_potty_trained?",
+        "which_day(s)_will_you_attend_the_week_of_june_1st–5th?",
+        "which_day(s)_will_you_attend_the_week_of_june_8th–12th?",
+        "which_day(s)_will_you_attend_the_week_of_june_15th–19th?",
+        "which_day(s)_will_you_attend_the_week_of_august_17th–21st?",
+        "which_day(s)_will_you_attend_the_week_of_august_10th–14th?",
+        "which_day(s)_will_you_attend_the_week_of_august_3rd–7th?",
+        "which_day(s)_will_you_attend_the_week_of_july_27th–31st?",
+        "which_day(s)_will_you_attend_the_week_of_july_20th–24th?",
+        "which_day(s)_will_you_attend_the_week_of_july_13th–17th?",
+        "which_day(s)_will_you_attend_the_week_of_july_6th–10th?",
+        "which_day(s)_will_you_attend_the_week_of_june_29th–july_3rd?",
+        "which_day(s)_will_you_attend_the_week_of_june_22nd–26th?",
+        "which_day(s)_will_you_attend_the_week_of_august_24th–28th?"
+      ]
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": null,
+        "selectedField": "student_name",
+        "selectedOperation": "isFilled"
+      }
+    ],
+    "outcome": {
+      "hideType": "Hide Multiple",
+      "type": "showHideFields",
+      "value": [
+        "celis_special_-_sandwich",
+        "celis_special_-_side",
+        "celis_special_-_smoothie",
+        "is_this_student_potty_trained?",
+        "which_day(s)_will_you_attend_the_week_of_june_1st–5th?",
+        "which_day(s)_will_you_attend_the_week_of_june_8th–12th?",
+        "which_day(s)_will_you_attend_the_week_of_june_15th–19th?",
+        "which_day(s)_will_you_attend_the_week_of_june_22nd–26th?",
+        "which_day(s)_will_you_attend_the_week_of_june_29th–july_3rd?",
+        "which_day(s)_will_you_attend_the_week_of_july_6th–10th?",
+        "which_day(s)_will_you_attend_the_week_of_july_13th–17th?",
+        "which_day(s)_will_you_attend_the_week_of_july_20th–24th?",
+        "which_day(s)_will_you_attend_the_week_of_july_27th–31st?",
+        "which_day(s)_will_you_attend_the_week_of_august_3rd–7th?",
+        "which_day(s)_will_you_attend_the_week_of_august_10th–14th?",
+        "which_day(s)_will_you_attend_the_week_of_august_17th–21st?",
+        "which_day(s)_will_you_attend_the_week_of_august_24th–28th?"
+      ]
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "dateFormat": "MM-DD-YYYY",
+        "inputValue": "12-01-2022",
+        "selectedField": "student_birthday",
+        "selectedOperation": "after"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "is_this_student_potty_trained?"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Special (Celis $15/day)",
+        "selectedField": "select_lunch_option",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show Multiple",
+      "type": "showHideFields",
+      "value": [
+        "celis_special_-_sandwich",
+        "celis_special_-_side",
+        "celis_special_-_smoothie"
+      ]
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "June 1st-5th",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "which_day(s)_will_you_attend_the_week_of_june_1st–5th?"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "June 8th-12th",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "which_day(s)_will_you_attend_the_week_of_june_8th–12th?"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "June 15th-19th",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show Multiple",
+      "type": "showHideFields",
+      "value": [
+        "which_day(s)_will_you_attend_the_week_of_june_15th–19th?"
+      ]
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "June 22nd-26th",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "which_day(s)_will_you_attend_the_week_of_june_22nd–26th?"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "June 29th-July 3rd",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show Multiple",
+      "type": "showHideFields",
+      "value": [
+        "which_day(s)_will_you_attend_the_week_of_june_29th–july_3rd?"
+      ]
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "July 6th-10th",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "which_day(s)_will_you_attend_the_week_of_july_6th–10th?"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "July 13th-17th",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show Multiple",
+      "type": "showHideFields",
+      "value": [
+        "which_day(s)_will_you_attend_the_week_of_july_13th–17th?"
+      ]
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "July 20th-24th",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "which_day(s)_will_you_attend_the_week_of_july_20th–24th?"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "July 27th-31st",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "which_day(s)_will_you_attend_the_week_of_july_27th–31st?"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "August 3rd-7th",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "which_day(s)_will_you_attend_the_week_of_august_3rd–7th?"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "August 10th-14th",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "which_day(s)_will_you_attend_the_week_of_august_10th–14th?"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "August 17th-21st",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show",
+      "type": "showHideFields",
+      "value": "which_day(s)_will_you_attend_the_week_of_august_17th–21st?"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "August 24th-28th",
+        "selectedField": "select_camp_dates",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "hideType": "Show Multiple",
+      "type": "showHideFields",
+      "value": [
+        "which_day(s)_will_you_attend_the_week_of_august_24th–28th?"
+      ]
+    }
+  }
+]

@@ -1,0 +1,422 @@
+﻿/// This only does basic checking
+function validPhoneNumber(el, useJrConfirmation, noAlert, options) {
+
+    if (el === undefined)
+        return true;
+
+    // Configure options
+    var defaults = {
+        errClass: 'error',
+        msg: 'Invalid phone number: %num%',
+        clearOnError: false
+}
+    var settings = jQuery.extend({}, defaults, options);
+
+    // Remove any error class first
+    jQuery(el).removeClass(settings.errClass);
+
+    if (el && el.value == '') {
+        return true;
+    }
+
+    // We only need to validate phone fields with phoneMask or numberOnly classes
+    // Any others are free form text entry and we can't really validate them
+    if (!(jQuery(el).hasClass('phoneMask') || jQuery(el).hasClass('numberOnly'))) {
+        return true;
+    }
+
+    if (!useJrConfirmation)
+        useJrConfirmation = false;
+
+    var num = el.value;
+    // setup err msg
+    settings.msg = settings.msg.replace("%num%", num);
+
+    if (num == null) {
+        if (useJrConfirmation)
+            Jr.confirmation('Input Error', settings.msg, 'error');
+        else
+            alert(settings.msg);
+        setTimeout(function () { el.focus(); }, 0);
+        return false;
+    } else {
+        var isValid = true;
+
+        // Check if this input uses phoneMask, if so, use that instead
+        if (jQuery(el).hasClass('phoneMask')) {
+            // Make sure it's not just blank already (el.value will return the mask only)
+            if (jQuery(el).inputmask("unmaskedvalue").length > 0)
+                isValid = jQuery(el).inputmask("isComplete");
+        } else {
+            // Remove spaces, periods, pluses, dashes, parentheses
+            var cleanNum = num.replace(/[ +#\-\.\(\)]/g, '');
+            // Test if it's long enough
+            if (cleanNum.length < 7)
+                isValid = false;
+
+            // Validate it's all numbers
+            var reg = /^[0-9]+$/;
+            isValid &= (reg.test(cleanNum));
+
+        }
+
+        // Do we need to show an error?
+        if (!isValid) {
+            // Attempt to get the name by looking for a label
+            var fieldName = jQuery("label[for='" + el.id + "']").text();
+            var msg = settings.msg;
+            if (fieldName.length > 0) {
+                msg = fieldName + " " + msg;
+            }
+
+            if (!noAlert) {
+                if (useJrConfirmation) {
+                    Jr.alert('Input Error', msg, 'error', function() {
+                        setTimeout(function() {
+                            if (settings.clearOnError) {
+                                jQuery(el).val('');
+                            }
+                            el.focus();
+                        }, 100);
+                    });
+                } else {
+                    alert(msg);
+                    setTimeout(function() {
+                        if (settings.clearOnError) {
+                            jQuery(el).val('');
+                        }
+                        el.focus();
+                    }, 0);
+                }
+            }
+
+            // Highlight the input
+            jQuery(el).addClass(settings.errClass);
+            return false;
+        }
+    }
+
+    return true;
+}
+
+function phoneFieldNeedsValidation(el) {
+    // We only need to validate phone fields with phoneMask or numberOnly classes
+    // Any others are free form text entry and we can't really validate them
+
+    return (el.hasClass('phoneMask') || el.hasClass('numberOnly'));
+}
+
+function setupPhoneMasks() {
+    // Just turn it on for any input with phoneMask class
+    jQuery("input.phoneMask").inputmask();
+}
+
+function enablePhoneMask(el) {
+    // if they blanked out the field, turn on the phone mask
+    if (jQuery(el).val().length == 0 && jQuery(el).hasClass('phoneMask')) {
+        jQuery(el).inputmask();
+        // Show the icon to get back to text entry
+        jQuery(el).next().show();
+    }
+}
+
+function phoneNumSwitchToText(btn, textBox, nofocus) {
+    //Hide the btn
+    if (btn) {
+        btn.hide();
+    } else {
+        // Try to find the btn
+        btn = textBox.next('img.globe-icon');
+        if (btn.length > 0)
+            btn.hide();
+    }
+
+    //quick change for vanilla masker. only used on regv2.asp currently!
+    if (jQuery.mask) {
+        textBox.trigger('unmask');
+        return false;
+    }
+
+    // Get the current value
+    var num = textBox.inputmask('unmaskedvalue');
+
+    // Remove the masking
+    textBox.inputmask('remove');
+    // Put the final value back in
+    textBox.val(num);
+
+    if (!nofocus)
+        textBox.focus();
+
+    // Remove the phoneMask class so it won't auto-mask again
+    textBox.removeClass('phoneMask');
+
+    // Make sure if it was in an error state to clear it.
+    textBox.removeClass('error');    
+}
+
+function phoneNumOnPaste(pastedValue, opts) {
+    var removeMask = false;
+
+    // Remove spaces, periods, pluses, dashes, parentheses
+    var cleanNum = pastedValue.replace(/[+#\-\.\(\)]/g, '');
+    
+    // Certain browsers have trouble with detecting this situaion, so trigger a fake change if we put anything in
+    if (cleanNum.length > 0) {
+        var that = this; // need to save it
+        setTimeout(function() { that.onchange(); }, 500); // Give it time to finish the inputmask changes
+    }
+
+    return cleanNum.trim();
+}
+
+function phoneCopyTo(src, targetId) {
+    var target = jQuery("#" + targetId);
+
+    if (target) {
+        // WAIT! If the source isn't masked, but the target is, we need to remove the mask first!
+        if (!jQuery(src).hasClass('phoneMask') && target.hasClass('phoneMask')) {
+            // Remove the mask on target
+            phoneNumSwitchToText(target.next(), target, true)
+        }
+
+        // Now copy
+        if (target.hasClass('phoneMask')) {
+            // Don't copy if it's already filled in
+            if (!target.inputmask('isComplete'))
+                target.val(jQuery(src).val());
+        } else {
+            // Text mode, check if they have more than the default 3 numbers
+            if (target.val() && target.val().length <= 3)
+                target.val(jQuery(src).val());
+        }
+    }
+}
+
+function getPhoneNoMask(el) {
+
+    if (el === undefined)
+        return '';
+
+    if (jQuery(el).hasClass('phoneMask')) {
+        return jQuery(el).inputmask('unmaskedvalue');
+    }
+
+    return el.value;
+}
+
+//****************
+// Opt-In checkbox specific functions
+//****************
+function smsOptInClick(chkBox, skipInstantOptOut) {
+
+    if (skipInstantOptOut === 'undefined')
+        skipInstantOptOut = false;
+
+    var chk = jQuery(chkBox);
+
+    if (chk.prop('checked')) {
+        var targetPhone = jQuery('#' + chk.attr('data-target-phone'));
+        if (targetPhone.val().length == 0) {
+            Jr.alert('Missing', 'You must enter a phone number.', 'error', function() {
+                chk.prop('checked', false);
+                setTimeout(function() { targetPhone.focus(); }, 200);
+            });
+            return;
+        }
+
+        // Validate the number
+        if (!validPhoneNumber(targetPhone.get(0), true, false)) {
+            chk.prop('checked', false);
+            return;
+        }
+
+        // Special check to warn against short numbers
+        // Remove spaces, periods, pluses, dashes, parentheses
+        var cleanNum = targetPhone.val().replace(/[ +#\-\.\(\)]/g, '');
+        // Test if it's long enough
+        if (cleanNum.length < 10) {
+            Jr.alert('Number Too Short', 'Texting requires full area code within the US and Canada. International numbers require international prefix as well.', 'error',
+                function () {
+                    chk.prop('checked', false);
+                    setTimeout(function () { targetPhone.focus(); }, 200);
+                });
+            return;
+        }
+
+        // Opt-in, set the chg class so it's saved
+        chk.prop('checked', true);
+        chk.addClass('chg');
+    } else {
+        if (skipInstantOptOut) {
+            chk.addClass('chg');
+        }
+        // Only ask confirmation if it's missing the 'chg' flag, meaning they didn't just check it
+        else if (!chk.hasClass('chg')) {
+            // Opt-out
+            Jr.confirmation("Are you sure?", "This will take effect immediately.", 'notice',
+                function() {
+                    var formData = {
+                        "id": jQuery('#xID').val(),
+                        "type": chk.attr('data-target-type'),
+                        "orgid": chk.attr('data-target-orgid'),
+                        "userid": chk.attr('data-target-userid')
+                    };
+
+                    jrAjax({
+                        type: "POST",
+                        url: '/jr3.0/API/SMSOptOut',
+                        dataType: 'json',
+                        data: formData,
+                        timeout: 10000,
+                        cache: false,
+                        success: function(data) {
+                            if (data.message.length > 0) {
+                                alert(data.message);
+                            } else {
+                                Jr.confirmation('', 'The contact will no longer receive text notifications.');
+                                if (chk.attr('data-optoutonly') == 'True') {
+                                    // We need to force disable the ability to check them in
+                                    chk.attr('disabled', 'disabled');
+                                    // Change title and style on containing span
+                                    chk.parent().attr('title', 'Must use portal to opt-in.');
+                                    chk.parent().css('color', 'graytext');
+                                }
+                            }
+
+                        },
+                        error: function(r) {
+                            alert(data.msg);
+                        }
+                    });
+
+                },
+                function() {
+                    chk.prop('checked', true);
+                });
+        }
+    }
+
+    
+}
+
+// Portal specific version
+// Have to handle a special hidden field
+function smsOptInPortalClick(chkBox) {
+
+    var chk = jQuery(chkBox);
+    var targetField = chk.prop('id').replace("chk", "");
+
+    if (chk.prop('checked')) {
+        var targetPhone = jQuery('#' + chk.attr('data-target-phone'));
+        if (targetPhone.val().length == 0) {
+            alert('You must enter a phone number.');
+            chk.prop('checked', false);
+            return;
+        }
+
+        // Validate the number - portal uses a different error class and messaging though the message shouldn't show in this case.
+        if (!validPhoneNumber(targetPhone.get(0), false, false, { errClass: 'error-input', msg: 'Invalid number %num%, please enter a valid phone number including area code.' })) {
+            chk.prop('checked', false);
+            return;
+        }
+
+        // Special check to warn against short numbers
+        // Remove spaces, periods, pluses, dashes, parentheses
+        var cleanNum = targetPhone.val().replace(/[ +#\-\.\(\)]/g, '');
+        // Test if it's long enough
+        if (cleanNum.length < 10) {
+            alert('Texting requires a 10 digit number with full area code within the US and Canada. International numbers require international prefix as well.');
+            chk.prop('checked', false);
+            targetPhone.focus();
+            return;
+        }
+
+        // Opt-in, set the chg class so it's saved
+        if (confirm("This will cause the associated phone number to receive texts. Charges may apply. Are you sure?")) {
+            chk.prop('checked', true);
+            // Update the hidden and trigger a save, just remove the 'chk' prefix to target the hidden field
+            jQuery('#' + targetField).val("True");
+            extraFieldNode = targetField;
+            inputChanged(jQuery('#' + targetField).get(0), null);
+        } else {
+            chk.prop('checked', false);
+        }
+    } else {
+        // Opt-out
+        if (confirm("Are you sure? This will take effect immediately.")) {
+            var formData = {
+                "id": jQuery('#' + targetField).attr('recid'),
+                "type": chk.attr('data-target-type'),
+                "orgid": chk.attr('data-target-orgid'),
+                "userid": chk.attr('data-target-userid')
+            };
+
+            jQuery.ajax({
+                type: "POST",
+                url: '/jr3.0/API/SMSOptOut',
+                dataType: 'json',
+                data: formData,
+                timeout: 10000,
+                cache: false,
+                success: function(data) {
+                    if (data.message.length > 0) {
+                        alert(data.message);
+                    } else {
+                        // Update the hidden and trigger a save, just remove the 'chk' prefix to target the hidden field
+                        jQuery('#' + targetField).val("False");
+                        extraFieldNode = targetField;
+                        inputChanged(jQuery('#' + targetField).get(0), null);
+                    }
+
+                },
+                error: function(r) {
+                    alert(data.msg);
+                }
+            });
+
+        } else {
+            chk.prop('checked', true);
+        }
+    }
+
+
+}
+
+
+function formatPhoneNumber(number, countryCode) {
+    /// <summary>Formats a number into phone number format.</summary>
+
+    // We might eventually support country specific phone numbers,
+    // but for now everything is treated as US
+    if (countryCode === undefined) {
+        countryCode = 'US';
+    }
+    
+    // First remove any special chars
+    var regex;
+    var num = number;
+    var cleanNum = number.replace(/[ +#\-\.\(\)]/g, '');;
+    switch(countryCode.toLowerCase()) {
+        default:
+            // Default to US
+            regex = /^(1?[0-9]{10}|[0-9]{7}$)/;
+            if (regex.test(cleanNum)) {
+                // Alter it depending on length
+                switch (cleanNum.length) {
+                    case 7:
+                        num = cleanNum.substring(0, 3) + '-' + cleanNum.substring(3, 6);
+                        break;
+                    case 10:
+                        num = '(' + cleanNum.substring(0, 3) + ') ' + cleanNum.substring(3, 6) + '-' + cleanNum.substring(6, 10);
+                        break;
+                    case 11:
+                        num = '(' + cleanNum.substring(1, 4) + ') ' + cleanNum.substring(4, 7) + '-' + cleanNum.substring(7, 11);
+                        break;
+                }
+            }
+            break;
+    }
+
+    return num;
+}

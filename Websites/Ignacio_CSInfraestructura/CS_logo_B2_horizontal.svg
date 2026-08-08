@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="36 58 632 196" width="632" height="196">
+  <defs>
+    <style>
+      .cara  { fill: #4B6D86; }  /* azul medio */
+      .techo { fill: #25364A; }  /* azul oscuro */
+      .cs    { fill: #25364A; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 800; }
+      .infra { fill: #4B6D86; font-family: 'Helvetica Neue', Arial, sans-serif; font-weight: 400; letter-spacing: 4px; }
+      .div   { stroke: #4B6D86; stroke-width: 4; }
+    </style>
+  </defs>
+
+  <!-- Isotipo: edificios -->
+  <g transform="translate(30,55) scale(0.30)">
+    <polygon class="cara"  points="44,186 305,36 305,453 44,453"/>
+    <polygon class="cara"  points="321,135 478,243 478,453 321,453"/>
+    <polygon class="techo" points="321,135 478,243 321,267"/>
+    <polygon class="cara"  points="494,232 535,206 535,453 494,453"/>
+    <polygon class="cara"  points="549,262 640,326 640,453 549,453"/>
+    <polygon class="techo" points="549,262 640,326 549,342"/>
+  </g>
+
+  <!-- Divisoria vertical -->
+  <line class="div" x1="270" y1="75" x2="270" y2="245"/>
+
+  <!-- Texto -->
+  <text class="cs"    x="300" y="175" font-size="92">CS</text>
+  <text class="infra" x="303" y="220" font-size="30">INFRAESTRUCTURA</text>
+</svg>

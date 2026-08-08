@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nav Variations</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #1a1a2e; color: #e0e0e0; padding: 32px; }
+  h1 { font-size: 28px; font-weight: 300; color: #fff; margin-bottom: 8px; text-align: center; }
+  .subtitle { font-size: 14px; color: #888; text-align: center; margin-bottom: 40px; }
+  .variation { margin-bottom: 40px; background: #222240; border-radius: 16px; overflow: hidden; border: 1px solid #333; cursor: pointer; transition: border-color .3s, box-shadow .3s; }
+  .variation:hover { border-color: #B89A6A; box-shadow: 0 0 24px rgba(184,154,106,.15); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 32px rgba(184,154,106,.25); }
+  .var-label { display: flex; align-items: center; gap: 12px; padding: 16px 24px; border-bottom: 1px solid #333; }
+  .var-letter { width: 32px; height: 32px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+  .var-title { font-size: 16px; font-weight: 600; color: #fff; }
+  .var-desc { font-size: 13px; color: #999; padding: 14px 24px; line-height: 1.6; border-top: 1px solid #2a2a45; }
+  .nav-mock { padding: 0; }
+  .selected .var-letter { background: #fff; color: #B89A6A; }
+</style>
+</head>
+<body>
+
+<h1>Navigation Variations</h1>
+<p class="subtitle">Which nav style feels most premium for an interior designer? Click to select.</p>
+
+<!-- VARIATION A -->
+<div class="variation" onclick="this.classList.toggle('selected')">
+  <div class="var-label">
+    <div class="var-letter">A</div>
+    <div class="var-title">Pill Button + Dark Text Logo</div>
+  </div>
+  <div class="nav-mock">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:#FAF6F0;border-bottom:1px solid rgba(184,154,106,.12);">
+      <div style="font-family:Georgia,serif;font-size:18px;font-weight:400;color:#3A241E;letter-spacing:.04em;">VELUS</div>
+      <div style="display:flex;align-items:center;gap:32px;">
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Portfolio</span>
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Services</span>
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Process</span>
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Reviews</span>
+        <div style="padding:11px 28px;background:#3A241E;color:#F3EBDD;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border-radius:100px;">Get In Touch</div>
+      </div>
+    </div>
+  </div>
+  <div class="var-desc">Fully rounded pill CTA. Logo as dark serif text — always readable on any background. Clean, modern luxury.</div>
+</div>
+
+<!-- VARIATION B -->
+<div class="variation" onclick="this.classList.toggle('selected')">
+  <div class="var-label">
+    <div class="var-letter">B</div>
+    <div class="var-title">Gold CTA + Monogram Logo</div>
+  </div>
+  <div class="nav-mock">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:#FAF6F0;border-bottom:1px solid rgba(184,154,106,.12);">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <div style="width:32px;height:32px;background:#3A241E;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-family:Georgia;font-size:16px;font-weight:600;">V</div>
+        <span style="font-family:Georgia,serif;font-size:16px;color:#3A241E;letter-spacing:.06em;font-weight:400;">VELUS INTERIORS</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:32px;">
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Portfolio</span>
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Services</span>
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Process</span>
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Reviews</span>
+        <div style="padding:11px 28px;background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);color:#fff;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border-radius:10px;font-weight:500;">Get In Touch</div>
+      </div>
+    </div>
+  </div>
+  <div class="var-desc">Gold gradient CTA matches the hero button for consistency. Dark monogram "V" square adds brand mark recognition. Rounded corners (10px).</div>
+</div>
+
+<!-- VARIATION C -->
+<div class="variation" onclick="this.classList.toggle('selected')">
+  <div class="var-label">
+    <div class="var-letter">C</div>
+    <div class="var-title">Darkened Original Logo + Gold Border CTA</div>
+  </div>
+  <div class="nav-mock">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:#FAF6F0;border-bottom:1px solid rgba(184,154,106,.12);">
+      <img src="https://velusinteriors.com/wp-content/uploads/2022/10/main-logo.png" alt="VELUS" style="height:30px;filter:brightness(0.2);">
+      <div style="display:flex;align-items:center;gap:32px;">
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Portfolio</span>
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Services</span>
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Process</span>
+        <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Reviews</span>
+        <div style="padding:11px 28px;background:#3A241E;color:#F3EBDD;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border-radius:10px;border:1px solid rgba(184,154,106,.3);">Get In Touch</div>
+      </div>
+    </div>
+  </div>
+  <div class="var-desc">Keep the original logo image, darkened with CSS filter for readability. CTA gets rounded corners + subtle gold border. Most conservative — preserves existing brand.</div>
+</div>
+
+<script>
+document.querySelectorAll('.variation').forEach(v => {
+  v.addEventListener('click', () => {
+    document.querySelectorAll('.variation').forEach(x => { if(x !== v) x.classList.remove('selected'); });
+  });
+});
+</script>
+
+</body>
+</html>

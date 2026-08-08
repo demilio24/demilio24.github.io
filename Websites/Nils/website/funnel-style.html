@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+
+  <title>Nils Digital | Funnel-Style Variation</title>
+  <meta name="description" content="We run super profitable Google Ads and build custom automations that eliminate your manual work by up to 100%, so you can focus on growing the business, not just maintaining it.">
+  <link rel="canonical" href="https://nilsdigital.com/">
+
+  <!-- OpenGraph + Twitter -->
+  <meta property="og:title" content="Nils Digital | Growth + systems for $1M+ local service businesses">
+  <meta property="og:description" content="We run super profitable Google Ads and build custom automations that eliminate your manual work by up to 100%, so you can focus on growing the business, not just maintaining it.">
+  <meta property="og:url" content="https://nilsdigital.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nils Digital | Growth + systems for $1M+ local service businesses">
+  <meta name="twitter:description" content="We run super profitable Google Ads and build custom automations that eliminate your manual work by up to 100%, so you can focus on growing the business, not just maintaining it.">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <!-- Site CSS -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/globals.css">
+  <link rel="stylesheet" href="assets/css/nav.css">
+  <link rel="stylesheet" href="assets/css/footer.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/about.css">
+  <link rel="stylesheet" href="assets/css/proof.css">
+  <link rel="stylesheet" href="assets/css/contact.css">
+
+  <!-- Site JS -->
+  <script src="assets/js/nav.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+
+  <!-- FUNNEL-STYLE OVERRIDES: match the Marketing VSL visual system -->
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       GLOBAL TOKEN OVERRIDES: kill the editorial serif, go bold sans
+       ═══════════════════════════════════════════════════════════════ */
+    :root {
+      --bg: #ffffff;
+      --ink: #0d1b35;
+      --section-dark: #0a1933;
+      --section-dark-card: #122042;
+      --blue-glow: rgba(4, 107, 210, 0.15);
+    }
+
+    /* Headlines: Google Sans bold, NOT Instrument Serif */
+    h1, h2, h3, h4 {
+      font-family: 'Google Sans', 'DM Sans', system-ui, sans-serif !important;
+      font-weight: 700 !important;
+      font-style: normal !important;
+      letter-spacing: -0.02em;
+    }
+    h1 em, h2 em { font-style: normal !important; }
+
+    /* Body stays DM Sans (matches funnel) */
+    body { color: var(--ink); }
+
+    /* Eyebrow: filled blue pill (funnel style) instead of outlined */
+    .eyebrow {
+      background: var(--marketing) !important;
+      color: white !important;
+      border: none !important;
+      font-size: 11px !important;
+      padding: 6px 16px !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       NAV: dark blue top bar (matches funnel nav)
+       ═══════════════════════════════════════════════════════════════ */
+    .site-nav {
+      background: var(--section-dark) !important;
+      border-bottom: none !important;
+    }
+    .brand img { filter: brightness(0) invert(1); }
+    .nav-links a { color: rgba(255,255,255,0.75) !important; }
+    .nav-links a:hover { color: white !important; }
+    .nav-toggle span { background: white !important; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       HERO: dark gradient background (like funnel hero)
+       ═══════════════════════════════════════════════════════════════ */
+    .home-hero {
+      background: linear-gradient(180deg, var(--section-dark) 0%, #0d1b35 100%) !important;
+      color: white !important;
+      padding: 100px 0 80px !important;
+      position: relative;
+      overflow: hidden;
+    }
+    .home-hero::before {
+      background-image: radial-gradient(rgba(4, 107, 210, 0.25) 1px, transparent 1px) !important;
+      opacity: 0.5 !important;
+    }
+    .home-hero h1 { color: white !important; max-width: 1000px; }
+    .home-hero h1 em.accent-marketing { color: var(--marketing) !important; }
+    .home-hero h1 em.accent-automation { color: #34d399 !important; }
+    .home-hero p.lead { color: rgba(255,255,255,0.75) !important; max-width: 800px; }
+    .home-hero .eyebrow {
+      background: rgba(255,255,255,0.1) !important;
+      border: 1px solid rgba(255,255,255,0.2) !important;
+      color: white !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       PROOF SECTION: light background, blue-tinted cards
+       ═══════════════════════════════════════════════════════════════ */
+    #proof { background: #f8fafd; }
+    .proof-hero { padding: 64px 0 32px !important; }
+    .proof-hero h2 { color: var(--ink) !important; }
+
+    /* Recognition tiles: subtle blue border glow */
+    .recognition-row .tile {
+      border-color: rgba(4, 107, 210, 0.12) !important;
+      box-shadow: 0 4px 20px rgba(4, 107, 210, 0.08) !important;
+    }
+    .recognition-row .tile:hover {
+      box-shadow: 0 8px 32px rgba(4, 107, 210, 0.15) !important;
+    }
+
+    /* Proof cases cards: blue-tinted borders */
+    .proof-cases .case {
+      border-color: rgba(4, 107, 210, 0.1) !important;
+      box-shadow: 0 2px 12px rgba(4, 107, 210, 0.06) !important;
+    }
+    .proof-cases .case:hover {
+      box-shadow: 0 6px 24px rgba(4, 107, 210, 0.12) !important;
+    }
+
+    /* Filter pills: match funnel button style */
+    .proof-filter .pill {
+      border-radius: 8px !important;
+      font-family: 'Instrument Sans', sans-serif !important;
+      font-weight: 600 !important;
+      padding: 8px 18px !important;
+    }
+    .proof-filter .pill.active {
+      background: var(--marketing) !important;
+      border-color: var(--marketing) !important;
+      color: white !important;
+    }
+
+    /* Reviews wall */
+    .reviews-wall .grid img {
+      border-color: rgba(4, 107, 210, 0.1) !important;
+      box-shadow: 0 2px 12px rgba(4, 107, 210, 0.06) !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       ABOUT SECTION: dark background (like funnel dark sections)
+       ═══════════════════════════════════════════════════════════════ */
+    #about {
+      background: var(--section-dark) !important;
+      color: white !important;
+      position: relative;
+      overflow: hidden;
+    }
+    #about::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(4, 107, 210, 0.18) 1px, transparent 1px);
+      background-size: 22px 22px;
+      mask-image: radial-gradient(ellipse 60% 40% at 30% 20%, black, transparent 70%);
+      pointer-events: none;
+    }
+    #about > * { position: relative; z-index: 1; }
+    #about h1, #about h2, #about h3 { color: white !important; }
+    #about p, #about .lead, #about .body p { color: rgba(255,255,255,0.75) !important; }
+    #about .eyebrow {
+      background: rgba(255,255,255,0.1) !important;
+      border: 1px solid rgba(255,255,255,0.2) !important;
+      color: white !important;
+    }
+
+    /* About portrait: add a blue glow ring */
+    .about-hero.v2 .portrait {
+      border: 2px solid rgba(4, 107, 210, 0.4) !important;
+      box-shadow: 0 0 40px rgba(4, 107, 210, 0.2) !important;
+      background: var(--section-dark-card) !important;
+    }
+
+    /* Timeline milestones */
+    .about-story .milestone {
+      border-bottom-color: rgba(255,255,255,0.1) !important;
+    }
+    .about-story .milestone:first-child {
+      border-top-color: rgba(255,255,255,0.1) !important;
+    }
+    .about-story .milestone .year { color: var(--marketing) !important; }
+    .about-story .milestone p { color: rgba(255,255,255,0.7) !important; }
+
+    /* FAQ article entries */
+    .about-process .faq-article .entry {
+      border-color: rgba(255,255,255,0.1) !important;
+    }
+    .about-process .faq-article .index { color: rgba(255,255,255,0.4) !important; }
+    .about-process .faq-article h3 { color: white !important; }
+    .about-process .faq-article p { color: rgba(255,255,255,0.7) !important; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       BEHIND THE SCENES: light background
+       ═══════════════════════════════════════════════════════════════ */
+    .home-behind { background: #f8fafd; }
+    .home-behind .photo {
+      border: 1px solid rgba(4, 107, 210, 0.1);
+      box-shadow: 0 4px 20px rgba(4, 107, 210, 0.08);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       BLOG TEASER: white background, blue-tinted cards
+       ═══════════════════════════════════════════════════════════════ */
+    .home-blog .post-card,
+    .home-blog .featured-wide {
+      border-color: rgba(4, 107, 210, 0.1) !important;
+      box-shadow: 0 2px 12px rgba(4, 107, 210, 0.06) !important;
+    }
+    .home-blog .post-card:hover,
+    .home-blog .featured-wide:hover {
+      box-shadow: 0 8px 28px rgba(4, 107, 210, 0.12) !important;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       CONTACT: dark background (bookend with hero)
+       ═══════════════════════════════════════════════════════════════ */
+    #contact {
+      background: var(--section-dark) !important;
+      color: white !important;
+    }
+    #contact h1, #contact h2 { color: white !important; }
+    #contact p, #contact .lead { color: rgba(255,255,255,0.75) !important; }
+    #contact a { color: var(--marketing) !important; }
+    .contact-hero .eyebrow {
+      background: rgba(255,255,255,0.1) !important;
+      border: 1px solid rgba(255,255,255,0.2) !important;
+      color: white !important;
+    }
+    .contact-mailto { color: rgba(255,255,255,0.5) !important; }
+    .contact-mailto a { color: var(--marketing) !important; border-bottom-color: var(--marketing) !important; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FOOTER: dark, matches the funnel footer
+       ═══════════════════════════════════════════════════════════════ */
+    .site-footer {
+      background: #060e1f !important;
+      border-top: 1px solid rgba(255,255,255,0.08) !important;
+      color: rgba(255,255,255,0.6) !important;
+    }
+    .site-footer .brand img { filter: brightness(0) invert(1); }
+    .site-footer .footer-tagline { color: rgba(255,255,255,0.5) !important; }
+    .site-footer .footer-col h6 { color: rgba(255,255,255,0.35) !important; }
+    .site-footer .footer-col a { color: rgba(255,255,255,0.55) !important; }
+    .site-footer .footer-col a:hover { color: white !important; }
+    .site-footer .footer-meta { color: rgba(255,255,255,0.3) !important; border-top-color: rgba(255,255,255,0.08) !important; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       GLOBAL CARD + SECTION POLISH (funnel-grade density)
+       ═══════════════════════════════════════════════════════════════ */
+    /* Tighter section labels */
+    .label {
+      font-family: 'Instrument Sans', sans-serif !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.15em !important;
+    }
+
+    /* "See all" links: blue underline */
+    .see-all {
+      color: var(--marketing) !important;
+      font-weight: 700 !important;
+    }
+
+    /* Stats rows: bolder */
+    .stats-row {
+      background: rgba(4, 107, 210, 0.05) !important;
+      border-radius: 8px !important;
+      border: 1px solid rgba(4, 107, 210, 0.1) !important;
+    }
+
+    /* Col heads */
+    .col-head {
+      font-family: 'Google Sans', 'DM Sans', sans-serif !important;
+      font-weight: 700 !important;
+    }
+
+    /* Section flow: alternate dark/light rhythm
+       Hero (dark) → Offers (dark, route halves already colored)
+       → Proof (light #f8fafd) → About (dark) → Behind (light)
+       → Blog (white) → Contact (dark) → Footer (darkest) */
+  </style>
+
+  <!-- Organization schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Nils Digital",
+    "url": "https://nilsdigital.com/",
+    "description": "Growth + systems for $1M+ local service businesses. Marketing system installation and AI/automation audits, done for you.",
+    "founder": {
+      "@type": "Person",
+      "name": "Emilio"
+    },
+    "sameAs": [],
+    "areaServed": "United States",
+    "knowsAbout": [
+      "Local SEO",
+      "Google Ads",
+      "Conversion rate optimization",
+      "Marketing automation",
+      "AI business automation",
+      "Service business operations"
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAV (anchor-linked, blog stays as separate page) -->
+  <header class="site-nav">
+    <div class="container nav-inner">
+      <a class="brand" href="./"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="Nils Digital"></a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="nav-links">
+        <a href="#about">About</a>
+        <a href="#proof">Proof</a>
+        <a href="blog/">Blog</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="home-hero v3 bg-dotgrid anim">
+    <div class="container">
+      <span class="eyebrow">For local service businesses</span>
+      <h1>If you want to get <em class="accent-marketing">more clients</em> and <em class="accent-automation">automate your busywork</em>, you're in the right place.</h1>
+      <p class="lead">We run super profitable Google Ads and build custom automations that eliminate your manual work by up to 100%, so you can focus on growing the business, not just maintaining it.</p>
+    </div>
+  </section>
+
+  <!-- ROUTE HALVES (#offers, the only place they appear) -->
+  <section id="offers" class="home-route-halves anim">
+    <div class="route-halves">
+      <a class="route-half marketing" href="../funnel/vsl.html">
+        <div class="ico">&#128200;</div>
+        <h3>Need more clients?</h3>
+        <p>We build sites that convert at 10-20%, plus the ads that fill them.</p>
+        <span class="btn">See how &rarr;</span>
+      </a>
+      <a class="route-half automation" href="../funnel/automation-vsl-funnel-direct.html">
+        <div class="ico">&#9881;&#65039;</div>
+        <h3>Drowning in manual work?</h3>
+        <p>Department-by-department blueprint of every job AI can do for you.</p>
+        <span class="btn">See the audit &rarr;</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- PROOF (#proof, full section, no duplicate route halves) -->
+  <section id="proof" class="anim">
+
+    <!-- Proof hero (V3 layout + V1 copy) -->
+    <div class="proof-hero v3">
+      <div class="container">
+        <span class="eyebrow">Receipts</span>
+        <h2>Real businesses. Real numbers. Real results.</h2>
+        <p class="lead">Pulled from active client accounts: ad spend managed, hours reclaimed, reviews collected, leads booked. The kind of receipts you can verify.</p>
+        <div class="proof-filter">
+          <button class="pill active" type="button" data-filter="all">All</button>
+          <button class="pill marketing" type="button" data-filter="marketing">Marketing</button>
+          <button class="pill automation" type="button" data-filter="automation">Automation</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recognition row (presentation + award + ad-spend dashboard) -->
+    <div class="recognition-row">
+      <div class="tile">
+        <div class="img-wrap"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69caaaef8e239565a1c7173c.jpeg" alt="Emilio presenting at the Asociación de Usuarios de la Zona Libre"></div>
+        <div class="caption">
+          <span class="label">Speaking</span>
+          <div class="desc">Presenting the Nils system to the Asociación de Usuarios de la Zona Libre.</div>
+        </div>
+      </div>
+      <div class="tile">
+        <div class="img-wrap"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69c0b3d83b3a582a5be61dc4.jpg" alt="Funnels award"></div>
+        <div class="caption">
+          <span class="label">Recognition</span>
+          <div class="desc">Top-tier funnel-builder recognition for client conversion results.</div>
+        </div>
+      </div>
+      <div class="tile">
+        <div class="img-wrap"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69c0a8875596d15ca607f536.jpg" alt="$2.4M+ Google Ads spend dashboard"></div>
+        <div class="caption">
+          <span class="label">$2.4M+ managed</span>
+          <div class="desc">Google Ads spend managed across active client accounts.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Proof cases (V1 compact, two columns by topic) -->
+    <div class="proof-cases v1">
+      <div class="container">
+        <h2>The work, sorted by what you came for.</h2>
+        <div class="columns">
+          <div class="col marketing">
+            <div class="col-head">Marketing wins</div>
+            <article class="case marketing video">
+              <span class="cat">Marketing</span>
+              <div class="video-wrap">
+                <video controls preload="metadata" playsinline>
+                  <source src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/699dd81a1001a5b5fb2fa22b.mp4#t=127" type="video/mp4">
+                </video>
+              </div>
+              <h3>"We have seen a huge jump in revenue."</h3>
+              <div class="body"><p>Opt-in rate up from 3% to 20.83%. Booked-call volume followed.</p></div>
+              <span class="result">Conversion: 3% to 20.83%</span>
+              <div class="attribution">
+                <div class="portrait" aria-hidden="true"></div>
+                <span class="name">Wendy Cox</span>
+              </div>
+            </article>
+            <article class="case marketing video">
+              <span class="cat">Marketing</span>
+              <div class="video-wrap">
+                <video controls preload="metadata" playsinline>
+                  <source src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/699e169f50d0aa0156c65c59.mp4" type="video/mp4">
+                </video>
+              </div>
+              <h3>"Best decision we could have made for our company."</h3>
+              <div class="body"><p>Fast, attentive, genuinely invested. The team behaves like an in-house department, not an agency.</p></div>
+              <span class="result">5.0 partnership rating</span>
+              <div class="attribution">
+                <div class="portrait" aria-hidden="true"></div>
+                <span class="name">Jessica Schlenz</span>
+              </div>
+            </article>
+            <div class="stats-row">
+              <span>$2.4M+ ad spend</span>
+              <span>4.7x avg ROAS</span>
+              <span>23 clients</span>
+            </div>
+          </div>
+
+          <div class="col automation">
+            <div class="col-head">Automation wins</div>
+            <article class="case automation review">
+              <span class="cat">Automation</span>
+              <div class="review-image">
+                <img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6976d59d29dcf5971368e277.jpg" alt="Keila Mulero Trustpilot review">
+              </div>
+              <h3>"They built exactly what we needed."</h3>
+              <div class="body"><p>Custom intake automation, document handling, status updates. The kind of system you don't notice until you try working without it.</p></div>
+              <span class="result">80% intake on AI</span>
+              <div class="attribution">
+                <div class="portrait" aria-hidden="true"></div>
+                <span class="name">Keila Mulero</span>
+              </div>
+            </article>
+            <article class="case automation">
+              <span class="cat">Automation</span>
+              <h3>Savvy Compliance reclaimed 40 hours every week.</h3>
+              <div class="body"><p>Manual onboarding, fragmented data, days-long reports. We mapped every workflow, automated the bottlenecks, and gave the team their week back.</p></div>
+              <span class="result">40 hrs/wk reclaimed</span>
+              <div class="attribution">
+                <div class="portrait" aria-hidden="true"></div>
+                <span class="name">Savvy Compliance ops</span>
+              </div>
+            </article>
+            <div class="stats-row">
+              <span>40 hrs/wk reclaimed</span>
+              <span>80% intake on AI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews wall (9 Trustpilot screenshots) -->
+    <div class="reviews-wall">
+      <span class="label">More reviews</span>
+      <p class="sub"><strong>Verified Trustpilot reviews</strong> from local service operators we've worked with.</p>
+      <div class="grid">
+        <img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/696d573a4e42b93178beb8f8.jpg" alt="Trustpilot review from Cesar" loading="lazy">
+        <img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69779987eb392bb68b8a8d79.jpg" alt="Trustpilot review from David" loading="lazy">
+        <img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69779a4fd4fb905980103293.jpg" alt="Trustpilot review from Gabo" loading="lazy">
+        <img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6976d662eb392bf8196989f8.jpg" alt="Trustpilot review from Hamani" loading="lazy">
+        <img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/696d5760439b6be373540aef.jpg" alt="Trustpilot review from Nacho" loading="lazy">
+        <img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69c409e3421e2429444d13a9.png" alt="Trustpilot review from Reed" loading="lazy">
+        <img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6976c39e29dcf50eef663181.jpg" alt="Trustpilot review from Simon" loading="lazy">
+        <img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6976c37a29dcf5e749662cd0.jpg" alt="Trustpilot review from Simon (second)" loading="lazy">
+        <img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69768425d4fb905497e26c54.jpg" alt="Trustpilot review from Joe" loading="lazy">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ABOUT (#about, full section, no duplicate route halves) -->
+  <section id="about" class="anim">
+
+    <!-- About hero (V2 portrait-led asymmetric) -->
+    <div class="about-hero v2">
+      <div class="container">
+        <div class="inner">
+          <div>
+            <span class="eyebrow">Who runs this</span>
+            <h2>Hi, I'm Emilio. I started Nils because every $1M+ local service owner I knew was <em class="accent-marketing">trapped</em> running their own business.</h2>
+            <p class="lead">Six years later we install the marketing systems that bring leads in and the automations that take busywork out, so owners can build instead of maintain.</p>
+          </div>
+          <img class="portrait" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69768d44c1fa0cbb239dd86e.png" alt="Emilio, founder of Nils Digital">
+        </div>
+      </div>
+    </div>
+
+    <!-- Story + team (V2 timeline + portrait strip) -->
+    <div class="about-story v2">
+      <div class="container">
+        <h2>Six years, four chapters.</h2>
+
+        <div class="timeline">
+          <div class="milestone">
+            <span class="year">2019</span>
+            <p>Started as a one-man shop building websites for solo operators. The thesis: a sharp site can punch way above its price tag for local businesses.</p>
+          </div>
+          <div class="milestone">
+            <span class="year">2021</span>
+            <p>Added Google Ads management. Clients kept hitting the same ceiling: a good site doesn't matter if nobody finds it.</p>
+          </div>
+          <div class="milestone">
+            <span class="year">2023</span>
+            <p>Built the review-automation layer that turned every happy customer into a referral engine. Now a core part of the marketing stack.</p>
+          </div>
+          <div class="milestone">
+            <span class="year">2025</span>
+            <p>Launched the automation audit. Existing clients kept asking us to take the manual work out of their operations, so we systemized the answer.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Process FAQ (V3, FAQ only, route halves removed since #offers handles routing) -->
+    <div class="about-process v3">
+      <div class="container">
+        <h2>What working with Nils actually looks like.</h2>
+
+        <div class="faq-article">
+          <div class="entry">
+            <span class="index">Question 01</span>
+            <h3>How long does the marketing system take to install?</h3>
+            <p>The site goes live in 3 to 4 weeks. Ads light up the week the site does. The review-automation layer hooks in shortly after. By month two you should already be seeing the leading indicators move: more form fills, more booked calls, more reviews landing on autopilot.</p>
+          </div>
+          <div class="entry">
+            <span class="index">Question 02</span>
+            <h3>What does the automation audit actually deliver?</h3>
+            <p>A department-by-department blueprint of every manual job in your business that AI or automation can take over, scored by hours saved per month and difficulty to build. You get the document plus a working session to walk through it. You can build it yourself, hire us to install it, or sit on it. No upsell pressure.</p>
+          </div>
+          <div class="entry">
+            <span class="index">Question 03</span>
+            <h3>Do you take on businesses under $1M?</h3>
+            <p>Sometimes, but rarely. The honest answer: most of what we install pays for itself fastest at the $1M to $10M stage, where there's enough volume to make the system pay back inside a few months. Below that we usually point owners to lighter-weight tools and check back in a year.</p>
+          </div>
+          <div class="entry">
+            <span class="index">Question 04</span>
+            <h3>What happens if it doesn't work?</h3>
+            <p>If the marketing system doesn't double your conversion rate inside 60 days, we refund every dollar of the build fee. If the audit doesn't surface enough automation opportunity to pay for itself in year one, same deal. Boring guarantees, on purpose.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- BEHIND THE SCENES (between #about and blog teaser) -->
+  <section class="home-behind anim">
+    <div class="container">
+      <span class="label">Behind the scenes</span>
+      <h2>Doing the work, with the people we do it for.</h2>
+      <div class="photo-grid">
+        <div class="photo"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="Working with a client" loading="lazy"></div>
+        <div class="photo"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="On-site with a client" loading="lazy"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOG TEASER (V4 wide featured + 2 narrow) -->
+  <section class="home-blog v4 anim">
+    <div class="container">
+      <span class="label">From the blog</span>
+      <a class="featured-wide marketing" href="blog/posts/local-plumbers-google-ads-leads.html">
+        <div class="thumb"></div>
+        <div class="body">
+          <span class="tag">Marketing</span>
+          <h4>How local plumbers get 50 leads/month from Google Ads</h4>
+          <p class="excerpt">The exact campaign structure, keyword themes, and landing-page setup we use to drive booked appointments for plumbing companies in the $1M-$5M range.</p>
+          <div class="meta">4 min read</div>
+        </div>
+      </a>
+      <div class="post-grid">
+        <a class="post-card automation" href="blog/posts/hvac-automation-this-week.html">
+          <div class="thumb"></div>
+          <div class="body">
+            <span class="tag">Automation</span>
+            <h4>5 jobs a $2M HVAC company can automate this week</h4>
+            <div class="meta">6 min read</div>
+          </div>
+        </a>
+        <a class="post-card marketing" href="blog/posts/5-star-review-filter-system.html">
+          <div class="thumb"></div>
+          <div class="body">
+            <span class="tag">Marketing</span>
+            <h4>The 5-star review system that filters bad reviews</h4>
+            <div class="meta">3 min read</div>
+          </div>
+        </a>
+      </div>
+      <a class="see-all" href="blog/">All posts &rarr;</a>
+    </div>
+  </section>
+
+  <!-- CONTACT (#contact, hero + mailto only, no route halves duplicate) -->
+  <section id="contact" class="anim">
+    <div class="contact-hero">
+      <div class="container">
+        <span class="eyebrow">Book a call</span>
+        <h2>Bookings happen inside the system pages.</h2>
+        <p class="lead">Click the one that's right for you, watch the breakdown, and the calendar lives at the bottom of the page. Or scroll up to <a href="#offers" style="color: var(--marketing); text-decoration: underline;">pick a system</a>.</p>
+      </div>
+    </div>
+    <section class="contact-routes-echo home-route-halves">
+      <div class="route-halves">
+        <a class="route-half marketing" href="../funnel/vsl.html">
+          <div class="ico">&#128200;</div>
+          <h3>Need more clients?</h3>
+          <p>We build sites that convert at 10-20%, plus the ads that fill them.</p>
+          <span class="btn">See how &rarr;</span>
+        </a>
+        <a class="route-half automation" href="../funnel/automation-vsl-funnel-direct.html">
+          <div class="ico">&#9881;&#65039;</div>
+          <h3>Drowning in manual work?</h3>
+          <p>Department-by-department blueprint of every job AI can do for you.</p>
+          <span class="btn">See the audit &rarr;</span>
+        </a>
+      </div>
+    </section>
+
+    <div class="contact-mailto container">
+      Other questions? <a target="_top" href="mailto:emilio@nilsdigital.com">emilio@nilsdigital.com</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <a class="brand" href="./"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="Nils Digital"></a>
+        <p class="footer-tagline">Growth + systems for $1M+ local service businesses.</p>
+      </div>
+      <nav class="footer-nav">
+        <div class="footer-col">
+          <h6>Explore</h6>
+          <a href="#about">About</a>
+          <a href="#proof">Proof</a>
+          <a href="blog/">Blog</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h6>Get started</h6>
+          <a href="../funnel/vsl.html">Marketing system</a>
+          <a href="../funnel/automation-vsl-funnel-direct.html">Automation audit</a>
+        </div>
+      </nav>
+    </div>
+    <div class="container footer-meta">
+      <span>&copy; <span id="footer-year"></span> Nils Digital</span>
+    </div>
+    <script>document.getElementById('footer-year').textContent = new Date().getFullYear();</script>
+  </footer>
+
+  <!-- Filter-pill handler: toggle column visibility in #proof -->
+  <script>
+    document.querySelectorAll('.proof-filter .pill').forEach(p => {
+      p.addEventListener('click', () => {
+        document.querySelectorAll('.proof-filter .pill').forEach(x => x.classList.remove('active'));
+        p.classList.add('active');
+        const f = p.dataset.filter;
+        const mCol = document.querySelector('.proof-cases.v1 .col.marketing');
+        const aCol = document.querySelector('.proof-cases.v1 .col.automation');
+        if (!mCol || !aCol) return;
+        if (f === 'all') {
+          mCol.style.display = '';
+          aCol.style.display = '';
+        } else if (f === 'marketing') {
+          mCol.style.display = '';
+          aCol.style.display = 'none';
+        } else if (f === 'automation') {
+          mCol.style.display = 'none';
+          aCol.style.display = '';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

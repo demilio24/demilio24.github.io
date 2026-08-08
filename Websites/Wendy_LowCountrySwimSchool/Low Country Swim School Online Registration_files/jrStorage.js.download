@@ -1,0 +1,228 @@
+﻿/// use for storing client side data!
+///     defaults to localStorage, falls back to cookies, and can be forced to use cookies via parameter
+///
+///     methods:
+///         getStorageItem
+///         setStorageItem
+///         deleteStorageItem
+
+///         comments are above individual methods. refer to wiki for examples.
+///
+///
+///
+
+window.jrStorage = (function ($) {
+    //How long should cookies last?
+    var defaultCookieOptions = {
+        //minutes till our cookie should expire
+        minToExpire: 10,
+        //path of our cookie
+        path: '/',
+        //domain for this cookie
+        domain: null,
+        //should this cookie only be stored over https?
+        secure: null
+    };
+
+    var storageSupported = false;
+
+    //create local storage adapter for when caching data isn't allowed. 
+    var localStorageAdapter = (function () {
+        //variable to cache data within local scope if localStorage not supported.
+        var localData = {};
+
+        //test to see if local storage is supported
+        try {
+            window.localStorage.setItem('test', '');
+            window.localStorage.getItem('test');
+            window.localStorage.removeItem('test');
+
+            storageSupported = true;
+        }
+        catch (ex) { }
+
+        //local functions
+        this.localGet = function (name) {
+            if (storageSupported) {
+                return window.localStorage.getItem(name);
+            } else {
+                return localData[name];
+            }
+        }
+
+        this.localSet = function (name, value) {
+            if (storageSupported) {
+                window.localStorage.setItem(name, value);
+            } else {
+                localData[name] = value;
+            }
+        }
+
+        this.localRemove = function (name) {
+            if (storageSupported) {
+                window.localStorage.removeItem(name);
+            } else {
+                delete localData[name];
+            }
+        }
+
+        //return adapter methods
+        return {
+            getItem: localGet,
+            setItem: localSet,
+            removeItem: localRemove
+        }
+
+    })();
+
+    //Just an easy function to call with setting expiration date on a cookie. 
+    function _obsolete_calcCookieDate(minToAdd) {
+        var date = new Date();
+        date.setTime(date.getTime() + (minToAdd * 60 * 1000));
+        return date;
+    }
+    /** @deprecated since 06/27/2019. */
+    var calcCookieDate = _jr_obsolete_(_obsolete_calcCookieDate, 'calcCookieDate', 'Jr.Base.Storage.Cookie.getFutureDate');
+
+    function _obsolete_setCookie(name, value, expires, path, domain, secure) {
+        var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+        document.cookie = curCookie;
+    };
+    /** @deprecated since 06/27/2019. */
+    var setCookie = _jr_obsolete_(_obsolete_setCookie, 'setCookie', 'Jr.Base.Storage.Cookie.set');
+
+    function _obsolete_getCookie(name) {
+        if (document.cookie.length > 0) {
+            var start = document.cookie.indexOf(name + "=");
+            if (start != -1) {
+                start = start + name.length + 1;
+                var end = document.cookie.indexOf(";", start);
+                if (end == -1) end = document.cookie.length;
+                var val = document.cookie.substring(start, end);
+                try {
+                    val = unescape(val);
+                } catch (e) {
+                    val = '';
+                }
+
+                return val;
+            }
+        }
+        return "";
+    };
+    /** @deprecated since 06/27/2019. */
+    var getCookie = _jr_obsolete_(_obsolete_getCookie, 'getCookie', 'Jr.Base.Storage.Cookie.get');
+
+    function _obsolete_deleteCookie(name) {
+        setCookie(name, '', new Date('1/1/1970'), '', '', '');
+    }
+    /** @deprecated since 06/27/2019. */
+    var deleteCookie = _jr_obsolete_(_obsolete_deleteCookie, 'deleteCookie', 'Jr.Base.Storage.Cookie.clear');
+
+    //////////////      end internal cookie functions       /////////////////////////////////
+
+    ///   functions using either localStorage or regular cookie settings    ////////
+
+    //Set storage item
+    /// - Store an item. Cookie options will be extended over defaults defined above
+    /// - no compressing, stringifying, or escaping is needed before calling this method
+    function _obsolete_setStorageItem(name, value, useCookie, cookieOptions) {
+        if (value === null || value === undefined || value === '')
+            return;
+
+        //attempt json stringify
+        try {
+            if (typeof (value) !== 'string') {
+                var json = JSON.stringify(value);
+                if (json)
+                    value = json;
+            }
+
+        } catch (e) {
+        };
+
+        //Use cookie if we want OR if localStorage not supported by browser!
+        if (useCookie && useCookie === true) {
+            //Extend cookie options
+            if (typeof cookieOptions !== 'object' || cookieOptions === null)
+                cookieOptions = {};
+
+            //create new object so we're not modifying the defaults
+            var opts = $.extend(defaultCookieOptions, cookieOptions);
+
+            //call cookie setter
+            setCookie(name, value, calcCookieDate(opts.minToExpire), opts.path, opts.domain, opts.secure);
+
+        } else {
+            //use super easy local storage!
+            localStorageAdapter.setItem(name, value);
+        }
+    }
+    /** @deprecated since 06/27/2019. */
+    var setStorageItem = _jr_obsolete_(_obsolete_setStorageItem, 'setStorageItem', 'Jr.Base.Storage.Local.set');
+
+    //Get storage item
+    /// - Get an item from storage
+    /// - no need to unescape data returned from this function
+    /// - data returned will either be string or object (if you stored stringifyed object)
+    function _obsolete_getStorageItem(name, fromCookie) {
+        var value = '';
+
+        //Use cookie if specified or fall back automatically
+        if (fromCookie && fromCookie === true) {
+            return getCookie(name);
+        } else {
+            value = localStorageAdapter.getItem(name);
+        }
+
+        if (!value)
+            return '';
+
+        //JSON parse if we need to.
+        try {
+            return JSON.parse(value);
+        } catch (e) {
+            return value;
+        }
+    }
+    /** @deprecated since 06/27/2019. */
+    var getStorageItem = _jr_obsolete_(_obsolete_getStorageItem, 'getStorageItem', 'Jr.Base.Storage.Local.get');
+
+
+    //Delete store item
+    function _obsolete_deleteStorageItem(name, fromCookie) {
+        if (!name)
+            return;
+
+        //use cookie or fall back 
+        if (fromCookie && fromCookie === true) {
+            deleteCookie(name);
+        } else {
+            localStorageAdapter.removeItem(name);
+        }
+    }
+    /** @deprecated since 06/27/2019. */
+    var deleteStorageItem = _jr_obsolete_(_obsolete_deleteStorageItem, 'deleteStorageItem', 'Jr.Base.Storage.Local.remove');
+
+    //purge localStorage.  
+    this.purgeLocalStorage = function (regex) {
+        Object.keys(window.localStorage)
+            .forEach(function (key) {
+                if (regex.test(key)) {
+                    window.localStorage.removeItem(key);
+                }
+            });
+    }
+
+    //Return an object with our methods for a nice static class!
+    return {
+        setStorageItem: setStorageItem,
+        getStorageItem: getStorageItem,
+        deleteStorageItem: deleteStorageItem,
+        purgeLocalStorage: purgeLocalStorage,
+        storageSupported: function () {
+            return storageSupported;
+        }
+    };
+
+})(jQuery);

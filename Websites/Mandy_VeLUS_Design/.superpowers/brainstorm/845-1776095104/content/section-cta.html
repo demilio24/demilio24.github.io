@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section 7: CTA</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e0e0e0; }
+  h1 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 6px; text-align: center; padding-top: 32px; }
+  .sub { font-size: 13px; color: #555; text-align: center; margin-bottom: 32px; padding: 0 24px; }
+  .variation { margin: 0 24px 40px; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #1e1e1e; cursor: pointer; transition: border-color .4s, box-shadow .4s; }
+  .variation:hover { border-color: rgba(184,154,106,.35); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 48px rgba(184,154,106,.12); }
+  .vl { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #1a1a1a; }
+  .vn { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  .vt { font-size: 14px; font-weight: 500; color: #fff; }
+  .vd { font-size: 12px; color: #555; padding: 12px 24px; line-height: 1.7; border-top: 1px solid #1a1a1a; }
+  .selected .vn { background: #fff; color: #B89A6A; }
+  img { max-width: 100%; display: block; }
+</style>
+</head>
+<body>
+
+<h1>Section 7: Final CTA</h1>
+<p class="sub">The last push before the footer. Drives to the contact form.</p>
+
+<!-- A: Dark rounded card on ivory — image + text + form -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">A</div><div class="vt">Dark Card + Embedded Form — Maximum Conversion</div></div>
+  <div style="background:#FAF6F0;padding:64px 40px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="background:#2A1E1A;border-radius:20px;overflow:hidden;box-shadow:0 24px 80px rgba(42,30,26,.2);display:grid;grid-template-columns:1fr 1fr;min-height:480px;">
+        <!-- Left: image -->
+        <div style="position:relative;overflow:hidden;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 50%,rgba(42,30,26,.8) 100%);"></div>
+        </div>
+        <!-- Right: text + form -->
+        <div style="padding:48px 40px;display:flex;flex-direction:column;justify-content:center;">
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:14px;">Begin Here</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#F3EBDD;line-height:1.15;margin-bottom:14px;">Connection Sparks<br><em style="font-style:italic;color:#B89A6A;">Creation</em></div>
+          <p style="font-size:14px;color:rgba(243,235,221,.5);line-height:1.7;margin-bottom:28px;">Tell us about your space, your vision, and where you are in the process.</p>
+          <!-- Mini form -->
+          <div style="display:flex;flex-direction:column;gap:12px;">
+            <input type="text" placeholder="Your Name" style="padding:14px 16px;border:1px solid rgba(243,235,221,.1);border-radius:8px;background:rgba(243,235,221,.06);color:#F3EBDD;font-family:inherit;font-size:14px;outline:none;">
+            <input type="email" placeholder="Email" style="padding:14px 16px;border:1px solid rgba(243,235,221,.1);border-radius:8px;background:rgba(243,235,221,.06);color:#F3EBDD;font-family:inherit;font-size:14px;outline:none;">
+            <input type="tel" placeholder="Phone" style="padding:14px 16px;border:1px solid rgba(243,235,221,.1);border-radius:8px;background:rgba(243,235,221,.06);color:#F3EBDD;font-family:inherit;font-size:14px;outline:none;">
+            <div style="padding:16px;background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);border-radius:10px;text-align:center;color:#fff;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">Get In Touch</div>
+          </div>
+          <div style="font-size:11px;color:rgba(243,235,221,.3);margin-top:12px;text-align:center;">We respond within 24 hours</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Dark rounded card with portfolio image on the left (gradient blending into the dark), text + embedded mini form on the right. No need to open a modal — the form is RIGHT THERE. Maximum conversion. Image reinforces the quality of work.</div>
+</div>
+
+<!-- B: Dark card — centered text + button (no form) -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">B</div><div class="vt">Dark Card — Centered Text + Button</div></div>
+  <div style="background:#FAF6F0;padding:64px 40px;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <div style="background:#2A1E1A;border-radius:20px;padding:72px 40px;box-shadow:0 24px 80px rgba(42,30,26,.2);text-align:center;position:relative;overflow:hidden;">
+        <!-- Subtle background image -->
+        <div style="position:absolute;inset:0;opacity:.08;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e74a0b20-884a-4e6c-8ccb-4c60e682cd28.jpg" alt="" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+        <div style="position:relative;z-index:1;max-width:600px;margin:0 auto;">
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:16px;">Begin Here</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;color:#F3EBDD;line-height:1.15;margin-bottom:16px;">Connection Sparks<br><em style="font-style:italic;color:#B89A6A;">Creation</em></div>
+          <p style="font-size:15px;color:rgba(243,235,221,.5);line-height:1.8;margin-bottom:32px;">Tell us about your space, your vision, and where you are in the process. Every project begins with a conversation.</p>
+          <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:18px 48px;background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);color:#fff;font-size:14px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border-radius:10px;text-decoration:none;box-shadow:0 8px 28px rgba(184,154,106,.3);">Get In Touch</a>
+          <div style="font-size:11px;color:rgba(243,235,221,.3);margin-top:16px;">We respond within 24 hours</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Dark rounded card with a very faint background image (8% opacity). Centered text + gold CTA button. Clean, simple, focused. The button opens the form modal. Subtle image adds warmth without competing with the text.</div>
+</div>
+
+<!-- C: Full-bleed cinematic with quote + form overlay -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">C</div><div class="vt">Full-Bleed Image + Glass Form — Cinematic</div></div>
+  <div style="position:relative;min-height:500px;overflow:hidden;">
+    <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/b7ddbac2-55db-42ef-bf8e-49db2681e21e.jpg" alt="" style="width:100%;height:500px;object-fit:cover;object-position:center 40%;">
+    <div style="position:absolute;inset:0;background:rgba(42,30,26,.72);"></div>
+    <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1100px;margin:0 auto;padding:64px 40px;align-items:center;">
+      <!-- Left: quote -->
+      <div>
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:16px;">Begin Here</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#F3EBDD;line-height:1.2;font-style:italic;margin-bottom:20px;">"Spaces are canvases upon which a person's unique style should be painted."</div>
+        <div style="font-size:13px;color:rgba(243,235,221,.4);margin-bottom:6px;">— Mandy VELUS</div>
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png" alt="Signature" style="height:28px;opacity:.3;margin-top:12px;filter:brightness(10);">
+      </div>
+      <!-- Right: glass form -->
+      <div style="background:rgba(243,235,221,.08);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(243,235,221,.1);border-radius:16px;padding:36px 32px;">
+        <div style="font-family:'Cormorant Garamond';font-size:24px;color:#F3EBDD;margin-bottom:6px;text-align:center;">Let's Start a Conversation</div>
+        <p style="font-size:12px;color:rgba(243,235,221,.4);margin-bottom:24px;text-align:center;">Tell us about your vision.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <input type="text" placeholder="Your Name" style="padding:14px 16px;border:1px solid rgba(243,235,221,.1);border-radius:8px;background:rgba(243,235,221,.06);color:#F3EBDD;font-family:inherit;font-size:14px;outline:none;">
+          <input type="email" placeholder="Email" style="padding:14px 16px;border:1px solid rgba(243,235,221,.1);border-radius:8px;background:rgba(243,235,221,.06);color:#F3EBDD;font-family:inherit;font-size:14px;outline:none;">
+          <input type="tel" placeholder="Phone" style="padding:14px 16px;border:1px solid rgba(243,235,221,.1);border-radius:8px;background:rgba(243,235,221,.06);color:#F3EBDD;font-family:inherit;font-size:14px;outline:none;">
+          <textarea placeholder="Tell us about your project" rows="3" style="padding:14px 16px;border:1px solid rgba(243,235,221,.1);border-radius:8px;background:rgba(243,235,221,.06);color:#F3EBDD;font-family:inherit;font-size:14px;outline:none;resize:vertical;"></textarea>
+          <div style="padding:16px;background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);border-radius:10px;text-align:center;color:#fff;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">Get In Touch</div>
+        </div>
+        <div style="font-size:11px;color:rgba(243,235,221,.3);margin-top:12px;text-align:center;">We respond within 24 hours</div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Full-bleed cinematic image (mountain retreat) with dark overlay. Mandy's signature quote + actual signature on the left. Glass-blur form card on the right. Like a second hero section — immersive and bold. The most dramatic CTA. Mirrors the hero layout.</div>
+</div>
+
+<!-- D: Minimal on ivory — just text + button -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">D</div><div class="vt">Minimal on Ivory — Text + Button Only</div></div>
+  <div style="background:#FAF6F0;padding:80px 40px;">
+    <div style="max-width:600px;margin:0 auto;text-align:center;">
+      <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:16px;">Begin Here</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:300;color:#3A241E;line-height:1.15;margin-bottom:16px;">Connection Sparks<br><em style="font-style:italic;color:#B89A6A;">Creation</em></div>
+      <p style="font-size:15px;color:#7A6B62;line-height:1.8;margin-bottom:12px;">Tell us about your space, your vision, and where you are in the process.</p>
+      <p style="font-size:14px;color:#7A6B62;margin-bottom:32px;">Every project begins with a conversation.</p>
+      <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:18px 48px;background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);color:#fff;font-size:14px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border-radius:10px;text-decoration:none;box-shadow:0 8px 28px rgba(184,154,106,.25);">Get In Touch</a>
+      <div style="margin-top:20px;">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png" alt="Signature" style="height:28px;opacity:.3;margin:0 auto;">
+      </div>
+    </div>
+  </div>
+  <div class="vd">No card, no image, no dark background. Just centered text + gold button + Mandy's signature on the ivory background. Ultra minimal. Victoria Hagan-inspired restraint. The page just... ends with a quiet invitation. Most elegant.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop · Aquanauts Swim Academy</title>
+  <meta name="description" content="Browse swim gear available through our Splash About partnership: caps, rings, swim diapers (Happy Nappy), headbands and more. Ask us about any item at your next lesson." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+*, *::before, *::after { box-sizing: border-box; }
+/* overflow-x: clip (not hidden) — `hidden` makes html/body a scroll container, which kills the sticky nav. `clip` stops horizontal scroll without that side effect. */
+html { scroll-behavior: smooth; overflow-x: clip; }
+body { margin: 0; padding: 0; font-family: 'Manrope', sans-serif; font-weight: 500; background: #fff; color: #0a1e3a; overflow-x: clip; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+h1, h2, h3, h4 { font-family: 'Outfit', sans-serif; font-weight: 800; margin: 0; line-height: 1.15; letter-spacing: -0.02em; color: #0a1e3a; }
+p { margin: 0 0 1em; }
+
+:root {
+  --navy: #0a1e3a;
+  --blue: #1e4d92;
+  --teal: #3ad8d4;
+  --teal-2: #2bc4c0;
+  --coral: #faa56b;
+  --coral-2: #f5904a;
+  --gold: #ffd56b;
+  --bg-soft: #f5f8fc;
+  --bg-band: #eaf1fa;
+  --line: #d8e3f2;
+  --muted: #4a6585;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.78rem; letter-spacing: 2.5px; text-transform: uppercase; padding: 8px 18px; border-radius: 50px; background: rgba(58,216,212,0.15); color: var(--blue); margin-bottom: 18px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1rem; border: none; border-radius: 12px; padding: 15px 30px; cursor: pointer; transition: all 0.25s ease; text-decoration: none; line-height: 1; }
+.btn-primary { background: linear-gradient(135deg, var(--coral) 0%, var(--coral-2) 100%); color: var(--navy); box-shadow: 0 8px 24px rgba(250,165,107,0.45); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(250,165,107,0.55); }
+.btn-secondary { background: #fff; color: var(--navy); border: 2px solid var(--line); }
+.btn-secondary:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-2px); }
+
+.anim { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.anim.visible { opacity: 1; transform: translateY(0); }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 90; background: rgba(255,255,255,0.94); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid rgba(216,227,242,0.6); }
+.nav-inner { max-width: 1280px; margin: 0 auto; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--navy); }
+.nav-logo img { height: 42px; width: auto; }
+.nav-back { display: inline-flex; align-items: center; gap: 6px; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.94rem; color: var(--blue); padding: 9px 18px; border: 1.5px solid var(--line); border-radius: 10px; transition: all .2s ease; }
+.nav-back:hover { border-color: var(--blue); background: rgba(30,77,146,0.06); }
+
+/* HERO */
+.hero { padding: 64px 0 36px; background: linear-gradient(180deg, var(--bg-soft) 0%, #fff 100%); text-align: center; }
+.hero h1 { font-size: clamp(2.2rem, 5.2vw, 3.4rem); margin-bottom: 14px; }
+.hero h1 .accent { color: var(--blue); font-style: italic; }
+.hero p { font-size: 1.08rem; color: var(--muted); max-width: 660px; margin: 0 auto 22px; }
+.partner-chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: #fff; border: 1.5px solid var(--line); border-radius: 50px; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.92rem; color: var(--navy); box-shadow: 0 6px 20px rgba(10,30,58,0.06); }
+.partner-chip .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 4px rgba(58,216,212,0.25); }
+
+/* CATALOG */
+.catalog { padding: 36px 0 80px; background: #fff; }
+.cat-section { margin-top: 56px; }
+.cat-section:first-child { margin-top: 0; }
+.cat-head { display: flex; align-items: center; gap: 16px; margin-bottom: 22px; padding-bottom: 14px; border-bottom: 2px solid var(--line); }
+.cat-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, var(--teal) 0%, var(--blue) 100%); color: #fff; flex-shrink: 0; }
+.cat-icon svg { width: 22px; height: 22px; }
+.cat-title { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.45rem; color: var(--navy); margin: 0; }
+.cat-subtitle { display: block; font-family: 'Manrope', sans-serif; font-weight: 500; font-size: 0.86rem; color: var(--muted); margin-top: 2px; letter-spacing: 0; text-transform: none; }
+
+.product-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.product-card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px 18px; box-shadow: 0 4px 14px rgba(10,30,58,0.05); display: flex; flex-direction: column; transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease; }
+.product-card:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(10,30,58,0.1); border-color: var(--teal); }
+.product-visual { width: 100%; aspect-ratio: 1 / 1; border-radius: 12px; background: linear-gradient(135deg, var(--bg-band) 0%, var(--bg-soft) 100%); display: flex; align-items: center; justify-content: center; margin-bottom: 14px; overflow: hidden; }
+.product-visual img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-visual svg { width: 50%; height: 50%; opacity: 0.55; color: var(--blue); }
+.product-name { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.98rem; color: var(--navy); margin: 0 0 6px; line-height: 1.3; flex: 1; }
+.product-price { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.1rem; color: var(--blue); margin-bottom: 0; }
+.product-tag { display: inline-block; font-size: 0.72rem; font-weight: 600; color: var(--muted); padding: 3px 8px; background: var(--bg-soft); border-radius: 6px; margin-bottom: 10px; align-self: flex-start; }
+
+/* CTA */
+.shop-cta { padding: 64px 0; background: var(--bg-soft); text-align: center; }
+.shop-cta h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 14px; }
+.shop-cta p { font-size: 1.04rem; color: var(--muted); max-width: 580px; margin: 0 auto 26px; }
+.shop-cta-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+
+/* FOOTER */
+.footer { background: var(--navy); color: #cfd9e9; padding: 36px 0 24px; text-align: center; font-size: 0.9rem; }
+.footer a { color: var(--teal); }
+.footer-brand { font-family: 'Outfit', sans-serif; font-weight: 800; color: #fff; font-size: 1.1rem; margin-bottom: 6px; }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .product-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 720px) {
+  .product-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .product-card { padding: 16px 14px; }
+  .cat-head { flex-direction: row; }
+  .cat-title { font-size: 1.2rem; }
+  .nav-logo span { display: none; }
+}
+@media (max-width: 480px) {
+  .nav-back { padding: 8px 14px; font-size: 0.88rem; }
+}
+  
+/* PRODUCT MODAL */
+.product-card { cursor: pointer; }
+.product-card:focus-visible { outline: 3px solid var(--teal); outline-offset: 3px; }
+.product-card.hidden, .cat-section.hidden { display: none; }
+.product-card .product-minithumbs { display: flex; gap: 6px; margin-top: 12px; }
+.product-card .product-minithumbs button { flex: 1; min-width: 0; aspect-ratio: 1/1; max-width: 56px; border: 1.5px solid var(--line); border-radius: 8px; background: #fff; padding: 0; cursor: pointer; overflow: hidden; transition: all .15s ease; }
+.product-card .product-minithumbs button:hover { border-color: var(--blue); transform: translateY(-1px); }
+.product-card .product-minithumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.product-card .product-minithumbs.empty { display: none; }
+.product-card .product-ask-link { display: inline-flex; align-items: center; gap: 5px; margin-top: 10px; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.82rem; color: var(--coral-2); text-decoration: none; transition: color .15s ease; }
+.product-card .product-ask-link:hover { color: var(--coral); text-decoration: underline; }
+.product-card .product-ask-link svg { width: 13px; height: 13px; flex-shrink: 0; }
+
+/* SHOP FILTER BAR */
+.shop-filter { position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); padding: 14px 0; margin-bottom: 28px; }
+.shop-filter-inner { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+.shop-filter-search { position: relative; flex: 0 1 320px; min-width: 220px; }
+.shop-filter-search svg { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); width: 16px; height: 16px; pointer-events: none; }
+.shop-filter-search input { width: 100%; padding: 11px 18px 11px 40px; border: 1.5px solid var(--line); border-radius: 50px; background: #fff; font-family: 'Manrope', sans-serif; font-size: 0.94rem; color: var(--navy); transition: border-color .2s ease; }
+.shop-filter-search input:focus { outline: none; border-color: var(--blue); }
+.shop-filter-pills { display: flex; gap: 8px; flex: 1; overflow-x: auto; padding: 2px 0; scrollbar-width: thin; }
+.shop-filter-pills::-webkit-scrollbar { height: 4px; }
+.shop-filter-pills .filter-pill { flex-shrink: 0; padding: 9px 18px; border-radius: 50px; border: 1.5px solid var(--line); background: #fff; color: var(--navy); font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.86rem; cursor: pointer; transition: all .2s ease; }
+.shop-filter-pills .filter-pill:hover { border-color: var(--blue); color: var(--blue); }
+.shop-filter-pills .filter-pill.active { background: var(--navy); border-color: var(--navy); color: #fff; }
+.shop-empty { text-align: center; padding: 60px 24px; color: var(--muted); display: none; }
+.shop-empty.show { display: block; }
+@media (max-width: 720px) {
+  .shop-filter { margin-bottom: 18px; padding: 12px 0; }
+  .shop-filter-inner { gap: 10px; }
+  .shop-filter-search { flex-basis: 100%; }
+  .shop-filter-pills { flex-basis: 100%; }
+}
+
+/* PRODUCT MODAL */
+.aq-modal { position: fixed; inset: 0; background: rgba(10,30,58,0.6); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); display: none; align-items: center; justify-content: center; z-index: 200; padding: 24px; }
+.aq-modal.open { display: flex; animation: aqModalFade .25s ease; }
+@keyframes aqModalFade { from { opacity: 0; } to { opacity: 1; } }
+.aq-modal-panel { position: relative; background: #fff; border-radius: 24px; width: min(1100px, 100%); max-height: 92vh; overflow: hidden; display: grid; grid-template-columns: 1.05fr 1fr; box-shadow: 0 30px 80px rgba(10,30,58,0.4); animation: aqPanelRise .35s cubic-bezier(.2,.85,.3,1); }
+@keyframes aqPanelRise { from { transform: translateY(20px); opacity: 0; } to { transform: none; opacity: 1; } }
+.aq-modal-close { position: absolute; top: 16px; right: 18px; width: 38px; height: 38px; border-radius: 50%; background: #fff; border: 1.5px solid var(--line); display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 5; transition: all .2s ease; color: var(--navy); }
+.aq-modal-close:hover { background: var(--bg-soft); border-color: var(--navy); transform: rotate(90deg); }
+.aq-modal-gallery { background: var(--bg-soft); padding: 24px; display: flex; flex-direction: column; max-height: 92vh; overflow: hidden; min-width: 0; }
+.aq-modal-bigimg { flex: 1; background: #fff; border-radius: 16px; overflow: hidden; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(10,30,58,0.08); min-height: 0; }
+.aq-modal-bigimg img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; }
+.aq-modal-thumbs { display: flex; gap: 8px; margin-top: 14px; overflow-x: auto; padding: 4px; flex-shrink: 0; scrollbar-width: thin; }
+.aq-modal-thumbs::-webkit-scrollbar { height: 6px; }
+.aq-modal-thumbs::-webkit-scrollbar-thumb { background: var(--line); border-radius: 4px; }
+.aq-modal-thumbs button { flex-shrink: 0; width: 64px; height: 64px; border-radius: 10px; border: 2px solid transparent; background: #fff; padding: 0; cursor: pointer; overflow: hidden; transition: border-color .2s ease, transform .15s ease; }
+.aq-modal-thumbs button.active { border-color: var(--blue); }
+.aq-modal-thumbs button:hover { transform: translateY(-2px); }
+.aq-modal-thumbs img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Info column: pin head (title/price/size) at top, body (description) scrolls,
+   actions (CTA + microcopy) pinned at bottom and always visible. */
+.aq-modal-info { padding: 0; max-height: 92vh; display: flex; flex-direction: column; min-height: 0; }
+.aq-modal-info-head { padding: 36px 36px 12px; flex-shrink: 0; }
+.aq-modal-info-body { padding: 4px 36px; overflow-y: auto; flex: 1 1 auto; min-height: 0; }
+.aq-modal-info-actions { padding: 16px 36px 28px; flex-shrink: 0; border-top: 1px solid var(--line); background: #fff; display: flex; flex-direction: column; gap: 12px; }
+.aq-modal-title { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 2.6vw, 2rem); color: var(--navy); margin: 0 0 8px; line-height: 1.18; padding-right: 40px; }
+.aq-modal-price { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.6rem; color: var(--blue); margin-bottom: 6px; }
+.aq-modal-partner { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 600; color: var(--muted); margin-bottom: 22px; }
+.aq-modal-partner::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+.aq-modal-size { display: flex; flex-direction: column; gap: 8px; margin-bottom: 22px; }
+.aq-modal-size[hidden] { display: none; }
+.aq-modal-size-label { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.86rem; color: var(--navy); }
+.aq-modal-size select { font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.95rem; padding: 11px 14px; border: 1.5px solid var(--line); border-radius: 10px; background: #fff; color: var(--navy); cursor: pointer; transition: border-color .2s ease; }
+.aq-modal-size select:hover { border-color: var(--blue); }
+.aq-modal-desc { font-family: 'Manrope', sans-serif; font-size: 0.96rem; color: var(--muted); line-height: 1.65; margin: 0 0 24px; white-space: pre-line; }
+.aq-modal-cta { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 28px; background: linear-gradient(135deg, var(--coral) 0%, var(--coral-2) 100%); color: var(--navy); font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 1rem; border-radius: 12px; text-decoration: none; box-shadow: 0 6px 18px rgba(250,165,107,0.42); transition: transform .2s ease, box-shadow .2s ease; align-self: stretch; }
+.aq-modal-cta:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(250,165,107,0.55); }
+.aq-modal-foot { font-size: 0.82rem; color: var(--muted); line-height: 1.5; margin: 0; }
+body.modal-locked { overflow: hidden; }
+@media (max-width: 820px) {
+  .aq-modal { padding: 0; align-items: flex-end; }
+  .aq-modal-panel { grid-template-columns: 1fr; grid-template-rows: auto 1fr; max-height: 95vh; border-radius: 22px 22px 0 0; }
+  .aq-modal-gallery { max-height: 42vh; padding: 16px; }
+  .aq-modal-info { max-height: none; min-height: 0; }
+  .aq-modal-info-head { padding: 22px 22px 10px; }
+  .aq-modal-info-body { padding: 0 22px; }
+  .aq-modal-info-actions { padding: 14px 22px 22px; }
+  .aq-modal-title { padding-right: 50px; }
+}
+
+/* Email-app chooser popover */
+.mail-menu-backdrop { position: fixed; inset: 0; z-index: 1400; background: transparent; opacity: 0; visibility: hidden; transition: opacity .16s ease, visibility .16s; }
+.mail-menu-backdrop.open { visibility: visible; }
+.mail-menu { position: fixed; z-index: 1401; min-width: 240px; background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 18px 50px rgba(10,30,58,0.22); padding: 7px; opacity: 0; visibility: hidden; transform: translateY(6px) scale(.98); transition: opacity .16s ease, transform .16s ease, visibility .16s; }
+.mail-menu.open { opacity: 1; visibility: visible; transform: translateY(0) scale(1); }
+.mail-menu-head { font-family: 'Outfit', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); padding: 8px 12px 7px; }
+.mail-menu a { display: flex; align-items: center; gap: 12px; padding: 11px 12px; border-radius: 9px; font-family: 'Outfit', sans-serif; font-weight: 600; font-size: 0.95rem; color: var(--navy); text-decoration: none; transition: background .14s ease; }
+.mail-menu a:hover { background: var(--bg-soft); }
+.mail-menu a .mail-ico { width: 22px; height: 22px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.mail-menu a .mail-ico svg { width: 22px; height: 22px; display: block; }
+.mail-menu a small { display: block; font-weight: 500; font-size: 0.74rem; color: var(--muted); margin-top: 1px; }
+@media (max-width: 600px) {
+  .mail-menu { left: 14px !important; right: 14px !important; bottom: 14px !important; top: auto !important; min-width: 0; }
+  .mail-menu-backdrop.open { background: rgba(10,30,58,0.4); opacity: 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="https://aquanautsacademy.ca/home" target="_top" class="nav-logo">
+      <img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/3dab965f-e587-45a9-a4ca-ae6c1971ec0c.png" alt="Aquanauts Swim Academy" loading="eager">
+      <span>Aquanauts</span>
+    </a>
+    <a href="https://aquanautsacademy.ca/home" target="_top" class="nav-back">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Back to home
+    </a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow anim">Shop · Catalog</div>
+    <h1 class="anim">Swim Gear We <span class="accent">Love and Use</span></h1>
+    <p class="anim">A curated catalog of swim caps, rings, swim diapers, headbands and water toys we keep in rotation with our families. Ask us about any item at your next lesson, by email, or by phone, and we'll help you order it.</p>
+    <div class="anim">
+      <span class="partner-chip"><span class="dot"></span>In partnership with Splash About™ Swim Products</span>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section class="catalog">
+  <!-- SHOP FILTER BAR -->
+<div class="shop-filter">
+  <div class="container shop-filter-inner">
+    <div class="shop-filter-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      <input type="search" id="shopSearch" placeholder="Search products, colours, names..." aria-label="Search products">
+    </div>
+    <div class="shop-filter-pills" role="tablist">
+      <button class="filter-pill active" data-shop-filter="all" type="button">All</button>
+      <button class="filter-pill" data-shop-filter="caps-hats" type="button">Caps & Hats</button>
+      <button class="filter-pill" data-shop-filter="swim-rings" type="button">Swim Rings</button>
+      <button class="filter-pill" data-shop-filter="beach-toys" type="button">Beach & Toys</button>
+      <button class="filter-pill" data-shop-filter="headbands" type="button">Headbands</button>
+      <button class="filter-pill" data-shop-filter="happy-nappy" type="button">Happy Nappy</button>
+    </div>
+  </div>
+</div>
+<div class="shop-empty container" id="shopEmpty">
+  <h3 style="font-family:'Outfit',sans-serif;font-weight:800;color:var(--navy);margin-bottom:8px;">No products match.</h3>
+  <p>Try a different search term or category.</p>
+</div>
+<div class="container">
+
+    <!-- Swim Caps & Hats -->
+    <div class="cat-section anim">
+      <div class="cat-head">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 14c0-5 4-9 9-9s9 4 9 9"/><path d="M3 14h18"/><path d="M5 14v3a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-3"/></svg></div>
+        <div>
+          <h2 class="cat-title">Swim Caps & Hats</h2>
+          <span class="cat-subtitle">Sun protection and warmth for poolside and outdoor swimming</span>
+        </div>
+      </div>
+      <div class="product-grid">
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/ea60f3e3-1cc8-4044-9be5-99bc0da5e8a5.webp" alt="Baby & Toddler Swim Cap · Turtle Tide" loading="lazy"></div><span class="product-tag">Baby & Toddler</span><h3 class="product-name">Swim Cap · Turtle Tide</h3><div class="product-price">$15.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/c971b780-3ebc-4deb-961d-04af613d2729.webp" alt="Legionnaire Hat Legionnaire Hat · Lilac Spring" loading="lazy"></div><span class="product-tag">Legionnaire Hat</span><h3 class="product-name">Legionnaire Hat · Lilac Spring</h3><div class="product-price">$15.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/69fef66f-5f98-4d70-85ce-93e158bc9cfa.webp" alt="Legionnaire Hat Legionnaire Hat · Strawberry Field" loading="lazy"></div><span class="product-tag">Legionnaire Hat</span><h3 class="product-name">Legionnaire Hat · Strawberry Field</h3><div class="product-price">$15.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/4b36a9cc-1318-4b94-ac9c-c3af89c1658e.webp" alt="Legionnaire Hat Legionnaire Hat · Shark Reef" loading="lazy"></div><span class="product-tag">Legionnaire Hat</span><h3 class="product-name">Legionnaire Hat · Shark Reef</h3><div class="product-price">$15.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/55251f43-63a9-4d13-a1e4-d0824e9ebdbd.webp" alt="Legionnaire Hat Legionnaire Hat · Turtle Tide" loading="lazy"></div><span class="product-tag">Legionnaire Hat</span><h3 class="product-name">Legionnaire Hat · Turtle Tide</h3><div class="product-price">$15.00</div></div>
+      </div>
+    </div>
+
+    <!-- Swim Rings -->
+    <div class="cat-section anim">
+      <div class="cat-head">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <div>
+          <h2 class="cat-title">Swim Rings</h2>
+          <span class="cat-subtitle">Buoyancy aids for floating practice and water play</span>
+        </div>
+      </div>
+      <div class="product-grid">
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5587448b-1454-49aa-b8a4-710d776c899d.webp" alt="36' Diameter Coastal Castaway Swim Ring" loading="lazy"></div><span class="product-tag">36" Diameter</span><h3 class="product-name">Coastal Castaway Swim Ring</h3><div class="product-price">$15.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/47e978f1-a399-4a44-9986-c5953689ab11.webp" alt="Split Ring Floatin' Friends Split Swim Ring" loading="lazy"></div><span class="product-tag">Split Ring</span><h3 class="product-name">Floatin' Friends Split Swim Ring</h3><div class="product-price">$15.00</div></div>
+      </div>
+    </div>
+
+    <!-- Beach & Water Toys -->
+    <div class="cat-section anim">
+      <div class="cat-head">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div>
+        <div>
+          <h2 class="cat-title">Beach & Water Toys</h2>
+          <span class="cat-subtitle">Beach balls and infant swim seats for first water experiences</span>
+        </div>
+      </div>
+      <div class="product-grid">
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a2c5da67-71b0-4bc5-a240-a141968ed595.webp" alt="Beach Toy Traditional Beach Balls" loading="lazy"></div><span class="product-tag">Beach Toy</span><h3 class="product-name">Traditional Beach Balls</h3><div class="product-price">$22.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5dcf4d9e-62b2-4a43-8250-dc7436dc610e.webp" alt="1-2 Years Baby Swim Boat" loading="lazy"></div><span class="product-tag">1-2 Years</span><h3 class="product-name">Baby Swim Boat</h3><div class="product-price">$22.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/48c226f9-8629-4a9e-9b4c-e36b208bac2b.webp" alt="1-2 Years Baby Swim Seat" loading="lazy"></div><span class="product-tag">1-2 Years</span><h3 class="product-name">Baby Swim Seat</h3><div class="product-price">$22.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/255d353b-4355-4d64-96c3-336093205456.webp" alt="0-1 Years Baby Swim Seat" loading="lazy"></div><span class="product-tag">0-1 Years</span><h3 class="product-name">Baby Swim Seat</h3><div class="product-price">$18.00</div></div>
+      </div>
+    </div>
+
+    <!-- Swimming Headbands -->
+    <div class="cat-section anim">
+      <div class="cat-head">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 16 0"/><path d="M2 12h20"/></svg></div>
+        <div>
+          <h2 class="cat-title">Swimming Headbands</h2>
+          <span class="cat-subtitle">Comfort and stay-put fit for goggle and ear protection</span>
+        </div>
+      </div>
+      <div class="product-grid">
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/edf06b47-c110-40df-8143-b78059b2f62e.webp" alt="Headband Swimming Headband · Red" loading="lazy"></div><span class="product-tag">Headband</span><h3 class="product-name">Swimming Headband · Red</h3><div class="product-price">$15.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/460bd705-a6b0-426b-9f16-8fd55d4600e2.webp" alt="Headband Swimming Headband · Cashmere Blue" loading="lazy"></div><span class="product-tag">Headband</span><h3 class="product-name">Swimming Headband · Cashmere Blue</h3><div class="product-price">$15.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/31e9694c-c6c7-496e-bc82-ecc3818d5995.webp" alt="Headband Swimming Headband · Pink" loading="lazy"></div><span class="product-tag">Headband</span><h3 class="product-name">Swimming Headband · Pink</h3><div class="product-price">$15.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/06ea929e-d903-4fd9-bfce-01b3e3f75917.webp" alt="Headband Swimming Headband · Pistachio" loading="lazy"></div><span class="product-tag">Headband</span><h3 class="product-name">Swimming Headband · Pistachio</h3><div class="product-price">$15.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/4f5dcb39-3309-47b0-9f97-f50a071163e9.webp" alt="Headband Swimming Headband · Lilac" loading="lazy"></div><span class="product-tag">Headband</span><h3 class="product-name">Swimming Headband · Lilac</h3><div class="product-price">$15.00</div></div>
+      </div>
+    </div>
+
+    <!-- Happy Nappy -->
+    <div class="cat-section anim">
+      <div class="cat-head">
+        <div class="cat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8h12l-1.5 9a2 2 0 0 1-2 1.7H9.5a2 2 0 0 1-2-1.7L6 8z"/><path d="M9 8V5a3 3 0 0 1 6 0v3"/></svg></div>
+        <div>
+          <h2 class="cat-title">Happy Nappy™ Swim Diapers</h2>
+          <span class="cat-subtitle">The original reusable neoprene swim diaper. Required for our infant programs.</span>
+        </div>
+      </div>
+      <div class="product-grid">
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/79a95f70-e8a3-47d6-a7d0-1cb138de4d22.webp" alt="Pastel Happy Nappy™ · Lilac" loading="lazy"></div><span class="product-tag">Pastel</span><h3 class="product-name">Happy Nappy™ · Lilac</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2b165ac1-a5cd-4197-9b3c-9bd0aa93696e.webp" alt="Pastel Happy Nappy™ · Cashmere Blue" loading="lazy"></div><span class="product-tag">Pastel</span><h3 class="product-name">Happy Nappy™ · Cashmere Blue</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/1b69f104-8877-4aa0-9919-8cf9e419806e.webp" alt="Pattern Happy Nappy™ · Nina's Ark" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Nina's Ark</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2e8b333b-4af4-4b3b-b750-e86e0120ab47.webp" alt="Pattern Happy Nappy™ · Noah's Ark" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Noah's Ark</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9eac6a92-55c8-4613-80c6-157dea22b1fa.webp" alt="Pattern Happy Nappy™ · Up & Away" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Up & Away</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/51e7321d-a1a1-4b96-a8cc-dec7fedb17be.webp" alt="Pattern Happy Nappy™ · Vintage Moby" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Vintage Moby</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/57c13560-1245-451a-a534-06637d8376a4.webp" alt="Pattern Happy Nappy™ · Forest Walk" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Forest Walk</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9402defd-6090-40cb-9738-9efe8bf91b96.webp" alt="Pattern Happy Nappy™ · Tug Boats" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Tug Boats</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/12c3d2cd-3c90-41d2-88be-59aee2cfd7a9.webp" alt="Solid Happy Nappy™ · Blue Cobalt" loading="lazy"></div><span class="product-tag">Solid</span><h3 class="product-name">Happy Nappy™ · Blue Cobalt</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a6719926-5b14-4e8e-8fb0-383f3e484283.webp" alt="Pastel Happy Nappy™ · Pistachio" loading="lazy"></div><span class="product-tag">Pastel</span><h3 class="product-name">Happy Nappy™ · Pistachio</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/acc79b95-68a9-4c09-ae8b-9851df5519d1.webp" alt="Neon Happy Nappy™ · Neon Orange" loading="lazy"></div><span class="product-tag">Neon</span><h3 class="product-name">Happy Nappy™ · Neon Orange</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/47c894f3-1b61-4ba5-838c-4c716b41c49e.webp" alt="Neon Happy Nappy™ · Neon Pink" loading="lazy"></div><span class="product-tag">Neon</span><h3 class="product-name">Happy Nappy™ · Neon Pink</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/22bdd636-3382-49d7-a06e-d72193d9cbd6.webp" alt="Neon Happy Nappy™ · Neon Yellow" loading="lazy"></div><span class="product-tag">Neon</span><h3 class="product-name">Happy Nappy™ · Neon Yellow</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/4523cc2b-f39b-42d7-86eb-575db6da0192.webp" alt="Neon Happy Nappy™ · Neon Lime" loading="lazy"></div><span class="product-tag">Neon</span><h3 class="product-name">Happy Nappy™ · Neon Lime</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/88f203d2-b2b4-4a31-bed8-388b5b9dfdc8.webp" alt="Pattern Happy Nappy™ · Under The Sea" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Under The Sea</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/82876b94-98f4-4fd3-bc50-2da78e4f1c66.webp" alt="Pattern Happy Nappy™ · Almond Blossom" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Almond Blossom</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/abdb8d00-c25c-4809-9ece-297662358866.webp" alt="Pattern Happy Nappy™ · Playful Otters" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Playful Otters</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2a448294-37b4-4ae4-a5c2-08637ae48bee.webp" alt="Pattern Happy Nappy™ · Pink Dotty" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Pink Dotty</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8aa51d1c-03d5-4d22-bdc2-a86af1a90e1e.webp" alt="Pattern Happy Nappy™ · Crocodile Swamp" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Crocodile Swamp</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9d6cd84b-876d-4eec-9f51-f697c8d746af.webp" alt="Pattern Happy Nappy™ · Lemons" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Lemons</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8ad3dc0f-eb3e-4fed-9bde-d0763199c609.webp" alt="Pattern Happy Nappy™ · Shark Reef" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Shark Reef</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/57f7818b-eb3a-460e-9901-85cb78a39cf5.webp" alt="Pattern Happy Nappy™ · Lilac Spring" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Lilac Spring</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/76186ed9-db11-4377-9942-84c242c7c90c.webp" alt="Pattern Happy Nappy™ · Turtle Tide" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Turtle Tide</h3><div class="product-price">$25.00</div></div>
+        <div class="product-card"><div class="product-visual"><img src="https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/10df3566-f897-4611-a33a-9cde9932fbe8.webp" alt="Pattern Happy Nappy™ · Strawberry Field" loading="lazy"></div><span class="product-tag">Pattern</span><h3 class="product-name">Happy Nappy™ · Strawberry Field</h3><div class="product-price">$25.00</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="shop-cta">
+  <div class="container">
+    <h2 class="anim">Want one of these?</h2>
+    <p class="anim">We're not selling online yet. Send Tristan a quick email and he'll order on your behalf for your next session.</p>
+    <div class="shop-cta-row anim">
+      <a href="#" target="_top" id="shopEmailBtn" class="btn btn-primary">Email Tristan
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">Aquanauts Swim Academy</div>
+    <p>Private + adaptive swim lessons across Vancouver Island. <a href="https://aquanautsacademy.ca/home" target="_top">Return to main site</a>.</p>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.anim').forEach(el => io.observe(el));
+</script>
+
+
+<!-- PRODUCT MODAL -->
+<div class="aq-modal" id="aqModal" role="dialog" aria-modal="true" aria-labelledby="aqModalTitle">
+  <div class="aq-modal-panel" role="document">
+    <button class="aq-modal-close" type="button" aria-label="Close">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+    <div class="aq-modal-gallery">
+      <div class="aq-modal-bigimg"><img id="aqModalBigImg" src="" alt=""></div>
+      <div class="aq-modal-thumbs" id="aqModalThumbs"></div>
+    </div>
+    <div class="aq-modal-info">
+      <div class="aq-modal-info-head">
+        <h2 class="aq-modal-title" id="aqModalTitle"></h2>
+        <div class="aq-modal-price" id="aqModalPrice"></div>
+        <div class="aq-modal-partner">Splash About via Aquanauts</div>
+        <div class="aq-modal-size" id="aqModalSize" hidden>
+          <label class="aq-modal-size-label" for="aqModalSizeSelect">Size</label>
+          <select id="aqModalSizeSelect"></select>
+        </div>
+      </div>
+      <div class="aq-modal-info-body">
+        <div class="aq-modal-desc" id="aqModalDesc"></div>
+      </div>
+      <div class="aq-modal-info-actions">
+        <a href="#" target="_top" class="aq-modal-cta" id="aqModalCta">
+          Email Tristan about this
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <div class="aq-modal-foot">We don't sell online. Tristan will reply quickly and order on your behalf for your next session.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- EMAIL-APP CHOOSER -->
+<div class="mail-menu-backdrop" id="mailMenuBackdrop"></div>
+<div class="mail-menu" id="mailMenu" role="menu" aria-label="Choose email app">
+  <div class="mail-menu-head">Open in</div>
+  <a data-provider="gmail" href="#" target="_blank" rel="noopener" role="menuitem">
+    <span class="mail-ico"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="3" fill="#fff" stroke="#EA4335" stroke-width="2"/><path d="M3 6l9 7 9-7" stroke="#EA4335" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span>Gmail<small>Opens in a new tab</small></span>
+  </a>
+  <a data-provider="outlook" href="#" target="_blank" rel="noopener" role="menuitem">
+    <span class="mail-ico"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="3" fill="#fff" stroke="#0078D4" stroke-width="2"/><path d="M3 6l9 7 9-7" stroke="#0078D4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span>Outlook<small>Opens in a new tab</small></span>
+  </a>
+  <a data-provider="mailto" href="#" target="_top" role="menuitem">
+    <span class="mail-ico"><svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="3" fill="#fff" stroke="#f5904a" stroke-width="2"/><path d="M3 6l9 7 9-7" stroke="#f5904a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span>Default mail app<small>Apple Mail, Outlook desktop, etc.</small></span>
+  </a>
+</div>
+<script type="application/json" id="aqProductData">[{"name": "Baby & Toddler Swim Cap Turtle Tide", "title": "Baby & Toddler Swim Cap Turtle Tide", "price": "$15.00", "description": "Keep little ones safe and comfortable in the water with this Turtle Tide Baby & Toddler swim cap. Made from a blend of soft, stretchy polyester, nylon and elastane, it provides a snug yet gentle fit that stays in place while swimming and playing.\n\nThis practical swim hat helps shield delicate heads and hair from the sun’s harmful rays, while also keeping babies warmer in cooler pools. It helps contain loose hair for improved hygiene, and its bright, playful colours make little swimmers easier to spot in busy pools or at the beach. Designed for comfort, it also keeps hair out of eyes and faces, so nothing gets in the way of fun.\n\nLightweight, quick-drying, and available in matching prints from our bestselling swimwear ranges, it’s the perfect finishing touch for your baby or toddler’s swim kit.\n\nMade from soft, stretchy polyester and elastane for a snug, comfortable fit\nProtects delicate heads and hair from the sun’s harmful rays\nHelps keep babies and toddlers warmer in cooler swimming pools\nBright, fun colours make little swimmers easy to spot in busy pools or at the beach\nMatches Splash About’s bestselling baby swimwear ranges for a coordinated look", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/ea60f3e3-1cc8-4044-9be5-99bc0da5e8a5.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/0abf1eaa-ce68-4ac9-83e1-bb53e2c107ae.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8e241fdf-707e-42c9-a87e-5bd8541d182a.jpg", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/b382bde4-85a9-4017-a7a9-7bbeb1bcbd5e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/d03bc885-555c-4c94-93fa-0886fda36ac2.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/031f3cf7-e64b-4aa6-b9b5-cfa2b215b8d0.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/ea60f3e3-1cc8-4044-9be5-99bc0da5e8a5.webp", "sizes": []}, {"name": "Legionnaire Hat Lilac Spring", "title": "Legionnaire Hat Lilac Spring", "price": "$15.00", "description": "Protect little heads from the sun in these lightweight, quick drying legionnaire sunhats. Designed to be worn in and out of water, they are elasticated to fit the head without slipping. A peak helps to protect eyes from the sun, whilst the fabric at the back is long to cover the back of the neck, keeping children cool and sun protected. Available in all of our best-selling designs in a range of sizes from 1 to 6 years.\n\nUPF 50+ Sun Protection to prevent sunburn on those easy to burn areas at the back of the neck\nElasticated sun hat made with super soft Nylon Lycra for a comfortable fit\nMix and match with our sun protection swimwear range\nPerfect for holding eczema and barrier creams in place", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/c971b780-3ebc-4deb-961d-04af613d2729.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9a817714-6ae1-444e-8d5b-028aefd0f3ca.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/3e72338c-5422-4cc7-b155-ae2712b0e7f2.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/ec3a4e85-6977-46e1-baac-246a66be73f1.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/7a1cf6d5-7dd1-4040-999f-5fbf02d1aae6.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/0d78314e-42a2-461f-9f74-f4505cf016fd.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a57cfbb6-9937-4871-b6a5-8915c82b1efb.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5b5b7858-a6d6-4908-822e-397563b41f89.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/1c8aff47-7b59-4192-8bbd-88a597037172.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/c971b780-3ebc-4deb-961d-04af613d2729.webp", "sizes": []}, {"name": "Legionnaire Hat Strawberry Field", "title": "Legionnaire Hat Strawberry Field", "price": "$15.00", "description": "Protect little heads from the sun in these lightweight, quick drying legionnaire sunhats. Designed to be worn in and out of water, they are elasticated to fit the head without slipping. A peak helps to protect eyes from the sun, whilst the fabric at the back is long to cover the back of the neck, keeping children cool and sun protected. Available in all of our best-selling designs in a range of sizes from 1 to 6 years.\n\nUPF 50+ Sun Protection to prevent sunburn on those easy to burn areas at the back of the neck\nElasticated sun hat made with super soft Nylon Lycra for a comfortable fit\nMix and match with our sun protection swimwear range\nPerfect for holding eczema and barrier creams in place", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/69fef66f-5f98-4d70-85ce-93e158bc9cfa.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/36b8e733-50ef-441f-a0c5-ecca947cdbf0.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/805472f8-a1f2-46d8-b316-bde03f51a8ba.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/56e3af59-c76a-4ddb-9518-73e71b75e738.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/3a36a5c6-f1cc-4eb9-8f0e-effb1e770cf3.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/3bdf1f8b-0e96-4f77-bc01-a0b74ec348f0.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8bc52f9f-76ea-4aeb-8457-99b40054709e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/ecd08fd1-6f13-45a6-bc6b-f8bcf4d29561.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/69fef66f-5f98-4d70-85ce-93e158bc9cfa.webp", "sizes": []}, {"name": "Legionnaire Hat Shark Reef", "title": "Legionnaire Hat Shark Reef", "price": "$15.00", "description": "Protect little heads from the sun in these lightweight, quick drying legionnaire sunhats. Designed to be worn in and out of water, they are elasticated to fit the head without slipping. A peak helps to protect eyes from the sun, whilst the fabric at the back is long to cover the back of the neck, keeping children cool and sun protected. Available in all of our best-selling designs in a range of sizes from 1 to 6 years.\n\nUPF 50+ Sun Protection to prevent sunburn on those easy to burn areas at the back of the neck\nElasticated sun hat made with super soft Nylon Lycra for a comfortable fit\nMix and match with our sun protection swimwear range\nPerfect for holding eczema and barrier creams in place", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/4b36a9cc-1318-4b94-ac9c-c3af89c1658e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/4707662d-b53a-49e0-a798-98d290011bfc.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/c9c967f4-8726-4ad1-a158-09e7eff7a046.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/6d91ebb7-d984-4284-a75f-417b23a78d39.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/14758032-89ed-49b8-aa54-3629e411c32d.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/4b36a9cc-1318-4b94-ac9c-c3af89c1658e.webp", "sizes": []}, {"name": "Legionnaire Hat Turtle Tide", "title": "Legionnaire Hat Turtle Tide", "price": "$15.00", "description": "Protect little heads from the sun in these lightweight, quick drying legionnaire sunhats. Designed to be worn in and out of water, they are elasticated to fit the head without slipping. A peak helps to protect eyes from the sun, whilst the fabric at the back is long to cover the back of the neck, keeping children cool and sun protected. Available in all of our best-selling designs in a range of sizes from 1 to 6 years.\n\nUPF 50+ Sun Protection to prevent sunburn on those easy to burn areas at the back of the neck\nElasticated sun hat made with super soft Nylon Lycra for a comfortable fit\nMix and match with our sun protection swimwear range\nPerfect for holding eczema and barrier creams in place", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/55251f43-63a9-4d13-a1e4-d0824e9ebdbd.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/3c1fc6cb-758f-439f-af48-3d927fa51587.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/bd6cd8a6-dd14-4044-911d-b4fc1f0bbaab.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/b55a3a35-a203-4127-aa68-a98b5864cf4a.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/3866a5f7-86f3-4312-b561-0ba209cfffda.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/d5705a49-fe06-49d4-9c1f-83689a588f04.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/55251f43-63a9-4d13-a1e4-d0824e9ebdbd.webp", "sizes": []}, {"name": "Coastal Castaway Swim Ring 36\"", "title": "Coastal Castaway Swim Ring 36\"", "price": "$15.00", "description": "Bring the tropics to you with this seaside inspired swim ring.\n\nThis 36\" swim ring is inspired by tropical beaches and is perfect to take on holiday.\n\nEasy to inflate, this swim ring has handles to allow the user to get on and off easily and remain stable on the water.\n\nMust be used under direct supevision of an adult.\nBright, tropical inspired 36\" swim ring\nSuitable for children aged 10 years plus\nHeavy duty handles to help get on and off and remain stable when on the water\n2 designs available - 1 swim ring selected and sent at random", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5587448b-1454-49aa-b8a4-710d776c899d.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/3987de86-0a05-4419-83b8-e1e3824b9e7a.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/62d6a5e3-cb8e-4049-9fc9-5b2890c2403a.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8a7d9d27-564e-42c4-b234-42cbcf950f63.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5587448b-1454-49aa-b8a4-710d776c899d.webp", "sizes": []}, {"name": "Floatin' Friends Split Swim Ring", "title": "Floatin' Friends Split Swim Ring", "price": "$15.00", "description": "Super cute split swim rings for children aged 3-6 years\n\nAvailable in Penguin, Turtle and Sloth - sold individually and design selected at random.\n\nChildren must be supervised at all times when using this swim ring.\n\nCute animal shaped swim rings\nOne design selected at random.\nDurable and easy to inflate\nUse under constant adult supervision\nSuitable for children aged 3-6 years", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/47e978f1-a399-4a44-9986-c5953689ab11.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/61089577-8127-4e7f-b5cf-4d82cf08cdde.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/b7032786-f862-4676-814c-0e09f0e5ea4a.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/47e978f1-a399-4a44-9986-c5953689ab11.webp", "sizes": []}, {"name": "Traditional Beach Balls", "title": "Traditional Beach Balls", "price": "$22.00", "description": "Have fun in the pool with our traditional Beach Balls in 20\" and 24\".\n\nTraditional Beach Ball\nMade from sturdy vinyl\nEasy to inflate", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a2c5da67-71b0-4bc5-a240-a141968ed595.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/d9f2a0a2-3004-4882-9420-aea86c780e0e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8a7f13af-eb7d-46b3-8396-391991069f7a.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/3cbc0a61-c461-44b0-aa62-ef301de2ba1c.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a2c5da67-71b0-4bc5-a240-a141968ed595.webp", "sizes": []}, {"name": "Baby Swim Boat 1-2 Years", "title": "Baby Swim Boat 1-2 Years", "price": "$22.00", "description": "Introduce your baby to the joys of water play with the Swim Safe ABC Comfort Plush Inflatable Baby Boat Swim Seat. Specially designed for your little one’s first swimming experiences, this soft and secure float provides the perfect introduction to the pool, helping babies feel safe, supported, and ready for fun. The plush, velvet-like material is gentle on sensitive skin and won’t heat up in the sun. The supportive seat allows babies to feel the water around them while keeping them secure.\n\nSuitable for babies weighing 11–15kg (approximately 1–2 years)\nStep A swim aid, ideal for babies starting their swim journey\nBright colours intensify in water for an engaging visual experience\nMade from ultra-soft, non-stick Comfort Plush material that stays cool in the sun\nSecure 2-ring design and headrest offer comfort and support\nFor babies weighing 11-15kg (approx 1-2 years)", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5dcf4d9e-62b2-4a43-8250-dc7436dc610e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/7de9ba7b-7d23-4263-962f-e4eb21403cae.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/07e0906e-273a-4d0d-9fff-ac7ef3628418.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/394da248-fe9a-470c-9d2a-eda604163dd5.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5dcf4d9e-62b2-4a43-8250-dc7436dc610e.webp", "sizes": []}, {"name": "Baby Swim Seat 1-2 Years", "title": "Baby Swim Seat 1-2 Years", "price": "$22.00", "description": "Now even more bathing fun for little adventurers, The \"Swim Safe Step A, B, C\" swimming seat invites you to splash around and play in the cool water, whether in the pool or on the beach. The Bestway \"Swim Safe Support Swim Seat Step A\" teaches girls and boys to master the basics of swimming safely and easily. This \"Swim Safe Support Swim Seat Step A\" is perfect for children who want to climb up from Step A, as they first familiarize the child with the water, before they can swim in Step B with a life jacket on their own. Available in yellow, this floating seat features three air vents for extra buoyancy and a wide square air ring with a \"diaper-style\" seat for more balance and safety. Learning to swim has never been so easy and safe as with the Bestway Swim Safe swimming pool.\n\nSecurely designed baby seat\nFirst steps in learning to swim\n3 air chambers for added buoyancy\nSuitable for ages 1-2 Years", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/48c226f9-8629-4a9e-9b4c-e36b208bac2b.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/d63b2789-ed79-462f-a459-66a688d92c57.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9a8806f1-29ac-452a-8408-1c7c9ec78faf.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/48c226f9-8629-4a9e-9b4c-e36b208bac2b.webp", "sizes": []}, {"name": "Baby Swim Seat 0-1 Years", "title": "Baby Swim Seat 0-1 Years", "price": "$18.00", "description": "With the Swim Safe Premium Baby Swim Support (Step A) young toddlers and babies can get to grips with the water and gain confidence splashing about with parental supervision.\n\nNothing can cause quite such mixed reaction amongst kids as learning to swim. Some are naturals others need a little more persuasion to take the plunge - this Swim Support is a great way to get them started at a young age!\n\nFeaturing a secure seat position and an inflatable back rest to support your child, babies have plenty of space to move meaning they can learn to kick and propel themselves using their legs whilst being kept well afloat by 3 air chambers for added buoyancy and durability.\n\nSecurely designed baby seat\nFirst steps in learning to swim\n3 air chambers for added buoyancy\nSuitable for ages 0-1 Years\nRepair patch included", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/255d353b-4355-4d64-96c3-336093205456.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8d11378d-0ab1-4eae-a060-dda88ca174e2.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/16ccbe52-e7b2-43e9-8714-8634bc9eb52a.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/255d353b-4355-4d64-96c3-336093205456.webp", "sizes": []}, {"name": "Swimming Headband - Red", "title": "Swimming Headband - Red", "price": "$15.00", "description": "Keep your little ones comfortable and focused while they enjoy the water with our Swimming Headband. Made from 2mm thick neoprene, this adjustable band is worn over the ears to keep water out, holds ear plugs in place, and keep hair out of their eyes.\n\nPerfect for swimming lessons, beach days, or pool parties, the Swimming Headband is an essential accessory for young swimmers aged 2 to 6 years.\n\nNeoprene band that covers children's ears to keep water out.\nHolds ear plugs in place\nKeeps hair out of eyes\nAdjustable and stretchy for a comfortable fit\nFor use in pools and the sea", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/edf06b47-c110-40df-8143-b78059b2f62e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/650bf0be-fc4f-4c28-8c5d-c878ee463a2f.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/70681e9b-e52e-4b71-aa5f-0144ef535718.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2bfd2975-96a2-480d-942b-7a9f429330b2.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/1a4dae01-efa2-4d2b-91ac-ed2d57850d24.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/596179d4-e18b-40f3-86f6-46fb6a3976ca.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/700e3f82-f45c-4d4a-bed5-6629b8e95e81.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/edf06b47-c110-40df-8143-b78059b2f62e.webp", "sizes": []}, {"name": "Swimming Headband - Cashmere Blue", "title": "Swimming Headband - Cashmere Blue", "price": "$15.00", "description": "Keep your little ones comfortable and focused while they enjoy the water with our Swimming Headband. Made from 2mm thick neoprene, this adjustable band is worn over the ears to keep water out, holds ear plugs in place, and keep hair out of their eyes.\n\nPerfect for swimming lessons, beach days, or pool parties, the Swimming Headband is an essential accessory for young swimmers aged 2 to 6 years.\n\nNeoprene band that covers children's ears to keep water out.\nHolds ear plugs in place\nKeeps hair out of eyes\nAdjustable and stretchy for a comfortable fit\nFor use in pools and the sea", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/460bd705-a6b0-426b-9f16-8fd55d4600e2.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a391f257-13fa-4257-a19a-7e61586f0a08.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/60fcd11c-52ce-4670-9767-97ac442ccd0b.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/0e019ccb-c951-4a19-8983-d8a89c40b6a2.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/715c6b7e-9d1d-4e17-a38d-ace6a747b1b4.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/460bd705-a6b0-426b-9f16-8fd55d4600e2.webp", "sizes": []}, {"name": "Swimming Headband - Pink", "title": "Swimming Headband - Pink", "price": "$15.00", "description": "Keep your little ones comfortable and focused while they enjoy the water with our Swimming Headband. Made from 2mm thick neoprene, this adjustable band is worn over the ears to keep water out, holds ear plugs in place, and keep hair out of their eyes.\n\nPerfect for swimming lessons, beach days, or pool parties, the Swimming Headband is an essential accessory for young swimmers aged 2 to 6 years.\n\nNeoprene band that covers children's ears to keep water out.\nHolds ear plugs in place\nKeeps hair out of eyes\nAdjustable and stretchy for a comfortable fit\nFor use in pools and the sea", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/31e9694c-c6c7-496e-bc82-ecc3818d5995.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/d5ad59dc-b1f0-4e5d-8e42-0d07c198721e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/6eaff16e-6d9f-4650-a413-4335d2c2f76a.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/78232a18-e5a7-4ef2-b155-c313339f5009.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5f0723bc-bc30-449a-8f9d-7a2836d8a22c.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9472acab-67e1-4ae2-86c7-63b44f2f5433.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/31e9694c-c6c7-496e-bc82-ecc3818d5995.webp", "sizes": []}, {"name": "Swimming Headband - Pistachio", "title": "Swimming Headband - Pistachio", "price": "$15.00", "description": "Keep your little ones comfortable and focused while they enjoy the water with our Swimming Headband. Made from 2mm thick neoprene, this adjustable band is worn over the ears to keep water out, holds ear plugs in place, and keep hair out of their eyes.\n\nPerfect for swimming lessons, beach days, or pool parties, the Swimming Headband is an essential accessory for young swimmers aged 2 to 6 years.\n\nNeoprene band that covers children's ears to keep water out.\nHolds ear plugs in place\nKeeps hair out of eyes\nAdjustable and stretchy for a comfortable fit\nFor use in pools and the sea", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/06ea929e-d903-4fd9-bfce-01b3e3f75917.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/131d36b4-9dcc-4a71-9fab-175eb206e738.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/347ab319-55a4-4d89-95c6-0d6ebc5ac742.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/e9d484d6-dc57-42ca-a002-c55bef1d8ee7.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/58ae3044-cf38-4363-a4de-c3790f67ea0d.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2f68bfa4-e8dd-4ea2-824f-3f8a61f886ba.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/06ea929e-d903-4fd9-bfce-01b3e3f75917.webp", "sizes": []}, {"name": "Swimming Headband - Lilac", "title": "Swimming Headband - Lilac", "price": "$15.00", "description": "Keep your little ones comfortable and focused while they enjoy the water with our Swimming Headband. Made from 2mm thick neoprene, this adjustable band is worn over the ears to keep water out, holds ear plugs in place, and keep hair out of their eyes.\n\nPerfect for swimming lessons, beach days, or pool parties, the Swimming Headband is an essential accessory for young swimmers aged 2 to 6 years.\n\nNeoprene band that covers children's ears to keep water out.\nHolds ear plugs in place\nKeeps hair out of eyes\nAdjustable and stretchy for a comfortable fit\nFor use in pools and the sea", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/4f5dcb39-3309-47b0-9f97-f50a071163e9.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/63f9c2d2-2098-4bf5-a42d-5d10bcb2b096.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a36bf7f9-2c0b-45d0-9899-82b5bc5be6f3.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a9f77159-8ad6-462f-9af5-a270b2ac0b0a.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/fdce8f70-1749-4ba7-9513-099382ba6a97.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/4f5dcb39-3309-47b0-9f97-f50a071163e9.webp", "sizes": []}, {"name": "Happy Nappy™ Lilac", "title": "Happy Nappy™ Lilac", "price": "$25.00", "description": "Beautifully simple, this Lilac Happy Nappy™  is soft and pretty to suit every little girl.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/79a95f70-e8a3-47d6-a7d0-1cb138de4d22.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/613c6248-2d30-4631-ad15-7833a711e48c.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5e2f7ff2-9e45-4aae-995c-79fe6ad83771.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/66de04e6-718d-4914-9b72-597a39a390d1.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5cb2a60a-d1cd-4e65-8399-b0675924323d.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/b1ab6f6b-b1e9-4350-949a-01bdae917a2b.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/79a95f70-e8a3-47d6-a7d0-1cb138de4d22.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Cashmere Blue", "title": "Happy Nappy™ Cashmere Blue", "price": "$25.00", "description": "This soft blue Happy Nappy™ is both timeless and versatile. The gentle Cashmere Blue pairs beautifully with neutrals, soft pastels, and deeper blues, making it an ideal choice to complement other items in the baby swimming range.\n\nThe Happy Nappy™ from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2b165ac1-a5cd-4197-9b3c-9bd0aa93696e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2c0b2198-2d7c-48c2-9fc3-24a33286cc96.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/cad2e9ad-d44a-451c-9374-75a26cc9ee2f.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/096bdb92-bc28-40a1-a392-fc74a618b25b.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/6a680aeb-a7fa-4b81-ba29-9ad0573698a1.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/6d018187-0259-402a-8ad8-a9ac55ddb4b2.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a8df4d61-9035-4ec1-8331-a5e5ef99ff3e.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2b165ac1-a5cd-4197-9b3c-9bd0aa93696e.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Nina's Ark", "title": "Happy Nappy™ Nina's Ark", "price": "$25.00", "description": "Baby pinks and blues and cute animals make this Nina’s Ark Happy Nappy a timeless classic. Perfect for newborns, babies and toddlers.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/1b69f104-8877-4aa0-9919-8cf9e419806e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/b78a41c5-cf90-4075-acd7-56b0097dd342.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/ca0f8019-3a64-47b1-9e90-07257b84d7b6.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/e6227770-800d-4950-82bd-b045f79715b2.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/df3bc5d9-bd36-4f40-b61b-5861c7bf3b78.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2b47a5ae-c33b-48e2-bac6-319ff1d14d24.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/1b69f104-8877-4aa0-9919-8cf9e419806e.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Noah's Ark", "title": "Happy Nappy™ Noah's Ark", "price": "$25.00", "description": "The Noah’s Ark Happy Nappy in baby blue is the perfect choice for baby swimming. Featuring cute animals and of course an ark, this design will never go out of fashion.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2e8b333b-4af4-4b3b-b750-e86e0120ab47.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2052376e-c41e-474b-90fa-b1b81147522e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a6899c06-4898-49f7-8c38-32aab4dac83f.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/614d20c5-7e51-4a22-9746-2f4b3dd521dc.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/0258a1b0-37ab-494c-8a5d-41fec9affa62.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2fe0b159-cfec-4b37-b4bf-c36fed6968d6.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/6cc06497-0e76-4fcf-9d8f-34c228774cd0.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2e8b333b-4af4-4b3b-b750-e86e0120ab47.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Up & Away", "title": "Happy Nappy™ Up & Away", "price": "$25.00", "description": "For little dreamers everywhere, stories of rainbows, balloons and painting pictures with the clouds. These gentle and pretty colour combinations are perfect to brighten up any gloomy day.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9eac6a92-55c8-4613-80c6-157dea22b1fa.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2a727ae0-5a36-48a3-aab6-d83526f7e0b9.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/1fc628e3-42c5-4b12-85f6-beaea35c9e29.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9eac6a92-55c8-4613-80c6-157dea22b1fa.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Vintage Moby", "title": "Happy Nappy™ Vintage Moby", "price": "$25.00", "description": "The stunning Vintage Moby Happy Nappy features blue and white whales against a blue striped background. A true nautical classic.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/51e7321d-a1a1-4b96-a8cc-dec7fedb17be.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/d3d41ea7-5351-4264-9228-a2bd59f42d2a.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/3a5e222f-bd07-4aea-8166-00c523e964da.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/28da3942-d80b-4ffe-b619-6beb47a8450e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/94da19cd-288a-41de-94f6-7c08dd51020e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/7fc55d8c-af79-4aa2-a35b-9df87d08daff.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a7f4d5c7-dfab-444a-aed0-f1ad8e89aa0e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/03a1cac0-3dd0-4ee8-82ea-9c68e60356cb.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/e7c58c3c-e090-4f32-a35b-861d7407a730.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/51e7321d-a1a1-4b96-a8cc-dec7fedb17be.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Forest Walk", "title": "Happy Nappy™ Forest Walk", "price": "$25.00", "description": "Step into a world of wonder with our enchanting Forest Walk pattern! Capturing the magic of nature, this whimsical design invites little explorers to embark on unforgettable adventures. Discover the beauty today!\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/57c13560-1245-451a-a534-06637d8376a4.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8d94ecd3-deb0-4e5f-abbe-a8a4cd6904f6.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/277d493a-91ce-4e9a-a239-b07bee68a49a.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/94c5e2b4-d9a3-44e3-8833-b79bae8010f2.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/b4233182-d3ee-4438-8347-5a77065fc23a.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/6e4be243-ff80-4453-a952-ee0d1067c5d0.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/57c13560-1245-451a-a534-06637d8376a4.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Tug Boats", "title": "Happy Nappy™ Tug Boats", "price": "$25.00", "description": "Sail into adventure with our adorable Tug Boats pattern! Perfect for little sailors, this charming design will make waves in any pool, garden or beach. Explore the sea of style today!\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9402defd-6090-40cb-9738-9efe8bf91b96.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/ac0e78b2-892b-4ab3-89f0-fa1799ec1b8f.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/53570dc8-3d28-45b9-b2e3-1326a1c5a421.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/ac0f4ad4-afaa-477b-85f6-edcaeb973f92.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/c5e2f93f-0492-4d83-bde2-4c693b8c08bd.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/80766ea3-4b3e-4417-a28c-0242cfb7643b.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/b543f6ed-4788-4abf-931d-8150f68f4f7a.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9402defd-6090-40cb-9738-9efe8bf91b96.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Blue Cobalt", "title": "Happy Nappy™ Blue Cobalt", "price": "$25.00", "description": "Simple, yet effective ,with complementary pale and navy blues, the Blue Cobalt Happy Nappy will suit any baby or toddler.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/12c3d2cd-3c90-41d2-88be-59aee2cfd7a9.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/31b039d1-4cfa-4e79-a78f-1102ef5aaebf.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/453b9963-1ee6-41f5-b51f-630ded69e14d.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/88ab1e6f-dc46-47be-85cb-e5d25618ae66.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2be415c3-5e55-4251-aee8-f962175bf4a6.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/12c3d2cd-3c90-41d2-88be-59aee2cfd7a9.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Pistachio", "title": "Happy Nappy™ Pistachio", "price": "$25.00", "description": "Delicate and refreshing, our Pistachio pattern brings a touch of elegance to the water.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a6719926-5b14-4e8e-8fb0-383f3e484283.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/d767e9f7-a4ed-47c7-8d09-f30728712707.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/af6656d6-4e5e-4d46-bb4a-5b8d19001a01.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/c68f5856-8aa7-4a07-b30c-8cc6903735e8.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/db5d2222-482d-46e9-9229-ac1f5f94c2ec.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/f73946b2-a388-49cf-a21d-9e51a46858a9.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a6719926-5b14-4e8e-8fb0-383f3e484283.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Neon Orange", "title": "Happy Nappy™ Neon Orange", "price": "$25.00", "description": "This bold, sunny Neon Orange Happy Nappy™ brings a fun, lively touch to every swim and keeps little ones easy to spot in the water.\n\nThe Happy Nappy™ from Splash About is an innovative reusable swim nappy that reliably protects against fecal leaks.\n\nErgonomically designed, the Happy Nappy™ is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™ is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™ is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap or cotton nappy wrap with liners.\n\nThe Happy Nappy™ is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable diapers in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools\nMulti Award Winning Leak Protection Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/acc79b95-68a9-4c09-ae8b-9851df5519d1.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2a782810-1a8a-452e-8a15-809546bbbb8c.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/be4763eb-16b1-475d-934c-59ba11a31267.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/d2e93d76-c387-473e-aba3-060291bce812.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/acc79b95-68a9-4c09-ae8b-9851df5519d1.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Neon Pink", "title": "Happy Nappy™ Neon Pink", "price": "$25.00", "description": "This Hot Pink Happy Nappy™ adds a fun, playful splash of color and ensures little ones stand out with confidence at the pool or beach.\n\nThe Happy Nappy™ from Splash About is an innovative reusable swim nappy that reliably protects against fecal leaks.\n\nErgonomically designed, the Happy Nappy™ is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™ is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™ is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap or cotton nappy wrap with liners.\n\nThe Happy Nappy™ is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable diapers in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools\nMulti Award Winning Leak Protection Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/47c894f3-1b61-4ba5-838c-4c716b41c49e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/148618f1-37f0-4698-82db-c6eb3e1a5ee4.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9d3cf97a-1dcb-4a24-9ea1-af56e3f42eba.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/6c27752f-2052-46d4-97ed-cf27108533d4.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/47c894f3-1b61-4ba5-838c-4c716b41c49e.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Neon Yellow", "title": "Happy Nappy™ Neon Yellow", "price": "$25.00", "description": "This bold, eye-catching Neon Yellow Happy Nappy™ is designed for maximum visibility in and out of the water. This vibrant highlighter yellow brings a fun, energetic feel to swim sessions while helping little ones stand out brightly at the pool or beach.\n\nThe Happy Nappy™ from Splash About is an innovative reusable swim nappy that reliably protects against fecal leaks.\n\nErgonomically designed, the Happy Nappy™ is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™ is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™ is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap or cotton nappy wrap with liners.\n\nThe Happy Nappy™ is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable diapers in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools\nMulti Award Winning Leak Protection Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/22bdd636-3382-49d7-a06e-d72193d9cbd6.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/d3e1f47c-02db-46c4-ab63-da56fc530931.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9bb59630-71ad-44d7-bb04-479ea8baca13.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/35bf4954-db7a-4d8c-9a90-a3b1acbaf312.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/842dac91-5848-4ccf-b4f3-c3fda979c5dc.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/42510cd6-1d3e-41f8-b75d-a842e4572c1f.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/22bdd636-3382-49d7-a06e-d72193d9cbd6.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Neon Lime", "title": "Happy Nappy™ Neon Lime", "price": "$25.00", "description": "Bright and bold, this neon lime Happy Nappy™ is certain to stand out in a crowd!\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/4523cc2b-f39b-42d7-86eb-575db6da0192.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/7d848f24-0402-4036-aef0-205ff0f74f03.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/c992521d-2aea-48c4-9754-82a47872ba81.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/57c572f2-0d50-442d-aef4-44bf6f1d2ce2.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2450ecfc-440d-435a-9714-7c5979021888.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/4523cc2b-f39b-42d7-86eb-575db6da0192.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Under The Sea", "title": "Happy Nappy™ Under The Sea", "price": "$25.00", "description": "Dive into the water in our Under the Sea Happy Nappy. Featuring playful sea friends including Turtles, Rays and our shy octopus, this is the perfect Happy Nappy for your little explorer.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/88f203d2-b2b4-4a31-bed8-388b5b9dfdc8.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/19fff24e-155c-434c-897a-8716895f6f82.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/daca5e3a-300d-45e0-95ff-16bfca5058ee.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/bb0362b5-6278-4317-a9fd-c2fecf360deb.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/15a802a5-b23d-42a9-8474-16b749ea33b1.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/28f2e175-fac9-4604-9f40-da9af0e17319.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/68eb033b-cc7e-4cef-a5e0-e959c5d0e1a2.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/dd7596c7-b586-4385-9254-0d3facd127b5.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/88f203d2-b2b4-4a31-bed8-388b5b9dfdc8.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Almond Blossom", "title": "Happy Nappy™ Almond Blossom", "price": "$25.00", "description": "Inspired by the delicate blossom of the Almond Tree in Spring, this Happy Nappy is the prettiest pink to suit all little girls.\n\nThe Happy Nappy from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design f\nor the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/82876b94-98f4-4fd3-bc50-2da78e4f1c66.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/e9a4e134-175c-4762-a107-0c0c2037a77a.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/749c34c1-208f-42c3-ac76-f3da5a3dff70.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/3a04d516-9a34-4371-8adf-ee300c1c5abe.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a9bd47f1-ea16-4373-874c-5feb20089680.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/21d1df27-bbb4-4877-9ab3-ac95cd63f383.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/82876b94-98f4-4fd3-bc50-2da78e4f1c66.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Playful Otters", "title": "Happy Nappy™ Playful Otters", "price": "$25.00", "description": "Adorable otters on the Playful Otters Happy Nappy™ are just asking for babies and toddlers to come and play! With super cute faces and gentle colours, this is a timeless design for little boy and girls.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/abdb8d00-c25c-4809-9ece-297662358866.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/0d65e464-f9e3-4fa8-8b6a-b6ca4788f478.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/c9cbffa6-6313-451a-bf47-3ff24335cb95.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/4fb8927e-28a5-4e82-b02f-34c27448fd05.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/1574ac41-8b68-4d49-891e-b7076d01fb07.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/abdb8d00-c25c-4809-9ece-297662358866.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Pink Dotty", "title": "Happy Nappy™ Pink Dotty", "price": "$25.00", "description": "The Pink Dotty Happy Nappy™ features a soft baby pink base scattered with white dots, creating a sweet and playful polka dot pattern.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2a448294-37b4-4ae4-a5c2-08637ae48bee.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/fe7a9380-1458-47ff-9924-b954d64fa9c3.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/467fae68-6794-469e-8846-1276b6c79ff5.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/90d33f7d-ebb1-45c7-b14f-5b8d54fa7b47.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/bb17c2c8-b364-4bf4-a5c6-92af4afb082d.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/7c3253c7-12db-4269-9af9-b70009e6adca.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2a448294-37b4-4ae4-a5c2-08637ae48bee.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Crocodile Swamp", "title": "Happy Nappy™ Crocodile Swamp", "price": "$25.00", "description": "Bright and fun, make a splash with our crocodile and his swamp friends, wearing this vibrant Crocodile Swamp Happy Nappy.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8aa51d1c-03d5-4d22-bdc2-a86af1a90e1e.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/86ca17ea-6122-43c1-95d0-ba223c17b2a7.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/995b48ac-d5ad-4706-bda0-d3a296ffb512.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/097dd851-9797-4ec7-b89f-e2b933923e3f.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5c4fc7e3-dabf-4657-9c76-711b94e8f271.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/e8fa3f0d-fbb7-4450-a57b-21d926f98671.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8aa51d1c-03d5-4d22-bdc2-a86af1a90e1e.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Lemons", "title": "Happy Nappy™ Lemons", "price": "$25.00", "description": "Bring a taste of Sicily to baby swim time with our fresh lemon print. Bright yellow lemons pop against a soft blue background, creating a vibrant, summery design perfect for the pool or beach.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9d6cd84b-876d-4eec-9f51-f697c8d746af.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/701d6628-72f9-40dc-80f1-f86d446cccc3.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/eef75ff4-a973-4621-8acc-f62bcce38464.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/b0a16044-d987-4db6-ad29-e6e3b15052a0.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2dc44d51-15f0-4e59-9f31-e90668bd0143.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/ed067c88-a393-405a-92c8-882c4f1b6062.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/9d6cd84b-876d-4eec-9f51-f697c8d746af.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Shark Reef", "title": "Happy Nappy™ Shark Reef", "price": "$25.00", "description": "This ocean-inspired Shark Reef Happy Nappy™ features a playful shark hiding between the coral with his fishy friends.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8ad3dc0f-eb3e-4fed-9bde-d0763199c609.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/98a11bcc-3201-4ba3-8a2a-1801ddc79c3d.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/bfe891e4-313d-45ae-9c46-c70aa966d874.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/64d8428d-beff-494b-bef4-9c25e9859b70.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2a36f9fd-27ec-4d3b-9b59-d2b8d5770bcb.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/131760f9-9cca-4797-9fa4-4eadc9474950.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/8ad3dc0f-eb3e-4fed-9bde-d0763199c609.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Lilac Spring", "title": "Happy Nappy™ Lilac Spring", "price": "$25.00", "description": "Spring flowers on a pastel backdrop make the Lilac Spring Happy Nappy™ a perfect choice for little girls. A pretty print to compliment a babies’ delicate features.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/57f7818b-eb3a-460e-9901-85cb78a39cf5.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/422e0eb5-6431-435d-a590-2e368cbb20ec.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/48fbba88-f938-4c4e-b8af-61b169d00615.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/3b55e3f6-b99e-4858-80b2-e395df142e0f.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/fd3bf277-3c22-45bb-98bd-ec3118c484a8.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/675293c9-aabd-48ca-91ba-9335acbb8dce.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/a9aeb00b-a523-43ed-b840-95ab4d9f1493.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/57f7818b-eb3a-460e-9901-85cb78a39cf5.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Turtle Tide", "title": "Happy Nappy™ Turtle Tide", "price": "$25.00", "description": "Bright and eye-catching, the Turtle Tide Happy Nappy™ with lime rib will delight young swimmers.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/76186ed9-db11-4377-9942-84c242c7c90c.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/34efba2e-04d0-4708-9cd3-b99dc5100a82.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/83485763-ce10-4a75-bbad-05f682683007.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/2efb7622-3624-4b26-b817-9c5cd5664047.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/e468e49f-59ff-4c56-aadb-c9d35e7b5cc9.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/76186ed9-db11-4377-9942-84c242c7c90c.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}, {"name": "Happy Nappy™ Strawberry Field", "title": "Happy Nappy™ Strawberry Field", "price": "$25.00", "description": "Covered with strawberries and delicate strawberry flowers, this vibrant Strawberry Field Happy Nappy™ is a delightful design for babies and toddlers.\n\nThe Happy Nappy™  from Splash About is an innovative reusable swim nappy that reliably protects against faecal leaks. Ergonomically designed, the Happy Nappy™  is shaped to cup baby’s bottom to prevent any gaping, whilst specialist waist and thigh ribs fit snugly, to form a seal that prevents any solids leaking out into the pool.\n\nMade from super-soft 1mm thick neoprene, the Happy Nappy™  is designed to be gentle on baby’s skin. With no tight elastic, it has been developed to move as your baby moves, so it won’t leave red marks or chafe the skin.\n\nThe Happy Nappy™  is reliable against leaks when worn without any other under-nappy. To make changing easier, however, or to conform to many swim schools' double-layer nappy requirements, we recommend our silver lining nappy wrap, size adjustable under nappy, or cotton nappy wrap with liners.\n\nThe Happy Nappy™  is reusable and is chlorine resistant, so it won't lose its shape or protective elasticity when worn again and again. This makes it fantastic value for money, whilst also going a long way to help the environment, by lowering the number of disposable nappies in landfill.\n\nUnique patented design for the best protection against faecal leaks\nMade from super soft Neoprene for a comfortable fit\nWear with our Nappy Wrap and Liners for easy changing and cleaning\nApproved and recommended by swim schools worldwide\nMulti Award Winning Leak Protection Reusable Swim Nappy", "gallery": ["https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/10df3566-f897-4611-a33a-9cde9932fbe8.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/5ff4f89b-8002-472c-ab83-56db579d78aa.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/0d930265-ca1e-4f72-bc95-bb39df78a543.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/66e00ba7-f4f4-4afd-8ab9-e93e53aea524.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/747e5f77-2ef4-49d5-8978-22309db22d76.webp", "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/058a4835-1e3e-45b6-8f3a-0d7dfc711444.webp"], "main": "https://assets.cdn.filesafe.space/xBWIIj9IjYQL2XdtjJ1A/media/10df3566-f897-4611-a33a-9cde9932fbe8.webp", "sizes": ["0-3 Months", "3-6 Months", "6-12 Months", "12-24 Months", "2-3 Years"]}]</script>
+<script>
+(function(){
+  const raw = document.getElementById('aqProductData').textContent;
+  const products = JSON.parse(raw);
+  const norm = s => (s||'').toLowerCase().replace(/[^a-z0-9]/g,'');
+  const slugify = s => (s||'').toLowerCase().replace(/&/g,' and ').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'');
+  const MAIL_TO = 'tristan@aquanautsacademy.ca';
+  const DEEP_LINK_BASE = 'https://aquanautsacademy.ca/shop';
+  const byKey = {};
+  const bySlug = {};
+  products.forEach(p => {
+    byKey[norm(p.name)] = p;
+    const sl = slugify(p.title || p.name);
+    if (sl) { p._slug = sl; bySlug[sl] = p; }
+  });
+
+  // Map cat-section title text -> filter slug.
+  const categoryMap = {
+    'caps & hats': 'caps-hats',
+    'caps and hats': 'caps-hats',
+    'swim rings': 'swim-rings',
+    'beach & water toys': 'beach-toys',
+    'beach and water toys': 'beach-toys',
+    'swimming headbands': 'headbands',
+    'happy nappy': 'happy-nappy',
+  };
+
+  function findCategory(card) {
+    const section = card.closest('.cat-section');
+    const titleEl = section?.querySelector('.cat-title');
+    const title = (titleEl?.textContent || '').toLowerCase().replace(/[^a-z& ]/g, '').trim();
+    for (const key in categoryMap) {
+      if (title.includes(key)) return categoryMap[key];
+    }
+    return 'other';
+  }
+
+  const modal = document.getElementById('aqModal');
+  const bigImg = document.getElementById('aqModalBigImg');
+  const thumbsEl = document.getElementById('aqModalThumbs');
+  const titleEl = document.getElementById('aqModalTitle');
+  const priceEl = document.getElementById('aqModalPrice');
+  const sizeWrap = document.getElementById('aqModalSize');
+  const sizeSel = document.getElementById('aqModalSizeSelect');
+  const descEl = document.getElementById('aqModalDesc');
+  const closeBtn = modal.querySelector('.aq-modal-close');
+  const modalCta = document.getElementById('aqModalCta');
+  let currentProduct = null;
+  modalCta.addEventListener('click', e => { e.preventDefault(); openMailMenu(modalCta, currentProduct); });
+
+  // Build the {to, subject, body} for an email. p === null => generic shop enquiry.
+  function mailParts(p) {
+    if (!p) {
+      return {
+        to: MAIL_TO,
+        subject: 'Question about the Aquanauts shop',
+        body: 'Hi Tristan,\n\nI have a question about the Aquanauts shop.\n\nThanks!'
+      };
+    }
+    const name = ((p.title || p.name) || '').trim();
+    const price = (p.price || '').trim();
+    const link = DEEP_LINK_BASE + '?item=' + p._slug;
+    const body = [
+      'Hi Tristan,',
+      '',
+      "I'm interested in this item from your shop:",
+      '• ' + name + (price ? ' (' + price + ')' : ''),
+      '• ' + link,
+      '',
+      'Could you let me know about availability and how to order for my next session?',
+      '',
+      'Thanks!'
+    ].join('\n');
+    return { to: MAIL_TO, subject: 'Interested in ' + name, body: body };
+  }
+
+  // Turn {to, subject, body} into provider-specific compose URLs.
+  function providerUrls(parts) {
+    const to = encodeURIComponent(parts.to);
+    const su = encodeURIComponent(parts.subject);
+    const bo = encodeURIComponent(parts.body);
+    return {
+      gmail: 'https://mail.google.com/mail/?view=cm&fs=1&to=' + to + '&su=' + su + '&body=' + bo,
+      outlook: 'https://outlook.office.com/mail/deeplink/compose?to=' + to + '&subject=' + su + '&body=' + bo,
+      mailto: 'mailto:' + parts.to + '?subject=' + su + '&body=' + bo
+    };
+  }
+
+  // --- Email-app chooser popover ---
+  const mailMenu = document.getElementById('mailMenu');
+  const mailMenuBackdrop = document.getElementById('mailMenuBackdrop');
+  const mmLinks = {
+    gmail: mailMenu.querySelector('[data-provider="gmail"]'),
+    outlook: mailMenu.querySelector('[data-provider="outlook"]'),
+    mailto: mailMenu.querySelector('[data-provider="mailto"]')
+  };
+  function positionMailMenu(trigger) {
+    mailMenu.style.top = ''; mailMenu.style.left = ''; mailMenu.style.bottom = '';
+    if (window.innerWidth <= 600) return; // CSS pins it as a bottom sheet
+    const r = trigger.getBoundingClientRect();
+    const mw = mailMenu.offsetWidth || 240;
+    const mh = mailMenu.offsetHeight || 190;
+    let left = Math.min(r.left, window.innerWidth - mw - 12);
+    if (left < 12) left = 12;
+    let top = r.bottom + 8;
+    if (top + mh > window.innerHeight - 12) top = Math.max(12, r.top - mh - 8);
+    mailMenu.style.left = left + 'px';
+    mailMenu.style.top = top + 'px';
+  }
+  function openMailMenu(trigger, p) {
+    const urls = providerUrls(mailParts(p));
+    mmLinks.gmail.href = urls.gmail;
+    mmLinks.outlook.href = urls.outlook;
+    mmLinks.mailto.href = urls.mailto;
+    mailMenuBackdrop.classList.add('open');
+    mailMenu.classList.add('open');
+    positionMailMenu(trigger);
+  }
+  function closeMailMenu() {
+    mailMenu.classList.remove('open');
+    mailMenuBackdrop.classList.remove('open');
+  }
+  mailMenuBackdrop.addEventListener('click', closeMailMenu);
+  window.addEventListener('resize', closeMailMenu);
+  mailMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setTimeout(closeMailMenu, 40)));
+
+  function lookup(name, tag) {
+    let key = norm(name);
+    if (byKey[key]) return byKey[key];
+    key = norm(tag + ' ' + name);
+    if (byKey[key]) return byKey[key];
+    key = norm(name + ' ' + tag);
+    if (byKey[key]) return byKey[key];
+    const candidate = norm(name).replace(/·/g, '');
+    let best = null, bestLen = 0;
+    for (const k of Object.keys(byKey)) {
+      if (candidate && (candidate.includes(k) || k.includes(candidate))) {
+        if (k.length > bestLen) { best = byKey[k]; bestLen = k.length; }
+      }
+    }
+    return best;
+  }
+
+  function setBig(url, gallery) {
+    bigImg.src = url;
+    thumbsEl.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.src === url));
+  }
+
+  function openModal(p, initialIdx) {
+    if (!p) return;
+    initialIdx = Math.max(0, Math.min(initialIdx || 0, (p.gallery || []).length - 1));
+    titleEl.textContent = p.title || p.name;
+    priceEl.textContent = p.price || '';
+    descEl.textContent = (p.description || '').trim();
+    sizeSel.innerHTML = '';
+    if (p.sizes && p.sizes.length) {
+      sizeWrap.style.display = 'flex';
+      sizeWrap.hidden = false;
+      sizeSel.innerHTML = p.sizes.map(s => `<option>${s}</option>`).join('');
+    } else {
+      sizeWrap.style.display = 'none';
+      sizeWrap.hidden = true;
+    }
+    const gallery = (p.gallery && p.gallery.length) ? p.gallery : (p.main ? [p.main] : []);
+    bigImg.alt = p.title || p.name || '';
+    thumbsEl.innerHTML = '';
+    gallery.forEach((url, i) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.dataset.src = url;
+      b.className = i === initialIdx ? 'active' : '';
+      b.innerHTML = `<img src="${url}" alt="" loading="lazy">`;
+      b.addEventListener('click', () => setBig(url, gallery));
+      thumbsEl.appendChild(b);
+    });
+    bigImg.src = gallery[initialIdx] || '';
+    currentProduct = p;
+    modal.classList.add('open');
+    document.body.classList.add('modal-locked');
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('open');
+    document.body.classList.remove('modal-locked');
+    bigImg.src = '';
+    thumbsEl.innerHTML = '';
+  }
+
+  // Per-card decoration: category attr + mini-thumb strip + click handlers.
+  document.querySelectorAll('.product-card').forEach(card => {
+    const name = (card.querySelector('.product-name')?.textContent || '').trim();
+    const tag = (card.querySelector('.product-tag')?.textContent || '').trim();
+    const p = lookup(name, tag);
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.dataset.category = findCategory(card);
+    // Mini thumbnails: gallery[1..3] (skip the main thumbnail which is gallery[0])
+    if (p && p.gallery && p.gallery.length > 1) {
+      const mini = document.createElement('div');
+      mini.className = 'product-minithumbs';
+      const extras = p.gallery.slice(1, 4);
+      extras.forEach((url, i) => {
+        const idx = i + 1;
+        const b = document.createElement('button');
+        b.type = 'button';
+        b.setAttribute('aria-label', `View image ${idx + 1} of ${p.title || p.name}`);
+        b.dataset.imgIdx = String(idx);
+        b.innerHTML = `<img src="${url}" alt="" loading="lazy">`;
+        b.addEventListener('click', e => {
+          e.stopPropagation();
+          openModal(p, idx);
+        });
+        mini.appendChild(b);
+      });
+      card.appendChild(mini);
+    }
+    if (p) {
+      const ask = document.createElement('a');
+      ask.className = 'product-ask-link';
+      ask.href = '#';
+      ask.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span>Ask about this</span>';
+      ask.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); openMailMenu(ask, p); });
+      card.appendChild(ask);
+    }
+    card.addEventListener('click', () => openModal(p, 0));
+    card.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(p, 0); }
+    });
+  });
+
+  // Filter / search.
+  const searchInput = document.getElementById('shopSearch');
+  const pills = document.querySelectorAll('.shop-filter-pills .filter-pill');
+  const emptyState = document.getElementById('shopEmpty');
+  let activeFilter = 'all';
+  function applyFilter() {
+    const q = norm(searchInput.value);
+    let totalVisible = 0;
+    document.querySelectorAll('.product-card').forEach(card => {
+      const matchCat = activeFilter === 'all' || card.dataset.category === activeFilter;
+      const txt = norm(card.textContent);
+      const matchQ = !q || txt.includes(q);
+      const visible = matchCat && matchQ;
+      card.classList.toggle('hidden', !visible);
+      if (visible) totalVisible += 1;
+    });
+    document.querySelectorAll('.cat-section').forEach(s => {
+      const anyVisible = Array.from(s.querySelectorAll('.product-card')).some(c => !c.classList.contains('hidden'));
+      s.classList.toggle('hidden', !anyVisible);
+    });
+    emptyState.classList.toggle('show', totalVisible === 0);
+  }
+  searchInput.addEventListener('input', applyFilter);
+  pills.forEach(p => p.addEventListener('click', () => {
+    pills.forEach(x => x.classList.remove('active'));
+    p.classList.add('active');
+    activeFilter = p.dataset.shopFilter;
+    applyFilter();
+  }));
+
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape') return;
+    if (mailMenu.classList.contains('open')) { closeMailMenu(); return; }
+    if (modal.classList.contains('open')) closeModal();
+  });
+
+  // Static section "Email Tristan" button -> generic enquiry chooser.
+  const shopEmailBtn = document.getElementById('shopEmailBtn');
+  if (shopEmailBtn) shopEmailBtn.addEventListener('click', e => { e.preventDefault(); openMailMenu(shopEmailBtn, null); });
+
+  // Deep link: /shop?item=<slug> auto-opens that product's modal.
+  const wantItem = new URLSearchParams(location.search).get('item');
+  if (wantItem && bySlug[wantItem]) openModal(bySlug[wantItem], 0);
+})();
+</script>
+</body>
+</html>

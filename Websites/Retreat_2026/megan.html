@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megan Gines — Blue Horizon Swim Academy</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&display=swap');
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root { --blue: #2b3a8e; --blue-light: #4158D0; --blue-sky: #5ba3d9; --yellow: #FFD700; --dark: #1a2a5e; --accent: #4158D0; --accent2: #C850C0; }
+        body { font-family: 'DM Sans', sans-serif; background: #e8f4fc; min-height: 100vh; overflow-x: hidden; color: var(--dark); }
+        #water-canvas { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+        .bubbles-container { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; overflow: hidden; }
+        .bubble { position: absolute; bottom: -80px; border-radius: 50%; background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7), rgba(65,88,208,0.1)); border: 1px solid rgba(255,255,255,0.5); animation: rise linear infinite; }
+        @keyframes rise { 0% { transform: translateY(0) scale(1); opacity: 0.6; } 100% { transform: translateY(-110vh) scale(0.3); opacity: 0; } }
+        .ripple { position: fixed; border-radius: 50%; border: 2px solid rgba(65,88,208,0.35); animation: ripple-out 0.8s ease-out forwards; pointer-events: none; z-index: 100; }
+        @keyframes ripple-out { 0% { width: 0; height: 0; opacity: 1; } 100% { width: 200px; height: 200px; opacity: 0; } }
+        .caustics { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; opacity: 0.05; background: repeating-conic-gradient(rgba(65,88,208,0.12) 0% 25%, transparent 0% 50%) 50% / 60px 60px; animation: caustic-move 12s linear infinite; }
+        @keyframes caustic-move { 0% { transform: translate(0,0) scale(1); } 50% { transform: translate(-20px,15px) scale(1.05); } 100% { transform: translate(0,0) scale(1); } }
+        .container { position: relative; z-index: 10; max-width: 460px; margin: 0 auto; padding: 32px 20px 60px; }
+        .swimmer-track { width: 100%; height: 24px; position: relative; margin-bottom: 20px; overflow: hidden; }
+        .swimmer-emoji { position: absolute; font-size: 1.2rem; animation: swim-across 8s linear infinite; }
+        @keyframes swim-across { 0% { left: -30px; } 100% { left: calc(100% + 30px); } }
+        .profile { text-align: center; margin-bottom: 28px; }
+        .retreat-badge { display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; background: linear-gradient(135deg, var(--yellow), #ffa726); color: var(--dark); padding: 5px 16px; border-radius: 6px; margin-bottom: 16px; box-shadow: 0 3px 12px rgba(255,215,0,0.3); }
+        .avatar-ring { width: 96px; height: 96px; border-radius: 50%; overflow: hidden; background: linear-gradient(135deg, var(--accent), var(--accent2)); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; margin: 0 auto 14px; box-shadow: 0 6px 28px rgba(65,88,208,0.35); animation: float 4s ease-in-out infinite; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+        .avatar-ring img { width: 100%; height: 100%; object-fit: cover; }
+        .profile-name { font-family: 'DM Sans', sans-serif; font-size: 1.6rem; font-weight: 900; letter-spacing: -0.02em; color: var(--dark); }
+        .profile-biz { font-size: 0.88rem; font-weight: 700; color: var(--accent); margin-top: 4px; letter-spacing: 0.5px; }
+        .profile-tag { font-size: 0.75rem; color: var(--blue-sky); font-weight: 600; margin-top: 3px; opacity: 0.8; }
+        .wave-divider { width: 100%; height: 28px; position: relative; overflow: hidden; margin: 18px 0; }
+        .wave-divider svg { position: absolute; width: 200%; height: 100%; animation: wave-slide 6s linear infinite; }
+        @keyframes wave-slide { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .link-btn { display: flex; align-items: center; gap: 13px; width: 100%; padding: 14px 18px; margin-bottom: 11px; border-radius: 16px; text-decoration: none; color: var(--dark); font-weight: 700; font-size: 0.92rem; border: 1px solid rgba(255,255,255,0.65); background: rgba(255,255,255,0.52); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); transition: all 0.35s cubic-bezier(.4,0,.2,1); position: relative; overflow: hidden; box-shadow: 0 2px 12px rgba(43,58,142,0.07); }
+        .link-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transition: left 0.5s ease; }
+        .link-btn:hover::before { left: 100%; }
+        .link-btn:hover { transform: translateY(-3px) scale(1.02); border-color: rgba(65,88,208,0.2); box-shadow: 0 8px 32px rgba(65,88,208,0.15); background: rgba(255,255,255,0.72); }
+        .link-btn:active { transform: scale(0.97); }
+        .link-icon { width: 42px; height: 42px; border-radius: 11px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; }
+        .arrow { margin-left: auto; opacity: 0.3; transition: all 0.3s; font-size: 1.1rem; color: var(--accent); flex-shrink: 0; }
+        .link-btn:hover .arrow { opacity: 1; transform: translateX(3px); }
+        .link-text { line-height: 1.2; }
+        .link-sub { font-size: 0.71rem; font-weight: 400; opacity: 0.5; margin-top: 1px; }
+        .icon-instagram { background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+        .fade-up { opacity: 0; transform: translateY(20px); animation: fadeUp 0.6s ease forwards; }
+        @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+        .delay-1 { animation-delay: 0.1s; } .delay-2 { animation-delay: 0.2s; } .delay-3 { animation-delay: 0.3s; } .delay-4 { animation-delay: 0.4s; }
+        .footer { text-align: center; margin-top: 28px; padding-top: 18px; border-top: 1px solid rgba(43,58,142,0.08); font-size: 0.72rem; color: #000; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+<canvas id="water-canvas"></canvas>
+<div class="caustics"></div>
+<div class="bubbles-container" id="bubbles"></div>
+<div class="container">
+    <div class="swimmer-track fade-up">
+        <span class="swimmer-emoji" style="animation-delay:0s;">🏊</span>
+        <span class="swimmer-emoji" style="animation-delay:4s;">🏊</span>
+    </div>
+    <div class="profile fade-up delay-1">
+        <div class="retreat-badge">RETREAT 2026</div>
+        <div class="avatar-ring">🌅</div>
+        <div class="profile-name">Megan Gines</div>
+        <div class="profile-biz">Blue Horizon Swim Academy</div>
+        <div class="profile-tag">Staff · Retreat 2026</div>
+    </div>
+    <div class="wave-divider fade-up delay-2">
+        <svg viewBox="0 0 1200 28" preserveAspectRatio="none">
+            <path d="M0,14 Q150,0 300,14 T600,14 T900,14 T1200,14 T1500,14 T1800,14 T2100,14 T2400,14" fill="none" stroke="rgba(65,88,208,0.15)" stroke-width="2"/>
+        </svg>
+    </div>
+    <a href="https://www.instagram.com/bluehorizon.swimacademy/" target="_blank" rel="noopener" class="link-btn fade-up delay-3">
+        <div class="link-icon icon-instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div>
+        <div class="link-text">
+            <div>Instagram</div>
+            <div class="link-sub">@bluehorizon.swimacademy</div>
+        </div>
+        <span class="arrow">›</span>
+    </a>
+    <div class="footer fade-up delay-4">🌊 AMAZING SWIMMERS LLC &bull; RETREAT 2026</div>
+</div>
+<script>
+(function() {
+    const canvas = document.getElementById('water-canvas');
+    const ctx = canvas.getContext('2d');
+    let w, h, cols, rows;
+    const spacing = 28;
+    function resize() { w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight; cols = Math.ceil(w/spacing)+1; rows = Math.ceil(h/spacing)+1; }
+    resize(); window.addEventListener('resize', resize);
+    function draw(t) {
+        ctx.clearRect(0,0,w,h);
+        const grad = ctx.createLinearGradient(0,0,0,h);
+        grad.addColorStop(0,'#dceefb'); grad.addColorStop(0.3,'#c4e0f4'); grad.addColorStop(0.6,'#a8d4f0'); grad.addColorStop(1,'#8ac4e8');
+        ctx.fillStyle = grad; ctx.fillRect(0,0,w,h);
+        ctx.fillStyle = 'rgba(43,58,142,0.04)';
+        for (let i=0;i<cols;i++) for (let j=0;j<rows;j++) { const x=i*spacing+Math.sin(t*0.0008+j*0.3)*6; const y=j*spacing+Math.cos(t*0.001+i*0.3)*6; const s=1.2+Math.sin(t*0.002+i+j)*0.6; ctx.beginPath(); ctx.arc(x,y,s,0,Math.PI*2); ctx.fill(); }
+        for (let k=0;k<5;k++) { ctx.beginPath(); ctx.strokeStyle=`rgba(255,255,255,${0.15+k*0.04})`; ctx.lineWidth=1.5; const yBase=h*0.15+k*(h*0.18); for (let x=0;x<=w;x+=4) { const y=yBase+Math.sin(x*0.004+t*0.0008+k)*25+Math.sin(x*0.008+t*0.0012+k*2)*12; x===0?ctx.moveTo(x,y):ctx.lineTo(x,y); } ctx.stroke(); }
+        requestAnimationFrame(draw);
+    }
+    requestAnimationFrame(draw);
+})();
+(function() {
+    const container = document.getElementById('bubbles');
+    function createBubble() { const b=document.createElement('div'); b.classList.add('bubble'); const s=Math.random()*18+5; b.style.width=s+'px'; b.style.height=s+'px'; b.style.left=Math.random()*100+'%'; b.style.animationDuration=(Math.random()*8+6)+'s'; b.style.animationDelay=(Math.random()*4)+'s'; container.appendChild(b); setTimeout(()=>b.remove(),16000); }
+    setInterval(createBubble,800); for(let i=0;i<12;i++) setTimeout(createBubble,i*120);
+})();
+document.addEventListener('click', function(e) { const r=document.createElement('div'); r.classList.add('ripple'); r.style.left=(e.clientX-100)+'px'; r.style.top=(e.clientY-100)+'px'; document.body.appendChild(r); setTimeout(()=>r.remove(),800); });
+</script>
+</body>
+</html>

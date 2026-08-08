@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Mandy — A+B Combos</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e0e0e0; }
+  h1 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 6px; text-align: center; padding-top: 32px; }
+  .subtitle { font-size: 13px; color: #555; text-align: center; margin-bottom: 32px; padding: 0 24px; }
+  .variation { margin: 0 24px 40px; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #1e1e1e; cursor: pointer; transition: border-color .4s, box-shadow .4s; }
+  .variation:hover { border-color: rgba(184,154,106,.35); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 48px rgba(184,154,106,.12); }
+  .var-label { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #1a1a1a; }
+  .var-letter { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  .var-title { font-size: 14px; font-weight: 500; color: #fff; }
+  .var-desc { font-size: 12px; color: #555; padding: 12px 24px; line-height: 1.7; border-top: 1px solid #1a1a1a; }
+  .selected .var-letter { background: #fff; color: #B89A6A; }
+  .mock { background: #FAF6F0; }
+  img { max-width: 100%; display: block; }
+</style>
+</head>
+<body>
+
+<h1>About Mandy — A+B Hybrid Variations</h1>
+<p class="subtitle">Combining A's portrait + points with B's cinematic image + quote. All use her real images.</p>
+
+<!-- COMBO 1: Cinematic image strip on top → portrait + points below -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">1</div><div class="var-title">Cinematic Quote Banner → Portrait + Points Below</div></div>
+  <div class="mock">
+    <!-- Top: wide cinematic image with quote overlay -->
+    <div style="position:relative;overflow:hidden;">
+      <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg" alt="Interior" style="width:100%;height:300px;object-fit:cover;object-position:center;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to right,rgba(42,30,26,.75) 0%,rgba(42,30,26,.4) 50%,rgba(42,30,26,.15) 100%);display:flex;align-items:center;padding:0 60px;">
+        <div style="max-width:460px;">
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:14px;">About VELUS</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#F3EBDD;line-height:1.25;font-style:italic;">"Spaces are canvases upon which a person's unique style should be painted."</div>
+          <div style="font-size:11px;color:rgba(243,235,221,.45);letter-spacing:.08em;margin-top:14px;">— Mandy VELUS, Founder</div>
+        </div>
+      </div>
+    </div>
+    <!-- Below: portrait + points side by side -->
+    <div style="display:grid;grid-template-columns:0.8fr 1.2fr;gap:40px;padding:48px 48px;max-width:1100px;margin:0 auto;align-items:start;">
+      <div style="position:relative;">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/21ed982d-5c2a-4805-9faa-dcf01adb2934.jpeg" alt="Mandy" style="width:100%;border-radius:14px;aspect-ratio:3/4;object-fit:cover;">
+        <div style="position:absolute;bottom:16px;right:16px;background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-radius:8px;padding:8px 14px;border:1px solid rgba(184,154,106,.12);">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png" alt="Signature" style="height:22px;opacity:.6;">
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#3A241E;line-height:1.15;margin-bottom:16px;">Spaces Are Canvases.<br>We <em style="font-style:italic;color:#B89A6A;">Paint</em> Yours.</div>
+        <p style="font-size:14px;color:#7A6B62;line-height:1.8;margin-bottom:24px;">Born in Guyana and shaped by her father's eye as a photographer, Mandy brings both artistry and precision to every project. B.S. in Interior Design. Project Management certified.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="padding:16px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-left:3px solid rgba(184,154,106,.3);">
+            <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;margin-bottom:3px;">Complete Spatial Rethinking</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Layout, flow, materials, and furnishings resolved together from the start.</div>
+          </div>
+          <div style="padding:16px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-left:3px solid rgba(184,154,106,.3);">
+            <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;margin-bottom:3px;">One Unified Vision</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Every decision lives within a single design intent.</div>
+          </div>
+          <div style="padding:16px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-left:3px solid rgba(184,154,106,.3);">
+            <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;margin-bottom:3px;">End-to-End Oversight</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Decision-making becomes faster, execution more efficient.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="var-desc">Cinematic quote banner spans the full width at top — immersive, dramatic. Then below, Mandy's portrait + signature on the left, headline + value points on the right. You get the atmosphere of B at the top and the personal warmth of A below.</div>
+</div>
+
+<!-- COMBO 2: Portrait left, cinematic image + quote RIGHT, points below both -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">2</div><div class="var-title">Portrait + Cinematic Side by Side → Points Below</div></div>
+  <div class="mock" style="padding:48px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <!-- Top: portrait + cinematic image side by side -->
+      <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:16px;margin-bottom:40px;">
+        <!-- Portrait -->
+        <div style="position:relative;border-radius:14px;overflow:hidden;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/21ed982d-5c2a-4805-9faa-dcf01adb2934.jpeg" alt="Mandy" style="width:100%;height:100%;object-fit:cover;">
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:20px 24px;background:linear-gradient(to top,rgba(42,30,26,.7),transparent);">
+            <div style="font-family:'Cormorant Garamond';font-size:20px;color:#F3EBDD;margin-bottom:4px;">Mandy VELUS</div>
+            <div style="font-size:10px;color:rgba(243,235,221,.5);letter-spacing:.1em;text-transform:uppercase;">Founder & Principal Designer</div>
+          </div>
+        </div>
+        <!-- Cinematic interior with quote -->
+        <div style="position:relative;border-radius:14px;overflow:hidden;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg" alt="Interior" style="width:100%;height:100%;object-fit:cover;min-height:360px;">
+          <div style="position:absolute;inset:0;background:rgba(42,30,26,.45);display:flex;align-items:center;justify-content:center;padding:40px;">
+            <div style="text-align:center;max-width:420px;">
+              <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#F3EBDD;line-height:1.3;font-style:italic;margin-bottom:14px;">"Spaces are canvases upon which a person's unique style should be painted."</div>
+              <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png" alt="Signature" style="height:24px;opacity:.5;margin:0 auto;">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Points in a clean row -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;">
+        <div style="padding:24px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-left:3px solid rgba(184,154,106,.3);">
+          <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;margin-bottom:6px;">Complete Spatial Rethinking</div>
+          <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Layout, flow, materials, and furnishings resolved together from the start.</div>
+        </div>
+        <div style="padding:24px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-left:3px solid rgba(184,154,106,.3);">
+          <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;margin-bottom:6px;">One Unified Vision</div>
+          <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Every decision lives within a single design intent, considered from every angle.</div>
+        </div>
+        <div style="padding:24px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-left:3px solid rgba(184,154,106,.3);">
+          <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;margin-bottom:6px;">End-to-End Oversight</div>
+          <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Decision-making becomes faster, execution more streamlined.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="var-desc">Mandy's portrait and a cinematic interior image sit side by side at the top — her name overlaid on the portrait, her quote overlaid on the interior with signature. Three value points in a horizontal row below. Balanced — equal weight to the person and the work.</div>
+</div>
+
+<!-- COMBO 3: Full-width quote strip → portrait overlapping into points section -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">3</div><div class="var-title">Quote Strip → Overlapping Portrait + Points</div></div>
+  <div class="mock" style="padding:0;">
+    <!-- Cinematic quote strip -->
+    <div style="position:relative;overflow:hidden;">
+      <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/b7ddbac2-55db-42ef-bf8e-49db2681e21e.jpg" alt="Interior" style="width:100%;height:260px;object-fit:cover;object-position:center 40%;">
+      <div style="position:absolute;inset:0;background:rgba(42,30,26,.65);display:flex;align-items:center;justify-content:center;">
+        <div style="text-align:center;max-width:540px;padding:0 24px;">
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:14px;">About VELUS</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:300;color:#F3EBDD;line-height:1.25;font-style:italic;">"Spaces are canvases upon which a person's unique style should be painted."</div>
+        </div>
+      </div>
+    </div>
+    <!-- Portrait overlapping the boundary + points -->
+    <div style="max-width:1000px;margin:0 auto;padding:0 48px 48px;display:grid;grid-template-columns:0.7fr 1.3fr;gap:40px;align-items:start;">
+      <div style="margin-top:-60px;position:relative;z-index:2;">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/21ed982d-5c2a-4805-9faa-dcf01adb2934.jpeg" alt="Mandy" style="width:100%;border-radius:14px;aspect-ratio:3/4;object-fit:cover;border:4px solid #FAF6F0;box-shadow:0 16px 48px rgba(42,30,26,.15);">
+        <div style="text-align:center;margin-top:14px;">
+          <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;">Mandy VELUS</div>
+          <div style="font-size:10px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px;">Founder & Principal Designer</div>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png" alt="Signature" style="height:24px;opacity:.5;margin:0 auto;">
+        </div>
+      </div>
+      <div style="padding-top:24px;">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:#3A241E;line-height:1.2;margin-bottom:14px;">Spaces Are Canvases.<br>We <em style="font-style:italic;color:#B89A6A;">Paint</em> Yours.</div>
+        <p style="font-size:14px;color:#7A6B62;line-height:1.8;margin-bottom:24px;">Born in Guyana, shaped by her father's eye as a photographer. B.S. in Interior Design, Project Management certified. Mandy brings artistry and precision to every space.</p>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="padding:16px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-left:3px solid rgba(184,154,106,.3);">
+            <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;margin-bottom:3px;">Complete Spatial Rethinking</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Layout, flow, materials, and furnishings resolved together from the start.</div>
+          </div>
+          <div style="padding:16px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-left:3px solid rgba(184,154,106,.3);">
+            <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;margin-bottom:3px;">One Unified Vision</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Every decision lives within a single design intent.</div>
+          </div>
+          <div style="padding:16px 20px;border-radius:12px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.7);border-left:3px solid rgba(184,154,106,.3);">
+            <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;margin-bottom:3px;">End-to-End Oversight</div>
+            <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Decision-making becomes faster, execution more efficient.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="var-desc">Cinematic quote strip across the top (mountain retreat interior). Mandy's portrait overlaps downward from the dark strip into the ivory — creates depth and visual drama. Headline + points on the right. The overlapping portrait is an architectural move that feels premium and intentional.</div>
+</div>
+
+<!-- COMBO 4: Cinematic strip with portrait inset + points alongside -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">4</div><div class="var-title">Portrait Inside Cinematic Strip + Points Right</div></div>
+  <div class="mock" style="padding:0;">
+    <!-- Wide cinematic strip with portrait inset on the left -->
+    <div style="position:relative;overflow:hidden;min-height:400px;">
+      <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/2d759b38-9271-4565-8d11-cfa11bfa3d79.jpg" alt="Interior" style="width:100%;height:400px;object-fit:cover;object-position:center;">
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg,rgba(42,30,26,.85) 0%,rgba(42,30,26,.6) 35%,rgba(42,30,26,.3) 60%,rgba(42,30,26,.15) 100%);"></div>
+      <div style="position:absolute;inset:0;display:grid;grid-template-columns:1fr 1.2fr;gap:40px;max-width:1100px;margin:0 auto;padding:40px 48px;align-items:center;">
+        <!-- Left: portrait + name -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/21ed982d-5c2a-4805-9faa-dcf01adb2934.jpeg" alt="Mandy" style="width:200px;height:200px;border-radius:50%;object-fit:cover;border:3px solid rgba(243,235,221,.2);box-shadow:0 12px 40px rgba(0,0,0,.3);">
+          <div style="text-align:center;">
+            <div style="font-family:'Cormorant Garamond';font-size:22px;color:#F3EBDD;">Mandy VELUS</div>
+            <div style="font-size:10px;color:rgba(243,235,221,.45);letter-spacing:.12em;text-transform:uppercase;margin-top:4px;">Founder & Principal Designer</div>
+            <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d139427a-6212-4ae6-987f-1b17681c42cc.png" alt="Signature" style="height:22px;opacity:.4;margin:12px auto 0;filter:brightness(10);">
+          </div>
+        </div>
+        <!-- Right: quote + key points -->
+        <div>
+          <div style="font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:14px;">About VELUS</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;color:#F3EBDD;line-height:1.25;font-style:italic;margin-bottom:20px;">"Spaces are canvases upon which a person's unique style should be painted."</div>
+          <p style="font-size:13px;color:rgba(243,235,221,.55);line-height:1.8;margin-bottom:24px;">Born in Guyana, shaped by her father's photographic eye. B.S. in Interior Design. Project Management certified.</p>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <div style="padding:12px 16px;border-radius:10px;background:rgba(243,235,221,.06);border:1px solid rgba(243,235,221,.08);border-left:2px solid rgba(184,154,106,.4);">
+              <div style="font-family:'Cormorant Garamond';font-size:16px;color:#F3EBDD;">Complete Spatial Rethinking</div>
+              <div style="font-size:11px;color:rgba(243,235,221,.4);line-height:1.5;margin-top:2px;">Layout, flow, materials resolved together.</div>
+            </div>
+            <div style="padding:12px 16px;border-radius:10px;background:rgba(243,235,221,.06);border:1px solid rgba(243,235,221,.08);border-left:2px solid rgba(184,154,106,.4);">
+              <div style="font-family:'Cormorant Garamond';font-size:16px;color:#F3EBDD;">One Unified Vision</div>
+              <div style="font-size:11px;color:rgba(243,235,221,.4);line-height:1.5;margin-top:2px;">Every decision within a single design intent.</div>
+            </div>
+            <div style="padding:12px 16px;border-radius:10px;background:rgba(243,235,221,.06);border:1px solid rgba(243,235,221,.08);border-left:2px solid rgba(184,154,106,.4);">
+              <div style="font-family:'Cormorant Garamond';font-size:16px;color:#F3EBDD;">End-to-End Oversight</div>
+              <div style="font-size:11px;color:rgba(243,235,221,.4);line-height:1.5;margin-top:2px;">Faster decisions, streamlined execution.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="var-desc">Everything lives INSIDE one cinematic image — Mandy's circular portrait on the left, her quote + dark glass value points on the right, all overlaid on a rich interior background. The entire section is one immersive moment — like the hero but for Mandy's story. Most dramatic and bold.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

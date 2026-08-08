@@ -1,0 +1,1487 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NILS Revision Request Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --blue: #046bd2;
+        --blue-dark: #0357ae;
+        --blue-light: #e8f2fc;
+        --text: #111827;
+        --muted: #6b7280;
+        --border: #d1d5db;
+        --red: #dc2626;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--blue);
+        min-height: 100vh;
+      }
+
+      /* HEADER */
+      .site-header {
+        background: #fff;
+        text-align: center;
+        padding: 28px 20px 24px;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .site-header img.logo {
+        height: 50px;
+        width: auto;
+        display: block;
+        margin: 0 auto 16px;
+        object-fit: contain;
+      }
+      .site-header h1 {
+        font-size: 28px;
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 5px;
+      }
+      .site-header p {
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--text);
+      }
+      .site-header p.sub {
+        font-size: 13.5px;
+        font-weight: 600;
+        color: #374151;
+        margin-top: 3px;
+      }
+
+      /* PAGE */
+      .page-body {
+        padding: 40px 24px 72px;
+      }
+
+      /* CARD */
+      .card {
+        background: #fff;
+        border-radius: 14px;
+        max-width: 920px;
+        margin: 0 auto 28px;
+        padding: 40px 52px;
+        box-shadow: 0 4px 32px rgba(0, 0, 0, 0.13);
+      }
+      @media (max-width: 540px) {
+        .card {
+          padding: 28px 20px;
+        }
+      }
+
+      /* EMAIL */
+      .email-intro {
+        font-size: 18px;
+        font-weight: 700;
+        text-align: center;
+        color: var(--text);
+        line-height: 1.45;
+        margin-bottom: 20px;
+      }
+
+      /* FIELDS */
+      .field {
+        margin-bottom: 22px;
+      }
+      label {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      label .req {
+        color: var(--red);
+        margin-left: 2px;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="url"],
+      textarea {
+        width: 100%;
+        padding: 13px 16px;
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        font-size: 14.5px;
+        font-family: "DM Sans", sans-serif;
+        color: var(--text);
+        background: #fff;
+        transition: border-color 0.18s;
+        resize: vertical;
+      }
+      input::placeholder,
+      textarea::placeholder {
+        color: #9ca3af;
+      }
+      input:focus,
+      textarea:focus {
+        outline: none;
+        border-color: var(--blue);
+      }
+      input.invalid,
+      textarea.invalid,
+      select.invalid {
+        border-color: var(--red) !important;
+        background: #fef2f2;
+      }
+
+      select {
+        width: 100%;
+        padding: 13px 16px;
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        font-size: 14.5px;
+        font-family: "DM Sans", sans-serif;
+        color: var(--text);
+        background: #fff;
+        transition: border-color 0.18s;
+        cursor: pointer;
+      }
+      select:focus {
+        outline: none;
+        border-color: var(--blue);
+      }
+      .field-hint {
+        font-size: 12px;
+        color: var(--muted);
+        margin-top: 7px;
+      }
+
+      /* HOW-TO CALLOUTS */
+      .howto-callout {
+        border-radius: 10px;
+        padding: 20px 22px;
+        margin-bottom: 20px;
+        border: 2px solid;
+      }
+      .howto-callout.image-how {
+        background: #fff7ed;
+        border-color: #fb923c;
+      }
+      .howto-callout.video-how {
+        background: #f0f9ff;
+        border-color: #38bdf8;
+      }
+      .howto-callout .how-title {
+        font-size: 13px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .howto-callout.image-how .how-title {
+        color: #c2410c;
+      }
+      .howto-callout.video-how .how-title {
+        color: #0369a1;
+      }
+      .howto-callout ol {
+        padding-left: 18px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .howto-callout ol li {
+        font-size: 13.5px;
+        font-weight: 500;
+        color: #1f2937;
+        line-height: 1.5;
+      }
+      .howto-callout ol li strong {
+        font-weight: 800;
+        color: #111;
+      }
+      .howto-callout .shout {
+        margin-top: 16px;
+        font-size: 13.5px;
+        font-weight: 600;
+        padding: 12px 16px;
+        border-radius: 0 8px 8px 0;
+        display: block;
+        line-height: 1.65;
+        border-left: 4px solid;
+      }
+      .howto-callout.image-how .shout {
+        background: #fff7ed;
+        border-left-color: #f97316;
+        color: #7c2d12;
+      }
+      .howto-callout.video-how .shout {
+        background: #f0f9ff;
+        border-left-color: #0ea5e9;
+        color: #0c4a6e;
+      }
+      .howto-callout.text-how {
+        background: #faf5ff;
+        border-color: #c084fc;
+      }
+      .howto-callout.text-how .how-title {
+        color: #7e22ce;
+      }
+      .howto-callout.text-how .shout {
+        background: #faf5ff;
+        border-left-color: #a855f7;
+        color: #4c1d95;
+      }
+      .howto-callout.addition-how {
+        background: #f0fdf4;
+        border-color: #4ade80;
+      }
+      .howto-callout.addition-how .how-title {
+        color: #15803d;
+      }
+      .howto-callout.addition-how .shout {
+        background: #f0fdf4;
+        border-left-color: #22c55e;
+        color: #14532d;
+      }
+      .howto-callout.deletion-how {
+        background: #fff1f2;
+        border-color: #fb7185;
+      }
+      .howto-callout.deletion-how .how-title {
+        color: #be123c;
+      }
+      .howto-callout.deletion-how .shout {
+        background: #fff1f2;
+        border-left-color: #f43f5e;
+        color: #881337;
+      }
+
+      /* CHIPS */
+      .type-selector {
+        margin-bottom: 36px;
+      }
+      .type-selector > p {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 16px;
+      }
+      .type-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .chip {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        padding: 11px 20px;
+        border: 2px solid var(--border);
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 14px;
+        font-weight: 700;
+        color: var(--muted);
+        background: #fff;
+        transition: all 0.18s;
+        user-select: none;
+        font-family: "DM Sans", sans-serif;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+      }
+      .chip:hover {
+        border-color: var(--blue);
+        color: var(--blue);
+        box-shadow: 0 2px 8px rgba(4,107,210,0.15);
+      }
+      .chip.active {
+        border-color: var(--blue);
+        background: var(--blue-light);
+        color: var(--blue);
+        box-shadow: 0 2px 8px rgba(4,107,210,0.15);
+      }
+      .chip-check {
+        width: 17px;
+        height: 17px;
+        border-radius: 50%;
+        border: 2px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 10px;
+        transition: all 0.18s;
+        background: #fff;
+      }
+      .chip:hover .chip-check {
+        border-color: var(--blue);
+      }
+      .chip.active .chip-check {
+        background: var(--blue);
+        border-color: var(--blue);
+        color: #fff;
+      }
+
+      /* SECTIONS */
+      .revision-section {
+        display: none;
+      }
+      .revision-section.visible {
+        display: block;
+        animation: fadeIn 0.22s ease;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .section-divider {
+        font-size: 12.5px;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.8px;
+        color: var(--blue);
+        margin: 36px 0 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid var(--blue-light);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      /* BLOCKS */
+      .revision-block {
+        background: #f9fafb;
+        border: 1.5px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 16px;
+        position: relative;
+      }
+      .revision-block .block-num {
+        font-size: 11px;
+        font-weight: 800;
+        color: var(--blue);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin-bottom: 18px;
+      }
+      .two-col {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: 16px;
+      }
+      @media (max-width: 500px) {
+        .two-col {
+          grid-template-columns: 1fr;
+        }
+      }
+      .remove-btn {
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        background: none;
+        border: none;
+        font-size: 20px;
+        color: #9ca3af;
+        cursor: pointer;
+        line-height: 1;
+        padding: 0;
+        transition: color 0.15s;
+      }
+      .remove-btn:hover {
+        color: var(--red);
+      }
+
+      /* Optional per-block notes */
+      .block-notes-label {
+        font-size: 11.5px;
+        font-weight: 700;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        display: block;
+        margin-bottom: 7px;
+        margin-top: 18px;
+      }
+      .block-notes-label em {
+        text-transform: none;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 11px;
+      }
+
+      .add-btn {
+        width: 100%;
+        padding: 14px;
+        background: none;
+        border: 2px dashed #d1d5db;
+        border-radius: 8px;
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--blue);
+        cursor: pointer;
+        transition: all 0.18s;
+        font-family: "DM Sans", sans-serif;
+        margin-top: 4px;
+      }
+      .add-btn:hover {
+        border-color: var(--blue);
+        background: var(--blue-light);
+      }
+
+      /* WARNING */
+      .warning-pill {
+        background: #fffbeb;
+        border: 1.5px solid #fcd34d;
+        border-radius: 8px;
+        padding: 13px 16px;
+        margin-bottom: 24px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #92400e;
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+      }
+      .warning-pill .icon {
+        font-size: 16px;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      /* NO SELECTION */
+      .no-selection {
+        text-align: center;
+        padding: 24px;
+        background: #f9fafb;
+        border: 2px dashed #e5e7eb;
+        border-radius: 10px;
+        color: var(--muted);
+        font-size: 14px;
+        font-weight: 600;
+        margin-bottom: 4px;
+      }
+      .no-selection span {
+        display: block;
+        font-size: 26px;
+        margin-bottom: 8px;
+      }
+
+      /* SUBMIT */
+      .submit-btn {
+        width: 100%;
+        padding: 15px;
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        border-radius: 9px;
+        font-size: 16px;
+        font-weight: 800;
+        font-family: "DM Sans", sans-serif;
+        cursor: pointer;
+        transition: background 0.18s;
+        letter-spacing: 0.2px;
+        margin-top: 8px;
+      }
+      .submit-btn:hover {
+        background: var(--blue-dark);
+      }
+      .submit-btn:disabled {
+        background: #9ca3af;
+        cursor: not-allowed;
+      }
+
+      .success-card {
+        display: none;
+        background: #f0fdf4;
+        border: 2px solid #86efac;
+        border-radius: 10px;
+        padding: 24px;
+        text-align: center;
+        margin-top: 16px;
+      }
+      .success-card .check {
+        font-size: 36px;
+        margin-bottom: 8px;
+      }
+      .success-card h3 {
+        font-size: 19px;
+        font-weight: 800;
+        color: #15803d;
+        margin-bottom: 4px;
+      }
+      .success-card p {
+        font-size: 14px;
+        color: #166534;
+      }
+
+      .error-banner {
+        display: none;
+        background: #fef2f2;
+        border: 1.5px solid #fca5a5;
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 13.5px;
+        font-weight: 600;
+        color: var(--red);
+        margin-top: 14px;
+      }
+
+      .section-header {
+        font-size: 22px;
+        font-weight: 800;
+        color: var(--text);
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      /* FILE UPLOAD */
+      .upload-zone {
+        border: 2px dashed var(--border);
+        border-radius: 8px;
+        padding: 14px 12px;
+        text-align: center;
+        background: #f9fafb;
+        margin-top: 8px;
+        transition: border-color 0.18s, background 0.18s;
+      }
+      .upload-zone.zone-invalid {
+        border-color: var(--red) !important;
+        background: #fef2f2;
+      }
+      .upload-trigger-zone {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px 18px;
+        background: var(--blue-light);
+        border: 1.5px solid var(--blue);
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 13.5px;
+        font-weight: 700;
+        color: var(--blue);
+        font-family: "DM Sans", sans-serif;
+        transition: all 0.18s;
+        text-transform: none;
+        letter-spacing: 0;
+        margin-bottom: 8px;
+      }
+      .upload-trigger-zone:hover {
+        background: var(--blue);
+        color: #fff;
+      }
+      .upload-trigger-zone input[type="file"] {
+        display: none;
+      }
+      .upload-zone-limit {
+        font-size: 11.5px;
+        color: var(--muted);
+        font-weight: 500;
+        margin: 0;
+      }
+      .upload-status {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        margin-top: 6px;
+      }
+      .upload-status.uploading { color: var(--blue); }
+      .upload-status.uploaded  { color: #15803d; }
+      .upload-status.up-error  { color: var(--red); }
+      .or-divider {
+        text-align: center;
+        font-size: 11.5px;
+        font-weight: 800;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.6px;
+        margin: 10px 0 4px;
+      }
+      .upload-remove-btn {
+        display: none;
+        margin: 6px auto 0;
+        background: none;
+        border: 1.5px solid #fca5a5;
+        border-radius: 6px;
+        color: var(--red);
+        font-size: 12px;
+        font-weight: 700;
+        font-family: "DM Sans", sans-serif;
+        padding: 4px 12px;
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s;
+      }
+      .upload-remove-btn:hover {
+        background: #fef2f2;
+      }
+
+      /* MULTI-UPLOAD LIST */
+      .add-media-container {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        margin-bottom: 8px;
+      }
+      .add-media-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #f0fdf4;
+        border: 1.5px solid #86efac;
+        border-radius: 6px;
+        padding: 7px 12px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #15803d;
+      }
+      .add-media-item button {
+        background: none;
+        border: none;
+        color: #9ca3af;
+        cursor: pointer;
+        font-size: 15px;
+        padding: 0;
+        margin-left: 10px;
+        line-height: 1;
+        font-family: "DM Sans", sans-serif;
+      }
+      .add-media-item button:hover { color: var(--red); }
+
+      /* OTHER callout */
+      .howto-callout.other-how {
+        background: #f8fafc;
+        border-color: #94a3b8;
+      }
+      .howto-callout.other-how .how-title { color: #475569; }
+      /* iOS Safari: prevent auto-zoom on form-field focus (font-size must be >= 16px) */
+      @media (max-width: 768px) { input:not([type="hidden"]), select, textarea { font-size: 16px !important; } }
+    </style>
+  </head>
+  <body>
+    <div class="site-header">
+      <img
+        class="logo"
+        src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png"
+        alt="Logo"
+      />
+      <h1>Revision Request Portal</h1>
+      <p class="sub">1 free revision round per month with <strong>unlimited changes</strong> · Need another round? $75 per submission</p>
+    </div>
+
+    <div class="page-body">
+      <!-- EMAIL -->
+      <div class="card">
+        <div class="field">
+          <label>Website Page URL <span class="req">*</span></label>
+          <input
+            type="text"
+            id="domain-input"
+            placeholder="e.g. yourwebsite.com/page-name"
+          />
+        </div>
+        <div class="field">
+          <label>Email <span class="req">*</span></label>
+          <input type="email" id="email-input" placeholder="your@email.com" />
+        </div>
+      </div>
+
+      <!-- MAIN -->
+      <div class="card">
+        <div class="section-header">Revision Request</div>
+
+        <div class="warning-pill">
+          <span class="icon">💡</span>
+          <span>Be specific — include the <strong>exact current content</strong> and <strong>exactly what you want instead.</strong></span>
+        </div>
+
+        <!-- TYPE CHIPS -->
+        <div class="type-selector">
+          <p>What do you need changed? <em style="font-weight: 400; color: #6b7280">Select all that apply.</em></p>
+          <div class="type-chips">
+            <div class="chip" onclick="toggleType('text', this)">
+              <span class="chip-check"></span>✏️ Text Changes
+            </div>
+            <div class="chip" onclick="toggleType('image', this)">
+              <span class="chip-check"></span>🖼️ Image Swaps
+            </div>
+            <div class="chip" onclick="toggleType('video', this)">
+              <span class="chip-check"></span>🎬 Video Changes
+            </div>
+            <div class="chip" onclick="toggleType('addition', this)">
+              <span class="chip-check"></span>➕ Additions
+            </div>
+            <div class="chip" onclick="toggleType('deletion', this)">
+              <span class="chip-check"></span>🗑️ Deletions
+            </div>
+            <div class="chip" onclick="toggleType('other', this)">
+              <span class="chip-check"></span>⚙️ Other
+            </div>
+          </div>
+        </div>
+
+        <div class="no-selection" id="no-selection">
+          <span>👆</span>
+          Select a revision type above to get started.
+        </div>
+
+        <!-- TEXT -->
+        <div class="revision-section" id="section-text">
+          <div class="section-divider">✏️ Text Revisions</div>
+
+          <div class="howto-callout text-how">
+            <div class="how-title">✏️ Text Changes</div>
+            <ol>
+              <li><strong>Copy the text</strong> from your live site and paste it into "Current Text."</li>
+              <li>Type <strong>exactly what you want it to say</strong> in "Replacement Text."</li>
+            </ol>
+          </div>
+
+          <div id="text-blocks"></div>
+          <button class="add-btn" onclick="addBlock('text')">
+            + Add Another Text Revision
+          </button>
+        </div>
+
+        <!-- IMAGE -->
+        <div class="revision-section" id="section-image">
+          <div class="section-divider">🖼️ Image Revisions</div>
+
+          <div class="howto-callout image-how">
+            <div class="how-title">🖼️ Image Swaps</div>
+            <ol>
+              <li><strong>Right-click the image</strong> on your site → select <strong>"Copy Image Address"</strong> → paste it into "Current Image URL."</li>
+              <li>Upload your new image using the button below.</li>
+            </ol>
+          </div>
+
+          <div id="image-blocks"></div>
+          <button class="add-btn" onclick="addBlock('image')">
+            + Add Another Image Revision
+          </button>
+        </div>
+
+        <!-- VIDEO -->
+        <div class="revision-section" id="section-video">
+          <div class="section-divider">🎬 Video Changes</div>
+
+          <div class="howto-callout video-how">
+            <div class="how-title">🎬 Video Changes</div>
+            <ol>
+              <li><strong>Right-click the video</strong> on your site → select <strong>"Copy Video Address"</strong> → paste it into "Current Video URL."</li>
+              <li>Paste a YouTube/Vimeo link <em>or</em> upload a file for the replacement.</li>
+            </ol>
+          </div>
+
+          <div id="video-blocks"></div>
+          <button class="add-btn" onclick="addBlock('video')">
+            + Add Another Video Change
+          </button>
+        </div>
+
+        <!-- ADDITION -->
+        <div class="revision-section" id="section-addition">
+          <div class="section-divider">➕ Additions</div>
+
+          <div class="howto-callout addition-how">
+            <div class="how-title">➕ Additions</div>
+            <ol>
+              <li>Choose the element type and <strong>where it should appear</strong> on the page.</li>
+              <li>Include <strong>all content needed</strong> — names, text, links, images, etc.</li>
+            </ol>
+          </div>
+
+          <div id="addition-blocks"></div>
+          <button class="add-btn" onclick="addBlock('addition')">
+            + Add Another Addition Request
+          </button>
+        </div>
+
+        <!-- DELETION -->
+        <div class="revision-section" id="section-deletion">
+          <div class="section-divider">🗑️ Deletions</div>
+
+          <div class="howto-callout deletion-how">
+            <div class="how-title">🗑️ Deletions</div>
+            <ol>
+              <li>Choose the element type from the dropdown.</li>
+              <li>Identify it precisely — <strong>paste its URL, full name, or exact wording</strong> from the page.</li>
+            </ol>
+          </div>
+
+          <div id="deletion-blocks"></div>
+          <button class="add-btn" onclick="addBlock('deletion')">
+            + Add Another Deletion Request
+          </button>
+        </div>
+
+        <!-- OTHER -->
+        <div class="revision-section" id="section-other">
+          <div class="section-divider">⚙️ Other</div>
+
+          <div class="howto-callout other-how">
+            <div class="how-title">⚙️ Other Requests</div>
+            <ol>
+              <li>Give it a short title so we know what it is — e.g. "Add Google Analytics," "Fix contact form," "Set up redirect."</li>
+              <li>Describe exactly what you need done.</li>
+            </ol>
+          </div>
+
+          <div id="other-blocks"></div>
+          <button class="add-btn" onclick="addBlock('other')">+ Add Another Request</button>
+        </div>
+
+        <!-- GENERAL NOTES -->
+        <div id="general-notes-wrap" style="display: none; margin-top: 24px">
+          <label
+            style="
+              font-size: 12px;
+              font-weight: 700;
+              text-transform: uppercase;
+              letter-spacing: 0.5px;
+              margin-bottom: 6px;
+              display: block;
+            "
+          >
+            Anything else we should know?
+            <em style="text-transform: none; font-weight: 400; font-size: 11px"
+              >(optional)</em
+            >
+          </label>
+          <textarea
+            id="extra-notes"
+            rows="3"
+            placeholder="General context, deadlines, or anything else for the whole request..."
+          ></textarea>
+        </div>
+
+        <div class="error-banner" id="error-banner">
+          Please fill in all required fields before submitting.
+        </div>
+
+        <button
+          class="submit-btn"
+          id="submit-btn"
+          onclick="submitForm()"
+          style="display: none"
+        >
+          Submit Revision Request
+        </button>
+
+        <div class="success-card" id="success-card">
+          <div class="check">✅</div>
+          <h3>Request Submitted!</h3>
+          <p>
+            We've received your revision request and will be in touch shortly.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const GHL_WEBHOOK =
+        "https://services.leadconnectorhq.com/hooks/stoLOEGDIvEDY3xQI4B8/webhook-trigger/816e85b0-36c2-48d3-a434-491f4b38f087";
+      const GHL_API_TOKEN = "PIT-REMOVED-ROTATE-ME";
+      const activeTypes = new Set();
+      const counts = { text: 0, image: 0, video: 0, addition: 0, deletion: 0, other: 0 };
+
+      // Auto-fill email from ?email= URL parameter
+      const _urlEmail = new URLSearchParams(window.location.search).get("email");
+      if (_urlEmail) document.getElementById("email-input").value = _urlEmail;
+
+      function toggleType(type, chip) {
+        const checkEl = chip.querySelector(".chip-check");
+        if (activeTypes.has(type)) {
+          activeTypes.delete(type);
+          chip.classList.remove("active");
+          if (checkEl) checkEl.textContent = "";
+          document
+            .getElementById("section-" + type)
+            .classList.remove("visible");
+          document.getElementById(type + "-blocks").innerHTML = "";
+          counts[type] = 0;
+        } else {
+          activeTypes.add(type);
+          chip.classList.add("active");
+          if (checkEl) checkEl.textContent = "✓";
+          document.getElementById("section-" + type).classList.add("visible");
+          if (!document.getElementById(type + "-blocks").children.length)
+            addBlock(type);
+        }
+        const has = activeTypes.size > 0;
+        document.getElementById("no-selection").style.display = has
+          ? "none"
+          : "block";
+        document.getElementById("general-notes-wrap").style.display = has
+          ? "block"
+          : "none";
+        document.getElementById("submit-btn").style.display = has
+          ? "block"
+          : "none";
+      }
+
+      function addBlock(type) {
+        counts[type]++;
+        const n = counts[type];
+        const container = document.getElementById(type + "-blocks");
+        const div = document.createElement("div");
+        div.className = "revision-block";
+        div.id = `${type}-block-${n}`;
+
+        let fields = "";
+        if (type === "text") {
+          fields = `
+        <div class="two-col">
+          <div>
+            <label>Current Text, copy &amp; paste exactly <span class="req">*</span></label>
+            <textarea rows="3" class="cur-text" placeholder="Paste the text exactly as it appears on your site."></textarea>
+          </div>
+          <div>
+            <label>Replacement Text <span class="req">*</span></label>
+            <textarea rows="3" class="rep-text" placeholder="Type exactly what you'd like it to say."></textarea>
+          </div>
+        </div>`;
+        } else if (type === "image") {
+          fields = `
+        <div class="two-col">
+          <div>
+            <label>Current Image URL <span class="req">*</span></label>
+            <input type="url" class="cur-img" placeholder="https://yoursite.com/old-image.jpg"/>
+          </div>
+          <div>
+            <label>New Image <span class="req">*</span></label>
+            <input type="hidden" class="rep-img">
+            <div class="upload-zone">
+              <label class="upload-trigger-zone">
+                <input type="file" accept="image/*" onchange="uploadMediaFile(this,'rep-img')">
+                📁 Upload replacement image
+              </label>
+              <p class="upload-zone-limit">JPG, PNG, GIF, WebP · 5 MB max</p>
+              <span class="upload-status"></span>
+              <button type="button" class="upload-remove-btn" onclick="clearUpload(this,'rep-img')">✕ Remove file</button>
+            </div>
+          </div>
+        </div>`;
+        } else if (type === "video") {
+          fields = `
+        <div class="two-col">
+          <div>
+            <label>Current Video URL <span class="req">*</span></label>
+            <input type="url" class="cur-vid" placeholder="https://youtube.com/watch?v=..."/>
+          </div>
+          <div>
+            <label>New Video <span class="req">*</span></label>
+            <input type="url" class="rep-vid" placeholder="https://youtube.com/watch?v=... or https://vimeo.com/..."/>
+            <div class="or-divider">or upload a file</div>
+            <div class="upload-zone">
+              <label class="upload-trigger-zone">
+                <input type="file" accept="video/mp4,video/mpeg,video/*" onchange="uploadMediaFile(this,'rep-vid')">
+                📁 Upload video file
+              </label>
+              <p class="upload-zone-limit">MP4, MPEG · 5 MB max · Uploading auto-fills the link above</p>
+              <span class="upload-status"></span>
+              <button type="button" class="upload-remove-btn" onclick="clearUpload(this,'rep-vid')">✕ Remove file</button>
+            </div>
+          </div>
+        </div>`;
+        } else if (type === "addition") {
+          fields = `
+        <div class="field">
+          <label>What type of element are you adding? <span class="req">*</span></label>
+          <select class="add-type">
+            <option value="">Select a type...</option>
+            <option value="Team Member">Team Member</option>
+            <option value="Section / Content Block">Section / Content Block</option>
+            <option value="Image">Image</option>
+            <option value="Video">Video</option>
+            <option value="Button / Link">Button / Link</option>
+            <option value="Text Block / Paragraph">Text Block / Paragraph</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Where should it appear on the page? <span class="req">*</span></label>
+          <input type="text" class="add-location" placeholder="e.g. After the testimonials section on the homepage"/>
+        </div>
+        <div class="field">
+          <label>Describe everything we need to build it <span class="req">*</span></label>
+          <textarea rows="5" class="add-description" placeholder="Include all content: names, job titles, text, photo URLs, button labels, links, etc."></textarea>
+        </div>
+        <div class="field">
+          <label>Media files <em style="font-weight:400;color:var(--muted)">(optional — upload as many images or videos as needed)</em></label>
+          <div class="add-media-container"></div>
+          <div class="upload-zone" data-multi="true">
+            <label class="upload-trigger-zone">
+              <input type="file" accept="image/*,video/mp4,video/mpeg,video/*" onchange="uploadMediaFile(this,'add-media')">
+              📁 Upload image or video
+            </label>
+            <p class="upload-zone-limit">JPG, PNG, GIF, WebP, MP4, MPEG · 5 MB max each · Upload as many as you need</p>
+            <span class="upload-status"></span>
+          </div>
+        </div>`;
+        } else if (type === "deletion") {
+          fields = `
+        <div class="field">
+          <label>What type of element are you removing? <span class="req">*</span></label>
+          <select class="del-type">
+            <option value="">Select a type...</option>
+            <option value="Team Member">Team Member</option>
+            <option value="Section / Content Block">Section / Content Block</option>
+            <option value="Image">Image</option>
+            <option value="Video">Video</option>
+            <option value="Button / Link">Button / Link</option>
+            <option value="Text / Paragraph">Text / Paragraph</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>How do we identify exactly what to remove? <span class="req">*</span></label>
+          <textarea rows="4" class="del-identifier" placeholder="Images/videos: paste the URL · Text: quote it word-for-word · Team members: full name · Sections: exact heading"></textarea>
+        </div>`;
+        } else if (type === "other") {
+          fields = `
+        <div class="field">
+          <label>What is it? <span class="req">*</span></label>
+          <input type="text" class="other-title" placeholder="e.g. Add Google Analytics tracking code, Fix contact form, Set up redirect..."/>
+        </div>
+        <div class="field">
+          <label>Details <span class="req">*</span></label>
+          <textarea rows="4" class="other-description" placeholder="Describe exactly what you need done."></textarea>
+        </div>`;
+        }
+
+        div.innerHTML = `
+      <div class="block-num">${type.charAt(0).toUpperCase() + type.slice(1)} Revision #${n}</div>
+      <button type="button" class="remove-btn" onclick="removeBlock('${type}-block-${n}','${type}')">×</button>
+      ${fields}
+      <label class="block-notes-label">Notes for this revision <em>(optional)</em></label>
+      <textarea rows="2" class="block-notes" placeholder="Any extra context for this specific change (optional)..."></textarea>`;
+
+        container.appendChild(div);
+      }
+
+      function removeBlock(id, type) {
+        const c = document.getElementById(type + "-blocks");
+        if (c.children.length <= 1) {
+          alert(
+            "Need at least one block. Deselect the type above if you have no " +
+              type +
+              " revisions.",
+          );
+          return;
+        }
+        document.getElementById(id)?.remove();
+        const label = type.charAt(0).toUpperCase() + type.slice(1);
+        c.querySelectorAll(".block-num").forEach((el, i) => {
+          el.textContent = `${label} Revision #${i + 1}`;
+        });
+      }
+
+      function chk(el) {
+        if (!el.value.trim()) {
+          el.classList.add("invalid");
+          return false;
+        }
+        el.classList.remove("invalid");
+        return true;
+      }
+
+      function clearUpload(btn, fieldClass) {
+        const zone     = btn.closest(".upload-zone");
+        const block    = btn.closest(".revision-block");
+        const urlInput = block.querySelector("." + fieldClass);
+        const statusEl = zone.querySelector(".upload-status");
+        const fileInput = zone.querySelector("input[type='file']");
+        urlInput.value      = "";
+        statusEl.textContent = "";
+        statusEl.className   = "upload-status";
+        if (fileInput) fileInput.value = "";
+        zone.classList.remove("zone-invalid");
+        btn.style.display = "none";
+      }
+
+      async function uploadMediaFile(input, fieldClass) {
+        const file = input.files[0];
+        if (!file) return;
+
+        const zone     = input.closest(".upload-zone");
+        const block    = input.closest(".revision-block");
+        const urlInput = zone.dataset.multi !== "true" ? block.querySelector("." + fieldClass) : null;
+        const statusEl = zone.querySelector(".upload-status");
+
+        // Client-side 5 MB guard
+        if (file.size > 5 * 1024 * 1024) {
+          statusEl.textContent = "File exceeds 5 MB. Please choose a smaller file.";
+          statusEl.className   = "upload-status up-error";
+          zone.classList.add("zone-invalid");
+          input.value = "";
+          return;
+        }
+
+        statusEl.textContent = "Uploading...";
+        statusEl.className   = "upload-status uploading";
+        zone.classList.remove("zone-invalid");
+
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("hosted", "false");
+
+        try {
+          const res = await fetch(
+            "https://services.leadconnectorhq.com/medias/upload-file",
+            {
+              method: "POST",
+              headers: {
+                Authorization: `Bearer ${GHL_API_TOKEN}`,
+                Version: "2021-07-28",
+              },
+              body: formData,
+            }
+          );
+
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+          const data = await res.json();
+          const url =
+            data?.fileUrl   ||
+            data?.url       ||
+            data?.data?.url ||
+            data?.mediaUrl  ||
+            null;
+
+          if (!url) throw new Error("No URL in response");
+
+          if (zone.dataset.multi === "true") {
+            const container = zone.closest(".field").querySelector(".add-media-container");
+            const item = document.createElement("div");
+            item.className = "add-media-item";
+            item.dataset.url = url;
+            item.innerHTML = `<span>✓ ${file.name}</span><button type="button" onclick="this.closest('.add-media-item').remove()">✕</button>`;
+            container.appendChild(item);
+            statusEl.textContent = "";
+            statusEl.className = "upload-status";
+          } else {
+            urlInput.value = url;
+            urlInput.classList.remove("invalid");
+            statusEl.textContent = `✓ ${file.name} uploaded`;
+            statusEl.className   = "upload-status uploaded";
+            const removeBtn = zone.querySelector(".upload-remove-btn");
+            if (removeBtn) removeBtn.style.display = "block";
+          }
+        } catch (err) {
+          console.error("GHL upload error:", err);
+          statusEl.textContent = "Upload failed. Please try again.";
+          statusEl.className   = "upload-status up-error";
+        }
+
+        input.value = "";
+      }
+
+      function submitForm() {
+        let ok = true;
+        const vague = [
+          "change this",
+          "update this",
+          "fix this",
+          "edit this",
+          "change that",
+          "update that",
+          "fix that",
+        ];
+
+        const domain = document.getElementById("domain-input");
+        const email = document.getElementById("email-input");
+        if (!chk(domain)) ok = false;
+        if (!chk(email)) ok = false;
+
+        if (activeTypes.has("text")) {
+          document
+            .querySelectorAll("#text-blocks .revision-block")
+            .forEach((b) => {
+              const c = b.querySelector(".cur-text"),
+                r = b.querySelector(".rep-text");
+              if (!chk(c)) ok = false;
+              if (!chk(r)) ok = false;
+              [c, r].forEach((el) => {
+                if (vague.includes(el.value.trim().toLowerCase())) {
+                  el.classList.add("invalid");
+                  ok = false;
+                }
+              });
+            });
+        }
+        if (activeTypes.has("image")) {
+          document
+            .querySelectorAll("#image-blocks .revision-block")
+            .forEach((b) => {
+              if (!chk(b.querySelector(".cur-img"))) ok = false;
+              const repImg = b.querySelector(".rep-img");
+              const zone   = b.querySelector(".upload-zone");
+              if (!repImg.value.trim()) {
+                ok = false;
+                zone.classList.add("zone-invalid");
+              } else {
+                zone.classList.remove("zone-invalid");
+              }
+            });
+        }
+        if (activeTypes.has("video")) {
+          document
+            .querySelectorAll("#video-blocks .revision-block")
+            .forEach((b) => {
+              if (!chk(b.querySelector(".cur-vid"))) ok = false;
+              if (!chk(b.querySelector(".rep-vid"))) ok = false;
+            });
+        }
+        if (activeTypes.has("addition")) {
+          document
+            .querySelectorAll("#addition-blocks .revision-block")
+            .forEach((b) => {
+              if (!chk(b.querySelector(".add-type"))) ok = false;
+              if (!chk(b.querySelector(".add-location"))) ok = false;
+              if (!chk(b.querySelector(".add-description"))) ok = false;
+            });
+        }
+        if (activeTypes.has("deletion")) {
+          document
+            .querySelectorAll("#deletion-blocks .revision-block")
+            .forEach((b) => {
+              if (!chk(b.querySelector(".del-type"))) ok = false;
+              if (!chk(b.querySelector(".del-identifier"))) ok = false;
+            });
+        }
+        if (activeTypes.has("other")) {
+          document
+            .querySelectorAll("#other-blocks .revision-block")
+            .forEach((b) => {
+              if (!chk(b.querySelector(".other-title"))) ok = false;
+              if (!chk(b.querySelector(".other-description"))) ok = false;
+            });
+        }
+
+        const err = document.getElementById("error-banner");
+        if (!ok) {
+          err.style.display = "block";
+          err.scrollIntoView({ behavior: "smooth", block: "center" });
+          return;
+        }
+        err.style.display = "none";
+
+        // ── Collect all revisions ──────────────────────────────────────────
+        const textRevisions = [
+          ...document.querySelectorAll("#text-blocks .revision-block"),
+        ].map((b, i) => ({
+          revision_number: i + 1,
+          type: "text",
+          current_text: b.querySelector(".cur-text").value.trim(),
+          replacement_text: b.querySelector(".rep-text").value.trim(),
+          notes: b.querySelector(".block-notes").value.trim() || "",
+        }));
+
+        const imageRevisions = [
+          ...document.querySelectorAll("#image-blocks .revision-block"),
+        ].map((b, i) => ({
+          revision_number: i + 1,
+          type: "image",
+          current_image_url: b.querySelector(".cur-img").value.trim(),
+          new_image_url: b.querySelector(".rep-img").value.trim(),
+          notes: b.querySelector(".block-notes").value.trim() || "",
+        }));
+
+        const videoRevisions = [
+          ...document.querySelectorAll("#video-blocks .revision-block"),
+        ].map((b, i) => ({
+          revision_number: i + 1,
+          type: "video",
+          current_video_url: b.querySelector(".cur-vid").value.trim(),
+          new_video_url: b.querySelector(".rep-vid").value.trim(),
+          notes: b.querySelector(".block-notes").value.trim() || "",
+        }));
+
+        const additionRevisions = [
+          ...document.querySelectorAll("#addition-blocks .revision-block"),
+        ].map((b, i) => ({
+          revision_number: i + 1,
+          type: "addition",
+          element_type: b.querySelector(".add-type").value.trim(),
+          location: b.querySelector(".add-location").value.trim(),
+          description: b.querySelector(".add-description").value.trim(),
+          media_urls: [...b.querySelectorAll(".add-media-item")].map(el => el.dataset.url).filter(Boolean),
+          notes: b.querySelector(".block-notes").value.trim() || "",
+        }));
+
+        const deletionRevisions = [
+          ...document.querySelectorAll("#deletion-blocks .revision-block"),
+        ].map((b, i) => ({
+          revision_number: i + 1,
+          type: "deletion",
+          element_type: b.querySelector(".del-type").value.trim(),
+          identifier: b.querySelector(".del-identifier").value.trim(),
+          notes: b.querySelector(".block-notes").value.trim() || "",
+        }));
+
+        const otherRevisions = [
+          ...document.querySelectorAll("#other-blocks .revision-block"),
+        ].map((b, i) => ({
+          revision_number: i + 1,
+          type: "other",
+          title: b.querySelector(".other-title").value.trim(),
+          description: b.querySelector(".other-description").value.trim(),
+          notes: b.querySelector(".block-notes").value.trim() || "",
+        }));
+
+        // ── Build a single flat human-readable summary string for ClickUp ──
+        // Map this one field to your ClickUp task description — done.
+        const lines = [];
+        const domainVal = domain.value.trim();
+        const emailVal = email.value.trim();
+        const generalNotes = document
+          .getElementById("extra-notes")
+          .value.trim();
+        const submittedAt = new Date().toLocaleString("en-US", {
+          timeZone: "America/New_York",
+          dateStyle: "medium",
+          timeStyle: "short",
+        });
+
+        lines.push(`REVISION REQUEST`);
+        lines.push(`Submitted: ${submittedAt}`);
+        lines.push(`Page URL: ${domainVal}`);
+        lines.push(`Email: ${emailVal}`);
+        if (generalNotes) lines.push(`General Notes: ${generalNotes}`);
+        lines.push("");
+
+        let globalIndex = 1;
+
+        textRevisions.forEach((r) => {
+          lines.push(`--- REVISION ${globalIndex} (Text) ---`);
+          lines.push(`CURRENT TEXT:`);
+          lines.push(r.current_text);
+          lines.push(`REPLACE WITH:`);
+          lines.push(r.replacement_text);
+          if (r.notes) lines.push(`Notes: ${r.notes}`);
+          lines.push("");
+          globalIndex++;
+        });
+
+        imageRevisions.forEach((r) => {
+          lines.push(`--- REVISION ${globalIndex} (Image) ---`);
+          lines.push(`CURRENT IMAGE URL: ${r.current_image_url}`);
+          lines.push(`NEW IMAGE URL: ${r.new_image_url}`);
+          if (r.notes) lines.push(`Notes: ${r.notes}`);
+          lines.push("");
+          globalIndex++;
+        });
+
+        videoRevisions.forEach((r) => {
+          lines.push(`--- REVISION ${globalIndex} (Video) ---`);
+          lines.push(`CURRENT VIDEO URL: ${r.current_video_url}`);
+          lines.push(`NEW VIDEO URL: ${r.new_video_url}`);
+          if (r.notes) lines.push(`Notes: ${r.notes}`);
+          lines.push("");
+          globalIndex++;
+        });
+
+        additionRevisions.forEach((r) => {
+          lines.push(`--- REVISION ${globalIndex} (Addition) ---`);
+          lines.push(`ADD: ${r.element_type}`);
+          lines.push(`WHERE: ${r.location}`);
+          lines.push(`DETAILS:`);
+          lines.push(r.description);
+          if (r.media_urls && r.media_urls.length) lines.push(`Media Files:\n${r.media_urls.map((u, i) => `  ${i + 1}. ${u}`).join("\n")}`);
+          if (r.notes) lines.push(`Notes: ${r.notes}`);
+          lines.push("");
+          globalIndex++;
+        });
+
+        deletionRevisions.forEach((r) => {
+          lines.push(`--- REVISION ${globalIndex} (Deletion) ---`);
+          lines.push(`REMOVE: ${r.element_type}`);
+          lines.push(`IDENTIFIES AS:`);
+          lines.push(r.identifier);
+          if (r.notes) lines.push(`Notes: ${r.notes}`);
+          lines.push("");
+          globalIndex++;
+        });
+
+        otherRevisions.forEach((r) => {
+          lines.push(`--- REVISION ${globalIndex} (Other) ---`);
+          lines.push(`REQUEST: ${r.title}`);
+          lines.push(`DETAILS:`);
+          lines.push(r.description);
+          if (r.notes) lines.push(`Notes: ${r.notes}`);
+          lines.push("");
+          globalIndex++;
+        });
+
+        const revisions_summary = lines.join("\n");
+        const total_revisions =
+          textRevisions.length + imageRevisions.length + videoRevisions.length +
+          additionRevisions.length + deletionRevisions.length + otherRevisions.length;
+
+        // ── Final payload ──────────────────────────────────────────────────
+        // Top-level flat fields  = map once each in GHL/ClickUp, never touch again.
+        // revisions_summary      = paste into ClickUp task description field, done.
+        // revision arrays        = structured data if you ever need it in automations.
+        const payload = {
+          // Identity
+          domain: domainVal,
+          email: emailVal,
+          submitted_at: new Date().toISOString(),
+          general_notes: generalNotes || "",
+
+          // Summary counts
+          total_revisions,
+          total_text_revisions: textRevisions.length,
+          total_image_revisions: imageRevisions.length,
+          total_video_revisions: videoRevisions.length,
+          total_addition_revisions: additionRevisions.length,
+          total_deletion_revisions: deletionRevisions.length,
+          total_other_revisions: otherRevisions.length,
+          revision_types: [...activeTypes].join(", "),
+
+          // ONE field to paste into ClickUp task description — contains everything
+          revisions_summary,
+
+          // Structured arrays (for advanced automations)
+          text_revisions: textRevisions,
+          image_revisions: imageRevisions,
+          video_revisions: videoRevisions,
+          addition_revisions: additionRevisions,
+          deletion_revisions: deletionRevisions,
+          other_revisions: otherRevisions,
+        };
+
+        const btn = document.getElementById("submit-btn");
+        btn.disabled = true;
+        btn.textContent = "Submitting…";
+
+        fetch(GHL_WEBHOOK, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }).finally(() => {
+          window.location.href =
+            "https://nilsdigital.com/revision-request-completed";
+        });
+      }
+    </script>
+  </body>
+</html>

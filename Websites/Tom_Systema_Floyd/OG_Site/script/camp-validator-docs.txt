@@ -1,0 +1,332 @@
+CAMP VALIDATOR - DOCUMENTATION
+==============================
+
+File: camp-validator.js
+Purpose: A small helper script pasted into the summer camp signup form
+in GoHighLevel. It keeps the camp duration dropdown in sync with the
+day checkboxes, prevents incomplete submissions, and adds a couple of
+convenience buttons to make filling the form faster.
+
+
+--------------------------------------------------------------------
+PLAIN ENGLISH EXPLANATION
+--------------------------------------------------------------------
+
+What this script does, in everyday terms:
+
+1. IT KEEPS THE USER HONEST
+   When someone picks "Three days" at the top of the form, the script
+   makes sure they can only tick three day boxes in each week. If they
+   try to tick a fourth, the oldest tick automatically disappears so
+   the total stays correct. They can never accidentally select too many
+   days for their chosen duration.
+
+2. IT TELLS THEM HOW THEY'RE DOING
+   Underneath each week on the form, a small coloured message appears.
+   If they haven't picked enough days yet, it says something like
+   "Select two more days for this week (1 of 3 selected)" in a soft
+   amber pill. Once the week is complete, it turns into a green
+   confirmation pill that says "All three days selected for this week."
+   The user always knows what's left to do.
+
+3. IF THEY PICK "FULL WEEK," IT FILLS IN EVERY DAY FOR THEM
+   Choosing Full Week at the top of the form automatically ticks every
+   day (Monday through Friday) in every week they've selected. They
+   don't have to click each checkbox one by one. If they later add
+   another week while Full Week is still selected, that new week gets
+   auto-filled too.
+
+4. IT GIVES THEM SHORTCUTS
+   There is a "Select All" button next to the "Select Camp Dates"
+   field that ticks every week at once (with a matching "Deselect All"
+   when everything is already selected). And when they have two or
+   more weeks showing, each week gets a "Copy to all weeks" button so
+   they can set up one week, click once, and have the same day pattern
+   applied to every other week.
+
+5. IT STOPS THEM FROM SUBMITTING AN INCOMPLETE FORM
+   If the user tries to hit Submit before every visible week has the
+   correct number of days ticked, the script blocks the submission,
+   refreshes the coloured hints under each week, and smoothly scrolls
+   them back up to the first week that still needs attention. The form
+   does not send and they do not get redirected to the thank-you page
+   until everything checks out.
+
+
+--------------------------------------------------------------------
+TECHNICAL DOCUMENTATION
+--------------------------------------------------------------------
+
+OVERVIEW
+--------
+Self-contained IIFE wrapped in literal <script> tags so the whole file
+can be pasted directly into a GoHighLevel Custom Code element at the
+bottom of the form. No build step, no external dependencies, ES5-safe
+syntax with light ES2015 features (Map, template literals).
+
+
+DOM CONTRACT
+------------
+The script reads GHL's standard form-builder markup. If any of these
+selectors change on GHL's side, the script will silently degrade.
+
+- Labels are found via:
+    .form-builder--item label.field-label
+    .form-builder--item label   (fallback)
+
+- Field wrappers are:
+    .form-field-wrapper         (preferred)
+    .form-builder--item         (fallback)
+
+- The duration dropdown is rendered by Vue-multiselect. The selected
+  value is read with a four-tier fallback:
+    li.multiselect__element[aria-selected="true"]
+    .multiselect__tag
+    .multiselect__single
+    .multiselect__tags-wrap
+
+- The "Select Camp Dates" field's checkbox host is matched with the
+  attribute selector [id$="-checkbox-container"].
+
+- Day checkboxes are any input[type="checkbox"] inside a week wrapper.
+
+- The form is located via #_builder-form, falling back to the first
+  <form> on the page.
+
+- Submit buttons are matched with:
+    button[type="submit"]
+    .hl-submit-button
+    .ghl-submit-btn
+    .hl-btn-submit
+
+Labels are matched by regex against textContent:
+- Duration:  /^\s*Select Camp Duration/i
+- Dates:     /^\s*Select Camp Dates/i
+- Week:      /Which day\(s\) will you attend the week of/i
+
+
+CORE STATE
+----------
+- DURATION_MAP: ordered array of {match, count, label} entries that
+  map the duration option text to an integer count:
+    Full Week  -> 5
+    Four days  -> 4
+    Three days -> 3
+    Two days   -> 2
+    One day    -> 1
+
+- tickOrder: Map<HTMLInputElement, number>
+  Tracks the order in which day checkboxes were ticked, keyed by the
+  element itself, valued by a performance.now() timestamp. Used by the
+  enforcement logic to evict the oldest tick when the user exceeds the
+  allowed count.
+
+- enforcing: boolean
+  Re-entrancy guard. Set to true during enforcement and auto-fill
+  loops so the click events they dispatch do not recursively trigger
+  more enforcement.
+
+- documentGuardAttached: boolean
+  Idempotency flag that ensures the document-level submit-button click
+  listener is attached exactly once, even though attachSubmitGuard is
+  called on a polling interval.
+
+- window.__campValidatorLoaded
+  Duplicate-load guard. If the GHL Custom Code element runs twice, the
+  second IIFE bails immediately and does not attach a second set of
+  listeners or intervals.
+
+- window.__campValidatorWarnedDurations
+  Deduplication cache for console.warn messages about unrecognized
+  duration option text. One warning per unique string.
+
+
+SUBSYSTEMS
+----------
+
+1. Duration resolution -- getExpectedCount()
+   Reads the selected option from the duration wrapper via the
+   four-tier text fallback, then matches against DURATION_MAP.
+   Returns null if nothing matches, which disables all downstream
+   behaviour (hints, enforcement, submit validation, auto-fill).
+   Unknown strings trigger a one-time console.warn so misconfiguration
+   is debuggable.
+
+2. Per-week enforcement -- enforceMaxForWrapper / enforceMaxAllWrappers
+   When a visible week has more boxes checked than the duration
+   allows, the oldest tick (by tickOrder) is evicted via
+   uncheckCheckbox. uncheckCheckbox first tries a native .click(), and
+   if the state does not flip (possible if Vue intercepts), it
+   manually sets .checked = false and dispatches synthetic input and
+   change events. The box the user just clicked is protected from
+   eviction when any older alternative exists, so the latest user
+   intent always wins.
+
+3. Full Week auto-fill -- autoFillFullWeek()
+   When the resolved duration label is exactly "Full Week", the
+   function iterates every visible week wrapper and clicks every
+   unchecked checkbox, stamping tickOrder as it goes. Runs gated by
+   the enforcing flag so enforcement does not fight it mid-fill.
+
+   Called from three places:
+   - onClickBubble, 50ms after any multiselect option click (duration
+     changes)
+   - onReady, as part of initial startup
+   - The 700ms recovery interval, so newly-visible weeks get filled
+     while Full Week is still selected
+
+   If the user unticks a box while Full Week is active, the next
+   interval tick re-checks it. This matches the enforcement contract:
+   Full Week means all days. To opt out of a specific day they must
+   change the duration.
+
+4. Per-week hint UI -- updateHints()
+   Renders a soft pill beneath each visible week's label.
+   - Warn (amber, #FFF6E0 bg): "Select N more day(s) for this week"
+   - OK (green, #E8F7EE bg):    "All N days selected for this week"
+   - Transient warn: "Adjusting selections..." during enforcement.
+   Hints are torn down and rebuilt on every update; there is no
+   diffing.
+
+5. Submit validation -- validateOnSubmit / attachSubmitGuard
+   Two-layer defense to prevent incomplete submissions from going
+   through and from triggering GHL's redirect:
+   - Capture-phase 'submit' listener on the form element:
+       preventDefault + stopPropagation on failure.
+   - Capture-phase 'click' listener on document watching submit
+     buttons: additionally calls stopImmediatePropagation so GHL's own
+     submit handler never fires.
+   On a failed validation the hints are refreshed and the page
+   smooth-scrolls to the first bad week. If the duration is not yet
+   selected or no week wrappers are visible, validation returns true
+   (allowing submit) -- GHL's own "required" enforcement is expected
+   to cover those cases.
+
+6. Select All button -- installSelectAllButton / syncSelectAllBtn
+   A pill button injected into the "Select Camp Dates" label. Click
+   toggles every checkbox in the -checkbox-container between fully
+   checked and fully unchecked. Label flips between "Select All" and
+   "Deselect All", with an .is-active visual (filled blue) when
+   everything is selected. Synced on every change event.
+
+7. Copy to all weeks -- copyPatternFromWrapper / installCopyButtons /
+   syncCopyBtnState
+   A pill button injected into each week's label. Only rendered when
+   two or more week wrappers are visible, and only enabled when the
+   source week has exactly expected.count boxes ticked. On click:
+     a. Reads the boolean checked-pattern of the source week.
+     b. For every other visible week, clicks boxes whose state
+        differs, matching by index (Math.min of the two lengths).
+     c. Updates tickOrder for each newly-ticked box.
+     d. Flashes "Copied" for 900ms with the button disabled during the
+        flash to prevent overlapping animations; syncCopyBtnState
+        re-evaluates afterwards.
+
+8. Multiselect click handling -- onClickBubble
+   Vue-multiselect does not emit a native change event on document.
+   This capture-phase click listener detects clicks on
+   li.multiselect__element or .multiselect__option and schedules
+   enforceMaxAllWrappers + autoFillFullWeek + updateHints 50ms later,
+   giving Vue time to commit the new selection.
+
+
+LIFECYCLE
+---------
+- On DOMContentLoaded (or immediately if the DOM is already ready),
+  onReady() runs:
+    - Seeds tickOrder for any pre-checked boxes with back-dated
+      timestamps so they are first to be evicted under pressure.
+    - Attaches capture-phase change and click listeners on document.
+      These listeners survive GHL form re-mounts.
+    - Installs all buttons, hooks the submit guard, auto-fills if Full
+      Week is already selected, and renders the initial hints.
+
+- A 700ms setInterval re-invokes the installers and updaters:
+    installSelectAllButton, syncSelectAllBtn, installCopyButtons,
+    attachSubmitGuard, autoFillFullWeek, updateHints
+  Every one of these is idempotent. The interval exists specifically
+  to recover from GHL re-rendering the form (step navigation,
+  conditional logic, live editing in the GHL builder).
+
+
+STYLING
+-------
+All CSS is injected once into a <style id="camp-validator-css"> tag.
+The two pill buttons share a soft-blue palette:
+  #EAF1FF (background), #1e4fd6 (text), #B9CCF7 (border)
+
+Text colour uses !important because GHL's inherited label colour
+otherwise beats the class selector and renders the button text black.
+
+Tap targets:
+  36px minimum height on desktop
+  40px minimum height on viewports <= 480px wide
+  Buttons drop to display: block on mobile so they don't collide with
+  wrapped label text.
+
+Hint colours follow semantic conventions:
+  Warn: amber (#FFF6E0 bg, #8a5a00 text)
+  OK:   mint  (#E8F7EE bg, #1b6b3a text)
+
+
+SAFETY FEATURES
+---------------
+- Duplicate-load guard. The IIFE bails on second execution so two
+  copies of the script do not stack intervals and listeners.
+- Re-entrancy guard (enforcing). Prevents enforcement-triggered clicks
+  from recursively triggering more enforcement, and prevents the
+  Full Week auto-fill from fighting enforcement.
+- Idempotent installers. form.__campGuard, documentGuardAttached, and
+  "does this element already exist" checks ensure nothing is attached
+  twice even though the interval calls them repeatedly.
+- CSS injection guarded by existence check on the style tag id.
+
+
+KNOWN BEHAVIOURS AND TRADE-OFFS
+-------------------------------
+- Unknown duration text (e.g., "Five days" or "Half Week") silently
+  disables the script and logs the unrecognized string once.
+- "Copy to all weeks" matches checkboxes by index across weeks, so it
+  assumes every week presents the same day options in the same order.
+  This is true for a Monday-through-Friday form, which is the only
+  configuration in production.
+- Checkbox references in tickOrder are held strongly. If GHL ever
+  removes a week's DOM nodes, those checkbox elements will linger in
+  the Map until the page unloads. Impact is negligible for a single
+  form fill.
+- The 700ms polling loop is the recovery mechanism for GHL re-renders.
+  A MutationObserver would be lighter but add complexity; the polling
+  is intentional.
+- Full Week auto-fill is aggressive by design. A user cannot keep a
+  day unticked while Full Week is selected; the next polling tick
+  fills it back in. The escape hatch is to change the duration.
+- The file opens with a literal <script> tag so it can be pasted into
+  a GHL Custom Code element. IDEs that parse the file as TypeScript
+  or JSX will flag spurious "unexpected token" errors inside the CSS
+  template literal. These are false positives. Add // @ts-nocheck at
+  the top of the file if the noise is a problem.
+
+
+FILE LAYOUT
+-----------
+- Duplicate-load guard
+- Constants and regexes
+- Module state
+- CSS template literal
+- CSS injection IIFE
+- DOM helpers (findLabelContainer, isVisible, getBoxes, etc.)
+- Duration resolution (getExpectedCount)
+- Enforcement (enforceMaxForWrapper, enforceMaxAllWrappers)
+- Full Week auto-fill (autoFillFullWeek)
+- Hint UI (updateHints)
+- Submit validation (validateOnSubmit, attachSubmitGuard)
+- Select All button (installSelectAllButton, syncSelectAllBtn)
+- Copy to all weeks (copyPatternFromWrapper, installCopyButtons,
+  syncCopyBtnState)
+- Wiring (onChange, onClickBubble, findWeekWrapperContaining)
+- Startup (onReady, 700ms recovery interval)
+
+
+LAST UPDATED
+------------
+2026-04-19

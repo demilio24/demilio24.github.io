@@ -1,0 +1,127 @@
+﻿//track student class selections.
+// data object for selectClass method = 
+// {
+//      waitlistOpenings: 1,
+//      maxWaitlistOpenings: 5,
+//      openings: 1,
+//      maxOpenings: 5
+// }
+
+//point is to use this then call getFullClasses() / getWaitlistClasses() to send ids to search page for filtering based on client side selections
+
+var ClassTracker = function (allowWaitlist) {
+    //keep lists of classes that are completely full, or classes that have been toggled to 'waitlist' mode.
+    // we should inform the class search page with these ids so that we can properly filter classes based on client side selections.
+    var fullClasses = [];
+    var waitListClasses = [];
+    //keep all selected class data objects here
+    var selectedClasses = {};
+    
+    //store class data on initial call. 
+    // manage openings and waitlistOpenings for a class
+    function selectClass(id, classData) {
+        var thisClass = selectedClasses[id];
+
+        //if we haven't stored our initial class data then do so.
+        if (!thisClass) {            
+            //loop through and create new object. class data being passed from a completely different window gives us issues in IE when we attempt to reference this data again.
+            //I think IE is locking access to the object after the window it originated from is closed (context is then gone).
+            var obj = {};
+            for (var x in classData) {
+                if (classData.hasOwnProperty(x)) {
+                    obj[x] = classData[x];
+                }
+            }
+
+            thisClass = selectedClasses[id] = obj;
+        }
+
+        //regular enrollment?
+        if (thisClass.openings > 0) {
+            thisClass.openings -= 1;
+
+            //now decide if we should add this class to start waitlist or if it's completely full (no waitlist)
+            if (thisClass.openings <= 0) {
+                if (allowWaitlist) {
+                    if (waitListClasses.indexOf(id) < 0) {
+                        waitListClasses.push(id);
+                    }
+                } else {
+                    if (fullClasses.indexOf(id) < 0) {
+                        fullClasses.push(id);
+                    }
+                }                
+            }
+        }
+        else if (allowWaitlist && thisClass.waitlistOpenings > 0) { // flip to waitlist?
+            thisClass.waitlistOpenings -= 1;
+            //push a single instance of this id to the waitlist flag array
+            if (waitListClasses.indexOf(id) < 0) {
+                waitListClasses.push(id);
+            }
+
+            //If we've reduced all of our waitlist spots also mark this class as full
+            if (thisClass.waitlistOpenings <= 0) {
+                if (fullClasses.indexOf(id) < 0) {
+                    fullClasses.push(id);
+                }
+                
+            }
+        }
+    }
+
+    //clear a class
+    //  manage 'fullClasses' and 'waitlistClasses'
+    function clearClass(id) {
+        var thisClass = selectedClasses[id];        
+
+        //always remove from 'full classes'
+        for (var i = 0; i < fullClasses.length; i++) {
+            if (fullClasses[i] == id) {
+                fullClasses.splice(i, 1);
+            }
+        }
+        
+        //manage waitlist and / or regular openings
+        if (waitListClasses.indexOf(id) >= 0 && allowWaitlist) {
+            //flagged for waitlist, but max spots are available
+            if (thisClass.waitlistOpenings === thisClass.maxWaitlistOpenings) {
+                //remove from list of wait lists
+                waitListClasses.splice(waitListClasses.indexOf(id), 1);
+
+                //add to openings instead of wait list
+                thisClass.openings += 1;
+            } else {
+                //we have room to free up on wait list
+                thisClass.waitlistOpenings += 1;
+            }
+        } else {
+            //class isn't flagged as waitlist so just manage openings
+            thisClass.openings += 1;
+        }
+    }
+
+
+
+    //return public methods
+    return {
+        selectClass: selectClass,
+        clearClass: clearClass,
+        getFullClasses: function() {
+            return fullClasses;
+        },
+        getWaitlistClasses: function() {
+            return waitListClasses;
+        },
+        classIsFull: function(id) {
+            return fullClasses.some(function(x) {
+                return x === id;
+            });
+        },
+        classIsWaitlist: function(id) {
+            return waitListClasses.some(function() {
+                return x === id;
+            });
+        }
+    }
+};

@@ -1,0 +1,446 @@
+<!-- Microsoft Clarity -->
+<script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wkegb4xxls");
+</script>
+
+<style>
+  html,
+  body {
+    overflow-x: hidden !important;
+  }
+  body,
+  .hl_page-preview--content,
+  .hl_page-preview--content > div,
+  .custom-code-element,
+  section,
+  .section,
+  .row,
+  .inner-row,
+  .col,
+  .inner-col,
+  .container,
+  [class*="container"],
+  [class*="wrapper"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+</style>
+
+<style>
+  .ty-wrap * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .ty-wrap {
+    font-family:
+      "Inter",
+      -apple-system,
+      sans-serif;
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #0b2e5f;
+  }
+
+  .ty-wrap .bg {
+    position: absolute;
+    inset: 0;
+  }
+  .ty-wrap .bg-img {
+    position: absolute;
+    inset: 0;
+    background: url("https://storage.googleapis.com/msgsndr/LHyUDIth9k9Kk9qv4BzQ/media/6964950af13bc38ae7b708a8.webp")
+      center/cover no-repeat;
+    filter: blur(6px) brightness(0.35) saturate(1.3);
+    transform: scale(1.1);
+  }
+  .ty-wrap .bg-caustics {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        ellipse 300px 200px at 25% 40%,
+        rgba(111, 190, 215, 0.18) 0%,
+        transparent 100%
+      ),
+      radial-gradient(
+        ellipse 250px 300px at 75% 60%,
+        rgba(72, 199, 220, 0.12) 0%,
+        transparent 100%
+      );
+    animation: tyShift 8s ease-in-out infinite alternate;
+  }
+  @keyframes tyShift {
+    0% {
+      opacity: 0.6;
+      transform: translateX(0) scale(1);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(-20px) scale(1.05);
+    }
+  }
+
+  .ty-card {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    margin: 24px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    padding: 36px 32px 32px;
+    box-shadow:
+      0 24px 64px rgba(0, 0, 0, 0.3),
+      0 4px 16px rgba(0, 0, 0, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  }
+
+  .ty-logo-wrap {
+    width: 88px;
+    height: 88px;
+    margin: 0 auto 24px;
+    position: relative;
+    animation: tyFadeUp 0.4s ease both;
+  }
+  .ty-logo-wrap img {
+    width: 88px;
+    height: 88px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 20px rgba(27, 75, 114, 0.2);
+  }
+  .ty-check-overlay {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #43a047, #2e7d32);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: tyCheckFlash 2.2s cubic-bezier(0.34, 1.56, 0.64, 1) 0.3s both;
+    box-shadow: 0 4px 16px rgba(76, 175, 80, 0.4);
+  }
+  .ty-check-overlay svg {
+    width: 40px;
+    height: 40px;
+    stroke-dasharray: 30;
+    animation: tyDrawCheck 0.45s ease 0.55s both;
+  }
+  .ty-logo-wrap::after {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 50%;
+    border: 2.5px solid rgba(76, 175, 80, 0.5);
+    animation: tyRingFlash 2.2s ease 0.3s both;
+  }
+
+  @keyframes tyCheckFlash {
+    0% {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    15% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    55% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    80% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+    100% {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+  @keyframes tyRingFlash {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    15% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    55% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    80% {
+      opacity: 0;
+      transform: scale(1.3);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes tyDrawCheck {
+    0% {
+      stroke-dashoffset: 30;
+      opacity: 0;
+    }
+    100% {
+      stroke-dashoffset: 0;
+      opacity: 1;
+    }
+  }
+  @keyframes tyFadeUp {
+    0% {
+      transform: translateY(14px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .ty-card h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: 26px;
+    font-weight: 800;
+    color: #1b4b72;
+    margin-bottom: 8px;
+    line-height: 1.15;
+    animation: tyFadeUp 0.5s ease 0.3s both;
+  }
+  .ty-card .ty-sub {
+    font-size: 15px;
+    color: #5a6a7a;
+    line-height: 1.55;
+    margin-bottom: 28px;
+    animation: tyFadeUp 0.5s ease 0.4s both;
+  }
+
+  .ty-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    padding: 16px 28px;
+    background: linear-gradient(135deg, #1b4b72, #2773b1);
+    color: #fff !important;
+    font-family: "Poppins", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    text-decoration: none !important;
+    border-radius: 14px;
+    box-shadow: 0 4px 18px rgba(27, 75, 114, 0.35);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    animation: tyFadeUp 0.5s ease 0.55s both;
+  }
+  .ty-cta::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.15),
+      transparent
+    );
+    animation: tyShimmer 3s ease-in-out 1s infinite;
+  }
+  @keyframes tyShimmer {
+    0% {
+      left: -100%;
+    }
+    30% {
+      left: 100%;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+  .ty-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(27, 75, 114, 0.45);
+  }
+  .ty-cta svg {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .ty-steps {
+    margin-top: 24px;
+    animation: tyFadeUp 0.5s ease 0.7s both;
+  }
+  .ty-steps-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #9ca3af;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .ty-step {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    border-radius: 12px;
+    margin-bottom: 6px;
+  }
+  .ty-step:first-child {
+    background: rgba(210, 249, 181, 0.25);
+  }
+  .ty-step:last-child {
+    margin-bottom: 0;
+  }
+  .ty-step-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .ty-step-dot.done {
+    background: #d2f9b5;
+    color: #2e7d32;
+  }
+  .ty-step-dot.pending {
+    background: #e7f3ff;
+    color: #1b4b72;
+  }
+  .ty-step-text {
+    font-size: 14px;
+    color: #3a4a5a;
+    line-height: 1.4;
+    text-align: left;
+  }
+  .ty-step-text strong {
+    color: #1b4b72;
+    font-weight: 700;
+  }
+
+  @media (max-width: 480px) {
+    .ty-card {
+      padding: 28px 22px 24px;
+      margin: 16px;
+    }
+    .ty-logo-wrap {
+      width: 72px;
+      height: 72px;
+    }
+    .ty-logo-wrap img {
+      width: 72px;
+      height: 72px;
+    }
+    .ty-check-overlay svg {
+      width: 32px;
+      height: 32px;
+    }
+    .ty-card h1 {
+      font-size: 22px;
+    }
+    .ty-card .ty-sub {
+      font-size: 14px;
+    }
+    .ty-cta {
+      font-size: 16px;
+      padding: 14px 22px;
+    }
+  }
+</style>
+
+<div class="ty-wrap">
+  <div class="bg">
+    <div class="bg-img"></div>
+    <div class="bg-caustics"></div>
+  </div>
+  <div class="ty-card">
+    <div class="ty-logo-wrap">
+      <img
+        src="https://assets.cdn.filesafe.space/LHyUDIth9k9Kk9qv4BzQ/media/696481d3f8a93b4538e2117f.jpg"
+        alt="LowCountry Swim School"
+      />
+      <div class="ty-check-overlay">
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#fff"
+          stroke-width="3"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M20 6L9 17l-5-5" />
+        </svg>
+      </div>
+    </div>
+    <h1>You're All Set!</h1>
+    <p class="ty-sub">
+      We received your info and can't wait to get you in the water!
+    </p>
+    <a target="_top" href="tel:843-981-2885" class="ty-cta">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path
+          d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+        />
+      </svg>
+      Call Now: (843) 981-2885
+    </a>
+    <div class="ty-steps">
+      <p class="ty-steps-label">What happens next</p>
+      <div class="ty-step">
+        <div class="ty-step-dot done">&#10003;</div>
+        <div class="ty-step-text"><strong>Info received</strong></div>
+      </div>
+      <div class="ty-step">
+        <div class="ty-step-dot pending">2</div>
+        <div class="ty-step-text">
+          <strong>We'll call or text</strong> within 24 hours
+        </div>
+      </div>
+      <div class="ty-step">
+        <div class="ty-step-dot pending">3</div>
+        <div class="ty-step-text">
+          <strong>Get matched</strong> with the perfect program
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

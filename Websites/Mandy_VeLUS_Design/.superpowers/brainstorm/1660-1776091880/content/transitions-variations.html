@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Section Transition Variations</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #1a1a2e; color: #e0e0e0; padding: 32px; }
+  h1 { font-size: 28px; font-weight: 300; color: #fff; margin-bottom: 8px; text-align: center; }
+  .subtitle { font-size: 14px; color: #888; text-align: center; margin-bottom: 40px; }
+  .variation { margin-bottom: 36px; background: #222240; border-radius: 16px; overflow: hidden; border: 1px solid #333; cursor: pointer; transition: border-color .3s, box-shadow .3s; }
+  .variation:hover { border-color: #B89A6A; box-shadow: 0 0 24px rgba(184,154,106,.15); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 32px rgba(184,154,106,.25); }
+  .var-label { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #333; }
+  .var-letter { width: 32px; height: 32px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+  .var-title { font-size: 15px; font-weight: 600; color: #fff; }
+  .var-desc { font-size: 13px; color: #999; padding: 12px 24px; line-height: 1.6; border-top: 1px solid #2a2a45; }
+  .selected .var-letter { background: #fff; color: #B89A6A; }
+  .section-label { font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: #888; padding: 6px 16px; }
+</style>
+</head>
+<body>
+
+<h1>Section Transitions: Services → Gallery</h1>
+<p class="subtitle">This is the biggest jump — cream/ivory into dark brown. Which transition feels most premium?</p>
+
+<!-- A: Pure gradient fade -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">A</div><div class="var-title">Pure Gradient Fade — Seamless</div></div>
+  <div>
+    <div class="section-label">Services section (ivory)</div>
+    <div style="height:80px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:12px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;">· · · service cards above · · ·</span>
+    </div>
+    <div style="height:100px;background:linear-gradient(to bottom, #FAF6F0 0%, #2A1E1A 100%);"></div>
+    <div style="height:80px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:12px;color:rgba(243,235,221,.4);letter-spacing:.1em;text-transform:uppercase;">· · · gallery below · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">No divider element at all — just a CSS gradient that smoothly blends ivory into dark. Invisible and seamless. The most minimal approach.</div>
+</div>
+
+<!-- B: Gradient fade + thin gold line -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">B</div><div class="var-title">Gradient + Gold Line — Refined</div></div>
+  <div>
+    <div class="section-label">Services section (ivory)</div>
+    <div style="height:80px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:12px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;">· · · service cards above · · ·</span>
+    </div>
+    <div style="height:40px;background:linear-gradient(to bottom, #FAF6F0, #d4c5b0);"></div>
+    <div style="height:1px;background:linear-gradient(90deg, transparent 10%, rgba(184,154,106,.4) 30%, rgba(184,154,106,.4) 70%, transparent 90%);"></div>
+    <div style="height:40px;background:linear-gradient(to bottom, #3a2e24, #2A1E1A);"></div>
+    <div style="height:80px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:12px;color:rgba(243,235,221,.4);letter-spacing:.1em;text-transform:uppercase;">· · · gallery below · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">Gradient fades to a midpoint, a thin horizontal gold line marks the boundary, then continues fading into dark. Intentional but subtle. The gold line echoes the design system.</div>
+</div>
+
+<!-- C: Gradient + gold diamond divider -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">C</div><div class="var-title">Gradient + Diamond Divider — Decorative</div></div>
+  <div>
+    <div class="section-label">Services section (ivory)</div>
+    <div style="height:80px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:12px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;">· · · service cards above · · ·</span>
+    </div>
+    <div style="height:30px;background:linear-gradient(to bottom, #FAF6F0, #e8ddd0);"></div>
+    <div style="background:#e0d5c8;display:flex;align-items:center;justify-content:center;padding:16px 0;gap:16px;">
+      <div style="flex:1;max-width:180px;height:1px;background:linear-gradient(90deg,transparent,rgba(184,154,106,.35));"></div>
+      <div style="width:8px;height:8px;background:#B89A6A;transform:rotate(45deg);opacity:.5;flex-shrink:0;"></div>
+      <div style="flex:1;max-width:180px;height:1px;background:linear-gradient(90deg,rgba(184,154,106,.35),transparent);"></div>
+    </div>
+    <div style="height:30px;background:linear-gradient(to bottom, #3a2e24, #2A1E1A);"></div>
+    <div style="height:80px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:12px;color:rgba(243,235,221,.4);letter-spacing:.1em;text-transform:uppercase;">· · · gallery below · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">Gradient with a centered gold diamond ornament and extending lines. More decorative, signals a deliberate section break. Classic interior design aesthetic.</div>
+</div>
+
+<!-- D: Hard edge with gold top border on dark section -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">D</div><div class="var-title">Clean Edge + Gold Top Border — Architectural</div></div>
+  <div>
+    <div class="section-label">Services section (ivory)</div>
+    <div style="height:80px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:12px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;">· · · service cards above · · ·</span>
+    </div>
+    <div style="height:3px;background:linear-gradient(90deg, transparent 5%, rgba(184,154,106,.3) 20%, rgba(184,154,106,.5) 50%, rgba(184,154,106,.3) 80%, transparent 95%);"></div>
+    <div style="height:80px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:12px;color:rgba(243,235,221,.4);letter-spacing:.1em;text-transform:uppercase;">· · · gallery below · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">No gradient at all — a crisp, intentional edge with a thin gold line sitting right at the boundary. Feels architectural and structured. Bold and confident.</div>
+</div>
+
+<!-- E: Angled cut -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">E</div><div class="var-title">Angled Cut — Dynamic</div></div>
+  <div>
+    <div class="section-label">Services section (ivory)</div>
+    <div style="height:80px;background:#FAF6F0;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:12px;color:#7A6B62;letter-spacing:.1em;text-transform:uppercase;">· · · service cards above · · ·</span>
+    </div>
+    <div style="position:relative;height:60px;background:#2A1E1A;">
+      <div style="position:absolute;top:0;left:0;right:0;height:60px;background:#FAF6F0;clip-path:polygon(0 0, 100% 0, 100% 30%, 0 100%);"></div>
+    </div>
+    <div style="height:80px;background:#2A1E1A;display:flex;align-items:center;justify-content:center;">
+      <span style="font-size:12px;color:rgba(243,235,221,.4);letter-spacing:.1em;text-transform:uppercase;">· · · gallery below · · ·</span>
+    </div>
+  </div>
+  <div class="var-desc">A subtle diagonal cut — the ivory section angles down into the dark. Adds movement and modernity. More dynamic than a flat edge but still clean.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+
+</body>
+</html>

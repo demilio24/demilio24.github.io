@@ -1,0 +1,50 @@
+var Jr;
+(function (Jr) {
+    var CodeUtils;
+    (function (CodeUtils) {
+        var Migration;
+        (function (Migration) {
+            Migration.globalOptions = {
+                mute: true
+            };
+            Migration.obsoleteEvents = {};
+            var blockCounter = 0;
+            function wrapObsolete(obsoleteFunc, obsoleteFuncName, newFuncName, note) {
+                var wrap = function () {
+                    if (!Migration.globalOptions.mute && blockCounter === 0) {
+                        var message = "Function '".concat(obsoleteFuncName, "' is obsolete.");
+                        if (newFuncName) {
+                            message += " Use function '".concat(newFuncName, "'.");
+                        }
+                        if (note) {
+                            message += " Note: '".concat(note, "'");
+                        }
+                        if (isNaN(Migration.obsoleteEvents[message])) {
+                            Migration.obsoleteEvents[message] = 0;
+                            console.warn("[Jr_Migrate]: ".concat(message));
+                        }
+                        else {
+                            Migration.obsoleteEvents[message]++;
+                        }
+                    }
+                    blockCounter++;
+                    var result = obsoleteFunc.apply(this, arguments);
+                    blockCounter--;
+                    return result;
+                };
+                wrap.prototype = obsoleteFunc.prototype;
+                return wrap;
+            }
+            Migration.wrapObsolete = wrapObsolete;
+            var testFunction = function () { };
+            var testFunctionWrapped = wrapObsolete(testFunction, '[Obsolete Function]', '[New Function]');
+            function testObsolete() {
+                testFunctionWrapped();
+                testFunctionWrapped();
+            }
+            Migration.testObsolete = testObsolete;
+        })(Migration = CodeUtils.Migration || (CodeUtils.Migration = {}));
+    })(CodeUtils = Jr.CodeUtils || (Jr.CodeUtils = {}));
+})(Jr || (Jr = {}));
+window._jr_obsolete_ = Jr.CodeUtils.Migration.wrapObsolete;
+//# sourceMappingURL=migration.js.map

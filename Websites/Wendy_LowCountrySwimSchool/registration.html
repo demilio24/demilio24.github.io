@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <title>Student Registration — LowCountry Swim School</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:      #22c55e;
+      --green-dark: #16a34a;
+      --green-light:#dcfce7;
+      --green-mid:  #4ade80;
+      --blue:       #2773b1;
+      --navy:       #081c30;
+      --teal:       #0d9488;
+      --yellow:     #fbbf24;
+      --white:      #ffffff;
+      --bg:         #f0fdf4;
+      --text:       #14532d;
+      --text-body:  #1e3a2a;
+      --muted:      #6b7280;
+      --border:     #bbf7d0;
+      --error:      #dc2626;
+      --radius-lg:  20px;
+      --radius:     12px;
+      --shadow:     0 8px 40px rgba(22,163,74,0.15), 0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── ANIMATED BG ─── */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(160deg, #e0f7e9 0%, #f0fdf4 40%, #d1fae5 100%);
+      overflow: hidden;
+    }
+    .bg-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.45;
+      animation: float 12s ease-in-out infinite;
+    }
+    .bg-blob-1 { width: 500px; height: 500px; background: #86efac; top: -120px; left: -100px; animation-delay: 0s; }
+    .bg-blob-2 { width: 400px; height: 400px; background: #bbf7d0; bottom: -80px; right: -80px; animation-delay: 4s; }
+    .bg-blob-3 { width: 300px; height: 300px; background: #a7f3d0; top: 40%; left: 60%; animation-delay: 8s; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-30px) scale(1.05); }
+    }
+
+    /* ─── TOPBAR ─── */
+    .topbar {
+      position: relative;
+      z-index: 10;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      box-shadow: 0 2px 12px rgba(8,28,48,0.4);
+    }
+    .topbar img { height: 54px; width: auto; }
+
+    /* ─── PROGRESS ─── */
+    .progress-wrap {
+      position: relative;
+      z-index: 10;
+      background: rgba(255,255,255,0.7);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+    }
+    .progress-inner {
+      max-width: 660px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .progress-track {
+      flex: 1;
+      height: 10px;
+      background: #d1fae5;
+      border-radius: 50px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--green), var(--green-mid));
+      border-radius: 50px;
+      transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      width: 0%;
+    }
+    .progress-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-dark);
+      white-space: nowrap;
+    }
+    .progress-swimmer {
+      font-size: 18px;
+      transition: transform 0.5s ease;
+    }
+
+    /* ─── STAGE ─── */
+    .stage {
+      position: relative;
+      z-index: 5;
+      min-height: calc(100vh - 120px);
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 32px 16px 80px;
+    }
+
+    /* ─── SLIDE CARD ─── */
+    .slide {
+      display: none;
+      width: 100%;
+      max-width: 640px;
+      animation: slideIn 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+    .slide.active { display: block; }
+    .slide.exit {
+      display: block;
+      animation: slideOut 0.35s ease forwards;
+      pointer-events: none;
+      position: absolute;
+    }
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateX(60px) scale(0.97); }
+      to   { opacity: 1; transform: translateX(0) scale(1); }
+    }
+    @keyframes slideOut {
+      from { opacity: 1; transform: translateX(0) scale(1); }
+      to   { opacity: 0; transform: translateX(-60px) scale(0.97); }
+    }
+    .slide.back-in  { animation: backIn  0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+    .slide.back-out { animation: backOut 0.35s ease forwards; }
+    @keyframes backIn  { from { opacity:0; transform:translateX(-60px) scale(0.97); } to { opacity:1; transform:translateX(0) scale(1); } }
+    @keyframes backOut { from { opacity:1; transform:translateX(0) scale(1); } to { opacity:0; transform:translateX(60px) scale(0.97); } }
+
+    .slide-card {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      border: 1.5px solid rgba(187,247,208,0.6);
+      overflow: hidden;
+    }
+
+    /* ─── SLIDE HEADER ─── */
+    .slide-header {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d2d4a 100%);
+      padding: 28px 32px 24px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .slide-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 100%, rgba(34,197,94,0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .slide-header::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none;
+    }
+    .slide-emoji {
+      font-size: 48px;
+      display: block;
+      margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+      animation: bob 3s ease-in-out infinite;
+    }
+    @keyframes bob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    .slide-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(20px, 3.5vw, 26px);
+      font-weight: 800;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+      margin-bottom: 6px;
+      line-height: 1.25;
+    }
+    .slide-title .green { color: var(--green-mid); }
+    .slide-subtitle {
+      font-size: 13.5px;
+      color: rgba(255,255,255,0.65);
+      position: relative;
+      z-index: 2;
+      line-height: 1.5;
+    }
+
+    /* ─── SLIDE BODY ─── */
+    .slide-body {
+      padding: 28px 28px 10px;
+    }
+
+    /* ─── FIELDS ─── */
+    .field-group {
+      display: grid;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+    .field-group.cols-2 { grid-template-columns: 1fr 1fr; }
+    .field-group.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+    .field { display: flex; flex-direction: column; gap: 5px; }
+
+    .field label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-body);
+    }
+    .field label .req { color: var(--error); margin-left: 2px; }
+    .field label .opt { font-weight: 400; font-size: 11.5px; color: var(--muted); margin-left: 4px; }
+
+    .field input,
+    .field select,
+    .field textarea {
+      width: 100%;
+      padding: 11px 14px;
+      border: 2px solid #d1fae5;
+      border-radius: 10px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--text-body);
+      background: #f9fefb;
+      outline: none;
+      min-height: 46px;
+      transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 4px rgba(34,197,94,0.12);
+      background: #fff;
+    }
+    .field input::placeholder,
+    .field textarea::placeholder { color: #a7c4b0; font-size: 13.5px; }
+    .field textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2316a34a' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 13px center;
+      padding-right: 36px;
+      cursor: pointer;
+    }
+    .field input.invalid,
+    .field select.invalid { border-color: var(--error) !important; box-shadow: 0 0 0 4px rgba(220,38,38,0.1) !important; }
+    .field-error { font-size: 12px; color: var(--error); font-weight: 600; display: none; }
+    .field-error.show { display: block; }
+    .field-hint { font-size: 11.5px; color: var(--muted); }
+
+    /* ─── SECTION LABEL ─── */
+    .sub-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--green-dark);
+      margin: 16px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .sub-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── DIVIDER ─── */
+    .slide-divider { border: none; border-top: 1.5px dashed #d1fae5; margin: 18px 0; }
+
+    /* ─── CONSENT BOX ─── */
+    .consent-box {
+      background: var(--green-light);
+      border: 1.5px solid #86efac;
+      border-radius: 10px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+    }
+    .consent-box input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--green-dark);
+      cursor: pointer;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .consent-box label {
+      font-size: 12.5px;
+      color: #166534;
+      line-height: 1.55;
+      cursor: pointer;
+      font-weight: 400;
+    }
+
+    /* ─── SKILL PILLS ─── */
+    .skill-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+    .skill-pill {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border: 2px solid #d1fae5;
+      border-radius: 50px;
+      padding: 7px 15px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-body);
+      cursor: pointer;
+      background: #f9fefb;
+      transition: all 0.15s;
+    }
+    .skill-pill input[type="radio"] {
+      width: 15px; height: 15px;
+      accent-color: var(--green-dark);
+      cursor: pointer;
+    }
+    .skill-pill:has(input:checked) {
+      border-color: var(--green);
+      background: var(--green-light);
+      color: var(--green-dark);
+      font-weight: 700;
+    }
+
+    /* ─── STUDENT BLOCK ─── */
+    .student-block {
+      background: var(--bg);
+      border: 2px solid #d1fae5;
+      border-radius: 12px;
+      padding: 18px;
+      margin-bottom: 12px;
+      position: relative;
+    }
+    .student-block-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--green-dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .student-block-label::before {
+      content: '';
+      width: 3px; height: 14px;
+      background: var(--green);
+      border-radius: 2px;
+    }
+    .remove-btn {
+      position: absolute; top: 14px; right: 14px;
+      background: none;
+      border: 1.5px solid #fca5a5;
+      color: var(--error);
+      border-radius: 6px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    .remove-btn:hover { background: #fef2f2; }
+
+    /* ─── POLICY BOX ─── */
+    .policy-box {
+      background: #fff;
+      border: 2px solid #d1fae5;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+    .policy-toggle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      cursor: pointer;
+      background: var(--bg);
+      gap: 10px;
+    }
+    .policy-toggle:hover { background: #dcfce7; }
+    .policy-name { font-size: 13.5px; font-weight: 600; color: var(--text-body); }
+    .policy-chevron { color: var(--green-dark); flex-shrink: 0; transition: transform 0.2s; }
+    .policy-box.open .policy-chevron { transform: rotate(180deg); }
+    .policy-body { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; font-size: 13px; color: #374151; line-height: 1.65; }
+    .policy-box.open .policy-body { max-height: 300px; padding: 0 16px 14px; }
+    .policy-agree {
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 16px;
+      border-top: 1.5px solid #d1fae5;
+      background: var(--bg);
+    }
+    .policy-agree input[type="checkbox"] { width: 17px; height: 17px; accent-color: var(--green-dark); cursor: pointer; }
+    .policy-agree label { font-size: 13px; font-weight: 700; color: var(--green-dark); cursor: pointer; }
+
+    /* ─── NOTE BOX ─── */
+    .note-box {
+      background: #fffbeb;
+      border: 2px solid #fde68a;
+      border-radius: 10px;
+      padding: 13px 16px;
+      font-size: 13px;
+      color: #78350f;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .note-box strong { font-weight: 700; }
+
+    /* ─── PAYMENT ─── */
+    .card-brands {
+      display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px;
+    }
+    .card-badge {
+      border: 1.5px solid var(--border);
+      border-radius: 7px;
+      padding: 5px 11px;
+      font-size: 12px; font-weight: 700;
+      background: #fff;
+    }
+    .secure-badge {
+      display: flex; align-items: center; gap: 5px;
+      background: var(--green-light);
+      border: 1.5px solid #86efac;
+      border-radius: 7px;
+      padding: 5px 11px;
+      font-size: 12px; font-weight: 700; color: var(--green-dark);
+    }
+
+    /* ─── WELCOME SLIDE EXTRAS ─── */
+    .welcome-hero {
+      text-align: center;
+      padding: 20px 24px 28px;
+    }
+    .welcome-hero p {
+      font-size: 15px;
+      color: #374151;
+      line-height: 1.7;
+      margin-bottom: 12px;
+    }
+    .login-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--green-light);
+      border: 1.5px solid #86efac;
+      border-radius: 50px;
+      padding: 8px 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green-dark);
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .login-link:hover { background: #bbf7d0; }
+
+    /* ─── NAV FOOTER ─── */
+    .slide-footer {
+      padding: 16px 28px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      border-top: 1.5px solid #f0fdf4;
+    }
+    .step-dots {
+      display: flex;
+      gap: 6px;
+    }
+    .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: #d1fae5;
+      transition: all 0.3s;
+    }
+    .dot.active {
+      background: var(--green);
+      width: 22px;
+      border-radius: 4px;
+    }
+    .dot.done { background: var(--green-dark); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14.5px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      transition: all 0.22s;
+      min-height: 48px;
+    }
+    .btn-next {
+      background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(34,197,94,0.35);
+    }
+    .btn-next:hover { transform: translateY(-2px) scale(1.03); box-shadow: 0 8px 24px rgba(34,197,94,0.42); }
+    .btn-back {
+      background: #fff;
+      color: var(--muted);
+      border: 2px solid #e5e7eb;
+      font-size: 13.5px;
+      padding: 10px 20px;
+    }
+    .btn-back:hover { background: var(--bg); border-color: var(--border); color: var(--text-body); }
+    .btn-submit {
+      background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+      color: #fff;
+      box-shadow: 0 4px 18px rgba(22,163,74,0.4);
+      padding: 14px 32px;
+      font-size: 15px;
+      width: 100%;
+      justify-content: center;
+    }
+    .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(22,163,74,0.45); }
+    .btn-add {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      background: none;
+      border: 2px dashed var(--green);
+      color: var(--green-dark);
+      border-radius: 10px;
+      padding: 9px 18px;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Inter', sans-serif;
+      transition: all 0.15s;
+    }
+    .btn-add:hover { background: var(--green-light); }
+
+    /* ─── REQUIRED NOTE ─── */
+    .req-note { font-size: 12px; color: var(--muted); margin-bottom: 16px; }
+    .req-note span { color: var(--error); }
+
+    /* ─── SUCCESS SLIDE ─── */
+    .success-content {
+      text-align: center;
+      padding: 20px 24px 32px;
+    }
+    .success-content .big-check {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--green-light);
+      border: 3px solid var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 18px;
+      font-size: 32px;
+    }
+    .success-content h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--green-dark);
+      margin-bottom: 10px;
+    }
+    .success-content p {
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 560px) {
+      .field-group.cols-2,
+      .field-group.cols-3 { grid-template-columns: 1fr; }
+      .slide-body { padding: 20px 18px 6px; }
+      .slide-footer { padding: 14px 18px 20px; }
+      .slide-header { padding: 22px 18px 18px; }
+      .btn { padding: 11px 20px; font-size: 13.5px; }
+    }
+    @media (max-width: 360px) {
+      .skill-pills { gap: 6px; }
+      .skill-pill { font-size: 12.5px; padding: 6px 11px; }
+    }
+    /* iOS Safari: prevent auto-zoom on form-field focus (font-size must be >= 16px) */
+    @media (max-width: 768px) { input:not([type="hidden"]), select, textarea { font-size: 16px !important; } }
+  </style>
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "wkegb4xxls");
+  </script>
+</head>
+<body>
+
+<!-- BG -->
+<div class="bg-layer">
+  <div class="bg-blob bg-blob-1"></div>
+  <div class="bg-blob bg-blob-2"></div>
+  <div class="bg-blob bg-blob-3"></div>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <img src="https://assets.cdn.filesafe.space/LHyUDIth9k9Kk9qv4BzQ/media/696481d3f8a93b4538e2117f.jpg" alt="LowCountry Swim School">
+</div>
+
+<!-- PROGRESS -->
+<div class="progress-wrap">
+  <div class="progress-inner">
+    <span class="progress-swimmer" id="prog-swimmer">🏊</span>
+    <div class="progress-track">
+      <div class="progress-fill" id="prog-fill"></div>
+    </div>
+    <span class="progress-label" id="prog-label">Step 1 of 9</span>
+  </div>
+</div>
+
+<!-- STAGE -->
+<div class="stage" id="stage">
+<form id="regForm" novalidate>
+
+  <!-- ═══════════════════════════════════
+       SLIDE 1 — WELCOME
+  ═══════════════════════════════════ -->
+  <div class="slide active" id="slide-1">
+    <div class="slide-card">
+      <div class="slide-header">
+        <span class="slide-emoji">🌊</span>
+        <div class="slide-title">Welcome to <span class="green">LowCountry</span> Swim School!</div>
+        <div class="slide-subtitle">NOW ENROLLING — All Locations. Let's get your little swimmer signed up! 🎉</div>
+      </div>
+      <div class="welcome-hero">
+        <p>We're so excited to have you join our swim family! This form takes about <strong>5 minutes</strong> to complete. Just click <strong>Next</strong> after each section.</p>
+        <a href="#" class="login-link">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+          Already a customer? Log in
+        </a>
+      </div>
+
+      <div class="slide-body">
+        <p class="sub-label">How Did You Hear About Us?</p>
+        <div class="field-group cols-2">
+          <div class="field">
+            <label for="referral_source">Referral Source <span class="opt">(optional)</span></label>
+            <select id="referral_source" name="referral_source">
+              <option value="">Select…</option>
+              <option>Friend or Family</option>
+              <option>Google Search</option>
+              <option>Facebook / Instagram</option>
+              <option>Nextdoor</option>
+              <option>School or Teacher</option>
+              <option>Flyer / Mailer</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="referral_name">Referral Name <span class="opt">(optional)</span></label>
+            <input type="text" id="referral_name" name="referral_name" placeholder="First and last name">
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <div class="step-dots" id="dots"></div>
+        <button type="button" class="btn btn-next" onclick="goNext(1)">
+          Let's Go!
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       SLIDE 2 — FAMILY INFO
+  ═══════════════════════════════════ -->
+  <div class="slide" id="slide-2">
+    <div class="slide-card">
+      <div class="slide-header">
+        <span class="slide-emoji">🏠</span>
+        <div class="slide-title">Family <span class="green">Information</span></div>
+        <div class="slide-subtitle">Your household details and home address</div>
+      </div>
+      <div class="slide-body">
+        <p class="req-note"><span>*</span> Required fields</p>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="family_last_name">Family Last Name <span class="req">*</span></label>
+            <input type="text" id="family_last_name" name="family_last_name" placeholder="e.g. Johnson" required>
+            <span class="field-error" id="err_family_last_name">Please enter your family last name.</span>
+          </div>
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="address">Street Address <span class="req">*</span></label>
+            <input type="text" id="address" name="address" placeholder="123 Main St" required>
+            <span class="field-error" id="err_address">Please enter your address.</span>
+          </div>
+        </div>
+
+        <div class="field-group cols-3">
+          <div class="field">
+            <label for="city">City <span class="req">*</span></label>
+            <input type="text" id="city" name="city" placeholder="City" required>
+            <span class="field-error" id="err_city">Required.</span>
+          </div>
+          <div class="field">
+            <label for="state">State <span class="req">*</span></label>
+            <select id="state" name="state" required>
+              <option value="">State…</option>
+              <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
+              <option>CA</option><option>CO</option><option>CT</option><option>DE</option>
+              <option>FL</option><option>GA</option><option>HI</option><option>ID</option>
+              <option>IL</option><option>IN</option><option>IA</option><option>KS</option>
+              <option>KY</option><option>LA</option><option>ME</option><option>MD</option>
+              <option>MA</option><option>MI</option><option>MN</option><option>MS</option>
+              <option>MO</option><option>MT</option><option>NE</option><option>NV</option>
+              <option>NH</option><option>NJ</option><option>NM</option><option>NY</option>
+              <option>NC</option><option>ND</option><option>OH</option><option>OK</option>
+              <option>OR</option><option>PA</option><option>RI</option><option>SC</option>
+              <option>SD</option><option>TN</option><option>TX</option><option>UT</option>
+              <option>VT</option><option>VA</option><option>WA</option><option>WV</option>
+              <option>WI</option><option>WY</option>
+            </select>
+            <span class="field-error" id="err_state">Required.</span>
+          </div>
+          <div class="field">
+            <label for="zip">ZIP <span class="req">*</span></label>
+            <input type="text" id="zip" name="zip" placeholder="00000" maxlength="10" required>
+            <span class="field-error" id="err_zip">Required.</span>
+          </div>
+        </div>
+
+        <div class="field-group cols-2">
+          <div class="field">
+            <label for="primary_phone">Primary Phone <span class="req">*</span></label>
+            <input type="tel" id="primary_phone" name="primary_phone" placeholder="(555) 000-0000" required>
+            <span class="field-error" id="err_primary_phone">Please enter a phone number.</span>
+          </div>
+          <div class="field">
+            <label for="emergency_contact">Emergency Contact <span class="opt">(optional)</span></label>
+            <input type="text" id="emergency_contact" name="emergency_contact" placeholder="Name — Phone #1, #2">
+            <span class="field-hint">Contacts #1 and #2 if applicable</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <button type="button" class="btn btn-back" onclick="goPrev(2)">← Back</button>
+        <div class="step-dots" id="dots-2"></div>
+        <button type="button" class="btn btn-next" onclick="goNext(2)">
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       SLIDE 3 — CONTACT #1
+  ═══════════════════════════════════ -->
+  <div class="slide" id="slide-3">
+    <div class="slide-card">
+      <div class="slide-header">
+        <span class="slide-emoji">👤</span>
+        <div class="slide-title">Primary <span class="green">Contact</span></div>
+        <div class="slide-subtitle">Main parent or guardian info + your portal login</div>
+      </div>
+      <div class="slide-body">
+        <p class="req-note"><span>*</span> Required fields</p>
+
+        <div class="field-group cols-3">
+          <div class="field">
+            <label for="c1_first">First Name <span class="req">*</span></label>
+            <input type="text" id="c1_first" name="c1_first" placeholder="First" required>
+            <span class="field-error" id="err_c1_first">Required.</span>
+          </div>
+          <div class="field">
+            <label for="c1_last">Last Name <span class="req">*</span></label>
+            <input type="text" id="c1_last" name="c1_last" placeholder="Last" required>
+            <span class="field-error" id="err_c1_last">Required.</span>
+          </div>
+          <div class="field">
+            <label for="c1_type">Relationship <span class="req">*</span></label>
+            <select id="c1_type" name="c1_type" required>
+              <option value="">Select…</option>
+              <option>Mother</option><option>Father</option>
+              <option>Guardian</option><option>Other</option>
+            </select>
+            <span class="field-error" id="err_c1_type">Required.</span>
+          </div>
+        </div>
+
+        <p class="sub-label">📞 Phone Numbers</p>
+        <div class="field-group cols-3">
+          <div class="field">
+            <label for="c1_home">Home</label>
+            <input type="tel" id="c1_home" name="c1_home" placeholder="(555) 000-0000">
+          </div>
+          <div class="field">
+            <label for="c1_work">Work</label>
+            <input type="tel" id="c1_work" name="c1_work" placeholder="(555) 000-0000">
+          </div>
+          <div class="field">
+            <label for="c1_cell">Cell <span class="req">*</span></label>
+            <input type="tel" id="c1_cell" name="c1_cell" placeholder="(555) 000-0000" required>
+            <span class="field-error" id="err_c1_cell">Required.</span>
+          </div>
+        </div>
+
+        <div class="consent-box">
+          <input type="checkbox" id="c1_consent" name="c1_consent">
+          <label for="c1_consent">By checking this box, I consent to receive transactional and informational SMS communications about account notifications, class updates, and customer care from LowCountry Swim School. Message &amp; data rates may apply. Reply STOP to opt out.</label>
+        </div>
+
+        <p class="sub-label">🔐 Portal Account</p>
+        <p class="field-hint" style="margin-bottom:12px;">Your email becomes your portal login to view schedules and invoices.</p>
+
+        <div class="field-group cols-2">
+          <div class="field">
+            <label for="c1_email">Email <span class="req">*</span></label>
+            <input type="email" id="c1_email" name="c1_email" placeholder="your@email.com" required>
+            <span class="field-error" id="err_c1_email">Please enter a valid email.</span>
+          </div>
+          <div class="field">
+            <label for="c1_email_confirm">Confirm Email <span class="req">*</span></label>
+            <input type="email" id="c1_email_confirm" name="c1_email_confirm" placeholder="your@email.com" required>
+            <span class="field-error" id="err_c1_email_confirm">Emails do not match.</span>
+          </div>
+          <div class="field">
+            <label for="c1_password">Password <span class="req">*</span></label>
+            <input type="password" id="c1_password" name="c1_password" placeholder="Min. 5 characters" required>
+            <span class="field-hint">At least 5 characters</span>
+            <span class="field-error" id="err_c1_password">Must be at least 5 characters.</span>
+          </div>
+          <div class="field">
+            <label for="c1_password_confirm">Confirm Password <span class="req">*</span></label>
+            <input type="password" id="c1_password_confirm" name="c1_password_confirm" placeholder="Re-enter password" required>
+            <span class="field-error" id="err_c1_password_confirm">Passwords do not match.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <button type="button" class="btn btn-back" onclick="goPrev(3)">← Back</button>
+        <div class="step-dots" id="dots-3"></div>
+        <button type="button" class="btn btn-next" onclick="goNext(3)">
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       SLIDE 4 — CONTACT #2
+  ═══════════════════════════════════ -->
+  <div class="slide" id="slide-4">
+    <div class="slide-card">
+      <div class="slide-header">
+        <span class="slide-emoji">👥</span>
+        <div class="slide-title">Second <span class="green">Contact</span></div>
+        <div class="slide-subtitle">Second parent, guardian, or emergency contact — totally optional!</div>
+      </div>
+      <div class="slide-body">
+        <div class="field-group cols-3">
+          <div class="field">
+            <label for="c2_first">First Name <span class="opt">(optional)</span></label>
+            <input type="text" id="c2_first" name="c2_first" placeholder="First">
+          </div>
+          <div class="field">
+            <label for="c2_last">Last Name</label>
+            <input type="text" id="c2_last" name="c2_last" placeholder="Last">
+          </div>
+          <div class="field">
+            <label for="c2_type">Relationship</label>
+            <select id="c2_type" name="c2_type">
+              <option value="">Select…</option>
+              <option>Mother</option><option>Father</option>
+              <option>Guardian</option><option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="sub-label">📞 Phone Numbers</p>
+        <div class="field-group cols-3">
+          <div class="field">
+            <label for="c2_home">Home</label>
+            <input type="tel" id="c2_home" name="c2_home" placeholder="(555) 000-0000">
+          </div>
+          <div class="field">
+            <label for="c2_work">Work</label>
+            <input type="tel" id="c2_work" name="c2_work" placeholder="(555) 000-0000">
+          </div>
+          <div class="field">
+            <label for="c2_cell">Cell</label>
+            <input type="tel" id="c2_cell" name="c2_cell" placeholder="(555) 000-0000">
+          </div>
+        </div>
+
+        <div class="consent-box">
+          <input type="checkbox" id="c2_consent" name="c2_consent">
+          <label for="c2_consent">This contact consents to receive SMS communications regarding account notifications, class updates, and customer care from LowCountry Swim School. Reply STOP to opt out.</label>
+        </div>
+
+        <p class="sub-label">🔐 Portal Access <span style="text-transform:none;font-weight:400;font-size:11px;color:var(--muted);">(optional)</span></p>
+        <div class="field-group cols-2">
+          <div class="field">
+            <label for="c2_email">Email</label>
+            <input type="email" id="c2_email" name="c2_email" placeholder="their@email.com">
+          </div>
+          <div class="field">
+            <label for="c2_email_confirm">Confirm Email</label>
+            <input type="email" id="c2_email_confirm" name="c2_email_confirm" placeholder="their@email.com">
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <button type="button" class="btn btn-back" onclick="goPrev(4)">← Back</button>
+        <div class="step-dots" id="dots-4"></div>
+        <button type="button" class="btn btn-next" onclick="goNext(4)">
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       SLIDE 5 — STUDENT(S)
+  ═══════════════════════════════════ -->
+  <div class="slide" id="slide-5">
+    <div class="slide-card">
+      <div class="slide-header">
+        <span class="slide-emoji">🏊‍♂️</span>
+        <div class="slide-title">Tell Us About Your <span class="green">Swimmer!</span></div>
+        <div class="slide-subtitle">Add each child you'd like to enroll</div>
+      </div>
+      <div class="slide-body">
+        <p class="req-note"><span>*</span> Required fields</p>
+
+        <div id="students-container">
+          <div class="student-block" id="student-1">
+            <div class="student-block-label">Student #1</div>
+            <div class="field-group cols-3">
+              <div class="field">
+                <label for="s1_first">First Name <span class="req">*</span></label>
+                <input type="text" id="s1_first" name="s1_first" placeholder="First" required>
+                <span class="field-error" id="err_s1_first">Required.</span>
+              </div>
+              <div class="field">
+                <label for="s1_last">Last Name <span class="req">*</span></label>
+                <input type="text" id="s1_last" name="s1_last" placeholder="Last" required>
+                <span class="field-error" id="err_s1_last">Required.</span>
+              </div>
+              <div class="field">
+                <label for="s1_gender">Gender <span class="req">*</span></label>
+                <select id="s1_gender" name="s1_gender" required>
+                  <option value="">Select…</option>
+                  <option>Male</option><option>Female</option><option>Prefer not to say</option>
+                </select>
+                <span class="field-error" id="err_s1_gender">Required.</span>
+              </div>
+            </div>
+            <div class="field-group cols-2" style="margin-top:4px;">
+              <div class="field">
+                <label for="s1_dob">Date of Birth <span class="req">*</span></label>
+                <input type="date" id="s1_dob" name="s1_dob" required>
+                <span class="field-error" id="err_s1_dob">Required.</span>
+              </div>
+              <div></div>
+            </div>
+            <hr class="slide-divider">
+            <p class="sub-label">🩺 Health Info</p>
+            <div class="field-group cols-3">
+              <div class="field">
+                <label>Disabilities <span class="opt">(optional)</span></label>
+                <input type="text" name="s1_disabilities" placeholder="None if blank">
+              </div>
+              <div class="field">
+                <label>Special Needs <span class="opt">(optional)</span></label>
+                <input type="text" name="s1_special_needs" placeholder="None if blank">
+              </div>
+              <div class="field">
+                <label>Allergies <span class="opt">(optional)</span></label>
+                <input type="text" name="s1_allergies" placeholder="None if blank">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn-add" onclick="addStudent()" style="margin-top:4px; margin-bottom:8px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          Add Another Student
+        </button>
+      </div>
+
+      <div class="slide-footer">
+        <button type="button" class="btn btn-back" onclick="goPrev(5)">← Back</button>
+        <div class="step-dots" id="dots-5"></div>
+        <button type="button" class="btn btn-next" onclick="goNext(5)">
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       SLIDE 6 — CLASS ENROLLMENT
+  ═══════════════════════════════════ -->
+  <div class="slide" id="slide-6">
+    <div class="slide-card">
+      <div class="slide-header">
+        <span class="slide-emoji">📅</span>
+        <div class="slide-title">Pick a <span class="green">Class!</span></div>
+        <div class="slide-subtitle">We'll confirm the best fit after reviewing your registration</div>
+      </div>
+      <div class="slide-body">
+
+        <div class="note-box">
+          ⚠️ <strong>Important:</strong> After submitting, let us know your <strong>Preferred Location</strong>, <strong>Current Skills</strong>, and <strong>Preferred Days &amp; Times</strong> in the Comments section so we can match you quickly!
+          <br><span style="color:#dc2626; font-weight:700;">Adaptive classes are ONLY for students with special needs.</span>
+        </div>
+
+        <div id="enrollment-container">
+          <div class="student-block" id="enroll-1">
+            <div class="student-block-label">Student #1 — Class Selection</div>
+            <div class="field-group">
+              <div class="field">
+                <label for="e1_class">Select Class <span class="req">*</span></label>
+                <select id="e1_class" name="e1_class">
+                  <option value="">Choose a class type…</option>
+                  <option>Parent &amp; Tot (6 mos – 3 yrs)</option>
+                  <option>Preschool Beginner (3–5 yrs)</option>
+                  <option>Level 1 — Water Acclimation</option>
+                  <option>Level 2 — Primary Skills</option>
+                  <option>Level 3 — Stroke Introduction</option>
+                  <option>Level 4 — Stroke Development</option>
+                  <option>Level 5 — Stroke Refinement</option>
+                  <option>Level 6 — Advanced Skills</option>
+                  <option>Teen / Adult Beginner</option>
+                  <option>Private Lessons</option>
+                  <option>Adaptive — Special Needs</option>
+                </select>
+              </div>
+            </div>
+            <hr class="slide-divider" style="margin:14px 0;">
+            <p class="sub-label">💪 Current Skill Level</p>
+            <div class="skill-pills">
+              <label class="skill-pill"><input type="radio" name="s1_skill" value="Never been in water"> Never been in water</label>
+              <label class="skill-pill"><input type="radio" name="s1_skill" value="Comfortable in water"> Comfortable in water</label>
+              <label class="skill-pill"><input type="radio" name="s1_skill" value="Can float on back"> Can float on back</label>
+              <label class="skill-pill"><input type="radio" name="s1_skill" value="Beginner strokes"> Beginner strokes</label>
+              <label class="skill-pill"><input type="radio" name="s1_skill" value="Intermediate swimmer"> Intermediate swimmer</label>
+              <label class="skill-pill"><input type="radio" name="s1_skill" value="Advanced swimmer"> Advanced swimmer</label>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:4px; margin-bottom:8px;">
+          <button type="button" class="btn-add" onclick="addEnrollment()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Add Another Student
+          </button>
+          <button type="button" class="btn-add" style="border-color:#16a34a; color:#15803d;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#15803d" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Adaptive Classes
+          </button>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <button type="button" class="btn btn-back" onclick="goPrev(6)">← Back</button>
+        <div class="step-dots" id="dots-6"></div>
+        <button type="button" class="btn btn-next" onclick="goNext(6)">
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       SLIDE 7 — POLICIES
+  ═══════════════════════════════════ -->
+  <div class="slide" id="slide-7">
+    <div class="slide-card">
+      <div class="slide-header">
+        <span class="slide-emoji">📋</span>
+        <div class="slide-title">Almost There! <span class="green">Review Policies</span></div>
+        <div class="slide-subtitle">Read and check each one — you're so close! 🎉</div>
+      </div>
+      <div class="slide-body">
+
+        <div class="policy-box" id="p1">
+          <div class="policy-toggle" onclick="togglePolicy('p1')">
+            <span class="policy-name">Enrollment Conditions &amp; Billing Agreement</span>
+            <svg class="policy-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="policy-body">Monthly tuition is due on the 1st of each month. A 30-day written notice is required for cancellations. No refunds for missed classes. By enrolling, you authorize LowCountry Swim School to charge your payment method on file each billing cycle.</div>
+          <div class="policy-agree">
+            <input type="checkbox" id="agree_billing" name="agree_billing" required>
+            <label for="agree_billing">I've read the above and agree</label>
+          </div>
+        </div>
+
+        <div class="policy-box" id="p2">
+          <div class="policy-toggle" onclick="togglePolicy('p2')">
+            <span class="policy-name">Waiver of Liability</span>
+            <svg class="policy-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="policy-body">I understand that swimming involves inherent risks. I voluntarily waive any claims against LowCountry Swim School, its owners, instructors, or staff for injury or loss arising from participation, except in cases of gross negligence.</div>
+          <div class="policy-agree">
+            <input type="checkbox" id="agree_waiver" name="agree_waiver" required>
+            <label for="agree_waiver">I've read the above and agree</label>
+          </div>
+        </div>
+
+        <div class="policy-box" id="p3">
+          <div class="policy-toggle" onclick="togglePolicy('p3')">
+            <span class="policy-name">Rainout &amp; Withdrawal Policy</span>
+            <svg class="policy-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="policy-body">Classes cancelled due to weather will be rescheduled. Makeups offered within the same session. No tuition credit for student absences. Withdrawals require 30-day written notice.</div>
+          <div class="policy-agree">
+            <input type="checkbox" id="agree_rainout" name="agree_rainout" required>
+            <label for="agree_rainout">I've read the above and agree</label>
+          </div>
+        </div>
+
+        <div class="policy-box" id="p4">
+          <div class="policy-toggle" onclick="togglePolicy('p4')">
+            <span class="policy-name">Enrollment, Membership &amp; Credit Agreement</span>
+            <svg class="policy-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+          <div class="policy-body">I authorize LowCountry Swim School to photograph or video record students for promotional use. I agree to credit card authorization terms for auto-pay enrollment. My card will be charged on the billing date each month.</div>
+          <div class="policy-agree">
+            <input type="checkbox" id="agree_media" name="agree_media" required>
+            <label for="agree_media">I've read the above and agree</label>
+          </div>
+        </div>
+
+        <div class="field-group" style="margin-top:16px;">
+          <div class="field">
+            <label for="full_name_agree">Sign Your Full Name to Agree to All Policies <span class="req">*</span></label>
+            <input type="text" id="full_name_agree" name="full_name_agree" placeholder="Type your full legal name" required>
+            <span class="field-hint" id="today-date-label"></span>
+            <span class="field-error" id="err_full_name">Please enter your full name.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <button type="button" class="btn btn-back" onclick="goPrev(7)">← Back</button>
+        <div class="step-dots" id="dots-7"></div>
+        <button type="button" class="btn btn-next" onclick="goNext(7)">
+          Next
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       SLIDE 8 — COMMENTS
+  ═══════════════════════════════════ -->
+  <div class="slide" id="slide-8">
+    <div class="slide-card">
+      <div class="slide-header">
+        <span class="slide-emoji">💬</span>
+        <div class="slide-title">Any <span class="green">Questions</span> or Notes?</div>
+        <div class="slide-subtitle">Tell us your preferred location, schedule, or anything else on your mind</div>
+      </div>
+      <div class="slide-body">
+        <div class="field-group">
+          <div class="field">
+            <label for="comments">Comments <span class="opt">(optional)</span></label>
+            <textarea id="comments" name="comments" rows="5"
+              placeholder="e.g. Preferred location: Downtown. Student is comfortable in water but can't swim yet. Available Mon & Wed mornings."></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="slide-footer">
+        <button type="button" class="btn btn-back" onclick="goPrev(8)">← Back</button>
+        <div class="step-dots" id="dots-8"></div>
+        <button type="button" class="btn btn-next" onclick="goNext(8)">
+          Next — Payment
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       SLIDE 9 — PAYMENT
+  ═══════════════════════════════════ -->
+  <div class="slide" id="slide-9">
+    <div class="slide-card">
+      <div class="slide-header">
+        <span class="slide-emoji">💳</span>
+        <div class="slide-title">Payment <span class="green">Information</span></div>
+        <div class="slide-subtitle">Securely stored for monthly auto-pay billing</div>
+      </div>
+      <div class="slide-body">
+        <p class="req-note"><span>*</span> Required fields</p>
+
+        <div class="card-brands">
+          <div class="secure-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            SSL Secured
+          </div>
+          <div class="card-badge" style="color:#1a1f71;">VISA</div>
+          <div class="card-badge" style="color:#eb001b;">MC</div>
+          <div class="card-badge" style="color:#2e77bc;">AMEX</div>
+          <div class="card-badge" style="color:#ff6600;">DISC</div>
+        </div>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="card_number">Card Number <span class="req">*</span></label>
+            <input type="text" id="card_number" name="card_number" placeholder="1234  5678  9012  3456" maxlength="19" inputmode="numeric" autocomplete="cc-number" required>
+            <span class="field-error" id="err_card_number">Please enter your card number.</span>
+          </div>
+        </div>
+
+        <div class="field-group cols-3">
+          <div class="field" style="grid-column:span 2;">
+            <label>Expiration Date <span class="req">*</span></label>
+            <div style="display:flex; gap:10px;">
+              <select id="exp_month" name="exp_month" required style="flex:1;">
+                <option value="">Month</option>
+                <option value="01">01 — Jan</option><option value="02">02 — Feb</option>
+                <option value="03">03 — Mar</option><option value="04">04 — Apr</option>
+                <option value="05">05 — May</option><option value="06">06 — Jun</option>
+                <option value="07">07 — Jul</option><option value="08">08 — Aug</option>
+                <option value="09">09 — Sep</option><option value="10">10 — Oct</option>
+                <option value="11">11 — Nov</option><option value="12">12 — Dec</option>
+              </select>
+              <select id="exp_year" name="exp_year" required style="flex:1;"></select>
+            </div>
+            <span class="field-error" id="err_exp">Please select expiry date.</span>
+          </div>
+          <div class="field">
+            <label for="cvv">CVV <span class="req">*</span></label>
+            <input type="text" id="cvv" name="cvv" placeholder="3–4 digits" maxlength="4" inputmode="numeric" required>
+            <span class="field-error" id="err_cvv">Required.</span>
+          </div>
+        </div>
+
+        <div class="field-group cols-2">
+          <div class="field">
+            <label for="card_name">Name on Card <span class="req">*</span></label>
+            <input type="text" id="card_name" name="card_name" placeholder="As it appears on card" autocomplete="cc-name" required>
+            <span class="field-error" id="err_card_name">Required.</span>
+          </div>
+          <div class="field">
+            <label for="card_nickname">Card Nickname <span class="opt">(optional)</span></label>
+            <input type="text" id="card_nickname" name="card_nickname" placeholder="e.g. My Visa">
+          </div>
+        </div>
+
+        <p class="sub-label" style="margin-top:14px;">📍 Billing Address</p>
+
+        <div class="field-group">
+          <div class="field">
+            <label for="billing_address">Address Line 1 <span class="req">*</span></label>
+            <input type="text" id="billing_address" name="billing_address" placeholder="Street address" required>
+            <span class="field-error" id="err_billing_address">Required.</span>
+          </div>
+        </div>
+        <div class="field-group">
+          <div class="field">
+            <label for="billing_address2">Address Line 2 <span class="opt">(optional)</span></label>
+            <input type="text" id="billing_address2" name="billing_address2" placeholder="Apt, suite, unit…">
+          </div>
+        </div>
+        <div class="field-group cols-3">
+          <div class="field">
+            <label for="billing_city">City <span class="req">*</span></label>
+            <input type="text" id="billing_city" name="billing_city" placeholder="City" required>
+            <span class="field-error" id="err_billing_city">Required.</span>
+          </div>
+          <div class="field">
+            <label for="billing_state">State <span class="req">*</span></label>
+            <input type="text" id="billing_state" name="billing_state" placeholder="SC" maxlength="2" required>
+            <span class="field-error" id="err_billing_state">Required.</span>
+          </div>
+          <div class="field">
+            <label for="billing_zip">ZIP <span class="req">*</span></label>
+            <input type="text" id="billing_zip" name="billing_zip" placeholder="ZIP" maxlength="10" required>
+            <span class="field-error" id="err_billing_zip">Required.</span>
+          </div>
+        </div>
+
+        <div style="padding: 4px 0 12px;">
+          <button type="submit" class="btn btn-submit">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Submit Registration
+          </button>
+        </div>
+      </div>
+
+      <div class="slide-footer" style="justify-content:flex-start; border-top:none; padding-top:0;">
+        <button type="button" class="btn btn-back" onclick="goPrev(9)">← Back</button>
+        <div class="step-dots" id="dots-9" style="margin-left:auto;"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════
+       SLIDE 10 — SUCCESS
+  ═══════════════════════════════════ -->
+  <div class="slide" id="slide-10">
+    <div class="slide-card">
+      <div class="slide-header" style="padding-bottom:30px;">
+        <span class="slide-emoji" style="animation:none; font-size:56px;">🎉</span>
+        <div class="slide-title">You're <span class="green">All Set!</span></div>
+        <div class="slide-subtitle">Registration received — welcome to the swim family!</div>
+      </div>
+      <div class="success-content">
+        <div class="big-check">✓</div>
+        <h2>Registration Submitted!</h2>
+        <p>We'll review your registration and reach out shortly to confirm your class placement. Get ready to make a splash! 🌊</p>
+        <br>
+        <p style="font-size:13px; color:var(--muted);">Questions? Call us at <strong>(843) 881-2080</strong></p>
+      </div>
+    </div>
+  </div>
+
+</form>
+</div><!-- /stage -->
+
+
+<script>
+  const TOTAL = 9;
+  let current = 1;
+  let direction = 'forward';
+
+  // ─── DOTS ─────────────────────────────────────
+  function renderDots() {
+    document.querySelectorAll('[id^="dots"]').forEach(wrap => {
+      wrap.innerHTML = '';
+      for (let i = 1; i <= TOTAL; i++) {
+        const d = document.createElement('div');
+        d.className = 'dot' + (i === current ? ' active' : i < current ? ' done' : '');
+        wrap.appendChild(d);
+      }
+    });
+  }
+
+  // ─── PROGRESS ─────────────────────────────────
+  function updateProgress() {
+    const pct = Math.round(((current - 1) / (TOTAL)) * 100);
+    document.getElementById('prog-fill').style.width = pct + '%';
+    document.getElementById('prog-label').textContent = 'Step ' + current + ' of ' + TOTAL;
+    const swimmerEmojis = ['🏊','🏊','🏊‍♀️','🏊‍♂️','🤽','🏊','🤽‍♀️','🏊‍♂️','🥇'];
+    document.getElementById('prog-swimmer').textContent = swimmerEmojis[current - 1] || '🏊';
+  }
+
+  // ─── SHOW SLIDE ───────────────────────────────
+  function showSlide(n, dir) {
+    const oldSlide = document.getElementById('slide-' + current);
+    const newSlide = document.getElementById('slide-' + n);
+    if (!newSlide || !oldSlide) return;
+
+    direction = dir;
+    oldSlide.classList.add(dir === 'forward' ? 'exit' : 'back-out');
+    oldSlide.classList.remove('active');
+
+    setTimeout(() => {
+      oldSlide.classList.remove('exit', 'back-out');
+      oldSlide.style.display = 'none';
+
+      current = n;
+      newSlide.style.display = 'block';
+      void newSlide.offsetWidth;
+      newSlide.classList.add(dir === 'forward' ? 'active' : 'back-in active');
+
+      setTimeout(() => newSlide.classList.remove('back-in'), 500);
+
+      renderDots();
+      updateProgress();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }, 300);
+  }
+
+  // ─── VALIDATION ───────────────────────────────
+  function val(id) { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
+  function markErr(inputId, errId, cond) {
+    const el = document.getElementById(inputId);
+    const er = document.getElementById(errId);
+    if (el) el.classList.toggle('invalid', !cond);
+    if (er) er.classList.toggle('show', !cond);
+    return cond;
+  }
+
+  function validateSlide(n) {
+    let ok = true;
+    if (n === 2) {
+      ok = markErr('family_last_name','err_family_last_name', val('family_last_name') !== '') && ok;
+      ok = markErr('address','err_address', val('address') !== '') && ok;
+      ok = markErr('city','err_city', val('city') !== '') && ok;
+      ok = markErr('state','err_state', val('state') !== '') && ok;
+      ok = markErr('zip','err_zip', val('zip') !== '') && ok;
+      ok = markErr('primary_phone','err_primary_phone', val('primary_phone') !== '') && ok;
+    } else if (n === 3) {
+      ok = markErr('c1_first','err_c1_first', val('c1_first') !== '') && ok;
+      ok = markErr('c1_last','err_c1_last', val('c1_last') !== '') && ok;
+      ok = markErr('c1_type','err_c1_type', val('c1_type') !== '') && ok;
+      ok = markErr('c1_cell','err_c1_cell', val('c1_cell') !== '') && ok;
+      ok = markErr('c1_email','err_c1_email', /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val('c1_email'))) && ok;
+      ok = markErr('c1_email_confirm','err_c1_email_confirm', val('c1_email') === val('c1_email_confirm') && val('c1_email_confirm') !== '') && ok;
+      ok = markErr('c1_password','err_c1_password', val('c1_password').length >= 5) && ok;
+      ok = markErr('c1_password_confirm','err_c1_password_confirm', val('c1_password') === val('c1_password_confirm') && val('c1_password_confirm') !== '') && ok;
+    } else if (n === 5) {
+      ok = markErr('s1_first','err_s1_first', val('s1_first') !== '') && ok;
+      ok = markErr('s1_last','err_s1_last', val('s1_last') !== '') && ok;
+      ok = markErr('s1_gender','err_s1_gender', val('s1_gender') !== '') && ok;
+      ok = markErr('s1_dob','err_s1_dob', val('s1_dob') !== '') && ok;
+    } else if (n === 7) {
+      ok = markErr('full_name_agree','err_full_name', val('full_name_agree') !== '') && ok;
+    } else if (n === 9) {
+      ok = markErr('card_number','err_card_number', val('card_number') !== '') && ok;
+      ok = markErr('card_name','err_card_name', val('card_name') !== '') && ok;
+      ok = markErr('billing_address','err_billing_address', val('billing_address') !== '') && ok;
+      ok = markErr('billing_city','err_billing_city', val('billing_city') !== '') && ok;
+      ok = markErr('billing_state','err_billing_state', val('billing_state') !== '') && ok;
+      ok = markErr('billing_zip','err_billing_zip', val('billing_zip') !== '') && ok;
+      ok = markErr('cvv','err_cvv', val('cvv') !== '') && ok;
+      const expOk = val('exp_month') !== '' && val('exp_year') !== '';
+      const em = document.getElementById('exp_month'); if (em) em.classList.toggle('invalid', !expOk);
+      const ee = document.getElementById('err_exp'); if (ee) ee.classList.toggle('show', !expOk);
+      ok = expOk && ok;
+    }
+    return ok;
+  }
+
+  function goNext(n) {
+    if (!validateSlide(n)) {
+      const first = document.querySelector('#slide-' + n + ' .invalid');
+      if (first) first.scrollIntoView({ behavior:'smooth', block:'center' });
+      return;
+    }
+    if (n < TOTAL) showSlide(n + 1, 'forward');
+  }
+
+  function goPrev(n) {
+    if (n > 1) showSlide(n - 1, 'back');
+  }
+
+  // ─── FORM SUBMIT ──────────────────────────────
+  document.getElementById('regForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!validateSlide(9)) {
+      const first = document.querySelector('#slide-9 .invalid');
+      if (first) first.scrollIntoView({ behavior:'smooth', block:'center' });
+      return;
+    }
+    // Show success slide
+    const s9 = document.getElementById('slide-9');
+    s9.classList.add('exit');
+    s9.classList.remove('active');
+    setTimeout(() => {
+      s9.classList.remove('exit');
+      s9.style.display = 'none';
+      current = 10;
+      const s10 = document.getElementById('slide-10');
+      s10.style.display = 'block';
+      void s10.offsetWidth;
+      s10.classList.add('active');
+      document.getElementById('prog-fill').style.width = '100%';
+      document.getElementById('prog-label').textContent = 'Complete! 🎉';
+      document.getElementById('prog-swimmer').textContent = '🥇';
+      window.scrollTo({ top:0, behavior:'smooth' });
+    }, 300);
+  });
+
+  // ─── DYNAMIC STUDENTS ─────────────────────────
+  let sCount = 1;
+  function addStudent() {
+    sCount++;
+    const n = sCount;
+    document.getElementById('students-container').insertAdjacentHTML('beforeend', `
+      <div class="student-block" id="student-${n}">
+        <div class="student-block-label">Student #${n}</div>
+        <button type="button" class="remove-btn" onclick="document.getElementById('student-${n}').remove()">Remove</button>
+        <div class="field-group cols-3">
+          <div class="field"><label>First Name <span class="req">*</span></label><input type="text" name="s${n}_first" placeholder="First" required></div>
+          <div class="field"><label>Last Name <span class="req">*</span></label><input type="text" name="s${n}_last" placeholder="Last" required></div>
+          <div class="field"><label>Gender <span class="req">*</span></label>
+            <select name="s${n}_gender" required>
+              <option value="">Select…</option><option>Male</option><option>Female</option><option>Prefer not to say</option>
+            </select>
+          </div>
+        </div>
+        <div class="field-group cols-2" style="margin-top:4px;">
+          <div class="field"><label>Date of Birth <span class="req">*</span></label><input type="date" name="s${n}_dob" required></div>
+          <div></div>
+        </div>
+        <hr class="slide-divider">
+        <p class="sub-label">🩺 Health Info</p>
+        <div class="field-group cols-3">
+          <div class="field"><label>Disabilities <span class="opt">(optional)</span></label><input type="text" name="s${n}_disabilities" placeholder="None if blank"></div>
+          <div class="field"><label>Special Needs <span class="opt">(optional)</span></label><input type="text" name="s${n}_special_needs" placeholder="None if blank"></div>
+          <div class="field"><label>Allergies <span class="opt">(optional)</span></label><input type="text" name="s${n}_allergies" placeholder="None if blank"></div>
+        </div>
+      </div>`);
+    addEnrollmentBlock(n);
+  }
+
+  let eCount = 1;
+  function addEnrollment() { eCount++; addEnrollmentBlock(eCount); }
+  function addEnrollmentBlock(n) {
+    document.getElementById('enrollment-container').insertAdjacentHTML('beforeend', `
+      <div class="student-block" id="enroll-${n}">
+        <div class="student-block-label">Student #${n} — Class Selection</div>
+        <button type="button" class="remove-btn" onclick="document.getElementById('enroll-${n}').remove()">Remove</button>
+        <div class="field-group">
+          <div class="field"><label>Select Class</label>
+            <select name="e${n}_class">
+              <option value="">Choose…</option>
+              <option>Parent &amp; Tot (6 mos – 3 yrs)</option>
+              <option>Preschool Beginner (3–5 yrs)</option>
+              <option>Level 1 — Water Acclimation</option><option>Level 2 — Primary Skills</option>
+              <option>Level 3 — Stroke Introduction</option><option>Level 4 — Stroke Development</option>
+              <option>Level 5 — Stroke Refinement</option><option>Level 6 — Advanced Skills</option>
+              <option>Teen / Adult Beginner</option><option>Private Lessons</option>
+              <option>Adaptive — Special Needs</option>
+            </select>
+          </div>
+        </div>
+        <hr class="slide-divider" style="margin:14px 0;">
+        <p class="sub-label">💪 Current Skill Level</p>
+        <div class="skill-pills">
+          <label class="skill-pill"><input type="radio" name="s${n}_skill" value="Never been in water"> Never been in water</label>
+          <label class="skill-pill"><input type="radio" name="s${n}_skill" value="Comfortable in water"> Comfortable in water</label>
+          <label class="skill-pill"><input type="radio" name="s${n}_skill" value="Can float on back"> Can float on back</label>
+          <label class="skill-pill"><input type="radio" name="s${n}_skill" value="Beginner strokes"> Beginner strokes</label>
+          <label class="skill-pill"><input type="radio" name="s${n}_skill" value="Intermediate swimmer"> Intermediate swimmer</label>
+          <label class="skill-pill"><input type="radio" name="s${n}_skill" value="Advanced swimmer"> Advanced swimmer</label>
+        </div>
+      </div>`);
+  }
+
+  // ─── POLICY TOGGLE ────────────────────────────
+  function togglePolicy(id) { document.getElementById(id).classList.toggle('open'); }
+
+  // ─── PHONE FORMAT ─────────────────────────────
+  document.addEventListener('input', function(e) {
+    if (e.target.type === 'tel') {
+      let v = e.target.value.replace(/\D/g,'').substring(0,10);
+      if (v.length >= 6) e.target.value = '('+v.slice(0,3)+') '+v.slice(3,6)+'-'+v.slice(6);
+      else if (v.length >= 3) e.target.value = '('+v.slice(0,3)+') '+v.slice(3);
+      else if (v.length > 0) e.target.value = '('+v;
+    }
+  });
+
+  // ─── CARD FORMAT ──────────────────────────────
+  document.getElementById('card_number').addEventListener('input', function() {
+    let v = this.value.replace(/\D/g,'').substring(0,16);
+    this.value = v.replace(/(.{4})/g,'$1  ').trim();
+  });
+
+  // ─── YEAR DROPDOWN ────────────────────────────
+  (function() {
+    const sel = document.getElementById('exp_year');
+    const y = new Date().getFullYear();
+    sel.innerHTML = '<option value="">Year</option>';
+    for (let i = y; i <= y+12; i++) sel.innerHTML += '<option>'+i+'</option>';
+  })();
+
+  // ─── TODAY DATE ───────────────────────────────
+  document.getElementById('today-date-label').textContent =
+    'Date: ' + new Date().toLocaleDateString('en-US', { year:'numeric', month:'long', day:'numeric' });
+
+  // ─── INIT ─────────────────────────────────────
+  renderDots();
+  updateProgress();
+</script>
+</body>
+</html>

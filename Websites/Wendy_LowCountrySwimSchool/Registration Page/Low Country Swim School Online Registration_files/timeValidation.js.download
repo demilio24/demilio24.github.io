@@ -1,0 +1,145 @@
+﻿function setupTimeMasks(invalidPairErrorMsg,skipFocus,skipValidation,maskOpts) {    
+    jQuery('input.timeMask').each(function () {
+        addTimeMask(jQuery(this), invalidPairErrorMsg, skipFocus, skipValidation, maskOpts);
+    });
+}
+
+function addTimeMask(el, invalidPairErrorMsg,skipFocus,skipValidation,maskOpts) {
+    if (!el.hasClass('maskapplied')) {
+        el.addClass('maskapplied');
+
+        var defaultOpts = {
+            mask: "h:st\\m",
+            placeholder: "__:__-m",
+            "clearIncomplete": false,
+            "autoUnmask": true,
+            "onUnMask": function(maskedValue, unmaskedValue) {
+                return maskedValue.replace(/^0/, '');
+            },
+            "removeMaskOnSubmit": true,
+            "showMaskOnHover": false,
+            onBeforeMask: function(initialValue) {
+                if (!!initialValue && !initialValue.match(/^(0?[1-9]|1[012])(:[0-5]\d)([ ]?)[APap][mM]$/)) {
+                    //if it starts out with garbage data, input mask will clear it if there are no numbers
+                    //otherwise it will fill in what it can. Mark it to be saved.
+                    el.addClass('chg');
+                    el.addClass('error');
+                }
+            }
+        };
+
+        if (maskOpts) {
+            jQuery.extend(defaultOpts, maskOpts);
+        }
+        
+        el.inputmask('h:s t', defaultOpts);
+
+        if (!skipValidation) {
+            el.blur(function () {
+                if (!!el.val() && !el.inputmask('isComplete')) {
+                    el.addClass('error');
+                }
+                else {
+                    el.removeClass('error');
+                    validatePair(jQuery(this), invalidPairErrorMsg);
+                }
+            });
+        }
+        
+
+        if (!skipFocus) {
+            el.focus();
+        }
+        
+        el.on('change', function () { jQuery(this).addClass('chg'); });
+    }
+}
+
+function validatePair(thisPair, invalidPairErrorMsg) {
+    invalidPairErrorMsg = invalidPairErrorMsg || 'Start time must come before end time.'
+    var errorDiv = thisPair.data('ediv') || 'divMessage';
+    var thisPairSequence = thisPair.data('pairsequence');
+
+    if (!thisPairSequence) { return; } //no pairs set up.
+
+    var otherPair = jQuery('#' + thisPair.data('otherpairid').replace(/\|/g, '\\|'));
+    if (thisPair.inputmask('isComplete')) {
+        if (otherPair.inputmask('isComplete')) {
+            var colonIndex = thisPair.val().search(/:/);
+            var thisHours = parseInt(thisPair.val().substring(0, colonIndex));
+            var thisMinutes = parseInt(thisPair.val().substring(colonIndex + 1, colonIndex + 3));
+            var thisAmPm = thisPair.val().substring(colonIndex + 3, colonIndex + 5);
+            if (thisHours === 12) {
+                thisHours = 0;
+            }
+            if (thisAmPm === 'pm') {
+                thisHours += 12;
+            }
+
+            colonIndex = otherPair.val().search(/:/);
+            var otherHours = parseInt(otherPair.val().substring(0, colonIndex));
+            var otherMinutes = parseInt(otherPair.val().substring(colonIndex + 1, colonIndex + 3));
+            var otherAmPm = otherPair.val().substring(colonIndex + 3, colonIndex + 5);
+            if (otherHours === 12) {
+                otherHours = 0;
+            }
+            if (otherAmPm === 'pm') {
+                otherHours += 12;
+            }
+            var start, end
+            if (thisPairSequence === 1) {
+                start = new Date(2000, 1, 1, thisHours, thisMinutes);
+                end = new Date(2000, 1, 1, otherHours, otherMinutes);
+            } else {
+                start = new Date(2000, 1, 1, otherHours, otherMinutes);
+                end = new Date(2000, 1, 1, thisHours, thisMinutes);
+            }
+
+            if (end - start < 0) {
+                jQuery('#' + errorDiv).html(invalidPairErrorMsg).show();
+                thisPair.addClass('error seqerr');
+                otherPair.addClass('error seqerr');
+            }
+            else {
+                thisPair.removeClass('error seqerr');
+                otherPair.removeClass('error seqerr');
+            }
+        }
+    }
+    else {
+        //Incomplete
+        thisPair.removeClass('error seqerr');
+        //otherPair.removeClass('seqerr');
+    }
+    if (jQuery('.timeMask.error').length === 0) {
+        jQuery('#' + errorDiv).html('').hide();
+    }
+}
+
+function validateTimes(startEl, endEl, compareErrMsg) {
+    if (!compareErrMsg) {
+        compareErrMsg = 'Start time must come before end time.';
+    }
+    if (!!startEl.val() && !startEl.inputmask('isComplete')) {
+        Jr.alert('Error', startEl.val() + ' is invalid. Use format of "x:xx am or pm".', 'error');
+        return false;
+    }
+    if (!!endEl.val() && !endEl.inputmask('isComplete')) {
+        Jr.alert('Error', endEl.val() + ' is invalid. Use format of "x:xx am or pm".', 'error');
+        return false;
+    }
+    if (!!startEl.val() && !!endEl.val()) {
+        var start = new Date("1/1/2000 " + startEl.val().replace('am', ' am').replace('pm', ' pm'));
+        var end = new Date("1/1/2000 " + endEl.val().replace('am', ' am').replace('pm', ' pm'));
+        if (end - start < 0) {
+            startEl.addClass('error');
+            endEl.addClass('error');
+            Jr.alert('Error', 'Start time must come before end time.', 'error');
+            return false;
+        }
+    }
+    startEl.removeClass('error');
+    endEl.removeClass('error');
+    return true;
+}
+

@@ -1,0 +1,1025 @@
+[
+  {
+    "name": "Abbotsford-Mission",
+    "region": "Lower Mainland",
+    "mla": "Reann Gasper",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 55.38,
+      "runnerUpParty": "NDP",
+      "marginPct": 10.77
+    }
+  },
+  {
+    "name": "Abbotsford South",
+    "region": "Lower Mainland",
+    "mla": "Bruce Banman",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 61.61,
+      "runnerUpParty": "NDP",
+      "marginPct": 26.43
+    }
+  },
+  {
+    "name": "Abbotsford West",
+    "region": "Lower Mainland",
+    "mla": "Korky Neufeld",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 58.35,
+      "runnerUpParty": "NDP",
+      "marginPct": 21.49
+    }
+  },
+  {
+    "name": "Boundary-Similkameen",
+    "region": "Okanagan",
+    "mla": "Donegal Wilson",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 48.39,
+      "runnerUpParty": "NDP",
+      "marginPct": 5.83
+    }
+  },
+  {
+    "name": "Bulkley Valley-Stikine",
+    "region": "Interior",
+    "mla": "Sharon Hartwell",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 52.31,
+      "runnerUpParty": "NDP",
+      "marginPct": 13.44
+    }
+  },
+  {
+    "name": "Burnaby Centre",
+    "region": "Lower Mainland",
+    "mla": "Anne Kang",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 57.28,
+      "runnerUpParty": "Conservative",
+      "marginPct": 14.56
+    }
+  },
+  {
+    "name": "Burnaby East",
+    "region": "Lower Mainland",
+    "mla": "Reah Arora",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 51.85,
+      "runnerUpParty": "Conservative",
+      "marginPct": 11.33
+    }
+  },
+  {
+    "name": "Burnaby-New Westminster",
+    "region": "Lower Mainland",
+    "mla": "Raj Chouhan",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 59.99,
+      "runnerUpParty": "Conservative",
+      "marginPct": 25.28
+    }
+  },
+  {
+    "name": "Burnaby North",
+    "region": "Lower Mainland",
+    "mla": "Janet Routledge",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 53.26,
+      "runnerUpParty": "Conservative",
+      "marginPct": 10.26
+    }
+  },
+  {
+    "name": "Burnaby South-Metrotown",
+    "region": "Lower Mainland",
+    "mla": "Paul Choi",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 49.33,
+      "runnerUpParty": "Conservative",
+      "marginPct": 7.74
+    }
+  },
+  {
+    "name": "Cariboo-Chilcotin",
+    "region": "Interior",
+    "mla": "Lorne Doerkson",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 69.59,
+      "runnerUpParty": "NDP",
+      "marginPct": 39.19
+    }
+  },
+  {
+    "name": "Vancouver-South Granville",
+    "region": "Lower Mainland",
+    "mla": "Brenda Bailey",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 64.31,
+      "runnerUpParty": "Conservative",
+      "marginPct": 39.35
+    }
+  },
+  {
+    "name": "Vancouver-Strathcona",
+    "region": "Lower Mainland",
+    "mla": "Joan Phillip",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 67.62,
+      "runnerUpParty": "Conservative",
+      "marginPct": 50.53
+    }
+  },
+  {
+    "name": "Vancouver-West End",
+    "region": "Lower Mainland",
+    "mla": "Spencer Chandra Herbert",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 63.01,
+      "runnerUpParty": "Conservative",
+      "marginPct": 34.79
+    }
+  },
+  {
+    "name": "Vancouver-Yaletown",
+    "region": "Lower Mainland",
+    "mla": "Terry Yung",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 49.76,
+      "runnerUpParty": "Conservative",
+      "marginPct": 6.4
+    }
+  },
+  {
+    "name": "Vernon-Lumby",
+    "region": "Okanagan",
+    "mla": "Harwinder Sandhu",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 42.69,
+      "runnerUpParty": "Conservative",
+      "marginPct": 1.72
+    }
+  },
+  {
+    "name": "Victoria-Beacon Hill",
+    "region": "Island",
+    "mla": "Grace Lore",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 47.35,
+      "runnerUpParty": "Green",
+      "marginPct": 13.85
+    }
+  },
+  {
+    "name": "Victoria-Swan Lake",
+    "region": "Island",
+    "mla": "Nina Krieger",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 56.03,
+      "runnerUpParty": "Green",
+      "marginPct": 32.87
+    }
+  },
+  {
+    "name": "West Kelowna-Peachland",
+    "region": "Okanagan",
+    "mla": "Macklin McCall",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 50.85,
+      "runnerUpParty": "NDP",
+      "marginPct": 22.95
+    }
+  },
+  {
+    "name": "West Vancouver-Capilano",
+    "region": "Lower Mainland",
+    "mla": "Lynne Block",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 46.68,
+      "runnerUpParty": "NDP",
+      "marginPct": 19.55
+    }
+  },
+  {
+    "name": "West Vancouver-Sea to Sky",
+    "region": "Lower Mainland",
+    "mla": "Jeremy Valeriote",
+    "party": "Green",
+    "result2024": {
+      "winnerVotePct": 38.08,
+      "runnerUpParty": "Conservative",
+      "marginPct": 2.47
+    }
+  },
+  {
+    "name": "Chilliwack-Cultus Lake",
+    "region": "Lower Mainland",
+    "mla": "A'aliya Warbus",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 54.58,
+      "runnerUpParty": "NDP",
+      "marginPct": 9.15
+    }
+  },
+  {
+    "name": "Chilliwack North",
+    "region": "Lower Mainland",
+    "mla": "Heather Maahs",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 54.58,
+      "runnerUpParty": "NDP",
+      "marginPct": 16.92
+    }
+  },
+  {
+    "name": "Columbia River-Revelstoke",
+    "region": "Interior",
+    "mla": "Scott McInnis",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 47.92,
+      "runnerUpParty": "NDP",
+      "marginPct": 3.66
+    }
+  },
+  {
+    "name": "Coquitlam-Burke Mountain",
+    "region": "Lower Mainland",
+    "mla": "Jodie Wickens",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 50.85,
+      "runnerUpParty": "Conservative",
+      "marginPct": 1.7
+    }
+  },
+  {
+    "name": "Coquitlam-Maillardville",
+    "region": "Lower Mainland",
+    "mla": "Jennifer Blatherwick",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 51.8,
+      "runnerUpParty": "Conservative",
+      "marginPct": 12.23
+    }
+  },
+  {
+    "name": "Courtenay-Comox",
+    "region": "Island",
+    "mla": "Brennan Day",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 38.83,
+      "runnerUpParty": "NDP",
+      "marginPct": 0.27
+    }
+  },
+  {
+    "name": "Cowichan Valley",
+    "region": "Island",
+    "mla": "Debra Toporowski",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 40.51,
+      "runnerUpParty": "Conservative",
+      "marginPct": 2.92
+    }
+  },
+  {
+    "name": "Delta North",
+    "region": "Lower Mainland",
+    "mla": "Ravi Kahlon",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 52.73,
+      "runnerUpParty": "Conservative",
+      "marginPct": 12.51
+    }
+  },
+  {
+    "name": "Delta South",
+    "region": "Lower Mainland",
+    "mla": "Ian Paton",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 55.07,
+      "runnerUpParty": "NDP",
+      "marginPct": 10.14
+    }
+  },
+  {
+    "name": "Esquimalt-Colwood",
+    "region": "Island",
+    "mla": "Darlene Rotchford",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 51.47,
+      "runnerUpParty": "Conservative",
+      "marginPct": 22.25
+    }
+  },
+  {
+    "name": "Fraser-Nicola",
+    "region": "Interior",
+    "mla": "Tony Luck",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 54.34,
+      "runnerUpParty": "NDP",
+      "marginPct": 17.94
+    }
+  },
+  {
+    "name": "Juan de Fuca-Malahat",
+    "region": "Island",
+    "mla": "Dana Lajeunesse",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 38.79,
+      "runnerUpParty": "Conservative",
+      "marginPct": 0.59
+    }
+  },
+  {
+    "name": "Kamloops Centre",
+    "region": "Interior",
+    "mla": "Peter Milobar",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 48.83,
+      "runnerUpParty": "NDP",
+      "marginPct": 7.91
+    }
+  },
+  {
+    "name": "Kamloops-North Thompson",
+    "region": "Interior",
+    "mla": "Ward Stamer",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 59.74,
+      "runnerUpParty": "NDP",
+      "marginPct": 26.84
+    }
+  },
+  {
+    "name": "Kelowna Centre",
+    "region": "Okanagan",
+    "mla": "Kristina Loewen",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 42.85,
+      "runnerUpParty": "NDP",
+      "marginPct": 0.16
+    }
+  },
+  {
+    "name": "Kelowna-Lake Country-Coldstream",
+    "region": "Okanagan",
+    "mla": "Tara Armstrong",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 53.92,
+      "runnerUpParty": "NDP",
+      "marginPct": 18.67
+    }
+  },
+  {
+    "name": "Kelowna-Mission",
+    "region": "Okanagan",
+    "mla": "Gavin Dew",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 51.49,
+      "runnerUpParty": "NDP",
+      "marginPct": 18.87
+    }
+  },
+  {
+    "name": "Kootenay Central",
+    "region": "Interior",
+    "mla": "Brittny Anderson",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 39.63,
+      "runnerUpParty": "Conservative",
+      "marginPct": 7.95
+    }
+  },
+  {
+    "name": "Kootenay-Monashee",
+    "region": "Interior",
+    "mla": "Steve Morissette",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 52.04,
+      "runnerUpParty": "Conservative",
+      "marginPct": 13.19
+    }
+  },
+  {
+    "name": "Kootenay-Rockies",
+    "region": "Interior",
+    "mla": "Pete Davis",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 42.71,
+      "runnerUpParty": "Independent",
+      "marginPct": 12.34
+    }
+  },
+  {
+    "name": "Ladysmith-Oceanside",
+    "region": "Island",
+    "mla": "Stephanie Higginson",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 41.49,
+      "runnerUpParty": "Conservative",
+      "marginPct": 6
+    }
+  },
+  {
+    "name": "Langford-Highlands",
+    "region": "Island",
+    "mla": "Ravi Parmar",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 51.87,
+      "runnerUpParty": "Conservative",
+      "marginPct": 14.47
+    }
+  },
+  {
+    "name": "Langley-Abbotsford",
+    "region": "Lower Mainland",
+    "mla": "Harman Bhangu",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 55.65,
+      "runnerUpParty": "NDP",
+      "marginPct": 21.92
+    }
+  },
+  {
+    "name": "Langley-Walnut Grove",
+    "region": "Lower Mainland",
+    "mla": "Misty Van Popta",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 49.56,
+      "runnerUpParty": "NDP",
+      "marginPct": 4.79
+    }
+  },
+  {
+    "name": "Langley-Willowbrook",
+    "region": "Lower Mainland",
+    "mla": "Jody Toor",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 48.24,
+      "runnerUpParty": "NDP",
+      "marginPct": 3.81
+    }
+  },
+  {
+    "name": "Maple Ridge East",
+    "region": "Lower Mainland",
+    "mla": "Lawrence Mok",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 47.02,
+      "runnerUpParty": "NDP",
+      "marginPct": 0.38
+    }
+  },
+  {
+    "name": "Maple Ridge-Pitt Meadows",
+    "region": "Lower Mainland",
+    "mla": "Lisa Beare",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 54.89,
+      "runnerUpParty": "Conservative",
+      "marginPct": 9.78
+    }
+  },
+  {
+    "name": "Mid Island-Pacific Rim",
+    "region": "Island",
+    "mla": "Josie Osborne",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 48.74,
+      "runnerUpParty": "Conservative",
+      "marginPct": 9.29
+    }
+  },
+  {
+    "name": "Nanaimo-Gabriola Island",
+    "region": "Island",
+    "mla": "Sheila Malcolmson",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 52.75,
+      "runnerUpParty": "Conservative",
+      "marginPct": 18.09
+    }
+  },
+  {
+    "name": "Nanaimo-Lantzville",
+    "region": "Island",
+    "mla": "George Anderson",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 51.75,
+      "runnerUpParty": "Conservative",
+      "marginPct": 12.24
+    }
+  },
+  {
+    "name": "Nechako Lakes",
+    "region": "Interior",
+    "mla": "John Rustad",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 67.45,
+      "runnerUpParty": "NDP",
+      "marginPct": 40.24
+    }
+  },
+  {
+    "name": "New Westminster-Coquitlam",
+    "region": "Lower Mainland",
+    "mla": "Jennifer Whiteside",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 59.13,
+      "runnerUpParty": "Conservative",
+      "marginPct": 29.29
+    }
+  },
+  {
+    "name": "North Coast-Haida Gwaii",
+    "region": "Interior",
+    "mla": "Tamara Davidson",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 64.92,
+      "runnerUpParty": "Conservative",
+      "marginPct": 29.84
+    }
+  },
+  {
+    "name": "North Island",
+    "region": "Island",
+    "mla": "Anna Kindy",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 47.07,
+      "runnerUpParty": "NDP",
+      "marginPct": 2.14
+    }
+  },
+  {
+    "name": "North Vancouver-Lonsdale",
+    "region": "Lower Mainland",
+    "mla": "Bowinn Ma",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 64.88,
+      "runnerUpParty": "Conservative",
+      "marginPct": 29.75
+    }
+  },
+  {
+    "name": "North Vancouver-Seymour",
+    "region": "Lower Mainland",
+    "mla": "Susie Chant",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 52.77,
+      "runnerUpParty": "Conservative",
+      "marginPct": 16.98
+    }
+  },
+  {
+    "name": "Oak Bay-Gordon Head",
+    "region": "Island",
+    "mla": "Diana Gibson",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 49.1,
+      "runnerUpParty": "Conservative",
+      "marginPct": 20.21
+    }
+  },
+  {
+    "name": "Peace River North",
+    "region": "Interior",
+    "mla": "Jordan Kealy",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 74.36,
+      "runnerUpParty": "Independent",
+      "marginPct": 54.21
+    }
+  },
+  {
+    "name": "Peace River South",
+    "region": "Interior",
+    "mla": "Larry Neufeld",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 69.84,
+      "runnerUpParty": "Unaffiliated",
+      "marginPct": 45.29
+    }
+  },
+  {
+    "name": "Penticton-Summerland",
+    "region": "Okanagan",
+    "mla": "Amelia Boultbee",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 41.37,
+      "runnerUpParty": "NDP",
+      "marginPct": 1.13
+    }
+  },
+  {
+    "name": "Port Coquitlam",
+    "region": "Lower Mainland",
+    "mla": "Mike Farnworth",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 53.87,
+      "runnerUpParty": "Conservative",
+      "marginPct": 15.08
+    }
+  },
+  {
+    "name": "Port Moody-Burquitlam",
+    "region": "Lower Mainland",
+    "mla": "Rick Glumac",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 52.06,
+      "runnerUpParty": "Conservative",
+      "marginPct": 11.56
+    }
+  },
+  {
+    "name": "Powell River-Sunshine Coast",
+    "region": "Island",
+    "mla": "Randene Neill",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 49.62,
+      "runnerUpParty": "Conservative",
+      "marginPct": 13.94
+    }
+  },
+  {
+    "name": "Prince George-Mackenzie",
+    "region": "Interior",
+    "mla": "Kiel Giddens",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 60.92,
+      "runnerUpParty": "NDP",
+      "marginPct": 32.68
+    }
+  },
+  {
+    "name": "Prince George-North Cariboo",
+    "region": "Interior",
+    "mla": "Sheldon Clare",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 56.82,
+      "runnerUpParty": "Independent",
+      "marginPct": 34.98
+    }
+  },
+  {
+    "name": "Prince George-Valemount",
+    "region": "Interior",
+    "mla": "Rosalyn Bird",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 55.19,
+      "runnerUpParty": "NDP",
+      "marginPct": 20.25
+    }
+  },
+  {
+    "name": "Richmond-Bridgeport",
+    "region": "Lower Mainland",
+    "mla": "Teresa Wat",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 58.19,
+      "runnerUpParty": "NDP",
+      "marginPct": 23.42
+    }
+  },
+  {
+    "name": "Richmond Centre",
+    "region": "Lower Mainland",
+    "mla": "Hon Chan",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 51.99,
+      "runnerUpParty": "NDP",
+      "marginPct": 15.21
+    }
+  },
+  {
+    "name": "Richmond-Queensborough",
+    "region": "Lower Mainland",
+    "mla": "Steve Kooner",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 50.91,
+      "runnerUpParty": "NDP",
+      "marginPct": 6.78
+    }
+  },
+  {
+    "name": "Richmond-Steveston",
+    "region": "Lower Mainland",
+    "mla": "Kelly Greene",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 44.27,
+      "runnerUpParty": "Conservative",
+      "marginPct": 2.07
+    }
+  },
+  {
+    "name": "Saanich North and the Islands",
+    "region": "Island",
+    "mla": "Rob Botterell",
+    "party": "Green",
+    "result2024": {
+      "winnerVotePct": 36.15,
+      "runnerUpParty": "NDP",
+      "marginPct": 3.96
+    }
+  },
+  {
+    "name": "Saanich South",
+    "region": "Island",
+    "mla": "Lana Popham",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 49.76,
+      "runnerUpParty": "Conservative",
+      "marginPct": 17.31
+    }
+  },
+  {
+    "name": "Salmon Arm-Shuswap",
+    "region": "Okanagan",
+    "mla": "David Williams",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 52.11,
+      "runnerUpParty": "NDP",
+      "marginPct": 21.67
+    }
+  },
+  {
+    "name": "Skeena",
+    "region": "Interior",
+    "mla": "Claire Rattee",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 51.2,
+      "runnerUpParty": "NDP",
+      "marginPct": 6.76
+    }
+  },
+  {
+    "name": "Surrey City Centre",
+    "region": "Lower Mainland",
+    "mla": "Amna Shah",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 46.71,
+      "runnerUpParty": "Conservative",
+      "marginPct": 1.64
+    }
+  },
+  {
+    "name": "Surrey-Cloverdale",
+    "region": "Lower Mainland",
+    "mla": "Elenore Sturko",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 48.32,
+      "runnerUpParty": "NDP",
+      "marginPct": 2.77
+    }
+  },
+  {
+    "name": "Surrey-Fleetwood",
+    "region": "Lower Mainland",
+    "mla": "Jagrup Brar",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 48.6,
+      "runnerUpParty": "Conservative",
+      "marginPct": 3.67
+    }
+  },
+  {
+    "name": "Surrey-Guildford",
+    "region": "Lower Mainland",
+    "mla": "Garry Begg",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 46.93,
+      "runnerUpParty": "Conservative",
+      "marginPct": 0.12
+    }
+  },
+  {
+    "name": "Surrey-Newton",
+    "region": "Lower Mainland",
+    "mla": "Jessie Sunner",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 51.17,
+      "runnerUpParty": "Conservative",
+      "marginPct": 8.18
+    }
+  },
+  {
+    "name": "Surrey North",
+    "region": "Lower Mainland",
+    "mla": "Mandeep Dhaliwal",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 50.67,
+      "runnerUpParty": "NDP",
+      "marginPct": 7.39
+    }
+  },
+  {
+    "name": "Surrey-Panorama",
+    "region": "Lower Mainland",
+    "mla": "Bryan Tepper",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 49.6,
+      "runnerUpParty": "NDP",
+      "marginPct": 1.49
+    }
+  },
+  {
+    "name": "Surrey-Serpentine River",
+    "region": "Lower Mainland",
+    "mla": "Linda Hepner",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 49.7,
+      "runnerUpParty": "NDP",
+      "marginPct": 2.21
+    }
+  },
+  {
+    "name": "Surrey South",
+    "region": "Lower Mainland",
+    "mla": "Brent Chapman",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 58.83,
+      "runnerUpParty": "NDP",
+      "marginPct": 17.66
+    }
+  },
+  {
+    "name": "Surrey-White Rock",
+    "region": "Lower Mainland",
+    "mla": "Trevor Halford",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 52.31,
+      "runnerUpParty": "NDP",
+      "marginPct": 7.02
+    }
+  },
+  {
+    "name": "Vancouver-Fraserview",
+    "region": "Lower Mainland",
+    "mla": "George Chow",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 57.18,
+      "runnerUpParty": "Conservative",
+      "marginPct": 20.56
+    }
+  },
+  {
+    "name": "Vancouver-Hastings",
+    "region": "Lower Mainland",
+    "mla": "Niki Sharma",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 64.15,
+      "runnerUpParty": "Conservative",
+      "marginPct": 39.86
+    }
+  },
+  {
+    "name": "Vancouver-Kensington",
+    "region": "Lower Mainland",
+    "mla": "Mable Elmore",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 60.9,
+      "runnerUpParty": "Conservative",
+      "marginPct": 29.38
+    }
+  },
+  {
+    "name": "Vancouver-Langara",
+    "region": "Lower Mainland",
+    "mla": "Sunita Dhir",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 48.43,
+      "runnerUpParty": "Conservative",
+      "marginPct": 2.38
+    }
+  },
+  {
+    "name": "Vancouver-Little Mountain",
+    "region": "Lower Mainland",
+    "mla": "Christine Boyle",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 62.11,
+      "runnerUpParty": "Conservative",
+      "marginPct": 31.5
+    }
+  },
+  {
+    "name": "Vancouver-Point Grey",
+    "region": "Lower Mainland",
+    "mla": "David Eby",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 56.77,
+      "runnerUpParty": "Conservative",
+      "marginPct": 22.26
+    }
+  },
+  {
+    "name": "Vancouver-Quilchena",
+    "region": "Lower Mainland",
+    "mla": "Dallas Brodie",
+    "party": "Conservative",
+    "result2024": {
+      "winnerVotePct": 51.58,
+      "runnerUpParty": "NDP",
+      "marginPct": 12.68
+    }
+  },
+  {
+    "name": "Vancouver-Renfrew",
+    "region": "Lower Mainland",
+    "mla": "Adrian Dix",
+    "party": "NDP",
+    "result2024": {
+      "winnerVotePct": 63.22,
+      "runnerUpParty": "Conservative",
+      "marginPct": 32.56
+    }
+  }
+]

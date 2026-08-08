@@ -1,0 +1,349 @@
+﻿/////////////////////
+// creates a manager for outputing (and keeping track of) one or more per day selection tables.
+//  Instantiate the manager and then use it to build tables and validate selections. 
+
+//  ex. var inst = wrPerDaySingle.getInstance(true) (waitlist supported)
+//      inst.createNewTable(templateId, classId, perDayString,selID);       //Done! table is outputted!
+//
+//      .validateAllTables() - will validate all tables created and return false if an invalid is found. will display inline messages and focus on first invalid table found.
+//      .dupeTableCheck() - checks a particular student to validate if they've already built a table for the specified class. 
+//
+//      What's this doing? 
+//      .getInstance - get our manager instance 
+//      .createTable - Populates our classData with openings, uses classData to build ClassData for this selection, builds output via mustache, binds functions
+//  
+//
+/////////////////////
+var wrPerDaySingleton = (function ($) {
+    //use this to create a singleton of our manager
+    var manager = null;
+    //Class Data - Property: ID | Value: array of ints/null; number is openings and implies it is scheduled; null means not scheduled.)
+    //We're creating this every time, but can change to cache if we want. 
+    //We can use this to track days checked on the client side (not doing this yet but it'll be easier when we do)
+    var classData = {};
+    // Individual tables created. (PerDayTableViewModel)
+    // Property = StuClass (S1C1) value = Table viewmodel object
+    var tables = {};
+    //Whether the org is supporting wait list
+    var allowWaitList = true;
+
+    //WR per day manager. Managers all instances of created tables. 
+    function PerDayTableManager() {        
+
+        //Loop tables and validate
+        this.validateAllTables = function () {
+            var valid = true;
+            var focused = false;
+
+            //Loop and validate tables
+            for (var x in tables) {
+                if (!tables[x].validateTable()) {
+                    valid = false;
+
+                    //focus but only on the first table found
+                    if (!focused) {
+                        tables[x].focus();
+                        focused = true;
+                    }
+                }                    
+            }
+
+            return valid;
+        }
+                       
+        //create a new table
+        this.createNewTable = function (templateId, classId, openingsStr, stuClass,$appendAfter, maxWait) {
+
+            //create class data
+            var openingsSplit = openingsStr.split('|');
+                
+            //Store our array of original openings
+            //Add openings. Later we can persist them here and update to keep track of changes on the client side
+            classData[classId] = openingsSplit;                                
+            
+
+            //Create our table
+            //Pass the class ID and the viewmodel will reference the class data appropriately.
+            var table = new PerDayTableViewModel(classId, stuClass, maxWait);
+
+            //remove our old table if one currently exists for this slot
+            if (tables[stuClass])
+                this.removeTable(stuClass);
+
+            //output markup
+            table.outputTable(templateId,$appendAfter);
+           
+            //add to our tables object based on stuClass (ex = S1C1)
+            tables[stuClass] = table;
+        }
+
+        //Remove a table from our list!
+        this.removeTable = function(stuClass) {
+            var table = tables[stuClass];
+
+            if (table) {
+                table.removeTable();
+            }
+
+            return false;
+        }
+      
+        //Check to see if this student already has this class selected in the form
+        this.dupeTableCheck = function(stuClass, classId) {
+            var student = stuClass.substring(0, 2); // just grab the first 2 (S1,S2,etc)
+
+            //loop tables and see 
+            for (var x in tables) {
+                var tableStu = x.substring(0, 2);
+                var table = tables[x];
+
+                if (student === tableStu) {
+                    if (table.classId === classId)
+                        return true;
+                }
+            }
+
+            return false;
+        }
+    }    
+
+    // View Model for individual per day tables. Maintains enroll table (days) and wait list option (if applicable)
+    function PerDayTableViewModel(classId,stuClass,maxWait) {
+        var $tableContainer = null;
+        var $chksEnroll = null;
+        var $validationMessage = null;
+        var $radioEnrollWait = null;
+        var $txtWaitlistNote = null;
+        var $inputWL = null;
+        var stuClassId = stuClass;
+        var days = [];
+        this.classId = classId;
+       
+        //focus on this table
+        this.focus = function() {
+            $chksEnroll.eq(0).focus();
+        }
+
+        //output our table to the conatiner based on stuClass
+        //grab data for this class from classData object
+        //cache selectors of elements after output
+        //bind events on elements 
+        this.outputTable = function(templateId,$appendAfter) {
+            //build up our days from the class data object
+            buildDays();
+
+            // render with mustache
+            //create jquery object at the same time 
+            //Create dummy empty jquery object, dump new html, then grab contents of dummy div
+            //Do it this way so we have a direct reference to our jquery obj ect and we can bind on it later
+            var templateText = $('#' + templateId).html();            
+            //create class data for rendering markup via mustache
+            var data = new ClassData(days, stuClassId, maxWait);
+
+            //Set up our tablecontainer 
+            $tableContainer = jQuery('<div/>').html(Mustache.render(templateText, data)).contents();
+
+            //append to dom
+            $appendAfter.after($tableContainer);
+
+            //cache selectors
+            $chksEnroll = $tableContainer.find('input.chkEnroll');
+            $validationMessage = $tableContainer.find('.message');
+            $radioEnrollWait = $tableContainer.find('input.enrollOrWaitlist');
+            $txtWaitlistNote = $tableContainer.find('textarea.waitlistNote');
+            //hidden WL bit flag
+            $inputWL = $('#' + stuClassId + 'WL');
+
+            //bind events 
+
+            //bind clearing any validation message when we select a day
+            $chksEnroll.on('change', function(e) {                
+                $validationMessage.hide();
+            });
+
+            //bind changing our enroll/wait radio
+            $radioEnrollWait.on('change', function(e) {
+                var $this = $(this);
+                var val = $this.val();
+
+                if (val === '0') {
+                    //Enroll
+                    $chksEnroll.prop('disabled', false).prop('checked', true);
+                    $txtWaitlistNote.prop('disabled', true);                    
+                } else {
+                    //Waitlist
+                    $chksEnroll.prop('disabled', true).prop('checked', false);
+                    $txtWaitlistNote.prop('disabled', false);
+                }
+
+                //Set val of this to our hidden WL bit flag
+                $inputWL.val(val);
+
+                //hide any validation message we might have 
+                $validationMessage.hide();
+            });
+
+            //Check our class data - if we're waitlist only we need to flip our WL flag manually
+            //This would otherwise be flipped by the radio change (if both options were available)
+            if (!data.showEnroll() && data.showWaitlist()) {
+                $inputWL.val('1');
+            }
+        }
+       
+        //validate selection in table options
+        this.validateTable = function () {
+            //If we have checkboxes (days are available)
+            //and they are not disabled (we haven't toggled to the waitlist option / we are attempting to enroll)
+            //and we have NONE checked - then cancel because this is invalid!
+            if ($chksEnroll.length > 0 && $chksEnroll.filter(':checked').length === 0 && $chksEnroll.filter(':disabled').length === 0) {
+                $validationMessage.show();
+                return false;
+            }
+
+            return true;
+        }
+
+        //remove this table from the DOM & tables object
+        this.removeTable = function() {
+            $tableContainer.remove();
+            delete tables[stuClassId];
+        }
+
+        //private funciton to build days
+        //This will be called everytime we output the table.
+        function buildDays() {
+            //reset our local days to be an empty array
+            days = [];
+
+            //build up local days array from classData
+            for (var i = 0; i < classData[classId].length; i++) {
+                var openings = eval(classData[classId][i]);
+
+                switch (i) {
+                    case 0:
+                        days.push(new ClassDay('Mon', openings, stuClass));
+                        break;
+                    case 1:
+                        days.push(new ClassDay('Tue', openings, stuClass));
+                        break;
+                    case 2:
+                        days.push(new ClassDay('Wed', openings, stuClass));
+                        break;
+                    case 3:
+                        days.push(new ClassDay('Thu', openings, stuClass));
+                        break;
+                    case 4:
+                        days.push(new ClassDay('Fri', openings, stuClass));
+                        break;
+                    case 5:
+                        days.push(new ClassDay('Sat', openings, stuClass));
+                        break;
+                    case 6:
+                        days.push(new ClassDay('Sun', openings, stuClass));
+                        break;
+                }
+            }
+        }
+    }
+
+    //A day for a class - property of ClassData
+    // contains class day properties
+    // contains functions used by mustache 
+    function ClassDay(day,openings,stuClass) {
+        this.day = day;
+        this.openings = openings;
+        this.checkboxName = function() {
+            return stuClass + '_' + day + 'Enroll';
+        }
+
+        this.hasOpenings = function() {
+            return (!isNaN(this.openings) && this.openings > 0);
+        }
+
+        this.isScheduled = function() {
+            return (!isNaN(this.openings) && this.openings !== null);
+        }
+    }
+
+    //ClassData object. 
+    // contains array of Days
+    // contains VW functions used by mustache 
+    function ClassData(days,stuClass, maxWait) {
+        //array of class days
+        this.days = days; 
+        this.maxWait = maxWait;      
+
+        this.wlNoteName = function() {
+            return stuClass + '_WLNote';
+        }
+
+        this.enrollRadioName = function() {
+            return 'radio_' + stuClass + '_EnrollWaitlist';
+        }
+
+        //Should we show waitlist option at all? 
+        this.showWaitlist = function () {
+            //verify we're allowing wait list at all
+            if (allowWaitList && maxWait > 0) {
+                //loop our days
+                for (var i = 0; i < this.days.length; i++) {
+                    //If we're schedule but full then we should also allow wait list option
+                    if (this.days[i].isScheduled && this.days[i].openings <= 0)
+                        return true;
+                }
+            }
+
+            return false;
+        }
+
+        //Should we show enroll option at all? 
+        this.showEnroll = function () {
+            //loop days
+            for (var i = 0; i < this.days.length; i++) {
+                var day = this.days[i];
+
+                //if we have any positive openings we can offer regular enroll option
+                if (day.openings > 0)
+                    return true;
+            }
+
+            return false;
+        }
+    }
+
+    
+    //public methods!!! 
+
+    function getInstance(bWaitList) {
+        //Set our global property of allowing wait list (org level setting)
+        if (bWaitList === true || bWaitList === false)
+            allowWaitList = bWaitList;        
+
+        //either return manager or create new one
+        if (manager) {
+            return manager;
+        }
+        else {            
+            manager = new PerDayTableManager();
+            return manager;
+        }
+            
+    }
+
+    function hasInstance() {
+        return manager !== null;
+    }
+
+    function setAllowWaitList(allow) {
+        if (allow === true || allow === false)
+            allowWaitList = allow;
+    }    
+
+    //return public methods
+    return {
+        getInstance: getInstance,
+        hasInstance: hasInstance,
+        setAllowWaitList: setAllowWaitList
+    }
+
+})(jQuery);

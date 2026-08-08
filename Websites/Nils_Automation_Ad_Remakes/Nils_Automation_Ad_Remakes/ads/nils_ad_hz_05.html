@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8" /><link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@500;600;700;800&display=swap" rel="stylesheet" /><style>
+  *{margin:0;padding:0;box-sizing:border-box}html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;font-family:'Inter',sans-serif;
+    display:flex;flex-direction:column;align-items:flex-start;justify-content:center;text-align:left;padding:88px 84px}
+  .inner{position:relative;width:100%;z-index:2}
+  .eyebrow{display:flex;align-items:center;gap:13px;font-weight:800;letter-spacing:.34em;font-size:21px;text-transform:uppercase;text-indent:.34em;margin-bottom:30px}
+  .eyebrow .dot{width:12px;height:12px;border-radius:50%;text-indent:0}
+  h1{font-family:'Anton',sans-serif;font-weight:400;line-height:1.26;letter-spacing:.5px;text-transform:uppercase;margin-bottom:34px}
+  .sub{font-weight:600;line-height:1.32;margin-bottom:42px}
+  .cta{display:inline-flex;align-items:center;gap:13px;font-weight:800;border-radius:999px}
+  .foot{position:absolute;left:84px;bottom:50px;font-weight:600;font-size:22px;letter-spacing:.02em;z-index:2}
+  
+    .art{background:#f5f8f6;color:#08160f}
+    .art::before{content:"";position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(8,22,15,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(8,22,15,.04) 1px,transparent 1px);background-size:50px 50px}
+    .bar{position:absolute;top:0;left:0;right:0;height:12px;background:linear-gradient(90deg,#14c982,#0a8c5a);z-index:2}
+    .eyebrow{color:#0a7d4f}.eyebrow .dot{background:#0fbf7a;box-shadow:0 0 12px rgba(15,191,122,.5)}
+    h1{font-size:106px;max-width:900px;color:#08160f}.flex{}
+    .hl{color:#04140c;padding:0 .1em;border-radius:6px;background:linear-gradient(135deg,#6dffa6,#0fbf7a);-webkit-box-decoration-break:clone;box-decoration-break:clone}
+    .sub{font-size:35px;color:#41524b;max-width:780px}
+    .cta{background:#08160f;color:#fff;font-size:33px;padding:25px 48px;box-shadow:0 14px 36px rgba(8,22,15,.2)}
+    .foot{color:#6c8378}.foot b{color:#08160f}</style></head><body><div class="art"><div class="bar"></div><div class="inner"><div class="eyebrow"><span class="dot"></span>Nils Digital · AI Audit</div><h1 class="flex">Tried AI. Wasted months. We fix it in <span class="hl">14 days</span>.</h1><div class="sub">We map your business and show you exactly where AI fits.</div><div class="cta">Book your audit →</div></div><div class="foot"><b>50 five-star reviews</b> &nbsp;·&nbsp; nilsdigital.com/automation</div></div><script>
+  function fit(){var inner=document.querySelector('.inner');if(!inner)return;
+    var big=document.querySelector('.big');
+    if(big){var avW=inner.clientWidth,bs=parseFloat(getComputedStyle(big).fontSize),gw=0;
+      while(big.scrollWidth>avW&&bs>60&&gw<200){bs-=4;big.style.fontSize=bs+'px';gw++;}}
+    var avail=1080-176-86;var els=inner.querySelectorAll('.flex');if(!els.length)return;
+    var g=0;
+    while(inner.scrollHeight>avail&&g<160){els.forEach(function(e){e.style.fontSize=(parseFloat(getComputedStyle(e).fontSize)-2)+'px'});g++;if(parseFloat(getComputedStyle(els[0]).fontSize)<=38)break;}
+  }
+  if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fit);}window.addEventListener('load',fit);
+</script></body></html>

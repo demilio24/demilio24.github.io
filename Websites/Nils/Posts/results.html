@@ -1,0 +1,1693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NILS Digital — Results Carousel Variations</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Google Sans', sans-serif;
+      background: #0e0e10;
+      padding: 40px 20px;
+    }
+    .group { max-width: 4600px; margin: 0 auto 64px; }
+    .group-title {
+      font-size: 14px; font-weight: 700; letter-spacing: 0.2em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
+      margin-bottom: 24px; padding-left: 8px;
+    }
+    .row { display: flex; gap: 32px; overflow-x: auto; padding-bottom: 16px; }
+
+    /* ── Slide canvas ── */
+    .slide {
+      width: 1080px; height: 1350px;
+      position: relative; overflow: hidden; flex-shrink: 0; border-radius: 0;
+      max-width: 1080px; max-height: 1350px;
+    }
+
+    /* ── Variation label ── */
+    .vl {
+      position: absolute; top: 28px; right: 28px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 8px 18px; border-radius: 8px; z-index: 20;
+    }
+    .vl-w { background: rgba(255,255,255,0.12); backdrop-filter: blur(12px); color: rgba(255,255,255,0.7); border: 1px solid rgba(255,255,255,0.15); }
+    .vl-d { background: rgba(0,0,0,0.04); backdrop-filter: blur(12px); color: rgba(13,27,53,0.3); border: 1px solid rgba(0,0,0,0.05); }
+
+    /* ── Dots ── */
+    .dots { position: absolute; bottom: 44px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
+    .dt { width: 10px; height: 10px; border-radius: 50%; background: rgba(255,255,255,0.25); }
+    .dt.on { background: #fff; width: 32px; border-radius: 5px; }
+    .dots.dk .dt { background: rgba(13,71,194,0.12); }
+    .dots.dk .dt.on { background: #0d47c2; }
+
+    /* ── Swipe arrow ── */
+    .swp {
+      position: absolute; bottom: 52px; right: 56px;
+      display: flex; align-items: center; gap: 9px; z-index: 10;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 13px 20px 13px 18px; border-radius: 100px;
+    }
+    .swp.dk {
+      color: rgba(13,27,53,0.4);
+      background: rgba(13,71,194,0.06);
+      border-color: rgba(13,71,194,0.12);
+    }
+    .swp svg { width: 18px; height: 18px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+    /* ── Logos ── */
+    .logo-w { width: 170px; height: auto; }
+    .logo-b { width: 160px; height: auto; }
+
+    /* star svg path reused inline */
+
+
+    /* ══════════════════════════════════════════════════════════
+       BACKGROUNDS
+       ══════════════════════════════════════════════════════════ */
+
+    /* A: Solid blue + stars */
+    .bg-a {
+      background: linear-gradient(170deg, #1a5fe0 0%, #0d47c2 35%, #0a3ba8 70%, #0835a0 100%);
+    }
+    .bg-a::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 110% 45% at 50% -8%, rgba(60,140,255,0.22) 0%, transparent 55%),
+        radial-gradient(ellipse 70% 35% at 85% 90%, rgba(0,40,180,0.20) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .bg-a::after {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='140' height='140' viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M70 15l5.5 16.9h17.8l-14.4 10.5 5.5 16.9L70 48.8l-14.4 10.5 5.5-16.9-14.4-10.5h17.8z' fill='rgba(255,255,255,0.035)'/%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+
+    /* B: White clean */
+    .bg-b {
+      background: radial-gradient(ellipse 90% 50% at 50% 0%, rgba(13,71,194,0.03) 0%, transparent 60%), #f8f9fc;
+    }
+
+    /* B2: White with blue grid */
+    .bg-b2 {
+      background:
+        linear-gradient(rgba(13,71,194,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(13,71,194,0.04) 1px, transparent 1px),
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(13,71,194,0.06) 0%, transparent 60%),
+        #f8f9fc;
+      background-size: 60px 60px, 60px 60px, 100% 100%, 100% 100%;
+    }
+
+    /* C: Light blue gradient */
+    .bg-c {
+      background: linear-gradient(180deg, #e8f1ff 0%, #d4e4fb 40%, #c5d9f8 100%);
+    }
+    .bg-c::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 80% 40% at 20% 0%, rgba(13,71,194,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse 60% 35% at 80% 100%, rgba(13,71,194,0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    /* D: Blue top + white bottom split */
+    .bg-d {
+      background: linear-gradient(180deg, #0d47c2 0%, #0d47c2 45%, #ffffff 45%, #ffffff 100%);
+    }
+    .bg-d::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        url("data:image/svg+xml,%3Csvg width='140' height='140' viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M70 15l5.5 16.9h17.8l-14.4 10.5 5.5 16.9L70 48.8l-14.4 10.5 5.5-16.9-14.4-10.5h17.8z' fill='rgba(255,255,255,0.035)'/%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+    /* D-inverted: white top, blue bottom */
+    .bg-d2 {
+      background: linear-gradient(180deg, #ffffff 0%, #ffffff 50%, #0d47c2 50%, #0d47c2 100%);
+    }
+    .bg-d2::before {
+      content: ''; position: absolute; inset: 0;
+      background:
+        url("data:image/svg+xml,%3Csvg width='140' height='140' viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M70 15l5.5 16.9h17.8l-14.4 10.5 5.5 16.9L70 48.8l-14.4 10.5 5.5-16.9-14.4-10.5h17.8z' fill='rgba(13,71,194,0.03)'/%3E%3C/svg%3E") repeat;
+      pointer-events: none;
+    }
+
+
+    /* ══════════════════════════════════════════════════════════
+       SLIDE 1 — OUR RESULTS
+       ══════════════════════════════════════════════════════════ */
+
+    /* 1A: Solid blue bold */
+    .s1a { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 64px 80px 80px; }
+    .s1a-ey { font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .s1a-h { font-size: 152px; font-weight: 800; color: #fff; line-height: 0.9; letter-spacing: -0.04em; }
+    .s1a-stats { display: flex; gap: 16px; z-index: 5; }
+    .s1a-st { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.18); border-radius: 18px; padding: 40px 20px; text-align: center; flex: 1; }
+    .s1a-st-n { font-size: 52px; font-weight: 800; color: #fff; line-height: 1; }
+    .s1a-st-l { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.55); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .s1a-box { width: 100%; }
+    .s1a-box p { font-size: 44px; font-weight: 400; color: rgba(255,255,255,0.45); line-height: 1.45; letter-spacing: -0.02em; }
+    .s1a-glow { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(60,140,255,0.25) 0%, transparent 70%); bottom: 0; right: 0; pointer-events: none; z-index: 1; }
+
+    /* 1B: Two-column — headline left, stacked stats right */
+    .s1b { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: 64px 80px 80px; }
+    .s1b-top { display: flex; gap: 48px; flex: 1; margin-top: 40px; }
+    .s1b-left { flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+    .s1b-right { flex-shrink: 0; display: flex; flex-direction: column; justify-content: space-between; }
+    .s1b-ey { font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .s1b-h { font-size: 112px; font-weight: 800; color: #fff; line-height: 0.9; letter-spacing: -0.04em; }
+    .s1b-desc { font-size: 24px; font-weight: 400; color: rgba(255,255,255,0.45); line-height: 1.65; }
+    .s1b-st { background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.18); border-radius: 18px; padding: 36px 32px; text-align: center; width: 230px; }
+    .s1b-st-n { font-size: 52px; font-weight: 800; color: #fff; line-height: 1; }
+    .s1b-st-l { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.55); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+
+    /* 1C: Hero stat — $2M+ featured large */
+    .s1c { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 64px 80px 80px; }
+    .s1c-ey { font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .s1c-hero { font-size: 204px; font-weight: 800; color: #fff; line-height: 0.85; letter-spacing: -0.06em; }
+    .s1c-hero-label { font-size: 24px; font-weight: 500; color: rgba(255,255,255,0.45); }
+    .s1c-divider { height: 1px; background: rgba(255,255,255,0.1); }
+    .s1c-h { font-size: 68px; font-weight: 800; color: #fff; line-height: 1.0; letter-spacing: -0.03em; }
+    .s1c-stats { display: flex; gap: 16px; }
+    .s1c-st { flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.18); border-radius: 18px; padding: 36px 20px; text-align: center; }
+    .s1c-st-n { font-size: 52px; font-weight: 800; color: #fff; line-height: 1; }
+    .s1c-st-l { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.55); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .s1c-desc { font-size: 24px; font-weight: 400; color: rgba(255,255,255,0.45); line-height: 1.65; }
+
+    /* 1D: Centered editorial */
+    .s1d { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: space-between; height: 100%; padding: 64px 80px 80px; }
+    .s1d-ey { font-size: 26px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .s1d-h { font-size: 148px; font-weight: 800; color: #fff; line-height: 0.9; letter-spacing: -0.04em; display: flex; flex-direction: column; align-items: center; }
+    .s1d-stats { display: flex; gap: 16px; width: 100%; }
+    .s1d-st { flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.18); border-radius: 18px; padding: 40px 20px; text-align: center; }
+    .s1d-st-n { font-size: 52px; font-weight: 800; color: #fff; line-height: 1; }
+    .s1d-st-l { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.55); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .s1d-desc { font-size: 34px; font-weight: 400; color: rgba(255,255,255,0.45); line-height: 1.55; max-width: 850px; }
+    .s1d-swp { display: flex; align-items: center; gap: 10px; font-size: 13px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.85); background: #1a5fe0; border: 1px solid rgba(255,255,255,0.2); padding: 14px 24px 14px 22px; border-radius: 100px; margin-top: 14px; box-shadow: 0 4px 20px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.15); }
+    .s1d-swp svg { width: 20px; height: 20px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+
+
+    /* ══════════════════════════════════════════════════════════
+       SLIDE 2 — TESTIMONIAL
+       ══════════════════════════════════════════════════════════ */
+
+    /* Shared testimonial content */
+    .tq-stars { display: flex; gap: 5px; margin-bottom: 14px; }
+    .tq-stars svg { width: 24px; height: 24px; fill: #f59e0b; }
+    .tq-stars-big svg { width: 28px; height: 28px; }
+    .tq { font-size: 26px; font-weight: 700; color: #0d1b35; line-height: 1.35; margin-bottom: 20px; }
+    .tq-w { color: #fff; }
+    .tbl { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px; }
+    .tbl li { display: flex; gap: 12px; font-size: 16px; color: rgba(13,27,53,0.68); line-height: 1.5; }
+    .tbl-w li { color: rgba(255,255,255,0.7); }
+    .tbl .ck { flex-shrink: 0; width: 22px; height: 22px; margin-top: 1px; display: flex; align-items: center; justify-content: center; }
+    .tbl-w .ck svg circle { fill: #fff; fill-opacity: 0.15; }
+    .tbl-w .ck svg path { stroke: #fff; }
+    .ta { display: flex; align-items: center; gap: 14px; padding-top: 20px; border-top: 1px solid rgba(13,27,53,0.06); }
+    .ta-w { border-top-color: rgba(255,255,255,0.1); }
+    .ta-av { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #0d47c2, #1a6eff); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 18px; }
+    .ta-nm { font-weight: 700; font-size: 16px; color: #0d1b35; }
+    .ta-nm-w { color: #fff; }
+    .ta-rl { font-size: 13px; color: rgba(13,27,53,0.4); margin-top: 1px; }
+    .ta-rl-w { color: rgba(255,255,255,0.4); }
+
+    /* 2A: White + phone mockup */
+    .s2-logo { position: absolute; top: 64px; left: 80px; z-index: 10; }
+    .s2-logo img { width: 170px; height: auto; }
+    .s2a { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; height: 100%; padding: 150px 72px 110px; }
+    .s2a-head { text-align: center; margin: 24px 0 40px; }
+    .s2a-ey { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #0d47c2; margin-bottom: 14px; }
+    .s2a-h { font-size: 50px; font-weight: 800; color: #0d1b35; line-height: 1.08; letter-spacing: -0.025em; }
+    .s2a-h span { color: #0d47c2; }
+    .tc { width: 100%; flex: 1; background: #fff; border-radius: 28px; border: 1px solid rgba(13,71,194,0.06); box-shadow: 0 2px 8px rgba(13,71,194,0.04), 0 12px 48px rgba(13,71,194,0.08); display: flex; flex-direction: column; overflow: hidden; }
+    .tc-top { flex: 1; background: linear-gradient(145deg, #e8f0fe 0%, #d4e4fb 100%); display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; }
+    .tc-bubble { position: absolute; top: 32px; left: 50%; transform: translateX(-50%); background: #0d47c2; border-radius: 16px 16px 16px 4px; padding: 14px 24px; display: flex; gap: 6px; box-shadow: 0 8px 24px rgba(13,71,194,0.3); z-index: 3; }
+    .tc-bubble svg { width: 26px; height: 26px; fill: #fff; }
+    .tc-phone { width: 280px; height: 520px; background: #0a0a0a; border-radius: 40px; border: 4px solid #2a2a2a; overflow: hidden; box-shadow: 0 24px 80px rgba(0,0,0,0.28); position: relative; z-index: 2; margin-top: 48px; }
+    .tc-notch { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 110px; height: 26px; background: #0a0a0a; border-radius: 0 0 18px 18px; z-index: 3; }
+    .tc-screen { width: 100%; height: 100%; background: linear-gradient(160deg, #1a5fe0, #0d47c2 40%, #0835a0); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 48px 32px 32px; text-align: center; }
+    .tc-play { width: 60px; height: 60px; background: rgba(255,255,255,0.18); border: 2px solid rgba(255,255,255,0.35); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+    .tc-play svg { width: 22px; height: 22px; fill: #fff; margin-left: 3px; }
+    .tc-play-l { font-size: 14px; font-weight: 600; color: rgba(255,255,255,0.7); }
+    .tc-body { padding: 40px 48px 44px; }
+
+    /* 2B: Light blue gradient full card */
+    .s2b { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; height: 100%; padding: 150px 80px 110px; }
+    .s2b-head { text-align: center; margin: 16px 0 40px; }
+    .s2b-ey { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #0d47c2; margin-bottom: 14px; }
+    .s2b-h { font-size: 48px; font-weight: 800; color: #0d1b35; line-height: 1.1; letter-spacing: -0.02em; }
+    .s2b-h span { color: #0d47c2; }
+    .s2b-card { width: 100%; flex: 1; background: #fff; border-radius: 28px; padding: 56px 60px; display: flex; flex-direction: column; box-shadow: 0 8px 40px rgba(13,71,194,0.08); border: 1px solid rgba(13,71,194,0.06); }
+    .s2b-big-q { font-family: 'Instrument Serif', serif; font-size: 140px; color: rgba(13,71,194,0.08); line-height: 0.7; margin-bottom: -10px; }
+
+    /* 2C: Blue full with white card overlay */
+    .s2c { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; height: 100%; padding: 150px 72px 110px; }
+    .s2c-head { text-align: center; margin: 20px 0 40px; }
+    .s2c-ey { font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
+    .s2c-h { font-size: 48px; font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -0.02em; }
+    .s2c-card { width: 100%; flex: 1; background: #fff; border-radius: 28px; padding: 56px 60px; display: flex; flex-direction: column; box-shadow: 0 16px 56px rgba(0,0,0,0.12); }
+
+    /* 2D: Split — video left, quote right */
+    .s2d { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: 150px 80px 110px; }
+    .s2d-ey { font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #0d47c2; margin-bottom: 16px; }
+    .s2d-h { font-size: 48px; font-weight: 800; color: #0d1b35; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 44px; }
+    .s2d-h span { color: #0d47c2; }
+    .s2d-main { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .s2d-left { background: linear-gradient(160deg, #0d47c2 0%, #0835a0 100%); border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    .s2d-left::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='140' height='140' viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M70 15l5.5 16.9h17.8l-14.4 10.5 5.5 16.9L70 48.8l-14.4 10.5 5.5-16.9-14.4-10.5h17.8z' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E") repeat; pointer-events: none; }
+    .s2d-play { width: 90px; height: 90px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative; z-index: 2; }
+    .s2d-play svg { width: 32px; height: 32px; fill: #fff; margin-left: 4px; }
+    .s2d-vid-l { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.7); position: relative; z-index: 2; }
+    .s2d-right { display: flex; flex-direction: column; justify-content: center; gap: 20px; }
+
+    /* 2E: Blue bg + video/summary split */
+    .s2e { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: 150px 80px 110px; }
+    .s2e-ey { font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
+    .s2e-h { font-size: 48px; font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 44px; }
+    .s2e-main { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .s2e-left { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.15); border-radius: 24px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; }
+    .s2e-play { width: 90px; height: 90px; background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; position: relative; z-index: 2; }
+    .s2e-play svg { width: 32px; height: 32px; fill: #fff; margin-left: 4px; }
+    .s2e-vid-l { font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.6); position: relative; z-index: 2; }
+    .s2e-right { display: flex; flex-direction: column; justify-content: center; gap: 20px; background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 48px 44px; }
+
+    /* 2F: White bg, video top, full-width quote below */
+    .s2f { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: 150px 80px 110px; }
+    .s2f-ey { font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: #0d47c2; margin-bottom: 16px; }
+    .s2f-h { font-size: 48px; font-weight: 800; color: #0d1b35; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 44px; }
+    .s2f-h span { color: #0d47c2; }
+    .s2f-video { background: linear-gradient(160deg, #0d47c2 0%, #0835a0 100%); border-radius: 24px; display: flex; align-items: center; justify-content: center; gap: 20px; padding: 44px; position: relative; overflow: hidden; margin-bottom: 32px; }
+    .s2f-video::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg width='140' height='140' viewBox='0 0 140 140' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M70 15l5.5 16.9h17.8l-14.4 10.5 5.5 16.9L70 48.8l-14.4 10.5 5.5-16.9-14.4-10.5h17.8z' fill='rgba(255,255,255,0.04)'/%3E%3C/svg%3E") repeat; pointer-events: none; }
+    .s2f-play { width: 72px; height: 72px; background: rgba(255,255,255,0.15); border: 2px solid rgba(255,255,255,0.3); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; z-index: 2; }
+    .s2f-play svg { width: 28px; height: 28px; fill: #fff; margin-left: 3px; }
+    .s2f-vid-l { font-size: 18px; font-weight: 700; color: #fff; position: relative; z-index: 2; }
+    .s2f-vid-sub { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.6); margin-top: 4px; }
+    .s2f-quote { flex: 1; background: #f6f8fc; border-radius: 24px; padding: 48px 52px; display: flex; flex-direction: column; justify-content: center; border: 1px solid rgba(13,71,194,0.06); }
+
+    /* 2G: Blue bg, stacked vertical - big quote top, video bottom */
+    .s2g { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: 150px 80px 110px; }
+    .s2g-ey { font-size: 13px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 16px; }
+    .s2g-h { font-size: 48px; font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 44px; }
+    .s2g-quote { background: rgba(255,255,255,0.06); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.1); border-radius: 24px; padding: 48px 52px; flex: 1; display: flex; flex-direction: column; justify-content: center; margin-bottom: 32px; }
+    .s2g-video { background: rgba(255,255,255,0.08); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.12); border-radius: 24px; display: flex; align-items: center; gap: 20px; padding: 36px 44px; }
+    .s2g-play { width: 64px; height: 64px; background: rgba(255,255,255,0.12); border: 2px solid rgba(255,255,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .s2g-play svg { width: 26px; height: 26px; fill: #fff; margin-left: 3px; }
+    .s2g-vid-l { font-size: 16px; font-weight: 700; color: #fff; }
+    .s2g-vid-sub { font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.5); margin-top: 4px; }
+
+
+    /* ══════════════════════════════════════════════════════════
+       SLIDE 3 — REVIEWS
+       ══════════════════════════════════════════════════════════ */
+
+    /* ── Trustpilot-branded review cards ── */
+    .tp-star { display: inline-block; width: 24px; height: 24px; background: #00b67a; position: relative; }
+    .tp-stars .tp-star { margin-right: 3px; }
+    .tp-stars .tp-star:last-child { margin-right: 0; }
+    .tp-star svg { position: absolute; inset: 3px; width: 18px; height: 18px; fill: #fff; }
+    .tp-stars { margin-bottom: 6px; }
+    .tp-stars img { height: 22px; width: auto; display: block; }
+    .tp-slide { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; padding: 56px 64px 60px; overflow: hidden; }
+    .tp-head { text-align: center; margin: 16px 0 20px; display: flex; flex-direction: column; align-items: center; }
+    .tp-h { font-size: 48px; font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -0.02em; }
+    .tp-badge { display: inline-flex; align-items: center; gap: 12px; margin: 0 auto 20px; }
+    .tp-badge img { height: 32px; width: auto; display: block; }
+    .tp-badge-txt { font-size: 14px; font-weight: 700; color: #fff; }
+    .tp-cards { display: flex; flex-direction: column; gap: 14px; flex: 1; min-width: 0; width: 100%; overflow: hidden; }
+    .tp-card { background: #fff; border-radius: 20px; padding: 20px 32px 18px; box-shadow: 0 8px 44px rgba(0,0,0,0.10); display: flex; flex-direction: column; gap: 4px; flex: 1; min-width: 0; overflow: hidden; }
+    .tp-card .tp-star { width: 22px; height: 22px; }
+    .tp-card .tp-star svg { inset: 3px; width: 16px; height: 16px; }
+    .tp-who { display: flex; align-items: center; gap: 12px; }
+    .tp-av { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #0d47c2, #1a6eff); display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 16px; flex-shrink: 0; }
+    .tp-nm { font-weight: 700; font-size: 16px; color: #0d1b35; }
+    .tp-meta { font-size: 12px; color: rgba(13,27,53,0.4); margin-top: 1px; }
+    .tp-dt { font-size: 13px; color: rgba(13,27,53,0.35); font-weight: 500; margin-left: auto; }
+    .tp-tt { font-size: 18px; font-weight: 700; color: #0d1b35; }
+    .tp-bd { font-size: 15px; color: rgba(13,27,53,0.65); line-height: 1.5; word-wrap: break-word; overflow-wrap: break-word; }
+    .tp-bd strong { color: #0d47c2; font-weight: 600; }
+    .tp-disc { text-align: center; font-size: 11px; color: rgba(255,255,255,0.4); margin-top: auto; padding-top: 12px; font-weight: 500; line-height: 1.5; }
+    .tp-h-dk { color: #0d1b35; }
+    .tp-badge-txt-dk { color: #0d1b35; }
+    .tp-disc-dk { color: rgba(13,27,53,0.35); }
+    .rc-d-item { display: flex; flex-direction: column; gap: 14px; flex: 1; }
+
+
+    /* ══════════════════════════════════════════════════════════
+       SLIDE 4 — FEATURES & PRESS
+       ══════════════════════════════════════════════════════════ */
+
+    /* Shared credential pills */
+    .creds { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; width: 100%; }
+    .cr { display: inline-flex; align-items: center; gap: 10px; border-radius: 100px; padding: 11px 22px; font-size: 13.5px; font-weight: 600; }
+    .cr svg { width: 16px; height: 16px; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0; }
+    .cr-w { background: rgba(255,255,255,0.08); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.14); color: rgba(255,255,255,0.9); }
+    .cr-w svg { stroke: rgba(255,255,255,0.85); fill: none; }
+    .cr-w svg.sf { fill: rgba(255,255,255,0.85); stroke: none; }
+    .cr-b { background: rgba(13,71,194,0.04); border: 1px solid rgba(13,71,194,0.08); color: rgba(13,27,53,0.7); }
+    .cr-b svg { stroke: #0d47c2; fill: none; }
+    .cr-b svg.sf { fill: #0d47c2; stroke: none; }
+
+    /* Photo grid helpers */
+    .pg { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; width: 100%; }
+    .pg-img { border-radius: 20px; overflow: hidden; aspect-ratio: 1; }
+    .pg-img img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .pg-img-a { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 40px rgba(0,0,0,0.12); }
+    .pg-img-b { border: 1px solid rgba(13,71,194,0.06); box-shadow: 0 4px 24px rgba(13,71,194,0.06); }
+    .pg-img-c { box-shadow: 0 6px 32px rgba(13,71,194,0.10); }
+
+    /* Featured + row layout */
+    .pg-feat { width: 100%; border-radius: 24px; overflow: hidden; box-shadow: 0 12px 48px rgba(13,71,194,0.12); border: 1px solid rgba(13,71,194,0.06); }
+    .pg-feat img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pg-row { display: flex; gap: 16px; width: 100%; }
+    .pg-thumb { flex: 1; aspect-ratio: 1; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(13,71,194,0.08); border: 1px solid rgba(13,71,194,0.06); }
+    .pg-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* 4 — Proof slides */
+    .s4n { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; height: 100%; padding: 64px 72px 70px; }
+    .s4n-ey { margin-top: 16px; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 14px; }
+    .s4n-h { font-size: 52px; font-weight: 800; color: #fff; line-height: 1.08; letter-spacing: -0.02em; text-align: center; margin-bottom: 32px; }
+    .s4n-h span { font-size: 28px; font-weight: 600; color: rgba(255,255,255,0.55); display: block; margin-top: 8px; letter-spacing: 0; }
+    .s4n-h2 { font-size: 44px; font-weight: 800; color: #fff; line-height: 1.1; letter-spacing: -0.02em; text-align: center; margin-bottom: 32px; }
+    .s4n-hero { width: 100%; border-radius: 20px; overflow: hidden; margin-bottom: 24px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 12px 48px rgba(0,0,0,0.2); }
+    .s4n-hero img { width: 100%; height: auto; display: block; }
+    .s4n-row { display: flex; gap: 16px; width: 100%; margin-bottom: 16px; }
+    .s4n-row > .s4n-img { flex: 1; min-width: 0; }
+    .s4n-img { border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+    .s4n-img img { width: 100%; height: auto; display: block; }
+    .s4n-row-fixed { display: flex; gap: 16px; width: 100%; margin-bottom: 16px; }
+    .s4n-row-fixed > .s4n-imgf { flex: 1; min-width: 0; height: 420px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+    .s4n-imgf img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .s4n-awards { display: flex; gap: 16px; width: 100%; margin-bottom: 16px; }
+    .s4n-award-item { flex: 1; min-width: 0; height: 560px; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+    .s4n-award-item img { width: 100%; height: 100%; object-fit: cover; object-position: bottom; display: block; }
+    .s4n-full { width: 100%; border-radius: 18px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 8px 32px rgba(0,0,0,0.15); margin-bottom: 16px; }
+    .s4n-full img { width: 100%; height: auto; display: block; }
+    .s4n-tag { margin-top: auto; padding-top: 20px; text-align: center; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.4); }
+
+    /* ══════════════════════════════════════════════════════════
+       THUMBNAIL — WHAT WE DO (Video thumbnail, pinned post)
+       ══════════════════════════════════════════════════════════ */
+
+    /* Shared thumbnail layout — content centered for IG square crop */
+    .th { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; justify-content: center; height: 100%; padding: 80px 72px; gap: 28px; }
+    .th-logo { position: absolute; top: 64px; left: 50%; transform: translateX(-50%); }
+    .th-bottom { position: absolute; bottom: 72px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 16px; width: calc(100% - 144px); }
+    .th-ey { font-size: 24px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; }
+    .th-ey-w { color: rgba(255,255,255,0.45); }
+    .th-ey-d { color: #0d47c2; }
+    .th-h { font-weight: 800; line-height: 0.92; letter-spacing: -0.04em; text-align: center; }
+    .th-sub { font-weight: 500; line-height: 1.5; text-align: center; }
+    .th-sub-w { color: rgba(255,255,255,0.4); }
+    .th-sub-d { color: rgba(13,27,53,0.4); }
+    .th-tag { font-size: 14px; font-weight: 600; text-align: center; }
+    .th-tag-w { color: rgba(255,255,255,0.3); }
+    .th-tag-d { color: rgba(13,27,53,0.25); }
+
+    /* Stat pills row */
+    .th-stats { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+    .th-pill { display: inline-flex; align-items: center; gap: 8px; border-radius: 100px; padding: 14px 24px; font-size: 15px; font-weight: 700; }
+    .th-pill-w { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.16); color: #fff; }
+    .th-pill-d { background: rgba(13,71,194,0.05); border: 1px solid rgba(13,71,194,0.08); color: rgba(13,27,53,0.6); }
+
+
+    /* 4D: Split — blue header, white photo area */
+    .s4d { position: relative; z-index: 2; display: flex; flex-direction: column; height: 100%; }
+    .s4d-top { padding: 64px 80px 48px; }
+    .s4d-ey { margin-top: 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.55); margin-bottom: 14px; }
+    .s4d-h { font-size: 44px; font-weight: 800; color: #fff; line-height: 1.12; letter-spacing: -0.02em; }
+    .s4d-bottom { flex: 1; padding: 0 72px 110px; display: flex; flex-direction: column; gap: 28px; justify-content: center; }
+    .s4d-tag { text-align: center; margin-top: 12px; }
+    .s4d-tag-h { font-size: 22px; font-weight: 700; color: #0d1b35; }
+    .s4d-tag-sub { font-size: 14px; color: rgba(13,27,53,0.4); margin-top: 4px; }
+
+    /* ── Hide slide counter dots ── */
+    .dots { display: none !important; }
+
+    /* ── Slide wrapper (for export button) ── */
+    .slide-wrap { flex-shrink: 0; display: inline-flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+    .slide-wrap .slide { flex-shrink: 0; }
+
+    /* ── Export button ── */
+    .export-btn {
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.55); padding: 10px 22px; border-radius: 8px;
+      font-family: 'Google Sans', sans-serif; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: all 0.15s;
+    }
+    .export-btn:hover { background: rgba(255,255,255,0.11); color: rgba(255,255,255,0.9); }
+    .export-btn:disabled { opacity: 0.4; cursor: wait; }
+
+    /* 1E: Trustpilot rating focus */
+    .s1e { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; height: 100%; padding: 64px 80px 80px; }
+    .s1e-ey { font-size: 14px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.5); }
+    .s1e-rating { font-size: 188px; font-weight: 800; color: #fff; line-height: 0.85; letter-spacing: -0.06em; }
+    .s1e-stars { display: flex; gap: 10px; }
+    .s1e-stars svg { width: 40px; height: 40px; fill: #f59e0b; }
+    .s1e-platform { font-size: 20px; font-weight: 600; color: rgba(255,255,255,0.4); letter-spacing: 0.02em; }
+    .s1e-divider { height: 1px; background: rgba(255,255,255,0.1); }
+    .s1e-h { font-size: 60px; font-weight: 800; color: #fff; line-height: 1.05; letter-spacing: -0.03em; }
+    .s1e-stats { display: flex; gap: 16px; }
+    .s1e-st { flex: 1; background: rgba(255,255,255,0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.18); border-radius: 18px; padding: 36px 20px; text-align: center; }
+    .s1e-st-n { font-size: 52px; font-weight: 800; color: #fff; line-height: 1; }
+    .s1e-st-l { font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.55); margin-top: 6px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .s1e-desc { font-size: 24px; font-weight: 400; color: rgba(255,255,255,0.45); line-height: 1.65; }
+
+    @media print { body { background: #fff; gap: 0; padding: 0; } .slide { page-break-after: always; } }
+  </style>
+</head>
+<body>
+
+<!-- ████ SLIDE 1 — OUR RESULTS ████ -->
+<div class="group">
+  <div class="group-title">Slide 1 — Our Results</div>
+  <div class="row">
+
+    <!-- 1A: Solid Blue -->
+    <div class="slide bg-a" id="s1a">
+      <div class="vl vl-w">Slide #1 &middot; Variation A</div>
+      <div class="s1a-glow"></div>
+      <div class="s1a">
+        <img class="logo-w" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" />
+        <div class="s1a-ey">Case Studies &amp; Proof</div>
+        <div class="s1a-h">OUR<br>RESULTS</div>
+        <div class="s1a-stats">
+          <div class="s1a-st"><div class="s1a-st-n">200+</div><div class="s1a-st-l">Happy Clients</div></div>
+          <div class="s1a-st"><div class="s1a-st-n">5.0</div><div class="s1a-st-l">Trustpilot Rating</div></div>
+          <div class="s1a-st"><div class="s1a-st-n">$2M+</div><div class="s1a-st-l">Ad Spend Managed</div></div>
+        </div>
+        <div class="s1a-box"><p>Get familiar with who we are, what we do, and the results we deliver.</p></div>
+      </div>
+      <div class="swp">Swipe <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="dots"><div class="dt on"></div><div class="dt"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 1B: Two-column -->
+    <div class="slide bg-a" id="s1b">
+      <div class="vl vl-w">Slide #1 &middot; Variation B</div>
+      <div class="s1a-glow"></div>
+      <div class="s1b">
+        <img class="logo-w" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" />
+        <div class="s1b-top">
+          <div class="s1b-left">
+            <div class="s1b-ey">Case Studies &amp; Proof</div>
+            <div class="s1b-h">OUR<br>RESULTS</div>
+            <div class="s1b-desc">Get familiar with who we are, what we do, and the results we deliver.</div>
+          </div>
+          <div class="s1b-right">
+            <div class="s1b-st"><div class="s1b-st-n">200+</div><div class="s1b-st-l">Happy Clients</div></div>
+            <div class="s1b-st"><div class="s1b-st-n">5.0</div><div class="s1b-st-l">Trustpilot Rating</div></div>
+            <div class="s1b-st"><div class="s1b-st-n">$2M+</div><div class="s1b-st-l">Ad Spend Managed</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="swp">Swipe <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="dots"><div class="dt on"></div><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 1C: Hero stat — $2M+ -->
+    <div class="slide bg-a" id="s1c">
+      <div class="vl vl-w">Slide #1 &middot; Variation C</div>
+      <div class="s1a-glow"></div>
+      <div class="s1c">
+        <img class="logo-w" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" />
+        <div class="s1c-ey">Case Studies &amp; Proof</div>
+        <div class="s1c-hero">$2M+</div>
+        <div class="s1c-hero-label">in managed ad spend for clients</div>
+        <div class="s1c-divider"></div>
+        <div class="s1c-h">Our Results</div>
+        <div class="s1c-stats">
+          <div class="s1c-st"><div class="s1c-st-n">200+</div><div class="s1c-st-l">Happy Clients</div></div>
+          <div class="s1c-st"><div class="s1c-st-n">5.0</div><div class="s1c-st-l">Trustpilot Rating</div></div>
+        </div>
+        <div class="s1c-desc">Get familiar with who we are, what we do, and the results we deliver.</div>
+      </div>
+      <div class="swp">Swipe <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="dots"><div class="dt on"></div><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 1D: Centered -->
+    <div class="slide bg-a" id="s1d">
+      <div class="vl vl-w">Slide #1 &middot; Variation D</div>
+      <div class="s1a-glow"></div>
+      <div class="s1d">
+        <img class="logo-w" style="width:210px" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" />
+        <div class="s1d-ey">Case Studies &amp; Proof</div>
+        <div class="s1d-h">OUR<br>RESULTS</div>
+        <div class="s1d-stats">
+          <div class="s1d-st"><div class="s1d-st-n">200+</div><div class="s1d-st-l">Happy Clients</div></div>
+          <div class="s1d-st"><div class="s1d-st-n">5.0<svg viewBox="0 0 20 20" style="width:36px;height:36px;fill:#fbbf24;vertical-align:middle;margin-left:4px;margin-bottom:4px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div><div class="s1d-st-l">Trustpilot Rating</div></div>
+          <div class="s1d-st"><div class="s1d-st-n">$2M+</div><div class="s1d-st-l">Ad Spend Managed</div></div>
+        </div>
+        <div class="s1d-desc">Get familiar with who we are, what we do, and the results we deliver.</div>
+      </div>
+      <div class="dots"><div class="dt on"></div><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 1E: Trustpilot rating -->
+    <div class="slide bg-a" id="s1e">
+      <div class="vl vl-w">Slide #1 &middot; Variation E</div>
+      <div class="s1a-glow"></div>
+      <div class="s1e">
+        <img class="logo-w" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" />
+        <div class="s1e-ey">Case Studies &amp; Proof</div>
+        <div class="s1e-rating">5.0</div>
+        <div class="s1e-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div>
+        <div class="s1e-platform">Verified on Trustpilot</div>
+        <div class="s1e-divider"></div>
+        <div class="s1e-h">Our Results Speak<br>for Themselves</div>
+        <div class="s1e-stats">
+          <div class="s1e-st"><div class="s1e-st-n">200+</div><div class="s1e-st-l">Happy Clients</div></div>
+          <div class="s1e-st"><div class="s1e-st-n">$2M+</div><div class="s1e-st-l">Ad Spend Managed</div></div>
+        </div>
+        <div class="s1e-desc">Get familiar with who we are, what we do, and the results we deliver.</div>
+      </div>
+      <div class="swp">Swipe <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="dots"><div class="dt on"></div><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ████ SLIDE 2 — TESTIMONIAL ████ -->
+<div class="group">
+  <div class="group-title">Slide 2 — Testimonial</div>
+  <div class="row">
+
+    <!-- 2A: White + Phone -->
+    <div class="slide bg-b" id="s2a">
+      <div class="vl vl-d">Slide #2 &middot; Variation A</div>
+      <div class="s2-logo"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" /></div>
+      <div class="s2a">
+        <div class="s2a-head">
+          <div class="s2a-ey">Client Testimonial</div>
+          <div class="s2a-h">What our clients<br><span>say about us</span></div>
+        </div>
+        <div class="tc">
+          <div class="tc-top">
+            <div class="tc-bubble"><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div>
+            <div class="tc-phone"><div class="tc-notch"></div><div class="tc-screen"><div class="tc-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div><div class="tc-play-l">Watch Video Testimonial</div></div></div>
+          </div>
+          <div class="tc-body">
+            <div class="tq-stars"><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div>
+            <div class="tq">"Best decision we could have made for our company."</div>
+            <ul class="tbl"><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Website exceeded all expectations</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Previous agency took months and just copied existing content</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fast, attentive, and genuinely invested in the business</li></ul>
+            <div class="ta"><div class="ta-av">W</div><div><div class="ta-nm">Wendy</div><div class="ta-rl">Business Owner</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="dots dk"><div class="dt"></div><div class="dt on"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 2B: Light blue + big quote card -->
+    <div class="slide bg-c" id="s2b">
+      <div class="vl vl-d">Slide #2 &middot; Variation B</div>
+      <div class="s2-logo"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" /></div>
+      <div class="s2b">
+        <div class="s2b-head">
+          <div class="s2b-ey">Client Testimonial</div>
+          <div class="s2b-h">What our clients <span>say about us</span></div>
+        </div>
+        <div class="s2b-card">
+          <div class="tq-stars tq-stars-big"><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div>
+          <div class="s2b-big-q">"</div>
+          <div class="tq" style="font-size:30px;">Best decision we could have made for our company.</div>
+          <ul class="tbl" style="font-size:17px;"><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Website exceeded all expectations</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Previous agency took months and just copied existing content</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fast, attentive, and genuinely invested in the business</li></ul>
+          <div class="ta" style="margin-top:auto;"><div class="ta-av">W</div><div><div class="ta-nm">Wendy</div><div class="ta-rl">Business Owner</div></div></div>
+        </div>
+      </div>
+      <div class="dots dk"><div class="dt"></div><div class="dt on"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 2C: Blue bg + white card -->
+    <div class="slide bg-a" id="s2c">
+      <div class="vl vl-w">Slide #2 &middot; Variation C</div>
+      <div class="s2-logo"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" /></div>
+      <div class="s2c">
+        <div class="s2c-head">
+          <div class="s2c-ey">Client Testimonial</div>
+          <div class="s2c-h">What our clients say about us</div>
+        </div>
+        <div class="s2c-card">
+          <div class="tq-stars tq-stars-big"><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div>
+          <div class="tq" style="font-size:30px;">"Best decision we could have made for our company."</div>
+          <ul class="tbl" style="font-size:17px;"><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Website exceeded all expectations</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Previous agency took months and just copied existing content</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fast, attentive, and genuinely invested in the business</li></ul>
+          <div class="ta" style="margin-top:auto;"><div class="ta-av">W</div><div><div class="ta-nm">Wendy</div><div class="ta-rl">Business Owner</div></div></div>
+        </div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt on"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 2D: White split -->
+    <div class="slide bg-b" id="s2d">
+      <div class="vl vl-d">Slide #2 &middot; Variation D</div>
+      <div class="s2-logo"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" /></div>
+      <div class="s2d">
+        <div class="s2d-ey">Client Testimonial</div>
+        <div class="s2d-h">What our clients <span>say about us</span></div>
+        <div class="s2d-main">
+          <div class="s2d-left">
+            <div class="s2d-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+            <div class="s2d-vid-l">Watch Video<br>Testimonial</div>
+          </div>
+          <div class="s2d-right">
+            <div class="tq-stars" style="gap:8px;margin-bottom:18px;"><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div>
+            <div class="tq" style="font-size:38px;line-height:1.25;margin-bottom:28px;">"Best decision we could have made for our company."</div>
+            <ul class="tbl" style="font-size:19px;gap:16px;margin-bottom:32px;"><li><span class="ck" style="width:26px;height:26px;"><svg viewBox="0 0 16 16" width="26" height="26" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Website exceeded all expectations</li><li><span class="ck" style="width:26px;height:26px;"><svg viewBox="0 0 16 16" width="26" height="26" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Previous agency took months and just copied content</li><li><span class="ck" style="width:26px;height:26px;"><svg viewBox="0 0 16 16" width="26" height="26" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fast, attentive, genuinely invested</li></ul>
+            <div class="ta" style="padding-top:24px;"><div class="ta-av" style="width:56px;height:56px;font-size:22px;">W</div><div><div class="ta-nm" style="font-size:20px;">Wendy</div><div class="ta-rl" style="font-size:15px;">Business Owner</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="dots dk"><div class="dt"></div><div class="dt on"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 2D2: Wendy testimonial - transcript version -->
+    <div class="slide bg-b" id="s2d2">
+      <div class="vl vl-d">Slide #2 &middot; Variation D2</div>
+      <div class="s2-logo"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" /></div>
+      <div class="s2d">
+        <div class="s2d-ey">Client Testimonial</div>
+        <div class="s2d-h">What our clients <span>say about us</span></div>
+        <div class="s2d-main">
+          <div class="s2d-left">
+            <div class="s2d-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+            <div class="s2d-vid-l">Watch Video<br>Testimonial</div>
+          </div>
+          <div class="s2d-right">
+            <div class="tq-stars" style="gap:8px;margin-bottom:18px;"><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div>
+            <div class="tq" style="font-size:38px;line-height:1.25;margin-bottom:28px;">"Going with Emilio was the best decision we could have made."</div>
+            <ul class="tbl" style="font-size:19px;gap:16px;margin-bottom:32px;"><li><span class="ck" style="width:26px;height:26px;"><svg viewBox="0 0 16 16" width="26" height="26" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Website exceeded all expectations</li><li><span class="ck" style="width:26px;height:26px;"><svg viewBox="0 0 16 16" width="26" height="26" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Previous firm took months, just copied existing content</li><li><span class="ck" style="width:26px;height:26px;"><svg viewBox="0 0 16 16" width="26" height="26" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Attentive, fast, incredibly smart</li><li><span class="ck" style="width:26px;height:26px;"><svg viewBox="0 0 16 16" width="26" height="26" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Genuinely invested in your business</li></ul>
+            <div class="ta" style="padding-top:24px;"><div class="ta-av" style="width:56px;height:56px;font-size:22px;">J</div><div><div class="ta-nm" style="font-size:20px;">Jessica Schlenz</div><div class="ta-rl" style="font-size:15px;">Business Owner</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="dots dk"><div class="dt"></div><div class="dt on"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 2D3: Jacob testimonial -->
+    <div class="slide bg-b" id="s2d3">
+      <div class="vl vl-d">Slide #2 &middot; Variation D3</div>
+      <div class="s2-logo"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" /></div>
+      <div class="s2d">
+        <div class="s2d-ey">Client Testimonial</div>
+        <div class="s2d-h">What our clients <span>say about us</span></div>
+        <div class="s2d-main">
+          <div class="s2d-left">
+            <div class="s2d-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+            <div class="s2d-vid-l">Watch Video<br>Testimonial</div>
+          </div>
+          <div class="s2d-right">
+            <div class="tq-stars" style="gap:8px;margin-bottom:18px;"><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20" style="width:32px;height:32px;"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div>
+            <div class="tq" style="font-size:38px;line-height:1.25;margin-bottom:28px;">"He's been an amazing asset to our business."</div>
+            <ul class="tbl" style="font-size:19px;gap:16px;margin-bottom:32px;"><li><span class="ck" style="width:26px;height:26px;"><svg viewBox="0 0 16 16" width="26" height="26" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Helped us understand how to monetize our community</li><li><span class="ck" style="width:26px;height:26px;"><svg viewBox="0 0 16 16" width="26" height="26" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Built our email list and helped grow our school</li><li><span class="ck" style="width:26px;height:26px;"><svg viewBox="0 0 16 16" width="26" height="26" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Extremely affordable, always responsive</li><li><span class="ck" style="width:26px;height:26px;"><svg viewBox="0 0 16 16" width="26" height="26" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Helped with online and physical business</li></ul>
+            <div class="ta" style="padding-top:24px;"><div class="ta-av" style="width:56px;height:56px;font-size:22px;">J</div><div><div class="ta-nm" style="font-size:20px;">Coach Jacob</div><div class="ta-rl" style="font-size:15px;">Founder, Superhero Swim Academy</div></div></div>
+          </div>
+        </div>
+        <div style="text-align:center;padding-top:20px;font-family:'Google Sans',sans-serif;font-size:15px;font-weight:600;color:#0d47c2;">More reviews and video testimonials on our website</div>
+      </div>
+      <div class="dots dk"><div class="dt"></div><div class="dt on"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 2E: Blue bg + video/summary split -->
+    <div class="slide bg-a" id="s2e">
+      <div class="vl vl-w">Slide #2 &middot; Variation E</div>
+      <div class="s1a-glow"></div>
+      <div class="s2-logo"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" /></div>
+      <div class="s2e">
+        <div class="s2e-ey">Client Testimonial</div>
+        <div class="s2e-h">What our clients say about us</div>
+        <div class="s2e-main">
+          <div class="s2e-left">
+            <div class="s2e-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+            <div class="s2e-vid-l">Watch Video<br>Testimonial</div>
+          </div>
+          <div class="s2e-right">
+            <div class="tq-stars tq-stars-big"><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div>
+            <div class="tq tq-w" style="font-size:28px;">"Best decision we could have made for our company."</div>
+            <ul class="tbl tbl-w"><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Website exceeded all expectations</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Previous agency took months and just copied content</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fast, attentive, genuinely invested</li></ul>
+            <div class="ta ta-w"><div class="ta-av">W</div><div><div class="ta-nm ta-nm-w">Wendy</div><div class="ta-rl ta-rl-w">Business Owner</div></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt on"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 2F: White bg, video banner top, full-width quote below -->
+    <div class="slide bg-b" id="s2f">
+      <div class="vl vl-d">Slide #2 &middot; Variation F</div>
+      <div class="s2-logo"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" /></div>
+      <div class="s2f">
+        <div class="s2f-ey">Client Testimonial</div>
+        <div class="s2f-h">What our clients <span>say about us</span></div>
+        <div class="s2f-video">
+          <div class="s2f-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+          <div><div class="s2f-vid-l">Watch Wendy's Video Testimonial</div><div class="s2f-vid-sub">2 min watch</div></div>
+        </div>
+        <div class="s2f-quote">
+          <div class="tq-stars tq-stars-big"><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div>
+          <div class="tq" style="font-size:30px;">"Best decision we could have made for our company."</div>
+          <ul class="tbl" style="font-size:17px;"><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Website exceeded all expectations</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Previous agency took months and just copied content</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fast, attentive, genuinely invested in the business</li></ul>
+          <div class="ta" style="margin-top:auto;"><div class="ta-av">W</div><div><div class="ta-nm">Wendy</div><div class="ta-rl">Business Owner</div></div></div>
+        </div>
+      </div>
+      <div class="dots dk"><div class="dt"></div><div class="dt on"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 2G: Blue bg, big quote top, video bar bottom -->
+    <div class="slide bg-a" id="s2g">
+      <div class="vl vl-w">Slide #2 &middot; Variation G</div>
+      <div class="s1a-glow"></div>
+      <div class="s2-logo"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" /></div>
+      <div class="s2g">
+        <div class="s2g-ey">Client Testimonial</div>
+        <div class="s2g-h">What our clients say about us</div>
+        <div class="s2g-quote">
+          <div class="tq-stars tq-stars-big"><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg><svg viewBox="0 0 20 20"><path d="M10 1l2.45 6.6H19l-5.4 3.9 2.05 6.6L10 14.1l-5.65 4 2.05-6.6L1 7.6h6.55z"/></svg></div>
+          <div class="tq tq-w" style="font-size:32px;">"Best decision we could have made for our company."</div>
+          <ul class="tbl tbl-w" style="font-size:17px;"><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Website exceeded all expectations</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Previous agency took months and just copied content</li><li><span class="ck"><svg viewBox="0 0 16 16" width="22" height="22" fill="none"><circle cx="8" cy="8" r="8" fill="#0d47c2" fill-opacity="0.1"/><path d="M4.5 8l2.5 2.5 4.5-5" stroke="#0d47c2" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Fast, attentive, genuinely invested in the business</li></ul>
+          <div class="ta ta-w" style="margin-top:auto;"><div class="ta-av">W</div><div><div class="ta-nm ta-nm-w">Wendy</div><div class="ta-rl ta-rl-w">Business Owner</div></div></div>
+        </div>
+        <div class="s2g-video">
+          <div class="s2g-play"><svg viewBox="0 0 16 16"><polygon points="4,2 14,8 4,14"/></svg></div>
+          <div><div class="s2g-vid-l">Watch Wendy's Video Testimonial</div><div class="s2g-vid-sub">2 min watch</div></div>
+        </div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt on"></div><div class="dt"></div><div class="dt"></div></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ████ SLIDE 3 — REVIEWS (Trustpilot branded) ████ -->
+<div class="group">
+  <div class="group-title">Slide 3 — Trustpilot Reviews</div>
+  <div class="row">
+
+    <!-- 3A: Page 1 - Blue -->
+    <div class="slide bg-a" id="s3a">
+      <div class="vl vl-w">Slide #3 &middot; Page 1</div>
+      <div class="s1a-glow"></div>
+      <div class="tp-slide">
+        <img class="logo-w" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" />
+        <div class="tp-head">
+          <div class="tp-badge"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /><span class="tp-badge-txt">5.0 on Trustpilot</span></div>
+          <div class="tp-h">What Our Clients<br>Are Saying</div>
+        </div>
+        <div class="tp-cards">
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">H</div><div><div class="tp-nm">Hamani</div></div><div class="tp-dt">Jan 20, 2026</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Twice as many clients!</div><div class="tp-bd"><strong>They helped me get more clients just by improving my website. I started getting about twice as many inquiries</strong> without changing anything else in my business. It works and I'd definitely recommend them to any business owner that are looking for more clients.</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">C</div><div><div class="tp-nm">Cesar Diaz</div></div><div class="tp-dt">Jan 5, 2026</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">I've been trying to automate my sales pipeline since 2024...</div><div class="tp-bd">I tested different tools and companies for over a year and still couldn't get it right. Then I decided to work with Nils Digital, and honestly, <strong>it was the best decision I've made. What I struggled with for more than a year, they figured out and built in just a couple of days.</strong> I finally have my new client pipeline fully automated.</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">R</div><div><div class="tp-nm">Roko Serdar</div></div><div class="tp-dt">Oct 27, 2025</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Outstanding experience from start to finish</div><div class="tp-bd"><strong>Emilio and his team were outstanding to work with, highly responsive, proactive, and reliable. They get the job done right the first time</strong> and consistently deliver excellent results. Since working with them, we've gained more clients and saved valuable time. I highly recommend them.</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">S</div><div><div class="tp-nm">Simon Zalles</div></div><div class="tp-dt">Jan 24, 2026</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Their system got us to #2 on Google.</div><div class="tp-bd"><strong>Their system got us to #2 on Google, and we started getting about 3x more inquiries.</strong> Emilio helped us get 82 reviews in our first 14 days. The onboarding was easy, and his team was always quick to help whenever I had questions.</div></div>
+        </div>
+        <div class="tp-disc">All of these reviews have been pulled directly from Trustpilot and have not been modified.</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt on"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 3B: Page 2 - White -->
+    <div class="slide bg-b" id="s3b">
+      <div class="vl vl-d">Slide #3 &middot; Page 2</div>
+      <div class="tp-slide">
+        <img class="logo-b" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" />
+        <div class="tp-head">
+          <div class="tp-badge"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /><span class="tp-badge-txt tp-badge-txt-dk">5.0 on Trustpilot</span></div>
+          <div class="tp-h tp-h-dk">More Reviews,<br>More Proof</div>
+        </div>
+        <div class="tp-cards">
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">K</div><div><div class="tp-nm">Kimberley Ortega</div></div><div class="tp-dt">Mar 25, 2026</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Highly recommended!</div><div class="tp-bd"><strong>Emilio and his team go above and beyond to ensure that their product provides more than expected!</strong> Questions answered not only in an exceptionally timely manner but also in great detail! The quality of their work is phenomenal...</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">J</div><div><div class="tp-nm">Jessica Schlenz</div></div><div class="tp-dt">Jan 21, 2026</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Emilio is awesome!</div><div class="tp-bd"><strong>He helped us build a new website that fit our vision completely and did it in a WEEK!</strong> He is always organized, sending us checklists and recaps of our meetings. He explains things in a way you can understand and always willing to help if you have an issue.</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">D</div><div><div class="tp-nm">David Vergara</div></div><div class="tp-dt">Jan 25, 2026</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">#1 Spot on Google</div><div class="tp-bd"><strong>After using their review system for just over a month, our video editing business climbed to the #1 spot on Google.</strong> We picked up 28 new reviews in the first month, which had an immediate impact on our visibility and trust with potential clients.</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">G</div><div><div class="tp-nm">Gabo</div></div><div class="tp-dt">Jan 25, 2026</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">My business is climbing on Google!</div><div class="tp-bd"><strong>Emilio managed to help me every step of the way. He ensured an easy onboarding and helped us get 34 new reviews in just 8 days.</strong> This week alone we've been getting way more calls than usual. Amazing product and service. Highly recommended.</div></div>
+        </div>
+        <div class="tp-disc tp-disc-dk">All of these reviews have been pulled directly from Trustpilot and have not been modified.</div>
+      </div>
+      <div class="dots dk"><div class="dt"></div><div class="dt"></div><div class="dt on"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 3C: Page 3 - Blue -->
+    <div class="slide bg-a" id="s3c">
+      <div class="vl vl-w">Slide #3 &middot; Page 3</div>
+      <div class="s1a-glow"></div>
+      <div class="tp-slide">
+        <img class="logo-w" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" />
+        <div class="tp-head">
+          <div class="tp-badge"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /><span class="tp-badge-txt">5.0 on Trustpilot</span></div>
+          <div class="tp-h">The Results Speak<br>for Themselves</div>
+        </div>
+        <div class="tp-cards">
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">B</div><div><div class="tp-nm">Blake Friis</div></div><div class="tp-dt">Feb 22, 2026</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Exceptional product and customer service!!!</div><div class="tp-bd"><strong>Emilio has been incredibly supportive and helpful in every way! The website he created was exceptional</strong> and he also helped me setup my booking calendar and billing system which is connected to the website. I look forward to working together with Emilio to grow my swim school.</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">J</div><div><div class="tp-nm">Jacqueline Follmuth</div></div><div class="tp-dt">Feb 17, 2026</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Fantastic transition!</div><div class="tp-bd"><strong>Emilio has been fantastic at communicating and managing me as we set up my new systems.</strong> With a busy schedule and running a business keeping up with new processes can be a challenge, but Emilio has helped make it easy. He's met every deadline that he has set for himself and delivers projects with ease.</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">J</div><div><div class="tp-nm">Joe Padilla</div></div><div class="tp-dt">Aug 25, 2025</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Top 5 in a congested market like Chicago!</div><div class="tp-bd"><strong>Nils Digital's automated review and filtering system helped our business rank in the top 5!</strong> of a congested market like Chicago. We're not very tech-savvy, but their founder Emilio made everything super clear and easy to use. They are always there to help and respond incredibly fast.</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">A</div><div><div class="tp-nm">Ariana Anderson</div></div><div class="tp-dt">May 5, 2025</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Solved everything for my swim academy</div><div class="tp-bd"><strong>Emilio set up a system that solved everything. Now I can text and email all my clients from one place,</strong> send reminders and notifications, and manage onboarding without the chaos. I'm not very tech-savvy, but Emilio walked me through every step.</div></div>
+        </div>
+        <div class="tp-disc">All of these reviews have been pulled directly from Trustpilot and have not been modified.</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt on"></div><div class="dt"></div></div>
+    </div>
+
+    <!-- 3D: Page 4 - White -->
+    <div class="slide bg-b" id="s3d">
+      <div class="vl vl-d">Slide #3 &middot; Page 4</div>
+      <div class="tp-slide">
+        <img class="logo-b" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" />
+        <div class="tp-head">
+          <div class="tp-badge"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /><span class="tp-badge-txt tp-badge-txt-dk">5.0 on Trustpilot</span></div>
+          <div class="tp-h tp-h-dk">Don't Take Our<br>Word for It</div>
+        </div>
+        <div class="tp-cards">
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">L</div><div><div class="tp-nm">Luis Silva</div></div><div class="tp-dt">Jan 6, 2026</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Working with Emilio and his team has been a highly positive experience</div><div class="tp-bd"><strong>They helped us design and develop a sales funnel that streamlined our sales process and automated lead filtering,</strong> allowing us to direct prospects to a single point of contact that consistently converts and qualifies leads efficiently. By incorporating these tools and Emilio's strategic advisory, we significantly strengthened our company through new commercial channels.</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">M</div><div><div class="tp-nm">Marvel Advertising</div></div><div class="tp-dt">May 28, 2025</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Professional Service</div><div class="tp-bd"><strong>Emilio approached the project with empathy, patience, and a high level of professionalism.</strong> He took the time to truly understand my business, asking the right questions to grasp our needs and goals. With that insight, he built a website that was fully customized and aligned with our brand identity.</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">A</div><div><div class="tp-nm">Alexa Warner</div></div><div class="tp-dt">Sep 16, 2025</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Emilio was amazing</div><div class="tp-bd"><strong>Very timely and easy to work with. He was available almost 24/7 in the initial website set up!</strong> His ability to customize and make it look nice was fantastic, and I am very happy with how the final product came out!</div></div>
+          <div class="tp-card"><div class="tp-who"><div class="tp-av">M</div><div><div class="tp-nm">Maria Aguilar</div></div><div class="tp-dt">Mar 13, 2026</div></div><div class="tp-stars"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69d2ae9ffa2dde9742559c03.png" alt="5 stars" /></div><div class="tp-tt">Emilio has been helping me organize all my systems...</div><div class="tp-bd"><strong>Emilio has been helping me organize all my systems and update a website that looks very professional and easy to use for future clients.</strong> Very happy with the service and quick responses whenever I have any questions.</div></div>
+        </div>
+        <div class="tp-disc tp-disc-dk">All of these reviews have been pulled directly from Trustpilot and have not been modified.</div>
+        <div style="text-align:center;margin-top:16px;font-size:16px;font-weight:700;color:#0d47c2;">Read 20+ more reviews on our Trustpilot page</div>
+      </div>
+      <div class="dots dk"><div class="dt"></div><div class="dt"></div><div class="dt on"></div><div class="dt"></div></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ████ SLIDE 4 — PROOF & CREDENTIALS ████ -->
+<div class="group">
+  <div class="group-title">Slide 4 — Proof &amp; Credentials</div>
+  <div class="row">
+
+    <!-- 4A: Google Ads + Awards -->
+    <div class="slide bg-a" id="s4a">
+      <div class="vl vl-w">Slide #4 &middot; Page 1</div>
+      <div class="s1a-glow"></div>
+      <div class="s4n">
+        <img class="logo-w" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" />
+        <div class="s4n-h" style="font-size:56px;margin-bottom:8px;margin-top:24px;">Award-Winning Agency</div>
+        <div style="font-size:22px;font-weight:600;color:rgba(255,255,255,0.5);margin-bottom:28px;text-align:center;">with $2,000,000+ in Google Ad Spend Managed</div>
+        <div class="s4n-full"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69c0a8875596d15ca607f536.jpg" alt="Google Ads $2M dashboard" /></div>
+        <div class="s4n-awards">
+          <div class="s4n-award-item"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69b848b587f0f2f39a3e4d32.png" alt="GoHighLevel 100 Clients Plaque" /></div>
+          <div class="s4n-award-item"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69caaaef8e239565a1c7173c.jpeg" alt="GoHighLevel 100K Funnel Plaque" /></div>
+        </div>
+        <div class="s4n-tag">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4B: Industry Recognized - White bg -->
+    <div class="slide bg-b" id="s4b">
+      <div class="vl vl-d">Slide #4 &middot; Page 2</div>
+      <div class="s4n">
+        <img class="logo-b" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" />
+        <div class="s4n-h" style="font-size:56px;color:#0d1b35;margin-bottom:28px;margin-top:16px;">Industry Recognized</div>
+        <div class="s4n-full" style="border-color:rgba(13,71,194,0.08);box-shadow:0 8px 32px rgba(13,71,194,0.08);margin-bottom:16px;overflow:hidden;"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/68d4cad4b7ba346361a95c63.jpeg" alt="USA Wire Feature" style="transform:scale(1.35);transform-origin:center 35%;" /></div>
+        <div class="s4n-full" style="border-color:rgba(13,71,194,0.08);box-shadow:0 8px 32px rgba(13,71,194,0.08);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/6892da0000987b509c82af78.jpeg" alt="Presenting on stage" /></div>
+        <div class="s4n-tag" style="color:rgba(13,27,53,0.35);">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots dk"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4C: CTA + client photos -->
+    <div class="slide bg-a" id="s4c">
+      <div class="vl vl-w">Slide #4 &middot; Page 3</div>
+      <div class="s1a-glow"></div>
+      <div class="s4n">
+        <img class="logo-w" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" />
+        <div style="text-align:center;margin:auto 0 32px;">
+          <div style="font-family:'Google Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:20px;">What are you waiting for?</div>
+          <div class="s4n-h" style="font-size:52px;line-height:1.15;margin-bottom:0;">Apply Using the<br>Link in Our Bio</div>
+          <div style="font-family:'Google Sans',sans-serif;font-size:22px;font-weight:500;color:rgba(255,255,255,0.5);margin-top:16px;">We can't wait to talk with you!</div>
+        </div>
+        <div class="s4n-row-fixed" style="margin-bottom:0;">
+          <div class="s4n-imgf" style="height:440px;"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="With clients" /></div>
+          <div class="s4n-imgf" style="height:440px;"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="With clients" /></div>
+        </div>
+        <div class="s4n-tag">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4C-v2: Dark navy, big bold CTA, photos at bottom -->
+    <div class="slide" id="s4c2" style="background:linear-gradient(170deg, #0a1628 0%, #0d1f3c 40%, #112a52 100%);">
+      <div class="vl vl-w">Slide #4 &middot; Page 3 (v2)</div>
+      <div class="s4n">
+        <img class="logo-w" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" />
+        <div style="text-align:center;margin:auto 0 40px;">
+          <div style="font-family:'Google Sans',sans-serif;font-size:20px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#3b82f6;margin-bottom:24px;">What are you waiting for?</div>
+          <div class="s4n-h" style="font-size:68px;line-height:1.05;margin-bottom:20px;">Apply Using<br>the Link in<br>Our Bio</div>
+          <div style="font-family:'Google Sans',sans-serif;font-size:22px;font-weight:500;color:rgba(255,255,255,0.4);line-height:1.5;">We can't wait to talk with you!</div>
+        </div>
+        <div class="s4n-row-fixed" style="margin-bottom:0;">
+          <div class="s4n-imgf" style="height:380px;border-color:rgba(255,255,255,0.08);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="With clients" /></div>
+          <div class="s4n-imgf" style="height:380px;border-color:rgba(255,255,255,0.08);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="With clients" /></div>
+        </div>
+        <div class="s4n-tag">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4C-v3: White top fading to blue, split feel -->
+    <div class="slide" id="s4c3" style="background:linear-gradient(180deg, #ffffff 0%, #f0f5ff 35%, #1a5fe0 55%, #0835a0 100%);">
+      <div class="vl vl-d">Slide #4 &middot; Page 3 (v3)</div>
+      <div class="s4n">
+        <img class="logo-b" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" />
+        <div style="text-align:center;margin:auto 0 40px;">
+          <div style="font-family:'Google Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(13,27,53,0.3);margin-bottom:20px;">What are you waiting for?</div>
+          <div class="s4n-h" style="font-size:56px;line-height:1.12;margin-bottom:16px;color:#0d1b35;">Apply Using the<br>Link in Our Bio</div>
+          <div style="font-family:'Google Sans',sans-serif;font-size:22px;font-weight:500;color:rgba(13,27,53,0.4);margin-top:0;">We can't wait to talk with you!</div>
+        </div>
+        <div class="s4n-row-fixed" style="margin-bottom:0;">
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="With clients" /></div>
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="With clients" /></div>
+        </div>
+        <div class="s4n-tag">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4C-v3b: White-to-blue, gradient lower -->
+    <div class="slide" id="s4c3b" style="background:linear-gradient(180deg, #ffffff 0%, #ffffff 55%, #e0eaf8 65%, #1a5fe0 80%, #0835a0 100%);">
+      <div class="vl vl-d">Slide #4 &middot; Page 3 (v3b)</div>
+      <div class="s4n">
+        <img class="logo-b" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" />
+        <div style="text-align:center;margin:auto 0 40px;">
+          <div style="font-family:'Google Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#0d47c2;margin-bottom:20px;">What are you waiting for?</div>
+          <div class="s4n-h" style="font-size:56px;line-height:1.12;margin-bottom:16px;color:#0d1b35;">Apply Using the<br><span style="background:linear-gradient(135deg,#0d47c2,#1a6eff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Link in Our Bio</span></div>
+          <div style="font-family:'Google Sans',sans-serif;font-size:22px;font-weight:600;color:#0d1b35;">We can't wait to talk with you!</div>
+        </div>
+        <div class="s4n-row-fixed" style="margin-bottom:0;">
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="With clients" /></div>
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="With clients" /></div>
+        </div>
+        <div class="s4n-tag">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4C-v3b2: Same as v3b but with blue pill CTA -->
+    <div class="slide" id="s4c3b2" style="background:linear-gradient(180deg, #ffffff 0%, #ffffff 55%, #e0eaf8 65%, #1a5fe0 80%, #0835a0 100%);">
+      <div class="vl vl-d">Slide #4 &middot; Page 3 (v3b2)</div>
+      <div class="s4n">
+        <img class="logo-b" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" />
+        <div style="text-align:center;margin:auto 0 40px;">
+          <div style="font-family:'Google Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:#0d47c2;margin-bottom:20px;">What are you waiting for?</div>
+          <div class="s4n-h" style="font-size:56px;line-height:1.12;margin-bottom:24px;color:#0d1b35;">Apply Using the<br><span style="background:linear-gradient(135deg,#0d47c2,#1a6eff);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Link in Our Bio</span></div>
+          <div style="display:inline-block;background:linear-gradient(135deg,#0d47c2,#1a6eff);padding:18px 48px;border-radius:14px;font-family:'Google Sans',sans-serif;font-size:22px;font-weight:700;color:#fff;box-shadow:0 6px 24px rgba(13,71,194,0.25);">We can't wait to talk with you!</div>
+        </div>
+        <div class="s4n-row-fixed" style="margin-bottom:0;">
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="With clients" /></div>
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="With clients" /></div>
+        </div>
+        <div class="s4n-tag">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4C-v3b3: All dark text, blue accent on "Link in Our Bio" only -->
+    <div class="slide" id="s4c3b3" style="background:linear-gradient(180deg, #ffffff 0%, #ffffff 55%, #e0eaf8 65%, #1a5fe0 80%, #0835a0 100%);">
+      <div class="vl vl-d">Slide #4 &middot; Page 3 (v3b3)</div>
+      <div class="s4n">
+        <img class="logo-b" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" />
+        <div style="text-align:center;margin:auto 0 40px;">
+          <div style="font-family:'Google Sans',sans-serif;font-size:16px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:#6b7280;margin-bottom:20px;">What are you waiting for?</div>
+          <div class="s4n-h" style="font-size:58px;line-height:1.1;margin-bottom:16px;color:#0d1b35;">Apply Using the<br><span style="color:#0d47c2;">Link in Our Bio</span></div>
+          <div style="font-family:'Google Sans',sans-serif;font-size:22px;font-weight:600;color:#0d1b35;line-height:1.5;">We can't wait to talk with you!</div>
+        </div>
+        <div class="s4n-row-fixed" style="margin-bottom:0;">
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="With clients" /></div>
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="With clients" /></div>
+        </div>
+        <div class="s4n-tag">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4C-v3b4: Entire headline in blue, subtitle dark -->
+    <div class="slide" id="s4c3b4" style="background:linear-gradient(180deg, #ffffff 0%, #ffffff 55%, #e0eaf8 65%, #1a5fe0 80%, #0835a0 100%);">
+      <div class="vl vl-d">Slide #4 &middot; Page 3 (v3b4)</div>
+      <div class="s4n">
+        <img class="logo-b" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" />
+        <div style="text-align:center;margin:auto 0 40px;">
+          <div style="font-family:'Google Sans',sans-serif;font-size:16px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:#0d1b35;margin-bottom:20px;">What are you waiting for?</div>
+          <div class="s4n-h" style="font-size:58px;line-height:1.1;margin-bottom:20px;color:#0d47c2;">Apply Using the<br>Link in Our Bio</div>
+          <div style="font-family:'Google Sans',sans-serif;font-size:24px;font-weight:700;color:#0d1b35;line-height:1.5;">We can't wait to talk with you!</div>
+        </div>
+        <div class="s4n-row-fixed" style="margin-bottom:0;">
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="With clients" /></div>
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="With clients" /></div>
+        </div>
+        <div class="s4n-tag">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4C-v3b5: Dark eyebrow, gradient headline, blue subtitle -->
+    <div class="slide" id="s4c3b5" style="background:linear-gradient(180deg, #ffffff 0%, #ffffff 55%, #e0eaf8 65%, #1a5fe0 80%, #0835a0 100%);">
+      <div class="vl vl-d">Slide #4 &middot; Page 3 (v3b5)</div>
+      <div class="s4n">
+        <img class="logo-b" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" />
+        <div style="text-align:center;margin:auto 0 40px;">
+          <div style="font-family:'Google Sans',sans-serif;font-size:18px;font-weight:800;letter-spacing:0.15em;text-transform:uppercase;color:#0d1b35;margin-bottom:20px;">What are you waiting for?</div>
+          <div class="s4n-h" style="font-size:58px;line-height:1.1;margin-bottom:20px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#1a6eff 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Apply Using the<br>Link in Our Bio</div>
+          <div style="font-family:'Google Sans',sans-serif;font-size:22px;font-weight:600;color:#0d47c2;line-height:1.5;">We can't wait to talk with you!</div>
+        </div>
+        <div class="s4n-row-fixed" style="margin-bottom:0;">
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="With clients" /></div>
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.2);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="With clients" /></div>
+        </div>
+        <div class="s4n-tag">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4C-v3c: White-to-blue, gradient only at very bottom -->
+    <div class="slide" id="s4c3c" style="background:linear-gradient(180deg, #ffffff 0%, #ffffff 70%, #d0e0f5 80%, #1a5fe0 92%, #0835a0 100%);">
+      <div class="vl vl-d">Slide #4 &middot; Page 3 (v3c)</div>
+      <div class="s4n">
+        <img class="logo-b" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" />
+        <div style="text-align:center;margin:auto 0 40px;">
+          <div style="font-family:'Google Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(13,27,53,0.3);margin-bottom:20px;">What are you waiting for?</div>
+          <div class="s4n-h" style="font-size:56px;line-height:1.12;margin-bottom:16px;color:#0d1b35;">Apply Using the<br>Link in Our Bio</div>
+          <div style="font-family:'Google Sans',sans-serif;font-size:22px;font-weight:500;color:rgba(13,27,53,0.4);">We can't wait to talk with you!</div>
+        </div>
+        <div class="s4n-row-fixed" style="margin-bottom:0;">
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.15);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="With clients" /></div>
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 12px 48px rgba(0,0,0,0.15);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="With clients" /></div>
+        </div>
+        <div class="s4n-tag" style="color:rgba(255,255,255,0.7);">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4C-v3d: Mostly white, just a blue strip at the very bottom -->
+    <div class="slide" id="s4c3d" style="background:linear-gradient(180deg, #ffffff 0%, #ffffff 82%, #1a5fe0 94%, #0835a0 100%);">
+      <div class="vl vl-d">Slide #4 &middot; Page 3 (v3d)</div>
+      <div class="s4n">
+        <img class="logo-b" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png" alt="NILS Digital" />
+        <div style="text-align:center;margin:auto 0 40px;">
+          <div style="font-family:'Google Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(13,27,53,0.3);margin-bottom:20px;">What are you waiting for?</div>
+          <div class="s4n-h" style="font-size:56px;line-height:1.12;margin-bottom:16px;color:#0d1b35;">Apply Using the<br>Link in Our Bio</div>
+          <div style="font-family:'Google Sans',sans-serif;font-size:22px;font-weight:500;color:rgba(13,27,53,0.4);">We can't wait to talk with you!</div>
+        </div>
+        <div class="s4n-row-fixed" style="margin-bottom:0;">
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 8px 32px rgba(13,71,194,0.12);border-color:rgba(13,71,194,0.08);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="With clients" /></div>
+          <div class="s4n-imgf" style="height:420px;box-shadow:0 8px 32px rgba(13,71,194,0.12);border-color:rgba(13,71,194,0.08);"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="With clients" /></div>
+        </div>
+        <div class="s4n-tag" style="color:rgba(255,255,255,0.8);">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+    <!-- 4C-v4: Blue with accent green stripe CTA -->
+    <div class="slide bg-a" id="s4c4">
+      <div class="vl vl-w">Slide #4 &middot; Page 3 (v4)</div>
+      <div class="s1a-glow"></div>
+      <div class="s4n">
+        <img class="logo-w" src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94e4a14a2603e.png" alt="NILS Digital" />
+        <div style="text-align:center;margin:auto 0 40px;">
+          <div style="font-family:'Google Sans',sans-serif;font-size:18px;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:24px;">What are you waiting for?</div>
+          <div class="s4n-h" style="font-size:56px;line-height:1.12;margin-bottom:24px;">Apply Using the<br>Link in Our Bio</div>
+          <div style="display:inline-block;background:linear-gradient(135deg,#22c55e,#16a34a);padding:18px 48px;border-radius:14px;font-family:'Google Sans',sans-serif;font-size:22px;font-weight:700;color:#fff;box-shadow:0 6px 24px rgba(34,197,94,0.3);">We can't wait to talk with you!</div>
+        </div>
+        <div class="s4n-row-fixed" style="margin-bottom:0;">
+          <div class="s4n-imgf" style="height:380px;"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b3b3cc967babccfd2.jpg" alt="With clients" /></div>
+          <div class="s4n-imgf" style="height:380px;"><img src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/69921f0b54da04a2311d802d.jpg" alt="With clients" /></div>
+        </div>
+        <div class="s4n-tag">The team that actually delivers. &middot; nilsdigital.com</div>
+      </div>
+      <div class="dots"><div class="dt"></div><div class="dt"></div><div class="dt"></div><div class="dt on"></div></div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ████ THUMBNAIL — WHAT WE DO (Video) ████ -->
+<div class="group">
+  <div class="group-title">Thumbnail — "What We Do" Video (Pinned Post)</div>
+  <div class="row">
+
+    <!-- ── GRID / DOT BACKGROUNDS ── -->
+
+    <!-- A: Blue line grid -->
+    <div class="slide" id="th-a" style="overflow:hidden;background:linear-gradient(rgba(13,71,194,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(13,71,194,0.04) 1px,transparent 1px),radial-gradient(ellipse 80% 50% at 50% 0%,rgba(13,71,194,0.06) 0%,transparent 60%),#f8f9fc;background-size:60px 60px,60px 60px,100% 100%,100% 100%;">
+      <div class="vl vl-d">Grid &middot; A</div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- B: Dot grid -->
+    <div class="slide" id="th-b" style="overflow:hidden;background:#f8f9fc;">
+      <div class="vl vl-d">Dots &middot; B</div>
+      <div style="position:absolute;inset:0;background:radial-gradient(circle,rgba(13,71,194,0.06) 1.5px,transparent 1.5px);background-size:36px 36px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- C: Small tight dot grid -->
+    <div class="slide" id="th-c" style="overflow:hidden;background:#f8f9fc;">
+      <div class="vl vl-d">Dots &middot; C</div>
+      <div style="position:absolute;inset:0;background:radial-gradient(circle,rgba(13,71,194,0.05) 1px,transparent 1px);background-size:24px 24px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- D: Large sparse grid -->
+    <div class="slide" id="th-d" style="overflow:hidden;background:#f8f9fc;">
+      <div class="vl vl-d">Grid &middot; D</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(13,71,194,0.035) 1px,transparent 1px);background-size:90px 90px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- E: Diamond cross-hatch -->
+    <div class="slide" id="th-e" style="overflow:hidden;background:#f8f9fc;">
+      <div class="vl vl-d">Diamond &middot; E</div>
+      <div style="position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 40px,rgba(13,71,194,0.04) 40px,rgba(13,71,194,0.04) 41px),repeating-linear-gradient(-45deg,transparent,transparent 40px,rgba(13,71,194,0.04) 40px,rgba(13,71,194,0.04) 41px);pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- F: Isometric grid (tri-line) -->
+    <div class="slide" id="th-f" style="overflow:hidden;background:#f8f9fc;">
+      <div class="vl vl-d">Iso &middot; F</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(60deg,rgba(13,71,194,0.03) 1px,transparent 1px),linear-gradient(-60deg,rgba(13,71,194,0.03) 1px,transparent 1px),linear-gradient(rgba(13,71,194,0.03) 1px,transparent 1px);background-size:50px 86px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- ── GRADIENT BACKGROUNDS ── -->
+
+    <!-- G: Soft white-to-light-blue top-down -->
+    <div class="slide" id="th-g" style="overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#eef4ff 40%,#dbe8fc 100%);">
+      <div class="vl vl-d">Gradient &middot; G</div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- H: Radial white center fading to blue edges -->
+    <div class="slide" id="th-h" style="overflow:hidden;background:radial-gradient(ellipse 70% 60% at 50% 45%,#ffffff 0%,#f0f5ff 35%,#dbe8fc 60%,#c8daf5 100%);">
+      <div class="vl vl-d">Gradient &middot; H</div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- I: Diagonal gradient white→blue corner -->
+    <div class="slide" id="th-i" style="overflow:hidden;background:linear-gradient(135deg,#ffffff 0%,#f4f8ff 30%,#e4edfc 60%,#d0dffa 100%);">
+      <div class="vl vl-d">Gradient &middot; I</div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- J: Mesh gradient — baked into background -->
+    <div class="slide" id="th-j" style="overflow:hidden;background:radial-gradient(ellipse 60% 50% at 20% 20%,rgba(13,71,194,0.08) 0%,transparent 60%),radial-gradient(ellipse 55% 45% at 80% 80%,rgba(59,130,246,0.09) 0%,transparent 60%),#f8f9fc;">
+      <div class="vl vl-d">Gradient &middot; J</div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- K: Blue-to-white bottom fade -->
+    <div class="slide" id="th-k" style="overflow:hidden;background:linear-gradient(180deg,#dbe8fc 0%,#eef4ff 35%,#f8f9fc 60%,#ffffff 100%);">
+      <div class="vl vl-d">Gradient &middot; K</div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- L: Warm pearl gradient -->
+    <div class="slide" id="th-l" style="overflow:hidden;background:linear-gradient(160deg,#ffffff 0%,#f5f7ff 25%,#edf2ff 50%,#e8eeff 75%,#e0e8fc 100%);">
+      <div class="vl vl-d">Gradient &middot; L</div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- ── SQUARE PATTERN BACKGROUNDS ── -->
+
+    <!-- M: Rotated squares / checkerboard -->
+    <div class="slide" id="th-m" style="overflow:hidden;background:#f8f9fc;">
+      <div class="vl vl-d">Squares &middot; M</div>
+      <div style="position:absolute;inset:0;background:repeating-conic-gradient(rgba(13,71,194,0.04) 0% 25%,transparent 0% 50%) 0 0 / 56px 56px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- N: Small dense checkerboard -->
+    <div class="slide" id="th-n" style="overflow:hidden;background:#f8f9fc;">
+      <div class="vl vl-d">Squares &middot; N</div>
+      <div style="position:absolute;inset:0;background:repeating-conic-gradient(rgba(13,71,194,0.03) 0% 25%,transparent 0% 50%) 0 0 / 32px 32px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- O: Large checkerboard + gradient wash -->
+    <div class="slide" id="th-o" style="overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#f0f5ff 50%,#e4edfc 100%);">
+      <div class="vl vl-d">Squares &middot; O</div>
+      <div style="position:absolute;inset:0;background:repeating-conic-gradient(rgba(13,71,194,0.035) 0% 25%,transparent 0% 50%) 0 0 / 80px 80px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- P: 45° rotated checkerboard (diamond squares) -->
+    <div class="slide" id="th-p" style="overflow:hidden;background:#f8f9fc;">
+      <div class="vl vl-d">Squares &middot; P</div>
+      <div style="position:absolute;inset:-50%;width:200%;height:200%;transform:rotate(45deg);background:repeating-conic-gradient(rgba(13,71,194,0.035) 0% 25%,transparent 0% 50%) 0 0 / 60px 60px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- Q1a: Blue pill eyebrow -->
+    <div class="slide" id="th-q1a" style="overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#eef4ff 35%,#dbe8fc 70%,#c8daf5 100%);">
+      <div class="vl vl-d">Q1 &middot; Blue pill</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.06) 2px,transparent 2px),linear-gradient(90deg,rgba(13,71,194,0.06) 2px,transparent 2px);background-size:64px 64px;pointer-events:none;"></div>
+      <div class="th">
+        <div style="display:inline-flex;background:linear-gradient(135deg,#0d47c2,#1a6eff);padding:12px 32px;border-radius:100px;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#fff;">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- Q1b: Outlined pill eyebrow -->
+    <div class="slide" id="th-q1b" style="overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#eef4ff 35%,#dbe8fc 70%,#c8daf5 100%);">
+      <div class="vl vl-d">Q1 &middot; Outlined pill</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.06) 2px,transparent 2px),linear-gradient(90deg,rgba(13,71,194,0.06) 2px,transparent 2px);background-size:64px 64px;pointer-events:none;"></div>
+      <div class="th">
+        <div style="display:inline-flex;border:2px solid #0d47c2;padding:12px 32px;border-radius:100px;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0d47c2;">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- Q1c: Italic serif eyebrow -->
+    <div class="slide" id="th-q1c" style="overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#eef4ff 35%,#dbe8fc 70%,#c8daf5 100%);">
+      <div class="vl vl-d">Q1 &middot; Serif eyebrow</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.06) 2px,transparent 2px),linear-gradient(90deg,rgba(13,71,194,0.06) 2px,transparent 2px);background-size:64px 64px;pointer-events:none;"></div>
+      <div class="th">
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:36px;color:#0d47c2;">what we do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- Q1d: Wide-spaced with lines either side -->
+    <div class="slide" id="th-q1d" style="overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#eef4ff 35%,#dbe8fc 70%,#c8daf5 100%);">
+      <div class="vl vl-d">Q1 &middot; Lines + text</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.06) 2px,transparent 2px),linear-gradient(90deg,rgba(13,71,194,0.06) 2px,transparent 2px);background-size:64px 64px;pointer-events:none;"></div>
+      <div class="th">
+        <div style="display:flex;align-items:center;gap:20px;">
+          <div style="width:60px;height:2px;background:#0d47c2;border-radius:1px;"></div>
+          <div style="font-size:20px;font-weight:700;letter-spacing:0.22em;text-transform:uppercase;color:#0d47c2;">What We Do</div>
+          <div style="width:60px;height:2px;background:#0d47c2;border-radius:1px;"></div>
+        </div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- Q1e: Rounded rectangle badge -->
+    <div class="slide" id="th-q1e" style="overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#eef4ff 35%,#dbe8fc 70%,#c8daf5 100%);">
+      <div class="vl vl-d">Q1 &middot; Badge</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.06) 2px,transparent 2px),linear-gradient(90deg,rgba(13,71,194,0.06) 2px,transparent 2px);background-size:64px 64px;pointer-events:none;"></div>
+      <div class="th">
+        <div style="display:inline-flex;background:rgba(13,71,194,0.08);border:1px solid rgba(13,71,194,0.12);padding:14px 36px;border-radius:14px;font-size:18px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:#0d47c2;">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- Q1f: Underlined eyebrow -->
+    <div class="slide" id="th-q1f" style="overflow:hidden;background:linear-gradient(180deg,#ffffff 0%,#eef4ff 35%,#dbe8fc 70%,#c8daf5 100%);">
+      <div class="vl vl-d">Q1 &middot; Underlined</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.06) 2px,transparent 2px),linear-gradient(90deg,rgba(13,71,194,0.06) 2px,transparent 2px);background-size:64px 64px;pointer-events:none;"></div>
+      <div class="th">
+        <div>
+          <div style="font-size:22px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#0d47c2;padding-bottom:12px;">What We Do</div>
+          <div style="width:50px;height:3px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:2px;margin:0 auto;"></div>
+        </div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- Q2: Grid on radial blue gradient — white center, blue edges -->
+    <div class="slide" id="th-q2" style="overflow:hidden;background:radial-gradient(ellipse 65% 55% at 50% 45%,#ffffff 0%,#eef4ff 30%,#dbe8fc 55%,#c8daf5 100%);">
+      <div class="vl vl-d">Q &middot; Radial blue</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.06) 2px,transparent 2px),linear-gradient(90deg,rgba(13,71,194,0.06) 2px,transparent 2px);background-size:64px 64px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- Q3: Grid on diagonal gradient -->
+    <div class="slide" id="th-q3" style="overflow:hidden;background:linear-gradient(135deg,#ffffff 0%,#f0f5ff 30%,#dfe9fc 60%,#cddafa 100%);">
+      <div class="vl vl-d">Q &middot; Diagonal blue</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.06) 2px,transparent 2px),linear-gradient(90deg,rgba(13,71,194,0.06) 2px,transparent 2px);background-size:64px 64px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- Q4: Grid on bottom-up blue fade -->
+    <div class="slide" id="th-q4" style="overflow:hidden;background:linear-gradient(0deg,#ffffff 0%,#eef4ff 35%,#dbe8fc 70%,#c8daf5 100%);">
+      <div class="vl vl-d">Q &middot; Blue grad bottom→top</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.06) 2px,transparent 2px),linear-gradient(90deg,rgba(13,71,194,0.06) 2px,transparent 2px);background-size:64px 64px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- Q5: Grid on subtle pearl gradient -->
+    <div class="slide" id="th-q5" style="overflow:hidden;background:linear-gradient(160deg,#ffffff 0%,#f5f7ff 25%,#edf2ff 50%,#e4ecfc 75%,#dce6fa 100%);">
+      <div class="vl vl-d">Q &middot; Pearl blue</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.05) 2px,transparent 2px),linear-gradient(90deg,rgba(13,71,194,0.05) 2px,transparent 2px);background-size:64px 64px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+    <!-- Q6: Grid on mesh gradient background -->
+    <div class="slide" id="th-q6" style="overflow:hidden;background:radial-gradient(ellipse 55% 50% at 85% 15%,rgba(13,71,194,0.10) 0%,transparent 60%),radial-gradient(ellipse 55% 50% at 15% 85%,rgba(59,130,246,0.08) 0%,transparent 60%),#f8f9fc;">
+      <div class="vl vl-d">Q &middot; Blue mesh orbs</div>
+      <div style="position:absolute;inset:0;background:linear-gradient(rgba(13,71,194,0.05) 2px,transparent 2px),linear-gradient(90deg,rgba(13,71,194,0.05) 2px,transparent 2px);background-size:64px 64px;pointer-events:none;"></div>
+      <div class="th">
+        <div class="th-ey th-ey-d">What We Do</div>
+        <div>
+          <div class="th-h" style="font-size:108px;background:linear-gradient(135deg,#0d1b35 0%,#0d47c2 50%,#3b82f6 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">SERVICE<br>BREAK<wbr>DOWN</div>
+          <div style="width:80px;height:5px;background:linear-gradient(90deg,#0d47c2,#3b82f6);border-radius:3px;margin:28px auto 0;"></div>
+        </div>
+        <div style="font-family:'Instrument Serif',serif;font-style:italic;font-size:42px;color:#0d1b35;">what we do &amp; what to expect</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<script src="https://unpkg.com/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.slide').forEach(function (slide) {
+      var wrap = document.createElement('div');
+      wrap.className = 'slide-wrap';
+      slide.parentNode.insertBefore(wrap, slide);
+      wrap.appendChild(slide);
+
+      var btn = document.createElement('button');
+      btn.className = 'export-btn';
+      btn.textContent = '⬇ Export PNG';
+      btn.addEventListener('click', function () {
+        btn.textContent = 'Exporting…';
+        btn.disabled = true;
+        // Hide variation label and dots before export
+        var vl = slide.querySelector('.vl');
+        var dots = slide.querySelector('.dots');
+        if (vl) vl.style.display = 'none';
+        if (dots) dots.style.display = 'none';
+
+        // Collect all elements once
+        var allEls = slide.querySelectorAll('*');
+        var backups = [];
+
+        allEls.forEach(function(el) {
+          var cs = getComputedStyle(el);
+          var b = { el: el };
+          var changed = false;
+
+          // 1. Remove backdrop-filter (html2canvas renders it as black)
+          if (cs.backdropFilter && cs.backdropFilter !== 'none') {
+            b.bf = el.style.backdropFilter;
+            b.wbf = el.style.webkitBackdropFilter;
+            el.style.backdropFilter = 'none';
+            el.style.webkitBackdropFilter = 'none';
+            changed = true;
+          }
+
+          // 2. Fix background-clip:text (html2canvas can't render gradient text)
+          if (cs.webkitTextFillColor === 'transparent' || cs.webkitTextFillColor === 'rgba(0, 0, 0, 0)') {
+            b.bgClip = el.style.webkitBackgroundClip;
+            b.bgClipStd = el.style.backgroundClip;
+            b.textFill = el.style.webkitTextFillColor;
+            b.bg = el.style.background;
+            b.bgImage = el.style.backgroundImage;
+            b.color = el.style.color;
+            el.style.webkitBackgroundClip = 'unset';
+            el.style.backgroundClip = 'unset';
+            el.style.webkitTextFillColor = 'unset';
+            el.style.background = 'none';
+            el.style.backgroundImage = 'none';
+            el.style.color = '#0d47c2';
+            changed = true;
+          }
+
+          // 3. Fix conic-gradient backgrounds (html2canvas doesn't support them)
+          if (cs.backgroundImage && cs.backgroundImage.indexOf('conic') !== -1) {
+            b.cBg = el.style.background || '';
+            b.cBgImage = el.style.backgroundImage || '';
+            b.cBgSize2 = el.style.backgroundSize || '';
+            b.cBgPos = el.style.backgroundPosition || '';
+            // Must clear shorthand first, then set individual properties
+            var origSize = cs.backgroundSize;
+            var halfSize = '28px 28px';
+            if (origSize && origSize !== 'auto' && origSize !== 'auto auto') {
+              var s = parseInt(origSize);
+              if (s) halfSize = (s/2) + 'px ' + (s/2) + 'px';
+            }
+            el.style.background = 'none';
+            el.style.backgroundImage = 'linear-gradient(45deg, rgba(13,71,194,0.04) 25%, transparent 25%, transparent 75%, rgba(13,71,194,0.04) 75%), linear-gradient(45deg, rgba(13,71,194,0.04) 25%, transparent 25%, transparent 75%, rgba(13,71,194,0.04) 75%)';
+            el.style.backgroundSize = (origSize && origSize !== 'auto' && origSize !== 'auto auto') ? origSize : '56px 56px';
+            el.style.backgroundPosition = '0 0, ' + halfSize;
+            b.cBgFixed = true;
+            changed = true;
+          }
+
+          if (changed) backups.push(b);
+        });
+
+        // 4. Fix object-fit images (html2canvas doesn't support object-fit)
+        var coverImgs = slide.querySelectorAll('img[style*="object-fit"], .pg-img img, .pg-feat img, .pg-thumb img, .s4n-img img, .s4n-award-item img, .s4n-imgf img');
+        var imgBackups = [];
+        coverImgs.forEach(function(img) {
+          var parent = img.parentElement;
+          imgBackups.push({ img: img, parent: parent, display: img.style.display });
+          parent.style.backgroundImage = 'url(' + img.src + ')';
+          parent.style.backgroundSize = 'cover';
+          parent.style.backgroundPosition = 'center';
+          img.style.display = 'none';
+        });
+
+        html2canvas(slide, {
+          scale: 2,
+          useCORS: true,
+          allowTaint: false,
+          logging: false,
+          width: 1080,
+          height: 1350,
+          scrollX: 0,
+          scrollY: 0
+        }).then(function (canvas) {
+          // Restore everything
+          if (vl) vl.style.display = '';
+          if (dots) dots.style.display = '';
+          backups.forEach(function(b) {
+            if (b.bf !== undefined) { b.el.style.backdropFilter = b.bf; b.el.style.webkitBackdropFilter = b.wbf; }
+            if (b.bgClip !== undefined) {
+              b.el.style.webkitBackgroundClip = b.bgClip;
+              b.el.style.backgroundClip = b.bgClipStd;
+              b.el.style.webkitTextFillColor = b.textFill;
+              b.el.style.background = b.bg;
+              b.el.style.backgroundImage = b.bgImage;
+              b.el.style.color = b.color;
+            }
+            if (b.cBgFixed) {
+              b.el.style.background = b.cBg;
+              b.el.style.backgroundImage = b.cBgImage;
+              b.el.style.backgroundSize = b.cBgSize2;
+              b.el.style.backgroundPosition = b.cBgPos;
+            }
+          });
+          imgBackups.forEach(function(b) {
+            b.img.style.display = b.display;
+            b.parent.style.backgroundImage = '';
+            b.parent.style.backgroundSize = '';
+            b.parent.style.backgroundPosition = '';
+          });
+          var a = document.createElement('a');
+          a.download = (slide.id || 'slide') + '.png';
+          a.href = canvas.toDataURL('image/png');
+          a.click();
+          btn.textContent = '⬇ Export PNG';
+          btn.disabled = false;
+        }).catch(function () {
+          if (vl) vl.style.display = '';
+          if (dots) dots.style.display = '';
+          backups.forEach(function(b) {
+            if (b.bf !== undefined) { b.el.style.backdropFilter = b.bf; b.el.style.webkitBackdropFilter = b.wbf; }
+            if (b.bgClip !== undefined) {
+              b.el.style.webkitBackgroundClip = b.bgClip;
+              b.el.style.backgroundClip = b.bgClipStd;
+              b.el.style.webkitTextFillColor = b.textFill;
+              b.el.style.background = b.bg;
+              b.el.style.backgroundImage = b.bgImage;
+              b.el.style.color = b.color;
+            }
+            if (b.cBgFixed) {
+              b.el.style.background = b.cBg;
+              b.el.style.backgroundImage = b.cBgImage;
+              b.el.style.backgroundSize = b.cBgSize2;
+              b.el.style.backgroundPosition = b.cBgPos;
+            }
+          });
+          imgBackups.forEach(function(b) {
+            b.img.style.display = b.display;
+            b.parent.style.backgroundImage = '';
+            b.parent.style.backgroundSize = '';
+            b.parent.style.backgroundPosition = '';
+          });
+          btn.textContent = '⬇ Export PNG';
+          btn.disabled = false;
+        });
+      });
+      wrap.appendChild(btn);
+    });
+  });
+</script>
+</body>
+</html>

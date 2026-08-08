@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V4 — Vibrant Gradient SaaS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #0c0817;
+    color: #fff;
+    font-family: 'Space Grotesk', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse 60% 80% at 10% 0%, rgba(255, 80, 180, 0.55) 0%, transparent 55%),
+      radial-gradient(ellipse 60% 80% at 90% 100%, rgba(80, 100, 255, 0.55) 0%, transparent 55%),
+      radial-gradient(ellipse 90% 60% at 50% 50%, rgba(255, 140, 60, 0.32) 0%, transparent 60%),
+      linear-gradient(135deg, #1a0d2e 0%, #0c0817 100%);
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+  .grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  }
+  .inner { max-width: 980px; width: 100%; position: relative; z-index: 1; text-align: center; }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 100px;
+    padding: 8px 20px;
+    margin-bottom: 28px;
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+  h1 {
+    font-size: clamp(38px, 6vw, 80px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 20px;
+    text-wrap: balance;
+    color: #fff;
+  }
+  .badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff5fb5 0%, #ff8a3d 50%, #ffd166 100%);
+    color: #1a0d2e;
+    padding: 0 18px;
+    border-radius: 14px;
+    font-weight: 700;
+    line-height: 1.1;
+    box-shadow: 0 12px 40px rgba(255, 95, 181, 0.5);
+  }
+  .tail {
+    display: block;
+    margin-top: 14px;
+    font-size: 0.42em;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.78);
+    letter-spacing: 0;
+    line-height: 1.4;
+  }
+  .desc {
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.7);
+    max-width: 540px;
+    margin: 32px auto 0;
+    line-height: 1.6;
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 56px 20px; }
+    h1 { font-size: clamp(30px, 8.6vw, 50px); }
+    .desc { font-size: 15px; }
+    .badge { padding: 0 14px; border-radius: 10px; }
+  }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="grain"></div>
+  <div class="inner">
+    <div class="eyebrow">Business owners trying to grow</div>
+    <h1>
+      Find out if you could be getting <span class="badge">4X more clients</span> guaranteed
+      <span class="tail">with a simple website funnel + Google Ads system</span>
+    </h1>
+    <p class="desc">Answer 4 quick questions to see if you qualify for a free strategy call.</p>
+  </div>
+</section>
+</body>
+</html>

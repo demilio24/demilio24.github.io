@@ -1,0 +1,53 @@
+{
+  "name": "vlad-seminar",
+  "id": "Zu7nHwEILIJnkKyvtnbB",
+  "fields": [
+    {
+      "label": "Full Name *",
+      "options": []
+    },
+    {
+      "label": "Email *",
+      "options": []
+    },
+    {
+      "label": "Phone *",
+      "options": []
+    },
+    {
+      "label": "Pass Selection *",
+      "options": []
+    },
+    {
+      "label": "Friday Night Private Session - Fri Oct 9, 7:30–8:00 PM",
+      "options": [
+        "Yes, I'm interested in the Friday night private session with Vladimir",
+        "No thank you"
+      ]
+    },
+    {
+      "label": "Experience Level *",
+      "options": []
+    },
+    {
+      "label": "Emergency Contact Name *",
+      "options": []
+    },
+    {
+      "label": "Emergency Contact Phone *",
+      "options": []
+    },
+    {
+      "label": "T-Shirt Size *",
+      "options": []
+    },
+    {
+      "label": "Dietary Restrictions or Allergies *",
+      "options": []
+    },
+    {
+      "label": "How did you hear about the seminar? *",
+      "options": []
+    }
+  ]
+}

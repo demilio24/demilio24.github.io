@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;background:#fbf6e9;
+    font-family:'Inter',-apple-system,sans-serif;color:#1d1d1f;display:flex;flex-direction:column}
+  .status{display:flex;justify-content:space-between;align-items:center;padding:34px 48px 10px;font-weight:700;font-size:34px}
+  .status .right{display:flex;align-items:center;gap:14px;font-size:26px}
+  .bars{display:inline-flex;gap:4px;align-items:flex-end;height:24px}
+  .bars i{width:6px;background:#1d1d1f;border-radius:2px}
+  .bars i:nth-child(1){height:9px}.bars i:nth-child(2){height:14px}.bars i:nth-child(3){height:19px}.bars i:nth-child(4){height:24px}
+  .batt{border:3px solid #1d1d1f;border-radius:7px;width:44px;height:24px;position:relative;display:flex;align-items:center;padding:3px}
+  .batt::after{content:"";position:absolute;right:-7px;width:4px;height:10px;background:#1d1d1f;border-radius:0 2px 2px 0}
+  .batt span{display:block;height:100%;width:55%;background:#1d1d1f;border-radius:2px}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:18px 40px 6px;color:#e8a93b;font-weight:600;font-size:32px}
+  .nav .title{color:#1d1d1f;font-weight:600;font-size:30px}
+  .icons{display:flex;gap:30px;color:#e8a93b;font-size:34px}
+  .meta{text-align:center;color:#9b9893;font-size:24px;padding:14px 0 4px}
+  .wrap{padding:8px 56px 0}
+  h1{font-size:60px;font-weight:700;letter-spacing:-.01em;margin:14px 0 4px}
+  .time{color:#9b9893;font-size:26px;margin-bottom:30px}
+  ol{margin:0 0 0 40px;font-size:37px;line-height:1.5}
+  ol li{margin-bottom:24px;padding-left:8px}
+  .closing{font-size:37px;line-height:1.5;margin-top:18px}
+  .cursor{display:inline-block;width:3px;height:38px;background:#e8a93b;vertical-align:-6px;margin-left:2px}
+  .tabbar{margin-top:auto;display:flex;justify-content:space-around;align-items:center;padding:30px 0 40px;color:#e8a93b;font-size:40px}
+  .done{font-weight:600;font-size:34px}
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="status"><span>23:47</span><span class="right"><span class="bars"><i></i><i></i><i></i><i></i></span> <span>5G</span><span class="batt"><span></span></span></span></div>
+    <div class="nav"><span>‹ Notes</span><span class="title">Things keeping me up at night</span><span class="icons">⬆︎ ✎</span></div>
+    <div class="meta">April 14, 2026 at 11:47 PM · 52 words · 🔒 Locked</div>
+    <div class="wrap">
+      <h1>Things keeping me up at night</h1>
+      <div class="time">Tonight at 11:47 PM</div>
+      <ol>
+        <li>Bought ChatGPT Teams for the team. Nobody actually uses it.</li>
+        <li>My competitor just posted about their "AI workflows." What workflows??</li>
+        <li>Half my day is admin AI could probably do. But which half??</li>
+      </ol>
+      <div class="closing">I just need someone to tell me where to actually start.<span class="cursor"></span></div>
+    </div>
+    <div class="tabbar"><span class="done">Done</span><span>☑︎</span><span>⊕</span><span>✎</span></div>
+  </div>
+</body>
+</html>

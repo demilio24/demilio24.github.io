@@ -1,0 +1,624 @@
+{
+  "summary": {
+    "totalRows": 61,
+    "created": 61,
+    "updated": 0,
+    "errored": 0,
+    "skipped": 0,
+    "tag": "Summer Camp 2026",
+    "source": "Systema Floyd Roster Sync 2026-05-08",
+    "locationId": "JL5Xsreqcpi8naffNZWe"
+  },
+  "results": [
+    {
+      "email": "thereginasmith@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "hbS7m29R8BYYWu1QLTs2",
+      "students": "Akasha Smith",
+      "weeks": "June 1-5; June 15-19; July 27-31",
+      "notes": "Melt Belt grilled cheese, Deep River chips, Smooth Moves smoothie"
+    },
+    {
+      "email": "marilyn@thefalzones.net",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "bP0e9De71MWVhTFEcbPh",
+      "students": "Aria Falzone; Lyla Falzone",
+      "weeks": "June 1-5; June 8-12; June 15-19; June 22-26; June 29-July 3; July 6-10; July 13-17; July 20-24; July 27-31; Aug 3-7",
+      "notes": "Peanut/sesame/green pea allergy; Peanut, sesame seed, and green pea allergy; EpiPens required"
+    },
+    {
+      "email": "lrathlev@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "2XLZxSg6au1HhmiUwNMz",
+      "students": "Campbell Rathlev",
+      "weeks": "June 1-5; June 8-12; June 15-19",
+      "notes": "Already has shirts; no shirt charge"
+    },
+    {
+      "email": "tdenney138@me.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "i45wdvaPWButGiEJ1705",
+      "students": "Dawson Denney",
+      "weeks": "June 1-5; June 8-12; June 15-19; June 22-26; June 29-July 3; July 6-10; July 13-17; July 27-31",
+      "notes": ""
+    },
+    {
+      "email": "lmw340@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "syn1yt2SBbaH5A7KfnrI",
+      "students": "Georgie Wright; Theo Wright",
+      "weeks": "June 1-5; June 15-19; June 22-26",
+      "notes": "Only attending June 15-16"
+    },
+    {
+      "email": "jinglejudi@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "LmQxEtawyartsjKr962x",
+      "students": "Jacob Perna",
+      "weeks": "June 1-5; June 15-19; June 29-July 3; July 6-10; July 13-17; July 20-24; July 27-31",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "kedem.shinar@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "05FeruP0NZFwCN9syyHR",
+      "students": "Lotan Topor; Tevet Topor; Nelson Gonzalez; Iyar Topor",
+      "weeks": "June 1-5; June 8-12; June 15-19",
+      "notes": "Week 2 attending June 8/9/10 only; Apple allergy; gluten intolerance; Only attending June 8/9/10"
+    },
+    {
+      "email": "lpratka@pm.me",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "DEhM2WiwM9DXXQbasT9K",
+      "students": "Paul McIntosh",
+      "weeks": "June 1-5; June 8-12",
+      "notes": "Gluten/dairy/sugar allergy; allergy to hand sanitizer; potty trained"
+    },
+    {
+      "email": "amandaolowin@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "RCHAeV0FApsD1SfNKeD5",
+      "students": "Reagan Olowin; Graham Olowin; Grant 'Geo' Olowin",
+      "weeks": "June 1-5; June 15-19; June 22-26; June 29-July 3; July 6-10; July 13-17; July 20-24; Aug 10-14; Aug 17-21; Aug 3-7",
+      "notes": "Twin"
+    },
+    {
+      "email": "ryan.t76@icloud.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "bhpoJRKZdv7yoKoz4wz1",
+      "students": "Ryder Tarantino",
+      "weeks": "June 1-5; June 15-19; June 22-26; June 29-July 3; July 6-10; July 13-17; July 20-24; July 27-31",
+      "notes": ""
+    },
+    {
+      "email": "mperla0605@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "X18as9vUL8LnDvJ3rn40",
+      "students": "Vladimir Aheyev",
+      "weeks": "June 1-5; June 15-19",
+      "notes": ""
+    },
+    {
+      "email": "laurenmusselman84@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "bfOIl9SP19kPjYUfLxA3",
+      "students": "Wyld Torrealba",
+      "weeks": "June 1-5; June 15-19; July 6-10; July 13-17; Aug 10-14; Aug 17-21",
+      "notes": "Vegan family"
+    },
+    {
+      "email": "zaneywilson@aol.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "ow8lEaXwm3tqjWts9Bj7",
+      "students": "Wheeler Wilson",
+      "weeks": "June 1-5; June 15-19; July 6-10; July 13-17; July 20-24",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "till.amanda@yahoo.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "YRRi9hovenqeSvmVnvBl",
+      "students": "Luka DeAraujo",
+      "weeks": "June 1-5; June 8-12; June 15-19; July 6-10; July 20-24; Aug 3-7",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "taylor.materio@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "NJTinv0XqznVA7v6AQLn",
+      "students": "Marsano Spinelli",
+      "weeks": "June 8-12",
+      "notes": ""
+    },
+    {
+      "email": "agarver2@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "ouoWzIz1GajhGLo1iBec",
+      "students": "Austin Shue",
+      "weeks": "June 8-12; June 29-July 3; July 6-10",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "mparloc0505@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "kWmgMyNHMV3p7ThmEhlt",
+      "students": "Matias McCollum",
+      "weeks": "June 8-12",
+      "notes": ""
+    },
+    {
+      "email": "1nemayynyr@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "hGkiWTwbfrjNMoiLipYx",
+      "students": "Vladimir Aheyev; Nelson Gonzalez",
+      "weeks": "June 8-12; June 15-19; June 22-26; June 29-July 3; July 6-10; July 13-17; July 20-24",
+      "notes": "Apple allergy; gluten intolerance; Apple allergy, gluten intolerance"
+    },
+    {
+      "email": "fennelljason42@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "IFJ8RM2Pd4GRtu5IdZV6",
+      "students": "Hawthorn Fennell",
+      "weeks": "June 8-12; June 15-19; June 29-July 3; July 6-10; Aug 17-21",
+      "notes": ""
+    },
+    {
+      "email": "daphne&jean_francois@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "GOBH9pxnfrEIcCKj6Y1q",
+      "students": "Hope Jean-Francois",
+      "weeks": "June 8-12",
+      "notes": "Scholarship inquiry; Mark follow-up"
+    },
+    {
+      "email": "brittanypond@yahoo.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "eHwTSAW2sUNc7Pjg5FpR",
+      "students": "Cort Pond",
+      "weeks": "June 8-12",
+      "notes": ""
+    },
+    {
+      "email": "jhendrix75@icloud.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "hAjwFR7lH48ulPjVjYy2",
+      "students": "Colton Hendrix",
+      "weeks": "June 8-12",
+      "notes": "Celis: grilled cheese, chips, Very Berry smoothie"
+    },
+    {
+      "email": "sandra.lakow@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "3fR6RyrL8pD1E3nC5xPd",
+      "students": "Wiley Lakow; Lakow Wiley",
+      "weeks": "June 8-12; July 27-31; Aug 3-7",
+      "notes": "Wiley has big feelings; loved spring break camp support"
+    },
+    {
+      "email": "jennifermosst@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "bzsvUwpMYOuFNpGqL6eQ",
+      "students": "Benjamin Mosst",
+      "weeks": "June 15-19",
+      "notes": ""
+    },
+    {
+      "email": "savannahhuizenga@icloud.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "gZRTCRpuZIUAHZsdX6KR",
+      "students": "Ellie Bennett",
+      "weeks": "June 15-19",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "virginia.elizabeth.grace@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "Ch5kCuFxjmDXA8B1Oi1F",
+      "students": "Harrison Galligan",
+      "weeks": "June 15-19",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "l.molinari5588@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "Vu9VQTzJoyjMrQ7JPBus",
+      "students": "JJ Molinari; Vincent Molinari",
+      "weeks": "June 15-19; June 22-26; June 29-July 3; July 6-10; July 20-24",
+      "notes": "Monday-Thursday only; Potty trained"
+    },
+    {
+      "email": "sherylmendez22@yahoo.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "IvDEDB3J7NgvP0M9KzED",
+      "students": "Jayden Vititoe",
+      "weeks": "June 15-19; June 22-26; July 6-10; July 13-17; July 27-31",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "howewedding17@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "hp4uK4hVl3KKOSdfvMH6",
+      "students": "LJ Howe",
+      "weeks": "June 15-19; June 22-26; June 29-July 3; July 6-10; July 13-17; July 20-24; July 27-31; Aug 3-7",
+      "notes": ""
+    },
+    {
+      "email": "epompea@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "iM9jHH66fkV8wL0i7wxH",
+      "students": "Wells Corbat",
+      "weeks": "June 15-19; Aug 3-7",
+      "notes": "Tuesday-Thursday only"
+    },
+    {
+      "email": "farrahkscott@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "a11OGTTWJzfwsojojOqG",
+      "students": "Wilder Scott; Scott Wilder",
+      "weeks": "June 15-19; June 29-July 3; July 6-10; July 13-17; July 20-24; July 27-31; Aug 10-14; Aug 17-21; Aug 3-7",
+      "notes": "Upper Campus requested"
+    },
+    {
+      "email": "jgwenberry@yahoo.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "3d5Es5DSOeIiUSDVqsQf",
+      "students": "Madelyn Rogers; Truett Rogers",
+      "weeks": "June 15-19; July 27-31; Aug 10-14; Aug 17-21",
+      "notes": "Sibling: Truett Rogers; Sibling: Madelyn Rogers"
+    },
+    {
+      "email": "phoebehorn87@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "yWw4QjNeOyPLHvXtbSYy",
+      "students": "Taavi Horn",
+      "weeks": "June 15-19; July 13-17; July 27-31",
+      "notes": ""
+    },
+    {
+      "email": "kellyhorta@aol.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "KMJYLFkSnlWJdJtz6wlr",
+      "students": "Hudson Horta",
+      "weeks": "June 22-26",
+      "notes": ""
+    },
+    {
+      "email": "edeady5180@att.net",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "6tBw1RSFACNZTZzJsBqK",
+      "students": "Sloane Deady-Laakso",
+      "weeks": "June 29-July 3; Aug 10-14",
+      "notes": "One day only on June 30; 4-day week only"
+    },
+    {
+      "email": "jerlmccollum@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "GP3a7whYiT7w4XgLHwsW",
+      "students": "Matias McCollum",
+      "weeks": "June 29-July 3; July 6-10; July 27-31; Aug 3-7",
+      "notes": ""
+    },
+    {
+      "email": "shall@sourceonespares.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "HbMJMuMNjH6GKsd58Dom",
+      "students": "Tripp Hall",
+      "weeks": "June 29-July 3",
+      "notes": ""
+    },
+    {
+      "email": "nikisned@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "rtsE12LBzlEHRNE3q7VH",
+      "students": "Remy Sned",
+      "weeks": "June 29-July 3",
+      "notes": "Only attending June 29"
+    },
+    {
+      "email": "kellyannvitko@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "0x5Df6xbenkOstfysztH",
+      "students": "Teddy Grace",
+      "weeks": "June 29-July 3",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "priscilla-ten@hotmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "hg465GKNMmvam4HMxM7j",
+      "students": "Lilly Heyes",
+      "weeks": "July 6-10; July 13-17; July 20-24; July 27-31",
+      "notes": ""
+    },
+    {
+      "email": "danelamartinat@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "3dOizbIZ4QgUYUOL4xk1",
+      "students": "Sebastian Martinat",
+      "weeks": "July 6-10",
+      "notes": ""
+    },
+    {
+      "email": "kellyklainewhite@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "3EL4vgdDlQRvxncwj2Eg",
+      "students": "Olive White; Ozzie White",
+      "weeks": "July 6-10; July 13-17; July 20-24; July 27-31",
+      "notes": "4-day week; 5-day week"
+    },
+    {
+      "email": "ggrant0508@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "ThU69KfjlwraDonBx89J",
+      "students": "Owen Grant; Carter Grant",
+      "weeks": "July 6-10; July 13-17; Aug 3-7",
+      "notes": ""
+    },
+    {
+      "email": "mollyvallier@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "NRBtifzD8bxHm0oI1jj9",
+      "students": "Vincent Vallier",
+      "weeks": "July 6-10; July 20-24; July 27-31",
+      "notes": ""
+    },
+    {
+      "email": "susan.trochez@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "weXfkiZXVepJvIiabkK3",
+      "students": "Theo Trochet; Ainslee Sheridan",
+      "weeks": "July 13-17",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "briafoca@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "4c2scSeZh85djocfJ5Hi",
+      "students": "Beckham Fox",
+      "weeks": "July 13-17",
+      "notes": ""
+    },
+    {
+      "email": "iamsam1018@yahoo.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "JlLdrBbD61qvghwt0WAR",
+      "students": "Ira Skaletsky",
+      "weeks": "July 20-24; July 27-31",
+      "notes": ""
+    },
+    {
+      "email": "olivia.b.thomason@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "eibRH6qoZVLTO94Ca8Qp",
+      "students": "Teddy Thomason",
+      "weeks": "July 20-24",
+      "notes": ""
+    },
+    {
+      "email": "laurenjhooks@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "J8CvWgNDigjJ740Msywl",
+      "students": "Griffin McCauley; Avery McCauley",
+      "weeks": "July 20-24",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "brilafoca@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "ayc2p7dcdhH5kX9gUZvP",
+      "students": "Beckham Fox",
+      "weeks": "July 20-24",
+      "notes": ""
+    },
+    {
+      "email": "ashleezahringer@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "QuVF9mH43qSp9RsobuDS",
+      "students": "James 'Duncan' Zahringer III",
+      "weeks": "July 20-24",
+      "notes": "Interested in Celis option"
+    },
+    {
+      "email": "mplummer@gunster.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "pr4ItKOWSMfkY2FEqgCv",
+      "students": "Isaiah Plummer",
+      "weeks": "July 20-24",
+      "notes": ""
+    },
+    {
+      "email": "jessica.dockus@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "rkILKp02K5lTib6ah3RK",
+      "students": "Annabelle Dockus",
+      "weeks": "July 27-31",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "ashleyeady@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "qBMIaULOLGUDdSEDkE78",
+      "students": "Charlotte Eady; Liam Eady",
+      "weeks": "Aug 3-7",
+      "notes": ""
+    },
+    {
+      "email": "ballapiatt25@hotmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "D6Q6fIYUNpIbHtHjvfLr",
+      "students": "Ballapiatt Ryan",
+      "weeks": "Aug 3-7",
+      "notes": ""
+    },
+    {
+      "email": "jvrobinson@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "qdN3jZmZES5oHJi0T9u3",
+      "students": "Tilly Robinson; Cosmo Robinson; Maciej Kozakowski; Julia Kozakowska",
+      "weeks": "Aug 10-14",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "kristh.h.rollins@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "Qt1pq6YAjo8Dx0lYSxLg",
+      "students": "Marlow Rollins",
+      "weeks": "Aug 10-14; Aug 17-21",
+      "notes": ""
+    },
+    {
+      "email": "chanemurphy@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "NtKUTEx2BWHBadBBKSDB",
+      "students": "Lily Johnson; August Johnson",
+      "weeks": "Aug 17-21",
+      "notes": "Potty trained"
+    },
+    {
+      "email": "ericapaigezimmer@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "rIkU7wpJGBF342x832p8",
+      "students": "Remy Zimmer; Zoey Zimmer",
+      "weeks": "Aug 17-21",
+      "notes": ""
+    },
+    {
+      "email": "bg03interiors@aol.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "CvHwP5IaQpi86f2wAsok",
+      "students": "Herbst Capri",
+      "weeks": "Aug 17-21",
+      "notes": ""
+    },
+    {
+      "email": "email.mlafuente@gmail.com",
+      "status": "ok",
+      "code": 201,
+      "new": true,
+      "contactId": "gqKGIUaJmRUNrNkehY9c",
+      "students": "Leo Hamric",
+      "weeks": "Aug 17-21",
+      "notes": ""
+    }
+  ]
+}

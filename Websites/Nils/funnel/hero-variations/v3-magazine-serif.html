@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V3 — Magazine Serif</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    background: #f7f3ec;
+    color: #1a1410;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(180deg, rgba(255,255,255,0.5) 0%, transparent 30%),
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(217, 119, 6, 0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .inner { max-width: 1080px; width: 100%; position: relative; z-index: 1; text-align: center; }
+  .eyebrow {
+    display: inline-block;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #7a5a32;
+    margin-bottom: 28px;
+    position: relative;
+    padding: 0 36px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 24px;
+    height: 1px;
+    background: #c9a66b;
+  }
+  .eyebrow::before { left: 0; }
+  .eyebrow::after { right: 0; }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(40px, 6.6vw, 84px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    text-wrap: balance;
+    font-variation-settings: "opsz" 144;
+  }
+  .badge {
+    font-style: italic;
+    font-weight: 500;
+    color: #b25e09;
+    position: relative;
+    white-space: nowrap;
+  }
+  .badge::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 6%;
+    height: 0.18em;
+    background: rgba(217, 119, 6, 0.28);
+    z-index: -1;
+    border-radius: 4px;
+  }
+  .tail {
+    display: block;
+    margin-top: 18px;
+    font-family: 'Fraunces', serif;
+    font-size: 0.42em;
+    font-style: italic;
+    font-weight: 400;
+    color: #5a4a3a;
+    letter-spacing: -0.005em;
+    line-height: 1.4;
+  }
+  .desc {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    color: #5a4a3a;
+    max-width: 520px;
+    margin: 32px auto 0;
+    line-height: 1.65;
+  }
+  @media (max-width: 640px) {
+    .hero { padding: 56px 20px; }
+    h1 { font-size: clamp(32px, 9vw, 52px); }
+    .desc { font-size: 15px; }
+  }
+</style>
+</head>
+<body>
+<section class="hero">
+  <div class="inner">
+    <div class="eyebrow">Business owners trying to grow</div>
+    <h1>
+      Find out if you could be getting <span class="badge">4X more clients</span> guaranteed
+      <span class="tail">with a simple website funnel + Google Ads system</span>
+    </h1>
+    <p class="desc">Answer 4 quick questions to see if you qualify for a free strategy call.</p>
+  </div>
+</section>
+</body>
+</html>

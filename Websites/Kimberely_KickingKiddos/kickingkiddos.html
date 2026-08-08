@@ -1,0 +1,2921 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Kicking Kiddos | Award-Winning Private Swim Lessons in Topeka, KS
+    </title>
+    <meta
+      name="description"
+      content="3x Platinum Award-winning private swim lessons for children in Topeka, KS. One-on-one instruction, safety-first approach, $25/lesson."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ─── Reset ─── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+      }
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          sans-serif;
+        background: #fff;
+        color: #1a1a2e;
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+      img {
+        display: block;
+        max-width: 100%;
+      }
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      button {
+        font-family: inherit;
+        cursor: pointer;
+        border: none;
+        background: none;
+      }
+
+      /* ─── Tokens ─── */
+      :root {
+        --blue: #0a7ef5;
+        --blue-deep: #0557b8;
+        --blue-glow: rgba(10, 126, 245, 0.25);
+        --blue-soft: rgba(10, 126, 245, 0.08);
+        --gold: #f5a623;
+        --gold-glow: rgba(245, 166, 35, 0.3);
+        --dark: #080d1a;
+        --dark2: #0d1528;
+        --surface: #f5f7fa;
+        --border: rgba(0, 0, 0, 0.08);
+        --border-lt: rgba(255, 255, 255, 0.12);
+        --text: #1a1a2e;
+        --muted: #64748b;
+        --white: #ffffff;
+        --max: 1120px;
+
+        /* Premium shadow stacks */
+        --sh1: 0 1px 3px rgba(0, 0, 0, 0.06), 0 4px 12px rgba(0, 0, 0, 0.05);
+        --sh2:
+          0 2px 8px rgba(0, 0, 0, 0.06), 0 8px 24px rgba(0, 0, 0, 0.08),
+          0 20px 48px rgba(0, 0, 0, 0.05);
+        --sh3:
+          0 4px 16px rgba(0, 0, 0, 0.08), 0 16px 48px rgba(0, 0, 0, 0.1),
+          0 40px 80px rgba(0, 0, 0, 0.07);
+        --sh-blue:
+          0 4px 16px rgba(10, 126, 245, 0.2),
+          0 16px 40px rgba(10, 126, 245, 0.15),
+          0 32px 64px rgba(10, 126, 245, 0.08);
+        --sh-gold:
+          0 4px 20px rgba(245, 166, 35, 0.3),
+          0 12px 40px rgba(245, 166, 35, 0.15);
+
+        --r: 16px;
+        --r-lg: 24px;
+        --r-xl: 32px;
+      }
+
+      /* ─── Layout helpers ─── */
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+      @media (min-width: 768px) {
+        .wrap {
+          padding: 0 40px;
+        }
+      }
+
+      /* ─── Typography ─── */
+      .label {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--blue);
+        margin-bottom: 16px;
+      }
+      .label::before {
+        content: "";
+        display: inline-block;
+        width: 18px;
+        height: 2px;
+        background: var(--blue);
+        border-radius: 2px;
+      }
+      .label--gold {
+        color: var(--gold);
+      }
+      .label--gold::before {
+        background: var(--gold);
+      }
+      .label--white {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .label--white::before {
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .h1 {
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        font-weight: 800;
+        line-height: 1.06;
+        letter-spacing: -0.03em;
+      }
+      .h2 {
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-weight: 800;
+        line-height: 1.1;
+        letter-spacing: -0.025em;
+      }
+      .h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1.25;
+        letter-spacing: -0.01em;
+      }
+      .lead {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        color: var(--muted);
+        line-height: 1.75;
+        font-weight: 400;
+      }
+
+      /* Gradient text utility */
+      .grad {
+        background: linear-gradient(135deg, var(--blue) 0%, #38bdf8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+      .grad-gold {
+        background: linear-gradient(
+          135deg,
+          #f5a623 0%,
+          #f8d57e 60%,
+          #f5a623 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* ─── Scroll reveal ─── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+          opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: none;
+      }
+      .reveal-d1 {
+        transition-delay: 0.1s;
+      }
+      .reveal-d2 {
+        transition-delay: 0.2s;
+      }
+      .reveal-d3 {
+        transition-delay: 0.3s;
+      }
+      .reveal-d4 {
+        transition-delay: 0.4s;
+      }
+
+      /* ══════════════════════════════
+       NAV
+    ══════════════════════════════ */
+      .nav {
+        position: fixed;
+        inset: 12px 16px auto;
+        z-index: 200;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+        border-radius: 100px;
+        background: rgba(255, 255, 255, 0.75);
+        backdrop-filter: blur(24px) saturate(200%);
+        -webkit-backdrop-filter: blur(24px) saturate(200%);
+        border: 1px solid rgba(255, 255, 255, 0.6);
+        box-shadow:
+          0 4px 24px rgba(0, 0, 0, 0.08),
+          0 1px 4px rgba(0, 0, 0, 0.05),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        transition:
+          box-shadow 0.35s ease,
+          background 0.35s ease;
+      }
+      .nav.solid {
+        background: rgba(255, 255, 255, 0.95);
+        box-shadow:
+          0 8px 36px rgba(0, 0, 0, 0.13),
+          0 1px 4px rgba(0, 0, 0, 0.06),
+          inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      }
+      .nav__logo {
+        font-size: 1.05rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        background: linear-gradient(135deg, var(--blue) 0%, #38bdf8 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        flex-shrink: 0;
+      }
+      .nav__links {
+        display: none;
+        list-style: none;
+        gap: 4px;
+      }
+      .nav__links a {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--muted);
+        padding: 6px 12px;
+        border-radius: 100px;
+        transition:
+          color 0.2s,
+          background 0.2s;
+        position: relative;
+      }
+      .nav__links a:hover {
+        color: var(--text);
+        background: rgba(0, 0, 0, 0.04);
+      }
+      .nav__links a.active {
+        color: var(--blue);
+        background: var(--blue-soft);
+      }
+      .nav__btn {
+        display: none;
+        font-size: 0.83rem;
+        font-weight: 700;
+        padding: 9px 20px;
+        border-radius: 100px;
+        background: var(--blue);
+        color: #fff;
+        transition:
+          background 0.2s,
+          box-shadow 0.2s,
+          transform 0.2s;
+        box-shadow: 0 4px 14px rgba(10, 126, 245, 0.35);
+        line-height: 1;
+        white-space: nowrap;
+        flex-shrink: 0;
+      }
+      .nav__btn:hover {
+        background: var(--blue-deep);
+        box-shadow: 0 6px 20px rgba(10, 126, 245, 0.45);
+        transform: translateY(-1px);
+      }
+      .nav__ham {
+        display: flex;
+        flex-direction: column;
+        gap: 4.5px;
+        padding: 4px;
+      }
+      .nav__ham span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--blue);
+        border-radius: 2px;
+        transition:
+          transform 0.25s,
+          opacity 0.25s;
+      }
+      .nav__ham.open span:nth-child(1) {
+        transform: translateY(6.5px) rotate(45deg);
+      }
+      .nav__ham.open span:nth-child(2) {
+        opacity: 0;
+      }
+      .nav__ham.open span:nth-child(3) {
+        transform: translateY(-6.5px) rotate(-45deg);
+      }
+
+      .nav__drawer {
+        position: fixed;
+        inset: 80px 16px auto;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.07);
+        box-shadow: var(--sh3);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        z-index: 199;
+        opacity: 0;
+        transform: translateY(-10px) scale(0.98);
+        pointer-events: none;
+        transition:
+          opacity 0.22s ease,
+          transform 0.22s ease;
+      }
+      .nav__drawer.open {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        pointer-events: auto;
+      }
+      .nav__drawer a {
+        font-size: 0.93rem;
+        font-weight: 600;
+        color: var(--muted);
+        padding: 10px 14px;
+        border-radius: 12px;
+        transition:
+          background 0.18s,
+          color 0.18s;
+      }
+      .nav__drawer a:hover {
+        background: var(--surface);
+        color: var(--text);
+      }
+      .nav__drawer a.active {
+        background: var(--blue-soft);
+        color: var(--blue);
+      }
+      .nav__drawer .drawer-cta {
+        margin-top: 6px;
+        padding: 13px;
+        background: linear-gradient(135deg, var(--blue) 0%, #38bdf8 100%);
+        color: #fff;
+        font-weight: 700;
+        text-align: center;
+        border-radius: 14px;
+        box-shadow: 0 4px 16px rgba(10, 126, 245, 0.4);
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .nav__drawer .drawer-cta:hover {
+        box-shadow: 0 6px 24px rgba(10, 126, 245, 0.5);
+        transform: translateY(-1px);
+      }
+
+      @media (min-width: 768px) {
+        .nav {
+          inset: 16px auto auto;
+          left: 50%;
+          transform: translateX(-50%);
+          width: calc(100% - 48px);
+          max-width: 1180px;
+          padding: 0 28px;
+        }
+        .nav__links,
+        .nav__btn {
+          display: flex;
+        }
+        .nav__ham {
+          display: none;
+        }
+      }
+
+      /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+      .hero {
+        min-height: 100svh;
+        display: grid;
+        place-items: center;
+        padding: 120px 0 80px;
+        position: relative;
+        overflow: hidden;
+        background: #fafbff;
+      }
+      /* subtle grid pattern */
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(10, 126, 245, 0.04) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(10, 126, 245, 0.04) 1px, transparent 1px);
+        background-size: 40px 40px;
+      }
+      /* ambient glow blobs */
+      .hero-blob {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        pointer-events: none;
+      }
+      .hero-blob--1 {
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(10, 126, 245, 0.18) 0%,
+          transparent 70%
+        );
+        top: -100px;
+        right: -100px;
+      }
+      .hero-blob--2 {
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(
+          circle,
+          rgba(56, 189, 248, 0.12) 0%,
+          transparent 70%
+        );
+        bottom: 0;
+        left: -80px;
+      }
+      .hero-blob--3 {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(
+          circle,
+          rgba(245, 166, 35, 0.1) 0%,
+          transparent 70%
+        );
+        top: 30%;
+        right: 15%;
+      }
+      .hero__inner {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        max-width: 1180px;
+        padding: 0 24px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: center;
+        text-align: center;
+      }
+      @media (min-width: 900px) {
+        .hero__inner {
+          grid-template-columns: 1fr 1fr;
+          text-align: left;
+        }
+      }
+      .hero__social-proof {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 0;
+        margin-bottom: 28px;
+      }
+      @media (min-width: 900px) {
+        .hero__social-proof {
+          justify-content: flex-start;
+        }
+      }
+      .hero__awards {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(245, 166, 35, 0.1);
+        border: 1px solid rgba(245, 166, 35, 0.25);
+        border-radius: 100px;
+        padding: 6px 14px 6px 8px;
+      }
+      .hero__google {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 100px;
+        padding: 6px 14px;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+      }
+      .hero__google-stars {
+        color: #fbbc04;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+      }
+      .hero__google-text {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #444;
+      }
+      .hero__award-imgs {
+        display: flex;
+        gap: -6px;
+      }
+      .hero__award-imgs img {
+        width: 28px;
+        height: 28px;
+        object-fit: contain;
+        margin-left: -6px;
+      }
+      .hero__award-imgs img:first-child {
+        margin-left: 0;
+      }
+      .hero__awards-text {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #92610a;
+        letter-spacing: 0.04em;
+      }
+      .hero__title {
+        font-size: clamp(2rem, 4vw, 3.4rem);
+        font-weight: 800;
+        line-height: 1.12;
+        letter-spacing: -0.03em;
+        color: var(--text);
+        margin-bottom: 20px;
+      }
+      .hero__title .line-blue {
+        background: linear-gradient(135deg, #0a7ef5, #38bdf8 60%, #0a7ef5);
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmer 4s linear infinite;
+      }
+      @keyframes shimmer {
+        to {
+          background-position: 200% center;
+        }
+      }
+      .underline-anim {
+        position: relative;
+        display: inline;
+      }
+      .underline-anim .heart {
+        position: absolute;
+        top: -0.3em;
+        right: -0.7em;
+        font-size: 0.45em;
+        transform: rotate(45deg);
+        display: inline-block;
+        line-height: 1;
+        pointer-events: none;
+      }
+      .underline-anim::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 2px;
+        height: 4px;
+        width: 0;
+        border-radius: 2px;
+        background: linear-gradient(135deg, #0a7ef5, #38bdf8 60%, #0a7ef5);
+        background-size: 200% auto;
+        animation: shimmer 4s linear infinite;
+        transition: width 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .underline-anim.draw::after {
+        width: 100%;
+      }
+      .hero__sub {
+        font-size: clamp(0.95rem, 2vw, 1.1rem);
+        color: var(--muted);
+        line-height: 1.75;
+        max-width: 520px;
+        margin: 0 auto 0;
+        font-weight: 400;
+      }
+      @media (min-width: 900px) {
+        .hero__sub {
+          margin: 0 0 0;
+        }
+      }
+      .hero__ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: center;
+        margin-bottom: 56px;
+      }
+      .hero__image-wrap {
+        position: relative;
+        max-width: 900px;
+        margin: 0 auto;
+        border-radius: var(--r-xl);
+        overflow: hidden;
+        box-shadow:
+          var(--sh3),
+          0 0 0 1px rgba(0, 0, 0, 0.05);
+      }
+      .hero__image-wrap img {
+        width: 100%;
+        height: 420px;
+        object-fit: cover;
+        object-position: center 35%;
+        display: block;
+      }
+      /* overlay chips on the image */
+      .hero__chip {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.9);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: 14px;
+        padding: 12px 16px;
+        box-shadow: var(--sh2);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+      }
+      .hero__chip--tl {
+        top: 20px;
+        left: 20px;
+      }
+      .hero__chip--br {
+        bottom: 20px;
+        right: 20px;
+      }
+      .chip__num {
+        font-size: 1.4rem;
+        font-weight: 800;
+        color: var(--blue);
+        line-height: 1;
+      }
+      .chip__label {
+        font-size: 0.68rem;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        margin-top: 2px;
+      }
+      .chip__row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .chip__dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #22c55e;
+        flex-shrink: 0;
+        box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+        animation: pulse-dot 2s ease-in-out infinite;
+      }
+      @keyframes pulse-dot {
+        0%,
+        100% {
+          box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+        }
+        50% {
+          box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.1);
+        }
+      }
+      .chip__live {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: var(--muted);
+      }
+
+      /* ── Buttons ── */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.92rem;
+        font-weight: 600;
+        padding: 14px 28px;
+        border-radius: 100px;
+        transition:
+          transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          box-shadow 0.25s ease,
+          background 0.25s ease,
+          filter 0.25s;
+        cursor: pointer;
+        border: none;
+        font-family: inherit;
+        white-space: nowrap;
+      }
+      .btn:hover {
+        transform: translateY(-2px) scale(1.02);
+      }
+      .btn--blue {
+        background: var(--blue);
+        color: #fff;
+        box-shadow:
+          0 4px 16px rgba(10, 126, 245, 0.3),
+          0 1px 3px rgba(10, 126, 245, 0.2);
+      }
+      .btn--blue:hover {
+        background: var(--blue-deep);
+        box-shadow:
+          0 8px 28px rgba(10, 126, 245, 0.4),
+          0 2px 6px rgba(10, 126, 245, 0.25);
+        filter: brightness(1.05);
+      }
+      .btn--ghost {
+        background: rgba(0, 0, 0, 0.05);
+        color: var(--text);
+      }
+      .btn--ghost:hover {
+        background: rgba(0, 0, 0, 0.09);
+      }
+      .btn--lg {
+        padding: 16px 36px;
+        font-size: 1rem;
+      }
+      .btn--white {
+        background: #fff;
+        color: var(--text);
+        box-shadow: var(--sh2);
+      }
+      .btn--white:hover {
+        box-shadow: var(--sh3);
+      }
+
+      /* ══════════════════════════════
+       AWARDS BAR
+    ══════════════════════════════ */
+      .awards {
+        background: var(--dark);
+        padding: 72px 0;
+      }
+      .awards__label {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .awards__grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 48px 64px;
+      }
+      .award-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        text-align: center;
+      }
+      .award-item__img {
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        filter: drop-shadow(0 0 20px rgba(245, 166, 35, 0.35))
+          drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+        transition:
+          filter 0.35s ease,
+          transform 0.35s ease;
+      }
+      .award-item:hover .award-item__img {
+        filter: drop-shadow(0 0 32px rgba(245, 166, 35, 0.6))
+          drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5));
+        transform: translateY(-4px) scale(1.04);
+      }
+      .award-item__year {
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .award-item__name {
+        font-size: 0.72rem;
+        color: rgba(255, 255, 255, 0.4);
+        font-weight: 500;
+      }
+
+      /* ══════════════════════════════
+       STATS STRIP
+    ══════════════════════════════ */
+      .stats {
+        background: var(--blue);
+        padding: 52px 0;
+      }
+      .stats__inner {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px;
+        text-align: center;
+      }
+      .stat__num {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 800;
+        color: #fff;
+        line-height: 1;
+        letter-spacing: -0.03em;
+        margin-bottom: 6px;
+      }
+      .stat__label {
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: rgba(255, 255, 255, 0.65);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+      @media (min-width: 600px) {
+        .stats__inner {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      /* ══════════════════════════════
+       FEATURES / WHY
+    ══════════════════════════════ */
+      .why {
+        padding: 110px 0;
+      }
+      .why__grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr;
+      }
+      .why-card {
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: var(--r-lg);
+        padding: 28px 26px;
+        box-shadow: var(--sh1);
+        transition:
+          box-shadow 0.3s ease,
+          transform 0.3s ease,
+          border-color 0.3s;
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+      }
+      .why-card:hover {
+        box-shadow: var(--sh2);
+        transform: translateY(-3px);
+        border-color: rgba(10, 126, 245, 0.15);
+      }
+      .why-card__icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        background: var(--blue-soft);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+      }
+      .why-card__title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 5px;
+      }
+      .why-card__body {
+        font-size: 0.87rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      @media (min-width: 640px) {
+        .why__grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width: 960px) {
+        .why__grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* ══════════════════════════════
+       COMPARISON
+    ══════════════════════════════ */
+      .compare {
+        padding: 110px 0;
+        background: var(--surface);
+      }
+      .compare__table-wrap {
+        background: #fff;
+        border-radius: var(--r-xl);
+        overflow: hidden;
+        box-shadow: var(--sh2);
+        border: 1px solid var(--border);
+        overflow-x: auto;
+      }
+      table.ct {
+        width: 100%;
+        border-collapse: collapse;
+        min-width: 480px;
+      }
+      .ct thead tr {
+        background: var(--dark);
+      }
+      .ct th {
+        padding: 18px 24px;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.55);
+        text-align: center;
+      }
+      .ct th:first-child {
+        text-align: left;
+      }
+      .ct th.hl {
+        color: #fff;
+        background: var(--blue);
+        position: relative;
+      }
+      .ct th.hl::after {
+        content: "Our Approach";
+        display: block;
+        font-size: 0.6rem;
+        letter-spacing: 0.08em;
+        color: rgba(255, 255, 255, 0.6);
+        margin-top: 3px;
+        font-weight: 500;
+      }
+      .ct tbody tr {
+        border-bottom: 1px solid var(--border);
+        transition: background 0.15s;
+      }
+      .ct tbody tr:last-child {
+        border-bottom: none;
+      }
+      .ct tbody tr:hover {
+        background: var(--surface);
+      }
+      .ct td {
+        padding: 16px 24px;
+        font-size: 0.9rem;
+        color: var(--muted);
+        text-align: center;
+      }
+      .ct td:first-child {
+        text-align: left;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .ct td.hl {
+        background: rgba(10, 126, 245, 0.04);
+        font-weight: 600;
+        color: var(--blue-deep);
+      }
+      .ico-yes {
+        color: #16a34a;
+        font-size: 1rem;
+      }
+      .ico-no {
+        color: #dc2626;
+        font-size: 1rem;
+      }
+
+      /* ══════════════════════════════
+       PROGRAMS
+    ══════════════════════════════ */
+      .programs {
+        padding: 110px 0;
+      }
+      .prog-unified {
+        display: grid;
+        grid-template-columns: 1fr;
+        border-radius: var(--r-xl);
+        overflow: hidden;
+        background: #fff;
+        border: 1px solid var(--border);
+        box-shadow: var(--sh2);
+      }
+      @media (min-width: 768px) {
+        .prog-unified {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      .prog-unified__img {
+        width: 100%;
+        height: 100%;
+        min-height: 320px;
+        object-fit: cover;
+        object-position: center 30%;
+        display: block;
+      }
+      .prog-unified__body {
+        padding: 32px 36px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .prog-tier {
+        padding: 20px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .prog-tier:last-of-type {
+        border-bottom: none;
+        margin-bottom: 24px;
+      }
+      .prog__badge {
+        display: inline-block;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--blue);
+        background: var(--blue-soft);
+        border-radius: 100px;
+        padding: 4px 12px;
+        margin-bottom: 10px;
+      }
+      .prog__title {
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 6px;
+        letter-spacing: -0.01em;
+      }
+      .prog__desc {
+        font-size: 0.85rem;
+        color: var(--muted);
+        line-height: 1.7;
+        margin-bottom: 8px;
+      }
+      .prog__price {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
+      .prog__price span {
+        font-size: 0.82rem;
+        font-weight: 400;
+        color: var(--muted);
+      }
+
+      /* ══════════════════════════════
+       PROCESS
+    ══════════════════════════════ */
+      .process {
+        padding: 110px 0;
+        background: var(--surface);
+      }
+      .steps {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: 1fr;
+        counter-reset: step;
+      }
+      .step {
+        background: #fff;
+        border-radius: var(--r-lg);
+        padding: 28px 26px;
+        border: 1px solid var(--border);
+        box-shadow: var(--sh1);
+        transition:
+          box-shadow 0.3s,
+          transform 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+      .step:hover {
+        box-shadow: var(--sh2);
+        transform: translateY(-3px);
+      }
+      .step::before {
+        counter-increment: step;
+        content: counter(step, decimal-leading-zero);
+        position: absolute;
+        top: -8px;
+        right: 18px;
+        font-size: 4rem;
+        font-weight: 900;
+        color: var(--blue);
+        opacity: 0.06;
+        line-height: 1;
+        letter-spacing: -0.05em;
+      }
+      .step__num {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        background: var(--blue);
+        color: #fff;
+        font-size: 0.85rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 16px;
+        box-shadow: 0 4px 14px rgba(10, 126, 245, 0.35);
+      }
+      .step__title {
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .step__body {
+        font-size: 0.87rem;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      @media (min-width: 600px) {
+        .steps {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width: 960px) {
+        .steps {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+
+      /* ══════════════════════════════
+       GALLERY
+    ══════════════════════════════ */
+      .gallery {
+        padding: 110px 0;
+      }
+      .gallery__grid {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: 1fr 1fr;
+      }
+      .g-cell {
+        border-radius: var(--r-lg);
+        overflow: hidden;
+        position: relative;
+        aspect-ratio: 1/1;
+      }
+      .g-cell img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .g-cell:hover img {
+        transform: scale(1.04);
+      }
+      @media (min-width: 700px) {
+        .gallery__grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* ══════════════════════════════
+       TESTIMONIALS
+    ══════════════════════════════ */
+      .testi {
+        padding: 110px 0;
+        background: var(--surface);
+      }
+      .testi__grid {
+        display: grid;
+        gap: 16px;
+        grid-template-columns: 1fr;
+      }
+      .tcard {
+        background: #fff;
+        border-radius: var(--r-lg);
+        padding: 28px 26px;
+        border: 1px solid var(--border);
+        box-shadow: var(--sh1);
+        transition:
+          box-shadow 0.3s,
+          transform 0.3s;
+      }
+      .tcard:hover {
+        box-shadow: var(--sh2);
+        transform: translateY(-3px);
+      }
+      .tcard__stars {
+        color: #f59e0b;
+        font-size: 0.95rem;
+        margin-bottom: 14px;
+        letter-spacing: 0.04em;
+      }
+      .tcard__quote {
+        font-size: 0.9rem;
+        color: var(--text);
+        line-height: 1.75;
+        margin-bottom: 20px;
+        font-style: italic;
+      }
+      .tcard__author {
+        font-size: 0.82rem;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .tcard__detail {
+        font-size: 0.78rem;
+        color: var(--muted);
+        font-weight: 400;
+      }
+      @media (min-width: 640px) {
+        .testi__grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width: 960px) {
+        .testi__grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* ══════════════════════════════
+       ABOUT
+    ══════════════════════════════ */
+      .about {
+        padding: 110px 0;
+      }
+      .about__layout {
+        display: grid;
+        gap: 40px 60px;
+        align-items: start;
+      }
+      .about__header {
+        grid-column: 1 / -1;
+      }
+      .about__img-wrap {
+        position: relative;
+      }
+      .about__img {
+        width: 100%;
+        max-width: 520px;
+        border-radius: var(--r-xl);
+        box-shadow: var(--sh3);
+        display: block;
+      }
+      .about__badge {
+        position: absolute;
+        bottom: -20px;
+        right: 0;
+        background: var(--dark);
+        border-radius: var(--r-lg);
+        padding: 16px 20px;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        box-shadow: var(--sh3);
+        max-width: 200px;
+      }
+      .about__badge-icon {
+        font-size: 1.6rem;
+      }
+      .about__badge-num {
+        font-size: 1.25rem;
+        font-weight: 800;
+        line-height: 1;
+        margin-bottom: 2px;
+      }
+      .about__badge-label {
+        font-size: 0.65rem;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .about__award-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 32px;
+      }
+      .about__award-row img {
+        width: 90px;
+        height: 90px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 8px rgba(245, 166, 35, 0.35));
+        transition:
+          transform 0.25s,
+          filter 0.25s;
+      }
+      .about__award-row img:hover {
+        transform: scale(1.1) translateY(-2px);
+        filter: drop-shadow(0 4px 16px rgba(245, 166, 35, 0.5));
+      }
+      .about__bullets {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        margin: 24px 0 32px;
+      }
+      .about__bullets li {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.6;
+        background: var(--surface);
+        border: 1px solid rgba(10, 126, 245, 0.08);
+        border-radius: 14px;
+        padding: 14px 16px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .about__bullets li:hover {
+        border-color: rgba(10, 126, 245, 0.2);
+        box-shadow: 0 4px 16px rgba(10, 126, 245, 0.07);
+      }
+      .about__bullets li::before {
+        content: "✓";
+        min-width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        background: var(--blue-soft);
+        color: var(--blue);
+        font-size: 0.72rem;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .about__bullets li strong {
+        color: var(--text);
+        font-weight: 700;
+      }
+      @media (min-width: 880px) {
+        .about__layout {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      /* ══════════════════════════════
+       WHO WE HELP
+    ══════════════════════════════ */
+      .who {
+        padding: 110px 0;
+        background: var(--surface);
+      }
+      .who__layout {
+        display: grid;
+        gap: 60px;
+        align-items: center;
+      }
+      .who-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        margin: 28px 0 36px;
+      }
+      .who-item {
+        background: #fff;
+        border-radius: var(--r);
+        padding: 18px 20px;
+        border: 1px solid var(--border);
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        box-shadow: var(--sh1);
+        transition:
+          box-shadow 0.25s,
+          transform 0.25s;
+      }
+      .who-item:hover {
+        box-shadow: var(--sh2);
+        transform: translateX(4px);
+      }
+      .who-item__icon {
+        font-size: 1.3rem;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .who-item__title {
+        font-size: 0.93rem;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 3px;
+      }
+      .who-item__body {
+        font-size: 0.83rem;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+      .who__img {
+        width: 100%;
+        max-width: 520px;
+        border-radius: var(--r-xl);
+        box-shadow: var(--sh3);
+        display: block;
+      }
+      @media (min-width: 880px) {
+        .who__layout {
+          grid-template-columns: 1fr 1fr;
+        }
+        .who__img {
+          max-width: none;
+        }
+      }
+
+      /* ══════════════════════════════
+       FAQ
+    ══════════════════════════════ */
+      .faq {
+        padding: 110px 0;
+      }
+      .faq__inner {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .faq-item {
+        border-bottom: 1px solid var(--border);
+      }
+      .faq-item:first-child {
+        border-top: 1px solid var(--border);
+      }
+      .faq-q {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        padding: 20px 0;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--text);
+        text-align: left;
+        transition: color 0.2s;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+      }
+      .faq-q:hover {
+        color: var(--blue);
+      }
+      .faq-q__icon {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        border: 1.5px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.85rem;
+        color: var(--blue);
+        flex-shrink: 0;
+        transition:
+          transform 0.3s ease,
+          background 0.25s,
+          border-color 0.25s;
+      }
+      .faq-item.open .faq-q__icon {
+        transform: rotate(45deg);
+        background: var(--blue);
+        border-color: var(--blue);
+        color: #fff;
+      }
+      .faq-a {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .faq-a p {
+        padding-bottom: 20px;
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.75;
+      }
+
+      /* ══════════════════════════════
+       FINAL CTA
+    ══════════════════════════════ */
+      .cta-section {
+        padding: 110px 0;
+        background: var(--surface);
+        position: relative;
+        overflow: hidden;
+        text-align: center;
+      }
+      .cta-section::before {
+        display: none;
+      }
+      .cta-bubble {
+        background: #fff;
+        border-radius: 32px;
+        padding: 64px 40px;
+        max-width: 700px;
+        margin: 0 auto;
+        box-shadow:
+          var(--sh2),
+          0 0 0 1px rgba(0, 0, 0, 0.05);
+      }
+      .cta-section > * {
+        position: relative;
+        z-index: 1;
+      }
+      .cta-section .h2 {
+        color: var(--text);
+        margin-bottom: 16px;
+      }
+      .cta-section .lead {
+        max-width: 520px;
+        margin: 0 auto 40px;
+        color: var(--muted);
+      }
+      .cta-section .label {
+        color: var(--gold);
+        background: none;
+        border-color: transparent;
+      }
+      .cta__trust {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 40px;
+      }
+      .trust-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.82rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      .trust-item svg {
+        flex-shrink: 0;
+      }
+
+      /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+      .footer {
+        background: #050b14;
+        padding: 48px 0 36px;
+      }
+      .footer__inner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 24px;
+        text-align: center;
+      }
+      .footer__logo {
+        font-size: 1.05rem;
+        font-weight: 800;
+        color: #fff;
+        letter-spacing: -0.02em;
+      }
+      .footer__logo span {
+        color: var(--blue);
+      }
+      .footer__tagline {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.35);
+        margin-top: 3px;
+      }
+      .footer__links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px 22px;
+        justify-content: center;
+        list-style: none;
+      }
+      .footer__links a {
+        font-size: 0.8rem;
+        color: rgba(255, 255, 255, 0.4);
+        transition: color 0.2s;
+      }
+      .footer__links a:hover {
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .footer__copy {
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.22);
+      }
+
+      /* ══════════════════════════════
+       MODAL
+    ══════════════════════════════ */
+      .overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        z-index: 300;
+        padding: 20px;
+        align-items: center;
+        justify-content: center;
+        background: rgba(8, 13, 26, 0.65);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+      }
+      .overlay.open {
+        display: flex;
+      }
+      .modal {
+        background: #fff;
+        border-radius: var(--r-xl);
+        width: 100%;
+        max-width: 500px;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow:
+          var(--sh3),
+          0 0 0 1px rgba(0, 0, 0, 0.06);
+        animation: modalIn 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      }
+      @keyframes modalIn {
+        from {
+          opacity: 0;
+          transform: scale(0.93) translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .modal__top {
+        padding: 28px 28px 20px;
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        background: #fff;
+        z-index: 1;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .modal__title {
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
+      .modal__sub {
+        font-size: 0.82rem;
+        color: var(--muted);
+        margin-top: 3px;
+      }
+      .modal__x {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background: var(--surface);
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        color: var(--muted);
+        transition:
+          background 0.2s,
+          color 0.2s;
+        flex-shrink: 0;
+        font-family: inherit;
+      }
+      .modal__x:hover {
+        background: rgba(0, 0, 0, 0.08);
+        color: var(--text);
+      }
+      .modal__form {
+        padding: 24px 28px 28px;
+      }
+      .fg {
+        margin-bottom: 16px;
+      }
+      .fg label {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 6px;
+      }
+      .fg input,
+      .fg select,
+      .fg textarea {
+        width: 100%;
+        padding: 11px 14px;
+        border: 1.5px solid var(--border);
+        border-radius: 10px;
+        font-family: inherit;
+        font-size: 0.9rem;
+        color: var(--text);
+        background: #fff;
+        outline: none;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .fg input:focus,
+      .fg select:focus,
+      .fg textarea:focus {
+        border-color: var(--blue);
+        box-shadow: 0 0 0 3px rgba(10, 126, 245, 0.1);
+      }
+      .fg textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+      .fg-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      .modal__submit {
+        width: 100%;
+        padding: 14px;
+        border-radius: 100px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        margin-top: 6px;
+        box-shadow: 0 4px 16px rgba(10, 126, 245, 0.3);
+        transition:
+          background 0.25s,
+          box-shadow 0.25s,
+          transform 0.25s;
+      }
+      .modal__submit:hover {
+        background: var(--blue-deep);
+        box-shadow: 0 8px 28px rgba(10, 126, 245, 0.4);
+        transform: translateY(-1px);
+      }
+      .modal__note {
+        font-size: 0.72rem;
+        color: var(--muted);
+        text-align: center;
+        margin-top: 10px;
+      }
+      .modal__success {
+        display: none;
+        padding: 40px 28px 48px;
+        text-align: center;
+      }
+      .modal__success-icon {
+        font-size: 2.8rem;
+        margin-bottom: 14px;
+      }
+      .modal__success-title {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
+      }
+      .modal__success-body {
+        font-size: 0.9rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      /* ── Hero Proof Block ── */
+      .hero__proof {
+        margin-top: 20px;
+        margin-bottom: 20px;
+        border-top: 1px solid var(--border);
+        padding: 20px 0 0;
+      }
+      .hero__proof-label {
+        font-size: 0.77rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .hero__proof-label::before {
+        content: "";
+        display: inline-block;
+        width: 18px;
+        height: 2px;
+        background: var(--gold);
+        border-radius: 2px;
+      }
+      .hero__proof-awards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-bottom: 18px;
+      }
+      @media (min-width: 900px) {
+        .hero__proof-awards {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      .hero__proof-award {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        text-align: center;
+      }
+      .hero__proof-award img {
+        width: 70px;
+        height: 70px;
+        object-fit: contain;
+        filter: drop-shadow(0 2px 6px rgba(245, 166, 35, 0.3));
+        transition: transform 0.25s;
+      }
+      .hero__proof-award img:hover {
+        transform: translateY(-2px) scale(1.06);
+      }
+      .hero__proof-award-year {
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .hero__proof-award-name {
+        font-size: 0.68rem;
+        color: var(--muted);
+        font-weight: 500;
+      }
+      .hero__proof-stats {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 12px;
+        background: var(--surface);
+        border-radius: var(--r-lg);
+        padding: 14px 16px;
+      }
+      .hero__proof-stat {
+        text-align: center;
+      }
+      .hero__proof-stat-num {
+        font-size: 1.3rem;
+        font-weight: 800;
+        color: var(--blue);
+        letter-spacing: -0.03em;
+        line-height: 1;
+        margin-bottom: 3px;
+      }
+      .hero__proof-stat-label {
+        font-size: 0.58rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--muted);
+      }
+
+      /* ── Hero Form Card ── */
+      .hero__form-card {
+        background: #fff;
+        border-radius: var(--r-xl);
+        padding: 0;
+        box-shadow:
+          var(--sh2),
+          0 0 0 1px rgba(0, 0, 0, 0.06);
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: left;
+        width: 100%;
+        overflow: hidden;
+      }
+      .hero__form-card-header {
+        padding: 18px 24px 0;
+      }
+      .hero__form-card .fg-row {
+        grid-template-columns: 1fr;
+      }
+      .hero__form-title {
+        font-size: 0.9rem;
+        font-weight: 700;
+        color: var(--muted);
+        margin-bottom: 20px;
+        text-align: center;
+        letter-spacing: 0.01em;
+      }
+      .hero__form-submit {
+        width: 100%;
+        padding: 14px;
+        border-radius: 100px;
+        font-size: 0.95rem;
+        font-weight: 700;
+        background: var(--blue);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        margin-top: 6px;
+        box-shadow: 0 4px 16px rgba(10, 126, 245, 0.3);
+        transition:
+          background 0.25s,
+          box-shadow 0.25s,
+          transform 0.25s;
+      }
+      .hero__form-submit:hover {
+        background: var(--blue-deep);
+        box-shadow: 0 8px 28px rgba(10, 126, 245, 0.4);
+        transform: translateY(-1px);
+      }
+      .hero__form-note {
+        font-size: 0.72rem;
+        color: var(--muted);
+        text-align: center;
+        margin-top: 10px;
+      }
+      .hero__form-success {
+        display: none;
+        padding: 24px 0 8px;
+        text-align: center;
+      }
+      .hero__form-success-icon {
+        font-size: 2.4rem;
+        margin-bottom: 12px;
+      }
+      .hero__form-success-title {
+        font-size: 1.1rem;
+        font-weight: 800;
+        color: var(--text);
+        margin-bottom: 8px;
+        letter-spacing: -0.02em;
+      }
+      .hero__form-success-body {
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      /* ── Section spacing util ── */
+      .sh {
+        margin-bottom: 60px;
+      }
+      .sh.ctr {
+        text-align: center;
+      }
+      .sh.ctr .lead {
+        margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+<!-- BANNER-START: enrollment-paused (remove this block to restore site access) -->
+<!--
+<div id="enrollment-paused-banner" style="position:fixed;inset:0;z-index:2147483647;background:#0b0b0b;color:#fff;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;display:flex;align-items:center;justify-content:center;padding:32px;text-align:center;">
+  <div style="max-width:640px;">
+    <div style="font-size:clamp(28px,5vw,44px);font-weight:700;line-height:1.15;margin-bottom:18px;">We're temporarily not accepting new students</div>
+    <div style="font-size:clamp(16px,2.2vw,20px);line-height:1.5;opacity:.85;">Please check back later, thank you for your patience!</div>
+  </div>
+</div>
+<style>html,body{overflow:hidden !important;}</style>
+-->
+<!-- BANNER-END -->
+    <!-- NAV -->
+    <nav class="nav" id="nav">
+      <a href="#" class="nav__logo">Kicking <span>Kiddos</span></a>
+      <ul class="nav__links">
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#testimonials">Reviews</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#contact" class="btn btn--blue nav__btn">Register Now</a>
+      <button class="nav__ham" id="ham" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="nav__drawer" id="drawer">
+      <a href="#programs" onclick="closeDrawer()">Programs</a>
+      <a href="#gallery" onclick="closeDrawer()">Gallery</a>
+      <a href="#about" onclick="closeDrawer()">About</a>
+      <a href="#testimonials" onclick="closeDrawer()">Reviews</a>
+      <a href="#faq" onclick="closeDrawer()">FAQ</a>
+      <a href="#contact" class="drawer-cta" onclick="closeDrawer()"
+        >Start Registration &rarr;</a
+      >
+    </div>
+
+    <!-- HERO -->
+    <section class="hero" id="contact">
+      <div class="hero-blob hero-blob--1"></div>
+      <div class="hero-blob hero-blob--2"></div>
+      <div class="hero-blob hero-blob--3"></div>
+      <div class="hero__inner">
+        <div class="hero__left">
+          <div class="hero__social-proof reveal">
+            <div class="hero__awards">
+              <span class="hero__awards-text"
+                >&#128205; Topeka, KS &nbsp;&middot;&nbsp; Now Enrolling
+                &nbsp;&middot;&nbsp; Register Now!</span
+              >
+            </div>
+            <div class="hero__google">
+              <span class="hero__google-stars"
+                >&#9733;&#9733;&#9733;&#9733;&#9733;</span
+              >
+              <span class="hero__google-text">5.0 on Google</span>
+            </div>
+          </div>
+          <h1 class="hero__title reveal reveal-d1">
+            Swimming Lessons<br />
+            <span class="underline-anim"
+              >children love<span class="heart">❤️</span></span
+            ><br />
+            <span class="line-blue">and parents trust.</span>
+          </h1>
+          <p class="hero__sub reveal reveal-d2">
+            Private lessons for children 16 months and up in Topeka, KS. Safety
+            focused, confidence building, award winning instruction.
+          </p>
+          <div class="hero__proof reveal reveal-d3">
+            <div class="hero__proof-label">Recognized for Excellence</div>
+            <div class="hero__proof-awards">
+              <div class="hero__proof-award">
+                <img
+                  src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a8891b36702f0821bf2de3.png"
+                  alt="2023 Platinum Award"
+                />
+                <div class="hero__proof-award-year">2023</div>
+                <div class="hero__proof-award-name">Platinum Award Winner</div>
+              </div>
+              <div class="hero__proof-award">
+                <img
+                  src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a8891b22141b0d302d4e2a.png"
+                  alt="2024 Platinum Award"
+                />
+                <div class="hero__proof-award-year">2024</div>
+                <div class="hero__proof-award-name">Platinum Award Winner</div>
+              </div>
+              <div class="hero__proof-award">
+                <img
+                  src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a8891d618c8d22c1cf5cf3.png"
+                  alt="2025 Platinum Award"
+                />
+                <div class="hero__proof-award-year">2025</div>
+                <div class="hero__proof-award-name">Platinum Award Winner</div>
+              </div>
+              <div class="hero__proof-award">
+                <img
+                  src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a8891dedd0875c9c1ba671.png"
+                  alt="Youth Swimming Award 2025"
+                />
+                <div class="hero__proof-award-year">2025</div>
+                <div class="hero__proof-award-name">
+                  Youth Swimming Excellence
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="hero__form-card reveal reveal-d3">
+          <iframe
+            src="https://link.nilsdigital.com/widget/form/QmNokxDh8ktgvrPuHDat"
+            style="
+              width: 100%;
+              height: 605px;
+              border: none;
+              border-radius: 12px;
+            "
+            id="inline-QmNokxDh8ktgvrPuHDat"
+            data-layout="{'id':'INLINE'}"
+            data-trigger-type="alwaysShow"
+            data-trigger-value=""
+            data-activation-type="alwaysActivated"
+            data-activation-value=""
+            data-deactivation-type="neverDeactivate"
+            data-deactivation-value=""
+            data-form-name="Website Form (Do not edit)"
+            data-height="605"
+            data-layout-iframe-id="inline-QmNokxDh8ktgvrPuHDat"
+            data-form-id="QmNokxDh8ktgvrPuHDat"
+            title="Website Form (Do not edit)"
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="why" id="why">
+      <div class="wrap">
+        <div class="sh ctr">
+          <span class="label reveal">Why Kicking Kiddos</span>
+          <h2 class="h2 reveal reveal-d1">Not All Swim Lessons Are the Same</h2>
+          <p class="lead reveal reveal-d2" style="max-width: 580px">
+            We built a program where every child gets the undivided attention,
+            patience, and custom curriculum they need to thrive in the water.
+          </p>
+        </div>
+        <div class="why__grid">
+          <div class="why-card reveal">
+            <div class="why-card__icon">🏊</div>
+            <div>
+              <div class="why-card__title">100% Private Instruction</div>
+              <div class="why-card__body">
+                Your child is never sharing the pool with strangers. Every
+                lesson is focused entirely on them.
+              </div>
+            </div>
+          </div>
+          <div class="why-card reveal reveal-d1">
+            <div class="why-card__icon">🎯</div>
+            <div>
+              <div class="why-card__title">Progress at Their Pace</div>
+              <div class="why-card__body">
+                No waiting for the group to catch up. Lessons adapt to your
+                child's skill and comfort every session.
+              </div>
+            </div>
+          </div>
+          <div class="why-card reveal reveal-d2">
+            <div class="why-card__icon">🛡️</div>
+            <div>
+              <div class="why-card__title">Safety First, Always</div>
+              <div class="why-card__body">
+                Water safety is woven into every lesson from day one, not added
+                as an afterthought.
+              </div>
+            </div>
+          </div>
+          <div class="why-card reveal">
+            <div class="why-card__icon">😊</div>
+            <div>
+              <div class="why-card__title">Fear to Confidence</div>
+              <div class="why-card__body">
+                Our calm, encouraging approach transforms anxiety into joy, even
+                for the most hesitant swimmers.
+              </div>
+            </div>
+          </div>
+          <div class="why-card reveal reveal-d1">
+            <div class="why-card__icon">📅</div>
+            <div>
+              <div class="why-card__title">Flexible Scheduling</div>
+              <div class="why-card__body">
+                Lessons that fit your family's calendar. Weekdays, evenings, and
+                weekends all available.
+              </div>
+            </div>
+          </div>
+          <div class="why-card reveal reveal-d2">
+            <div class="why-card__icon">🏆</div>
+            <div>
+              <div class="why-card__title">Award-Winning Results</div>
+              <div class="why-card__body">
+                Three consecutive Platinum Awards reflect the outcomes our
+                students achieve every single session.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="compare" id="compare">
+      <div class="wrap">
+        <div class="sh ctr">
+          <span class="label reveal">Private vs. Group</span>
+          <h2 class="h2 reveal reveal-d1">See the Difference</h2>
+          <p class="lead reveal reveal-d2">
+            Group lessons have their place. Private lessons have the results.
+          </p>
+        </div>
+        <div class="compare__table-wrap reveal">
+          <table class="ct">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Group Lessons</th>
+                <th class="hl">Kicking Kiddos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Instructor attention</td>
+                <td>Shared with 4-8 kids</td>
+                <td class="hl">
+                  <span class="ico-yes">✓</span> 100% on your child
+                </td>
+              </tr>
+              <tr>
+                <td>Pace of learning</td>
+                <td>Group average</td>
+                <td class="hl">
+                  <span class="ico-yes">✓</span> Your child's pace
+                </td>
+              </tr>
+              <tr>
+                <td>Fear &amp; anxiety support</td>
+                <td><span class="ico-no">✗</span> Limited</td>
+                <td class="hl">
+                  <span class="ico-yes">✓</span> Deep, patient support
+                </td>
+              </tr>
+              <tr>
+                <td>Schedule flexibility</td>
+                <td><span class="ico-no">✗</span> Fixed class times</td>
+                <td class="hl">
+                  <span class="ico-yes">✓</span> You choose the time
+                </td>
+              </tr>
+              <tr>
+                <td>Individual assessment</td>
+                <td>General level check</td>
+                <td class="hl">
+                  <span class="ico-yes">✓</span> Every single lesson
+                </td>
+              </tr>
+              <tr>
+                <td>Award recognition</td>
+                <td><span class="ico-no">✗</span> N/A</td>
+                <td class="hl">
+                  <span class="ico-yes">✓</span> 3x Platinum Winner
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMS -->
+    <section class="programs" id="programs">
+      <div class="wrap">
+        <div class="sh ctr">
+          <span class="label reveal">Programs</span>
+          <h2 class="h2 reveal reveal-d1">A Plan for Every Swimmer</h2>
+          <p class="lead reveal reveal-d2">
+            From first splash to stroke refinement, we meet your child exactly
+            where they are.
+          </p>
+        </div>
+        <div class="prog-unified reveal">
+          <img
+            src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a889bfb003fa9d728f71c7.jpg"
+            alt="Swim lessons at Kicking Kiddos"
+            class="prog-unified__img"
+          />
+          <div class="prog-unified__body">
+            <div class="prog-tier">
+              <span class="prog__badge">Ages 16 months to 3 years</span>
+              <h3 class="prog__title">Infant Survival Skills</h3>
+              <p class="prog__desc">
+                Safety first — always. Our youngest swimmers begin by learning
+                critical infant survival skills so they know exactly what to do
+                if they ever end up in the water unexpectedly. We build water
+                confidence from the very first splash.
+              </p>
+              <div class="prog__price">$25 <span>/ lesson</span></div>
+            </div>
+            <div class="prog-tier">
+              <span class="prog__badge">Ages 3 to 7 years</span>
+              <h3 class="prog__title">Beginner Swim Lessons</h3>
+              <p class="prog__desc">
+                Turn fear into confidence. Water safety, breath control,
+                floating, and first strokes, all at the child's pace with no
+                pressure and lots of encouragement.
+              </p>
+              <div class="prog__price">$25 <span>/ lesson</span></div>
+            </div>
+            <div class="prog-tier">
+              <span class="prog__badge">Ages 7 and up</span>
+              <h3 class="prog__title">Intermediate and Advanced</h3>
+              <p class="prog__desc">
+                Refine technique, build stamina, master all four strokes.
+                Whether your child wants to swim laps or compete, we set the
+                foundation for a lifetime.
+              </p>
+              <div class="prog__price">$25 <span>/ lesson</span></div>
+            </div>
+            <a href="#contact" class="btn btn--blue btn--lg"
+              >Register Your Child Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="process" id="process">
+      <div class="wrap">
+        <div class="sh ctr">
+          <span class="label reveal">How It Works</span>
+          <h2 class="h2 reveal reveal-d1">Getting Started Is Simple</h2>
+          <p class="lead reveal reveal-d2">
+            Four easy steps between today and your child's first splash.
+          </p>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <div class="step__num">1</div>
+            <div class="step__title">Start Registration</div>
+            <div class="step__body">
+              Fill out the form below. You'll complete your full registration,
+              waiver &amp; media release in one place.
+            </div>
+          </div>
+          <div class="step reveal reveal-d1">
+            <div class="step__num">2</div>
+            <div class="step__title">Skills Assessment</div>
+            <div class="step__body">
+              Your child's first lesson starts with a quick, low-pressure
+              evaluation to build the perfect plan.
+            </div>
+          </div>
+          <div class="step reveal reveal-d2">
+            <div class="step__num">3</div>
+            <div class="step__title">Private Lessons Begin</div>
+            <div class="step__body">
+              One-on-one instruction every session, tailored to your child's
+              pace and goals.
+            </div>
+          </div>
+          <div class="step reveal reveal-d3">
+            <div class="step__num">4</div>
+            <div class="step__title">Watch Them Thrive</div>
+            <div class="step__body">
+              Confidence builds lesson by lesson. You'll see the difference, and
+              so will they.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery" id="gallery">
+      <div class="wrap">
+        <div class="sh ctr">
+          <span class="label reveal">In the Water</span>
+          <h2 class="h2 reveal reveal-d1">Real Lessons, Real Progress</h2>
+        </div>
+        <div class="gallery__grid">
+          <div class="g-cell reveal">
+            <img
+              src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a889bfbffadfa0e6814eb7.jpg"
+              alt="Swim instructor with child"
+            />
+          </div>
+          <div class="g-cell reveal reveal-d1">
+            <img
+              src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a889bf4b6c779873132419.jpg"
+              alt="Child learning to swim"
+            />
+          </div>
+          <div class="g-cell reveal reveal-d2">
+            <img
+              src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a889bfb003fa9d728f71c7.jpg"
+              alt="Swimming lesson"
+            />
+          </div>
+          <div class="g-cell reveal reveal-d1">
+            <img
+              src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a889bf6fa6585490c2d61d.jpg"
+              alt="Pool lesson"
+            />
+          </div>
+          <div class="g-cell reveal reveal-d2">
+            <img
+              src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a889bf22141bc1b32d7a7d.jpg"
+              alt="Child swimming"
+            />
+          </div>
+          <div class="g-cell reveal reveal-d3">
+            <img
+              src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a889c17bdf383f2a45d3b9.jpg"
+              alt="Swim progress"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="wrap">
+        <div class="about__layout">
+          <div class="about__header reveal">
+            <span class="label">About Kicking Kiddos</span>
+            <h2 class="h2" style="margin-bottom: 0">
+              Kicking Kiddos: Water Safety &amp; Swimming Excellence
+            </h2>
+          </div>
+          <div class="about__img-wrap reveal">
+            <img
+              src="https://assets.cdn.filesafe.space/y8AfcwWjebLRDs50RH69/media/69a889bf6fa6586d8ec2d61c.jpg"
+              alt="Kicking Kiddos swim instructor"
+              class="about__img"
+            />
+            <div class="about__badge">
+              <div class="about__badge-icon">🏆</div>
+              <div>
+                <div class="about__badge-num grad-gold">3x</div>
+                <div class="about__badge-label">Platinum Award Winner</div>
+              </div>
+            </div>
+          </div>
+          <div class="reveal reveal-d1">
+            <p class="lead" style="margin-bottom: 20px">
+              Kicking Kiddos provides award-winning, professional aquatic
+              instruction in Topeka, Kansas. With a focus on patience and
+              safety, we help children of all levels build confidence and joy in
+              the water.
+            </p>
+            <ul class="about__bullets" style="margin: 0 0 0">
+              <li>
+                <strong>Award-Winning:</strong> Three-time Platinum Award winner
+                for excellence in aquatic instruction.
+              </li>
+              <li>
+                <strong>Expert Led:</strong> Certified professionals using
+                proven, safety-first techniques tailored to every child.
+              </li>
+              <li>
+                <strong>All Ages Welcome:</strong> Toddler programs starting at
+                16 months through advanced competitive swimmers.
+              </li>
+              <li>
+                <strong>Fearful Swimmer Specialists:</strong> Patient,
+                step-by-step guidance that turns water anxiety into confidence.
+              </li>
+              <li>
+                <strong>Flexible Scheduling:</strong> Lessons designed to fit
+                your family's busy life.
+              </li>
+            </ul>
+            <a
+              href="#contact"
+              class="btn btn--blue btn--lg"
+              style="margin-top: 28px"
+              >Contact Us Today</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testi" id="testimonials">
+      <div class="wrap">
+        <div class="sh ctr">
+          <span class="label reveal">Parent Reviews</span>
+          <h2 class="h2 reveal reveal-d1">Families Love Kicking Kiddos</h2>
+          <p class="lead reveal reveal-d2">
+            Real parents. Real children. Real results.
+          </p>
+        </div>
+        <div class="testi__grid">
+          <div class="tcard reveal">
+            <div class="tcard__stars">★★★★★</div>
+            <p class="tcard__quote">
+              "My daughter was terrified of water. After just four private
+              lessons she was jumping in on her own and asking to come back
+              every week."
+            </p>
+            <div class="tcard__author">
+              Sarah M. <span class="tcard__detail">Mom of a 5-year-old</span>
+            </div>
+          </div>
+          <div class="tcard reveal reveal-d1">
+            <div class="tcard__stars">★★★★★</div>
+            <p class="tcard__quote">
+              "We tried group lessons twice and they never clicked. Private
+              lessons here were a completely different experience. The patience
+              and attention made all the difference."
+            </p>
+            <div class="tcard__author">
+              David R. <span class="tcard__detail">Dad of a 7-year-old</span>
+            </div>
+          </div>
+          <div class="tcard reveal reveal-d2">
+            <div class="tcard__stars">★★★★★</div>
+            <p class="tcard__quote">
+              "Worth every penny. My son went from barely putting his face in
+              the water to swimming a full lap independently. Unmatched."
+            </p>
+            <div class="tcard__author">
+              Jennifer K. <span class="tcard__detail">Mom of a 9-year-old</span>
+            </div>
+          </div>
+          <div class="tcard reveal">
+            <div class="tcard__stars">★★★★★</div>
+            <p class="tcard__quote">
+              "I enrolled my 18-month-old in the toddler program. She loves the
+              water now and has zero fear. The instructor is incredibly gentle
+              with the little ones."
+            </p>
+            <div class="tcard__author">
+              Melissa T. <span class="tcard__detail">Mom of a toddler</span>
+            </div>
+          </div>
+          <div class="tcard reveal reveal-d1">
+            <div class="tcard__stars">★★★★★</div>
+            <p class="tcard__quote">
+              "The flexible scheduling was a lifesaver. And the quality of
+              instruction is second to none. The Platinum Awards are very well
+              deserved."
+            </p>
+            <div class="tcard__author">
+              Chris B. <span class="tcard__detail">Dad of two</span>
+            </div>
+          </div>
+          <div class="tcard reveal reveal-d2">
+            <div class="tcard__stars">★★★★★</div>
+            <p class="tcard__quote">
+              "Best investment we made for our kids this year. The confidence
+              they gained in the water has carried over into everything they
+              do."
+            </p>
+            <div class="tcard__author">
+              Amanda L. <span class="tcard__detail">Mom of three</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+      <div class="wrap">
+        <div class="sh ctr">
+          <span class="label reveal">FAQ</span>
+          <h2 class="h2 reveal reveal-d1">Questions? We Have Answers.</h2>
+        </div>
+        <div class="faq__inner reveal">
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              How young can my child start lessons?
+              <span class="faq-q__icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                We welcome children as young as 16 months. Our youngest swimmers
+                begin with infant survival skills — learning what to do if they
+                ever end up in water unexpectedly. Early water exposure builds
+                confidence and safety awareness that lasts a lifetime.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              What does a private lesson actually look like?
+              <span class="faq-q__icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Each lesson is 45 minutes of focused, one on one instruction
+                tailored to your child's skill level and goals. We start with a
+                quick check in, then move through skill building exercises at a
+                pace that feels comfortable and fun.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              How do you handle children who are scared of the water?
+              <span class="faq-q__icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Fear is completely normal and something we are very experienced
+                with. We never force a child to do anything they are not ready
+                for. We use games, patience, and a step-by-step approach to
+                build comfort. Most fearful swimmers show significant progress
+                within a few lessons.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              How often should my child take lessons?
+              <span class="faq-q__icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                We recommend at least one lesson per week for consistent
+                progress. Children who attend twice a week often reach their
+                goals faster. Consistency is the single biggest factor in
+                swimming improvement.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Why have you won the Platinum Award three years in a row?
+              <span class="faq-q__icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                The Platinum Award recognizes outstanding quality and results in
+                aquatic instruction. We received it in 2023, 2024, and 2025
+                because of our commitment to personalized instruction,
+                safety-first curriculum, and the measurable progress our
+                students make. Our families are the reason we keep earning it.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              What is the price per lesson? <span class="faq-q__icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Private lessons are $25 per session. We believe top-quality swim
+                instruction should be accessible to every family in our
+                community.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              What if we need to cancel or reschedule?
+              <span class="faq-q__icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                You may cancel at any time, however
+                <strong>no refunds are given on cancelled classes</strong>.
+                Rescheduling requires a minimum of 24 hours notice — no
+                exceptions.
+              </p>
+              <p>
+                When you book a class you will receive an email confirmation for that specific class date. To reschedule, open the confirmation email for the date you want to change and use the reschedule link in that email. Do not go directly to the public calendar to rebook a date because that will create a new booking and will not cancel your original booking. That means you will still be charged for the original booking. There are no automatic cancellations.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              What is your weather cancellation policy?
+              <span class="faq-q__icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                <strong>Yes — we teach in the rain!</strong> The pool is heated
+                and kept at a very comfortable temperature year-round. Classes
+                are <strong>only cancelled</strong> if there is lightning within
+                a 10-mile radius of the facility, as determined by the app used
+                by all swimming facilities in the area.<br /><br />If a class is
+                cancelled, notification will be posted on our Band Communication
+                Form<br /><br />The no-refund policy applies to no-shows and
+                missed classes during an active session.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              Late Arrival Policy
+              <span class="faq-q__icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Students that show up 15 minutes or more late to class
+                unfortunately will not be able to attend that session due to
+                pre-structured class lesson plans and disruption of class
+                already in progress. No reschedule/refunds will be applied for
+                late arrivals. Thank you for your understanding.
+              </p>
+            </div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" onclick="toggleFaq(this)">
+              When will I receive my picture package?
+              <span class="faq-q__icon">+</span>
+            </button>
+            <div class="faq-a">
+              <p>
+                Picture packages (photos, video clip, and written progress
+                report) are delivered at the
+                <strong>end of the summer lesson session</strong>.
+                <br /><br />
+                <strong
+                  >Picture packages must be picked up in person —
+                  delivery and shipping are not available.</strong
+                >
+                You will be notified when your package is ready for pickup.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="cta-section">
+      <div class="wrap">
+        <div class="cta-bubble">
+          <span class="label label--gold reveal" style="margin-bottom: 20px"
+            >Ready to Start?</span
+          >
+          <h2 class="h2 reveal reveal-d1">
+            Give Your Child the Gift<br />of Water Confidence
+          </h2>
+          <p class="lead reveal reveal-d2">
+            Spots fill up fast. Fill out the form below to start your
+            registration — takes less than 5 minutes.
+          </p>
+          <a href="#contact" class="btn btn--blue btn--lg reveal reveal-d3"
+            >Start Registration Now</a
+          >
+          <div class="cta__trust reveal reveal-d4">
+            <div class="trust-item">
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="rgba(0,0,0,.15)"
+                  stroke-width="2"
+                />
+                <path
+                  d="M8 12l3 3 5-5"
+                  stroke="#22c55e"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              3x Platinum Award winner
+            </div>
+            <div class="trust-item">
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="rgba(0,0,0,.15)"
+                  stroke-width="2"
+                />
+                <path
+                  d="M8 12l3 3 5-5"
+                  stroke="#22c55e"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              Response within 48 hours
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="wrap">
+        <div class="footer__inner">
+          <div>
+            <div class="footer__logo">Kicking <span>Kiddos</span></div>
+            <div class="footer__tagline">
+              Award-winning private swim lessons in Topeka, KS
+            </div>
+          </div>
+          <ul class="footer__links">
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+          <div style="margin-top: 4px">
+            <img
+              src="https://storage.googleapis.com/msgsndr/LHyUDIth9k9Kk9qv4BzQ/media/698c20d17f6dcf061b01a83c.png"
+              alt="SSU Member"
+              style="height: 60px; width: auto; border-radius: 50%; object-fit: cover"
+            />
+          </div>
+          <div class="footer__copy">
+            &copy; 2025 Kicking Kiddos. All rights reserved. Topeka, KS.
+          </div>
+          <div class="footer__copy" style="margin-top: 8px">
+            Website and marketing systems developed by
+            <a
+              href="https://nilsdigital.com"
+              target="_blank"
+              rel="noopener"
+              style="
+                color: rgba(255, 255, 255, 0.4);
+                text-decoration: underline;
+              "
+              >nilsdigital.com</a
+            >
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* ── Underline animation ── */
+      setTimeout(() => {
+        document.querySelector(".underline-anim").classList.add("draw");
+      }, 1000);
+
+      /* ── Nav ── */
+      const nav = document.getElementById("nav");
+      window.addEventListener(
+        "scroll",
+        () => nav.classList.toggle("solid", window.scrollY > 60),
+        { passive: true },
+      );
+
+      /* ── Active nav link ── */
+      const allNavLinks = document.querySelectorAll(
+        ".nav__links a, .nav__drawer a:not(.drawer-cta)",
+      );
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              allNavLinks.forEach((link) => {
+                link.classList.toggle(
+                  "active",
+                  link.getAttribute("href") === "#" + entry.target.id,
+                );
+              });
+            }
+          });
+        },
+        { rootMargin: "-25% 0px -65% 0px" },
+      );
+      document
+        .querySelectorAll("section[id]")
+        .forEach((s) => sectionObserver.observe(s));
+
+      const ham = document.getElementById("ham");
+      const drawer = document.getElementById("drawer");
+      ham.addEventListener("click", () => {
+        ham.classList.toggle("open");
+        drawer.classList.toggle("open");
+      });
+      function closeDrawer() {
+        ham.classList.remove("open");
+        drawer.classList.remove("open");
+      }
+
+      /* ── Scroll reveal ── */
+      const ro = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("in");
+              ro.unobserve(e.target);
+            }
+          });
+        },
+        { threshold: 0.08, rootMargin: "0px 0px -32px 0px" },
+      );
+      document.querySelectorAll(".reveal").forEach((el) => ro.observe(el));
+
+      /* ── FAQ ── */
+      function toggleFaq(btn) {
+        const item = btn.closest(".faq-item");
+        const ans = item.querySelector(".faq-a");
+        const open = item.classList.contains("open");
+        document.querySelectorAll(".faq-item.open").forEach((i) => {
+          i.classList.remove("open");
+          i.querySelector(".faq-a").style.maxHeight = null;
+        });
+        if (!open) {
+          item.classList.add("open");
+          ans.style.maxHeight = ans.scrollHeight + "px";
+        }
+      }
+
+      /* ── Form ── */
+      const GHL_WEBHOOK = "YOUR_GHL_WEBHOOK_URL_HERE";
+      async function submitForm(e) {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector(".hero__form-submit");
+        btn.textContent = "Sending...";
+        btn.disabled = true;
+
+        const fd = new FormData(form);
+        const data = Object.fromEntries(fd.entries());
+        data.source = "Kicking Kiddos Website";
+
+        try {
+          await fetch(GHL_WEBHOOK, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(data),
+          });
+        } catch (_) {}
+
+        document.getElementById("heroForm").style.display = "none";
+        document.getElementById("heroSuccess").style.display = "block";
+      }
+    </script>
+    <script src="https://link.nilsdigital.com/js/form_embed.js"></script>
+  </body>
+</html>

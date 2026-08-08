@@ -1,0 +1,1166 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nils Digital - Onboarding</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background: #ffffff;
+        color: #1a1a2e;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 56px 24px 64px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .logo {
+        width: 100px;
+        margin-bottom: 40px;
+        animation: fadeIn 0.6s ease-out both;
+      }
+      .check-circle {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: #e8f1ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        animation: fadeIn 0.6s 0.1s ease-out both;
+      }
+      .check-circle svg {
+        width: 28px;
+        height: 28px;
+        color: #2563eb;
+      }
+      .heading {
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        font-size: 32px;
+        margin-bottom: 12px;
+        color: #0f172a;
+        animation: fadeIn 0.6s 0.2s ease-out both;
+      }
+      .subtext {
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        color: #64748b;
+        line-height: 1.6;
+        max-width: 420px;
+        margin-bottom: 32px;
+        font-weight: 400;
+        animation: fadeIn 0.6s 0.3s ease-out both;
+      }
+
+      .cta-card {
+        width: 100%;
+        background: #2563eb;
+        border-radius: 14px;
+        padding: 22px 24px;
+        color: #ffffff;
+        animation: fadeIn 0.6s 0.4s ease-out both;
+        margin-bottom: 32px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-align: left;
+      }
+      .cta-icon {
+        font-size: 28px;
+        flex-shrink: 0;
+      }
+      .cta-title {
+        font-family: "Inter", sans-serif;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 4px;
+        color: #ffffff;
+      }
+      .cta-desc {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.5;
+        font-weight: 400;
+      }
+
+      .domain-section {
+        width: 100%;
+        animation: fadeIn 0.6s 0.5s ease-out both;
+        background: #fffbeb;
+        border: 2px solid #fcd34d;
+        border-radius: 20px;
+        padding: 32px 28px 28px;
+      }
+      .save-time-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #ea580c;
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 5px 14px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+      .domain-heading {
+        font-family: "Inter", sans-serif;
+        font-weight: 800;
+        font-size: 22px;
+        color: #0f172a;
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+      .domain-subtext {
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: #64748b;
+        line-height: 1.65;
+        max-width: 480px;
+        margin: 0 auto 24px;
+      }
+      .domain-subtext strong {
+        color: #0f172a;
+      }
+
+      .email-box {
+        background: #f1f5f9;
+        border: 1.5px dashed #cbd5e1;
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      .email-label {
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-bottom: 6px;
+      }
+      .email-value {
+        font-family: "Inter", sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 12px;
+        word-break: break-all;
+      }
+      .email-value a {
+        color: #1e293b;
+        text-decoration: none;
+      }
+      .email-btn {
+        font-family: "Inter", sans-serif;
+        cursor: pointer;
+        border: none;
+        display: inline-block;
+        background: #2563eb;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 600;
+        padding: 11px 22px;
+        border-radius: 9px;
+        transition: background 0.2s;
+      }
+      .email-btn:hover {
+        background: #1d4ed8;
+      }
+
+      .permission-tip {
+        background: #eff6ff;
+        border: 1.5px solid #bfdbfe;
+        border-radius: 12px;
+        padding: 14px 16px;
+        text-align: left;
+        margin-bottom: 8px;
+      }
+      .permission-tip-title {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: #1e40af;
+        margin-bottom: 5px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .permission-tip-text {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        color: #3b5fad;
+        line-height: 1.6;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        background: #fde68a;
+        margin: 22px 0;
+      }
+
+      .registrar-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 12px;
+        text-align: left;
+      }
+      .registrar-card {
+        border: 1.5px solid #fde68a;
+        border-radius: 12px;
+        padding: 14px 13px;
+        background: #ffffff;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+        display: flex;
+        flex-direction: column;
+      }
+      .registrar-card:hover {
+        border-color: #f59e0b;
+        box-shadow: 0 3px 12px rgba(245, 158, 11, 0.15);
+      }
+      .registrar-icon {
+        font-size: 20px;
+        margin-bottom: 5px;
+        display: block;
+      }
+      .registrar-name {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        font-weight: 700;
+        color: #0f172a;
+        margin-bottom: 4px;
+      }
+      .registrar-action {
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        color: #64748b;
+        line-height: 1.5;
+        margin-bottom: 10px;
+        flex: 1;
+      }
+      .registrar-links {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        margin-top: auto;
+      }
+      .registrar-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        color: #2563eb;
+        text-decoration: none;
+      }
+      .registrar-link.yt {
+        color: #dc2626;
+      }
+      .registrar-link svg {
+        width: 10px;
+        height: 10px;
+        flex-shrink: 0;
+      }
+      .registrar-link:hover {
+        text-decoration: underline;
+      }
+
+      .registrar-signin {
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        font-weight: 600;
+        color: #ea580c;
+        margin-bottom: 7px;
+      }
+      .registrar-steps {
+        font-family: "Inter", sans-serif;
+        font-size: 11px;
+        color: #475569;
+        line-height: 1.6;
+        padding-left: 16px;
+        margin-bottom: 10px;
+        flex: 1;
+      }
+      .registrar-steps li {
+        margin-bottom: 2px;
+      }
+
+      .perm-highlight {
+        display: inline-block;
+        background: #fef08a;
+        color: #713f12;
+        font-weight: 700;
+        font-size: 10.5px;
+        padding: 1px 5px;
+        border-radius: 4px;
+        border: 1px solid #fde047;
+      }
+
+      .cant-find {
+        font-family: "Inter", sans-serif;
+        font-size: 13px;
+        color: #94a3b8;
+        margin-top: 18px;
+        line-height: 1.6;
+      }
+      .cant-find a {
+        color: #2563eb;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .cant-find a:hover {
+        text-decoration: underline;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @media (max-width: 480px) {
+        .container {
+          padding: 40px 20px 48px;
+        }
+        .cta-card {
+          padding: 18px 20px;
+          flex-direction: column;
+          text-align: center;
+          gap: 10px;
+        }
+        .heading {
+          font-size: 26px;
+        }
+        .registrar-grid {
+          grid-template-columns: 1fr;
+        }
+        .domain-heading {
+          font-size: 19px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png"
+        alt="Nils Digital"
+        class="logo"
+      />
+
+      <div class="check-circle">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2.5"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.5 12.75l6 6 9-13.5"
+          />
+        </svg>
+      </div>
+
+      <h1 class="heading">Great Job 👏</h1>
+      <p class="subtext">
+        We received your form and our team will get to work on your account.
+      </p>
+
+      <div class="cta-card">
+        <span class="cta-icon">🚀</span>
+        <div>
+          <p class="cta-title">
+            Show up to your onboarding call to finish the whole system
+          </p>
+          <p class="cta-desc">
+            This is where everything gets connected and launched. Showing up
+            gets you live as fast as possible.
+          </p>
+        </div>
+      </div>
+
+      <div class="domain-section">
+        <span class="save-time-badge">⚠️ Required Before Your Call</span>
+
+        <h2 class="domain-heading">
+          You must add us to your domain registrar before the call
+        </h2>
+        <p class="domain-subtext">
+          <strong>Please complete this before your call.</strong> Without domain
+          access, we cannot point your domain to your new system and your
+          onboarding cannot be finished. Find your registrar below, add us as an
+          Admin, and you will be good to go. It takes less than 5 minutes.
+        </p>
+
+        <div class="email-box">
+          <p class="email-label">Add this email as Admin / Delegate</p>
+          <p class="email-value">
+            <a target="_top" href="mailto:emilio.n.arias.p@gmail.com"
+              >emilio.n.arias.p@gmail.com</a
+            >
+          </p>
+          <button
+            class="email-btn"
+            onclick="
+              navigator.clipboard.writeText('emilio.n.arias.p@gmail.com');
+              this.innerHTML = '&#x2705;&nbsp;Copied!';
+              setTimeout(
+                () => (this.innerHTML = '📋&nbsp;Copy Email Address'),
+                2000,
+              );
+            "
+          >
+            📋 Copy Email Address
+          </button>
+        </div>
+
+        <div class="permission-tip">
+          <p class="permission-tip-title">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              style="width: 14px; height: 14px; flex-shrink: 0"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+              />
+            </svg>
+            Select the highest permission level available
+          </p>
+          <p class="permission-tip-text">
+            Always select <strong>Admin</strong>,
+            <strong>Products &amp; Domains</strong>, or
+            <strong>Full Access</strong> (whichever is the highest option
+            shown). This lets us update your nameservers and get your domain
+            pointed over without delays during the call.
+          </p>
+        </div>
+
+        <div class="divider"></div>
+
+        <p
+          style="
+            font-family: &quot;Inter&quot;, sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 14px;
+          "
+        >
+          Find your registrar below 👇
+        </p>
+
+        <div class="registrar-grid">
+          <div class="registrar-card">
+            <span class="registrar-icon">🟢</span>
+            <p class="registrar-name">GoDaddy</p>
+            <p class="registrar-signin">
+              Sign in first, then click the link below.
+            </p>
+            <ol class="registrar-steps">
+              <li>Click <strong>Invite to Access</strong></li>
+              <li>
+                Name: <strong>Emilio</strong> — paste the email you copied
+              </li>
+              <li>
+                Select
+                <span class="perm-highlight"
+                  >Products, Domains &amp; Purchase</span
+                >
+              </li>
+              <li>Click <strong>Invite</strong></li>
+            </ol>
+            <div class="registrar-links">
+              <a
+                class="registrar-link"
+                href="https://sso.godaddy.com/access"
+                target="_blank"
+                rel="noopener"
+                >Open Delegate Access</a
+              >
+              <a
+                class="registrar-link yt"
+                href="https://www.youtube.com/results?search_query=how+to+add+admin+to+GoDaddy+account+delegate+access"
+                target="_blank"
+                rel="noopener"
+                >Watch Tutorial</a
+              >
+            </div>
+          </div>
+
+          <div class="registrar-card">
+            <span class="registrar-icon">🟣</span>
+            <p class="registrar-name">Hostinger</p>
+            <p class="registrar-signin">
+              Sign in first, then click the link below.
+            </p>
+            <ol class="registrar-steps">
+              <li>Click <strong>Grant Access</strong> button</li>
+              <li>Paste the email you copied</li>
+              <li>
+                Permission role: <span class="perm-highlight">Admin</span>
+              </li>
+              <li>
+                Manage services: <span class="perm-highlight">Select All</span>
+              </li>
+              <li>Click <strong>Grant Access</strong></li>
+            </ol>
+            <div class="registrar-links">
+              <a
+                class="registrar-link"
+                href="https://hpanel.hostinger.com/profile/account-access/account-sharing"
+                target="_blank"
+                rel="noopener"
+                >Open Account Sharing</a
+              >
+              <a
+                class="registrar-link yt"
+                href="https://www.youtube.com/results?search_query=how+to+add+admin+to+Hostinger+account+sharing"
+                target="_blank"
+                rel="noopener"
+                >Watch Tutorial</a
+              >
+            </div>
+          </div>
+
+          <div class="registrar-card">
+            <span class="registrar-icon">🟠</span>
+            <p class="registrar-name">Namecheap</p>
+            <p class="registrar-action">
+              Account &rarr; Tools &rarr; Share Access. Grant
+              <span class="perm-highlight">Full Access</span> permissions.
+            </p>
+            <div class="registrar-links">
+              <a
+                class="registrar-link"
+                href="https://ap.www.namecheap.com/settings/tools/access"
+                target="_blank"
+                rel="noopener"
+                >Open Share Access</a
+              >
+              <a
+                class="registrar-link yt"
+                href="https://www.youtube.com/results?search_query=how+to+add+admin+to+Namecheap+account+share+access"
+                target="_blank"
+                rel="noopener"
+                >Watch Tutorial</a
+              >
+            </div>
+          </div>
+
+          <div class="registrar-card">
+            <span class="registrar-icon">⬛</span>
+            <p class="registrar-name">Squarespace / Google Domains</p>
+            <p class="registrar-action">
+              Domains &rarr; Permissions &rarr; Invite a Domain Manager. Assign
+              <span class="perm-highlight">Manager</span> role.
+            </p>
+            <div class="registrar-links">
+              <a
+                class="registrar-link"
+                href="https://account.squarespace.com/domains"
+                target="_blank"
+                rel="noopener"
+                >Open Domain Permissions</a
+              >
+              <a
+                class="registrar-link yt"
+                href="https://www.youtube.com/results?search_query=how+to+add+admin+to+Squarespace+domain+account"
+                target="_blank"
+                rel="noopener"
+                >Watch Tutorial</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <p class="cant-find">
+          Don't see your registrar? Just email us at
+          <a target="_top" href="mailto:info@nilsdigital.com">info@nilsdigital.com</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onboarding Widget</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        background: transparent;
+        font-family:
+          "Instrument Sans",
+          "Inter",
+          -apple-system,
+          sans-serif;
+      }
+
+      /* ── WIDGET CONTAINER ─────────────────────────── */
+      .widget {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+      }
+
+      /* ── PANEL ────────────────────────────────────── */
+      .panel {
+        width: 320px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow:
+          0 8px 32px rgba(4, 107, 210, 0.15),
+          0 2px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(4, 107, 210, 0.12);
+        overflow: hidden;
+        transform-origin: bottom right;
+        transition:
+          transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.22s ease;
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+
+      .panel.hidden {
+        transform: scale(0.85) translateY(12px);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* ── PANEL HEADER ─────────────────────────────── */
+      .panel-header {
+        background: #046bd2;
+        padding: 16px 18px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .header-text {
+        flex: 1;
+      }
+
+      .header-eyebrow {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.72);
+        margin-bottom: 3px;
+      }
+
+      .header-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.3;
+      }
+
+      .close-btn {
+        background: rgba(255, 255, 255, 0.18);
+        border: none;
+        border-radius: 8px;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        flex-shrink: 0;
+        transition: background 0.15s ease;
+        margin-top: 1px;
+      }
+
+      .close-btn:hover {
+        background: rgba(255, 255, 255, 0.28);
+      }
+
+      .close-btn svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      /* ── PANEL BODY ───────────────────────────────── */
+      .panel-body {
+        padding: 16px 18px 18px;
+      }
+
+      .panel-desc {
+        font-size: 13px;
+        color: #555;
+        line-height: 1.55;
+        margin-bottom: 14px;
+      }
+
+      /* ── FORM LINKS ───────────────────────────────── */
+      .form-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .form-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 14px;
+        background: #f4f8fd;
+        border: 1px solid rgba(4, 107, 210, 0.12);
+        border-radius: 10px;
+        text-decoration: none;
+        color: #0a2540;
+        font-size: 13px;
+        font-weight: 600;
+        transition:
+          background 0.15s ease,
+          border-color 0.15s ease,
+          transform 0.12s ease;
+        cursor: pointer;
+      }
+
+      .form-link:hover {
+        background: #e8f1fc;
+        border-color: rgba(4, 107, 210, 0.28);
+        transform: translateX(-2px);
+      }
+
+      .form-link:active {
+        transform: translateX(0);
+      }
+
+      .form-icon {
+        width: 30px;
+        height: 30px;
+        background: #046bd2;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .form-icon svg {
+        width: 15px;
+        height: 15px;
+        color: #fff;
+      }
+
+      .form-label {
+        flex: 1;
+        line-height: 1.2;
+      }
+
+      .form-arrow {
+        color: #046bd2;
+        opacity: 0.6;
+        flex-shrink: 0;
+        transition: opacity 0.15s ease;
+      }
+
+      .form-link:hover .form-arrow {
+        opacity: 1;
+      }
+
+      /* ── DISMISS LINK ─────────────────────────────── */
+      .dismiss-area {
+        text-align: center;
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid #f0f0f0;
+      }
+
+      .dismiss-link {
+        font-size: 11.5px;
+        color: #999;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: inherit;
+        padding: 4px 8px;
+        border-radius: 6px;
+        transition: color 0.15s ease;
+      }
+
+      .dismiss-link:hover {
+        color: #555;
+      }
+
+      /* ── TOGGLE BUTTON ────────────────────────────── */
+      .toggle-btn {
+        background: #046bd2;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        cursor: pointer;
+        box-shadow:
+          0 4px 18px rgba(4, 107, 210, 0.4),
+          0 2px 6px rgba(0, 0, 0, 0.12);
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease;
+        color: #fff;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .toggle-btn:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 6px 22px rgba(4, 107, 210, 0.48),
+          0 2px 8px rgba(0, 0, 0, 0.14);
+      }
+
+      .toggle-btn:active {
+        transform: translateY(0);
+      }
+
+      .toggle-btn svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+
+      .toggle-label {
+        white-space: nowrap;
+      }
+
+      /* ── PULSE DOT ────────────────────────────────── */
+      .pulse-dot {
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        border-radius: 50%;
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      .pulse-dot::after {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.55);
+        animation: pulse-ring 2s ease-out infinite;
+      }
+
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(0.85);
+          opacity: 1;
+        }
+        70% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(0.85);
+          opacity: 0;
+        }
+      }
+
+      /* ── MOBILE ───────────────────────────────────── */
+      @media (max-width: 480px) {
+        .widget {
+          bottom: 16px;
+          right: 16px;
+          left: 16px;
+          align-items: stretch;
+        }
+
+        .panel {
+          width: 100%;
+        }
+
+        .toggle-btn {
+          align-self: flex-end;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="widget" id="widget">
+      <!-- Expanded Panel -->
+      <div class="panel" id="panel">
+        <div class="panel-header">
+          <div class="header-text">
+            <div class="header-eyebrow">Purchased multiple services?</div>
+            <div class="header-title">Complete your other onboarding forms</div>
+          </div>
+          <button class="close-btn" id="collapseBtn" aria-label="Minimize">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            >
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="panel-body">
+          <p class="panel-desc">
+            If you purchased additional services, use the links below to
+            complete the rest of your setup now. If not, you're all set!
+          </p>
+
+          <div class="form-list">
+            <!-- Pipeline Automations -->
+            <a
+              class="form-link"
+              href="https://nilsdigital.com/pipeline-automations"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="form-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+              <span class="form-label">Pipeline Automations</span>
+              <svg
+                class="form-arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="14"
+                height="14"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+
+            <!-- A2P Phone Number Registration -->
+            <a
+              class="form-link"
+              href="https://nilsdigital.com/phone-number-setup"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="form-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.49 5.49l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="form-label">A2P Phone Number Registration</span>
+              <svg
+                class="form-arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="14"
+                height="14"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+
+            <!-- Google Ads -->
+            <a
+              class="form-link"
+              href="https://nilsdigital.com/google-ads-setup"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="form-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="11" cy="11" r="8"></circle>
+                  <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                </svg>
+              </div>
+              <span class="form-label">Google Ads Setup</span>
+              <svg
+                class="form-arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="14"
+                height="14"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+          </div>
+
+          <div class="dismiss-area">
+            <button class="dismiss-link" id="dismissBtn">
+              I don't need any other forms &mdash; dismiss
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsed Toggle Button -->
+      <button
+        class="toggle-btn"
+        id="toggleBtn"
+        style="display: none"
+        aria-label="Open onboarding forms"
+      >
+        <div class="pulse-dot"></div>
+        <span class="toggle-label"
+          >Did you purchase multiple services? Complete your onboarding
+          here</span
+        >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <script>
+      const panel = document.getElementById("panel");
+      const toggleBtn = document.getElementById("toggleBtn");
+      const collapseBtn = document.getElementById("collapseBtn");
+      const dismissBtn = document.getElementById("dismissBtn");
+      const widget = document.getElementById("widget");
+
+      // Collapse panel, show toggle button
+      collapseBtn.addEventListener("click", () => {
+        panel.classList.add("hidden");
+        setTimeout(() => {
+          panel.style.display = "none";
+          toggleBtn.style.display = "flex";
+        }, 280);
+      });
+
+      // Re-open panel
+      toggleBtn.addEventListener("click", () => {
+        toggleBtn.style.display = "none";
+        panel.style.display = "";
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            panel.classList.remove("hidden");
+          });
+        });
+      });
+
+      // Dismiss collapses to bubble (same as minimize)
+      dismissBtn.addEventListener("click", () => {
+        panel.classList.add("hidden");
+        setTimeout(() => {
+          panel.style.display = "none";
+          toggleBtn.style.display = "flex";
+        }, 280);
+      });
+
+      // Auto-open after short delay for a polished feel
+      panel.classList.add("hidden");
+      setTimeout(() => {
+        panel.classList.remove("hidden");
+      }, 800);
+    </script>
+  </body>
+</html>

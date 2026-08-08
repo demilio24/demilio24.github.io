@@ -1,0 +1,1265 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Bath Time Without Tears | The Miss Kris Method™</title>
+<meta name="description" content="The step-by-step method to help your child go from bath time fear to confidence in just 7 to 14 days. Designed by a professional swim instructor." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+/* ── GHL RESETS ──────────────────────────────── */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow-x: clip !important;
+}
+body,
+.hl_page-preview--content,
+.hl_page-preview--content > div,
+.custom-code-element,
+section, .section,
+.row, .inner-row,
+.col, .inner-col,
+.container,
+[class*="container"],
+[class*="wrapper"] {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+#ghl-breakout {
+    position: relative !important;
+    width: 100% !important;
+    overflow-x: clip !important;
+    background: #f6f5f1;
+  }
+#ghl-breakout .bubbles-container { width: 100vw !important; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+        --primary: #2a5a84;
+        --primary-dark: #1a3a54;
+        --primary-mid: #1e4466;
+        --secondary: #8ec6d8;
+        --secondary-light: #c8e8f2;
+        --secondary-soft: #e9eff4;
+        --accent: #f4a93a;
+        --accent-deep: #e89418;
+        --bg: #f6f5f1;
+        --bg-soft: #fbfaf6;
+        --ink: #1a3a54;
+        --slate: #5a7a94;
+        --slate-soft: #7a95ad;
+        --line: rgba(42,90,132,0.12);
+        --maxw: 1180px;
+        --radius: 16px;
+        --radius-lg: 22px;
+    }
+
+    html { scroll-behavior: smooth; -webkit-font-smoothing: antialiased; }
+
+    body {
+        font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, sans-serif;
+        background: var(--bg);
+        color: var(--ink);
+        line-height: 1.65;
+        overflow-x: hidden;
+        font-weight: 500;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .display {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 700;
+        letter-spacing: -0.01em;
+        line-height: 1.1;
+    }
+
+    /* ── Bubbles ── */
+    .bubbles-container {
+        position: fixed; inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        overflow: hidden;
+    }
+    .bubble {
+        position: absolute;
+        bottom: -80px;
+        border-radius: 50%;
+        background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.8), rgba(142,198,216,0.18));
+        border: 1px solid rgba(255,255,255,0.55);
+        animation: rise linear infinite;
+    }
+    @keyframes rise {
+        0%   { transform: translateY(0) scale(1); opacity: 0.55; }
+        50%  { opacity: 0.35; }
+        100% { transform: translateY(-110vh) scale(0.3); opacity: 0; }
+    }
+
+    .page { position: relative; z-index: 10; }
+
+    /* ── NAV ── */
+    .nav {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        background: rgba(246,245,241,0.88);
+        border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+    .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+    }
+    .logo-mark {
+        width: 44px; height: 44px;
+        border-radius: 12px;
+        background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+        display: grid;
+        place-items: center;
+        color: #fff;
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        font-style: italic;
+        font-size: 22px;
+        box-shadow: 0 6px 18px rgba(42,90,132,0.25);
+        flex-shrink: 0;
+    }
+    .logo-text { display: flex; flex-direction: column; line-height: 1; }
+    .logo-text .top {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.05rem;
+        color: var(--primary-dark);
+        font-weight: 700;
+    }
+    .logo-text .sub {
+        font-size: 0.66rem;
+        color: var(--slate);
+        font-weight: 700;
+        letter-spacing: 2px;
+        margin-top: 4px;
+        text-transform: uppercase;
+    }
+
+    .nav-cta {
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        letter-spacing: 0.3px;
+        font-size: 0.88rem;
+        padding: 11px 22px;
+        border-radius: 40px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+        color: #fff;
+        text-decoration: none;
+        box-shadow: 0 6px 16px rgba(244,169,58,0.38);
+        transition: all .25s ease;
+        border: 1px solid rgba(232,148,24,0.5);
+        white-space: nowrap;
+    }
+    .nav-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(244,169,58,0.5);
+    }
+
+    /* ── HERO ── */
+    .hero {
+        position: relative;
+        overflow: clip;
+        padding: 56px 24px 72px;
+        background:
+            radial-gradient(ellipse 90% 80% at 50% -5%, rgba(244,169,58,0.14) 0%, transparent 60%),
+            radial-gradient(ellipse 60% 60% at 0% 0%, rgba(142,198,216,0.28) 0%, transparent 55%),
+            radial-gradient(ellipse 60% 60% at 100% 0%, rgba(244,169,58,0.12) 0%, transparent 55%),
+            radial-gradient(ellipse 40% 40% at 50% 100%, rgba(142,198,216,0.15) 0%, transparent 70%),
+            var(--bg-soft);
+    }
+    .hero::after {
+        content: "";
+        position: absolute; inset: 0;
+        background-image: radial-gradient(circle, rgba(244,169,58,0.28) 1.5px, transparent 1.5px);
+        background-size: 32px 32px;
+        background-position: 16px 16px;
+        -webkit-mask-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.18) 50%, transparent 85%);
+        mask-image: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.18) 50%, transparent 85%);
+        pointer-events: none;
+        z-index: 0;
+    }
+    .hero-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 1200px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 460px;
+        gap: 48px;
+        align-items: start;
+    }
+    .hero-left { min-width: 0; }
+    .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--primary-dark);
+        background: rgba(244,169,58,0.18);
+        border: 1px solid rgba(244,169,58,0.5);
+        border-radius: 100px;
+        padding: 7px 18px;
+        margin-bottom: 20px;
+    }
+    .hero-eyebrow svg { width: 13px; height: 13px; fill: var(--accent-deep); flex-shrink: 0; }
+    .hero-method-tag {
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--slate);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+    }
+    .hero-h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(36px, 4.8vw, 62px);
+        font-weight: 700;
+        color: var(--primary-dark);
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+        margin-bottom: 18px;
+    }
+    .hero-h1 em {
+        font-style: italic;
+        color: var(--secondary);
+        font-weight: 600;
+    }
+    .hero-sub {
+        font-size: 17px;
+        color: var(--slate);
+        line-height: 1.65;
+        margin-bottom: 24px;
+        max-width: 560px;
+    }
+    .hero-sub strong { color: var(--primary); font-weight: 700; }
+
+    /* Bullets */
+    .hero-bullets {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 26px;
+    }
+    .hero-bullets li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        font-size: 14.5px;
+        font-weight: 600;
+        color: var(--ink);
+        line-height: 1.5;
+    }
+    .hero-bullets .check {
+        width: 22px; height: 22px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--primary), var(--secondary));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        margin-top: 2px;
+        box-shadow: 0 3px 10px rgba(42,90,132,0.22);
+    }
+    .hero-bullets .check svg { width: 12px; height: 12px; fill: #fff; }
+
+    /* Credibility strip */
+    .hero-credibility {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 14px;
+        font-size: 13px;
+        color: var(--slate);
+        font-weight: 700;
+        margin-bottom: 22px;
+    }
+    .hero-credibility .dot {
+        width: 4px; height: 4px;
+        border-radius: 50%;
+        background: var(--secondary);
+    }
+
+    /* Stats row (compact) */
+    .hero-stats {
+        display: flex;
+        border: 1px solid rgba(244,169,58,0.45);
+        border-radius: 14px;
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(8px);
+        overflow: hidden;
+        box-shadow: 0 4px 16px rgba(42,90,132,0.08);
+    }
+    .hero-stat {
+        flex: 1;
+        padding: 16px 12px;
+        text-align: center;
+        position: relative;
+    }
+    .hero-stat + .hero-stat::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 18%; bottom: 18%;
+        width: 1px;
+        background: rgba(244,169,58,0.45);
+    }
+    .hero-stat-num {
+        font-family: 'Playfair Display', serif;
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--accent-deep);
+        line-height: 1;
+        margin-bottom: 4px;
+    }
+    .hero-stat-stars {
+        font-size: 17px;
+        color: var(--accent);
+        line-height: 1;
+        margin-bottom: 4px;
+        letter-spacing: 1.5px;
+    }
+    .hero-stat-label {
+        font-size: 11px;
+        color: var(--slate);
+        line-height: 1.4;
+        font-weight: 600;
+    }
+
+    /* Form card */
+    .hero-right {
+        flex-shrink: 0;
+        width: 460px;
+        position: sticky;
+        top: 88px;
+    }
+    .hero-form-card {
+        background: #fff;
+        border: 1px solid rgba(244,169,58,0.4);
+        border-radius: 20px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow:
+            0 24px 80px rgba(42,90,132,0.16),
+            0 4px 16px rgba(42,90,132,0.08);
+    }
+    .hero-form-card .card-header {
+        background: linear-gradient(135deg, var(--primary) 0%, var(--primary-mid) 55%, var(--secondary) 140%);
+        padding: 22px 26px 20px;
+        color: #fff;
+        position: relative;
+    }
+    .hero-form-card .card-header::after {
+        content: '';
+        position: absolute;
+        top: -30px; right: -30px;
+        width: 120px; height: 120px;
+        background: radial-gradient(circle, rgba(244,169,58,0.35), transparent 70%);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    .card-label {
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 1.4px;
+        text-transform: uppercase;
+        color: rgba(255,255,255,0.82);
+        margin-bottom: 6px;
+        position: relative;
+    }
+    .card-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 19px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.3;
+        position: relative;
+    }
+    .card-body {
+        padding: 24px 26px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .price-row {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+    .price-currency {
+        font-family: 'Playfair Display', serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--accent-deep);
+        align-self: flex-start;
+        padding-top: 10px;
+    }
+    .price-main {
+        font-family: 'Playfair Display', serif;
+        font-size: 48px;
+        font-weight: 800;
+        color: var(--accent-deep);
+        line-height: 1;
+        letter-spacing: -0.03em;
+    }
+    .price-compare {
+        font-size: 15px;
+        color: var(--slate-soft);
+        text-decoration: line-through;
+        font-weight: 600;
+    }
+    .price-save {
+        font-size: 11px;
+        font-weight: 800;
+        color: #fff;
+        background: #e05a2b;
+        padding: 4px 11px;
+        border-radius: 20px;
+        letter-spacing: 0.4px;
+    }
+    .price-note {
+        font-size: 12.5px;
+        color: var(--slate);
+        font-weight: 600;
+        line-height: 1.4;
+        margin-top: -8px;
+    }
+
+    .card-pills {
+        display: flex;
+        flex-direction: column;
+        gap: 9px;
+        padding: 16px 18px;
+        background: var(--secondary-soft);
+        border-radius: 12px;
+        border: 1px solid rgba(142,198,216,0.35);
+    }
+    .card-pill {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--primary-dark);
+    }
+    .card-pill svg {
+        width: 16px; height: 16px;
+        fill: var(--accent-deep);
+        flex-shrink: 0;
+    }
+
+    .form-wrap {
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        min-height: 300px;
+    }
+    .form-wrap iframe {
+        width: 100% !important;
+        min-height: 300px;
+        border: none;
+        display: block;
+        background: transparent;
+    }
+
+    .card-secure {
+        text-align: center;
+        font-size: 12px;
+        color: var(--slate);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-weight: 600;
+    }
+    .card-secure svg { fill: var(--accent-deep); flex-shrink: 0; width: 13px; height: 13px; }
+
+    /* Big hero CTA button (scrolls to form) */
+    .hero-cta-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        background: linear-gradient(135deg, #d99225 0%, var(--accent-deep) 45%, var(--accent) 100%);
+        color: #fff;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 14px;
+        padding: 18px 28px;
+        cursor: pointer;
+        width: 100%;
+        text-decoration: none;
+        position: relative;
+        overflow: clip;
+        box-shadow:
+            0 8px 28px rgba(244,169,58,0.45),
+            0 2px 8px rgba(42,90,132,0.12);
+        transition: box-shadow 0.18s, transform 0.18s;
+        animation: btn-shake 3.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) 2.5s infinite;
+    }
+    .hero-cta-btn::before {
+        content: "";
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: linear-gradient(108deg, transparent 35%, rgba(255,255,255,0.55) 50%, transparent 65%);
+        transform: translateX(-150%);
+        transition: transform 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .hero-cta-btn:hover {
+        transform: translateY(-2px);
+        box-shadow:
+            0 14px 40px rgba(244,169,58,0.55),
+            0 4px 12px rgba(42,90,132,0.14);
+    }
+    .hero-cta-btn:hover::before { transform: translateX(200%); }
+    .hero-cta-btn:active { transform: translateY(0); }
+    .hero-cta-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+    @keyframes btn-shake {
+        0%, 100% { transform: translateX(0) rotate(0); }
+        4% { transform: translateX(-4px) rotate(-1.2deg); }
+        8% { transform: translateX(4px) rotate(1.2deg); }
+        12% { transform: translateX(-3px) rotate(-0.8deg); }
+        16% { transform: translateX(3px) rotate(0.8deg); }
+        20% { transform: translateX(-1.5px) rotate(-0.4deg); }
+        24% { transform: translateX(1.5px) rotate(0.4deg); }
+        28% { transform: translateX(0) rotate(0); }
+    }
+    .hero-cta-sub {
+        text-align: center;
+        font-size: 12.5px;
+        color: var(--slate);
+        font-weight: 600;
+        line-height: 1.5;
+        margin-top: -4px;
+    }
+    .hero-cta-sub strong { color: var(--primary-dark); font-weight: 800; }
+
+    /* ── SECTION SHELL ── */
+    .section {
+        padding: 72px 24px;
+        position: relative;
+    }
+    .section-inner {
+        max-width: var(--maxw);
+        margin: 0 auto;
+    }
+    .eyebrow {
+        display: inline-block;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 800;
+        letter-spacing: 3px;
+        font-size: 0.74rem;
+        color: var(--accent-deep);
+        margin-bottom: 14px;
+        text-transform: uppercase;
+    }
+    .h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+        font-weight: 700;
+        line-height: 1.1;
+        color: var(--primary-dark);
+        margin-bottom: 14px;
+        letter-spacing: -0.015em;
+    }
+    .h2 em {
+        font-style: italic;
+        color: var(--secondary);
+        font-weight: 600;
+    }
+    .lede {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--slate);
+        max-width: 620px;
+        margin-bottom: 44px;
+        line-height: 1.65;
+    }
+    .center { text-align: center; }
+    .center .lede { margin-left: auto; margin-right: auto; }
+
+    /* ── WHAT'S INSIDE (compact 4-card) ── */
+    .inside-section {
+        background:
+            radial-gradient(ellipse at top, rgba(142,198,216,0.25), transparent 60%),
+            linear-gradient(180deg, var(--secondary-soft) 0%, var(--bg) 100%);
+    }
+    .inside-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+    .inside-card {
+        background: #fff;
+        border-radius: var(--radius-lg);
+        padding: 26px 22px 24px;
+        border: 1px solid var(--line);
+        box-shadow: 0 6px 20px rgba(42,90,132,0.06);
+        transition: all .35s cubic-bezier(.4,0,.2,1);
+        position: relative;
+        overflow: hidden;
+    }
+    .inside-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(42,90,132,0.14);
+        border-color: rgba(244,169,58,0.4);
+    }
+    .inside-icon {
+        width: 48px; height: 48px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        font-size: 1.55rem;
+        margin-bottom: 16px;
+        background: linear-gradient(135deg, var(--primary), var(--primary-mid));
+        color: #fff;
+        box-shadow: 0 8px 20px rgba(42,90,132,0.22);
+    }
+    .inside-card:nth-child(2) .inside-icon {
+        background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+        box-shadow: 0 8px 20px rgba(244,169,58,0.35);
+    }
+    .inside-card:nth-child(3) .inside-icon {
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+    }
+    .inside-card:nth-child(4) .inside-icon {
+        background: linear-gradient(135deg, var(--accent-deep), #e07a4f);
+    }
+    .inside-card h3 {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.08rem;
+        font-weight: 700;
+        color: var(--primary-dark);
+        margin-bottom: 8px;
+        line-height: 1.25;
+    }
+    .inside-card p {
+        font-size: 0.88rem;
+        color: var(--slate);
+        line-height: 1.55;
+        font-weight: 500;
+    }
+
+    /* ── TESTIMONIALS (3 compact) ── */
+    .testimonials-section { background: var(--bg); }
+    .quotes-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    .quote-card {
+        background: #fff;
+        border: 1px solid rgba(244,169,58,0.35);
+        border-radius: 16px;
+        padding: 24px 22px 20px;
+        box-shadow: 0 8px 24px rgba(42,90,132,0.08);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+        transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+    .quote-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 36px rgba(42,90,132,0.14);
+        border-color: rgba(244,169,58,0.6);
+    }
+    .quote-card::before {
+        content: '"';
+        position: absolute;
+        top: -20px;
+        right: 18px;
+        font-family: 'Playfair Display', serif;
+        font-size: 76px;
+        font-weight: 700;
+        color: var(--accent-deep);
+        line-height: 1;
+        opacity: 0.35;
+    }
+    .quote-stars {
+        color: var(--accent-deep);
+        letter-spacing: 2px;
+        font-size: 13px;
+        line-height: 1;
+    }
+    .quote-card p {
+        font-size: 14px;
+        color: var(--ink);
+        line-height: 1.6;
+        font-weight: 500;
+        flex: 1;
+    }
+    .quote-author {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        padding-top: 12px;
+        border-top: 1px solid var(--line);
+    }
+    .quote-avatar {
+        width: 34px; height: 34px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--secondary), var(--primary));
+        color: #fff;
+        display: grid;
+        place-items: center;
+        font-family: 'Playfair Display', serif;
+        font-size: 12.5px;
+        font-weight: 700;
+        flex-shrink: 0;
+        box-shadow: 0 3px 10px rgba(42,90,132,0.22);
+    }
+    .quote-author .meta { display: flex; flex-direction: column; gap: 2px; }
+    .quote-author .name {
+        color: var(--primary-dark);
+        font-size: 13px;
+        font-weight: 800;
+    }
+    .quote-author .role {
+        color: var(--slate);
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+    /* ── FINAL CTA (keeps form) ── */
+    .final-cta {
+        padding: 80px 24px 96px;
+        background:
+            radial-gradient(ellipse at 50% 0%, rgba(244,169,58,0.18), transparent 60%),
+            linear-gradient(180deg, var(--bg) 0%, var(--secondary-soft) 100%);
+        text-align: center;
+    }
+    .final-cta-inner {
+        max-width: 720px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 28px;
+        padding: 52px 42px 44px;
+        border: 1px solid rgba(244,169,58,0.3);
+        box-shadow:
+            0 30px 60px rgba(42,90,132,0.15),
+            0 0 0 8px rgba(244,169,58,0.06);
+        position: relative;
+        overflow: hidden;
+    }
+    .final-cta-inner::before {
+        content: '';
+        position: absolute;
+        top: -60px; right: -60px;
+        width: 220px; height: 220px;
+        background: radial-gradient(circle, rgba(244,169,58,0.3), transparent 70%);
+        border-radius: 50%;
+    }
+    .final-cta-inner::after {
+        content: '';
+        position: absolute;
+        bottom: -60px; left: -60px;
+        width: 220px; height: 220px;
+        background: radial-gradient(circle, rgba(142,198,216,0.3), transparent 70%);
+        border-radius: 50%;
+    }
+    .final-cta .eyebrow,
+    .final-cta .h2,
+    .final-cta p,
+    .final-cta-price,
+    .final-form-wrap,
+    .final-cta .redirect-note { position: relative; z-index: 2; }
+
+    .final-cta-price {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin: 16px 0 6px;
+        flex-wrap: wrap;
+    }
+    .final-cta-price .amount {
+        font-family: 'Playfair Display', serif;
+        font-size: 48px;
+        font-weight: 800;
+        color: var(--accent-deep);
+        line-height: 1;
+    }
+    .final-cta-price .was {
+        font-size: 18px;
+        color: var(--slate-soft);
+        text-decoration: line-through;
+        font-weight: 500;
+    }
+    .final-cta-price .save {
+        background: #e05a2b;
+        color: #fff;
+        font-size: 11px;
+        font-weight: 800;
+        padding: 5px 12px;
+        border-radius: 20px;
+        letter-spacing: 0.5px;
+    }
+    .final-form-wrap {
+        margin-top: 24px;
+        max-width: 480px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .final-form-wrap .form-wrap { min-height: 300px; }
+    .final-form-wrap .form-wrap iframe { min-height: 300px; }
+
+    .final-cta .redirect-note {
+        margin-top: 16px;
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--slate);
+        letter-spacing: 0.3px;
+        max-width: 520px;
+        line-height: 1.55;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .final-cta .redirect-note strong { color: var(--primary-dark); font-weight: 800; }
+
+    /* ── FOOTER ── */
+    .footer {
+        padding: 32px 24px;
+        text-align: center;
+        border-top: 1px solid var(--line);
+        background: rgba(246,245,241,0.5);
+    }
+    .footer p {
+        font-size: 0.82rem;
+        color: var(--slate);
+        letter-spacing: 0.3px;
+    }
+    .footer a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 700;
+    }
+    .footer a:hover { color: var(--accent-deep); }
+
+    /* ── Reveal ── */
+    .reveal {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity .8s ease, transform .8s ease;
+    }
+    .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .hero { padding: 36px 20px 52px; }
+        .hero-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+        .hero-right {
+            width: 100%;
+            position: static;
+        }
+        .hero-h1 { font-size: clamp(32px, 7vw, 46px); }
+        .inside-grid { grid-template-columns: repeat(2, 1fr); }
+        .quotes-grid { grid-template-columns: 1fr; gap: 16px; }
+        .section { padding: 56px 20px; }
+        .final-cta-inner { padding: 40px 24px; }
+    }
+    @media (max-width: 600px) {
+        .logo-text .sub { display: none; }
+        .nav-inner { padding: 12px 18px; }
+        .nav-cta { font-size: 0.8rem; padding: 10px 16px; }
+        .logo-mark { width: 38px; height: 38px; font-size: 18px; }
+        .logo-text .top { font-size: 0.95rem; }
+        .inside-grid { grid-template-columns: 1fr; }
+        .hero-stat-num { font-size: 16px; }
+        .hero-stat-label { font-size: 10px; }
+        .hero-stats { flex-direction: column; }
+        .hero-stat + .hero-stat::before { display: none; }
+        .hero-stat { padding: 12px; border-top: 1px solid rgba(244,169,58,0.35); }
+        .hero-stat:first-child { border-top: none; }
+        .card-body { padding: 22px 20px; }
+        .hero-form-card .card-header { padding: 20px 20px 18px; }
+        .final-cta { padding: 60px 16px 76px; }
+        .final-cta-inner { padding: 32px 20px; }
+        .final-cta-price .amount { font-size: 40px; }
+        .price-main { font-size: 42px; }
+    }
+</style>
+</head>
+<body>
+
+<div id="ghl-breakout">
+
+<div class="bubbles-container" id="bubbles"></div>
+
+<div class="page">
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-inner">
+            <a href="#top" class="nav-logo">
+                <div class="logo-mark">K</div>
+                <div class="logo-text">
+                    <span class="top">Miss Kris Method™</span>
+                    <span class="sub">Splash Auburn</span>
+                </div>
+            </a>
+            <a href="#get-guide" class="nav-cta">Get Instant Access · $9</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+        <div class="hero-inner">
+
+            <!-- LEFT: The whole story -->
+            <div class="hero-left">
+                <div class="hero-eyebrow">
+                    <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    Designed By A Professional Swim Instructor
+                </div>
+                <p class="hero-method-tag">The Miss Kris Method™</p>
+                <h1 class="hero-h1">
+                    Bath Time<br/><em>Without Tears.</em>
+                </h1>
+                <p class="hero-sub">
+                    The step-by-step guide that takes your child from <strong>fear to confidence</strong> in just <strong>7 to 14 days</strong>.
+                    No drama. No battles. Just calm, consistent progress you can start tonight.
+                </p>
+
+                <ul class="hero-bullets">
+                    <li>
+                        <span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg></span>
+                        The exact <strong>5-step pour sequence</strong> Miss Kris uses with every child
+                    </li>
+                    <li>
+                        <span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg></span>
+                        <strong>Progression 3-5-7 Challenge</strong> that builds confidence in layers over 14 days
+                    </li>
+                    <li>
+                        <span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg></span>
+                        <strong>Treasure Hunt Challenge</strong> that turns bath-time fear into laughter
+                    </li>
+                    <li>
+                        <span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg></span>
+                        Printable <strong>weekly bath-time tracker</strong> and reward ideas that actually work
+                    </li>
+                    <li>
+                        <span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg></span>
+                        <strong>Day-by-day timeline</strong> so you always know what to expect and stay calm
+                    </li>
+                </ul>
+
+                <div class="hero-credibility">
+                    <span>@splashauburn</span>
+                    <span class="dot"></span>
+                    <span>splashauburn.com</span>
+                    <span class="dot"></span>
+                    <span>Auburn, AL</span>
+                </div>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-num">7 to 14 Days</div>
+                        <div class="hero-stat-label">Bath-time fear to confidence</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-num">5 Steps</div>
+                        <div class="hero-stat-label">Proven bath-time sequence</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-stars">★★★★★</div>
+                        <div class="hero-stat-label">Loved by Splash Auburn parents</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT: Sticky form card -->
+            <div class="hero-right">
+                <div class="hero-form-card">
+                    <div class="card-header">
+                        <div class="card-label">Digital Guide · Instant Download</div>
+                        <div class="card-title">The Miss Kris Method™<br/>Bath Time Without Tears</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="price-row">
+                            <span class="price-currency">$</span>
+                            <span class="price-main">9</span>
+                            <span class="price-compare">$27</span>
+                            <span class="price-save">Save 67%</span>
+                        </div>
+                        <p class="price-note">One-time payment · PDF delivered instantly</p>
+
+                        <div class="card-pills">
+                            <div class="card-pill">
+                                <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                                Instant access to your PDF
+                            </div>
+                            <div class="card-pill">
+                                <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                                Printable weekly tracker included
+                            </div>
+                            <div class="card-pill">
+                                <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/></svg>
+                                Proven by a certified swim pro
+                            </div>
+                        </div>
+
+                        <a href="#get-guide" class="hero-cta-btn">
+                            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+                            Get Instant Access
+                        </a>
+
+                        <p class="hero-cta-sub">
+                            Grab your <strong>$9</strong> copy below. PDF lands in your inbox instantly.
+                        </p>
+
+                        <div class="card-secure">
+                            <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/></svg>
+                            Secure checkout · Instant PDF access
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- WHAT'S INSIDE (compact 4-card strip) -->
+    <section class="section inside-section">
+        <div class="section-inner">
+            <div class="center reveal">
+                <span class="eyebrow">What's Inside</span>
+                <h2 class="h2">Everything You Need. <em>Nothing You Don't.</em></h2>
+                <p class="lede">A field-tested playbook built by a swim instructor who works with fearful kids every single week.</p>
+            </div>
+            <div class="inside-grid">
+                <div class="inside-card reveal">
+                    <div class="inside-icon">🫧</div>
+                    <h3>The 5-Step Method</h3>
+                    <p>Prepare → Pour → Wait → Praise → Repeat. The exact sequence for calm, confident bath times.</p>
+                </div>
+                <div class="inside-card reveal">
+                    <div class="inside-icon">🎯</div>
+                    <h3>3-5-7 Progression</h3>
+                    <p>A 14-day face submersion ladder that builds confidence without tipping into panic.</p>
+                </div>
+                <div class="inside-card reveal">
+                    <div class="inside-icon">🏆</div>
+                    <h3>Treasure Hunt</h3>
+                    <p>The "fear → fun" transformation trick. Kids actually start asking for bath time.</p>
+                </div>
+                <div class="inside-card reveal">
+                    <div class="inside-icon">📋</div>
+                    <h3>Printable Tracker</h3>
+                    <p>A ready-to-print weekly tracker with reward ideas and parent scripts that stick.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOCIAL PROOF ROW -->
+    <section class="section testimonials-section">
+        <div class="section-inner">
+            <div class="center reveal">
+                <span class="eyebrow">Loved By Splash Auburn Parents</span>
+                <h2 class="h2">Real Parents. <em>Real Changes.</em></h2>
+            </div>
+            <div class="quotes-grid">
+                <div class="quote-card reveal">
+                    <div class="quote-stars">★★★★★</div>
+                    <p>I'd been battling bath time for 6 months. Within 5 days of using the 5 steps, my daughter was letting me pour water on her face without a single tear.</p>
+                    <div class="quote-author">
+                        <div class="quote-avatar">MJ</div>
+                        <div class="meta">
+                            <span class="name">Maddie J.</span>
+                            <span class="role">Parent of 3-year-old · Auburn</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="quote-card reveal">
+                    <div class="quote-stars">★★★★★</div>
+                    <p>The "no towel" step changed everything. I didn't realize I was teaching him to panic. Three weeks in and he's asking to do Treasure Hunt every night.</p>
+                    <div class="quote-author">
+                        <div class="quote-avatar">SL</div>
+                        <div class="meta">
+                            <span class="name">Sarah L.</span>
+                            <span class="role">Parent of 4-year-old</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="quote-card reveal">
+                    <div class="quote-stars">★★★★★</div>
+                    <p>My son walked into his first swim lesson and put his face in the water without being asked. The coach was shocked. I knew exactly why.</p>
+                    <div class="quote-author">
+                        <div class="quote-avatar">RH</div>
+                        <div class="meta">
+                            <span class="name">Rachel H.</span>
+                            <span class="role">Splash Auburn parent</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta" id="get-guide">
+        <div class="final-cta-inner reveal">
+            <span class="eyebrow">Ready?</span>
+            <h2 class="h2">Start Tonight's Bath With A <em>Plan.</em></h2>
+            <p class="lede center" style="margin: 0 auto 4px;">
+                Get instant access to <strong style="color:var(--primary-dark); font-weight:800;">The Miss Kris Method™</strong>. Use it in tonight's bath. See real change in 7 to 14 days.
+            </p>
+            <div class="final-cta-price">
+                <span class="amount">$9</span>
+                <span class="was">$27</span>
+                <span class="save">SAVE 67%</span>
+            </div>
+
+            <div class="final-form-wrap">
+                <div class="form-wrap">
+                    <iframe
+                        src="https://link.nilsdigital.com/widget/form/hxsH4eOYu1rlrM0dwgYR"
+                        id="inline-hxsH4eOYu1rlrM0dwgYR-2"
+                        data-layout="{'id':'INLINE'}"
+                        data-trigger-type="alwaysShow"
+                        data-trigger-value=""
+                        data-activation-type="alwaysActivated"
+                        data-activation-value=""
+                        data-deactivation-type="neverDeactivate"
+                        data-deactivation-value=""
+                        data-form-name="Lead magnet product form"
+                        data-height="undefined"
+                        data-layout-iframe-id="inline-hxsH4eOYu1rlrM0dwgYR-2"
+                        data-form-id="hxsH4eOYu1rlrM0dwgYR"
+                        title="Lead magnet product form">
+                    </iframe>
+                    <script src="https://link.nilsdigital.com/js/form_embed.js"></script>
+                </div>
+                <p class="redirect-note">
+                    <strong>Secure checkout</strong> · Instant PDF delivered to your inbox · One-time payment, no subscription.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 Splash Auburn · All Rights Reserved. &nbsp;|&nbsp; <a href="https://www.splashauburn.com" target="_blank" rel="noopener">splashauburn.com</a> &nbsp;·&nbsp; <a href="https://www.instagram.com/splashauburn" target="_blank" rel="noopener">@splashauburn</a></p>
+    </footer>
+
+</div>
+
+<script>
+    // Bubbles
+    (function() {
+        const container = document.getElementById('bubbles');
+        if (!container) return;
+        const count = 14;
+        for (let i = 0; i < count; i++) {
+            const b = document.createElement('div');
+            b.className = 'bubble';
+            const size = Math.random() * 28 + 10;
+            b.style.width = size + 'px';
+            b.style.height = size + 'px';
+            b.style.left = Math.random() * 100 + 'vw';
+            b.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            b.style.animationDelay = (Math.random() * 8) + 's';
+            container.appendChild(b);
+        }
+    })();
+
+    // Reveal
+    (function() {
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('in');
+                    io.unobserve(e.target);
+                }
+            });
+        }, { threshold: 0.15 });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    })();
+
+    // Nav shadow on scroll (inside ghl-breakout)
+    (function() {
+        const nav = document.querySelector('.nav');
+        const scroller = window; // document scrolls natively now (no fixed #ghl-breakout)
+        if (!nav) return;
+        const onScroll = () => {
+            const y = scroller === window ? window.scrollY : scroller.scrollTop;
+            nav.style.boxShadow = y > 40
+                ? '0 8px 24px rgba(42,90,132,0.10), 0 16px 40px rgba(42,90,132,0.06)'
+                : 'none';
+        };
+        scroller.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+    })();
+
+    // Smooth anchor scroll — document scrolls natively now (was the fixed #ghl-breakout)
+    (function() {
+        const scroller = document.scrollingElement || document.documentElement;
+        if (!scroller) return;
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', (e) => {
+                const id = a.getAttribute('href').slice(1);
+                if (!id) return;
+                const target = document.getElementById(id);
+                if (!target) return;
+                e.preventDefault();
+                const navEl = document.querySelector('.nav');
+                const offset = (navEl ? navEl.offsetHeight : 0) + 8;
+                const top = target.getBoundingClientRect().top + scroller.scrollTop - offset;
+                scroller.scrollTo({ top, behavior: 'smooth' });
+            });
+        });
+    })();
+</script>
+
+</div><!-- /ghl-breakout -->
+
+</body>
+</html>

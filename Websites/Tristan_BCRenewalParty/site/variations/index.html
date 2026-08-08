@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex" />
+<title>BC Renewal Party — Design Directions</title>
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root{--ink:#0d1a2b;--red:#c8102e;--muted:#586577;--line:#e5e9f0;--soft:#f4f6f9}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Hanken Grotesk',sans-serif;background:#fff;color:var(--ink);line-height:1.6}
+  .wrap{max-width:1080px;margin:0 auto;padding:64px 24px 80px}
+  .kick{font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--red);display:inline-flex;align-items:center;gap:10px}
+  .kick::before{content:'';width:26px;height:2px;background:var(--red)}
+  h1{font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:clamp(2.2rem,5vw,3.2rem);letter-spacing:-.03em;margin:18px 0 14px}
+  .lead{font-size:1.12rem;color:var(--muted);max-width:680px;margin:0 0 44px}
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{border:1px solid var(--line);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s;background:#fff}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(13,26,43,.12)}
+  .thumb{height:150px;display:flex;align-items:center;justify-content:center;font-family:'Schibsted Grotesk',sans-serif;font-weight:800;font-size:2.4rem;letter-spacing:-.02em;color:#fff}
+  .a .thumb{background:#f6f2ea;color:var(--ink);font-family:'Hanken Grotesk',serif;font-style:italic}
+  .b .thumb{background:var(--ink)}
+  .c .thumb{background:var(--soft);color:var(--ink);border-bottom:1px solid var(--line)}
+  .body{padding:22px 22px 24px;display:flex;flex-direction:column;flex:1}
+  .tag{font-family:'Schibsted Grotesk',sans-serif;font-weight:700;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--red)}
+  .body h2{font-family:'Schibsted Grotesk',sans-serif;font-size:1.3rem;margin:8px 0 8px;letter-spacing:-.02em}
+  .body p{font-size:.96rem;color:var(--muted);margin:0 0 20px;flex:1}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--red);color:#fff;text-decoration:none;font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:.95rem;padding:13px 20px;border-radius:8px;transition:background .2s}
+  .btn:hover{background:#a60c25}
+  .note{margin-top:46px;padding:22px 24px;background:var(--soft);border:1px solid var(--line);border-radius:12px;font-size:.96rem;color:var(--muted)}
+  .note b{color:var(--ink)}
+  @media(max-width:860px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="kick">BC Renewal Party</span>
+  <h1>Three design directions.</h1>
+  <p class="lead">Same content, same navy &amp; red colour scheme, three creative treatments. Every version includes the full platform, a policy search bar, category filters, and calls to action throughout. Open each, try the policy explorer, and pick the direction you want rolled out across the whole site.</p>
+  <div class="grid">
+    <div class="card a">
+      <div class="thumb">Aa</div>
+      <div class="body">
+        <span class="tag">Direction A</span>
+        <h2>The Broadsheet</h2>
+        <p>Editorial and statesmanlike. A national-newspaper feel with a serif display face, numbered sections, and a refined "policy index." Reads authoritative and trustworthy.</p>
+        <a class="btn" href="variation-a.html">View Direction A</a>
+      </div>
+    </div>
+    <div class="card b">
+      <div class="thumb">Bb</div>
+      <div class="body">
+        <span class="tag">Direction B</span>
+        <h2>The Movement</h2>
+        <p>Bold modern campaign. Oversized headlines, alternating dark panels, a confident red accent, and momentum. Reads energetic and grassroots.</p>
+        <a class="btn" href="variation-b.html">View Direction B</a>
+      </div>
+    </div>
+    <div class="card c">
+      <div class="thumb">Cc</div>
+      <div class="body">
+        <span class="tag">Direction C</span>
+        <h2>The Platform</h2>
+        <p>Clean civic-tech. Spacious and effortless to navigate, with the policy explorer as the star: search, filters, and a "find your issue in seconds" hero. Reads capable and modern.</p>
+        <a class="btn" href="variation-c.html">View Direction C</a>
+      </div>
+    </div>
+  </div>
+  <div class="note"><b>Note:</b> these are design directions for comparison. Forms show a thank-you but are not yet wired to GoHighLevel. Once you choose a direction, it gets rolled out across the full multi-page site and the forms get connected.</div>
+</div>
+</body>
+</html>

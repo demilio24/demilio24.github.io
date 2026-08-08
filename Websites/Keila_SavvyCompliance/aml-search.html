@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historial de Consultas AML | Savvy Compliance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: #ffffff;
+    color: #1e293b;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── Header ── */
+  .portal-header {
+    background: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  }
+  .header-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header-logo { height: 44px; width: auto; }
+  .header-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+
+  /* ── Tab Navigation ── */
+  .tab-nav {
+    max-width: 1100px;
+    margin: 32px auto 0;
+    padding: 0 24px;
+    display: flex;
+    gap: 4px;
+    border-bottom: 2px solid #e2e8f0;
+    flex-wrap: wrap;
+  }
+  .tab-btn {
+    padding: 14px 24px;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 600;
+    color: #64748b;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .tab-btn:hover { color: #1e293b; }
+  .tab-btn.active { color: #2563eb; border-bottom-color: #2563eb; }
+  .tab-icon { width: 18px; height: 18px; flex-shrink: 0; }
+
+  /* ── Content ── */
+  .portal-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 32px 24px 64px;
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── Stats pills ── */
+  .stats {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .pill {
+    padding: 8px 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    font-size: 14px;
+    color: #475569;
+  }
+  .pill strong { color: #0f172a; margin-left: 6px; font-weight: 700; }
+  .pill.match { background: #fef2f2; border-color: #fca5a5; color: #b91c1c; }
+  .pill.match strong { color: #7f1d1d; }
+
+  /* ── Search input ── */
+  .search-wrap {
+    position: relative;
+    margin-bottom: 24px;
+  }
+  #q {
+    width: 100%;
+    padding: 16px 18px;
+    font-size: 16px;
+    font-family: inherit;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    color: #1e293b;
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+  }
+  #q:focus { border-color: #2563eb; box-shadow: 0 0 0 3px rgba(37,99,235,0.1); }
+  #q::placeholder { color: #94a3b8; }
+  #suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    margin-top: 6px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    max-height: 360px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none;
+  }
+  #suggestions.open { display: block; }
+  .suggestion {
+    padding: 12px 16px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    border-bottom: 1px solid #f1f5f9;
+  }
+  .suggestion:last-child { border-bottom: none; }
+  .suggestion:hover, .suggestion.active { background: #f8fafc; }
+  .suggestion .name { font-weight: 500; color: #1e293b; }
+  .suggestion .meta { color: #64748b; font-size: 12px; white-space: nowrap; }
+  .suggestion strong { color: #2563eb; }
+
+  /* ── Status & summary ── */
+  .status {
+    color: #64748b;
+    font-size: 13px;
+    margin: 16px 0;
+    min-height: 18px;
+  }
+
+  /* ── Result cards ── */
+  .results {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .result {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    transition: border-color .15s;
+  }
+  .result.has-match { border-color: #fca5a5; }
+  .result.has-match .result-head { background: #fef9f9; }
+  .result-head {
+    padding: 16px 18px;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr auto auto auto;
+    gap: 16px;
+    align-items: center;
+  }
+  .result-head:hover { background: #f8fafc; }
+  .result.has-match .result-head:hover { background: #fef2f2; }
+  .result-name { font-weight: 600; color: #0f172a; }
+  .result-doc { color: #64748b; font-family: 'SF Mono', 'Fira Code', Consolas, monospace; font-size: 12px; margin-top: 2px; }
+  .result-date { color: #64748b; font-size: 13px; white-space: nowrap; }
+  .badge {
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .badge.clear { background: #ecfdf5; color: #047857; }
+  .badge.match { background: #fee2e2; color: #b91c1c; }
+  .result-body {
+    padding: 0 18px 18px;
+    border-top: 1px solid #e2e8f0;
+    display: none;
+  }
+  .result.open .result-body { display: block; }
+  .kv { display: grid; grid-template-columns: 160px 1fr; gap: 8px 16px; margin: 14px 0; font-size: 13px; }
+  .kv dt { color: #64748b; font-weight: 500; }
+  .kv dd { margin: 0; color: #1e293b; word-break: break-all; font-family: 'SF Mono', monospace; font-size: 12px; }
+  .matches-list { margin-top: 14px; }
+  .match-item {
+    background: #fff;
+    border: 1px solid #fecaca;
+    border-left: 4px solid #dc2626;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    font-size: 13px;
+  }
+  .match-item .label {
+    color: #b91c1c;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+    font-weight: 600;
+  }
+  .match-item .who { font-weight: 600; color: #0f172a; }
+  .match-item .desc { color: #475569; margin-top: 4px; font-size: 12px; }
+  .match-item a { color: #2563eb; font-size: 12px; }
+  details summary {
+    cursor: pointer;
+    color: #64748b;
+    font-size: 12px;
+    margin-top: 12px;
+    font-weight: 500;
+  }
+  details pre {
+    margin-top: 8px;
+    padding: 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 11px;
+    overflow-x: auto;
+    max-height: 320px;
+    font-family: 'SF Mono', monospace;
+  }
+  .empty {
+    text-align: center;
+    padding: 64px 24px;
+    color: #64748b;
+  }
+  .empty strong { color: #1e293b; }
+
+  /* ── Info cards (Listas tab) ── */
+  .info-card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 20px;
+  }
+  .info-card h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 16px;
+  }
+  .info-card h3 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f172a;
+    margin: 18px 0 10px;
+  }
+  .info-card p {
+    font-size: 14px;
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 12px;
+  }
+  .info-card p:last-child { margin-bottom: 0; }
+  .info-card ul { margin: 8px 0 12px 24px; color: #475569; font-size: 14px; }
+  .info-card li { margin-bottom: 6px; }
+  .info-card code {
+    background: #e2e8f0;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'SF Mono', monospace;
+    font-size: 13px;
+    color: #0f172a;
+  }
+  .alert {
+    padding: 16px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .alert.danger {
+    background: #fef2f2;
+    border: 1px solid #fca5a5;
+    border-left: 4px solid #dc2626;
+    color: #7f1d1d;
+  }
+  .alert.warn {
+    background: #fefce8;
+    border: 1px solid #fde047;
+    border-left: 4px solid #f59e0b;
+    color: #78350f;
+  }
+  .alert.info {
+    background: #eff6ff;
+    border: 1px solid #93c5fd;
+    border-left: 4px solid #2563eb;
+    color: #1e3a5f;
+  }
+  .list-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .list-item {
+    padding: 10px 12px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 13px;
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+  .list-item code {
+    color: #2563eb;
+    font-weight: 700;
+    min-width: 50px;
+  }
+  .list-item .desc { color: #475569; flex: 1; }
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    margin-right: 6px;
+    letter-spacing: 0.03em;
+  }
+  .tag.peps { background: #ecfdf5; color: #047857; }
+  .tag.sancion { background: #fee2e2; color: #b91c1c; }
+  .tag.info-tag { background: #eff6ff; color: #1d4ed8; }
+  .tag.news { background: #f5f3ff; color: #6d28d9; }
+
+  /* ── Export tab ── */
+  .export-form {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .form-row.single { grid-template-columns: 1fr; }
+  label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 6px;
+  }
+  input[type="date"], input[type="text"], select {
+    width: 100%;
+    padding: 10px 14px;
+    font-family: inherit;
+    font-size: 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    background: #ffffff;
+    color: #1e293b;
+    outline: none;
+  }
+  input[type="date"]:focus, input[type="text"]:focus, select:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+  }
+  .checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .checkbox-row input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: #2563eb;
+  }
+  .checkbox-row label {
+    margin: 0;
+    font-weight: 500;
+    cursor: pointer;
+    color: #475569;
+  }
+  .btn {
+    padding: 12px 24px;
+    background: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background .15s;
+  }
+  .btn:hover { background: #1d4ed8; }
+  .btn:disabled { background: #94a3b8; cursor: not-allowed; }
+  .btn.secondary {
+    background: #ffffff;
+    color: #2563eb;
+    border: 1px solid #2563eb;
+  }
+  .btn.secondary:hover { background: #eff6ff; }
+  .export-preview {
+    margin-top: 20px;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #475569;
+  }
+  .export-preview strong { color: #0f172a; }
+
+  @media (max-width: 640px) {
+    .result-head {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+    .form-row { grid-template-columns: 1fr; }
+    .kv { grid-template-columns: 1fr; gap: 2px 0; }
+    .kv dt { font-size: 11px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="portal-header">
+  <div class="header-inner">
+    <img
+      src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/Hcu6uHQKmO8IeN93taxz/media/b0992a4e-16d8-4975-8770-180623cdb803.png"
+      alt="Savvy Compliance"
+      class="header-logo">
+    <span class="header-title">Historial de Consultas AML</span>
+  </div>
+</header>
+
+<nav class="tab-nav">
+  <button class="tab-btn active" data-tab="busqueda" type="button">
+    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+    <span>Búsqueda</span>
+  </button>
+  <button class="tab-btn" data-tab="listas" type="button">
+    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+      <polyline points="14 2 14 8 20 8"/>
+      <line x1="9" y1="13" x2="15" y2="13"/>
+      <line x1="9" y1="17" x2="15" y2="17"/>
+    </svg>
+    <span>Listas AML</span>
+  </button>
+  <button class="tab-btn" data-tab="exportar" type="button">
+    <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+      <polyline points="7 10 12 15 17 10"/>
+      <line x1="12" y1="15" x2="12" y2="3"/>
+    </svg>
+    <span>Exportar</span>
+  </button>
+</nav>
+
+<main class="portal-content">
+
+  <!-- ════════ TAB: BÚSQUEDA ════════ -->
+  <section class="tab-panel active" id="tab-busqueda">
+    <div class="stats">
+      <div class="pill">Total de consultas<strong id="totalCount">…</strong></div>
+      <div class="pill match">Coincidencias detectadas<strong id="matchCount">…</strong></div>
+      <div class="pill">Personas distintas<strong id="peopleCount">…</strong></div>
+    </div>
+
+    <div class="search-wrap">
+      <input id="q" type="text" placeholder="Escriba un nombre (ej. Andres, Doris, Yasmany)…" autocomplete="off">
+      <div id="suggestions"></div>
+    </div>
+
+    <div class="status" id="status"></div>
+    <div class="stats" id="summary"></div>
+    <div id="searchActions" style="display:none; margin-bottom:16px;">
+      <button class="btn secondary" id="btnDownloadSearch" type="button">
+        <svg style="width:14px;height:14px;vertical-align:-2px;margin-right:6px;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Descargar historial CSV
+      </button>
+    </div>
+    <div class="results" id="results">
+      <div class="empty">
+        Empiece a escribir un nombre en el buscador. Las sugerencias aparecerán mientras escribe.
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════ TAB: LISTAS AML ════════ -->
+  <section class="tab-panel" id="tab-listas">
+
+    <div class="info-card">
+      <h2>¿Qué es esta base de datos?</h2>
+      <p>
+        Cada vez que se ejecuta un análisis de riesgo AML en n8n, el sistema consulta la <strong>API de RiskTech (AMLRISK)</strong>
+        y la respuesta completa se guarda automáticamente en Supabase. Esta página permite consultar el historial
+        de cada persona, ver en qué listas apareció y exportar los datos para auditoría.
+      </p>
+      <p>
+        La API devuelve un campo <code>datos_listas</code> con los códigos de las listas donde se consultó la persona,
+        y un campo <code>datos_tsti</code> con los detalles de las coincidencias reales (cuando existen).
+        El parámetro <code>block</code> indica si se encontró al menos una coincidencia.
+      </p>
+    </div>
+
+    <div class="alert danger">
+      <strong>Aclaración importante (correo de Harold Marín, RiskTech, junio 2025):</strong> Los números en <code>datos_listas</code>
+      son los códigos de las listas <em>donde se buscó</em> a la persona &mdash; no son coincidencias. Solo cuando
+      hay datos en <code>datos_tsti</code> (o <code>block = true</code>) la persona realmente coincide con una lista.
+    </div>
+
+    <div class="info-card">
+      <h2>Etiquetas de listas</h2>
+      <p>RiskTech agrupa las listas con etiquetas según su naturaleza:</p>
+      <div style="margin: 16px 0;">
+        <span class="tag peps">PEPS</span>
+        Personas Expuestas Políticamente. Cargos públicos, funcionarios, jueces, fiscales.
+      </div>
+      <div style="margin: 16px 0;">
+        <span class="tag sancion">SANCIONADOS</span>
+        Personas/entidades sancionadas por organismos como OFAC, ONU, Europol, ministerios públicos.
+      </div>
+      <div style="margin: 16px 0;">
+        <span class="tag info-tag">INFORMATIVAS</span>
+        Filtraciones (Panama Papers, Bahamas Leaks), procuradurías, paraísos fiscales.
+      </div>
+      <div style="margin: 16px 0;">
+        <span class="tag news">NEWS</span>
+        Noticias relacionadas con AML (Aml_News Colombia, Panamá, Venezuela, etc).
+      </div>
+    </div>
+
+    <div class="info-card">
+      <h2>Clasificación de riesgo de las listas</h2>
+      <p>
+        Clasificación validada con Keila Mulero (Savvy Compliance) en correo del 7 sept 2025.
+        <strong>Nota especial:</strong> para Panamá (país que se evalúa), Keila pidió ampliar diligencia
+        incluso para coincidencias en listas NEWS, ya que cualquier información local es relevante para el
+        riesgo de blanqueo y financiación del terrorismo.
+      </p>
+
+      <h3 style="color:#b91c1c;">🔴 Alto Riesgo (Vinculantes / Críticas)</h3>
+      <p>Coincidencia en estas listas requiere diligencia ampliada inmediata.</p>
+      <div class="list-grid" id="listGridAlto"></div>
+
+      <h3 style="color:#1d4ed8; margin-top:24px;">🔵 No Vinculantes (Informativas / Periodísticas)</h3>
+      <p>Estas listas son informativas. Evaluar contexto antes de bloquear, pero documentar siempre.</p>
+      <div class="list-grid" id="listGridInfo"></div>
+    </div>
+
+    <div class="alert info">
+      <strong>Estructura de la respuesta de la API:</strong> Cada coincidencia en <code>datos_tsti</code>
+      incluye los campos: <code>lista</code> (código), <code>etiqueta</code> (PEPS/Sancionados/Informativas/News con su color),
+      <code>nombre_apellido</code> del registro coincidente, <code>categoria</code> (Fiscales, Narcotráfico, Paraíso Fiscal, etc),
+      <code>pais</code>, <code>detalle</code> (descripción), y <code>url</code> con la fuente.
+    </div>
+  </section>
+
+  <!-- ════════ TAB: EXPORTAR ════════ -->
+  <section class="tab-panel" id="tab-exportar">
+    <div class="export-form">
+      <h2 style="font-size:20px; font-weight:700; color:#0f172a; margin-bottom:8px;">Exportar consultas a CSV</h2>
+      <p style="color:#475569; margin-bottom:24px;">Descargue un archivo CSV con todas las consultas en un rango de fechas. Incluye nombre, doc ID, fecha, coincidencia (sí/no), conteo y resumen.</p>
+
+      <div class="form-row">
+        <div>
+          <label for="dateFrom">Desde</label>
+          <input type="date" id="dateFrom">
+        </div>
+        <div>
+          <label for="dateTo">Hasta</label>
+          <input type="date" id="dateTo">
+        </div>
+      </div>
+
+      <div class="form-row single">
+        <div>
+          <label for="nameFilter">Filtrar por nombre (opcional)</label>
+          <input type="text" id="nameFilter" placeholder="Dejar vacío para incluir todos">
+        </div>
+      </div>
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="matchesOnly">
+        <label for="matchesOnly">Solo coincidencias (excluir consultas sin match)</label>
+      </div>
+
+      <div class="checkbox-row">
+        <input type="checkbox" id="includeJson">
+        <label for="includeJson">Incluir respuesta completa (JSON) en una columna</label>
+      </div>
+
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn" id="btnPreview" type="button">Previsualizar</button>
+        <button class="btn secondary" id="btnDownload" type="button" disabled>Descargar CSV</button>
+      </div>
+
+      <div class="export-preview" id="exportPreview" style="display:none;"></div>
+    </div>
+  </section>
+
+</main>
+
+<script type="module">
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2';
+
+const SUPABASE_URL = 'https://nroeiabeirifurdaybyo.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5yb2VpYWJlaXJpZnVyZGF5YnlvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTE2MDc2MjgsImV4cCI6MjA2NzE4MzYyOH0.ic9QulLj2JmKepFg3WlA6ux2urUwQFoNDrfK5b5Fh-M';
+
+const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+
+// Fetch EVERY row for a query, paging past Supabase's 1000-row response cap.
+// buildQuery() must return a FRESH query builder each call (filters + a stable
+// .order on a unique column such as id); .range() is appended per page. Without
+// this, any read over 1000 rows silently truncates (compliance data loss).
+async function fetchAllRows(buildQuery, pageSize = 1000) {
+  const rows = [];
+  for (let from = 0; ; from += pageSize) {
+    const { data, error } = await buildQuery().range(from, from + pageSize - 1);
+    if (error) return { rows, error, truncated: false };
+    const batch = data || [];
+    rows.push(...batch);
+    if (batch.length < pageSize) return { rows, error: null, truncated: false };
+    if (from >= 500000) return { rows, error: null, truncated: true }; // runaway guard
+  }
+}
+
+// ─── List classification (Keila + Harold emails) ──────────────────────────
+const LISTAS_ALTO_RIESGO = {
+  '3765': 'OFAC',
+  '2723': 'ONU',
+  '3766': 'Europol',
+  '7264': 'Panamá (consolidada)',
+};
+// 80+ PEP codes from Keila's classification — store as a Set for quick lookup
+const PEP_CODES = new Set('1124,1155,1211,1265,1427,1461,1467,1497,1572,1611,1634,1636,1675,1749,1755,1835,1851,1892,1914,1969,1994,1995,2124,2138,2151,2166,2179,2181,2258,2384,2422,2474,2489,2491,2518,2547,2575,2651,2653,2668,2675,2725,2751,2753,2817,2859,3122,3124,3126,3154,3192,3273,3278,3285,3291,3319,3342,3348,3369,3395,3411,3433,3439,3494,3498,3523,3564,3583,3625,3728,3774,3791,3813,3825,3877,3923,4128,4145,4191,4211,4223,4259,4366,4368,4429,4457,4466'.split(','));
+
+// Explicación breve de cada lista (se muestra en los resultados de búsqueda)
+const DESCRIPCIONES_LISTAS = {
+  // Alto riesgo - vinculantes
+  'OFAC': 'EE.UU. — Office of Foreign Assets Control. Sanciones del Tesoro contra terroristas, narcotraficantes y regímenes hostiles.',
+  'ONU': 'Sanciones del Consejo de Seguridad de la ONU.',
+  'Europol': 'Sanciones de la Unión Europea contra individuos y entidades.',
+  'PEPS Colombia': 'Personas Expuestas Políticamente de Colombia: funcionarios públicos, fiscales, alcaldes, concejales.',
+  'PEPS Perú': 'Personas Expuestas Políticamente de Perú: fiscales, ministros, congresistas.',
+  'PEPS Panamá': 'Personas Expuestas Políticamente de Panamá.',
+  'PEPS': 'Personas Expuestas Políticamente — cargos públicos con poder de decisión.',
+  // Informativas / News
+  'Panama Papers': 'Filtración 2016 de la firma panameña Mossack Fonseca. Personas vinculadas a sociedades offshore usadas para evasión fiscal.',
+  'Offshore leaks': 'Filtración del ICIJ con sociedades offshore en paraísos fiscales (Suiza, Singapur, Hong Kong, etc).',
+  'Bahamas leaks': 'Filtración 2016 sobre sociedades offshore registradas en Bahamas.',
+  'Aml_News Colombia': 'Noticias periodísticas en Colombia relacionadas con AML, narcotráfico, lavado de dinero o crímenes financieros.',
+  'Aml_News Panamá': 'Noticias periodísticas en Panamá relacionadas con AML/lavado.',
+  'Aml_News Venezuela': 'Noticias periodísticas en Venezuela relacionadas con AML/lavado.',
+  'Aml_News Paraguay': 'Noticias periodísticas en Paraguay relacionadas con AML/lavado.',
+  'Aml_News Chile': 'Noticias periodísticas en Chile relacionadas con AML/lavado.',
+  'Aml_News Puerto Rico': 'Noticias periodísticas en Puerto Rico relacionadas con AML/lavado.',
+  'Aml_News R. Dominicana': 'Noticias periodísticas en R. Dominicana relacionadas con AML/lavado.',
+  'Ministerio público Colombia': 'Casos públicos investigados por la Fiscalía General de Colombia (corrupción, narcotráfico, delitos contra la administración pública).',
+  'Ministerio público Panamá': 'Casos públicos del Ministerio Público de Panamá.',
+  'Ministerio público República Dominicana': 'Casos del Ministerio Público de R. Dominicana.',
+  'Policía Nacional Colombia': 'Personas con antecedentes en la Policía Nacional de Colombia.',
+  'Sanciones en Firme Superintendencia Financiera de Colombia': 'Sanciones firmes de la Superfinanciera colombiana a entidades reguladas.',
+  'Ejercicio ilegal de actividad Financiera Superfinanciera': 'Captadores ilegales identificados por la Superfinanciera de Colombia.',
+  'Boletines Procuraduría Colombia': 'Sanciones disciplinarias de la Procuraduría General de la Nación de Colombia.',
+  'Funcionarios y Contratistas Contraloría': 'Funcionarios y contratistas sancionados por la Contraloría de Colombia.',
+  'Liquidación Judicial Supersociedades': 'Empresas en proceso de liquidación judicial (Supersociedades de Colombia).',
+  'Sociedades en Liquidación Obligatoria Supersociedades': 'Empresas en liquidación obligatoria (Supersociedades de Colombia).',
+  'Junta Central de Contadores': 'Contadores públicos sancionados o suspendidos en Colombia.',
+  'Entidades en Acuerdo de Reestructuración Supersalud': 'Entidades del sector salud en reestructuración (Supersalud Colombia).',
+  'Entidades en Medida Cautelar Vigilancia Especial Supersalud': 'Entidades del sector salud bajo vigilancia especial.',
+  'E en Medida Cautelar En Recuperación Supersalud': 'Entidades del sector salud en medida cautelar de recuperación.',
+  'Banco Mundial': 'Empresas/personas sancionadas por el Banco Mundial (debarment list).',
+  'European Bank for Reconstruction and Development': 'Entidades sancionadas por el Banco Europeo de Reconstrucción y Desarrollo.',
+  'OSFI': 'Office of the Superintendent of Financial Institutions (Canadá).',
+  'DGII': 'Dirección General de Impuestos Internos (R. Dominicana).',
+  'Bureau of Industry and Security': 'BIS — Departamento de Comercio de EE.UU. (Export Control).',
+  'Immigration and Customs Enforcement': 'ICE — Inmigración y aduanas de EE.UU. (most-wanted).',
+  'Contratistas sancionados Panamá': 'Contratistas del Estado panameño sancionados.',
+  'AUSTRALIAN FOREIGN AFFAIRS': 'Sanciones del Ministerio de Relaciones Exteriores de Australia.',
+  'ASIAN BANK Anticorruption and Integrity': 'Lista del Banco Asiático de Desarrollo (corrupción).',
+  'GREATER VICTORIA CRIME STOPPERS': 'Reportes ciudadanos de delincuentes buscados (Victoria, Canadá).',
+};
+
+// Inferir descripción a partir del nombre de la lista o categoría
+function describirLista(nombreLista, categoria) {
+  if (!nombreLista && !categoria) return '';
+  // Match exacto
+  if (nombreLista && DESCRIPCIONES_LISTAS[nombreLista]) return DESCRIPCIONES_LISTAS[nombreLista];
+  // Match por prefijo
+  if (nombreLista) {
+    for (const [key, desc] of Object.entries(DESCRIPCIONES_LISTAS)) {
+      if (nombreLista.toLowerCase().includes(key.toLowerCase())) return desc;
+    }
+  }
+  // Fallback por categoría
+  const cat = (categoria || '').toLowerCase();
+  if (cat.includes('pep') || cat.includes('fiscales') || cat.includes('gerentes')) return 'Persona expuesta políticamente — cargo público.';
+  if (cat.includes('paraíso') || cat.includes('paraiso')) return 'Vinculado a paraíso fiscal según filtraciones.';
+  if (cat.includes('narco')) return 'Vinculado a narcotráfico según fuentes oficiales o periodísticas.';
+  if (cat.includes('sancion')) return 'Persona/entidad sancionada por un organismo oficial.';
+  if (cat.includes('concierto') || cat.includes('delinquir')) return 'Procesada por concierto para delinquir.';
+  if (cat.includes('admin')) return 'Vinculada a delitos contra la administración pública.';
+  return '';
+}
+
+const LISTAS_INFORMATIVAS = {
+  '1189': 'Aml_News Paraguay',
+  '1313': 'Aml_News Chile',
+  '1395': 'Policía Nacional Colombia',
+  '1422': 'Sanciones en Firme Superintendencia Financiera de Colombia',
+  '1627': 'Entidades en Acuerdo de Reestructuración Supersalud',
+  '1692': 'Ministerio público Colombia',
+  '1871': 'Ejercicio ilegal de actividad Financiera Superfinanciera',
+  '1976': 'Entidades en Medida Cautelar Vigilancia Especial Supersalud',
+  '2375': 'Banco Mundial',
+  '2464': 'DGII',
+  '2487': 'Boletines Procuraduría Colombia',
+  '2637': 'European Bank for Reconstruction and Development',
+  '2776': 'Bureau of Industry and Security (BIS)',
+  '2887': 'Aml_News Puerto Rico',
+  '2889': 'Aml_News R. Dominicana',
+  '2955': 'Bahamas leaks',
+  '3113': 'OSFI',
+  '3241': 'Funcionarios y Contratistas Contraloría',
+  '3356': 'Aml_News Venezuela',
+  '3417': 'GREATER VICTORIA CRIME STOPPERS',
+  '3423': 'E en Medida Cautelar En Recuperación Supersalud',
+  '3699': 'Ministerio público República Dominicana',
+  '3754': 'Contratistas sancionados Panamá',
+  '3787': 'Ministerio público Panamá',
+  '3861': 'Liquidación Judicial Supersociedades',
+  '3875': 'Aml_News Colombia',
+  '3889': 'Junta Central de Contadores',
+  '3982': 'Sociedades en Liquidación Obligatoria Supersociedades',
+  '4144': 'ASIAN BANK Anticorruption and Integrity',
+  '4193': 'Immigration and Customs Enforcement (ICE)',
+  '4297': 'Aml_News Panamá',
+  '4298': 'Offshore leaks',
+  '4454': 'AUSTRALIAN FOREIGN AFFAIRS',
+};
+
+// ─── DOM refs ─────────────────────────────────────────────────────────────
+const $q = document.getElementById('q');
+const $sug = document.getElementById('suggestions');
+const $status = document.getElementById('status');
+const $results = document.getElementById('results');
+const $summary = document.getElementById('summary');
+const $totalCount = document.getElementById('totalCount');
+const $matchCount = document.getElementById('matchCount');
+const $peopleCount = document.getElementById('peopleCount');
+
+let activeSuggestion = -1;
+let suggestionItems = [];
+let debounceTimer = null;
+let lastExportRows = null;
+let currentSearchData = null;
+let currentSearchName = null;
+
+// ─── Tab switching ────────────────────────────────────────────────────────
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+  });
+});
+
+// ─── Render Listas tab grids ──────────────────────────────────────────────
+function renderListas() {
+  const $alto = document.getElementById('listGridAlto');
+  const $info = document.getElementById('listGridInfo');
+
+  const altoItems = [];
+  altoItems.push(`<div class="list-item"><code>3765</code><span class="desc"><span class="tag sancion">OFAC</span>EEUU - Office of Foreign Assets Control</span></div>`);
+  altoItems.push(`<div class="list-item"><code>2723</code><span class="desc"><span class="tag sancion">ONU</span>Sanciones del Consejo de Seguridad ONU</span></div>`);
+  altoItems.push(`<div class="list-item"><code>3766</code><span class="desc"><span class="tag sancion">Europol</span>Sanciones de la Unión Europea</span></div>`);
+  altoItems.push(`<div class="list-item"><code>7264</code><span class="desc"><span class="tag sancion">Panamá</span>Lista consolidada Panamá</span></div>`);
+  altoItems.push(`<div class="list-item"><code>${PEP_CODES.size} códigos</code><span class="desc"><span class="tag peps">PEPS</span>Personas Expuestas Políticamente (múltiples países)</span></div>`);
+  $alto.innerHTML = altoItems.join('');
+
+  const infoItems = Object.entries(LISTAS_INFORMATIVAS)
+    .sort((a, b) => parseInt(a[0]) - parseInt(b[0]))
+    .map(([code, name]) => {
+      let tag = 'info-tag';
+      if (name.includes('Aml_News')) tag = 'news';
+      return `<div class="list-item"><code>${code}</code><span class="desc"><span class="tag ${tag}">${tag === 'news' ? 'NEWS' : 'INFO'}</span>${escapeHtml(name)}</span></div>`;
+    });
+  $info.innerHTML = infoItems.join('');
+}
+
+// ─── Total stats ──────────────────────────────────────────────────────────
+async function loadStats() {
+  const { count: total } = await supabase
+    .from('risktech_aml_results')
+    .select('*', { count: 'exact', head: true });
+  $totalCount.textContent = total != null ? total.toLocaleString('es-PA') : '?';
+
+  const { count: matches } = await supabase
+    .from('risktech_aml_results')
+    .select('*', { count: 'exact', head: true })
+    .eq('has_match', true);
+  $matchCount.textContent = matches != null ? matches.toLocaleString('es-PA') : '?';
+
+  // distinct people — page past the 1000-row cap so the count is exact, not
+  // capped (was showing ~958 of 1,612 real). Ordered by id for stable paging.
+  const { rows: names } = await fetchAllRows(() => supabase
+    .from('risktech_aml_results')
+    .select('person_name')
+    .not('person_name', 'is', null)
+    .neq('person_name', '')
+    .order('id', { ascending: true }));
+  const distinct = new Set((names || []).map(n => (n.person_name || '').trim().toLowerCase()).filter(Boolean));
+  $peopleCount.textContent = distinct.size.toLocaleString('es-PA');
+}
+
+// ─── Suggestions (typeahead) ──────────────────────────────────────────────
+async function fetchSuggestions(prefix) {
+  if (!prefix || prefix.length < 2) {
+    $sug.classList.remove('open'); $sug.innerHTML = ''; suggestionItems = [];
+    return;
+  }
+  const { data, error } = await supabase
+    .from('risktech_aml_results')
+    .select('person_name')
+    .ilike('person_name', `%${prefix}%`)
+    .not('person_name', 'is', null)
+    .neq('person_name', '')
+    .limit(60);
+  if (error) { $status.textContent = 'Error: ' + error.message; return; }
+  const counts = new Map();
+  for (const r of data || []) {
+    const n = r.person_name?.trim();
+    if (!n) continue;
+    counts.set(n, (counts.get(n) || 0) + 1);
+  }
+  const names = [...counts.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).slice(0, 10);
+  if (!names.length) { $sug.classList.remove('open'); suggestionItems = []; return; }
+  suggestionItems = names;
+  $sug.innerHTML = names.map(([n, c], i) =>
+    `<div class="suggestion" data-i="${i}" data-name="${escapeAttr(n)}">
+      <span class="name">${highlight(n, prefix)}</span>
+      <span class="meta">${c} consulta${c > 1 ? 's' : ''}</span>
+    </div>`
+  ).join('');
+  $sug.classList.add('open');
+  activeSuggestion = -1;
+}
+
+// ─── Load full history for a name ─────────────────────────────────────────
+async function loadHistory(name) {
+  $sug.classList.remove('open');
+  $status.textContent = `Cargando historial de ${name}…`;
+  $results.innerHTML = '';
+  $summary.innerHTML = '';
+
+  const { data, error } = await supabase
+    .from('risktech_aml_results')
+    .select('*')
+    .ilike('person_name', name)
+    .order('executed_at', { ascending: false })
+    .limit(500);
+
+  if (error) { $status.textContent = 'Error: ' + error.message; return; }
+  if (!data?.length) {
+    $status.textContent = '';
+    $results.innerHTML = `<div class="empty">No se encontraron registros para <strong>${escapeHtml(name)}</strong></div>`;
+    document.getElementById('searchActions').style.display = 'none';
+    currentSearchData = null;
+    return;
+  }
+
+  currentSearchData = data;
+  currentSearchName = name;
+  document.getElementById('searchActions').style.display = 'block';
+
+  const matchCount = data.filter(r => r.has_match).length;
+  const docs = new Set(data.map(r => r.doc_id).filter(Boolean));
+  const dates = data.map(r => new Date(r.executed_at)).filter(d => !isNaN(d));
+  const oldest = dates.length ? new Date(Math.min(...dates)) : null;
+  const newest = dates.length ? new Date(Math.max(...dates)) : null;
+
+  $summary.innerHTML = `
+    <div class="pill">Consultas<strong>${data.length}</strong></div>
+    <div class="pill ${matchCount ? 'match' : ''}">Coincidencias<strong>${matchCount}</strong></div>
+    <div class="pill">Documentos<strong>${docs.size}</strong></div>
+    ${oldest ? `<div class="pill">Primera<strong>${fmtDate(oldest)}</strong></div>` : ''}
+    ${newest ? `<div class="pill">Última<strong>${fmtDate(newest)}</strong></div>` : ''}
+  `;
+  $status.textContent = `${data.length} consulta${data.length > 1 ? 's' : ''} para "${name}"`;
+  $results.innerHTML = data.map((r, i) => renderResult(r, i)).join('');
+
+  document.querySelectorAll('.result-head').forEach(el => {
+    el.addEventListener('click', () => el.parentElement.classList.toggle('open'));
+  });
+}
+
+function renderResult(r) {
+  const date = r.executed_at ? new Date(r.executed_at) : null;
+  const dateStr = date ? fmtDateTime(date) : '—';
+  const badge = r.has_match
+    ? `<span class="badge match">⚠ ${r.match_count} coincidencia${r.match_count > 1 ? 's' : ''}</span>`
+    : `<span class="badge clear">✓ sin coincidencias</span>`;
+  const matches = renderMatchDetails(r.response_payload);
+  return `
+    <div class="result ${r.has_match ? 'has-match' : ''}">
+      <div class="result-head">
+        <div>
+          <div class="result-name">${escapeHtml(r.person_name || '—')}</div>
+          <div class="result-doc">${escapeHtml(r.doc_id || 'sin documento')}</div>
+        </div>
+        ${badge}
+        <div class="result-date">${dateStr}</div>
+        <div style="color:#94a3b8;font-size:12px">▾</div>
+      </div>
+      <div class="result-body">
+        <dl class="kv">
+          <dt>ID de ejecución</dt><dd>${escapeHtml(r.execution_id)}</dd>
+          <dt>ID de workflow</dt><dd>${escapeHtml(r.workflow_id || '—')}</dd>
+          <dt>Nodo</dt><dd>${escapeHtml(r.node_name || '—')}</dd>
+          <dt>Estado</dt><dd>${escapeHtml(r.status || '—')}</dd>
+          <dt>Origen</dt><dd>${escapeHtml(r.source || '—')}</dd>
+          <dt>Registrado</dt><dd>${r.created_at ? fmtDateTime(new Date(r.created_at)) : '—'}</dd>
+        </dl>
+        ${matches}
+        <details>
+          <summary>Respuesta completa (JSON)</summary>
+          <pre>${escapeHtml(JSON.stringify(r.response_payload, null, 2))}</pre>
+        </details>
+      </div>
+    </div>
+  `;
+}
+
+function renderMatchDetails(payload) {
+  if (!payload || typeof payload !== 'object') return '';
+  const blocks = [];
+  const lists = [
+    ['datos_tsti', 'PEP / Sanciones / Noticias'],
+    ['datos_pro', 'Procuraduría'],
+    ['datos_ramajudicial', 'Rama Judicial'],
+    ['datos_amlnews', 'AML News'],
+  ];
+  for (const [key, label] of lists) {
+    const arr = Array.isArray(payload[key]) ? payload[key] : [];
+    if (!arr.length) continue;
+    for (const m of arr) {
+      const cats = Array.isArray(m.categoria) ? m.categoria.join(', ') : (m.categoria || '');
+      const names = Array.isArray(m.nombre_apellido) ? m.nombre_apellido.join(', ') : '';
+      const country = Array.isArray(m.pais) ? m.pais.join(', ') : '';
+      const detail = Array.isArray(m.detalle) ? m.detalle.join(' ') : (m.detalle || '');
+      const listName = Array.isArray(m.nombre_relacion_lista) ? m.nombre_relacion_lista.join(', ') : '';
+      const listCode = Array.isArray(m.lista) ? m.lista.join(', ') : (m.lista || '');
+      const isHighRisk = listCode && (LISTAS_ALTO_RIESGO[listCode] || PEP_CODES.has(listCode));
+      const riskBadge = isHighRisk ? '<span class="tag sancion">ALTO RIESGO</span>' : '<span class="tag info-tag">INFORMATIVA</span>';
+      const url = m.url || '';
+      const explanation = describirLista(listName, cats);
+      blocks.push(`
+        <div class="match-item">
+          <div class="label">${escapeHtml(label)}${listName ? ' · ' + escapeHtml(listName) : ''}${listCode ? ' · lista ' + escapeHtml(listCode) : ''}</div>
+          <div>${riskBadge}${cats ? '<span style="color:#475569; font-size:12px;">' + escapeHtml(cats) + '</span>' : ''}${country ? ' &middot; ' + escapeHtml(country) : ''}</div>
+          ${explanation ? `<div style="margin-top:6px; padding:8px 10px; background:#f1f5f9; border-radius:6px; font-size:12px; color:#475569; font-style:italic; border-left:3px solid #94a3b8;"><strong style="color:#1e293b; font-style:normal;">¿Qué es esta lista?</strong> ${escapeHtml(explanation)}</div>` : ''}
+          <div class="who" style="margin-top:8px;">${escapeHtml(names || '(sin nombre en lista)')}</div>
+          ${detail ? `<div class="desc">${escapeHtml(detail)}</div>` : ''}
+          ${url ? `<div style="margin-top:6px;"><a href="${escapeAttr(url)}" target="_blank" rel="noopener">Fuente →</a></div>` : ''}
+        </div>
+      `);
+    }
+  }
+  if (!blocks.length) return '';
+  return `<div class="matches-list">${blocks.join('')}</div>`;
+}
+
+// ─── Export tab ───────────────────────────────────────────────────────────
+async function previewExport() {
+  const $btnPreview = document.getElementById('btnPreview');
+  const $btnDownload = document.getElementById('btnDownload');
+  const $preview = document.getElementById('exportPreview');
+  const dateFrom = document.getElementById('dateFrom').value;
+  const dateTo = document.getElementById('dateTo').value;
+  const nameFilter = document.getElementById('nameFilter').value.trim();
+  const matchesOnly = document.getElementById('matchesOnly').checked;
+
+  $btnPreview.disabled = true;
+  $btnPreview.textContent = 'Cargando…';
+  $preview.style.display = 'block';
+  $preview.innerHTML = 'Consultando Supabase…';
+
+  // Build a FRESH filtered query per page. executed_at can tie across rows, so
+  // add the unique id as a secondary sort → a total order → gap/dup-free paging.
+  const buildExportQuery = () => {
+    let q = supabase.from('risktech_aml_results').select('*')
+      .order('executed_at', { ascending: false })
+      .order('id', { ascending: false });
+    if (dateFrom) q = q.gte('executed_at', dateFrom + 'T00:00:00Z');
+    if (dateTo) q = q.lte('executed_at', dateTo + 'T23:59:59Z');
+    if (nameFilter) q = q.ilike('person_name', `%${nameFilter}%`);
+    if (matchesOnly) q = q.eq('has_match', true);
+    return q;
+  };
+
+  // Supabase caps EVERY response at 1000 rows; page until we have them all,
+  // otherwise this compliance export silently drops records past row 1000.
+  const { rows, error, truncated } = await fetchAllRows(buildExportQuery);
+  $btnPreview.disabled = false;
+  $btnPreview.textContent = 'Previsualizar';
+
+  if (error) {
+    $preview.innerHTML = `<span style="color:#b91c1c;">Error: ${escapeHtml(error.message)}</span>`;
+    $btnDownload.disabled = true;
+    return;
+  }
+  lastExportRows = rows;
+  const matches = lastExportRows.filter(r => r.has_match).length;
+  const people = new Set(lastExportRows.map(r => (r.person_name || '').toLowerCase()).filter(Boolean)).size;
+  $preview.innerHTML = `
+    <strong>${lastExportRows.length}</strong> registros encontrados &middot;
+    <strong>${matches}</strong> coincidencias &middot;
+    <strong>${people}</strong> personas distintas
+    ${truncated ? '<br><span style="color:#b45309;">⚠ Conjunto de datos muy grande; se alcanzó el límite de seguridad. Refine los filtros.</span>' : ''}
+  `;
+  $btnDownload.disabled = lastExportRows.length === 0;
+}
+
+function downloadCsv() {
+  if (!lastExportRows || !lastExportRows.length) return;
+  const includeJson = document.getElementById('includeJson').checked;
+  exportRowsToCsv(lastExportRows, `aml-historial-${new Date().toISOString().slice(0, 10)}.csv`, includeJson);
+}
+
+function downloadSearchCsv() {
+  if (!currentSearchData || !currentSearchData.length) return;
+  const safeName = (currentSearchName || 'busqueda').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  exportRowsToCsv(currentSearchData, `aml-${safeName}-${new Date().toISOString().slice(0, 10)}.csv`, true);
+}
+
+function exportRowsToCsv(rows, filename, includeJson) {
+  const headers = [
+    'fecha_consulta', 'nombre', 'documento', 'coincide', 'cantidad_coincidencias',
+    'resumen_coincidencias', 'workflow_id', 'execution_id', 'origen', 'registrado_en'
+  ];
+  if (includeJson) headers.push('respuesta_json');
+
+  const csvRows = rows.map(r => {
+    const summary = matchSummary(r.response_payload);
+    const base = [
+      r.executed_at || '',
+      r.person_name || '',
+      r.doc_id || '',
+      r.has_match ? 'sí' : 'no',
+      r.match_count || 0,
+      summary,
+      r.workflow_id || '',
+      r.execution_id || '',
+      r.source || '',
+      r.created_at || ''
+    ];
+    if (includeJson) base.push(JSON.stringify(r.response_payload || {}));
+    return base;
+  });
+
+  const csv = [headers, ...csvRows].map(row =>
+    row.map(cell => {
+      const s = String(cell ?? '');
+      if (s.includes('"') || s.includes(',') || s.includes('\n') || s.includes(';')) {
+        return '"' + s.replace(/"/g, '""') + '"';
+      }
+      return s;
+    }).join(',')
+  ).join('\n');
+
+  const bom = '﻿'; // UTF-8 BOM for Excel
+  const blob = new Blob([bom + csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function matchSummary(payload) {
+  if (!payload || typeof payload !== 'object') return '';
+  const parts = [];
+  for (const [key, label] of [['datos_tsti', 'PEP/Sanc/News'], ['datos_pro', 'PRO'], ['datos_ramajudicial', 'RamaJud'], ['datos_amlnews', 'News']]) {
+    const arr = Array.isArray(payload[key]) ? payload[key] : [];
+    if (arr.length) {
+      const tags = new Set();
+      for (const m of arr) {
+        const cats = Array.isArray(m.categoria) ? m.categoria : [m.categoria];
+        cats.forEach(c => c && tags.add(c));
+      }
+      parts.push(`${label}(${arr.length}): ${[...tags].join('/')}`);
+    }
+  }
+  return parts.join(' | ');
+}
+
+// ─── Helpers ──────────────────────────────────────────────────────────────
+function fmtDate(d) { return d.toLocaleDateString('es-PA', { year: 'numeric', month: 'short', day: 'numeric' }); }
+function fmtDateTime(d) { return d.toLocaleString('es-PA', { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' }); }
+function escapeHtml(s) { return String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c])); }
+function escapeAttr(s) { return escapeHtml(s); }
+function highlight(name, prefix) {
+  const i = name.toLowerCase().indexOf(prefix.toLowerCase());
+  if (i < 0) return escapeHtml(name);
+  return escapeHtml(name.slice(0, i)) + '<strong>' + escapeHtml(name.slice(i, i + prefix.length)) + '</strong>' + escapeHtml(name.slice(i + prefix.length));
+}
+
+// ─── Event listeners ──────────────────────────────────────────────────────
+$q.addEventListener('input', () => {
+  const v = $q.value.trim();
+  if (debounceTimer) clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(() => fetchSuggestions(v), 180);
+});
+
+$q.addEventListener('keydown', e => {
+  if (!$sug.classList.contains('open')) {
+    if (e.key === 'Enter' && $q.value.trim()) {
+      e.preventDefault(); loadHistory($q.value.trim());
+    }
+    return;
+  }
+  if (e.key === 'ArrowDown') { e.preventDefault(); moveSuggestion(1); }
+  else if (e.key === 'ArrowUp') { e.preventDefault(); moveSuggestion(-1); }
+  else if (e.key === 'Enter') {
+    e.preventDefault();
+    if (activeSuggestion >= 0 && suggestionItems[activeSuggestion]) {
+      const [name] = suggestionItems[activeSuggestion];
+      $q.value = name; loadHistory(name);
+    } else if ($q.value.trim()) {
+      loadHistory($q.value.trim());
+    }
+  } else if (e.key === 'Escape') {
+    $sug.classList.remove('open');
+  }
+});
+
+function moveSuggestion(d) {
+  const items = $sug.querySelectorAll('.suggestion');
+  if (!items.length) return;
+  activeSuggestion = (activeSuggestion + d + items.length) % items.length;
+  items.forEach((el, i) => el.classList.toggle('active', i === activeSuggestion));
+}
+
+$sug.addEventListener('click', e => {
+  const el = e.target.closest('.suggestion');
+  if (!el) return;
+  const name = el.dataset.name;
+  $q.value = name; loadHistory(name);
+});
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('.search-wrap')) $sug.classList.remove('open');
+});
+
+document.getElementById('btnPreview').addEventListener('click', previewExport);
+document.getElementById('btnDownload').addEventListener('click', downloadCsv);
+document.getElementById('btnDownloadSearch').addEventListener('click', downloadSearchCsv);
+
+// Default date range: last 90 days
+{
+  const today = new Date();
+  const past = new Date(); past.setDate(today.getDate() - 90);
+  document.getElementById('dateFrom').value = past.toISOString().slice(0, 10);
+  document.getElementById('dateTo').value = today.toISOString().slice(0, 10);
+}
+
+// ─── Init ─────────────────────────────────────────────────────────────────
+loadStats();
+renderListas();
+</script>
+</body>
+</html>

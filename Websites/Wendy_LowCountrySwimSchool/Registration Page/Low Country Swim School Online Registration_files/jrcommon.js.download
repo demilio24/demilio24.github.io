@@ -1,0 +1,1662 @@
+﻿//
+function jtgo(url) {
+    document.location.href = url;
+    return false;
+}
+function jt_f(id) {
+    document.location.href = "/jr4.0/Family/FamilyDetail?xID=" + id;
+    return false;
+}
+function jt_s(id) {
+    document.location.href = "/jr4.0/Student/StudentDetail?xID=" + id; 
+    return false;
+}
+function jt_c(id) {
+    document.location.href = JrSiteNavURLs.CLASS_DETAIL + "?xID=" + id;
+    return false;
+}
+function jt_ct(id) {
+    document.location.href = "/jr4.0/Family/ContactDetail?xID=" + id;
+    return false;
+}
+function jt_i(id) {
+    return jtgo("/jr4.0/Staff/StaffDetail?xID=" + id);
+}
+function jt_rec(id) {
+    return jrnw(JrSiteNavURLs.EDIT_RECITAL + "?xID=" + id, ",width=1024,height=768");
+}
+
+function sr(id) {
+    document.location.href = "display.asp?fo=search results&rm=searchpage&key=" + id;
+    return false;
+}
+function jrnw(url, opts) {
+    var ret = window.open(
+        url,
+        "",
+        "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1" + opts
+    );
+    return false;
+}
+function jrhnw(url, opts) {
+    window.open(
+        url,
+        "",
+        "toolbar=0,location=0,directories=0,status=0,menubar=0,scrollbars=1,resizable=1" + opts
+    );
+    return false;
+}
+function jrfrmsel(url) {
+    document.frmSelections.action = url;
+    document.frmSelections.submit();
+    return false;
+}
+function jthome() {
+    if (VerifySave(null, this)) {
+        document.location.href = "jr3.0/Home";
+    }
+    return false;
+}
+function showCal(id) {
+    jQuery("#" + id).addClass("chg");
+    showCalendar(id, "x", "y", id, "m/d/y");
+}
+function showCal_noev(id) {
+    if (typeof id == "object") {
+        var el = id.target || id.srcElement;
+        id = el.previousSibling.id;
+    }
+    showCalendar(id, "x", "y", id, "m/d/y");
+}
+function showCalv2(id) {
+    if (typeof id == "object") {
+        var el = id.target || id.srcElement;
+        id = el.previousSibling.id;
+    }
+    $("#" + id).addClass("chg");
+    showCalendar(id, "x", "y", id, "m/d/y");
+}
+function chktm(e) {
+    var k = document.all ? e.keyCode : e.which;
+    if (k == 32 || k == 97 || k == 65 || k == 58 || k == 112 || k == 80 || k == 77 || k == 109) {
+        return true;
+    }
+    return isNumKey(e);
+}
+
+function listOver(td) {
+    jQuery(td).addClass("listOver");
+}
+function listOut(td) {
+    jQuery(td).removeClass("listOver");
+}
+function btnOver(el) {
+    el.style.textDecoration = "underline";
+}
+function btnOut(el) {
+    el.style.textDecoration = "none";
+}
+function mb(id) {
+    $("#" + id).attr("size", "25");
+}
+function sb(id) {
+    $("#" + id).attr("size", "8");
+}
+function chkpg() {}
+function cev() {
+    return true;
+}
+
+function setchk(e) {
+    var el = e.target || e.srcElement;
+    if (el) {
+        el.value = el.checked == true ? "1" : "0";
+        $(el).addClass("chg");
+    }
+}
+
+//date
+var MONTH_NAMES = new Array(
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+);
+var DAY_NAMES = new Array(
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sun",
+    "Mon",
+    "Tue",
+    "Wed",
+    "Thu",
+    "Fri",
+    "Sat"
+);
+function LZ(x) {
+    return (x < 0 || x > 9 ? "" : "0") + x;
+}
+function isDate(val, format) {
+    var date = getDateFromFormat(val, format);
+    if (date == 0) {
+        return false;
+    }
+    return true;
+}
+function compareDates(date1, dateformat1, date2, dateformat2) {
+    var d1 = getDateFromFormat(date1, dateformat1);
+    var d2 = getDateFromFormat(date2, dateformat2);
+    if (d1 == 0 || d2 == 0) {
+        return -1;
+    } else if (d1 > d2) {
+        return 1;
+    }
+    return 0;
+}
+function formatDate(date, format) {
+    format = format + "";
+    var result = "";
+    var i_format = 0;
+    var c = "";
+    var token = "";
+    var y = date.getYear() + "";
+    var M = date.getMonth() + 1;
+    var d = date.getDate();
+    var E = date.getDay();
+    var H = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    var yyyy, yy, MMM, MM, dd, hh, h, mm, ss, ampm, HH, H, KK, K, kk, k;
+    var value = new Object();
+    if (y.length < 4) {
+        y = "" + (y - 0 + 1900);
+    }
+    value["y"] = "" + y;
+    value["yyyy"] = y;
+    value["yy"] = y.substring(2, 4);
+    value["M"] = M;
+    value["MM"] = LZ(M);
+    value["MMM"] = MONTH_NAMES[M - 1];
+    value["NNN"] = MONTH_NAMES[M + 11];
+    value["d"] = d;
+    value["dd"] = LZ(d);
+    value["E"] = DAY_NAMES[E + 7];
+    value["EE"] = DAY_NAMES[E];
+    value["H"] = H;
+    value["HH"] = LZ(H);
+    if (H == 0) {
+        value["h"] = 12;
+    } else if (H > 12) {
+        value["h"] = H - 12;
+    } else {
+        value["h"] = H;
+    }
+    value["hh"] = LZ(value["h"]);
+    if (H > 11) {
+        value["K"] = H - 12;
+    } else {
+        value["K"] = H;
+    }
+    value["k"] = H + 1;
+    value["KK"] = LZ(value["K"]);
+    value["kk"] = LZ(value["k"]);
+    if (H > 11) {
+        value["a"] = "PM";
+    } else {
+        value["a"] = "AM";
+    }
+    value["m"] = m;
+    value["mm"] = LZ(m);
+    value["s"] = s;
+    value["ss"] = LZ(s);
+    while (i_format < format.length) {
+        c = format.charAt(i_format);
+        token = "";
+        while (format.charAt(i_format) == c && i_format < format.length) {
+            token += format.charAt(i_format++);
+        }
+        if (value[token] != null) {
+            result = result + value[token];
+        } else {
+            result = result + token;
+        }
+    }
+    return result;
+}
+function _isInteger(val) {
+    var digits = "1234567890";
+    for (var i = 0; i < val.length; i++) {
+        if (digits.indexOf(val.charAt(i)) == -1) {
+            return false;
+        }
+    }
+    return true;
+}
+function _getInt(str, i, minlength, maxlength) {
+    for (var x = maxlength; x >= minlength; x--) {
+        var token = str.substring(i, i + x);
+        if (token.length < minlength) {
+            return null;
+        }
+        if (_isInteger(token)) {
+            return token;
+        }
+    }
+    return null;
+}
+function getDateFromFormat(val, format) {
+    val = val + "";
+    format = format + "";
+    var i_val = 0;
+    var i_format = 0;
+    var c = "";
+    var token = "";
+    var token2 = "";
+    var x, y;
+    var now = new Date();
+    var year = now.getYear();
+    var month = now.getMonth() + 1;
+    var date = 1;
+    var hh = now.getHours();
+    var mm = now.getMinutes();
+    var ss = now.getSeconds();
+    var ampm = "";
+    while (i_format < format.length) {
+        c = format.charAt(i_format);
+        token = "";
+        while (format.charAt(i_format) == c && i_format < format.length) {
+            token += format.charAt(i_format++);
+        }
+        if (token == "yyyy" || token == "yy" || token == "y") {
+            if (token == "yyyy") {
+                x = 4;
+                y = 4;
+            }
+            if (token == "yy") {
+                x = 2;
+                y = 2;
+            }
+            if (token == "y") {
+                x = 2;
+                y = 4;
+            }
+            year = _getInt(val, i_val, x, y);
+            if (year == null) {
+                return 0;
+            }
+            i_val += year.length;
+            if (year > 2030) {
+                return 0;
+            }
+            if (year.length == 2) {
+                if (year > 70) {
+                    year = 1900 + (year - 0);
+                } else {
+                    year = 2000 + (year - 0);
+                }
+            }
+        } else if (token == "MMM" || token == "NNN") {
+            month = 0;
+            for (var i = 0; i < MONTH_NAMES.length; i++) {
+                var month_name = MONTH_NAMES[i];
+                if (val.substring(i_val, i_val + month_name.length).toLowerCase() == month_name.toLowerCase()) {
+                    if (token == "MMM" || (token == "NNN" && i > 11)) {
+                        month = i + 1;
+                        if (month > 12) {
+                            month -= 12;
+                        }
+                        i_val += month_name.length;
+                        break;
+                    }
+                }
+            }
+            if (month < 1 || month > 12) {
+                return 0;
+            }
+        } else if (token == "EE" || token == "E") {
+            for (var i = 0; i < DAY_NAMES.length; i++) {
+                var day_name = DAY_NAMES[i];
+                if (val.substring(i_val, i_val + day_name.length).toLowerCase() == day_name.toLowerCase()) {
+                    i_val += day_name.length;
+                    break;
+                }
+            }
+        } else if (token == "MM" || token == "M") {
+            month = _getInt(val, i_val, token.length, 2);
+            if (month == null || month < 1 || month > 12) {
+                return 0;
+            }
+            i_val += month.length;
+        } else if (token == "dd" || token == "d") {
+            date = _getInt(val, i_val, token.length, 2);
+            if (date == null || date < 1 || date > 31) {
+                return 0;
+            }
+            i_val += date.length;
+        } else if (token == "hh" || token == "h") {
+            hh = _getInt(val, i_val, token.length, 2);
+            if (hh == null || hh < 1 || hh > 12) {
+                return 0;
+            }
+            i_val += hh.length;
+        } else if (token == "HH" || token == "H") {
+            hh = _getInt(val, i_val, token.length, 2);
+            if (hh == null || hh < 0 || hh > 23) {
+                return 0;
+            }
+            i_val += hh.length;
+        } else if (token == "KK" || token == "K") {
+            hh = _getInt(val, i_val, token.length, 2);
+            if (hh == null || hh < 0 || hh > 11) {
+                return 0;
+            }
+            i_val += hh.length;
+        } else if (token == "kk" || token == "k") {
+            hh = _getInt(val, i_val, token.length, 2);
+            if (hh == null || hh < 1 || hh > 24) {
+                return 0;
+            }
+            i_val += hh.length;
+            hh--;
+        } else if (token == "mm" || token == "m") {
+            mm = _getInt(val, i_val, token.length, 2);
+            if (mm == null || mm < 0 || mm > 59) {
+                return 0;
+            }
+            i_val += mm.length;
+        } else if (token == "ss" || token == "s") {
+            ss = _getInt(val, i_val, token.length, 2);
+            if (ss == null || ss < 0 || ss > 59) {
+                return 0;
+            }
+            i_val += ss.length;
+        } else if (token == "a") {
+            if (val.substring(i_val, i_val + 2).toLowerCase() == "am") {
+                ampm = "AM";
+            } else if (val.substring(i_val, i_val + 2).toLowerCase() == "pm") {
+                ampm = "PM";
+            } else {
+                return 0;
+            }
+            i_val += 2;
+        } else {
+            if (val.substring(i_val, i_val + token.length) != token) {
+                return 0;
+            } else {
+                i_val += token.length;
+            }
+        }
+    }
+    if (i_val != val.length) {
+        return 0;
+    }
+    if (month == 2) {
+        if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
+            if (date > 29) {
+                return 0;
+            }
+        } else {
+            if (date > 28) {
+                return 0;
+            }
+        }
+    }
+    if (month == 4 || month == 6 || month == 9 || month == 11) {
+        if (date > 30) {
+            return 0;
+        }
+    }
+    if (hh < 12 && ampm == "PM") {
+        hh = hh - 0 + 12;
+    } else if (hh > 11 && ampm == "AM") {
+        hh -= 12;
+    }
+    if (year > 99 && year < 1900) {
+        return 0;
+    }
+    var newdate = new Date(year, month - 1, date, hh, mm, ss);
+    return newdate.getTime();
+}
+function parseDate(val) {
+    var preferEuro = arguments.length == 2 ? arguments[1] : false;
+    generalFormats = new Array("y-M-d", "MMM d, y", "MMM d,y", "y-MMM-d", "d-MMM-y", "MMM d");
+    monthFirst = new Array("M/d/y", "M-d-y", "M.d.y", "MMM-d", "M/d", "M-d");
+    dateFirst = new Array("d/M/y", "d-M-y", "d.M.y", "d-MMM", "d/M", "d-M");
+    var checkList = new Array(
+        "generalFormats",
+        preferEuro ? "dateFirst" : "monthFirst",
+        preferEuro ? "monthFirst" : "dateFirst"
+    );
+    var d = null;
+    for (var i = 0; i < checkList.length; i++) {
+        var l = window[checkList[i]];
+        for (var j = 0; j < l.length; j++) {
+            d = getDateFromFormat(val, l[j]);
+            if (d != 0) {
+                return new Date(d);
+            }
+        }
+    }
+    return null;
+}
+
+function AlterAllSelects(visibility) {
+    if (document.documentElement && typeof document.documentElement.style.maxHeight != "undefined") return true; // function is no longer needed in IE7.
+    var selects = document.getElementsByTagName("select");
+    if (selects) {
+        for (var i = 0; i < selects.length; i++) {
+            var curSel = selects.item(i);
+            curSel.style.visibility = visibility;
+        }
+    }
+}
+
+function pickcolor(e, targetid) {
+    var el = e.target || e.srcElement;
+    var fld = document.getElementById(targetid);
+    $(fld).addClass("chg");
+    if (fld && cp) {
+        cp.select(fld, el.id);
+    }
+}
+function popUp(f, p) {
+    var popupwin = window.open(
+        (typeof p === "undefined" ? "" : p) + "popuphelp.asp?f=" + f,
+        "",
+        "toolbar=no,status=no,scrollbars=yes,menubar=no,resizable=yes,top=0,left=0,width=700,height=500"
+    );
+    return false;
+}
+
+function popUpRootDir(f) {
+    //Used in ecomm directory, but can be used now in portal as well if need be
+    var popupwin = window.open(
+        "../popuphelp.asp?f=" + f,
+        "",
+        "toolbar=no,status=no,scrollbars=yes,menubar=no,resizable=yes,top=0,left=0,width=700,height=500"
+    );
+    return false;
+}
+
+function GetSearchesRootDir() {
+    //Used in ecomm directory, but can be used now in portal as well if need be
+    var SavedSearchID = jQuery("#SavedSearchIDUsed").val();
+    jLoadform(
+        "../SavedSearches_actions.asp?action=get&PageName=" + document.title + "&SavedSearchIDUsed=" + SavedSearchID,
+        "setsrc"
+    );
+}
+
+function loadform(formurl, oldurl, topOverlay) {
+    if (jQuery) {
+        jLoadform(formurl, oldurl, topOverlay);
+    } else {
+        oldloadform(formurl, oldurl, topOverlay);
+    }
+}
+/*  jackrabbit formdiv code pulled out of javascript.js */
+var loadform_srcel;
+
+function jLoadform(formurl, oldurl, topOverlay) {
+    //arg4=use existing elem, arg5=optional diff target
+    //alert('jloadform called...'+arguments.length);
+    var formdiv,
+        formdivid = "",
+        targetid = "",
+        target;
+    if (arguments.length >= 4 && arguments[3] != "") {
+        formdivid = arguments[3];
+        if (formdivid.substring(0, 1) != "#") {
+            formdivid = "#" + formdivid;
+        }
+        formdiv = jQuery(formdivid);
+    } else {
+        formdivid = "#formdiv";
+    }
+    if (arguments.length >= 5 && arguments[4] != "") {
+        targetid = arguments[4];
+        if (targetid.substring(0, 1) != "#") {
+            targetid = "#" + targetid;
+        }
+        target = jQuery(targetid);
+    } else {
+        targetid = formdivid;
+    }
+
+    if (document.getElementById(formdivid) == null || typeof jQuery("#" + formdivid) == "undefined") {
+        createFormdiv();
+    }
+    if (arguments.length > 1) {
+        try {
+            loadform_srcel = window.event && window.event.srcElement ? window.event.srcElement : target_obj;
+        } catch (e) {}
+    }
+    //alert('loadform:srcelem.tagName='+loadform_srcel.tagName);
+    if (jQuery("#spin") && jQuery("#spin").length) {
+        jQuery("#spin")[0].style.visibility = "";
+    }
+
+    var ms = 0,
+        state = 0;
+    then = new Date();
+    then.setTime(then.getTime() - ms);
+    //alert(updateelem);
+    var frmpkg = "",
+        updateelem = formdivid; //'linkedtrans.asp?id='+$('tID').value+'&ajaxrnd='+ (Math.random() * Date.parse(new Date())) ;
+    if (formurl != "") {
+        if (formurl.length > 2000) {
+            //to handle large URL strings, switch to post form-data.
+            //alert('url length='+formurl.length);
+            var parts = formurl.split("?");
+            formurl = parts[0];
+            frmpkg = parts[1];
+            //alert(frmpkg);
+        }
+
+        jQuery.ajax({
+            type: "POST",
+            url: formurl,
+            data: frmpkg, //"name=John&location=Boston",
+            success: function (data) {
+                jQuery(targetid).empty();
+
+                //alert( "Response: " + data );
+                if (data == "revalidate" || data.indexOf("re-validate session") > -1) {
+                    document.location.reload();
+                } else {
+                    try {
+                        if (AlterAllSelects) AlterAllSelects("hidden");
+                    } catch (e) {}
+                    jQuery(targetid).html(data);
+                    jcenterdiv(jQuery(targetid), 1);
+                    jQuery(targetid).show();
+                    if (jQuery("#divMessage")) {
+                        jQuery("#divMessage").empty();
+                    }
+
+                    jQuery(window).on("resize", function () {
+                        if (formdiv) {
+                            if (formdiv.is(":visible")) {
+                                jcenterdiv(formdiv, topOverlay);
+                            }
+                        }
+                    });
+                }
+            },
+            error: function (data) {
+                alert("jLoadform Error loading form.  Response: " + data);
+            }
+        });
+    } else {
+        if (formdiv) {
+            //overlay(topOverlay);
+            jcenterdiv(formdiv, topOverlay);
+            formdiv.fadeIn("slow");
+        } else {
+            alert("form not found");
+        }
+    }
+    return false;
+}
+
+function jcenterdiv(id) {
+    if (arguments.length > 1 && arguments[1] != "") {
+        var topOvr = arguments[1];
+        overlay(topOvr);
+    }
+    //alert(typeof id);
+    var d = typeof id == "object" ? jQuery(id) : jQuery("#" + id);
+    if (d) {
+        var dw = parseInt(d.css("width"));
+        var dh = parseInt(d.css("height"));
+        if (isNaN(dw)) dw = 0;
+        if (isNaN(dh)) dh = 0;
+        var winh = getWindowHeight(),
+            winw = getWindowWidth();
+        var t = "" + (winh / 2 - dh / 2) + "px";
+        var l = "" + (winw / 2 - dw / 2) + "px";
+        //alert('winh='+winh+' dh='+dh+' getY='+getY());
+        //if(typeof getY!='undefined') { var y=getY(); var newt=((y+(winh/3))-(dh/2)); if(newt<y){newt=y;}t=''+newt+'px'; }
+        if (typeof getY != "undefined") {
+            var y = getY();
+            var newt = y + winh / 2 - dh / 2;
+            if (newt < y) {
+                newt = y;
+            }
+            t = "" + newt + "px";
+        }
+        //alert('winh='+winh+' dh='+dh+' getY='+getY()+' t='+t);
+        d.css({ top: t, left: l });
+    }
+}
+function overlay(topOverride) {
+    var d = document;
+    var winh = getWindowHeight(),
+        winw = getWindowWidth();
+    //alert(document.body.offsetWidth+','+document.body.scrollWidth+','+document.documentElement.clientWidth+','+document.body.clientWidth+','+document.body.scrollLeft);
+    var ovr = document.getElementById("overlay");
+    if (ovr) {
+        if (document.body.scrollLeft) {
+            ovr.style.left = "" + document.body.scrollLeft + "px";
+        }
+        if (document.getElementById("ovrimg")) document.getElementById("ovrimg").style.width = winw + "px";
+        document.getElementById("overlay").style.display = "";
+    } else {
+        var objBody = document.getElementsByTagName("body").item(0);
+        var ovr = document.createElement("div");
+        //ovr.setAttribute('id ,'overlay');
+        ovr.id = "overlay";
+        ovr.style.position = "absolute";
+        ovr.style.zIndex = "90";
+        //ovr.className='overlay';
+        //alert(winh+','+d.body.clientHeight+','+d.body.scrollHeight);
+        if (d.body.clientHeight && d.body.clientHeight > winh) winh = d.body.clientHeight;
+        if (d.body.scrollHeight && d.body.scrollHeight > winh) winh = d.body.scrollHeight;
+        winh = winh + 400; //stretch out the overlay to cover the page even if you maximiz the page on a large monitor
+        winw = winw + 400;
+        if (typeof topOverride == "undefined" || !topOverride || topOverride.length == 0) {
+            ovr.style.top = "0px"; //LSP - discussed with Mike.  Setting to top of form.
+            //winh = winh-100;
+        } else {
+            ovr.style.top = topOverride + "px";
+            winh = winh + 20;
+        }
+        ovr.style.left = "2px";
+        //ovr.style.opacity='.5';
+        ovr.style.display = "";
+        ovr.innerHTML =
+            '<span style="position:absolute;filter:alpha(opacity=40);-moz-opacity:.4;opacity:.4;"><img id="ovrimg" src="../images/overlay.gif" width="' +
+            winw +
+            '" height="' +
+            winh +
+            '"></span>';
+        objBody.insertBefore(ovr, objBody.firstChild);
+    }
+    document.body.style.overflow = "hidden";
+}
+
+function hideoverlay() {
+    //alert('hideoverlay');
+    var ovrl = document.getElementById("overlay");
+    if (ovrl) ovrl.style.display = "none";
+    try {
+        if (AlterAllSelects) AlterAllSelects("");
+    } catch (e) {}
+    document.body.style.overflow = "";
+
+    //This removes the container div, to prevent the recreation of the from on each jLoadForm call.
+    destoryFormDiv();
+}
+
+//When displaying forms from our 'Form Editor' or 'Popup Editor'
+//We may need to save 'tags' in place of symbols or characters because they get stripped or converted to something else on save.
+//Example + gets turned into a space, so to display a '+' save the tag as [plus]
+function convertFormTagsForDisplay(formText) {
+    //do pluses
+    formText = formText.replace(/(\[plus])/g, "+");
+
+    return formText;
+}
+
+function createFormdiv() {
+    var objBody = document.getElementsByTagName("body").item(0);
+    var fdiv = document.createElement("div");
+    var s = fdiv.style;
+    fdiv.setAttribute("id", "formdiv");
+    s.width = "400px";
+    s.height = "200px";
+    var winh = getWindowHeight();
+    var winw = getWindowWidth();
+    s.top = "" + (winh / 2 - 100) + "px";
+    s.left = "" + (winw / 2 - 400 / 2) + "px";
+    s.display = "none";
+    fdiv.className = "asp-modal-div";
+    fdiv.innerHTML = "Loading...";
+    objBody.insertBefore(fdiv, objBody.firstChild);
+}
+
+function destoryFormDiv() {
+    var f = jQuery("#formdiv");
+    if (f.length > 0) f.remove();
+}
+
+function getWindowHeight() {
+    var winH = 0;
+    if (typeof window.innerHeight == "number") {
+        winH = window.innerHeight;
+    } else {
+        if (document.documentElement && document.documentElement.clientHeight) {
+            winH = document.documentElement.clientHeight;
+        } else {
+            if (document.body && document.body.clientHeight) {
+                winH = document.body.clientHeight;
+            }
+        }
+    }
+    return winH;
+}
+function getWindowWidth() {
+    var winW = 0;
+    if (typeof window.innerWidth == "number") {
+        winW = window.innerWidth;
+    } else {
+        if (document.documentElement && document.documentElement.clientWidth) {
+            winW = document.documentElement.clientWidth;
+        } else {
+            if (document.body && document.body.clientWidth) {
+                winW = document.body.clientWidth;
+            }
+        }
+    }
+    return winW;
+}
+function getY() {
+    if (self.pageYOffset) {
+        return self.pageYOffset;
+    } else if (document.documentElement && document.documentElement.scrollTop) {
+        return document.documentElement.scrollTop;
+    } else if (document.body) {
+        return document.body.scrollTop;
+    }
+}
+
+function setCookie(name, value, expires, path, domain, secure) {
+    var curCookie =
+        name +
+        "=" +
+        escape(value) +
+        (expires ? "; expires=" + expires.toGMTString() : "") +
+        (path ? "; path=" + path : "") +
+        (domain ? "; domain=" + domain : "") +
+        (secure ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function isValidKey(e, fmt) {
+    var k = document.all ? e.keyCode : e.which;
+    if (fmt == "num")
+        return (k > 47 && k < 58) || k == 8 || k == 0 || k == null || k == 9 || k == 13 || k == 27 || k == 118;
+    else if (fmt == "dec")
+        return (k > 47 && k < 58) || k == 8 || k == 0 || k == 46 || k == 44 || k == 45; //46=. 44=, 45=-
+    else if (fmt == "date")
+        return (
+            (k > 47 && k < 58) ||
+            k == 8 ||
+            k == 0 ||
+            k == null ||
+            k == 0 ||
+            k == 8 ||
+            k == 9 ||
+            k == 13 ||
+            k == 27 ||
+            k == 47 ||
+            k == 45
+        ); //47=/  45=-
+    else if (fmt == "time")
+        //0-9, :, [am,pm]
+        return (
+            (k > 47 && k < 59) ||
+            k == 112 ||
+            k == 109 ||
+            k == 97 ||
+            k == 65 ||
+            k == 80 ||
+            k == 77 ||
+            k == 8 ||
+            k == 0 ||
+            k == 32
+        );
+    else if (fmt == "pos") return (k > 47 && k < 58) || k == 8 || k == 0 || k == 46 || k == 44; //46=. 44=, 45=-
+    else if (fmt == "posint") return (k > 47 && k < 58) || k == 8 || k == 0; //no commas, no decimals, no hyphens.
+    //decimal
+    else return (k > 47 && k < 58) || k == 8 || k == 0 || k == 46 || k == 44; //46=.  44=,
+}
+function isNumKey(e) {
+    return isValidKey(e, "num");
+}
+function isDecKey(e) {
+    return isValidKey(e, "dec");
+}
+function isPosNumKey(e) {
+    return isValidKey(e, "pos");
+}
+function isPosIntKey(e) {
+    return isValidKey(e, "posint");
+}
+function isDateKey(e) {
+    return isValidKey(e, "date");
+}
+function isTimeKey(e) {
+    return isValidKey(e, "time");
+}
+function validDate(el) {
+    if (el && el.value == "") return true;
+    var result = parseDate(el.value);
+    //alert(el.value+' '+result+' '+(result==null));
+    if (result == null) {
+        alert("Invalid date: " + el.value);
+        try {
+            el.focus();
+        } catch (e) {}
+        return false;
+    }
+    return true;
+}
+
+//Valid time format 1:00 PM/AM or 1:00AM/PM
+function validTime(postAlert) {
+    var $el = jQuery(this);
+    if ($el.val() === "") return true;
+
+    var val = jQuery.trim($el.val());
+
+    var validTime = val.match(/^(0?[1-9]|1[012])(:[0-5]\d)([ ]?)[APap][mM]$/);
+    if (!validTime) {
+        $el.addClass("error");
+
+        if (postAlert) alert("Invalid time format. Please format as 1:00PM");
+    } else {
+        $el.removeClass("error");
+    }
+    return validTime;
+}
+
+function futureYear(el, yrlimit) {
+    // don't let dates be more than 10 yrs in the future
+    var result = parseDate(el.value);
+    var d = new Date();
+    var futureYr = d.getFullYear() + yrlimit;
+    var strfutureDate = d.getMonth() + 1 + "/" + d.getDate() + "/" + futureYr;
+    var futureDate = new Date(strfutureDate);
+    if (result > futureDate) {
+        alert("Pay Periods can't be created more than " + yrlimit + " years into the future: " + el.value);
+        try {
+            el.focus();
+        } catch (e) {}
+        return false;
+    }
+    return true;
+}
+
+function showhideTabs(id) {
+    //var moz = (typeof document.implementation != 'undefined') && (typeof document.implementation.createDocument != 'undefined');
+    //Change TabRow properties
+    //var divTabRow = document.getElementById('divTabRow');
+    //var tabs = divTabRow.getElementsByTagName('TD');
+
+    var tabs = $.makeArray($("TD.tab"));
+    for (var i = 0; i < tabs.length; i++) {
+        var tab = tabs[i];
+        if (tab.id == "divTab" + id) {
+            //The Selected Tab.
+            tab.style.backgroundColor = "#F0D49D";
+            if (i == 0) tab.style.borderLeft = ""; //first tab?
+            // tab.style.borderBottom='';
+            tab.style.borderBottom = "2px solid #F0D49D";
+            //Set cookie for active tab on page
+            var expdate = new Date();
+            expdate.setTime(expdate.getTime() + 20 * 24 * 60 * 60 * 1000);
+            setCookie("currpagetab", id, expdate);
+        } else {
+            tab.style.backgroundColor = "#E0E0E0";
+            tab.style.borderBottom = "1px solid buttonhighlight";
+            if (i == 0) tab.style.borderLeft = "1px solid buttonhighlight";
+        }
+    }
+    //Change divTabBody properties
+    //var divTabBodies = document.getElementById('divTabBodies');
+    //var tabdivs = divTabBodies.getElementsByTagName('div');
+    var tabdivs = $.makeArray($("#divTabBodies > .divTab"));
+    for (var i = 0; i < tabdivs.length; i++) {
+        var tab = tabdivs[i];
+        if (tab.id == "divTabBody" + id) {
+            tab.style.display = "block";
+            tab.style.backgroundColor = "F0D49D";
+        } else {
+            //if (tab.id.substring(0,10)=='divTabBody') {
+            tab.style.display = "none";
+            //}
+        }
+    }
+}
+
+function setchg(evt) {
+    var src;
+    if (window.event) {
+        //alert('IE '+evt.srcElement.tagName);
+        evt = window.event;
+        if (evt && evt.srcElement) src = evt.srcElement;
+    } else {
+        //alert('non-IE '+evt.target.tagName);
+        if (evt && evt.target) src = evt.target;
+    }
+    if (src) {
+        jQuery(src).addClass("chg");
+    }
+}
+
+function print(e) {
+    //alert('print');
+    if (arguments.length > 1) {
+        //print the contents of the element id passed in as argument[1]
+        tbl = document.getElementById(arguments[1]);
+        rpttitle = arguments.length > 2 ? arguments[2] : ""; //optional title for printed element
+    } else {
+        var el,
+            div,
+            tbl,
+            rpttitle = "";
+        el = e.target || e.srcElement;
+        if (el && el.parentNode) {
+            //alert(el.parentNode.tagName);
+            var div = el.parentNode;
+            var divID = div.id;
+            //alert(div.tagName+','+divID+','+$(el.parentNode).attr('rpttitle'));
+            if (div && div.getAttribute("rpttitle")) {
+                rpttitle = div.getAttribute("rpttitle");
+            }
+            //alert($('#'+divID+' select')[0]);
+            if (divID.length > 0) {
+                tbl = $("#" + divID + " table")[0];
+            } else {
+                tbl = $("table", div)[0];
+            }
+            if (!tbl) {
+                tbl = div.nextSibling;
+                while (tbl.nodeType != 1 && tbl.tagName != "TABLE") {
+                    tbl = tbl.nextSibling;
+                }
+            }
+        }
+    }
+    if (tbl) {
+        var win1 = window.open("", "print");
+        win1.document.open();
+        win1.document.write("<html><head><title>" + rpttitle + " - Print</title>");
+        win1.document.write(
+            '<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lato:400,700,900,400italic,700italic" type="text/css" />'
+        );
+        win1.document.write('<link rel="stylesheet" href="' + jr_css_path + '" type="text/css"/>');
+        win1.document.write(
+            '<style type="text/css">#tblR TD {vertical-align:top} textarea {height:100%; width:100%; overflow:hidden} </style>'
+        );
+        win1.document.write("</head>");
+        win1.document.write("<body><h2>" + rpttitle + "</h2>");
+        win1.document.write(
+            '<input type="button" class="noprint" value="Close" onclick="window.close();"/>&nbsp; &nbsp; &nbsp; <input type="button" class="noprint" value="Print" onclick="window.print();return false;"/>'
+        );
+        win1.document.write("<br>");
+        win1.document.write("<br>");
+        win1.document.write(
+            '<table id="tblR" class="tablesorter" border="0" cellpadding="0" cellspacing="1" width="100%">'
+        );
+        win1.document.write(tbl.innerHTML);
+        win1.document.write("</body>");
+        win1.document.write("</html>");
+        win1.document.close();
+
+        tbl = null;
+        try {
+            win1.focus();
+        } catch (e) {}
+        //in chrome the print preview window is empty so don't open the preview window and allow the user to print using the print button
+        var isChrome = !!window.chrome && !!window.chrome.webstore;
+        if (window.print && !isChrome) {
+            win1.print();
+        }
+        win1 = null;
+    }
+    return false;
+}
+
+function jPostFormFromRecitalListAdd(frmid, url, targetid, frmpkg, redirect_url, successCallback) {
+    //arg2=optional url, arg3=optional targetid, arg4=optional frmpkg, arg5=redirect_url, arg5=successCallback
+
+    url = url || "";
+    targetid = targetid || "";
+    frmpkg = frmpkg || "";
+    redirect_url = redirect_url || "";
+    successCallback = successCallback || "";
+
+    var f = jQuery("#frm" + frmid);
+    if (f) {
+        //alert(arguments.length);
+        if (arguments.length >= 2 && arguments[1] != "") {
+            url = arguments[1];
+        }
+        if (arguments.length >= 3 && arguments[2] != "") {
+            targetid = arguments[2];
+            if (targetid.substring(0, 1) != "#") {
+                targetid = "#" + targetid;
+            }
+        }
+        if (arguments.length >= 4 && arguments[3] != "") {
+            frmpkg = arguments[3];
+        }
+        if (arguments.length >= 5) {
+            redirect_url = arguments[4];
+        }
+        //var frmpkg = f.serialize();
+
+        if (frmpkg == "") {
+            var frmpkg = jQuery("#frm" + frmid + " .chg").serialize(); //serialize only changed fields
+
+            //alert(frmpkg);
+            //return false;
+            //pickup changed checkboxes that are unchecked
+            var frm_els = jQuery("#frm" + frmid + ' input[type="checkbox"]');
+            var chkpkg = "",
+                elnum = frm_els.length;
+            for (var i = 0; i < elnum; ++i) {
+                if (frm_els[i].checked == false) {
+                    if (chkpkg != "") chkpkg = chkpkg + "&";
+                    chkpkg = chkpkg + frm_els[i].id + "=0";
+                }
+            }
+            if (chkpkg.length > 0) {
+                if (frmpkg.length > 0) frmpkg += "&";
+                frmpkg += chkpkg;
+            }
+        }
+
+        frmopts = jQuery("#frmopts", f).val();
+        //alert('jPostForm frmpkg: '+frmpkg);
+        if (targetid == "") {
+            targetid = "#div" + frmid + "_Response";
+        }
+        jQuery(targetid).show();
+        if (url == "") {
+            url = jQuery("#posturl", f).val();
+            if (url == "") {
+                var pathArray = document.location.pathname.split("/");
+                var pagename = pathArray[pathArray.length - 1];
+                url = pagename + "?action=run"; //assume current page
+            }
+            if (url == "") return false;
+        }
+        //alert('jPostForm url='+url+'\n'+frmpkg);
+        jQuery(targetid).empty();
+        return jQuery.ajax({
+            type: "POST",
+            url: url,
+            data: frmpkg, //"name=John&location=Boston",
+            success: function (data) {
+                if (frmopts && frmopts.indexOf("debug") > -1) {
+                    alert(data);
+                }
+                if (data.indexOf("<scr" + "ipt" + ">") > -1) {
+                    var msg = data.substring(0, data.indexOf("<scr" + "ipt>"));
+                } else {
+                    var msg = data;
+                    if (msg.indexOf("Error in") > -1) {
+                        alert("There was a problem:\n" + msg);
+                    }
+                }
+                if (msg.length > 0) alert(msg);
+                jQuery(targetid).append(data);
+
+                //If output msg has error dont' close window.
+                if (data.indexOf("ERROR:") > -1) {
+                    $("#idSubmit").removeAttr("disabled");
+                    return false;
+                }
+
+                //$('#divMessage').html(msg).show();
+                hideoverlay();
+
+                jQuery("#div" + frmid).hide();
+                jQuery("#formdiv").hide();
+                if (redirect_url != "") {
+                    document.location.href = redirect_url;
+                }
+                //if(data.indexOf('added')>-1) {search()}
+                //$('#divMessage').hide().empty();
+
+                if (typeof successCallback === "function") {
+                    successCallback();
+                }
+            },
+            error: function (data) {
+                var r = data.responseText;
+                if (r.indexOf("page cannot be found") > -1) {
+                    alert("Page cannot be found in url: " + url);
+                } else {
+                    alert("jPostForm Error. Response: " + r);
+                }
+            }
+        });
+    } else {
+        alert("form not found");
+    }
+}
+function jPostForm(frmid, url, targetid, frmpkg, redirect_url, successCallback) {
+    //arg2=optional url, arg3=optional targetid, arg4=optional frmpkg, arg5=redirect_url, arg5=successCallback
+
+    url = url || "";
+    targetid = targetid || "";
+    frmpkg = frmpkg || "";
+    redirect_url = redirect_url || "";
+    successCallback = successCallback || "";
+
+    var f = jQuery("#frm" + frmid);
+    if (f) {
+        //alert(arguments.length);
+        if (arguments.length >= 2 && arguments[1] != "") {
+            url = arguments[1];
+        }
+        if (arguments.length >= 3 && arguments[2] != "") {
+            targetid = arguments[2];
+            if (targetid.substring(0, 1) != "#") {
+                targetid = "#" + targetid;
+            }
+        }
+        if (arguments.length >= 4 && arguments[3] != "") {
+            frmpkg = arguments[3];
+        }
+        if (arguments.length >= 5) {
+            redirect_url = arguments[4];
+        }
+        //var frmpkg = f.serialize();
+
+        if (frmpkg == "") {
+            var frmpkg = jQuery("#frm" + frmid + " .chg").serialize(); //serialize only changed fields
+
+            //alert(frmpkg);
+            //return false;
+            //pickup changed checkboxes that are unchecked
+            var frm_els = jQuery("#frm" + frmid + ' input[type="checkbox"]');
+            var chkpkg = "",
+                elnum = frm_els.length;
+            for (var i = 0; i < elnum; ++i) {
+                if (frm_els[i].checked == false) {
+                    if (chkpkg != "") chkpkg = chkpkg + "&";
+                    chkpkg = chkpkg + frm_els[i].id + "=0";
+                }
+            }
+            if (chkpkg.length > 0) {
+                if (frmpkg.length > 0) frmpkg += "&";
+                frmpkg += chkpkg;
+            }
+        }
+
+        frmopts = jQuery("#frmopts", f).val();
+        //alert('jPostForm frmpkg: '+frmpkg);
+        if (targetid == "") {
+            targetid = "#div" + frmid + "_Response";
+        }
+        jQuery(targetid).show();
+        if (url == "") {
+            url = jQuery("#posturl", f).val();
+            if (url == "") {
+                var pathArray = document.location.pathname.split("/");
+                var pagename = pathArray[pathArray.length - 1];
+                url = pagename + "?action=run"; //assume current page
+            }
+            if (url == "") return false;
+        }
+        //alert('jPostForm url='+url+'\n'+frmpkg);
+        jQuery(targetid).empty();
+        return jQuery.ajax({
+            type: "POST",
+            url: url,
+            data: frmpkg, //"name=John&location=Boston",
+            success: function (data) {
+                if (frmopts && frmopts.indexOf("debug") > -1) {
+                    alert(data);
+                }
+                if (data.indexOf("<scr" + "ipt" + ">") > -1) {
+                    var msg = data.substring(0, data.indexOf("<scr" + "ipt>"));
+                } else {
+                    var msg = data;
+                    if (msg.indexOf("Error in") > -1) {
+                        alert("There was a problem:\n" + msg);
+                    }
+                }
+                if (msg.length > 0) alert(msg);
+                jQuery(targetid).append(data);
+
+                //If output msg has error dont' close window.
+                if (data.indexOf("ERROR:") > -1) {
+                    $("#idSubmit").removeAttr("disabled");
+                    return false;
+                }
+
+                //$('#divMessage').html(msg).show();
+                hideoverlay();
+
+                //After the post has come back successful, let's remove the form from the DOM
+                //so we don't collide with any subsequent posts from the same calling page. -Tim 11/2/2011
+                f.remove();
+
+                jQuery("#div" + frmid).hide();
+                jQuery("#formdiv").hide();
+                if (redirect_url != "") {
+                    document.location.href = redirect_url;
+                }
+                //if(data.indexOf('added')>-1) {search()}
+                //$('#divMessage').hide().empty();
+
+                if (typeof successCallback === "function") {
+                    successCallback();
+                }
+            },
+            error: function (data) {
+                var r = data.responseText;
+                if (r.indexOf("page cannot be found") > -1) {
+                    alert("Page cannot be found in url: " + url);
+                } else {
+                    alert("jPostForm Error. Response: " + r);
+                }
+            }
+        });
+    } else {
+        alert("form not found");
+    }
+}
+function jPostFormWithRedirect(frmid, url) {
+    jPostForm(frmid, "", "", "", url);
+}
+//for selClass.
+var last_selElemID, last_selUrl;
+var selID, win_select;
+
+function selClass(id, Url) {
+    var w = screen.width; //640;
+    var h = screen.height; //480;
+    var winparms = "location=no,scrollbars=yes,resizable=yes,width=" + w + ",height=" + h;
+    var snum, f, fldname, f_age, sAge, sBDate, f_gender, sGender;
+    var reqdfieldsmsg = "";
+    var frm;
+    winparms = winparms + ",top=0,left=0";
+    selID = id;
+    //alert('selClass: id='+id+'\nUrl='+Url);
+    var sel = document.getElementById(id);
+    if (sel) {
+        if (Url == "") {
+            Url = document.getElementById("_classurl").value;
+        }
+        //alert('retID='+sel.name);
+        retID = sel.name;
+        if (last_selUrl != Url || typeof win_select == "undefined" || win_select.closed) {
+            // if window has never been opened, or this is a different popup, open it
+            win_select = open(Url, "win_select", winparms);
+            if (win_select.opener == null) win_select.opener = self;
+            win_select.focus();
+            last_selUrl = Url;
+        } else {
+            // if this window is already open, or already opened and closed.
+            try {
+                win_select.focus();
+            } catch (error) {
+                // if the popup had been closed, reopen it
+                win_select = open(Url, "win_select", winparms);
+                if (win_select.opener == null) win_select.opener = self;
+                last_selUrl = Url;
+            }
+        }
+    } else {
+        alert("Element ID '" + id + "' not found.");
+    }
+}
+
+function retClass(retval) {
+    //alert('retval='+retval);
+    var pairs = retval.split("=");
+    var linktext = pairs[2];
+    if (pairs[0].substr(0, 4) == "@@lp") {
+        //linked page number
+        var pattern = /key=[\d]*/i;
+        if (pairs[1].indexOf("&") > 0) {
+            pairs[1] = pairs[1].substring(0, pairs[1].indexOf("&"));
+        }
+        try {
+            if (document.getElementById(selID)) {
+                document.getElementById(selID).value = pairs[1];
+            }
+        } catch (error) {}
+        var link = document.getElementById("link" + selID);
+        if (link) {
+            //alert(link.tagName+','+link.nodeName);
+            if (link.tagName == "INPUT") {
+                link.value = linktext;
+            } else {
+                link.innerHTML = linktext;
+            }
+        }
+        return false;
+    }
+}
+
+function convertCharacters(obj) {
+    var formmatedString = obj.val();
+
+    // � = 8216 convert to ' -- � = 8217 convert to '
+    var myRegEx = new RegExp(String.fromCharCode(8216) + "|" + String.fromCharCode(8217), "g");
+    formmatedString = formmatedString.replace(myRegEx, "'");
+
+    // � = 8220 convert to " -- � = 8221 convert to "
+    var myRegEx = new RegExp(String.fromCharCode(8220) + "|" + String.fromCharCode(8221), "g");
+    formmatedString = formmatedString.replace(myRegEx, '"');
+
+    // bullet points from word: 61558, 8226, 61607
+    var myRegEx = new RegExp(
+        String.fromCharCode(61558) + "|" + String.fromCharCode(8226) + "|" + String.fromCharCode(61607),
+        "g"
+    );
+    formmatedString = formmatedString.replace(myRegEx, String.fromCharCode(111));
+
+    // dash 8211 convert to -
+    var myRegEx = new RegExp(String.fromCharCode(8211), "g");
+    formmatedString = formmatedString.replace(myRegEx, "-");
+
+    // ... 8230 convert to ...
+    var myRegEx = new RegExp(String.fromCharCode(8230), "g");
+    formmatedString = formmatedString.replace(myRegEx, "...");
+
+    //trademark symbol 8482 convert to TM
+    var myRegEx = new RegExp(String.fromCharCode(8482), "g");
+    formmatedString = formmatedString.replace(myRegEx, "TM");
+
+    // copyright symbol 169 convert to (c)
+    var myRegEx = new RegExp(String.fromCharCode(169), "g");
+    formmatedString = formmatedString.replace(myRegEx, "(c)");
+
+    // registered symbol 174 convert to (r)
+    var myRegEx = new RegExp(String.fromCharCode(174), "g");
+    formmatedString = formmatedString.replace(myRegEx, "(r)");
+
+    // >> 187 convert to >>
+    var myRegEx = new RegExp(String.fromCharCode(187), "g");
+    formmatedString = formmatedString.replace(myRegEx, ">>");
+
+    //<< 171 convert to <<
+    var myRegEx = new RegExp(String.fromCharCode(171), "g");
+    formmatedString = formmatedString.replace(myRegEx, "<<");
+
+    obj.val(formmatedString);
+}
+
+// loads classes by location
+// parameter dd: the dropdown id of the element where the classes will be loaded.
+function loadClasses(dd) {
+    $.ajax({
+        url: "jr2.0/class/GetSelectListClassesByLocation?locationCode=" + $("#schLocation").val(),
+        dataType: "json",
+        method: "get",
+        success: function (data) {
+            var opts = "";
+            $.each(data, function (key, val) {
+                opts += '<option selected="' + val.Selected + '" value="' + val.Value + '">' + val.Text + "</option>";
+            });
+
+            //load dd
+            $("#" + dd).html(opts);
+        },
+        async: false
+    });
+}
+
+/// Replaces commonly-used Windows 1252 encoded chars that do not exist in ASCII or ISO-8859-1 with ISO-8859-1 cognates.
+function replaceWordChars(text) {
+    var s = text;
+
+    // smart single quotes and apostrophe
+    s = s.replace(/[\u2018|\u2019|\u201A]/g, "'");
+
+    // smart double quotes
+    s = s.replace(/[\u201C|\u201D|\u201E]/g, '"');
+
+    // ellipsis
+    s = s.replace(/\u2026/g, "...");
+
+    // dashes
+    s = s.replace(/[\u2013|\u2014]/g, "-");
+
+    // circumflex
+    s = s.replace(/\u02C6/g, "^");
+
+    // open angle bracket
+    s = s.replace(/\u2039/g, "<");
+
+    // close angle bracket
+    s = s.replace(/\u203A/g, ">");
+
+    // spaces
+    s = s.replace(/[\u02DC|\u00A0]/g, " ");
+
+    return s;
+}
+
+//This common function allows pages with dynamically added form elements
+//to have proper tab indexing when you call it after adding form elements.
+//It replaces the need for manually tab indexing in code (and re-indexing everything manually when you add a new field),
+//You can also call it on static forms where you are getting weird tab indexing results to fix them.
+//Default is filtered to visible input, select(drop list), and textarea elements,
+//There are options to add and remove your own additional elements with a jQobect, css selector, html element (see jquery docs on .add and .not).
+//Generally you can just pass null for either or nothing for both if you want the default
+function setTabIndex(jqAddionalElements, jqExcludeElements) {
+    var tabindex = 1;
+    var elementsToIndex = jQuery("input,select,textarea").filter(":visible");
+    if (jqAddionalElements) elementsToIndex = elementsToIndex.add(jqAddionalElements);
+    if (jqExcludeElements) elementsToIndex = elementsToIndex.not(jqExcludeElements);
+    elementsToIndex.each(function () {
+        jQuery(this).attr("tabindex", tabindex);
+        tabindex++;
+    });
+}
+
+//Auto creates a cc nickname based on ccnum
+//Format returned is - "Type Last4Digits"
+function createCreditCardNickname(ccnum) {
+    //Grab ccnum and get first digit and last 4 digits
+    var cardType = "";
+    var nickname;
+    var last4 = ccnum.substring(ccnum.length - 4);
+
+    cardType = getCreditCardType(ccnum);
+
+    //Create nickname by appending strings
+    //In the event we don't set a card type just display the last 4
+    nickname = cardType && cardType !== "" ? cardType + " " + last4 : last4;
+
+    return nickname;
+}
+
+function getCreditCardType(ccnum) {
+    if (!ccnum) {
+        return "";
+    }
+
+    var first1 = ccnum.substring(0, 1);
+
+    //Determine card type based on first digit
+    switch (first1) {
+        case "3":
+            return "Amex";
+        case "4":
+            return "Visa";
+        case "5":
+        case "2":
+            return "Mastercard";
+        case "6":
+        case "8":
+            return "Discover";
+    }
+}
+
+//Gets the true text count without including line breaks, tabs, etc.
+function getTextCount(text) {
+    return text.replace(/(\r\n|\n|\r|\t)/g, "").length;
+}
+
+function limits(obj, limit) {
+    var text = jQuery(obj).val();
+    var numLineBreaks = (text.match(/\n/g) || []).length;
+    var length = text.length;
+    if (length > limit - numLineBreaks) {
+        jQuery(obj).val(text.substr(0, limit - numLineBreaks));
+        var objtitle = jQuery(obj).attr("title");
+        if (!objtitle || objtitle.length == 0) {
+            alert("Text area can only be " + limit + " characters in length.");
+        } else {
+            alert(objtitle + " can only be " + limit + " characters in length.");
+        }
+        //run change on our object.
+        jQuery(obj).change();
+    }
+}
+
+//
+// get the months from the decimal value of an age.
+// Not perfect and is only reliable used against values saved from JR min/max age drop downs.
+//
+function getMonthsFromAge(decimalAge) {
+    if (!decimalAge || isNaN(decimalAge)) {
+        return 0;
+    }
+
+    //get remainder (months) from our age
+    var remainder = decimalAge - Math.floor(decimalAge);
+
+    //Now do a direct conversion (out of 12) to see what month this is
+    var months = remainder * 12;
+
+    //We only want WHOLE months (don't care about partials)
+    //  so decide if we round down or up
+
+    //If we're .05 or closer to the ceiling then we should round up.
+    //This is caused by losing decimal places when converting to decimal from UI.
+    if (Math.ceil(months) - months <= 0.05) {
+        return Math.ceil(months);
+    }
+
+    //in most cases we just round down to the closest completed month
+    return Math.floor(months);
+}
+
+//Get differnce in months between two dates.
+//This is not relative to the entire time span but only one year.
+//This function is intended to be used in conjuction with dateDiffYears when validating ages.
+function dateDiffMonths(fromDate, toDate) {
+    //Get individual month/day from both dates.
+    var fromMonths = fromDate.getMonth() + 1;
+    var toMonths = toDate.getMonth() + 1;
+    var fromDays = fromDate.getDate();
+    var toDays = toDate.getDate();
+
+    //Now do a basic difference via subtraction
+    var monthsDiff = toMonths - fromMonths;
+
+    //reduce months by 1 if to date isn't really a month ahead
+    if (toDays < fromDays) {
+        monthsDiff--;
+    }
+
+    //Now if we're negative then add 12 to offset
+    if (monthsDiff < 0) {
+        monthsDiff += 12;
+    }
+
+    return monthsDiff;
+}
+
+function dateDiffYears(fromDate, toDate) {
+    //Get individual month/day from both dates.
+    var fromMonths = fromDate.getMonth() + 1;
+    var toMonths = toDate.getMonth() + 1;
+    var fromDays = fromDate.getDate();
+    var toDays = toDate.getDate();
+
+    var yearsDiff = toDate.getYear() - fromDate.getYear();
+
+    //reduce if we haven't actually passed a year based on months
+    if (toMonths < fromMonths) {
+        yearsDiff--;
+    } else if (toMonths === fromMonths) {
+        //else if months are equal we need to test days to see if the last year is a full one
+        if (toDays < fromDays) {
+            yearsDiff--;
+        }
+    }
+
+    return yearsDiff;
+}
+
+/**
+ * Opens the Discontinued Browser Modal for IE (all versions). This is for customers - a different modal exists for internal users.
+ * Returns a promise that only resolves. If not IE, promise resolves immediately - so no if-statements are needed outside of this function.
+ **/
+function _openDiscontinuedBrowserModalIfIE_ASP() {
+    var discontinuedBrowserModalUrl = "/jr3.0/Login/DiscontinuedBrowserForCustomersModal";
+    var d = jQuery.Deferred();
+
+    // Open the IE modal, if IE
+    /*
+     * DEV NOTE - this code is copy-pasted into other areas (we need it for Parent Portal, for example)
+     * Find all instances using comment FLAG_BROWSER_IE_CHECK
+     */
+    // MSIE = IE10 and below, Trident = IE11
+    var ua = navigator.userAgent;
+    var isIE = ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/") > -1;
+    if (!isIE) {
+        // Get out, no modal needed.
+        return d.resolve().promise();
+    }
+
+    jQuery.ajax({
+        type: "GET",
+        url: discontinuedBrowserModalUrl,
+        dataType: "html",
+        success: function (resp) {
+            // Wrap the response in the necessary modal elements (CUSTOM for this ticket)
+            var modalContent = jQuery(document.createElement("div")).addClass("asp-no-browser-cust-mdl-content p-15");
+            var modalDialog = jQuery(document.createElement("div")).addClass("asp-no-browser-cust-mdl-dialog");
+            var modalFade = jQuery(document.createElement("div")).addClass("asp-no-browser-cust-mdl-fade");
+            modalContent.html(resp);
+            modalDialog.append(modalContent);
+            modalFade.append(modalDialog);
+
+            jQuery(document.body).prepend(modalFade);
+
+            modalFade.show();
+
+            // Close on click
+            modalFade.find("button").on("click", function () {
+                modalFade.remove();
+                d.resolve();
+            });
+        },
+        error: function (data) {
+            // On error, don't continue.
+            console.error("Could not load Discontinued Browser Modal.");
+            d.resolve();
+        }
+    });
+
+    return d.promise();
+}

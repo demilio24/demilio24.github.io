@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index,follow">
+<title>BC Renewal Party: A New Future for British Columbia</title>
+<meta name="description" content="The BC Renewal Party is building a province powered by clean energy, where every resident shares in resource wealth, housing is affordable, and young families can afford to stay. Renewing Hope. Restoring Trust.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================== TOKENS ============================== */
+:root{
+  --ink:#0d1a2b;
+  --ink-deep:#0a141f;
+  --white:#ffffff;
+  --grey:#f4f6f9;
+  --grey-2:#eef1f6;
+  --red:#c8102e;
+  --red-deep:#a60c25;
+  --muted:#586577;
+  --hair:#e5e9f0;
+  --hair-2:#eef1f6;
+  --shadow-sm:0 1px 2px rgba(13,26,43,.05), 0 1px 3px rgba(13,26,43,.06);
+  --shadow-md:0 4px 14px rgba(13,26,43,.07), 0 2px 6px rgba(13,26,43,.05);
+  --shadow-lg:0 18px 50px rgba(13,26,43,.12);
+  --r-sm:10px;
+  --r:12px;
+  --r-lg:14px;
+  --r-pill:999px;
+  --maxw:1180px;
+  --sans:'Hanken Grotesk', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --display:'Space Grotesk', 'Hanken Grotesk', system-ui, sans-serif;
+}
+/* ============================== RESET ============================== */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:118px;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--sans);
+  color:var(--ink);
+  background:var(--white);
+  line-height:1.6;
+  font-size:17px;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+  overflow-x:clip;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+input,select,textarea{font-family:inherit;font-size:16px}
+ul{list-style:none}
+:focus-visible{outline:3px solid rgba(200,16,46,.45);outline-offset:2px;border-radius:6px}
+::selection{background:var(--red);color:#fff}
+
+/* ============================== LAYOUT HELPERS ============================== */
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+.section{padding:88px 0}
+.section--tight{padding:64px 0}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--red);margin-bottom:18px;
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--red);border-radius:2px}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.08;letter-spacing:-.02em;color:var(--ink)}
+h2{font-size:clamp(28px,4vw,42px);margin-bottom:16px}
+h3{font-size:21px;letter-spacing:-.01em}
+.lead{font-size:clamp(17px,2vw,19px);color:var(--muted);max-width:62ch}
+.section-head{max-width:720px;margin-bottom:48px}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+.center .lead{margin-left:auto;margin-right:auto}
+
+/* ============================== BUTTONS ============================== */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-weight:700;font-size:15.5px;letter-spacing:-.01em;
+  padding:13px 22px;border-radius:var(--r-sm);
+  transition:transform .15s ease, box-shadow .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+  white-space:nowrap;
+}
+.btn svg{width:17px;height:17px;flex:none}
+.btn--primary{background:var(--red);color:#fff;box-shadow:0 1px 2px rgba(166,12,37,.3)}
+.btn--primary:hover{background:var(--red-deep);transform:translateY(-1px);box-shadow:0 8px 20px rgba(166,12,37,.25)}
+.btn--dark{background:var(--ink);color:#fff}
+.btn--dark:hover{background:var(--ink-deep);transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn--ghost{background:#fff;color:var(--ink);border:1px solid var(--hair);box-shadow:var(--shadow-sm)}
+.btn--ghost:hover{border-color:#cfd6e2;transform:translateY(-1px);box-shadow:var(--shadow-md)}
+.btn--on-dark{background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.22)}
+.btn--on-dark:hover{background:rgba(255,255,255,.16);transform:translateY(-1px)}
+.btn--sm{padding:10px 16px;font-size:14px}
+.btn--block{width:100%}
+
+/* ============================== HEADER / NAV ============================== */
+.utilbar{
+  background:var(--ink-deep);color:#aeb9c8;font-size:13px;
+  border-bottom:1px solid rgba(255,255,255,.06);
+}
+.utilbar .wrap{display:flex;justify-content:space-between;align-items:center;height:38px;gap:16px}
+.utilbar a{color:#aeb9c8;transition:color .2s}
+.utilbar a:hover{color:#fff}
+.utilbar .util-tag{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:#dfe5ee}
+.utilbar .util-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.25)}
+.utilbar .util-right{display:flex;gap:18px;align-items:center}
+.utilbar .util-right a.x{display:inline-flex;align-items:center;gap:6px}
+
+header.nav{
+  position:sticky;top:0;z-index:90;background:rgba(255,255,255,.86);
+  backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+  border-bottom:1px solid var(--hair);
+}
+.nav .wrap{display:flex;align-items:center;gap:26px;height:72px}
+.brand{display:flex;align-items:center;gap:11px;font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.02em}
+.brand .leaf{width:30px;height:30px;color:var(--red);flex:none}
+.brand .leaf svg{width:100%;height:100%;fill:currentColor}
+.brand small{display:block;font-family:var(--sans);font-weight:600;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:1px}
+.nav-links{display:flex;gap:4px;margin-left:6px}
+.nav-links a{
+  font-weight:600;font-size:15px;color:var(--ink);padding:9px 13px;border-radius:8px;
+  transition:background .18s, color .18s;
+}
+.nav-links a:hover{background:var(--grey);color:var(--ink)}
+.nav-cta{margin-left:auto;display:flex;align-items:center;gap:10px}
+.hamburger{display:none;width:44px;height:44px;border-radius:10px;border:1px solid var(--hair);background:#fff;align-items:center;justify-content:center}
+.hamburger svg{width:22px;height:22px;stroke:var(--ink)}
+
+/* mobile menu */
+.mobile-menu{
+  display:none;position:fixed;inset:0;z-index:120;background:var(--ink-deep);
+  flex-direction:column;padding:24px;
+}
+.mobile-menu.open{display:flex}
+.mobile-menu .mm-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}
+.mobile-menu .mm-top .brand{color:#fff}
+.mobile-menu .mm-top .brand small{color:#9fb0c4}
+.mobile-menu .mm-close{width:44px;height:44px;border:1px solid rgba(255,255,255,.18);border-radius:10px;display:flex;align-items:center;justify-content:center}
+.mobile-menu .mm-close svg{width:22px;height:22px;stroke:#fff}
+.mobile-menu a.mm-link{
+  color:#fff;font-family:var(--display);font-size:26px;font-weight:600;padding:16px 0;
+  border-bottom:1px solid rgba(255,255,255,.08);display:flex;justify-content:space-between;align-items:center;
+}
+.mobile-menu a.mm-link svg{width:20px;height:20px;stroke:var(--red);opacity:.85}
+.mobile-menu .mm-actions{margin-top:auto;display:flex;flex-direction:column;gap:12px;padding-top:24px}
+
+/* ============================== HERO ============================== */
+.hero{position:relative;background:var(--ink-deep);color:#fff;overflow:hidden;padding:74px 0 0}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(900px 460px at 78% -8%, rgba(200,16,46,.20), transparent 60%),
+    radial-gradient(700px 500px at 8% 110%, rgba(46,86,140,.22), transparent 60%);
+  pointer-events:none;
+}
+.hero-grid-bg{
+  position:absolute;inset:0;opacity:.5;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size:54px 54px;
+  -webkit-mask-image:linear-gradient(180deg, #000 0%, transparent 78%);
+  mask-image:linear-gradient(180deg, #000 0%, transparent 78%);
+}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.08fr .92fr;gap:54px;align-items:center;padding-bottom:0}
+.hero-left{padding-bottom:74px}
+.hero-pill{
+  display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;
+  color:#dfe6ef;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);
+  padding:7px 14px;border-radius:var(--r-pill);margin-bottom:24px;
+}
+.hero-pill .dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 0 3px rgba(200,16,46,.3)}
+.hero h1{font-size:clamp(38px,6vw,62px);color:#fff;letter-spacing:-.03em;line-height:1.02;margin-bottom:22px}
+.hero h1 .accent{color:#fff;position:relative;white-space:nowrap}
+.hero h1 .accent::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.14em;background:var(--red);border-radius:3px;opacity:.95}
+.hero p.sub{font-size:clamp(16px,2vw,18.5px);color:#c3cdda;max-width:56ch;margin-bottom:30px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:13px;margin-bottom:34px}
+.hero-stats{display:flex;gap:30px;flex-wrap:wrap;border-top:1px solid rgba(255,255,255,.1);padding-top:24px}
+.hero-stats .stat .num{font-family:var(--display);font-weight:700;font-size:26px;color:#fff;letter-spacing:-.02em}
+.hero-stats .stat .num .red{color:var(--red)}
+.hero-stats .stat .lbl{font-size:12.5px;color:#93a1b4;font-weight:600;letter-spacing:.02em}
+
+/* hero right: founder + mini search */
+.hero-right{position:relative;align-self:stretch;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:0}
+.hero-portrait{
+  position:relative;border-radius:16px 16px 0 0;overflow:hidden;
+  border:1px solid rgba(255,255,255,.12);border-bottom:none;
+  box-shadow:0 -10px 50px rgba(0,0,0,.4);
+  background:#11202f;margin-bottom:0;
+}
+.hero-portrait img{width:100%;height:auto;display:block;aspect-ratio:4/4.4;object-fit:cover;object-position:center top}
+.hero-portrait .cap{
+  position:absolute;left:0;right:0;bottom:0;padding:34px 20px 16px;
+  background:linear-gradient(to top, rgba(7,14,22,.92), transparent);
+  display:flex;align-items:flex-end;justify-content:space-between;gap:10px;
+}
+.hero-portrait .cap .who b{display:block;font-family:var(--display);font-size:16px}
+.hero-portrait .cap .who span{font-size:12.5px;color:#b7c2d0}
+.hero-portrait .cap .sig{font-size:12px;color:#9fb0c4;text-align:right}
+
+/* hero mini search */
+.hero-search{
+  background:#fff;color:var(--ink);border-radius:14px;padding:16px;
+  box-shadow:var(--shadow-lg);border:1px solid var(--hair);
+  margin-top:-1px;position:relative;z-index:2;
+}
+.hero-search .hs-label{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:9px;display:flex;align-items:center;gap:7px}
+.hero-search .hs-label .pin{color:var(--red);display:inline-flex}
+.hero-search .hs-label .pin svg{width:14px;height:14px}
+.hs-field{position:relative}
+.hs-field svg.ico{position:absolute;left:14px;top:50%;transform:translateY(-50%);width:18px;height:18px;stroke:var(--muted)}
+.hs-field input{
+  width:100%;padding:13px 14px 13px 42px;border:1px solid var(--hair);border-radius:10px;
+  background:var(--grey);color:var(--ink);transition:border .15s, background .15s;
+}
+.hs-field input:focus{outline:none;border-color:var(--red);background:#fff;box-shadow:0 0 0 4px rgba(200,16,46,.1)}
+.hs-chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px}
+.hs-chips button{
+  font-size:12.5px;font-weight:600;color:var(--muted);background:var(--grey);
+  border:1px solid var(--hair);padding:6px 11px;border-radius:var(--r-pill);transition:.15s;
+}
+.hs-chips button:hover{color:var(--ink);border-color:#cfd6e2}
+
+/* ============================== TICKER / SUPPORT STRIP ============================== */
+.trust-strip{background:var(--grey);border-bottom:1px solid var(--hair);padding:18px 0}
+.trust-strip .wrap{display:flex;align-items:center;gap:28px;flex-wrap:wrap;justify-content:center;color:var(--muted);font-size:14px;font-weight:600}
+.trust-strip .ts-item{display:inline-flex;align-items:center;gap:9px}
+.trust-strip .ts-item svg{width:18px;height:18px;color:var(--red)}
+
+/* ============================== WHY / GENERIC PROSE ============================== */
+.prose-block{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.prose-block .body p{color:var(--muted);font-size:17.5px;margin-bottom:16px}
+.prose-block .body p:last-of-type{margin-bottom:24px}
+.figure-card{
+  border-radius:16px;overflow:hidden;border:1px solid var(--hair);box-shadow:var(--shadow-md);
+  position:relative;background:var(--ink-deep);
+}
+.figure-card img{width:100%;height:100%;object-fit:cover;aspect-ratio:5/4}
+.figure-card .figcap{
+  position:absolute;left:16px;bottom:16px;right:16px;color:#fff;
+  background:rgba(10,20,31,.55);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);
+  padding:12px 14px;border-radius:10px;font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:9px;
+}
+.figure-card .figcap svg{width:16px;height:16px;color:var(--red);flex:none}
+
+/* builders feature band */
+.band-dark{background:var(--ink-deep);color:#fff}
+.band-dark h2{color:#fff}
+.band-dark .lead{color:#bcc8d6}
+.band-dark .eyebrow{color:#ff6079}
+.band-dark .eyebrow::before{background:#ff6079}
+.band-dark .figure-card{border-color:rgba(255,255,255,.14)}
+
+/* ============================== FOUNDER QUOTE ============================== */
+.founder{display:grid;grid-template-columns:.85fr 1.15fr;gap:54px;align-items:center}
+.founder-photo{border-radius:16px;overflow:hidden;border:1px solid var(--hair);box-shadow:var(--shadow-lg);position:relative}
+.founder-photo img{width:100%;aspect-ratio:4/4.6;object-fit:cover;object-position:center top}
+.founder-photo .badge{
+  position:absolute;top:16px;left:16px;background:#fff;border:1px solid var(--hair);
+  padding:8px 13px;border-radius:var(--r-pill);font-size:12.5px;font-weight:700;display:flex;align-items:center;gap:7px;box-shadow:var(--shadow-sm);
+}
+.founder-photo .badge .leaf{width:16px;height:16px;color:var(--red)}
+.founder-photo .badge .leaf svg{fill:currentColor}
+.founder .body p{color:var(--muted);font-size:17.5px;margin-bottom:18px}
+.pullquote{
+  border-left:3px solid var(--red);padding:6px 0 6px 22px;margin:24px 0;
+  font-family:var(--display);font-size:clamp(19px,2.4vw,23px);line-height:1.35;color:var(--ink);font-weight:500;letter-spacing:-.01em;
+}
+.signature{display:flex;align-items:center;gap:12px;margin-top:18px}
+.signature .sig-name{font-family:var(--display);font-size:18px;font-weight:700}
+.signature .sig-role{font-size:13px;color:var(--muted);font-weight:600}
+.signature .sig-mark{width:42px;height:42px;border-radius:50%;background:var(--grey);border:1px solid var(--hair);display:flex;align-items:center;justify-content:center;color:var(--red)}
+.signature .sig-mark .leaf{width:22px;height:22px}
+.signature .sig-mark svg{fill:currentColor}
+
+/* ============================== VISION PILLARS ============================== */
+.pillar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.pillar{
+  background:#fff;border:1px solid var(--hair);border-radius:var(--r);padding:26px 24px;
+  box-shadow:var(--shadow-sm);transition:transform .18s, box-shadow .2s, border-color .2s;
+}
+.pillar:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:#dbe2ec}
+.pillar .ico{
+  width:46px;height:46px;border-radius:11px;background:var(--grey);border:1px solid var(--hair);
+  display:flex;align-items:center;justify-content:center;color:var(--red);margin-bottom:16px;
+}
+.pillar .ico svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.7}
+.pillar h3{font-size:18px;margin-bottom:6px}
+.pillar p{font-size:15px;color:var(--muted);margin:0}
+
+/* ============================== VALUES ============================== */
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden;background:#fff;box-shadow:var(--shadow-sm)}
+.value{display:flex;gap:18px;padding:24px 26px;border-bottom:1px solid var(--hair);border-right:1px solid var(--hair);transition:background .18s}
+.value:hover{background:var(--grey)}
+.value:nth-child(2n){border-right:none}
+.value:nth-last-child(-1){border-bottom:none}
+.value .vnum{
+  font-family:var(--display);font-weight:700;font-size:15px;color:var(--red);
+  width:38px;height:38px;flex:none;border-radius:9px;background:rgba(200,16,46,.08);
+  display:flex;align-items:center;justify-content:center;
+}
+.value h3{font-size:17px;margin-bottom:3px}
+.value p{font-size:15px;color:var(--muted);margin:0}
+@media(min-width:721px){.value:nth-last-child(1){border-bottom:none}}
+
+/* ============================== POLICY EXPLORER (HERO FEATURE) ============================== */
+.explorer{background:var(--grey);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+.explorer .section-head{margin-bottom:32px}
+.explorer-stat{display:inline-flex;align-items:baseline;gap:8px;margin-top:6px}
+.explorer-stat .big{font-family:var(--display);font-weight:700;font-size:clamp(40px,6vw,60px);color:var(--ink);letter-spacing:-.03em;line-height:1}
+.explorer-stat .big .r{color:var(--red)}
+.explorer-stat .txt{color:var(--muted);font-weight:600;font-size:16px}
+
+/* control panel */
+.explorer-controls{position:sticky;top:96px;z-index:40;margin-bottom:26px}
+.control-card{
+  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid var(--hair);border-radius:var(--r-lg);box-shadow:var(--shadow-md);padding:16px;
+}
+.search-row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.search-box{position:relative;flex:1;min-width:240px}
+.search-box svg.ico{position:absolute;left:16px;top:50%;transform:translateY(-50%);width:20px;height:20px;stroke:var(--muted)}
+.search-box input{
+  width:100%;padding:15px 44px 15px 46px;border:1px solid var(--hair);border-radius:11px;
+  background:var(--grey);color:var(--ink);font-size:16.5px;transition:.15s;
+}
+.search-box input:focus{outline:none;border-color:var(--red);background:#fff;box-shadow:0 0 0 4px rgba(200,16,46,.1)}
+.search-box .clear{
+  position:absolute;right:10px;top:50%;transform:translateY(-50%);width:30px;height:30px;border-radius:8px;
+  display:none;align-items:center;justify-content:center;color:var(--muted);background:transparent;
+}
+.search-box .clear:hover{background:var(--grey-2);color:var(--ink)}
+.search-box .clear svg{width:16px;height:16px;stroke:currentColor}
+.search-box.has-val .clear{display:flex}
+.result-count{font-size:14px;font-weight:600;color:var(--muted);white-space:nowrap;padding:0 4px}
+.result-count b{color:var(--red);font-family:var(--display);font-size:16px}
+
+.filter-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;padding-top:14px;border-top:1px solid var(--hair)}
+.filter-tabs button{
+  font-size:13.5px;font-weight:600;color:var(--muted);background:#fff;border:1px solid var(--hair);
+  padding:8px 14px;border-radius:var(--r-pill);transition:.15s;display:inline-flex;align-items:center;gap:7px;
+}
+.filter-tabs button .cnt{font-size:11.5px;font-weight:700;color:#9aa6b6;background:var(--grey);border-radius:var(--r-pill);padding:1px 7px;transition:.15s}
+.filter-tabs button:hover{border-color:#cfd6e2;color:var(--ink)}
+.filter-tabs button.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+.filter-tabs button.active .cnt{background:rgba(255,255,255,.18);color:#fff}
+
+/* cards grid */
+.policy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.policy-card{
+  background:#fff;border:1px solid var(--hair);border-radius:var(--r-lg);padding:22px;
+  box-shadow:var(--shadow-sm);display:flex;flex-direction:column;
+  transition:transform .18s, box-shadow .2s, border-color .2s;position:relative;overflow:hidden;
+}
+.policy-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:#dbe2ec}
+.policy-card.flagship{border-color:#f1c4cd;background:linear-gradient(180deg,#fff,#fffafb)}
+.policy-card.flagship::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--red)}
+.pc-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.pc-num{
+  font-family:var(--display);font-weight:700;font-size:14px;color:var(--ink);
+  width:36px;height:36px;border-radius:9px;background:var(--grey);border:1px solid var(--hair);
+  display:flex;align-items:center;justify-content:center;
+}
+.policy-card.flagship .pc-num{background:var(--red);color:#fff;border-color:var(--red)}
+.pc-tag{
+  font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  color:var(--muted);background:var(--grey);border:1px solid var(--hair);padding:5px 10px;border-radius:var(--r-pill);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.pc-tag .swatch{width:7px;height:7px;border-radius:2px}
+.policy-card h3{font-size:18.5px;margin-bottom:12px;line-height:1.18}
+.flag-badge{
+  display:inline-flex;align-items:center;gap:5px;font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--red);margin-bottom:9px;
+}
+.flag-badge svg{width:12px;height:12px;fill:var(--red)}
+.pc-field{margin-bottom:12px}
+.pc-field .k{
+  font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#9aa6b6;
+  display:flex;align-items:center;gap:6px;margin-bottom:4px;
+}
+.pc-field .k svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2}
+.pc-field.propose .k{color:var(--red)}
+.pc-field .v{font-size:14.5px;color:var(--ink);line-height:1.5}
+.pc-field.why .v{color:var(--muted)}
+.pc-field:last-child{margin-bottom:0}
+
+.empty-state{
+  display:none;text-align:center;padding:64px 24px;background:#fff;border:1px dashed #d4dce6;border-radius:var(--r-lg);grid-column:1/-1;
+}
+.empty-state.show{display:block}
+.empty-state .es-ico{width:60px;height:60px;border-radius:14px;background:var(--grey);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:var(--muted)}
+.empty-state .es-ico svg{width:28px;height:28px;stroke:currentColor;fill:none;stroke-width:1.7}
+.empty-state h3{font-size:20px;margin-bottom:8px}
+.empty-state p{color:var(--muted);margin-bottom:18px}
+.explorer-foot{margin-top:34px;text-align:center}
+
+/* ============================== NEWS ============================== */
+.news-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:start}
+.news-featured{
+  background:#fff;border:1px solid var(--hair);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-sm);
+  transition:transform .18s, box-shadow .2s;
+}
+.news-featured:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.news-art{
+  height:220px;background:var(--ink-deep);position:relative;overflow:hidden;
+  display:flex;align-items:flex-end;padding:22px;color:#fff;
+}
+.news-art::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(500px 260px at 80% 0%, rgba(200,16,46,.32), transparent 60%),
+    radial-gradient(420px 300px at 0% 100%, rgba(46,86,140,.3), transparent 60%);
+}
+.news-art .grid-overlay{
+  position:absolute;inset:0;opacity:.45;
+  background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px);
+  background-size:40px 40px;
+}
+.news-art .tag{position:relative;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--red);padding:6px 12px;border-radius:var(--r-pill)}
+.news-body{padding:24px}
+.news-meta{display:flex;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted);font-weight:600;margin-bottom:12px}
+.news-meta span{display:inline-flex;align-items:center;gap:6px}
+.news-meta svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;color:var(--red)}
+.news-featured h3{font-size:23px;margin-bottom:12px;line-height:1.18}
+.news-featured p{color:var(--muted);font-size:16px;margin-bottom:18px}
+.read-link{font-weight:700;color:var(--red);display:inline-flex;align-items:center;gap:7px;font-size:15px}
+.read-link svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .18s}
+.read-link:hover svg{transform:translateX(3px)}
+
+.newsletter-card{background:var(--ink-deep);color:#fff;border-radius:var(--r-lg);padding:28px;box-shadow:var(--shadow-md)}
+.newsletter-card .leaf{width:34px;height:34px;color:var(--red);margin-bottom:16px}
+.newsletter-card .leaf svg{fill:currentColor}
+.newsletter-card h3{color:#fff;font-size:21px;margin-bottom:8px}
+.newsletter-card p{color:#bcc8d6;font-size:15px;margin-bottom:18px}
+.newsletter-card .nl-form{display:flex;flex-direction:column;gap:10px}
+.newsletter-card input{
+  width:100%;padding:13px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.16);
+  background:rgba(255,255,255,.06);color:#fff;
+}
+.newsletter-card input::placeholder{color:#8a99ab}
+.newsletter-card input:focus{outline:none;border-color:var(--red);background:rgba(255,255,255,.1)}
+.coming-soon{margin-top:20px;border-top:1px solid var(--hair);padding-top:18px;color:var(--muted);font-size:14px;text-align:center}
+.form-ok{display:none;align-items:center;gap:9px;color:#2fae6a;font-weight:600;font-size:14.5px;padding:10px 0}
+.form-ok.show{display:flex}
+.form-ok svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.4;flex:none}
+.newsletter-card .form-ok{color:#5fd99a}
+
+/* ============================== GET INVOLVED ============================== */
+.involve-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-bottom:44px}
+.involve{
+  background:#fff;border:1px solid var(--hair);border-radius:var(--r);padding:24px;box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;transition:transform .18s, box-shadow .2s, border-color .2s;
+}
+.involve:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:#dbe2ec}
+.involve .ico{
+  width:46px;height:46px;border-radius:11px;background:var(--grey);border:1px solid var(--hair);
+  display:flex;align-items:center;justify-content:center;color:var(--red);margin-bottom:15px;
+}
+.involve .ico svg{width:23px;height:23px;stroke:currentColor;fill:none;stroke-width:1.7}
+.involve h3{font-size:18px;margin-bottom:6px}
+.involve p{font-size:15px;color:var(--muted);margin-bottom:16px;flex:1}
+.involve .inv-link{font-weight:700;font-size:14px;color:var(--ink);display:inline-flex;align-items:center;gap:6px}
+.involve .inv-link svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.2;transition:transform .18s;color:var(--red)}
+.involve:hover .inv-link svg{transform:translateX(3px)}
+
+/* forms */
+.form-card{background:#fff;border:1px solid var(--hair);border-radius:var(--r-lg);padding:30px;box-shadow:var(--shadow-sm)}
+.form-card h3{font-size:22px;margin-bottom:6px}
+.form-card .fc-sub{color:var(--muted);font-size:15px;margin-bottom:22px}
+.field{margin-bottom:16px}
+.field label{display:block;font-size:13.5px;font-weight:700;color:var(--ink);margin-bottom:6px}
+.field label .req{color:var(--red)}
+.field input,.field select,.field textarea{
+  width:100%;padding:12px 14px;border:1px solid var(--hair);border-radius:10px;background:var(--grey);
+  color:var(--ink);transition:.15s;
+}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--red);background:#fff;box-shadow:0 0 0 4px rgba(200,16,46,.08)}
+.field textarea{min-height:110px;resize:vertical}
+.field select{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' fill='none' stroke='%23586577' stroke-width='2'><path d='M2 4l5 5 5-5'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.form-thanks{
+  display:none;text-align:center;padding:40px 20px;
+}
+.form-thanks.show{display:block}
+.form-thanks .ft-ico{width:64px;height:64px;border-radius:50%;background:rgba(47,174,106,.12);display:flex;align-items:center;justify-content:center;margin:0 auto 18px;color:#2fae6a}
+.form-thanks .ft-ico svg{width:32px;height:32px;stroke:currentColor;fill:none;stroke-width:2.4}
+.form-thanks h3{font-size:22px;margin-bottom:8px}
+.form-thanks p{color:var(--muted)}
+.two-col-forms{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
+
+/* ============================== CONTACT ============================== */
+.contact-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:start}
+.contact-info{background:var(--ink-deep);color:#fff;border-radius:var(--r-lg);padding:32px;box-shadow:var(--shadow-md)}
+.contact-info h3{color:#fff;font-size:23px;margin-bottom:10px}
+.contact-info > p{color:#bcc8d6;font-size:15.5px;margin-bottom:26px}
+.ci-item{display:flex;gap:14px;align-items:flex-start;padding:16px 0;border-top:1px solid rgba(255,255,255,.1)}
+.ci-item:first-of-type{border-top:none}
+.ci-item .ico{width:42px;height:42px;border-radius:11px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;color:var(--red);flex:none}
+.ci-item .ico svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.8}
+.ci-item .ci-k{font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#8a99ab;margin-bottom:3px}
+.ci-item .ci-v{font-size:16px;font-weight:600;color:#fff}
+.ci-item .ci-v a:hover{color:var(--red)}
+.contact-social{display:flex;gap:10px;margin-top:24px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1)}
+.contact-social a{width:44px;height:44px;border-radius:11px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);display:flex;align-items:center;justify-content:center;color:#fff;transition:.18s}
+.contact-social a:hover{background:var(--red);border-color:var(--red);transform:translateY(-2px)}
+.contact-social a svg{width:20px;height:20px;fill:currentColor}
+
+/* ============================== FINAL CTA ============================== */
+.final-cta{background:var(--ink-deep);color:#fff;position:relative;overflow:hidden;text-align:center}
+.final-cta::before{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(700px 360px at 50% -10%, rgba(200,16,46,.28), transparent 62%),
+    radial-gradient(600px 400px at 80% 120%, rgba(46,86,140,.24), transparent 60%);
+}
+.final-cta .grid-overlay{
+  position:absolute;inset:0;opacity:.4;
+  background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:50px 50px;
+  -webkit-mask-image:radial-gradient(closest-side at 50% 40%, #000, transparent);
+  mask-image:radial-gradient(closest-side at 50% 40%, #000, transparent);
+}
+.final-cta .wrap{position:relative}
+.final-cta .leaf{width:48px;height:48px;color:var(--red);margin:0 auto 20px}
+.final-cta .leaf svg{fill:currentColor}
+.final-cta h2{color:#fff;font-size:clamp(30px,4.5vw,46px);margin-bottom:14px}
+.final-cta p{color:#c3cdda;max-width:54ch;margin:0 auto 30px;font-size:18px}
+.final-cta .fc-actions{display:flex;gap:13px;justify-content:center;flex-wrap:wrap}
+
+/* ============================== FOOTER ============================== */
+footer.site-foot{background:#070f18;color:#9fb0c4;padding:64px 0 28px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.1fr;gap:36px;padding-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08)}
+.foot-brand .brand{color:#fff;margin-bottom:14px}
+.foot-brand .brand small{color:#7d8ea3}
+.foot-brand p{font-size:14.5px;max-width:34ch;margin-bottom:18px}
+.foot-brand .tagline{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#c3cdda;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);padding:7px 13px;border-radius:var(--r-pill)}
+.foot-brand .tagline .dot{width:6px;height:6px;border-radius:50%;background:var(--red)}
+.foot-col h4{color:#fff;font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:16px}
+.foot-col a{display:block;font-size:14.5px;color:#9fb0c4;padding:6px 0;transition:color .18s}
+.foot-col a:hover{color:#fff}
+.foot-col .ci{font-size:14.5px;line-height:1.7}
+.foot-col .ci a:hover{color:var(--red)}
+.foot-social{display:flex;gap:10px;margin-top:14px}
+.foot-social a{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:#fff;padding:0}
+.foot-social a:hover{background:var(--red);border-color:var(--red)}
+.foot-social a svg{width:18px;height:18px;fill:currentColor}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding-top:24px;font-size:13.5px;color:#7d8ea3}
+.foot-bottom .fb-right{display:inline-flex;align-items:center;gap:8px}
+.foot-bottom .fb-right .dot{width:5px;height:5px;border-radius:50%;background:var(--red)}
+
+/* ============================== ANIM ============================== */
+.anim{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease}
+.anim.in{opacity:1;transform:none}
+@media (prefers-reduced-motion: reduce){
+  .anim{opacity:1;transform:none;transition:none}
+  html{scroll-behavior:auto}
+}
+
+/* ============================== RESPONSIVE ============================== */
+@media (max-width:980px){
+  .hero .wrap{grid-template-columns:1fr;gap:0}
+  .hero-left{padding-bottom:36px}
+  .hero-right{padding-bottom:0;margin:0 -24px;}
+  .hero-portrait{border-radius:0}
+  .hero-search{margin:0 24px;margin-top:-1px}
+  .prose-block,.founder,.news-grid,.contact-grid,.two-col-forms{grid-template-columns:1fr;gap:32px}
+  .founder-photo{max-width:420px}
+  .pillar-grid,.policy-grid,.involve-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  .nav-links{display:none}
+  .nav-cta .btn--join{display:none}
+  .hamburger{display:flex}
+  .utilbar .util-tag span.long{display:none}
+  .section{padding:60px 0}
+  .pillar-grid,.policy-grid,.involve-grid{grid-template-columns:1fr}
+  .values-grid{grid-template-columns:1fr}
+  .value{border-right:none}
+  .field-row{grid-template-columns:1fr}
+  .explorer-controls{top:80px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .foot-brand{grid-column:1/-1}
+  .hero-stats{gap:22px}
+}
+@media (max-width:440px){
+  body{font-size:16px}
+  .wrap{padding:0 18px}
+  .foot-grid{grid-template-columns:1fr}
+  .search-row{gap:10px}
+  .result-count{order:3;width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================== UTILITY BAR ============================== -->
+<div class="utilbar">
+  <div class="wrap">
+    <span class="util-tag"><span class="dot"></span>Renewing Hope <span class="long">· Restoring Trust</span></span>
+    <div class="util-right">
+      <a href="mailto:info@bcrenewalparty.ca" target="_top" rel="noopener">info@bcrenewalparty.ca</a>
+      <a class="x" href="https://x.com/BCRenewalParty" target="_top" rel="noopener" aria-label="BC Renewal Party on X">Follow on X</a>
+    </div>
+  </div>
+</div>
+
+<!-- ============================== NAV ============================== -->
+<header class="nav">
+  <div class="wrap">
+    <a href="#top" class="brand" aria-label="BC Renewal Party home">
+      <span class="leaf"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M383.8 351.7c1.2-.5 51.3-35.6 51.3-35.6 16.3-11.4 13.6-18.5 7.8-23.4-5.8-4.9-14.8-3.8-14.8-3.8l-30.7 6.9c-5.8 1.3-7.8-2.6-6.3-8.4l27.6-103.4c0 0 2.9-10.9-7.8-10.9-5.8 0-9.3 4.4-9.3 4.4l-38.2 47.9c-3.9 4.9-9.7 3.4-9.7-2.4l3.9-150.5c0 0 .5-12.4-9.7-12.4-5.8 0-8.7 5.4-8.7 5.4l-43.1 78.1c-2.9 5.4-8.7 3.9-10.7-1.9l-26.6-77.1c0 0-2.9-8.7-10.7-8.7s-10.7 8.7-10.7 8.7l-26.6 77.1c-1.9 5.8-7.8 7.3-10.7 1.9l-43.1-78.1c0 0-2.9-5.4-8.7-5.4-10.2 0-9.7 12.4-9.7 12.4l3.9 150.5c0 5.8-5.8 7.3-9.7 2.4l-38.2-47.9c0 0-3.4-4.4-9.3-4.4-10.7 0-7.8 10.9-7.8 10.9l27.6 103.4c1.5 5.8-.5 9.7-6.3 8.4l-30.7-6.9c0 0-9-1.1-14.8 3.8-5.8 4.9-8.5 12 7.8 23.4 0 0 50.1 35.1 51.3 35.6 1.2.5 7.8 4.4 4.4 14.6l-8.7 25.7c0 0-2.4 7.3 3.4 9.3 5.8 1.9 11.2-1.9 11.2-1.9l68.6-14.6c5.8-1.3 7.3 2.4 7.3 6.3l-2.4 88.8c0 0-.5 11.7 9.7 11.7h19.4c10.2 0 9.7-11.7 9.7-11.7l-2.4-88.8c0-3.9 1.5-7.6 7.3-6.3l68.6 14.6c0 0 5.4 3.9 11.2 1.9 5.8-1.9 3.4-9.3 3.4-9.3l-8.7-25.7c-3.4-10.2 3.2-14.1 4.4-14.6z"/></svg></span>
+      <span>BC Renewal Party<small>Renewing Hope · Restoring Trust</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#vision">Vision</a>
+      <a href="#platform">Platform</a>
+      <a href="#involved">Get Involved</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#involved" class="btn btn--ghost btn--sm btn--join">Join</a>
+      <a href="https://www.givesendgo.com/bcrenewal" target="_top" rel="noopener" class="btn btn--primary btn--sm">Donate</a>
+      <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- mobile menu -->
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <div class="mm-top">
+    <span class="brand"><span class="leaf"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M383.8 351.7c1.2-.5 51.3-35.6 51.3-35.6 16.3-11.4 13.6-18.5 7.8-23.4-5.8-4.9-14.8-3.8-14.8-3.8l-30.7 6.9c-5.8 1.3-7.8-2.6-6.3-8.4l27.6-103.4c0 0 2.9-10.9-7.8-10.9-5.8 0-9.3 4.4-9.3 4.4l-38.2 47.9c-3.9 4.9-9.7 3.4-9.7-2.4l3.9-150.5c0 0 .5-12.4-9.7-12.4-5.8 0-8.7 5.4-8.7 5.4l-43.1 78.1c-2.9 5.4-8.7 3.9-10.7-1.9l-26.6-77.1c0 0-2.9-8.7-10.7-8.7s-10.7 8.7-10.7 8.7l-26.6 77.1c-1.9 5.8-7.8 7.3-10.7 1.9l-43.1-78.1c0 0-2.9-5.4-8.7-5.4-10.2 0-9.7 12.4-9.7 12.4l3.9 150.5c0 5.8-5.8 7.3-9.7 2.4l-38.2-47.9c0 0-3.4-4.4-9.3-4.4-10.7 0-7.8 10.9-7.8 10.9l27.6 103.4c1.5 5.8-.5 9.7-6.3 8.4l-30.7-6.9c0 0-9-1.1-14.8 3.8-5.8 4.9-8.5 12 7.8 23.4 0 0 50.1 35.1 51.3 35.6 1.2.5 7.8 4.4 4.4 14.6l-8.7 25.7c0 0-2.4 7.3 3.4 9.3 5.8 1.9 11.2-1.9 11.2-1.9l68.6-14.6c5.8-1.3 7.3 2.4 7.3 6.3l-2.4 88.8c0 0-.5 11.7 9.7 11.7h19.4c10.2 0 9.7-11.7 9.7-11.7l-2.4-88.8c0-3.9 1.5-7.6 7.3-6.3l68.6 14.6c0 0 5.4 3.9 11.2 1.9 5.8-1.9 3.4-9.3 3.4-9.3l-8.7-25.7c-3.4-10.2 3.2-14.1 4.4-14.6z"/></svg></span><span>BC Renewal Party<small>Renewing Hope · Restoring Trust</small></span></span>
+    <button class="mm-close" id="mmClose" aria-label="Close menu"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <a class="mm-link" href="#vision">Vision <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="mm-link" href="#platform">Platform <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="mm-link" href="#involved">Get Involved <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="mm-link" href="#news">News <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="mm-link" href="#contact">Contact <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <div class="mm-actions">
+    <a href="#involved" class="btn btn--ghost btn--block">Join the Movement</a>
+    <a href="https://www.givesendgo.com/bcrenewal" target="_top" rel="noopener" class="btn btn--primary btn--block">Donate</a>
+  </div>
+</div>
+
+<span id="top"></span>
+
+<!-- ============================== HERO ============================== -->
+<section class="hero">
+  <div class="hero-grid-bg"></div>
+  <div class="wrap">
+    <div class="hero-left">
+      <span class="hero-pill"><span class="dot"></span>A new provincial party · Founded 2025</span>
+      <h1>A New Future for <span class="accent">British Columbia.</span></h1>
+      <p class="sub">British Columbia has the land, the talent, and the resources to be one of the best places in the world to live. We have simply been governed without ambition. The BC Renewal Party is building a province powered by clean energy, where every resident shares in our resource wealth, housing is affordable, and young families can afford to stay.</p>
+      <div class="hero-actions">
+        <a href="#platform" class="btn btn--primary">Explore the Platform
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#involved" class="btn btn--on-dark">Join the Movement</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num"><span class="red">$500</span>/mo</div><div class="lbl">BC Dividend, every resident</div></div>
+        <div class="stat"><div class="num">19</div><div class="lbl">Policy commitments</div></div>
+        <div class="stat"><div class="num">2025</div><div class="lbl">Founded in BC</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-portrait">
+        <img src="https://assets.cdn.filesafe.space/TiLyAQVE8tuxJNC2sEs1/media/554cf304-887a-482e-8da7-df6c4b4a6445.jpeg" alt="Tristan Tolley, founder of the BC Renewal Party" loading="eager">
+        <div class="cap">
+          <span class="who"><b>Tristan Tolley</b><span>Founder, BC Renewal Party</span></span>
+          <span class="sig">Est. 2025</span>
+        </div>
+      </div>
+      <div class="hero-search">
+        <div class="hs-label"><span class="pin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></span>Find your issue in seconds</div>
+        <div class="hs-field" id="heroSearchField">
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+          <input type="text" id="heroSearch" placeholder="Try &quot;housing&quot;, &quot;healthcare&quot;, &quot;energy&quot;..." aria-label="Search the policy platform">
+        </div>
+        <div class="hs-chips">
+          <button type="button" data-q="housing">Housing</button>
+          <button type="button" data-q="healthcare">Healthcare</button>
+          <button type="button" data-q="energy">Clean energy</button>
+          <button type="button" data-q="cost">Cost of living</button>
+          <button type="button" data-q="childcare">Childcare</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== TRUST STRIP ============================== -->
+<div class="trust-strip">
+  <div class="wrap">
+    <span class="ts-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6l-8-4Z"/></svg>People before politics</span>
+    <span class="ts-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Solutions before ideology</span>
+    <span class="ts-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg>Future generations before election cycles</span>
+  </div>
+</div>
+
+<!-- ============================== WHY WE'RE RUNNING ============================== -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="prose-block">
+      <div class="body anim">
+        <span class="eyebrow">Why we're running</span>
+        <h2>Built for the people politics left behind.</h2>
+        <p>For too long, politics in British Columbia has been about protecting the status quo, not protecting people. Housing costs have pushed families out of their communities. Healthcare waitlists have left loved ones in pain. Wages have not kept up with the cost of living.</p>
+        <p>A lot of British Columbians feel politically homeless, tired of the same old back-and-forth that got us here. We are running because change only comes when everyday people step forward. We are not here to play politics. We are here to build solutions that work.</p>
+        <a href="#platform" class="btn btn--dark">See the 19 ideas
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+      <div class="anim">
+        <div class="values-mini" style="display:grid;grid-template-columns:1fr;gap:14px">
+          <div class="pillar" style="display:flex;gap:16px;align-items:flex-start">
+            <div class="ico" style="margin:0"><svg viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M9 21v-6h6v6"/></svg></div>
+            <div><h3 style="margin-bottom:4px">Housing pushed families out</h3><p>Costs have outpaced wages for a generation, putting homeownership out of reach.</p></div>
+          </div>
+          <div class="pillar" style="display:flex;gap:16px;align-items:flex-start">
+            <div class="ico" style="margin:0"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg></div>
+            <div><h3 style="margin-bottom:4px">Waitlists left people in pain</h3><p>A healthcare system that makes families wait when they need care most.</p></div>
+          </div>
+          <div class="pillar" style="display:flex;gap:16px;align-items:flex-start">
+            <div class="ico" style="margin:0"><svg viewBox="0 0 24 24"><path d="M3 17l6-6 4 4 7-7"/><path d="M14 8h6v6"/></svg></div>
+            <div><h3 style="margin-bottom:4px">Wages fell behind the cost of living</h3><p>Working harder no longer buys the stability it once did.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== WE'RE BUILDERS ============================== -->
+<section class="section band-dark" id="about">
+  <div class="wrap">
+    <div class="prose-block">
+      <div class="anim">
+        <div class="figure-card">
+          <img src="https://assets.cdn.filesafe.space/TiLyAQVE8tuxJNC2sEs1/media/9a98aad2-c51d-4ce9-82f2-daf2485ed6d3.jpg" alt="The Canadian flag flying at Parliament">
+          <div class="figcap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 22V3M4 4h10l-2 4 2 4H4"/></svg>A genuine alternative for British Columbia</div>
+        </div>
+      </div>
+      <div class="body anim">
+        <span class="eyebrow">Leadership · Experience · Values</span>
+        <h2>We're not politicians. We're builders.</h2>
+        <p>The BC Renewal Party was founded by everyday people who are tired of waiting for the system to fix itself: workers, parents, small business owners, and entrepreneurs.</p>
+        <p>We believe BC can be bold again, not by clinging to old ideologies, but by investing in real solutions that help people live, work, and thrive. We are creating a genuine alternative.</p>
+        <a href="#vision" class="btn btn--primary">Read our vision
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== MEET TRISTAN ============================== -->
+<section class="section" id="founder">
+  <div class="wrap">
+    <div class="founder">
+      <div class="anim">
+        <div class="founder-photo">
+          <div class="badge"><span class="leaf"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M383.8 351.7c1.2-.5 51.3-35.6 51.3-35.6 16.3-11.4 13.6-18.5 7.8-23.4-5.8-4.9-14.8-3.8-14.8-3.8l-30.7 6.9c-5.8 1.3-7.8-2.6-6.3-8.4l27.6-103.4c0 0 2.9-10.9-7.8-10.9-5.8 0-9.3 4.4-9.3 4.4l-38.2 47.9c-3.9 4.9-9.7 3.4-9.7-2.4l3.9-150.5c0 0 .5-12.4-9.7-12.4-5.8 0-8.7 5.4-8.7 5.4l-43.1 78.1c-2.9 5.4-8.7 3.9-10.7-1.9l-26.6-77.1c0 0-2.9-8.7-10.7-8.7s-10.7 8.7-10.7 8.7l-26.6 77.1c-1.9 5.8-7.8 7.3-10.7 1.9l-43.1-78.1c0 0-2.9-5.4-8.7-5.4-10.2 0-9.7 12.4-9.7 12.4l3.9 150.5c0 5.8-5.8 7.3-9.7 2.4l-38.2-47.9c0 0-3.4-4.4-9.3-4.4-10.7 0-7.8 10.9-7.8 10.9l27.6 103.4c1.5 5.8-.5 9.7-6.3 8.4l-30.7-6.9c0 0-9-1.1-14.8 3.8-5.8 4.9-8.5 12 7.8 23.4 0 0 50.1 35.1 51.3 35.6 1.2.5 7.8 4.4 4.4 14.6l-8.7 25.7c0 0-2.4 7.3 3.4 9.3 5.8 1.9 11.2-1.9 11.2-1.9l68.6-14.6c5.8-1.3 7.3 2.4 7.3 6.3l-2.4 88.8c0 0-.5 11.7 9.7 11.7h19.4c10.2 0 9.7-11.7 9.7-11.7l-2.4-88.8c0-3.9 1.5-7.6 7.3-6.3l68.6 14.6c0 0 5.4 3.9 11.2 1.9 5.8-1.9 3.4-9.3 3.4-9.3l-8.7-25.7c-3.4-10.2 3.2-14.1 4.4-14.6z"/></svg></span>Our Founder</div>
+          <img src="https://assets.cdn.filesafe.space/TiLyAQVE8tuxJNC2sEs1/media/554cf304-887a-482e-8da7-df6c4b4a6445.jpeg" alt="Portrait of Tristan Tolley, founder of the BC Renewal Party">
+        </div>
+      </div>
+      <div class="body anim">
+        <span class="eyebrow">Meet the founder</span>
+        <h2>Meet Tristan Tolley.</h2>
+        <p>Our founder, Tristan Tolley, is a 25-year-old entrepreneur and caregiver who stepped up to raise his younger brothers after losing his father. He runs a private swim-lessons business and has his first child on the way.</p>
+        <p>He has lived the failures of the current system: education cuts growing up, a healthcare system that makes families wait, and housing speculation that put homeownership out of reach for his generation.</p>
+        <blockquote class="pullquote">"I never planned to start a political party. But I looked around and saw a province where young people cannot afford to live, work, or dream. If we do not step up, no one will. This movement is not about power. It is about possibility, for every person who has been overlooked, overtaxed, or underestimated."</blockquote>
+        <div class="signature">
+          <span class="sig-mark"><span class="leaf"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M383.8 351.7c1.2-.5 51.3-35.6 51.3-35.6 16.3-11.4 13.6-18.5 7.8-23.4-5.8-4.9-14.8-3.8-14.8-3.8l-30.7 6.9c-5.8 1.3-7.8-2.6-6.3-8.4l27.6-103.4c0 0 2.9-10.9-7.8-10.9-5.8 0-9.3 4.4-9.3 4.4l-38.2 47.9c-3.9 4.9-9.7 3.4-9.7-2.4l3.9-150.5c0 0 .5-12.4-9.7-12.4-5.8 0-8.7 5.4-8.7 5.4l-43.1 78.1c-2.9 5.4-8.7 3.9-10.7-1.9l-26.6-77.1c0 0-2.9-8.7-10.7-8.7s-10.7 8.7-10.7 8.7l-26.6 77.1c-1.9 5.8-7.8 7.3-10.7 1.9l-43.1-78.1c0 0-2.9-5.4-8.7-5.4-10.2 0-9.7 12.4-9.7 12.4l3.9 150.5c0 5.8-5.8 7.3-9.7 2.4l-38.2-47.9c0 0-3.4-4.4-9.3-4.4-10.7 0-7.8 10.9-7.8 10.9l27.6 103.4c1.5 5.8-.5 9.7-6.3 8.4l-30.7-6.9c0 0-9-1.1-14.8 3.8-5.8 4.9-8.5 12 7.8 23.4 0 0 50.1 35.1 51.3 35.6 1.2.5 7.8 4.4 4.4 14.6l-8.7 25.7c0 0-2.4 7.3 3.4 9.3 5.8 1.9 11.2-1.9 11.2-1.9l68.6-14.6c5.8-1.3 7.3 2.4 7.3 6.3l-2.4 88.8c0 0-.5 11.7 9.7 11.7h19.4c10.2 0 9.7-11.7 9.7-11.7l-2.4-88.8c0-3.9 1.5-7.6 7.3-6.3l68.6 14.6c0 0 5.4 3.9 11.2 1.9 5.8-1.9 3.4-9.3 3.4-9.3l-8.7-25.7c-3.4-10.2 3.2-14.1 4.4-14.6z"/></svg></span></span>
+          <span><span class="sig-name">Tristan Tolley</span><br><span class="sig-role">Founder, BC Renewal Party</span></span>
+        </div>
+        <div style="margin-top:24px"><a href="#involved" class="btn btn--dark">Stand with Tristan</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== OUR VISION ============================== -->
+<section class="section" id="vision" style="background:var(--grey);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)">
+  <div class="wrap">
+    <div class="section-head center anim">
+      <span class="eyebrow">Our Vision</span>
+      <h2>Bold Ideas. Real Change. A Better BC.</h2>
+      <p class="lead">We believe in a BC that works for everyone, not just the few at the top: people before politics, solutions before ideology, and future generations before election cycles.</p>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar anim"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 2v6m0 0 3-2m-3 2-3-2"/><path d="M5 12a7 7 0 0 0 14 0"/><path d="M5 12v4a7 7 0 0 0 14 0v-4"/></svg></div><h3>Economic Security</h3><p>Economic security to live with dignity.</p></div>
+      <div class="pillar anim"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 22c4-3 7-6.5 7-11A7 7 0 0 0 5 11c0 4.5 3 8 7 11Z"/><path d="M9 11c1.5-2 4.5-2 6 0"/></svg></div><h3>Clean Environment</h3><p>A protected environment with modern, affordable clean energy.</p></div>
+      <div class="pillar anim"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg></div><h3>Healthcare</h3><p>Healthcare that is accessible, efficient, and compassionate.</p></div>
+      <div class="pillar anim"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21V9l9-6 9 6v12"/><path d="M9 21v-6h6v6"/></svg></div><h3>Housing</h3><p>Housing that is affordable for families, workers, and young people.</p></div>
+      <div class="pillar anim"><div class="ico"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg></div><h3>Education</h3><p>Education that prepares the next generation to build and innovate.</p></div>
+      <div class="pillar anim"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7l9-4 9 4-9 4-9-4Z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg></div><h3>Resources for All</h3><p>Resources that benefit all British Columbians, not just corporations.</p></div>
+    </div>
+    <div class="center" style="margin-top:40px"><a href="#platform" class="btn btn--primary">Explore the full platform
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<!-- ============================== CORE VALUES ============================== -->
+<section class="section" id="values">
+  <div class="wrap">
+    <div class="section-head center anim">
+      <span class="eyebrow">Our Philosophy</span>
+      <h2>Seven principles that guide everything.</h2>
+      <p class="lead">Pragmatic progressivism with an economically libertarian flair: progressive in our goals, but free, simple, and common-sense in our methods. Results over rhetoric.</p>
+    </div>
+    <div class="values-grid anim">
+      <div class="value"><span class="vnum">01</span><div><h3>Innovation &amp; Growth</h3><p>Bold ideas like nuclear energy, manufacturing, hemp, and tech-driven prosperity.</p></div></div>
+      <div class="value"><span class="vnum">02</span><div><h3>Economic Security for All</h3><p>Every British Columbian deserves a life of dignity.</p></div></div>
+      <div class="value"><span class="vnum">03</span><div><h3>Self-Reliance &amp; Opportunity</h3><p>Reduce barriers, reward hard work, a fair shot for everyone.</p></div></div>
+      <div class="value"><span class="vnum">04</span><div><h3>Freedom &amp; Transparency</h3><p>Cut red tape, protect civil liberties, radical openness.</p></div></div>
+      <div class="value"><span class="vnum">05</span><div><h3>Generational Renewal</h3><p>Reverse the youth exodus; a province the next generation wants to stay in.</p></div></div>
+      <div class="value"><span class="vnum">06</span><div><h3>Unity &amp; Shared Prosperity</h3><p>Reject divisive politics; shared opportunity for all.</p></div></div>
+      <div class="value"><span class="vnum">07</span><div><h3>Competence &amp; Accountability</h3><p>Fiscal responsibility and a government that delivers.</p></div></div>
+      <div class="value" style="align-items:center;background:var(--grey)"><span class="vnum" style="background:var(--ink);color:#fff">★</span><div><h3 style="margin-bottom:6px">See it in action</h3><a href="#platform" class="read-link" style="font-size:14px">Browse all 19 policies <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== POLICY EXPLORER (CENTREPIECE) ============================== -->
+<section class="section explorer" id="platform">
+  <div class="wrap">
+    <div class="section-head anim" style="max-width:780px">
+      <span class="eyebrow">The Policy Explorer</span>
+      <h2>19 ideas to renew BC.</h2>
+      <p class="lead">Search by keyword or filter by category. Find exactly where we stand on the issue that matters most to you, in seconds.</p>
+      <div class="explorer-stat"><span class="big"><span class="r">19</span></span><span class="txt">fully-costed commitments across five policy areas.</span></div>
+    </div>
+
+    <!-- sticky control panel -->
+    <div class="explorer-controls">
+      <div class="control-card">
+        <div class="search-row">
+          <div class="search-box" id="searchBox">
+            <svg class="ico" viewBox="0 0 24 24" fill="none" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="policySearch" placeholder="Search policies: housing, nuclear, dividend, healthcare..." aria-label="Search policies by title or keyword" autocomplete="off">
+            <button class="clear" id="searchClear" aria-label="Clear search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+          </div>
+          <span class="result-count" id="resultCount" aria-live="polite">Showing <b>19</b> of 19</span>
+        </div>
+        <div class="filter-tabs" id="filterTabs" role="tablist" aria-label="Filter policies by category">
+          <button class="active" data-cat="all" role="tab" aria-selected="true">All <span class="cnt" data-cnt="all">19</span></button>
+          <button data-cat="economy" role="tab" aria-selected="false">Economy &amp; Cost of Living <span class="cnt" data-cnt="economy"></span></button>
+          <button data-cat="energy" role="tab" aria-selected="false">Energy &amp; Environment <span class="cnt" data-cnt="energy"></span></button>
+          <button data-cat="jobs" role="tab" aria-selected="false">Jobs, Trades &amp; Industry <span class="cnt" data-cnt="jobs"></span></button>
+          <button data-cat="health" role="tab" aria-selected="false">Health, Family &amp; Community <span class="cnt" data-cnt="health"></span></button>
+          <button data-cat="government" role="tab" aria-selected="false">Government &amp; Sovereignty <span class="cnt" data-cnt="government"></span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- cards -->
+    <div class="policy-grid" id="policyGrid"></div>
+
+    <div class="empty-state" id="emptyState">
+      <div class="es-ico"><svg viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg></div>
+      <h3>No policies match that search.</h3>
+      <p>Try a different keyword or clear your filters to see all 19 commitments.</p>
+      <button class="btn btn--dark" id="resetFilters">Reset filters</button>
+    </div>
+
+    <div class="explorer-foot anim">
+      <p style="color:var(--muted);margin-bottom:18px">Like what you see? This platform is only possible with people behind it.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <a href="#involved" class="btn btn--primary">Join the Movement</a>
+        <a href="https://www.givesendgo.com/bcrenewal" target="_top" rel="noopener" class="btn btn--ghost">Donate to Renewal</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== NEWS ============================== -->
+<section class="section" id="news">
+  <div class="wrap">
+    <div class="section-head anim">
+      <span class="eyebrow">News &amp; Updates</span>
+      <h2>Ideas worth talking about.</h2>
+      <p class="lead">Read where we stand, and get policy updates straight to your inbox as the movement grows.</p>
+    </div>
+    <div class="news-grid">
+      <article class="news-featured anim">
+        <div class="news-art">
+          <div class="grid-overlay"></div>
+          <span class="tag">Featured · Analysis</span>
+        </div>
+        <div class="news-body">
+          <div class="news-meta">
+            <span><svg viewBox="0 0 24 24"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z"/><path d="M4 20a8 8 0 0 1 16 0"/></svg>Tristan Tolley</span>
+            <span><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Sept 24, 2025</span>
+            <span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>6 min read</span>
+          </div>
+          <h3>BC's Demographic Time Bomb: Low Fertility, Fleeing Families, and Exploding Deficits</h3>
+          <p>British Columbia is hurtling toward a demographic crisis. Falling fertility, families fleeing high costs, and ballooning deficits threaten the province's future, unless we act.</p>
+          <a href="#involved" class="read-link">Read the full analysis <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <aside class="newsletter-card anim">
+        <span class="leaf"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M383.8 351.7c1.2-.5 51.3-35.6 51.3-35.6 16.3-11.4 13.6-18.5 7.8-23.4-5.8-4.9-14.8-3.8-14.8-3.8l-30.7 6.9c-5.8 1.3-7.8-2.6-6.3-8.4l27.6-103.4c0 0 2.9-10.9-7.8-10.9-5.8 0-9.3 4.4-9.3 4.4l-38.2 47.9c-3.9 4.9-9.7 3.4-9.7-2.4l3.9-150.5c0 0 .5-12.4-9.7-12.4-5.8 0-8.7 5.4-8.7 5.4l-43.1 78.1c-2.9 5.4-8.7 3.9-10.7-1.9l-26.6-77.1c0 0-2.9-8.7-10.7-8.7s-10.7 8.7-10.7 8.7l-26.6 77.1c-1.9 5.8-7.8 7.3-10.7 1.9l-43.1-78.1c0 0-2.9-5.4-8.7-5.4-10.2 0-9.7 12.4-9.7 12.4l3.9 150.5c0 5.8-5.8 7.3-9.7 2.4l-38.2-47.9c0 0-3.4-4.4-9.3-4.4-10.7 0-7.8 10.9-7.8 10.9l27.6 103.4c1.5 5.8-.5 9.7-6.3 8.4l-30.7-6.9c0 0-9-1.1-14.8 3.8-5.8 4.9-8.5 12 7.8 23.4 0 0 50.1 35.1 51.3 35.6 1.2.5 7.8 4.4 4.4 14.6l-8.7 25.7c0 0-2.4 7.3 3.4 9.3 5.8 1.9 11.2-1.9 11.2-1.9l68.6-14.6c5.8-1.3 7.3 2.4 7.3 6.3l-2.4 88.8c0 0-.5 11.7 9.7 11.7h19.4c10.2 0 9.7-11.7 9.7-11.7l-2.4-88.8c0-3.9 1.5-7.6 7.3-6.3l68.6 14.6c0 0 5.4 3.9 11.2 1.9 5.8-1.9 3.4-9.3 3.4-9.3l-8.7-25.7c-3.4-10.2 3.2-14.1 4.4-14.6z"/></svg></span>
+        <h3>Get policy updates</h3>
+        <p>Be first to hear about new policies, events, and the movement to renew BC.</p>
+        <form class="nl-form" id="newsletterForm" novalidate>
+          <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required>
+          <button type="submit" class="btn btn--primary btn--block">Subscribe</button>
+          <div class="form-ok" id="newsletterOk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg>You're subscribed. Welcome aboard.</div>
+        </form>
+        <div class="coming-soon">More posts coming soon as the movement grows.</div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== GET INVOLVED ============================== -->
+<section class="section" id="involved" style="background:var(--grey);border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)">
+  <div class="wrap">
+    <div class="section-head center anim">
+      <span class="eyebrow">Get Involved</span>
+      <h2>This movement needs you.</h2>
+      <p class="lead">Real change starts with everyday people taking action. Here are six ways to help renew British Columbia.</p>
+    </div>
+
+    <div class="involve-grid">
+      <div class="involve anim">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M16 7a4 4 0 1 0-8 0"/><path d="M3 21a7 7 0 0 1 18 0"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h3>Volunteer</h3><p>Organize events and connect with voters in your community.</p>
+        <a href="#volunteer" class="inv-link">Sign up to volunteer <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="involve anim">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H7l-3 3V4Z"/><path d="M8 9h8M8 12h5"/></svg></div>
+        <h3>Social Media Ambassador</h3><p>Get graphics, talking points, and hashtags to share online.</p>
+        <a href="#volunteer" class="inv-link">Become an ambassador <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="involve anim">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c0 1 2.7 3 6 3s6-2 6-3v-5"/></svg></div>
+        <h3>Campus Clubs &amp; Youth</h3><p>Build student and youth leader networks across BC.</p>
+        <a href="#volunteer" class="inv-link">Start a campus club <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="involve anim">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l18-5v12L3 14v-3Z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div>
+        <h3>Door-Knocking &amp; Phone Banking</h3><p>Direct voter outreach that wins hearts one conversation at a time.</p>
+        <a href="#volunteer" class="inv-link">Join outreach <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="involve anim">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></div>
+        <h3>Local Events</h3><p>Town halls, rallies, and community events near you.</p>
+        <a href="#volunteer" class="inv-link">Help host events <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+      <div class="involve anim" style="border-color:#f1c4cd;background:linear-gradient(180deg,#fff,#fffafb)">
+        <div class="ico" style="background:var(--red);color:#fff;border-color:var(--red)"><svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10Z"/></svg></div>
+        <h3>Donate</h3><p>Fund the renewal. Every contribution powers real change.</p>
+        <a href="https://www.givesendgo.com/bcrenewal" target="_top" rel="noopener" class="inv-link" style="color:var(--red)">Donate on GiveSendGo <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+
+    <!-- forms -->
+    <div class="two-col-forms" id="volunteer">
+      <div class="form-card anim">
+        <h3>Volunteer sign-up</h3>
+        <p class="fc-sub">Tell us how you'd like to help. We'll connect you with the right team.</p>
+        <form id="volunteerForm" novalidate>
+          <div class="field-row">
+            <div class="field"><label for="vName">Full name <span class="req">*</span></label><input type="text" id="vName" name="name" required></div>
+            <div class="field"><label for="vEmail">Email <span class="req">*</span></label><input type="email" id="vEmail" name="email" required></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="vPhone">Phone</label><input type="tel" id="vPhone" name="phone"></div>
+            <div class="field"><label for="vCity">City / Riding</label><input type="text" id="vCity" name="city"></div>
+          </div>
+          <div class="field"><label for="vInterest">How would you like to help? <span class="req">*</span></label>
+            <select id="vInterest" name="interest" required>
+              <option value="" selected disabled>Select an option</option>
+              <option>Volunteer at events</option>
+              <option>Social media ambassador</option>
+              <option>Campus club / youth outreach</option>
+              <option>Door-knocking &amp; phone banking</option>
+              <option>Host a local event</option>
+              <option>Wherever I'm needed most</option>
+            </select>
+          </div>
+          <div class="field"><label for="vMsg">Message (optional)</label><textarea id="vMsg" name="message" placeholder="Anything else we should know?"></textarea></div>
+          <button type="submit" class="btn btn--primary btn--block">Sign me up</button>
+        </form>
+        <div class="form-thanks" id="volunteerThanks">
+          <div class="ft-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Welcome to the movement.</h3>
+          <p>Thanks for stepping up. A member of our team will be in touch soon.</p>
+        </div>
+      </div>
+
+      <div class="form-card anim" style="display:flex;flex-direction:column">
+        <h3>Stay in the loop</h3>
+        <p class="fc-sub">Get policy updates, event invites, and ways to help, straight to your inbox.</p>
+        <form id="newsletterForm2" novalidate>
+          <div class="field"><label for="nlName">Full name</label><input type="text" id="nlName" name="name"></div>
+          <div class="field"><label for="nlEmail">Email <span class="req">*</span></label><input type="email" id="nlEmail" name="email" required></div>
+          <button type="submit" class="btn btn--dark btn--block">Subscribe to updates</button>
+        </form>
+        <div class="form-thanks" id="newsletter2Thanks">
+          <div class="ft-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>You're on the list.</h3>
+          <p>Watch your inbox for the next update from the BC Renewal Party.</p>
+        </div>
+        <div style="margin-top:auto;padding-top:24px;border-top:1px solid var(--hair);margin-top:24px">
+          <p style="color:var(--muted);font-size:14.5px;margin-bottom:14px">Prefer to fund the renewal directly?</p>
+          <a href="https://www.givesendgo.com/bcrenewal" target="_top" rel="noopener" class="btn btn--primary btn--block">Donate on GiveSendGo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== CONTACT ============================== -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head anim">
+      <span class="eyebrow">Contact</span>
+      <h2>Get in touch.</h2>
+      <p class="lead">Questions, ideas, or want to organize in your area? We'd love to hear from you.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="form-card anim">
+        <form id="contactForm" novalidate>
+          <div class="field-row">
+            <div class="field"><label for="cFirst">First name <span class="req">*</span></label><input type="text" id="cFirst" name="firstName" required></div>
+            <div class="field"><label for="cLast">Last name <span class="req">*</span></label><input type="text" id="cLast" name="lastName" required></div>
+          </div>
+          <div class="field-row">
+            <div class="field"><label for="cEmail">Email <span class="req">*</span></label><input type="email" id="cEmail" name="email" required></div>
+            <div class="field"><label for="cPhone">Phone (optional)</label><input type="tel" id="cPhone" name="phone"></div>
+          </div>
+          <div class="field"><label for="cSubject">Subject <span class="req">*</span></label><input type="text" id="cSubject" name="subject" required></div>
+          <div class="field"><label for="cMessage">Message <span class="req">*</span></label><textarea id="cMessage" name="message" required></textarea></div>
+          <button type="submit" class="btn btn--primary btn--block">Send message</button>
+        </form>
+        <div class="form-thanks" id="contactThanks">
+          <div class="ft-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M20 6 9 17l-5-5"/></svg></div>
+          <h3>Message sent.</h3>
+          <p>Thanks for reaching out. We'll get back to you as soon as we can.</p>
+        </div>
+      </div>
+      <div class="contact-info anim">
+        <h3>Reach the team directly.</h3>
+        <p>We read every message. For media, partnerships, or volunteering in your riding, send us a note.</p>
+        <div class="ci-item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
+          <div><div class="ci-k">Email</div><div class="ci-v"><a href="mailto:info@bcrenewalparty.ca" target="_top" rel="noopener">info@bcrenewalparty.ca</a></div></div>
+        </div>
+        <div class="ci-item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 21s-7-5.5-7-11a7 7 0 0 1 14 0c0 5.5-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg></div>
+          <div><div class="ci-k">Where we are</div><div class="ci-v">British Columbia, Canada</div></div>
+        </div>
+        <div class="ci-item">
+          <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div>
+          <div><div class="ci-k">Response time</div><div class="ci-v">We aim to reply within a few days</div></div>
+        </div>
+        <div class="contact-social">
+          <a href="https://x.com/BCRenewalParty" target="_top" rel="noopener" aria-label="BC Renewal Party on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.facebook.com/" target="_top" rel="noopener" aria-label="BC Renewal Party on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FINAL CTA ============================== -->
+<section class="section final-cta">
+  <div class="grid-overlay"></div>
+  <div class="wrap">
+    <span class="leaf"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M383.8 351.7c1.2-.5 51.3-35.6 51.3-35.6 16.3-11.4 13.6-18.5 7.8-23.4-5.8-4.9-14.8-3.8-14.8-3.8l-30.7 6.9c-5.8 1.3-7.8-2.6-6.3-8.4l27.6-103.4c0 0 2.9-10.9-7.8-10.9-5.8 0-9.3 4.4-9.3 4.4l-38.2 47.9c-3.9 4.9-9.7 3.4-9.7-2.4l3.9-150.5c0 0 .5-12.4-9.7-12.4-5.8 0-8.7 5.4-8.7 5.4l-43.1 78.1c-2.9 5.4-8.7 3.9-10.7-1.9l-26.6-77.1c0 0-2.9-8.7-10.7-8.7s-10.7 8.7-10.7 8.7l-26.6 77.1c-1.9 5.8-7.8 7.3-10.7 1.9l-43.1-78.1c0 0-2.9-5.4-8.7-5.4-10.2 0-9.7 12.4-9.7 12.4l3.9 150.5c0 5.8-5.8 7.3-9.7 2.4l-38.2-47.9c0 0-3.4-4.4-9.3-4.4-10.7 0-7.8 10.9-7.8 10.9l27.6 103.4c1.5 5.8-.5 9.7-6.3 8.4l-30.7-6.9c0 0-9-1.1-14.8 3.8-5.8 4.9-8.5 12 7.8 23.4 0 0 50.1 35.1 51.3 35.6 1.2.5 7.8 4.4 4.4 14.6l-8.7 25.7c0 0-2.4 7.3 3.4 9.3 5.8 1.9 11.2-1.9 11.2-1.9l68.6-14.6c5.8-1.3 7.3 2.4 7.3 6.3l-2.4 88.8c0 0-.5 11.7 9.7 11.7h19.4c10.2 0 9.7-11.7 9.7-11.7l-2.4-88.8c0-3.9 1.5-7.6 7.3-6.3l68.6 14.6c0 0 5.4 3.9 11.2 1.9 5.8-1.9 3.4-9.3 3.4-9.3l-8.7-25.7c-3.4-10.2 3.2-14.1 4.4-14.6z"/></svg></span>
+    <h2>Ready to renew British Columbia?</h2>
+    <p>This is a movement built by everyday people, for everyday people. Add your name, lend your time, or fuel the work. The future of BC is ours to build.</p>
+    <div class="fc-actions">
+      <a href="#involved" class="btn btn--primary">Join the Movement</a>
+      <a href="https://www.givesendgo.com/bcrenewal" target="_top" rel="noopener" class="btn btn--on-dark">Donate Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== FOOTER ============================== -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <span class="brand"><span class="leaf"><svg viewBox="0 0 512 512" aria-hidden="true"><path d="M383.8 351.7c1.2-.5 51.3-35.6 51.3-35.6 16.3-11.4 13.6-18.5 7.8-23.4-5.8-4.9-14.8-3.8-14.8-3.8l-30.7 6.9c-5.8 1.3-7.8-2.6-6.3-8.4l27.6-103.4c0 0 2.9-10.9-7.8-10.9-5.8 0-9.3 4.4-9.3 4.4l-38.2 47.9c-3.9 4.9-9.7 3.4-9.7-2.4l3.9-150.5c0 0 .5-12.4-9.7-12.4-5.8 0-8.7 5.4-8.7 5.4l-43.1 78.1c-2.9 5.4-8.7 3.9-10.7-1.9l-26.6-77.1c0 0-2.9-8.7-10.7-8.7s-10.7 8.7-10.7 8.7l-26.6 77.1c-1.9 5.8-7.8 7.3-10.7 1.9l-43.1-78.1c0 0-2.9-5.4-8.7-5.4-10.2 0-9.7 12.4-9.7 12.4l3.9 150.5c0 5.8-5.8 7.3-9.7 2.4l-38.2-47.9c0 0-3.4-4.4-9.3-4.4-10.7 0-7.8 10.9-7.8 10.9l27.6 103.4c1.5 5.8-.5 9.7-6.3 8.4l-30.7-6.9c0 0-9-1.1-14.8 3.8-5.8 4.9-8.5 12 7.8 23.4 0 0 50.1 35.1 51.3 35.6 1.2.5 7.8 4.4 4.4 14.6l-8.7 25.7c0 0-2.4 7.3 3.4 9.3 5.8 1.9 11.2-1.9 11.2-1.9l68.6-14.6c5.8-1.3 7.3 2.4 7.3 6.3l-2.4 88.8c0 0-.5 11.7 9.7 11.7h19.4c10.2 0 9.7-11.7 9.7-11.7l-2.4-88.8c0-3.9 1.5-7.6 7.3-6.3l68.6 14.6c0 0 5.4 3.9 11.2 1.9 5.8-1.9 3.4-9.3 3.4-9.3l-8.7-25.7c-3.4-10.2 3.2-14.1 4.4-14.6z"/></svg></span><span>BC Renewal Party<small>Renewing Hope · Restoring Trust</small></span></span>
+        <p>A new provincial party building a bold, affordable, clean-energy future for British Columbia. People before politics.</p>
+        <span class="tagline"><span class="dot"></span>Renewing Hope · Restoring Trust</span>
+      </div>
+      <div class="foot-col">
+        <h4>Explore</h4>
+        <a href="#vision">Vision</a>
+        <a href="#platform">Platform</a>
+        <a href="#involved">Get Involved</a>
+        <a href="#news">News</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4>Get Involved</h4>
+        <a href="#volunteer">Volunteer</a>
+        <a href="#involved">Campus Clubs</a>
+        <a href="#involved">Door-Knocking</a>
+        <a href="https://www.givesendgo.com/bcrenewal" target="_top" rel="noopener">Donate</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <div class="ci">
+          <a href="mailto:info@bcrenewalparty.ca" target="_top" rel="noopener">info@bcrenewalparty.ca</a><br>
+          British Columbia, Canada
+        </div>
+        <div class="foot-social">
+          <a href="https://x.com/BCRenewalParty" target="_top" rel="noopener" aria-label="BC Renewal Party on X"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="https://www.facebook.com/" target="_top" rel="noopener" aria-label="BC Renewal Party on Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.07C24 5.4 18.63 0 12 0S0 5.4 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.69 4.53-4.69 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.95.93-1.95 1.88v2.26h3.32l-.53 3.49h-2.79V24C19.61 23.1 24 18.1 24 12.07z"/></svg></a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 BC Renewal Party. All Rights Reserved.</span>
+      <span class="fb-right"><span class="dot"></span>Renewing Hope · Restoring Trust</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---------- POLICY DATA ---------- */
+  var CATS = {
+    economy:    {label:"Economy & Cost of Living",  color:"#c8102e"},
+    energy:     {label:"Energy & Environment",      color:"#2e8b57"},
+    jobs:       {label:"Jobs, Trades & Industry",   color:"#1f6feb"},
+    health:     {label:"Health, Family & Community", color:"#8a4fd6"},
+    government: {label:"Government & Sovereignty",   color:"#586577"}
+  };
+  var FLAGSHIP = [1,3,4,9];
+  var POLICIES = [
+    {n:1, cat:"economy", title:"Universal BC Dividend", propose:"$500/month tax-free for every resident, scaling toward $1,000/month as revenues mature.", why:"Combats poverty, funded by the Land Value Tax and resource royalties, not income taxes. Modelled on Alaska's Permanent Fund."},
+    {n:2, cat:"government", title:"BCFundMe", propose:"A province-backed crowdfunding platform for local projects, with government matching and tax credits.", why:"Lets citizens direct funds to local needs and rebuilds trust with real-time tracking of every dollar."},
+    {n:3, cat:"energy", title:"Nuclear Energy", propose:"Repeal the outdated 2010 ban, deploy small modular reactors, and export clean power across Western North America.", why:"Nuclear baseload plus hydro is the most powerful clean-energy system in North America: billions in exports and thousands of jobs."},
+    {n:4, cat:"jobs", title:"Shipbuilding & Manufacturing", propose:"A Nuclear Shipbuilding Centre of Excellence: nuclear icebreakers and SMR units built and exported from BC.", why:"A permanent advanced-manufacturing industry creating an estimated 15,000 to 25,000 direct jobs."},
+    {n:5, cat:"energy", title:"BCHemp", propose:"Revitalize industrial hemp with farming incentives, regional processing, and R&D grants.", why:"Hemp absorbs 9 to 15 tonnes of CO2 per hectare and powers hempcrete housing, textiles, and biofuels."},
+    {n:6, cat:"jobs", title:"Education", propose:"Trades apprenticeships at 16, accelerated STEM, financial literacy, entrepreneurship, and school choice.", why:"The economy has changed; our education system has not. Everyone deserves opportunity."},
+    {n:7, cat:"government", title:"Reconciliation & Partnership", propose:"Mandatory revenue-sharing and equity participation on major resource projects, with full transparency.", why:"True reconciliation is about wealth, jobs, and hope, not vetoes that stall development for everyone."},
+    {n:8, cat:"government", title:"Immigration & Growth", propose:"Skilled, controlled immigration tied to BC's real housing and infrastructure capacity.", why:"Sustainable, managed immigration strengthens us; uncontrolled mass migration weakens us."},
+    {n:9, cat:"economy", title:"Land Value Tax", propose:"A 0.7% tax on unimproved land value, replacing property and speculation taxes and generating $11.5B annually.", why:"Nearly all renters and all but the top 10% of homeowners come out ahead. Rewards builders, not land-hoarders."},
+    {n:10, cat:"economy", title:"Housing Affordability", propose:"Cut red tape for builders and promote hempcrete, 3D-printed, and modular construction.", why:"The dream of homeownership should be possible again. We build for people, not hedge funds."},
+    {n:11, cat:"energy", title:"Wildfire Protection", propose:"$1 billion a year for modern aerial firefighting, prevention, and AI-driven early detection.", why:"We refuse to accept wildfires as unavoidable. We meet them with innovation and preparation."},
+    {n:12, cat:"energy", title:"Water Security", propose:"Nuclear-powered desalination, new reservoir capacity, and agricultural water infrastructure.", why:"Climate change is making water scarcity real. We need modern infrastructure to guarantee clean water."},
+    {n:13, cat:"health", title:"Healthcare Reform", propose:"Expand private delivery within the public system, fast-track foreign-trained pros, and fund cancer and mental health.", why:"Waitlists are unacceptable and preventable. Deliver more care by cutting administrative waste."},
+    {n:14, cat:"health", title:"Public Safety", propose:"Treat addiction as a health issue while holding dealers and repeat offenders accountable.", why:"Compassion without accountability is not compassion. Safety and recovery go hand in hand."},
+    {n:15, cat:"economy", title:"Cost of Living", propose:"Cut the PST from 7% to 5%, lower corporate tax, and fund services through resource revenue.", why:"Government should stop punishing success and start rewarding hard work."},
+    {n:16, cat:"jobs", title:"Workers & Unions", propose:"Strengthen collective bargaining and fund union-led technology training institutes.", why:"Strong unions and skilled workers are the backbone of a prosperous province."},
+    {n:17, cat:"government", title:"BC Sovereignty", propose:"Ban foreign state-linked entities from strategic sectors and screen investment in critical infrastructure.", why:"Our resources, land, and democratic institutions must be protected from interference."},
+    {n:18, cat:"health", title:"Family & Childcare", propose:"A Childcare Benefit paid directly to parents: $600/month per child under 6, $300/month ages 6 to 12.", why:"Parents know best. Put real money in their hands instead of rigid, centralized programs."},
+    {n:19, cat:"health", title:"Autism & Disability", propose:"$6,500/year for every child with autism or a significant disability. One assessment, no age cliff, no clawback.", why:"The current system slashes funding at age 6. Ours provides dignified, consistent support through 18 and beyond."}
+  ];
+
+  /* ---------- ICONS ---------- */
+  var ico = {
+    propose:'<svg viewBox="0 0 24 24"><path d="M9 18h6M10 22h4M12 2a7 7 0 0 0-4 12.7V17h8v-2.3A7 7 0 0 0 12 2Z"/></svg>',
+    why:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></svg>'
+  };
+  var flagSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 15.6 6.8 18.2l1-5.8L3.5 8.2l5.9-.9L12 2z"/></svg>';
+
+  function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+  /* ---------- RENDER CARDS ---------- */
+  var grid = document.getElementById('policyGrid');
+  function cardHTML(p){
+    var c = CATS[p.cat];
+    var flag = FLAGSHIP.indexOf(p.n) !== -1;
+    return '<article class="policy-card'+(flag?' flagship':'')+'" data-cat="'+p.cat+'" data-n="'+p.n+'" '+
+      'data-search="'+esc((p.title+' '+p.propose+' '+p.why+' '+c.label).toLowerCase())+'">'+
+      '<div class="pc-top">'+
+        '<span class="pc-num">'+(p.n<10?'0'+p.n:p.n)+'</span>'+
+        '<span class="pc-tag"><span class="swatch" style="background:'+c.color+'"></span>'+esc(c.label)+'</span>'+
+      '</div>'+
+      (flag?'<span class="flag-badge">'+flagSvg+' Flagship policy</span>':'')+
+      '<h3>'+esc(p.title)+'</h3>'+
+      '<div class="pc-field propose"><div class="k">'+ico.propose+'What we propose</div><div class="v">'+esc(p.propose)+'</div></div>'+
+      '<div class="pc-field why"><div class="k">'+ico.why+'Why it matters</div><div class="v">'+esc(p.why)+'</div></div>'+
+    '</article>';
+  }
+  grid.innerHTML = POLICIES.map(cardHTML).join('');
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.policy-card'));
+
+  /* ---------- CATEGORY COUNTS ---------- */
+  document.querySelector('[data-cnt="all"]').textContent = POLICIES.length;
+  Object.keys(CATS).forEach(function(k){
+    var el = document.querySelector('[data-cnt="'+k+'"]');
+    if(el) el.textContent = POLICIES.filter(function(p){return p.cat===k;}).length;
+  });
+
+  /* ---------- FILTER LOGIC ---------- */
+  var state = {q:"", cat:"all"};
+  var searchInput = document.getElementById('policySearch');
+  var searchBox = document.getElementById('searchBox');
+  var clearBtn = document.getElementById('searchClear');
+  var countEl = document.getElementById('resultCount');
+  var emptyEl = document.getElementById('emptyState');
+  var tabs = document.getElementById('filterTabs');
+
+  function applyFilters(){
+    var q = state.q.trim().toLowerCase();
+    var shown = 0;
+    cards.forEach(function(card){
+      var matchCat = state.cat === "all" || card.getAttribute('data-cat') === state.cat;
+      var matchQ = !q || card.getAttribute('data-search').indexOf(q) !== -1;
+      var show = matchCat && matchQ;
+      card.style.display = show ? "" : "none";
+      if(show) shown++;
+    });
+    countEl.innerHTML = 'Showing <b>'+shown+'</b> of '+POLICIES.length;
+    emptyEl.classList.toggle('show', shown === 0);
+    searchBox.classList.toggle('has-val', state.q.length > 0);
+  }
+
+  searchInput.addEventListener('input', function(){ state.q = this.value; applyFilters(); });
+  clearBtn.addEventListener('click', function(){ searchInput.value=""; state.q=""; applyFilters(); searchInput.focus(); });
+
+  tabs.addEventListener('click', function(e){
+    var btn = e.target.closest('button[data-cat]');
+    if(!btn) return;
+    state.cat = btn.getAttribute('data-cat');
+    tabs.querySelectorAll('button').forEach(function(b){
+      var on = b===btn;
+      b.classList.toggle('active', on);
+      b.setAttribute('aria-selected', on?'true':'false');
+    });
+    applyFilters();
+  });
+
+  document.getElementById('resetFilters').addEventListener('click', function(){
+    state.q=""; state.cat="all"; searchInput.value="";
+    tabs.querySelectorAll('button').forEach(function(b){
+      var on = b.getAttribute('data-cat')==="all";
+      b.classList.toggle('active', on); b.setAttribute('aria-selected', on?'true':'false');
+    });
+    applyFilters();
+  });
+
+  /* ---------- HERO MINI SEARCH -> EXPLORER ---------- */
+  var heroSearch = document.getElementById('heroSearch');
+  var heroField = document.getElementById('heroSearchField');
+  function jumpToExplorer(q){
+    state.q = q; state.cat = "all";
+    searchInput.value = q;
+    tabs.querySelectorAll('button').forEach(function(b){
+      var on = b.getAttribute('data-cat')==="all";
+      b.classList.toggle('active', on); b.setAttribute('aria-selected', on?'true':'false');
+    });
+    applyFilters();
+    var target = document.getElementById('platform');
+    target.scrollIntoView({behavior:'smooth'});
+    setTimeout(function(){ searchInput.focus(); }, 600);
+  }
+  heroSearch.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); jumpToExplorer(this.value); }
+  });
+  heroSearch.addEventListener('input', function(){
+    // live preview: also drive the main explorer so count is consistent
+    state.q = this.value; applyFilters();
+  });
+  heroField.querySelectorAll('input');
+  document.querySelectorAll('.hs-chips button').forEach(function(b){
+    b.addEventListener('click', function(){ jumpToExplorer(this.getAttribute('data-q')); });
+  });
+
+  applyFilters();
+
+  /* ---------- MOBILE MENU ---------- */
+  var ham = document.getElementById('hamburger');
+  var mm = document.getElementById('mobileMenu');
+  var mmClose = document.getElementById('mmClose');
+  function openMenu(){ mm.classList.add('open'); mm.setAttribute('aria-hidden','false'); ham.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; }
+  function closeMenu(){ mm.classList.remove('open'); mm.setAttribute('aria-hidden','true'); ham.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+  ham.addEventListener('click', openMenu);
+  mmClose.addEventListener('click', closeMenu);
+  mm.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeMenu); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+
+  /* ---------- FORMS ---------- */
+  function handleForm(formId, thanksId){
+    var form = document.getElementById(formId);
+    if(!form) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!form.checkValidity()){ form.reportValidity(); return; }
+      var thanks = document.getElementById(thanksId);
+      form.style.display = 'none';
+      if(thanks) thanks.classList.add('show');
+    });
+  }
+  handleForm('volunteerForm','volunteerThanks');
+  handleForm('newsletterForm2','newsletter2Thanks');
+  handleForm('contactForm','contactThanks');
+
+  // inline newsletter (sidebar) - swap to inline confirmation
+  var nlForm = document.getElementById('newsletterForm');
+  if(nlForm){
+    nlForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      if(!nlForm.checkValidity()){ nlForm.reportValidity(); return; }
+      nlForm.querySelector('input').style.display='none';
+      nlForm.querySelector('button').style.display='none';
+      document.getElementById('newsletterOk').classList.add('show');
+    });
+  }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  var anims = document.querySelectorAll('.anim');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); }
+      });
+    }, {threshold:0.12, rootMargin:"0px 0px -40px 0px"});
+    anims.forEach(function(el){ io.observe(el); });
+  } else {
+    anims.forEach(function(el){ el.classList.add('in'); });
+  }
+
+  /* ---------- HERO STAT COUNT-UP (subtle) ---------- */
+  // (kept restrained: only the big explorer "19" pulses on reveal)
+  var bigNum = document.querySelector('.explorer-stat .big .r');
+  if(bigNum && 'IntersectionObserver' in window){
+    var io2 = new IntersectionObserver(function(en){
+      en.forEach(function(e){
+        if(e.isIntersecting){
+          var end = 19, cur = 0, step = Math.ceil(end/18);
+          var t = setInterval(function(){
+            cur += step; if(cur>=end){cur=end; clearInterval(t);}
+            bigNum.textContent = cur;
+          }, 32);
+          io2.unobserve(e.target);
+        }
+      });
+    }, {threshold:0.6});
+    io2.observe(bigNum);
+  }
+
+})();
+</script>
+</body>
+</html>

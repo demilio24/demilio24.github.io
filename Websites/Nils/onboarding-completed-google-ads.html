@@ -1,0 +1,1013 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nils Digital - You're In!</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Instrument Sans", sans-serif;
+        background: #ffffff;
+        color: #1a1a2e;
+        min-height: 100vh;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 56px 24px 64px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .logo {
+        width: 100px;
+        margin-bottom: 40px;
+        animation: fadeUp 0.6s ease-out both;
+      }
+
+      .check-circle {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        background: #e8f1ff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 24px;
+        animation: fadeUp 0.6s 0.1s ease-out both;
+      }
+      .check-circle svg {
+        width: 28px;
+        height: 28px;
+        color: #2563eb;
+      }
+
+      .heading {
+        font-weight: 800;
+        font-size: 32px;
+        margin-bottom: 12px;
+        color: #0f172a;
+        animation: fadeUp 0.6s 0.2s ease-out both;
+      }
+      .subtext {
+        font-size: 16px;
+        color: #64748b;
+        line-height: 1.6;
+        max-width: 420px;
+        margin-bottom: 36px;
+        font-weight: 400;
+        animation: fadeUp 0.6s 0.3s ease-out both;
+      }
+
+      /* Next Steps */
+      .steps-label {
+        font-size: 11px;
+        font-weight: 700;
+        color: #94a3b8;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 14px;
+        animation: fadeUp 0.6s 0.35s ease-out both;
+      }
+
+      .step-card {
+        width: 100%;
+        background: #f8fafc;
+        border: 1.5px solid #e2e8f0;
+        border-radius: 14px;
+        padding: 20px 22px;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        text-align: left;
+        margin-bottom: 12px;
+      }
+      .step-card.blue {
+        background: #2563eb;
+        border-color: #2563eb;
+      }
+      .step-num {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #e2e8f0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 13px;
+        font-weight: 700;
+        color: #64748b;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+      .step-card.blue .step-num {
+        background: rgba(255, 255, 255, 0.2);
+        color: #ffffff;
+      }
+      .step-title {
+        font-weight: 700;
+        font-size: 15px;
+        color: #0f172a;
+        margin-bottom: 4px;
+      }
+      .step-card.blue .step-title {
+        color: #ffffff;
+      }
+      .step-desc {
+        font-size: 13px;
+        color: #64748b;
+        line-height: 1.6;
+      }
+      .step-card.blue .step-desc {
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      .step-card:nth-child(2) {
+        animation: fadeUp 0.6s 0.4s ease-out both;
+      }
+      .step-card:nth-child(3) {
+        animation: fadeUp 0.6s 0.45s ease-out both;
+      }
+      .step-card:nth-child(4) {
+        animation: fadeUp 0.6s 0.5s ease-out both;
+      }
+
+      /* GMB Section - Main Focus */
+      .gmb-section {
+        width: 100%;
+        background: #fffbeb;
+        border: 2px solid #fcd34d;
+        border-radius: 20px;
+        padding: 32px 28px 28px;
+        margin-top: 8px;
+        animation: fadeUp 0.6s 0.55s ease-out both;
+      }
+      .required-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #ea580c;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 5px 14px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+      }
+      .gmb-heading {
+        font-weight: 800;
+        font-size: 22px;
+        color: #0f172a;
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+      .gmb-subtext {
+        font-size: 14px;
+        color: #64748b;
+        line-height: 1.65;
+        max-width: 480px;
+        margin: 0 auto 24px;
+      }
+      .gmb-subtext strong {
+        color: #0f172a;
+      }
+
+      .gmb-why {
+        background: #ffffff;
+        border: 1.5px solid #fde68a;
+        border-radius: 12px;
+        padding: 18px 20px;
+        margin-bottom: 20px;
+        text-align: left;
+      }
+      .gmb-why-title {
+        font-size: 13px;
+        font-weight: 700;
+        color: #92400e;
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .gmb-why-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .gmb-why-list li {
+        font-size: 13px;
+        color: #78350f;
+        line-height: 1.5;
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      .gmb-why-list li::before {
+        content: "✓";
+        color: #16a34a;
+        font-weight: 700;
+        flex-shrink: 0;
+        margin-top: 1px;
+      }
+
+      .gmb-btn {
+        display: block;
+        width: 100%;
+        background: #2563eb;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 17px;
+        padding: 18px 24px;
+        border-radius: 12px;
+        text-align: center;
+        transition:
+          background 0.2s,
+          transform 0.15s;
+        margin-bottom: 14px;
+      }
+      .gmb-btn:hover {
+        background: #1d4ed8;
+        transform: translateY(-1px);
+      }
+
+      .gmb-note {
+        font-size: 12px;
+        color: #94a3b8;
+        line-height: 1.6;
+      }
+      .gmb-note a {
+        color: #2563eb;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      /* Credentials reminder */
+      .creds-box {
+        width: 100%;
+        background: #eff6ff;
+        border: 1.5px solid #bfdbfe;
+        border-radius: 14px;
+        padding: 20px 22px;
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        text-align: left;
+        margin-top: 16px;
+        animation: fadeUp 0.6s 0.6s ease-out both;
+      }
+      .creds-icon {
+        font-size: 24px;
+        flex-shrink: 0;
+      }
+      .creds-title {
+        font-size: 14px;
+        font-weight: 700;
+        color: #1e40af;
+        margin-bottom: 5px;
+      }
+      .creds-text {
+        font-size: 13px;
+        color: #3b5fad;
+        line-height: 1.6;
+      }
+      .creds-text strong {
+        color: #1e3a8a;
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        background: #fde68a;
+        margin: 22px 0;
+      }
+
+      .footer {
+        font-size: 13px;
+        color: #94a3b8;
+        margin-top: 32px;
+        animation: fadeUp 0.6s 0.65s ease-out both;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 40px 20px 48px;
+        }
+        .heading {
+          font-size: 26px;
+        }
+        .gmb-heading {
+          font-size: 19px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <img
+        src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png"
+        alt="Nils Digital"
+        class="logo"
+      />
+
+      <div class="check-circle">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="2.5"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.5 12.75l6 6 9-13.5"
+          />
+        </svg>
+      </div>
+
+      <h1 class="heading">You're All Set 👏</h1>
+      <p class="subtext">
+        We received your form. Here's everything you need to do before your
+        onboarding call so we can launch your Google Ads on day one.
+      </p>
+
+      <p class="steps-label">Your next steps</p>
+
+      <div
+        class="step-card blue"
+        style="animation: fadeUp 0.6s 0.4s ease-out both"
+      >
+        <div class="step-num">1</div>
+        <div>
+          <p class="step-title">Attend your onboarding call</p>
+          <p class="step-desc">
+            This is where we get access to your accounts, finish the full setup,
+            and launch your Google Ads. Showing up gets you live as fast as
+            possible.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-card" style="animation: fadeUp 0.6s 0.45s ease-out both">
+        <div class="step-num">2</div>
+        <div>
+          <p class="step-title">Have your Google account login ready</p>
+          <p class="step-desc">
+            We'll need access to your Google account during the call. Make sure
+            you know your <strong>email address and password</strong> before we
+            get on.
+          </p>
+        </div>
+      </div>
+
+      <div class="step-card" style="animation: fadeUp 0.6s 0.5s ease-out both">
+        <div class="step-num">3</div>
+        <div>
+          <p class="step-title">
+            Create your Google Business Profile before the call
+          </p>
+          <p class="step-desc">
+            See below. If you do not have one already, you must create it before
+            the call. Without it, we cannot fully launch your ads.
+          </p>
+        </div>
+      </div>
+
+      <!-- GMB Section - Main Focus -->
+      <div class="gmb-section">
+        <span class="required-badge">⚠️ Required Before Your Call</span>
+
+        <h2 class="gmb-heading">
+          If you do not have a Google Business Profile, you must create one
+          before the call
+        </h2>
+        <p class="gmb-subtext">
+          <strong>This is the most important step.</strong> Your Google Business
+          Profile allows your ads to show your location, phone number, and
+          reviews. Without it, we cannot run the full campaign. It is free and
+          takes less than 5 minutes to create.
+        </p>
+
+        <div class="gmb-why">
+          <p class="gmb-why-title">📈 Why this matters for your Google Ads</p>
+          <ul class="gmb-why-list">
+            <li>
+              Your ads will show your address, phone number, and star ratings —
+              which increases clicks
+            </li>
+            <li>
+              It verifies your business to Google, which improves your ad
+              quality score and lowers your cost per click
+            </li>
+            <li>
+              Without it, we cannot attach location extensions to your campaign
+            </li>
+            <li>
+              Businesses with a verified profile get significantly better ad
+              performance
+            </li>
+          </ul>
+        </div>
+
+        <a
+          href="https://business.google.com/create"
+          target="_blank"
+          rel="noopener"
+          class="gmb-btn"
+        >
+          🏢 Create My Google Business Profile →
+        </a>
+
+        <p class="gmb-note">
+          Already have one? Make sure it is verified and that you know the
+          Google account it is connected to. If you need help, email us at
+          <a target="_top" href="mailto:info@nilsdigital.com">info@nilsdigital.com</a>
+        </p>
+      </div>
+
+      <!-- Credentials Reminder -->
+      <div class="creds-box">
+        <span class="creds-icon">🔑</span>
+        <div>
+          <p class="creds-title">Have your Google account credentials ready</p>
+          <p class="creds-text">
+            During the call, we'll need to access your
+            <strong>Google Ads account</strong> and
+            <strong>Google Business Profile</strong>. Please have your
+            <strong>Google email and password</strong> ready before we get on
+            the call. This avoids delays and keeps everything moving smoothly.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Onboarding Widget</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        background: transparent;
+        font-family:
+          "Instrument Sans",
+          "Inter",
+          -apple-system,
+          sans-serif;
+      }
+
+      /* ── WIDGET CONTAINER ─────────────────────────── */
+      .widget {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 10px;
+      }
+
+      /* ── PANEL ────────────────────────────────────── */
+      .panel {
+        width: 320px;
+        background: #fff;
+        border-radius: 16px;
+        box-shadow:
+          0 8px 32px rgba(4, 107, 210, 0.15),
+          0 2px 8px rgba(0, 0, 0, 0.1);
+        border: 1px solid rgba(4, 107, 210, 0.12);
+        overflow: hidden;
+        transform-origin: bottom right;
+        transition:
+          transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1),
+          opacity 0.22s ease;
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+
+      .panel.hidden {
+        transform: scale(0.85) translateY(12px);
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      /* ── PANEL HEADER ─────────────────────────────── */
+      .panel-header {
+        background: #046bd2;
+        padding: 16px 18px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .header-text {
+        flex: 1;
+      }
+
+      .header-eyebrow {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.72);
+        margin-bottom: 3px;
+      }
+
+      .header-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.3;
+      }
+
+      .close-btn {
+        background: rgba(255, 255, 255, 0.18);
+        border: none;
+        border-radius: 8px;
+        width: 28px;
+        height: 28px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        flex-shrink: 0;
+        transition: background 0.15s ease;
+        margin-top: 1px;
+      }
+
+      .close-btn:hover {
+        background: rgba(255, 255, 255, 0.28);
+      }
+
+      .close-btn svg {
+        width: 14px;
+        height: 14px;
+      }
+
+      /* ── PANEL BODY ───────────────────────────────── */
+      .panel-body {
+        padding: 16px 18px 18px;
+      }
+
+      .panel-desc {
+        font-size: 13px;
+        color: #555;
+        line-height: 1.55;
+        margin-bottom: 14px;
+      }
+
+      /* ── FORM LINKS ───────────────────────────────── */
+      .form-list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .form-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 11px 14px;
+        background: #f4f8fd;
+        border: 1px solid rgba(4, 107, 210, 0.12);
+        border-radius: 10px;
+        text-decoration: none;
+        color: #0a2540;
+        font-size: 13px;
+        font-weight: 600;
+        transition:
+          background 0.15s ease,
+          border-color 0.15s ease,
+          transform 0.12s ease;
+        cursor: pointer;
+      }
+
+      .form-link:hover {
+        background: #e8f1fc;
+        border-color: rgba(4, 107, 210, 0.28);
+        transform: translateX(-2px);
+      }
+
+      .form-link:active {
+        transform: translateX(0);
+      }
+
+      .form-icon {
+        width: 30px;
+        height: 30px;
+        background: #046bd2;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .form-icon svg {
+        width: 15px;
+        height: 15px;
+        color: #fff;
+      }
+
+      .form-label {
+        flex: 1;
+        line-height: 1.2;
+      }
+
+      .form-arrow {
+        color: #046bd2;
+        opacity: 0.6;
+        flex-shrink: 0;
+        transition: opacity 0.15s ease;
+      }
+
+      .form-link:hover .form-arrow {
+        opacity: 1;
+      }
+
+      /* ── DISMISS LINK ─────────────────────────────── */
+      .dismiss-area {
+        text-align: center;
+        margin-top: 12px;
+        padding-top: 10px;
+        border-top: 1px solid #f0f0f0;
+      }
+
+      .dismiss-link {
+        font-size: 11.5px;
+        color: #999;
+        cursor: pointer;
+        background: none;
+        border: none;
+        font-family: inherit;
+        padding: 4px 8px;
+        border-radius: 6px;
+        transition: color 0.15s ease;
+      }
+
+      .dismiss-link:hover {
+        color: #555;
+      }
+
+      /* ── TOGGLE BUTTON ────────────────────────────── */
+      .toggle-btn {
+        background: #046bd2;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 20px;
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        cursor: pointer;
+        box-shadow:
+          0 4px 18px rgba(4, 107, 210, 0.4),
+          0 2px 6px rgba(0, 0, 0, 0.12);
+        transition:
+          transform 0.15s ease,
+          box-shadow 0.15s ease;
+        color: #fff;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .toggle-btn:hover {
+        transform: translateY(-2px);
+        box-shadow:
+          0 6px 22px rgba(4, 107, 210, 0.48),
+          0 2px 8px rgba(0, 0, 0, 0.14);
+      }
+
+      .toggle-btn:active {
+        transform: translateY(0);
+      }
+
+      .toggle-btn svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+      }
+
+      .toggle-label {
+        white-space: nowrap;
+      }
+
+      /* ── PULSE DOT ────────────────────────────────── */
+      .pulse-dot {
+        width: 8px;
+        height: 8px;
+        background: #fff;
+        border-radius: 50%;
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      .pulse-dot::after {
+        content: "";
+        position: absolute;
+        inset: -3px;
+        border-radius: 50%;
+        border: 2px solid rgba(255, 255, 255, 0.55);
+        animation: pulse-ring 2s ease-out infinite;
+      }
+
+      @keyframes pulse-ring {
+        0% {
+          transform: scale(0.85);
+          opacity: 1;
+        }
+        70% {
+          transform: scale(1.5);
+          opacity: 0;
+        }
+        100% {
+          transform: scale(0.85);
+          opacity: 0;
+        }
+      }
+
+      /* ── MOBILE ───────────────────────────────────── */
+      @media (max-width: 480px) {
+        .widget {
+          bottom: 16px;
+          right: 16px;
+          left: 16px;
+          align-items: stretch;
+        }
+
+        .panel {
+          width: 100%;
+        }
+
+        .toggle-btn {
+          align-self: flex-end;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="widget" id="widget">
+      <!-- Expanded Panel -->
+      <div class="panel" id="panel">
+        <div class="panel-header">
+          <div class="header-text">
+            <div class="header-eyebrow">Purchased multiple services?</div>
+            <div class="header-title">Complete your other onboarding forms</div>
+          </div>
+          <button class="close-btn" id="collapseBtn" aria-label="Minimize">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+            >
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="panel-body">
+          <p class="panel-desc">
+            If you purchased additional services, use the links below to
+            complete the rest of your setup now. If not, you're all set!
+          </p>
+
+          <div class="form-list">
+            <!-- Website Onboarding -->
+            <a
+              class="form-link"
+              href="https://nilsdigital.com/website-onboarding"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="form-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <line x1="2" y1="12" x2="22" y2="12"></line>
+                  <path
+                    d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="form-label">Website Onboarding</span>
+              <svg
+                class="form-arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="14"
+                height="14"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+
+            <!-- Pipeline Automations -->
+            <a
+              class="form-link"
+              href="https://nilsdigital.com/pipeline-automations"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="form-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                </svg>
+              </div>
+              <span class="form-label">Pipeline Automations</span>
+              <svg
+                class="form-arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="14"
+                height="14"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+
+            <!-- A2P Phone Number Registration -->
+            <a
+              class="form-link"
+              href="https://nilsdigital.com/phone-number-setup"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="form-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.62 3.4 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 5.49 5.49l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="form-label">A2P Phone Number Registration</span>
+              <svg
+                class="form-arrow"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                width="14"
+                height="14"
+              >
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </a>
+
+          </div>
+
+          <div class="dismiss-area">
+            <button class="dismiss-link" id="dismissBtn">
+              I don't need any other forms &mdash; dismiss
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsed Toggle Button -->
+      <button
+        class="toggle-btn"
+        id="toggleBtn"
+        style="display: none"
+        aria-label="Open onboarding forms"
+      >
+        <div class="pulse-dot"></div>
+        <span class="toggle-label"
+          >Did you purchase multiple services? Complete your onboarding
+          here</span
+        >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2.5"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+      </button>
+    </div>
+
+    <script>
+      const panel = document.getElementById("panel");
+      const toggleBtn = document.getElementById("toggleBtn");
+      const collapseBtn = document.getElementById("collapseBtn");
+      const dismissBtn = document.getElementById("dismissBtn");
+      const widget = document.getElementById("widget");
+
+      // Collapse panel, show toggle button
+      collapseBtn.addEventListener("click", () => {
+        panel.classList.add("hidden");
+        setTimeout(() => {
+          panel.style.display = "none";
+          toggleBtn.style.display = "flex";
+        }, 280);
+      });
+
+      // Re-open panel
+      toggleBtn.addEventListener("click", () => {
+        toggleBtn.style.display = "none";
+        panel.style.display = "";
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            panel.classList.remove("hidden");
+          });
+        });
+      });
+
+      // Dismiss collapses to bubble (same as minimize)
+      dismissBtn.addEventListener("click", () => {
+        panel.classList.add("hidden");
+        setTimeout(() => {
+          panel.style.display = "none";
+          toggleBtn.style.display = "flex";
+        }, 280);
+      });
+
+      // Auto-open after short delay for a polished feel
+      panel.classList.add("hidden");
+      setTimeout(() => {
+        panel.classList.remove("hidden");
+      }, 800);
+    </script>
+  </body>
+</html>

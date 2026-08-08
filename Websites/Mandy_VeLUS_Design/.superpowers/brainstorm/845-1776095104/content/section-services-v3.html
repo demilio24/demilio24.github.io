@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — B & D Variations</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e0e0e0; }
+  h1 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 6px; text-align: center; padding-top: 32px; }
+  .sub { font-size: 13px; color: #555; text-align: center; margin-bottom: 32px; padding: 0 24px; }
+  .variation { margin: 0 24px 40px; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #1e1e1e; cursor: pointer; transition: border-color .4s, box-shadow .4s; }
+  .variation:hover { border-color: rgba(184,154,106,.35); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 48px rgba(184,154,106,.12); }
+  .vl { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #1a1a1a; }
+  .vn { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  .vt { font-size: 14px; font-weight: 500; color: #fff; }
+  .vd { font-size: 12px; color: #555; padding: 12px 24px; line-height: 1.7; border-top: 1px solid #1a1a1a; }
+  .selected .vn { background: #fff; color: #B89A6A; }
+  .mock { background: #FAF6F0; padding: 48px 40px; }
+  img { max-width: 100%; display: block; }
+</style>
+</head>
+<body>
+
+<h1>Services — B & D Refined</h1>
+<p class="sub">Images fully shown at natural aspect ratio. Not all the same size — varied and organic. Alternating rows (B) and tabs (D) variations.</p>
+
+<!-- B1: Alternating rows, varied image sizes, images shown fully -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">B1</div><div class="vt">Alternating Rows — Natural Image Sizes</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">What We Do</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Full-Service Design & Remodel</div>
+      </div>
+      <!-- Row 1: large image, text right -->
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:0;margin-bottom:20px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0b3e2897-7da8-4c35-adce-755ed7523f3b.jpg" alt="Remodel" style="width:100%;height:auto;display:block;">
+        <div style="padding:36px 32px;display:flex;flex-direction:column;justify-content:center;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8cdcaa47-3154-4431-b56f-7b4039d5ef30.png" alt="" style="height:28px;width:auto;opacity:.5;margin-bottom:16px;">
+          <div style="font-family:'Cormorant Garamond';font-size:26px;color:#3A241E;margin-bottom:10px;">Remodel</div>
+          <div style="font-size:13px;color:#7A6B62;line-height:1.8;">We don't just remodel—we redefine. Our designers and contractors sync seamlessly, from flooring to cabinetry, crafting spaces that flow effortlessly and exude flawless style.</div>
+        </div>
+      </div>
+      <!-- Row 2: text left, different image -->
+      <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:0;margin-bottom:20px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);">
+        <div style="padding:36px 32px;display:flex;flex-direction:column;justify-content:center;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/1b436400-6249-4c8b-b713-58656e7ad027.png" alt="" style="height:28px;width:auto;opacity:.5;margin-bottom:16px;">
+          <div style="font-family:'Cormorant Garamond';font-size:26px;color:#3A241E;margin-bottom:10px;">Interior Design</div>
+          <div style="font-size:13px;color:#7A6B62;line-height:1.8;">We don't just transform spaces—we ignite them. With fearless play on scale, contrast, and balance, we design interiors that captivate and leave a lasting impression.</div>
+        </div>
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg" alt="Interior Design" style="width:100%;height:auto;display:block;">
+      </div>
+      <!-- Row 3: image left, narrower text -->
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:0;margin-bottom:20px;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/1221be03-8b0e-4d43-a904-13b90ad9cc31.jpg" alt="Bathroom" style="width:100%;height:auto;display:block;">
+        <div style="padding:36px 32px;display:flex;flex-direction:column;justify-content:center;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8cdcaa47-3154-4431-b56f-7b4039d5ef30.png" alt="" style="height:28px;width:auto;opacity:.5;margin-bottom:16px;">
+          <div style="font-family:'Cormorant Garamond';font-size:26px;color:#3A241E;margin-bottom:10px;">Bathroom Design</div>
+          <div style="font-size:13px;color:#7A6B62;line-height:1.8;">Transform your bathroom into a luxury retreat. We create sleek, purposeful spaces that elevate your daily routine into an experience.</div>
+        </div>
+      </div>
+      <!-- Row 4: text left -->
+      <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:0;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);">
+        <div style="padding:36px 32px;display:flex;flex-direction:column;justify-content:center;">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d5f2e4d4-7604-4cc5-af38-1c0f651e9013.png" alt="" style="height:28px;width:auto;opacity:.5;margin-bottom:16px;">
+          <div style="font-family:'Cormorant Garamond';font-size:26px;color:#3A241E;margin-bottom:10px;">Kitchen Design</div>
+          <div style="font-size:13px;color:#7A6B62;line-height:1.8;">We don't do cookie-cutter. We craft kitchens that command attention, spark conversation, and amplify your home.</div>
+        </div>
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e23f4a3d-37ee-4d7b-a01b-9ebb95cc6901.jpg" alt="Kitchen" style="width:100%;height:auto;display:block;">
+      </div>
+    </div>
+  </div>
+  <div class="vd">Alternating rows with images at their natural size — each image has a different aspect ratio so the rows are different heights. The bathroom image is taller, the kitchen is wider. Feels organic and real, not forced into a grid. Gold icons + text on the opposite side.</div>
+</div>
+
+<!-- B2: Alternating rows, image bleeds out of card -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">B2</div><div class="vt">Alternating Rows — Image Bleeds Past Card</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">What We Do</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Full-Service Design & Remodel</div>
+      </div>
+      <!-- Row 1 -->
+      <div style="display:grid;grid-template-columns:1.5fr 1fr;gap:32px;align-items:center;margin-bottom:48px;">
+        <div style="border-radius:14px;overflow:hidden;box-shadow:0 16px 48px rgba(42,30,26,.12);">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0b3e2897-7da8-4c35-adce-755ed7523f3b.jpg" alt="Remodel" style="width:100%;height:auto;">
+        </div>
+        <div>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8cdcaa47-3154-4431-b56f-7b4039d5ef30.png" alt="" style="height:32px;opacity:.5;margin-bottom:16px;">
+          <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;margin-bottom:12px;">Remodel</div>
+          <div style="font-size:14px;color:#7A6B62;line-height:1.8;margin-bottom:16px;">We don't just remodel—we redefine. Our designers and contractors sync seamlessly, from flooring to cabinetry, crafting spaces that flow effortlessly.</div>
+          <div style="width:48px;height:1px;background:linear-gradient(90deg,#B89A6A,transparent);"></div>
+        </div>
+      </div>
+      <!-- Row 2 reversed -->
+      <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:32px;align-items:center;margin-bottom:48px;">
+        <div>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/1b436400-6249-4c8b-b713-58656e7ad027.png" alt="" style="height:32px;opacity:.5;margin-bottom:16px;">
+          <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;margin-bottom:12px;">Interior Design</div>
+          <div style="font-size:14px;color:#7A6B62;line-height:1.8;margin-bottom:16px;">We don't just transform spaces—we ignite them. With fearless play on scale, contrast, and balance, we design interiors that captivate.</div>
+          <div style="width:48px;height:1px;background:linear-gradient(90deg,#B89A6A,transparent);"></div>
+        </div>
+        <div style="border-radius:14px;overflow:hidden;box-shadow:0 16px 48px rgba(42,30,26,.12);">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8e1903be-49e0-4ba4-bac3-bfdf287d13a0.jpg" alt="Interior" style="width:100%;height:auto;">
+        </div>
+      </div>
+      <!-- Row 3 -->
+      <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:32px;align-items:center;margin-bottom:48px;">
+        <div style="border-radius:14px;overflow:hidden;box-shadow:0 16px 48px rgba(42,30,26,.12);">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/1221be03-8b0e-4d43-a904-13b90ad9cc31.jpg" alt="Bathroom" style="width:100%;height:auto;">
+        </div>
+        <div>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8cdcaa47-3154-4431-b56f-7b4039d5ef30.png" alt="" style="height:32px;opacity:.5;margin-bottom:16px;">
+          <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;margin-bottom:12px;">Bathroom Design</div>
+          <div style="font-size:14px;color:#7A6B62;line-height:1.8;margin-bottom:16px;">Transform your bathroom into a luxury retreat. Sleek, purposeful spaces that elevate your daily routine.</div>
+          <div style="width:48px;height:1px;background:linear-gradient(90deg,#B89A6A,transparent);"></div>
+        </div>
+      </div>
+      <!-- Row 4 reversed -->
+      <div style="display:grid;grid-template-columns:1fr 1.5fr;gap:32px;align-items:center;">
+        <div>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/d5f2e4d4-7604-4cc5-af38-1c0f651e9013.png" alt="" style="height:32px;opacity:.5;margin-bottom:16px;">
+          <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;margin-bottom:12px;">Kitchen Design</div>
+          <div style="font-size:14px;color:#7A6B62;line-height:1.8;margin-bottom:16px;">We don't do cookie-cutter. We craft kitchens that command attention, spark conversation, and amplify your home.</div>
+          <div style="width:48px;height:1px;background:linear-gradient(90deg,#B89A6A,transparent);"></div>
+        </div>
+        <div style="border-radius:14px;overflow:hidden;box-shadow:0 16px 48px rgba(42,30,26,.12);">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/e23f4a3d-37ee-4d7b-a01b-9ebb95cc6901.jpg" alt="Kitchen" style="width:100%;height:auto;">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Images float freely with rounded corners and shadow — not contained in a card. Text sits beside them on the ivory background. Each image shows at its full natural size. The gold line separator adds a quiet accent. Most Victoria Hagan — clean, airy, images breathe.</div>
+</div>
+
+<!-- D1: Tabs with full natural image -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">D1</div><div class="vt">Tabs — Full Image, Text Below</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">What We Do</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Full-Service Design & Remodel</div>
+      </div>
+      <!-- Tab bar -->
+      <div style="display:flex;gap:0;margin-bottom:0;">
+        <div style="flex:1;padding:16px 8px;text-align:center;font-size:13px;color:#B89A6A;border-bottom:2px solid #B89A6A;font-weight:500;letter-spacing:.02em;">Remodel</div>
+        <div style="flex:1;padding:16px 8px;text-align:center;font-size:13px;color:#A89A90;border-bottom:1px solid rgba(184,154,106,.12);">Interior Design</div>
+        <div style="flex:1;padding:16px 8px;text-align:center;font-size:13px;color:#A89A90;border-bottom:1px solid rgba(184,154,106,.12);">Bathroom</div>
+        <div style="flex:1;padding:16px 8px;text-align:center;font-size:13px;color:#A89A90;border-bottom:1px solid rgba(184,154,106,.12);">Kitchen</div>
+      </div>
+      <!-- Full image, natural size -->
+      <div style="border-radius:0 0 14px 14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);border-top:none;">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0b3e2897-7da8-4c35-adce-755ed7523f3b.jpg" alt="Remodel" style="width:100%;height:auto;">
+        <div style="padding:32px 36px;">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:12px;">
+            <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8cdcaa47-3154-4431-b56f-7b4039d5ef30.png" alt="" style="height:28px;opacity:.5;">
+            <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;">Remodel</div>
+          </div>
+          <div style="font-size:14px;color:#7A6B62;line-height:1.8;max-width:700px;">We don't just remodel—we redefine. Our designers and contractors sync seamlessly, from flooring to cabinetry, crafting spaces that flow effortlessly and exude flawless style.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Tabs across the top. The active service shows its FULL image at natural aspect ratio — no crop — with icon + title + description below it. Clicking a tab swaps everything. Maximum image visibility. The image IS the hero of each service.</div>
+</div>
+
+<!-- D2: Tabs with image left, text right, natural size -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">D2</div><div class="vt">Tabs — Image Left, Text Right, Natural Size</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">What We Do</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Full-Service Design & Remodel</div>
+      </div>
+      <!-- Vertical tabs left, content right -->
+      <div style="display:grid;grid-template-columns:200px 1fr;gap:0;border-radius:14px;overflow:hidden;background:#fff;border:1px solid rgba(58,36,30,.06);">
+        <!-- Vertical tab list -->
+        <div style="background:rgba(58,36,30,.03);border-right:1px solid rgba(58,36,30,.06);display:flex;flex-direction:column;">
+          <div style="padding:20px 24px;border-left:3px solid #B89A6A;background:rgba(184,154,106,.04);font-size:14px;color:#3A241E;font-weight:500;">Remodel</div>
+          <div style="padding:20px 24px;border-left:3px solid transparent;font-size:14px;color:#A89A90;">Interior Design</div>
+          <div style="padding:20px 24px;border-left:3px solid transparent;font-size:14px;color:#A89A90;">Bathroom</div>
+          <div style="padding:20px 24px;border-left:3px solid transparent;font-size:14px;color:#A89A90;">Kitchen</div>
+        </div>
+        <!-- Content -->
+        <div>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0b3e2897-7da8-4c35-adce-755ed7523f3b.jpg" alt="Remodel" style="width:100%;height:auto;">
+          <div style="padding:28px 32px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+              <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8cdcaa47-3154-4431-b56f-7b4039d5ef30.png" alt="" style="height:24px;opacity:.5;">
+              <div style="font-family:'Cormorant Garamond';font-size:24px;color:#3A241E;">Remodel</div>
+            </div>
+            <div style="font-size:13px;color:#7A6B62;line-height:1.8;">We don't just remodel—we redefine. Our designers and contractors sync seamlessly, crafting spaces that flow effortlessly.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Vertical tab list on the left (gold active indicator), content on the right with full natural-size image + text below. Clicking a tab name swaps the image and description. Compact, clean, Apple Settings-panel feel. Image shows fully.</div>
+</div>
+
+<!-- D3: Tabs as pill buttons, image full width below -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">D3</div><div class="vt">Pill Tabs — Image Full Width Below</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">What We Do</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Full-Service Design & Remodel</div>
+      </div>
+      <!-- Pill tabs -->
+      <div style="display:flex;gap:8px;justify-content:center;margin-bottom:32px;flex-wrap:wrap;">
+        <div style="padding:10px 24px;border-radius:100px;background:#3A241E;color:#F3EBDD;font-size:13px;font-weight:400;letter-spacing:.02em;">Remodel</div>
+        <div style="padding:10px 24px;border-radius:100px;background:transparent;color:#7A6B62;font-size:13px;border:1px solid rgba(58,36,30,.1);">Interior Design</div>
+        <div style="padding:10px 24px;border-radius:100px;background:transparent;color:#7A6B62;font-size:13px;border:1px solid rgba(58,36,30,.1);">Bathroom</div>
+        <div style="padding:10px 24px;border-radius:100px;background:transparent;color:#7A6B62;font-size:13px;border:1px solid rgba(58,36,30,.1);">Kitchen</div>
+      </div>
+      <!-- Content area -->
+      <div style="border-radius:16px;overflow:hidden;box-shadow:0 12px 40px rgba(42,30,26,.08);">
+        <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0b3e2897-7da8-4c35-adce-755ed7523f3b.jpg" alt="Remodel" style="width:100%;height:auto;">
+      </div>
+      <div style="max-width:700px;margin:28px auto 0;text-align:center;">
+        <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;margin-bottom:10px;">Remodel</div>
+        <div style="font-size:14px;color:#7A6B62;line-height:1.8;">We don't just remodel—we redefine. Our designers and contractors sync seamlessly, from flooring to cabinetry, crafting spaces that flow effortlessly and exude flawless style.</div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Pill-shaped tab buttons centered at top (active one is dark filled). Full-width rounded image below — natural aspect ratio, no crop. Centered title + description underneath. Most Apple-like — minimal, clean, the image dominates. Clicking a pill swaps the image smoothly.</div>
+</div>
+
+<!-- B+D Hybrid: Pill tabs that reveal alternating rows -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">H</div><div class="vt">Hybrid — Pill Tabs + Side-by-Side Reveal</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:40px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">What We Do</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Full-Service Design & Remodel</div>
+      </div>
+      <!-- Pill tabs -->
+      <div style="display:flex;gap:8px;justify-content:center;margin-bottom:36px;">
+        <div style="padding:10px 24px;border-radius:100px;background:#3A241E;color:#F3EBDD;font-size:13px;">Remodel</div>
+        <div style="padding:10px 24px;border-radius:100px;color:#7A6B62;font-size:13px;border:1px solid rgba(58,36,30,.1);">Interior Design</div>
+        <div style="padding:10px 24px;border-radius:100px;color:#7A6B62;font-size:13px;border:1px solid rgba(58,36,30,.1);">Bathroom</div>
+        <div style="padding:10px 24px;border-radius:100px;color:#7A6B62;font-size:13px;border:1px solid rgba(58,36,30,.1);">Kitchen</div>
+      </div>
+      <!-- Content: image + text side by side -->
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:40px;align-items:center;">
+        <div style="border-radius:14px;overflow:hidden;box-shadow:0 16px 48px rgba(42,30,26,.1);">
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/0b3e2897-7da8-4c35-adce-755ed7523f3b.jpg" alt="Remodel" style="width:100%;height:auto;">
+        </div>
+        <div>
+          <img src="https://assets.cdn.filesafe.space/dYpRMKt41LMBrYEUoeLG/media/8cdcaa47-3154-4431-b56f-7b4039d5ef30.png" alt="" style="height:36px;opacity:.5;margin-bottom:20px;">
+          <div style="font-family:'Cormorant Garamond';font-size:30px;color:#3A241E;margin-bottom:14px;">Remodel</div>
+          <div style="font-size:14px;color:#7A6B62;line-height:1.8;margin-bottom:20px;">We don't just remodel—we redefine. Our designers and contractors sync seamlessly, from flooring to cabinetry, crafting spaces that flow effortlessly and exude flawless style.</div>
+          <div style="width:48px;height:1px;background:linear-gradient(90deg,#B89A6A,transparent);margin-bottom:16px;"></div>
+          <div style="font-size:12px;color:#B89A6A;letter-spacing:.06em;cursor:pointer;">Learn more →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Best of both: pill tabs for navigation, but the content is a side-by-side layout (B style) with the full natural-size image on the left and text + icon + gold line on the right. Clicking a tab swaps the entire layout. Interactive AND editorial. Image fully visible with shadow.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

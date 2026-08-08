@@ -1,0 +1,1203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <title>Booking Confirmed | Nils Digital — AI &amp; Automation Audit</title>
+  <meta name="description" content="Your strategy call is booked. Watch this short video before our call so you walk away with the most value." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Microsoft Clarity -->
+  <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "wkemyhll14");
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://assets.cdn.filesafe.space" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+    rel="stylesheet"
+    media="print"
+    onload="this.media = 'all'"
+  />
+  <noscript>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap"
+      rel="stylesheet"
+    />
+  </noscript>
+
+  <style>
+    /* ── GHL RESETS ──────────────────────────────── */
+    html,
+    body {
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow-x: clip !important;
+    }
+    body,
+    .hl_page-preview--content,
+    .hl_page-preview--content > div,
+    .custom-code-element,
+    section,
+    .section,
+    .container,
+    [class*="container"],
+    [class*="wrapper"] {
+      max-width: 100% !important;
+      width: 100% !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+    }
+    /* Fixed breakout wrapper — escapes all GHL containers */
+    #ghl-breakout {
+    position: relative !important;
+    width: 100% !important;
+    overflow-x: clip !important;
+    background: #ffffff;
+  }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+
+    :root {
+      --font-main: "Inter", sans-serif;
+      --font-secondary: "Inter", sans-serif;
+      --font-emphasis: "IBM Plex Sans", sans-serif;
+
+      /* Brand (green — token names kept for code stability) */
+      --blue: #0fbf7a;
+      --blue-dark: #087a4d;
+      --blue-light: #34d399;
+      --blue-rgb: 15, 191, 122;
+
+      /* Light theme — white surfaces, green accents, dark ink */
+      --bg-light: #ffffff;
+      --bg-light-2: #fafdfb;
+      --border-dark: rgba(15, 191, 122, 0.18);
+      --border-dark-strong: rgba(15, 191, 122, 0.34);
+
+      --ink: #0a221a;
+      --ink-soft: rgba(10, 34, 26, 0.78);
+      --ink-muted: rgba(10, 34, 26, 0.55);
+      --ink-faint: rgba(10, 34, 26, 0.4);
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: var(--bg-light);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── ANIMATIONS ─────────────────────────────── */
+    .anim {
+      opacity: 0;
+      transform: translateY(24px);
+      transition:
+        opacity 0.6s ease,
+        transform 0.6s ease;
+    }
+    .anim.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+    .d5 { transition-delay: 0.5s; }
+
+    /* ── THANK-YOU PAGE ─────────────────────────── */
+    .ty {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 56px 24px 72px;
+      background:
+        radial-gradient(circle, rgba(15, 191, 122, 0.07) 1.5px, transparent 1.5px)
+          0 0 / 28px 28px,
+        radial-gradient(ellipse 90% 50% at 50% 0%, rgba(15, 191, 122, 0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 70% 55% at 50% 100%, rgba(15, 191, 122, 0.06) 0%, transparent 70%),
+        var(--bg-light);
+      overflow: hidden;
+    }
+    .ty-inner {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      /* Side gutter lives here (a div) because the GHL reset above zeroes
+         section padding with !important — this keeps a margin on phones. */
+      padding: 0 22px;
+      text-align: center;
+    }
+
+    /* Booking-confirmed pill */
+    .ty-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-emphasis);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--blue-dark);
+      background: rgba(15, 191, 122, 0.08);
+      border: 1px solid rgba(15, 191, 122, 0.3);
+      border-radius: 100px;
+      padding: 9px 20px 9px 14px;
+      margin-bottom: 28px;
+      box-shadow: 0 6px 20px rgba(15, 191, 122, 0.12);
+    }
+    .ty-pill-check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55);
+      animation: ty-pulse 2s ease-out infinite;
+    }
+    .ty-pill-check svg { width: 12px; height: 12px; }
+    @keyframes ty-pulse {
+      0% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
+      70% { box-shadow: 0 0 0 9px rgba(52, 211, 153, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
+    }
+
+    .ty-h1 {
+      font-family: var(--font-emphasis);
+      font-size: clamp(30px, 5vw, 54px);
+      font-weight: 800;
+      line-height: 1.08;
+      letter-spacing: -0.026em;
+      margin: 0 auto 16px;
+      max-width: 760px;
+      text-wrap: balance;
+      color: var(--ink);
+    }
+    .ty-h1 .accent {
+      background: linear-gradient(135deg, #0fbf7a 0%, #087a4d 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+    .ty-sub {
+      font-size: var(--p, 16px);
+      font-weight: 500;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      max-width: 520px;
+      margin: 0 auto 18px;
+    }
+
+    .ty-chevron {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 26px;
+      color: var(--blue);
+      animation: ty-bounce 2s ease-in-out infinite;
+    }
+    @keyframes ty-bounce {
+      0%, 100% { transform: translateY(0); opacity: 0.55; }
+      50% { transform: translateY(7px); opacity: 1; }
+    }
+
+    /* Video frame */
+    .ty-video-col {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto 24px;
+      border-radius: 16px;
+      background: #000;
+      aspect-ratio: 16/9;
+      box-shadow:
+        0 28px 70px rgba(10, 34, 26, 0.18),
+        0 0 0 1px rgba(15, 191, 122, 0.18),
+        0 0 50px rgba(15, 191, 122, 0.12);
+    }
+    .ty-video-inner {
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    /* ── Hero Video Player (HVP) ── */
+    .hvp {
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: pointer;
+      user-select: none;
+    }
+    .hvp video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hvp-center {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 3;
+      transition: opacity 0.25s;
+      pointer-events: none;
+    }
+    .hvp-center .hvp-play-btn { pointer-events: auto; }
+    .hvp.playing .hvp-center { opacity: 0; pointer-events: none; }
+    .hvp .hvp-unmute-overlay:not(.hvp-hidden) ~ .hvp-center {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .hvp-play-btn {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: rgba(15, 191, 122, 0.88);
+      backdrop-filter: blur(10px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 0 0 12px rgba(15, 191, 122, 0.22),
+        0 8px 32px rgba(0, 0, 0, 0.45);
+      transition: transform 0.18s, background 0.18s;
+    }
+    .hvp-play-btn:hover { transform: scale(1.08); background: rgba(15, 191, 122, 1); }
+    .hvp-play-btn svg { margin-left: 5px; }
+
+    .hvp-unmute-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      background: rgba(2, 14, 8, 0.52);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      transition: opacity 0.35s;
+      cursor: pointer;
+    }
+    .hvp-unmute-overlay.hvp-hidden { opacity: 0; pointer-events: none; }
+    .hvp-unmute-icon {
+      width: 82px;
+      height: 82px;
+      border-radius: 50%;
+      background: rgba(15, 191, 122, 0.92);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+      box-shadow: 0 0 0 0 rgba(15, 191, 122, 0.55);
+      animation: hvp-ring 1.9s ease-out infinite;
+    }
+    @keyframes hvp-ring {
+      0% { box-shadow: 0 0 0 0 rgba(15, 191, 122, 0.6); }
+      70% { box-shadow: 0 0 0 32px rgba(15, 191, 122, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(15, 191, 122, 0); }
+    }
+    .hvp-unmute-title {
+      color: #fff;
+      font-size: 21px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      text-align: center;
+      margin-bottom: 7px;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.55);
+    }
+    .hvp-unmute-sub {
+      color: rgba(255, 255, 255, 0.65);
+      font-size: 13.5px;
+      font-weight: 400;
+      text-align: center;
+    }
+    .hvp-controls {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 0 14px 12px;
+      z-index: 5;
+      background: linear-gradient(to top, rgba(2, 14, 8, 0.72) 0%, transparent 100%);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+    .hvp:hover .hvp-controls,
+    .hvp.paused .hvp-controls { opacity: 1; }
+    .hvp-progress {
+      width: 100%;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.22);
+      border-radius: 2px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      position: relative;
+    }
+    .hvp-fill {
+      height: 100%;
+      border-radius: 2px;
+      background: linear-gradient(to right, #0fbf7a, #34d399);
+      width: 0%;
+      transition: width 0.25s linear;
+      position: relative;
+    }
+    .hvp-fill::after {
+      content: "";
+      position: absolute;
+      right: -5px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 6px rgba(15, 191, 122, 0.8);
+    }
+    .hvp-row { display: flex; align-items: center; gap: 12px; }
+    .hvp-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+      opacity: 0.85;
+      transition: opacity 0.15s;
+    }
+    .hvp-btn:hover { opacity: 1; }
+    .hvp-time {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      flex: 1;
+    }
+    .hvp-speed-btn {
+      font-size: 13px;
+      font-weight: 700;
+      color: #fff;
+      background: rgba(15, 191, 122, 0.5);
+      border: 1px solid rgba(15, 191, 122, 0.7) !important;
+      border-radius: 5px;
+      padding: 5px 10px;
+      letter-spacing: 0.03em;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .hvp-speed-btn:hover { background: rgba(15, 191, 122, 0.85) !important; }
+    .hvp-vol-wrap { display: flex; align-items: center; gap: 8px; }
+    .hvp-vol-slider {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 76px;
+      height: 18px;
+      background: transparent;
+      outline: none;
+      cursor: pointer;
+    }
+    .hvp-vol-slider::-webkit-slider-runnable-track {
+      height: 4px;
+      border-radius: 2px;
+      background: linear-gradient(to right, #34d399 var(--vol-pct, 100%), rgba(255, 255, 255, 0.25) var(--vol-pct, 100%));
+    }
+    .hvp-vol-slider::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 5px rgba(15, 191, 122, 0.8);
+      cursor: pointer;
+      margin-top: -5px;
+    }
+    .hvp-vol-slider::-moz-range-track {
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.25);
+    }
+    .hvp-vol-slider::-moz-range-thumb {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: #fff;
+      border: none;
+      box-shadow: 0 0 5px rgba(15, 191, 122, 0.8);
+      cursor: pointer;
+    }
+
+    /* ── 3 STEPS ─────────────────────────────────── */
+    .ty-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      max-width: 760px;
+      margin: 0 auto 8px;
+    }
+    .ty-step {
+      background: #ffffff;
+      border: 1px solid var(--border-dark);
+      border-radius: 18px;
+      padding: 26px 22px 24px;
+      text-align: left;
+      box-shadow:
+        0 16px 40px rgba(10, 34, 26, 0.06),
+        0 2px 6px rgba(10, 34, 26, 0.03);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .ty-step:hover {
+      transform: translateY(-3px);
+      border-color: var(--border-dark-strong);
+      box-shadow:
+        0 24px 48px rgba(10, 34, 26, 0.1),
+        0 4px 12px rgba(10, 34, 26, 0.05);
+    }
+    .ty-step-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(15, 191, 122, 0.16), rgba(15, 191, 122, 0.06));
+      border: 1px solid rgba(15, 191, 122, 0.24);
+      color: var(--blue-dark);
+      display: grid;
+      place-items: center;
+      margin-bottom: 16px;
+    }
+    .ty-step-icon svg { width: 22px; height: 22px; }
+    .ty-step-h {
+      font-family: var(--font-emphasis);
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .ty-step-p {
+      font-size: 14px;
+      line-height: 1.55;
+      color: var(--ink-muted);
+    }
+
+    /* ── ADD TO CALENDAR ─────────────────────────── */
+    /* Big full-width rectangle button, directly under the video (video max-width = 720) */
+    .ty-cal { position: relative; z-index: 40; display: block; max-width: 720px; margin: 18px auto 30px; }
+    .ty-cal-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      font-family: var(--font-emphasis);
+      font-size: 19px;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      color: #fff;
+      background: linear-gradient(135deg, #10b981 0%, #0fbf7a 50%, #087a4d 100%);
+      border: none;
+      border-radius: 14px;
+      padding: 20px 26px;
+      min-height: 62px;
+      cursor: pointer;
+      box-shadow: 0 14px 34px rgba(var(--blue-rgb), 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      transition: transform 0.15s, box-shadow 0.2s, filter 0.2s;
+    }
+    .ty-cal-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 44px rgba(var(--blue-rgb), 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      filter: brightness(1.04);
+    }
+    .ty-cal-btn .ty-cal-ico { display: flex; color: #fff; }
+    .ty-cal-btn .ty-cal-ico svg { width: 22px; height: 22px; }
+    .ty-cal-caret { opacity: 0.9; color: #fff; transition: transform 0.2s; }
+    .ty-cal.open .ty-cal-caret { transform: rotate(180deg); }
+    .ty-cal-menu {
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      background: #fff;
+      border: 1px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 8px;
+      box-shadow: 0 22px 50px rgba(var(--blue-rgb), 0.16), 0 6px 16px rgba(0, 0, 0, 0.08);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+      z-index: 30;
+      text-align: left;
+    }
+    .ty-cal.open .ty-cal-menu {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    @media (max-width: 520px) {
+      .ty-cal-btn { font-size: 16.5px; padding: 17px 18px; min-height: 56px; gap: 10px; }
+    }
+    .ty-cal-menu a {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 13px 16px;
+      border-radius: 12px;
+      font-family: var(--font-emphasis);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .ty-cal-menu a:hover { background: rgba(var(--blue-rgb), 0.08); }
+    .ty-cal-menu a svg {
+      width: 38px; height: 38px; padding: 9px;
+      flex-shrink: 0; box-sizing: border-box;
+      color: var(--blue-dark);
+      background: rgba(var(--blue-rgb), 0.1);
+      border-radius: 10px;
+    }
+    .ty-cal-menu a::after {
+      content: "";
+      width: 7px; height: 7px;
+      margin-left: auto;
+      border-top: 2px solid var(--ink-faint);
+      border-right: 2px solid var(--ink-faint);
+      transform: rotate(45deg);
+      flex-shrink: 0;
+      transition: border-color 0.15s, transform 0.15s;
+    }
+    .ty-cal-menu a:hover::after { border-color: var(--blue-dark); transform: rotate(45deg) translateX(2px); }
+
+    /* ── FOOTER ──────────────────────────────────── */
+    .footer {
+      position: relative;
+      background: var(--bg-light-2);
+      border-top: 1px solid rgba(15, 191, 122, 0.18);
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .footer-logo {
+      height: 26px;
+      width: auto;
+      display: block;
+      filter: brightness(0);
+      opacity: 0.82;
+    }
+    .footer-tagline {
+      font-family: var(--font-emphasis);
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink-muted);
+      letter-spacing: 0.02em;
+      border-left: 1px solid rgba(10, 34, 26, 0.16);
+      padding-left: 16px;
+    }
+    .footer-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 20px;
+      font-size: 12px;
+      color: var(--ink-faint);
+    }
+    .footer-meta a {
+      color: var(--ink-muted);
+      text-decoration: none;
+    }
+    .footer-meta a:hover { color: var(--blue-light); }
+
+    @media (max-width: 720px) {
+      .ty { padding: 44px 16px 56px; }
+      .ty-steps {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        max-width: 440px;
+      }
+      .ty-step { padding: 20px 20px; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 14px; }
+      .footer-brand { flex-wrap: wrap; gap: 12px; }
+      input:not([type="hidden"]), select, textarea { font-size: 16px !important; }
+    }
+
+    /* iOS tap targets */
+    @media (max-width: 768px) {
+      .hvp-btn { min-width: 44px; min-height: 44px; padding: 10px; }
+      .hvp-speed-btn { min-width: 56px; min-height: 44px; padding: 10px 12px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ty-chevron, .ty-pill-check, .hvp-unmute-icon { animation: none !important; }
+      .anim { opacity: 1 !important; transform: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+<div id="ghl-breakout">
+  <section class="ty">
+    <div class="ty-inner">
+      <!-- Booking confirmed pill -->
+      <div class="ty-pill anim">
+        <span class="ty-pill-check" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#03110a" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12" />
+          </svg>
+        </span>
+        Booking confirmed
+      </div>
+
+      <h1 class="ty-h1 anim d1">
+        You're in.
+        <span class="accent">Watch this before our call.</span>
+      </h1>
+
+      <p class="ty-sub anim d2">
+        A quick 2-minute video on what we'll cover, how to prepare, and what
+        you'll walk away with.
+      </p>
+
+      <div class="ty-chevron anim d2" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </div>
+
+      <!-- Video -->
+      <div class="ty-video-col anim d3">
+        <div class="ty-video-inner">
+          <div class="hvp paused" id="hvp">
+            <video
+              id="hvp-vid"
+              src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/93aed797-a7e3-4d81-8f9c-fb7e23eabfab.mp4#t=0.001"
+              playsinline
+              webkit-playsinline
+              preload="metadata"
+              muted
+            ></video>
+
+            <div class="hvp-unmute-overlay" id="hvp-unmute">
+              <div class="hvp-unmute-icon">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                  <line x1="23" y1="9" x2="17" y2="15" />
+                  <line x1="17" y1="9" x2="23" y2="15" />
+                </svg>
+              </div>
+              <div class="hvp-unmute-title">Click anywhere to unmute</div>
+              <div class="hvp-unmute-sub">Video is playing</div>
+            </div>
+
+            <div class="hvp-center" id="hvp-center">
+              <div class="hvp-play-btn" id="hvp-play-btn">
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff">
+                  <polygon points="6,3 20,12 6,21" />
+                </svg>
+              </div>
+            </div>
+
+            <div class="hvp-controls">
+              <div class="hvp-progress" id="hvp-progress">
+                <div class="hvp-fill" id="hvp-fill"></div>
+              </div>
+              <div class="hvp-row">
+                <button class="hvp-btn" id="hvp-playpause" aria-label="Play/Pause">
+                  <svg id="hvp-pp-icon" width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+                    <polygon points="6,3 20,12 6,21" />
+                  </svg>
+                </button>
+                <div class="hvp-vol-wrap">
+                  <button class="hvp-btn" id="hvp-vol" aria-label="Mute/Unmute">
+                    <svg id="hvp-vol-icon" width="20" height="20" viewBox="0 0 24 24" fill="#fff">
+                      <path d="M11 5L6 9H2v6h4l5 4V5z" />
+                      <path id="hvp-vol-wave" d="M15.54 8.46a5 5 0 0 1 0 7.07" />
+                    </svg>
+                  </button>
+                  <input type="range" class="hvp-vol-slider" id="hvp-vol-slider" min="0" max="1" step="0.02" value="1" aria-label="Volume" />
+                </div>
+                <span class="hvp-time" id="hvp-time">0:00 / 0:00</span>
+                <button class="hvp-btn hvp-speed-btn" id="hvp-speed" aria-label="Playback speed">1.15×</button>
+                <button class="hvp-btn" id="hvp-fs" aria-label="Fullscreen">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2">
+                    <path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add to calendar (full-width, directly under the video) — hidden until a real booking is verified -->
+      <div class="ty-cal anim d3" id="ty-cal" style="display: none;">
+        <button class="ty-cal-btn" id="ty-cal-btn" type="button" aria-haspopup="true" aria-expanded="false">
+          <span class="ty-cal-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="4" width="18" height="18" rx="2" />
+              <line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" />
+              <line x1="3" y1="10" x2="21" y2="10" />
+            </svg>
+          </span>
+          Add this call to my calendar
+          <svg class="ty-cal-caret" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9" />
+          </svg>
+        </button>
+        <div class="ty-cal-menu" id="ty-cal-menu" role="menu">
+          <a data-cal="google" href="#" target="_blank" rel="noopener" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Google Calendar
+          </a>
+          <a data-cal="outlook" href="#" target="_blank" rel="noopener" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Outlook.com
+          </a>
+          <a data-cal="office365" href="#" target="_blank" rel="noopener" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Office 365
+          </a>
+          <a data-cal="ics" href="#" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Apple / Download .ics
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 Steps -->
+      <div class="ty-steps">
+        <div class="ty-step anim d2">
+          <div class="ty-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2" />
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+            </svg>
+          </div>
+          <div class="ty-step-h">Check your inbox</div>
+          <div class="ty-step-p">Calendar invite and confirmation email are on their way.</div>
+        </div>
+        <div class="ty-step anim d3">
+          <div class="ty-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9" />
+              <polyline points="12 7 12 12 15.5 14" />
+            </svg>
+          </div>
+          <div class="ty-step-h">Block the time</div>
+          <div class="ty-step-p">45 minutes, uninterrupted, on a laptop.</div>
+        </div>
+        <div class="ty-step anim d4">
+          <div class="ty-step-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18h6" />
+              <path d="M10 22h4" />
+              <path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1v.2h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z" />
+            </svg>
+          </div>
+          <div class="ty-step-h">Come prepared</div>
+          <div class="ty-step-p">Think about your biggest operational bottleneck.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════ FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img
+          class="footer-logo"
+          src="https://assets.cdn.filesafe.space/stoLOEGDIvEDY3xQI4B8/media/67af965f2ba94ec985a2603c.png"
+          alt="Nils Digital"
+          loading="lazy"
+        />
+        <span class="footer-tagline">AI &amp; automation for service businesses · Chicago, IL</span>
+      </div>
+      <div class="footer-meta">
+        <span>© <span id="footer-year"></span> Nils Digital. All rights reserved.</span>
+      </div>
+    </div>
+  </footer>
+</div>
+<!-- /ghl-breakout -->
+
+<script>
+  /* ── SCROLL ANIMATIONS ─────────────────── */
+  var obs = new IntersectionObserver(
+    function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add("visible");
+          obs.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll(".anim").forEach(function (el) { obs.observe(el); });
+
+  var _fy = document.getElementById("footer-year");
+  if (_fy) _fy.textContent = new Date().getFullYear();
+
+  /* ── HERO VIDEO PLAYER (HVP) ─────────────── */
+  (function () {
+    var wrap = document.getElementById("hvp");
+    var vid = document.getElementById("hvp-vid");
+    if (!wrap || !vid) return;
+
+    var unmute = document.getElementById("hvp-unmute");
+    var ppBtn = document.getElementById("hvp-playpause");
+    var ppIcon = document.getElementById("hvp-pp-icon");
+    var volBtn = document.getElementById("hvp-vol");
+    var volIcon = document.getElementById("hvp-vol-icon");
+    var timeEl = document.getElementById("hvp-time");
+    var progress = document.getElementById("hvp-progress");
+    var fill = document.getElementById("hvp-fill");
+    var fsBtn = document.getElementById("hvp-fs");
+    var speedBtn = document.getElementById("hvp-speed");
+    var volSlider = document.getElementById("hvp-vol-slider");
+
+    var SPEEDS = [1, 1.15, 1.25, 1.5, 1.75, 2];
+    var speedIdx = 1;
+    var FAKE_RATIO = 0.7;
+
+    var ICON_PLAY = '<polygon points="6,3 20,12 6,21"/>';
+    var ICON_PAUSE = '<rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/>';
+    var VOL_ON = '<path d="M11 5L6 9H2v6h4l5 4V5z"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>';
+    var VOL_OFF = '<path d="M11 5L6 9H2v6h4l5 4V5z"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/>';
+
+    function fmtTime(s) {
+      s = Math.max(0, Math.floor(s));
+      return Math.floor(s / 60) + ":" + ("0" + (s % 60)).slice(-2);
+    }
+    function updateUI() {
+      var real = vid.currentTime;
+      var dur = vid.duration || 0;
+      var fakeProgress = Math.pow(dur > 0 ? real / dur : 0, 0.65);
+      var fakeDur = dur * FAKE_RATIO;
+      var fakeTime = fakeProgress * fakeDur;
+      fill.style.width = fakeProgress * 100 + "%";
+      timeEl.textContent = fmtTime(fakeTime) + " / " + fmtTime(fakeDur);
+    }
+    function setPlaying(playing) {
+      wrap.classList.toggle("playing", playing);
+      wrap.classList.toggle("paused", !playing);
+      ppIcon.innerHTML = playing ? ICON_PAUSE : ICON_PLAY;
+    }
+    function updateVolIcon() {
+      var v = vid.muted ? 0 : vid.volume;
+      volIcon.innerHTML = v === 0 ? VOL_OFF : VOL_ON;
+      volSlider.value = vid.muted ? 0 : vid.volume;
+      volSlider.style.setProperty("--vol-pct", volSlider.value * 100 + "%");
+    }
+    function setMuted(muted, userAction) {
+      vid.muted = muted;
+      if (!muted && vid.volume === 0) vid.volume = 1;
+      updateVolIcon();
+      unmute.classList.toggle("hvp-hidden", !muted);
+      if (muted && userAction) { vid.pause(); setPlaying(false); }
+    }
+    function applySpeed() {
+      var s = SPEEDS[speedIdx];
+      vid.playbackRate = s;
+      speedBtn.textContent = s + "×";
+    }
+
+    vid.muted = true;
+    applySpeed();
+
+    var userPaused = false;
+    var lastTouchEnd = 0;
+
+    function doPlay() { userPaused = false; vid.play().catch(function () {}); }
+    function doPause() { userPaused = true; vid.pause(); setPlaying(false); }
+
+    wrap.addEventListener("touchend", function (e) {
+      if (e.target.closest(".hvp-controls")) return;
+      e.preventDefault();
+      lastTouchEnd = Date.now();
+      if (vid.muted) { setMuted(false); if (vid.paused) doPlay(); }
+      else { if (vid.paused) doPlay(); else doPause(); }
+    }, { passive: false });
+
+    wrap.addEventListener("click", function (e) {
+      if (e.target.closest(".hvp-controls")) return;
+      if (Date.now() - lastTouchEnd < 500) return;
+      if (vid.muted) { setMuted(false); if (vid.paused) doPlay(); }
+      else { if (vid.paused) doPlay(); else doPause(); }
+    });
+
+    ppBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (Date.now() - lastTouchEnd < 500) return;
+      if (vid.paused) doPlay(); else doPause();
+    });
+    volBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setMuted(!vid.muted, true);
+    });
+    volSlider.addEventListener("input", function (e) {
+      e.stopPropagation();
+      vid.volume = parseFloat(volSlider.value);
+      var nowMuted = vid.volume === 0;
+      vid.muted = nowMuted;
+      unmute.classList.toggle("hvp-hidden", !nowMuted);
+      if (nowMuted) { vid.pause(); setPlaying(false); }
+      updateVolIcon();
+    });
+    volSlider.addEventListener("click", function (e) { e.stopPropagation(); });
+    speedBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      speedIdx = (speedIdx + 1) % SPEEDS.length;
+      applySpeed();
+    });
+    progress.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var rect = progress.getBoundingClientRect();
+      var pct = Math.min(1, Math.max(0, (e.clientX - rect.left) / rect.width));
+      var realPct = Math.pow(pct, 1 / 0.65);
+      vid.currentTime = realPct * (vid.duration || 0);
+    });
+    fsBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      if (document.fullscreenElement || document.webkitFullscreenElement) {
+        if (document.exitFullscreen) document.exitFullscreen();
+        else if (document.webkitExitFullscreen) document.webkitExitFullscreen();
+      } else {
+        if (wrap.requestFullscreen) wrap.requestFullscreen();
+        else if (wrap.webkitRequestFullscreen) wrap.webkitRequestFullscreen();
+      }
+    });
+
+    vid.addEventListener("timeupdate", updateUI);
+    vid.addEventListener("loadedmetadata", updateUI);
+    vid.addEventListener("ended", function () { setPlaying(false); });
+    vid.addEventListener("play", function () { setPlaying(true); applySpeed(); });
+    vid.addEventListener("pause", function () { setPlaying(false); });
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        if (entries[0].intersectionRatio >= 0.5 && vid.paused && !userPaused) {
+          vid.play().catch(function () {});
+        }
+      },
+      { threshold: 0.5 }
+    );
+    io.observe(wrap);
+  })();
+
+  /* ── ADD TO CALENDAR ─────────────────────────────
+     Reads the booked slot from URL params appended by GHL's post-booking
+     redirect, e.g. ?start=2026-06-10T15:00:00Z&end=2026-06-10T15:45:00Z
+     Supported params: start, end, duration (min), title, details, location, tz.
+     Falls back to a generic 45-min event if no valid start is present. */
+  (function () {
+    var root = document.getElementById("ty-cal");
+    if (!root) return;
+
+    var CAL_CFG = {
+      title: "AI & Automation Audit: Strategy Call with Nils Digital",
+      details:
+        "Your free AI and automation strategy call with Nils Digital.\n\nHow to get the most out of it:\n- Be at your desk, not driving. This is a working session and we'll be screen sharing.\n- Join a couple of minutes early.\n- Come ready to talk about the workflow that wastes your team the most time.\n\nWe'll be on early and prepared. See you then.",
+      location: "Online (join link on this event)",
+      durationMin: 45,
+    };
+
+    var btn = document.getElementById("ty-cal-btn");
+    var menu = document.getElementById("ty-cal-menu");
+    var qs = new URLSearchParams(window.location.search);
+
+    function tzOffsetMs(tz, date) {
+      try {
+        var p = new Intl.DateTimeFormat("en-US", { timeZone: tz, hour12: false, year: "numeric", month: "2-digit", day: "2-digit", hour: "2-digit", minute: "2-digit", second: "2-digit" })
+          .formatToParts(date).reduce(function (a, x) { a[x.type] = x.value; return a; }, {});
+        return Date.UTC(+p.year, p.month - 1, +p.day, +p.hour, +p.minute, +p.second) - date.getTime();
+      } catch (e) { return 0; }
+    }
+    var tzParam = (qs.get("tz") || qs.get("timezone") || "").trim();
+    if (tzParam.indexOf("{{") !== -1) tzParam = "";
+
+    // Accepts: ISO (with Z / offset / naive), "YYYY-MM-DD HH:MM:SS", "MM/DD/YYYY h:mm AM/PM",
+    // epoch s/ms. Naive times are placed in tzParam if given. Ignores unresolved {{merge}}.
+    function parseDT(v) {
+      if (!v) return null;
+      v = decodeURIComponent(String(v)).trim();
+      if (!v || v.indexOf("{{") !== -1) return null;
+      if (/^\d{10}$/.test(v)) return new Date(+v * 1000);
+      if (/^\d{13}$/.test(v)) return new Date(+v);
+      var norm = v.replace(" ", "T");
+      if (/[zZ]$|[+\-]\d{2}:?\d{2}$/.test(norm)) { var d = new Date(norm); return isNaN(d) ? null : d; }
+      var naive = new Date(norm);
+      if (isNaN(naive)) { naive = new Date(v); return isNaN(naive) ? null : naive; }
+      if (tzParam) {
+        var d0 = new Date(norm + "Z");
+        if (!isNaN(d0)) return new Date(d0.getTime() - tzOffsetMs(tzParam, d0));
+      }
+      return naive;
+    }
+
+    var start = parseDT(qs.get("start"));
+    var end = parseDT(qs.get("end"));
+    if (!start) {
+      qs.forEach(function (val, key) {
+        if (!start && /start|begin|date|time|appoint|slot/i.test(key)) { var d = parseDT(val); if (d) start = d; }
+      });
+    }
+    var dur = parseInt(qs.get("duration") || CAL_CFG.durationMin, 10) || CAL_CFG.durationMin;
+
+    function clean(v, fb) { if (!v) return fb; v = decodeURIComponent(v); return v.indexOf("{{") !== -1 ? fb : v; }
+    var title = clean(qs.get("title"), CAL_CFG.title);
+    var details = clean(qs.get("details"), CAL_CFG.details);
+    var loc = clean(qs.get("location"), CAL_CFG.location);
+
+    function z(n) { return ("0" + n).slice(-2); }
+    function utc(d) {
+      return (
+        d.getUTCFullYear() +
+        z(d.getUTCMonth() + 1) +
+        z(d.getUTCDate()) +
+        "T" +
+        z(d.getUTCHours()) +
+        z(d.getUTCMinutes()) +
+        z(d.getUTCSeconds()) +
+        "Z"
+      );
+    }
+    function escICS(s) {
+      return (s || "")
+        .replace(/\\/g, "\\\\")
+        .replace(/;/g, "\\;")
+        .replace(/,/g, "\\,")
+        .replace(/\r?\n/g, "\\n");
+    }
+
+    function buildLinks(start, end, title, details, loc) {
+      var sU = utc(start), eU = utc(end);
+      var gg =
+        "https://calendar.google.com/calendar/render?action=TEMPLATE" +
+        "&text=" + encodeURIComponent(title) +
+        "&dates=" + sU + "/" + eU +
+        "&details=" + encodeURIComponent(details) +
+        "&location=" + encodeURIComponent(loc);
+      var ol =
+        "https://outlook.live.com/calendar/0/deeplink/compose?path=/calendar/action/compose&rru=addevent" +
+        "&subject=" + encodeURIComponent(title) +
+        "&startdt=" + start.toISOString() +
+        "&enddt=" + end.toISOString() +
+        "&body=" + encodeURIComponent(details) +
+        "&location=" + encodeURIComponent(loc);
+      var o365 = ol.replace("outlook.live.com", "outlook.office.com");
+      var ics =
+        "BEGIN:VCALENDAR\r\nVERSION:2.0\r\nPRODID:-//Nils Digital//Thank You//EN\r\n" +
+        "CALSCALE:GREGORIAN\r\nMETHOD:PUBLISH\r\nBEGIN:VEVENT\r\n" +
+        "UID:" + sU + "-strategycall@nilsdigital.com\r\n" +
+        "DTSTAMP:" + utc(new Date()) + "\r\n" +
+        "DTSTART:" + sU + "\r\nDTEND:" + eU + "\r\n" +
+        "SUMMARY:" + escICS(title) + "\r\n" +
+        "DESCRIPTION:" + escICS(details) + "\r\n" +
+        "LOCATION:" + escICS(loc) + "\r\nEND:VEVENT\r\nEND:VCALENDAR";
+      root.querySelector('[data-cal="google"]').href = gg;
+      root.querySelector('[data-cal="outlook"]').href = ol;
+      root.querySelector('[data-cal="office365"]').href = o365;
+      var icsA = root.querySelector('[data-cal="ics"]');
+      icsA.href = "data:text/calendar;charset=utf-8," + encodeURIComponent(ics);
+      icsA.setAttribute("download", "nils-strategy-call.ics");
+    }
+    // The button stays hidden until we have a VERIFIED appointment time — so a random
+    // visitor who never booked can't add a (fake) event. No generic fallback.
+    function reveal(s, e, t, d, l) {
+      if (!e) e = new Date(s.getTime() + dur * 60000);
+      buildLinks(s, e, t, d, l);
+      root.style.display = "";
+      root.classList.add("visible");
+    }
+    // Button stays hidden by default. It only reveals if there is an email in the URL
+    // that resolves to a REAL appointment that has NOT yet passed (verified below).
+    // (No email-less "start param" reveal — an identifier + upcoming booking is required.)
+
+    // If the GHL booking redirect passed an email (or contact id), fetch the REAL booked
+    // appointment time from our Edge Function and reveal the button only if it's upcoming.
+    (function () {
+      var cid = (qs.get("cid") || qs.get("contact_id") || "").trim();
+      var em = (qs.get("email") || qs.get("contact_email") || "").trim();
+      var byCid = cid && cid.indexOf("{{") === -1;
+      var byEmail = em && em.indexOf("{{") === -1 && em.indexOf("@") !== -1;
+      if (!byCid && !byEmail) return; // no email/id in URL -> never show the button
+      var ep = "https://fojwgkpzhgsxzimprfwq.supabase.co/functions/v1/appointment-time?" +
+        (byCid ? "cid=" + encodeURIComponent(cid) : "email=" + encodeURIComponent(em));
+      fetch(ep).then(function (r) { return r.json(); }).then(function (d) {
+        if (!d || !d.start) return;
+        if (d.timezone && String(d.timezone).indexOf("{{") === -1) tzParam = d.timezone;
+        var s = parseDT(d.start), e = d.end ? parseDT(d.end) : null;
+        if (!s) return;
+        if (s.getTime() <= Date.now()) return; // appointment already passed -> keep hidden
+        if (!e) e = new Date(s.getTime() + dur * 60000);
+        var L = (d.location && String(d.location).indexOf("{{") === -1) ? d.location : loc;
+        reveal(s, e, title, details, L);
+      }).catch(function () {});
+    })();
+
+    function setOpen(o) {
+      root.classList.toggle("open", o);
+      btn.setAttribute("aria-expanded", o ? "true" : "false");
+    }
+    btn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setOpen(!root.classList.contains("open"));
+    });
+    document.addEventListener("click", function (e) {
+      if (!root.contains(e.target)) setOpen(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setOpen(false);
+    });
+    menu.querySelectorAll("a").forEach(function (a) {
+      a.addEventListener("click", function () {
+        setTimeout(function () { setOpen(false); }, 80);
+      });
+    });
+  })();
+</script>
+</body>
+</html>

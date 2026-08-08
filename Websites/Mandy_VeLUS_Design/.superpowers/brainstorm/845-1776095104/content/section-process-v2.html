@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Process — Short & Sweet Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', sans-serif; background: #0a0a0a; color: #e0e0e0; }
+  h1 { font-size: 22px; font-weight: 300; color: #fff; margin-bottom: 6px; text-align: center; padding-top: 32px; }
+  .sub { font-size: 13px; color: #555; text-align: center; margin-bottom: 32px; padding: 0 24px; }
+  .variation { margin: 0 24px 40px; background: #111; border-radius: 20px; overflow: hidden; border: 1px solid #1e1e1e; cursor: pointer; transition: border-color .4s, box-shadow .4s; }
+  .variation:hover { border-color: rgba(184,154,106,.35); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 48px rgba(184,154,106,.12); }
+  .vl { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #1a1a1a; }
+  .vn { width: 28px; height: 28px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; flex-shrink: 0; }
+  .vt { font-size: 14px; font-weight: 500; color: #fff; }
+  .vd { font-size: 12px; color: #555; padding: 12px 24px; line-height: 1.7; border-top: 1px solid #1a1a1a; }
+  .selected .vn { background: #fff; color: #B89A6A; }
+  .mock { background: #FAF6F0; padding: 64px 40px; }
+  img { max-width: 100%; display: block; }
+</style>
+</head>
+<body>
+
+<h1>Process — Short, Sweet, CTA-Driven</h1>
+<p class="sub">Compact timeline with numbers. No images — just clarity. Drives to Get In Touch.</p>
+
+<!-- 1: Horizontal numbered timeline -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">1</div><div class="vt">Horizontal Timeline — Connecting Line</div></div>
+  <div class="mock">
+    <div style="max-width:1000px;margin:0 auto;text-align:center;">
+      <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">How It Works</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;margin-bottom:56px;">Five Steps to Your<br>Fully Realized Home</div>
+
+      <!-- Timeline row -->
+      <div style="position:relative;display:flex;justify-content:space-between;padding:0 20px;margin-bottom:56px;">
+        <!-- Connecting line -->
+        <div style="position:absolute;top:18px;left:60px;right:60px;height:1px;background:linear-gradient(90deg,rgba(184,154,106,.15),rgba(184,154,106,.3),rgba(184,154,106,.3),rgba(184,154,106,.15));"></div>
+        <!-- Steps -->
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;position:relative;z-index:1;">
+          <div style="width:36px;height:36px;border-radius:50%;background:#3A241E;display:flex;align-items:center;justify-content:center;color:#F3EBDD;font-family:'Cormorant Garamond';font-size:16px;font-weight:400;">1</div>
+          <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Discovery Call</div>
+          <div style="font-size:11px;color:#7A6B62;line-height:1.6;max-width:140px;">Understand scope, lifestyle, and vision.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;position:relative;z-index:1;">
+          <div style="width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(184,154,106,.3);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-family:'Cormorant Garamond';font-size:16px;">2</div>
+          <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Site Visit</div>
+          <div style="font-size:11px;color:#7A6B62;line-height:1.6;max-width:140px;">Evaluate the space and shape direction.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;position:relative;z-index:1;">
+          <div style="width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(184,154,106,.3);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-family:'Cormorant Garamond';font-size:16px;">3</div>
+          <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Design Concept</div>
+          <div style="font-size:11px;color:#7A6B62;line-height:1.6;max-width:140px;">Full concept with materials and furnishings.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;position:relative;z-index:1;">
+          <div style="width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(184,154,106,.3);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-family:'Cormorant Garamond';font-size:16px;">4</div>
+          <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Procurement</div>
+          <div style="font-size:11px;color:#7A6B62;line-height:1.6;max-width:140px;">Source all fixtures, materials, furnishings.</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;position:relative;z-index:1;">
+          <div style="width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(184,154,106,.3);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-family:'Cormorant Garamond';font-size:16px;">5</div>
+          <div style="font-family:'Cormorant Garamond';font-size:18px;color:#3A241E;">Installation</div>
+          <div style="font-size:11px;color:#7A6B62;line-height:1.6;max-width:140px;">Full styling for a cohesive result.</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="font-family:'Cormorant Garamond';font-size:22px;color:#3A241E;margin-bottom:8px;">It All Starts With a Conversation</div>
+      <div style="font-size:13px;color:#7A6B62;margin-bottom:24px;">Tell us about your space and we'll guide every step.</div>
+      <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:16px 40px;background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);color:#fff;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border-radius:10px;text-decoration:none;box-shadow:0 8px 28px rgba(184,154,106,.25);transition:all .3s;" onmouseover="this.style.transform='translateY(-2px)'" onmouseout="this.style.transform=''">Get In Touch</a>
+    </div>
+  </div>
+  <div class="vd">Clean horizontal timeline with connecting gold line. Numbered circles, short titles, one-line descriptions. CTA at the bottom with "It All Starts With a Conversation." Compact — takes up maybe one viewport height. Clear, scannable, drives action.</div>
+</div>
+
+<!-- 2: Numbered steps in a single row, no descriptions -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">2</div><div class="vt">Ultra Minimal — Numbers + Titles Only</div></div>
+  <div class="mock">
+    <div style="max-width:1000px;margin:0 auto;text-align:center;">
+      <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">How It Works</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;margin-bottom:48px;">From First Call to Final Detail</div>
+
+      <!-- Steps as a single elegant row -->
+      <div style="display:flex;align-items:center;justify-content:center;gap:0;margin-bottom:48px;">
+        <div style="text-align:center;padding:0 20px;">
+          <div style="font-family:'Cormorant Garamond';font-size:36px;color:rgba(184,154,106,.25);font-weight:300;margin-bottom:6px;">01</div>
+          <div style="font-size:13px;color:#3A241E;font-weight:400;">Discovery</div>
+        </div>
+        <div style="width:40px;height:1px;background:rgba(184,154,106,.2);flex-shrink:0;"></div>
+        <div style="text-align:center;padding:0 20px;">
+          <div style="font-family:'Cormorant Garamond';font-size:36px;color:rgba(184,154,106,.25);font-weight:300;margin-bottom:6px;">02</div>
+          <div style="font-size:13px;color:#3A241E;font-weight:400;">Site Visit</div>
+        </div>
+        <div style="width:40px;height:1px;background:rgba(184,154,106,.2);flex-shrink:0;"></div>
+        <div style="text-align:center;padding:0 20px;">
+          <div style="font-family:'Cormorant Garamond';font-size:36px;color:rgba(184,154,106,.25);font-weight:300;margin-bottom:6px;">03</div>
+          <div style="font-size:13px;color:#3A241E;font-weight:400;">Design</div>
+        </div>
+        <div style="width:40px;height:1px;background:rgba(184,154,106,.2);flex-shrink:0;"></div>
+        <div style="text-align:center;padding:0 20px;">
+          <div style="font-family:'Cormorant Garamond';font-size:36px;color:rgba(184,154,106,.25);font-weight:300;margin-bottom:6px;">04</div>
+          <div style="font-size:13px;color:#3A241E;font-weight:400;">Procurement</div>
+        </div>
+        <div style="width:40px;height:1px;background:rgba(184,154,106,.2);flex-shrink:0;"></div>
+        <div style="text-align:center;padding:0 20px;">
+          <div style="font-family:'Cormorant Garamond';font-size:36px;color:rgba(184,154,106,.25);font-weight:300;margin-bottom:6px;">05</div>
+          <div style="font-size:13px;color:#3A241E;font-weight:400;">Installation</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="font-family:'Cormorant Garamond';font-size:24px;color:#3A241E;margin-bottom:6px;">Ready to Begin?</div>
+      <div style="font-size:13px;color:#7A6B62;margin-bottom:24px;">Every project starts with a conversation.</div>
+      <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:16px 40px;background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);color:#fff;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border-radius:10px;text-decoration:none;box-shadow:0 8px 28px rgba(184,154,106,.25);">Get In Touch</a>
+    </div>
+  </div>
+  <div class="vd">Maximum restraint — just large faded gold numbers, single-word titles, and thin connecting lines. The entire section is maybe 400px tall. "Ready to Begin?" drives straight to the CTA. Apple-level minimalism. The process is self-explanatory — no descriptions needed.</div>
+</div>
+
+<!-- 3: Vertical compact with gold line -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">3</div><div class="vt">Compact Vertical — Gold Line + CTA</div></div>
+  <div class="mock">
+    <div style="max-width:700px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:48px;">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">How It Works</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:34px;font-weight:300;color:#3A241E;line-height:1.15;">Your Path to a<br>Fully Realized Home</div>
+      </div>
+
+      <div style="position:relative;padding-left:48px;margin-bottom:48px;">
+        <div style="position:absolute;left:16px;top:4px;bottom:4px;width:1px;background:linear-gradient(to bottom,#B89A6A,rgba(184,154,106,.1));"></div>
+        <!-- Step 1 -->
+        <div style="position:relative;margin-bottom:28px;">
+          <div style="position:absolute;left:-40px;top:2px;width:24px;height:24px;border-radius:50%;background:#3A241E;display:flex;align-items:center;justify-content:center;color:#F3EBDD;font-size:11px;font-weight:500;">1</div>
+          <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:3px;">Discovery Call</div>
+          <div style="font-size:12px;color:#7A6B62;line-height:1.6;">We learn about your project, lifestyle, and vision.</div>
+        </div>
+        <!-- Step 2 -->
+        <div style="position:relative;margin-bottom:28px;">
+          <div style="position:absolute;left:-40px;top:2px;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(184,154,106,.3);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-size:11px;font-weight:500;">2</div>
+          <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:3px;">In-Home Consultation</div>
+          <div style="font-size:12px;color:#7A6B62;line-height:1.6;">We visit, evaluate, and begin shaping direction.</div>
+        </div>
+        <!-- Step 3 -->
+        <div style="position:relative;margin-bottom:28px;">
+          <div style="position:absolute;left:-40px;top:2px;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(184,154,106,.3);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-size:11px;font-weight:500;">3</div>
+          <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:3px;">Design Presentation</div>
+          <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Full concept — space planning, materials, furnishings.</div>
+        </div>
+        <!-- Step 4 -->
+        <div style="position:relative;margin-bottom:28px;">
+          <div style="position:absolute;left:-40px;top:2px;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(184,154,106,.3);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-size:11px;font-weight:500;">4</div>
+          <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:3px;">Procurement + Coordination</div>
+          <div style="font-size:12px;color:#7A6B62;line-height:1.6;">We source and manage everything.</div>
+        </div>
+        <!-- Step 5 -->
+        <div style="position:relative;">
+          <div style="position:absolute;left:-40px;top:2px;width:24px;height:24px;border-radius:50%;border:1.5px solid rgba(184,154,106,.3);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-size:11px;font-weight:500;">5</div>
+          <div style="font-family:'Cormorant Garamond';font-size:20px;color:#3A241E;margin-bottom:3px;">Installation + Completion</div>
+          <div style="font-size:12px;color:#7A6B62;line-height:1.6;">Placement, detailing, final styling. Done.</div>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div style="text-align:center;">
+        <div style="font-family:'Cormorant Garamond';font-size:22px;color:#3A241E;margin-bottom:6px;">Step One Starts Here</div>
+        <div style="font-size:13px;color:#7A6B62;margin-bottom:24px;">Tell us about your space. We'll handle the rest.</div>
+        <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:16px 40px;background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);color:#fff;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border-radius:10px;text-decoration:none;box-shadow:0 8px 28px rgba(184,154,106,.25);">Get In Touch</a>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Narrow vertical timeline — gold line, numbered circles, short titles + one-line descriptions. Centered on the page, max-width 700px. "Step One Starts Here" drives the CTA. Compact, elegant, and conversion-focused. Works perfectly on mobile too since it's already vertical.</div>
+</div>
+
+<!-- 4: Two-column split — steps left, CTA card right -->
+<div class="variation" onclick="sel(this)">
+  <div class="vl"><div class="vn">4</div><div class="vt">Split Layout — Steps Left, CTA Right</div></div>
+  <div class="mock">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:56px;align-items:center;">
+        <!-- Left: steps -->
+        <div>
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#B89A6A;margin-bottom:12px;">How It Works</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;color:#3A241E;line-height:1.15;margin-bottom:36px;">Five Steps to Your<br>Fully Realized Home</div>
+          <div style="display:flex;flex-direction:column;gap:20px;">
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="width:32px;height:32px;border-radius:50%;background:#3A241E;display:flex;align-items:center;justify-content:center;color:#F3EBDD;font-family:'Cormorant Garamond';font-size:14px;flex-shrink:0;margin-top:2px;">1</div>
+              <div><div style="font-family:'Cormorant Garamond';font-size:19px;color:#3A241E;margin-bottom:2px;">Discovery Call</div><div style="font-size:12px;color:#7A6B62;line-height:1.6;">We learn about your project, lifestyle, and vision.</div></div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(184,154,106,.25);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-family:'Cormorant Garamond';font-size:14px;flex-shrink:0;margin-top:2px;">2</div>
+              <div><div style="font-family:'Cormorant Garamond';font-size:19px;color:#3A241E;margin-bottom:2px;">In-Home Consultation</div><div style="font-size:12px;color:#7A6B62;line-height:1.6;">We visit, evaluate, and shape direction.</div></div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(184,154,106,.25);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-family:'Cormorant Garamond';font-size:14px;flex-shrink:0;margin-top:2px;">3</div>
+              <div><div style="font-family:'Cormorant Garamond';font-size:19px;color:#3A241E;margin-bottom:2px;">Design Presentation</div><div style="font-size:12px;color:#7A6B62;line-height:1.6;">Full concept with materials and furnishings.</div></div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(184,154,106,.25);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-family:'Cormorant Garamond';font-size:14px;flex-shrink:0;margin-top:2px;">4</div>
+              <div><div style="font-family:'Cormorant Garamond';font-size:19px;color:#3A241E;margin-bottom:2px;">Procurement</div><div style="font-size:12px;color:#7A6B62;line-height:1.6;">We source and manage everything.</div></div>
+            </div>
+            <div style="display:flex;gap:16px;align-items:flex-start;">
+              <div style="width:32px;height:32px;border-radius:50%;border:1.5px solid rgba(184,154,106,.25);background:#FAF6F0;display:flex;align-items:center;justify-content:center;color:#B89A6A;font-family:'Cormorant Garamond';font-size:14px;flex-shrink:0;margin-top:2px;">5</div>
+              <div><div style="font-family:'Cormorant Garamond';font-size:19px;color:#3A241E;margin-bottom:2px;">Installation</div><div style="font-size:12px;color:#7A6B62;line-height:1.6;">Placement, detailing, styling. Done.</div></div>
+            </div>
+          </div>
+        </div>
+        <!-- Right: CTA card -->
+        <div style="background:#fff;border-radius:16px;padding:40px 36px;border:1px solid rgba(58,36,30,.06);box-shadow:0 8px 32px rgba(42,30,26,.06);text-align:center;">
+          <div style="font-family:'Cormorant Garamond';font-size:28px;color:#3A241E;margin-bottom:10px;">Step One<br>Starts Here</div>
+          <div style="font-size:13px;color:#7A6B62;line-height:1.7;margin-bottom:28px;">Tell us about your space, your vision, and where you are in the process. We'll guide every step from here.</div>
+          <a href="#" style="display:inline-flex;align-items:center;gap:8px;padding:16px 36px;background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);color:#fff;font-size:13px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;border-radius:10px;text-decoration:none;box-shadow:0 8px 28px rgba(184,154,106,.25);width:100%;justify-content:center;">Get In Touch</a>
+          <div style="font-size:11px;color:#A89A90;margin-top:12px;">We respond within 24 hours</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="vd">Steps on the left, CTA card on the right — they see the process AND the action at the same time. No need to scroll past the steps to find the button. The CTA card is always visible alongside the steps. Most conversion-optimized layout.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+</body>
+</html>

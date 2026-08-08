@@ -1,0 +1,78 @@
+/* Modern minimal reset */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-body-regular);
+  line-height: var(--lh-normal);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+img, svg, video { max-width: 100%; height: auto; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; }
+
+/* Container */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--space-5);
+  padding-right: var(--space-5);
+}
+.container-narrow {
+  max-width: var(--container-narrow);
+  margin: 0 auto;
+  padding-left: var(--space-5);
+  padding-right: var(--space-5);
+}
+
+/* Typography defaults */
+h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: var(--fw-serif-regular); line-height: var(--lh-tight); letter-spacing: -0.02em; margin: 0; color: var(--ink); }
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+
+/* Editorial em accent (color-encoded per offer) */
+h1 em, h2 em { font-style: italic; }
+.accent-marketing  { color: var(--marketing); }
+.accent-automation { color: var(--automation); }
+
+p { margin: 0 0 var(--space-4); line-height: var(--lh-relaxed); }
+p.lead { font-size: var(--fs-body-lg); color: var(--ink-soft); }
+
+/* Eyebrow (avatar callout pill) */
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: var(--fs-eyebrow);
+  font-weight: var(--fw-display-bold);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  background: rgba(var(--marketing-rgb), 0.05);
+  border: 1px solid rgba(var(--marketing-rgb), 0.3);
+  color: var(--marketing);
+  margin-bottom: var(--space-4);
+}
+
+/* Scroll-reveal hook (paired with animations.js) */
+.anim { opacity: 0; transform: translateY(20px); transition: opacity var(--dur-slow) var(--ease-out), transform var(--dur-slow) var(--ease-out); }
+.anim.visible { opacity: 1; transform: translateY(0); }
+.anim.d1 { transition-delay: 100ms; }
+.anim.d2 { transition-delay: 200ms; }
+.anim.d3 { transition-delay: 300ms; }
+.anim.d4 { transition-delay: 400ms; }
+
+/* Section spacing */
+section { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+@media (max-width: 768px) {
+  section { padding-top: var(--space-7); padding-bottom: var(--space-7); }
+}
+
+/* Smooth scroll for anchor nav (single-page architecture) */
+html { scroll-behavior: smooth; }
+section[id] { scroll-margin-top: 80px; }

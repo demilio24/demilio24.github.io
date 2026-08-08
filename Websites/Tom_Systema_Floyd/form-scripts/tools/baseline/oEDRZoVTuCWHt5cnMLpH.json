@@ -1,0 +1,204 @@
+{
+  "name": "summer-camp",
+  "id": "oEDRZoVTuCWHt5cnMLpH",
+  "fields": [
+    {
+      "label": "Student Name *",
+      "options": []
+    },
+    {
+      "label": "Student Birthday *",
+      "options": []
+    },
+    {
+      "label": "Student T-Shirt",
+      "options": []
+    },
+    {
+      "label": "Is this student potty trained?",
+      "options": [
+        "Yes",
+        "No"
+      ]
+    },
+    {
+      "label": "Select Camp Duration *",
+      "options": []
+    },
+    {
+      "label": "Select Camp Dates *Select All",
+      "options": [
+        "June 1st-5th",
+        "June 8th-12th",
+        "June 22nd-26th",
+        "June 29th-July 3rd",
+        "July 6th-10th",
+        "July 13th-17th",
+        "July 20th-24th",
+        "July 27th-31st",
+        "August 3rd-7th",
+        "August 10th-14th",
+        "August 17th-21st",
+        "August 24th-28th"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of June 1st–5th?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of June 8th–12th?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of June 15th–19th?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of June 22nd–26th?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of June 29th–July 3rd?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of July 6th–10th?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of July 13th–17th?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of July 20th–24th?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of July 27th–31st?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of August 3rd–7th?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of August 10th–14th?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of August 17th–21st?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Which day(s) will you attend the week of August 24th–28th?",
+      "options": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ]
+    },
+    {
+      "label": "Extra care options *",
+      "options": []
+    },
+    {
+      "label": "Select Breakfast Option: Overnight Oats *",
+      "options": []
+    },
+    {
+      "label": "Select lunch option *",
+      "options": []
+    },
+    {
+      "label": "Parent/Guardian Name *",
+      "options": []
+    },
+    {
+      "label": "Phone Number *",
+      "options": []
+    },
+    {
+      "label": "Email Address *",
+      "options": []
+    },
+    {
+      "label": "Additional Requests and Comments",
+      "options": []
+    }
+  ]
+}

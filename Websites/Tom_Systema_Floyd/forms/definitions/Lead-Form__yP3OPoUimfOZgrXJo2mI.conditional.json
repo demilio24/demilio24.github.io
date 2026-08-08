@@ -1,0 +1,105 @@
+[
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "After School",
+        "selectedField": "interest",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "type": "redirectToUrl",
+      "value": "https://systemafloyd.com/after-school-class-registration?name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}`"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Camps",
+        "selectedField": "interest",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "type": "redirectToUrl",
+      "value": "https://systemafloyd.com/camp-registration?name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}`"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Spirit Dance",
+        "selectedField": "interest",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "type": "redirectToUrl",
+      "value": "https://systemafloyd.com/after-school-class-registration?name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}`"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Private Lessons",
+        "selectedField": "interest",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "type": "redirectToUrl",
+      "value": "https://systemafloyd.com/private-lessons?name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}`"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Birthday Parties",
+        "selectedField": "interest",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "type": "redirectToUrl",
+      "value": "https://systemafloyd.com/birthday-parties?name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}`"
+    }
+  },
+  {
+    "conditionalOperation": "or",
+    "conditions": [
+      {
+        "inputValue": "Adult & Teen Classes",
+        "selectedField": "interest",
+        "selectedOperation": "isEqualTo"
+      },
+      {
+        "inputValue": "Other",
+        "selectedField": "interest",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "type": "redirectToUrl",
+      "value": "https://systemafloyd.com/thank-you"
+    }
+  },
+  {
+    "conditionalOperation": "then",
+    "conditions": [
+      {
+        "inputValue": "Rent a Sensei",
+        "selectedField": "interest",
+        "selectedOperation": "isEqualTo"
+      }
+    ],
+    "outcome": {
+      "type": "redirectToUrl",
+      "value": "https://systemafloyd.com/rent-a-sensei?name={{contact.name}}&email={{contact.email}}&phone={{contact.phone}}`"
+    }
+  }
+]

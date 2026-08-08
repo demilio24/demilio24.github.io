@@ -1,0 +1,21 @@
+@font-face {
+	font-family: 'Larsseit';
+	src:
+		url('./4dffda3e-4fc2-4e11-b974-4711b81c169e.woff2') format('woff2'),
+		url('./59013459-e47b-4f26-9c39-ec4df2c8e963.woff') format('woff'),
+		url('./e7a1aff2-5e85-488b-88d6-c832c36b2d64.ttf') format('truetype');
+	font-weight: 400;
+	font-display: fallback;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Larsseit';
+	src:
+		url('./38f62b25-9bb5-4b8f-ab6d-8a5d73286ec1.woff2') format('woff2'),
+		url('./5fb439fe-d913-4b7d-9727-20ba5bfe48ff.woff') format('woff'),
+		url('./7b8b3e80-242b-4f48-9ed6-d0dc4175a61c.ttf') format('truetype');
+	font-weight: 700;
+	font-display: fallback;
+	font-style: normal;
+}

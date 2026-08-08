@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@600;700;800&display=swap" rel="stylesheet" />
+<style>
+  :root{--green:#0fbf7a;--neon:#00ff88;--neon-soft:#6dffa6;--bg:#03110a;}
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1080px}
+  .art{width:1080px;height:1080px;position:relative;overflow:hidden;
+    background:
+      radial-gradient(55% 45% at 50% 40%, rgba(0,255,136,.22), transparent 62%),
+      radial-gradient(75% 65% at 90% 6%, rgba(0,224,255,.14), transparent 55%),
+      radial-gradient(75% 65% at 6% 98%, rgba(0,255,136,.14), transparent 55%),
+      conic-gradient(from 210deg at 70% 30%, rgba(0,224,255,.06), transparent 40%),
+      var(--bg);
+    font-family:'IBM Plex Sans',sans-serif;color:#fff;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:110px 96px}
+  .art::before{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(0,255,136,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,.08) 1px,transparent 1px);
+    background-size:56px 56px;
+    -webkit-mask-image:radial-gradient(72% 62% at 50% 42%, #000 28%, transparent 82%);
+    mask-image:radial-gradient(72% 62% at 50% 42%, #000 28%, transparent 82%)}
+  .art::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(125% 105% at 50% 48%, transparent 52%, rgba(0,0,0,.6) 100%)}
+  .brand{position:relative;font-family:'Inter';font-weight:700;letter-spacing:.42em;font-size:23px;
+    color:var(--neon-soft);text-transform:uppercase;text-indent:.42em;margin-bottom:18px}
+  .tick{position:relative;width:74px;height:4px;border-radius:4px;background:var(--neon);margin:26px 0 40px;box-shadow:0 0 18px rgba(0,255,136,.5)}
+  .head{position:relative;font-weight:700;font-size:96px;line-height:1.02;letter-spacing:-.02em}
+  .head .n{color:var(--neon)}
+  .sub{position:relative;font-weight:500;font-size:42px;line-height:1.32;color:#cfe7da;margin-top:46px}
+  .sub .g{color:var(--neon-soft);font-weight:700}
+  .cta{position:relative;margin-top:52px;display:inline-flex;align-items:center;gap:12px;background:var(--neon);color:#04140c;font-family:'Inter';font-weight:800;font-size:32px;padding:22px 42px;border-radius:999px;box-shadow:0 14px 34px rgba(0,0,0,.30)}
+</style>
+</head>
+<body>
+  <div class="art">
+    <div class="head">Can you name<br><span class="n">5</span> places AI should<br>be running in<br>your business?</div>
+    <div class="cta">See where AI fits in your business <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#04140c" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="4" x2="12" y2="19"/><polyline points="6 13 12 19 18 13"/></svg></div>
+  </div>
+</body>
+</html>

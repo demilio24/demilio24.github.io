@@ -1,0 +1,618 @@
+img.app-home {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) 0 0
+    no-repeat;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+img.app-home:hover {
+  background-position: -16px 0;
+}
+
+i.app-setup-guide:hover {
+  color: #1998d5;
+}
+
+img.app-back {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) 0 -16px no-repeat;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+img.app-back:hover {
+  background-position: -16px -16px;
+}
+
+img.app-newwin {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) 0 -32px no-repeat;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+img.app-newwin:hover {
+  background-position: -16px -32px;
+}
+
+img.app-logout {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) 0 -48px no-repeat;
+  width: 16px;
+  height: 16px;
+  margin-right: 5px;
+}
+img.app-logout:hover {
+  background-position: -16px -48px;
+}
+
+img.help-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) -24px -108px
+    no-repeat;
+  width: 10px;
+  height: 12px;
+}
+img.support-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) -12px -108px
+    no-repeat;
+  width: 12px;
+  height: 12px;
+}
+img.idea-icon,
+img.lightbulb-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) 0px -96px no-repeat;
+  width: 10px;
+  height: 12px;
+}
+img.tick-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) -10px -120px
+    no-repeat;
+  width: 12px;
+  height: 12px;
+}
+img.return-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) -10px -96px
+    no-repeat;
+  width: 10px;
+  height: 11px;
+}
+img.calendar-icon,
+img.cal-icon,
+img.schedule-new-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) 0 -80px no-repeat;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  cursor: pointer;
+}
+img.schedule-new-icon-pp {
+  background: url(/assets/Content/images/icon_schedulenew.gif) no-repeat;
+  width: 15px;
+  height: 21px;
+}
+img.delete-icon,
+img.close-blue-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) 0px -120px no-repeat;
+  width: 10px;
+  height: 11px;
+  margin-top: 3px;
+}
+img.close-blue-icon {
+  cursor: pointer;
+}
+img.delete-icon-red {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) 0 -181px no-repeat;
+  width: 18px;
+  height: 16px;
+  cursor: pointer;
+  vertical-align: bottom;
+}
+
+img.delete-icon-for-grid,
+img.unlink-icon {
+  background-image: url("/assets/Content/images/Spring2014/TrashCan_icon_20_blue.png") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 20px;
+  top: 0;
+}
+
+img.delete-icon-for-buttons {
+  background-image: url("/assets/Content/images/Spring2014/TrashCan_icon_12_blue.png") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 12px;
+  width: 12px;
+  top: 0;
+}
+
+img.link-icon {
+  background-image: url("/assets/Content/images/Spring2014/Link_icon_20_blue.png") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 20px;
+  width: 20px;
+  top: 0;
+}
+
+img.unlink-icon {
+  width: 25px;
+}
+
+img.refund-icon {
+  background-image: url("/assets/Content/images/Spring2014/Refund_icon_20_blue.png") !important;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 20px;
+  width: 20px;
+  top: 0;
+}
+
+img.question-icon,
+img.help-small-icon,
+img.question-icon-template-help,
+img.q-mark-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) -17px -196px
+    no-repeat;
+  width: 16px;
+  height: 17px;
+  cursor: pointer;
+  vertical-align: text-bottom;
+}
+
+h3 img.question-icon {
+  /*For PopupHelp after an h3 sub-section header*/
+  margin-left: 0.3rem;
+}
+
+img.attention-small-icon {
+  background: url(/assets/Content/images/attentionsmall.png) no-repeat;
+  width: 30px;
+  height: 26px;
+}
+img.attention-smaller-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) 0px 0px
+    no-repeat;
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}
+img.warning-smaller-icon {
+  background: url(~/Content/images/warning_small.png);
+  width: 10px;
+  height: 10px;
+  vertical-align: middle;
+}
+img.attention-smallest-icon {
+  background: url(/assets/Content/images/attentionsmallest.png) no-repeat;
+  width: 15px;
+  height: 13px;
+}
+img.add-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) 0px -264px
+    no-repeat;
+  width: 26px;
+  height: 22px;
+  vertical-align: middle;
+}
+img.add-blue-icon,
+img.plus-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) 0 -132px no-repeat;
+  width: 16px;
+  height: 13px;
+}
+img.plus-icon {
+  cursor: pointer;
+}
+img.caution-icon {
+  background: url(/assets/Content/images/caution.png) no-repeat;
+  width: 15px;
+  height: 15px;
+}
+img.bunny-icon {
+  background: url(/assets/Content/images/Bunny_57high.gif) no-repeat;
+  width: 27px;
+  height: 57px;
+  margin-left: 0;
+  border-style: none;
+}
+img.jt-class-logo {
+  background: url(/assets/Content/images/new_JTClasslogo.jpg) no-repeat;
+  width: 120px;
+  height: 46px;
+  margin-left: 2px;
+  border-style: none;
+}
+img.cbo-arrow-icon {
+  background: url(/assets/Content/images/Spring2014/field-arrow-button.png)
+    no-repeat;
+  width: 17px;
+  height: 17px;
+}
+img.find-icon,
+img.find-2-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) -20px -94px
+    no-repeat;
+  width: 13px;
+  height: 14px;
+}
+img.find-2-icon {
+  margin: 0 2px;
+}
+img.spinner-icon {
+  background: url(/assets/Content/images/spinner.gif) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+img.save-disc-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) -16px -64px
+    no-repeat;
+  width: 16px;
+  height: 14px;
+}
+img.dd-icon {
+  background: url(/assets/Content/images/dd.jpg) no-repeat;
+  width: 17px;
+  height: 18px;
+}
+img.recurring-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) 0 -108px no-repeat;
+  width: 12px;
+  height: 12px;
+}
+img.print-icon,
+img.lookup-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) 0px -139px
+    no-repeat;
+  width: 19px;
+  height: 16px;
+  background-size: 100%;
+}
+img.print-icon-pp {
+  background: url(/assets/Content/images/print.gif) no-repeat;
+  width: 18px;
+  height: 18px;
+}
+img.mail-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) 0px -50px
+    no-repeat;
+  width: 20px;
+  height: 16px;
+}
+img.minus-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) -18px -132px
+    no-repeat;
+  width: 16px;
+  height: 13px;
+  cursor: pointer;
+}
+/*
+img.plus-icon{
+	background: url(/assets/Content/images/plus.gif) no-repeat;
+	width: 9px;
+	height: 12px;
+}
+*/
+img.email-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite.png) -16px -80px
+    no-repeat;
+  width: 16px;
+  height: 14px;
+}
+
+img.email-env-small-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) -3px -288px
+    no-repeat;
+  width: 24px;
+  height: 17px;
+  cursor: pointer;
+}
+img.webcolor-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) -20px -49px
+    no-repeat;
+  width: 14px;
+  height: 21px;
+  cursor: pointer;
+  vertical-align: middle;
+}
+img.pencil-icon {
+  background: url(/assets/Content/images/Spring2014/Pencil_icon_16_blue.png)
+    no-repeat;
+  width: 16px;
+  height: 16px;
+  background-position: center;
+  cursor: pointer;
+}
+img.amex-icon {
+  background: url(/assets/Content/images/cc_amex.jpg) no-repeat;
+  width: 47px;
+  height: 36px;
+}
+img.discover-icon {
+  background: url(/assets/Content/images/cc_disc.jpg) no-repeat;
+  width: 46px;
+  height: 36px;
+}
+img.mastercard-icon {
+  background: url(/assets/Content/images/cc_mc.jpg) no-repeat;
+  width: 46px;
+  height: 36px;
+}
+
+img.visa-icon-bigger {
+  background: url(/assets/Content/images/cc_visa.jpg) no-repeat;
+  width: 46px;
+  height: 36px;
+}
+img.visa-icon {
+  background: url(/assets/Content/images/visa_sm.gif) no-repeat;
+  width: 17px;
+  height: 13px;
+}
+img.green-check-icon-pp {
+  background: url(/assets/Content/images/green_check.gif) no-repeat;
+  width: 13px;
+  height: 12px;
+}
+img.green-checkbox-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) 0px -215px
+    no-repeat;
+  width: 29px;
+  height: 20px;
+  vertical-align: middle;
+}
+img.green-progress-icon {
+  background: url(/assets/Content/images/greenprogress.gif) no-repeat;
+  width: 94px;
+  height: 17px;
+}
+img.checkmark-small-icon {
+  background: url(/assets/Content/images/checkmarksmall.gif) no-repeat;
+  width: 15px;
+  height: 12px;
+}
+img.firefox-icon {
+  background: url(/assets/Content/images/ff.png) no-repeat;
+  width: 93px;
+  height: 35px;
+}
+img.google-icon {
+  background: url(/assets/Content/images/google.jpg) no-repeat;
+  width: 127px;
+  height: 41px;
+}
+img.ie-icon {
+  background: url(/assets/Content/images/ie.jpg) no-repeat;
+  width: 37px;
+  height: 34px;
+}
+img.osx-icon {
+  background: url(/assets/Content/images/ico-osx.png) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+img.windows-icon {
+  background: url(/assets/Content/images/ico-win.png) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+img.word-icon {
+  background: url(/assets/Content/images/word.gif) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+img.excel-icon {
+  background: url(/assets/Content/images/exportxls.gif) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+img.first-aid-icon {
+  background: url(/assets/Content/images/Spring2014/first-aid_new.gif) no-repeat;
+  width: 17px;
+  height: 16px;
+}
+img.forward-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) 0px -164px
+    no-repeat;
+  width: 16px;
+  height: 14px;
+}
+img.red-check-icon-pp {
+  background: url(/assets/Content/images/red_check.gif) no-repeat;
+  width: 10px;
+  height: 10px;
+}
+img.tv-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) -3px -196px
+    no-repeat;
+  width: 13px;
+  height: 19px;
+  vertical-align: middle;
+}
+img.table-icon {
+  background: url(/assets/Content/images/table2.gif) no-repeat;
+  width: 16px;
+  height: 16px;
+}
+img.sample-logo-icon {
+  background: url(/assets/Content/images/2023_Logos/OrgLogo_150x60.jpg) no-repeat;
+  width: 174px;
+  height: 80px;
+}
+img.link-user-icon {
+  background: url(/assets/Content/images/link-user-to-staff.png) no-repeat;
+  width: 316px;
+  height: 31px;
+}
+img.calculator-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) 0px -146px
+    no-repeat;
+  cursor: pointer;
+  height: 19px;
+  vertical-align: middle;
+  width: 18px;
+}
+img.coin-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) -17px -31px
+    no-repeat;
+  height: 18px;
+  vertical-align: top;
+  width: 16px;
+}
+img.blue-search-small-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) -17px -178px
+    no-repeat;
+  width: 16px;
+  height: 18px;
+  cursor: pointer;
+  vertical-align: top;
+}
+img.clock-login-pic-icon {
+  background: url(/assets/Content/images/clock-login-pic.png) no-repeat;
+  width: 319px;
+  height: 226px;
+}
+img.clock-login-welcome-icon {
+  background: url(/assets/Content/images/clock-login-welcome.png) no-repeat;
+  width: 1079px;
+  height: 421px;
+}
+img.clock-in-icon {
+  background: url(/assets/Content/images/clock-clock-in-btn.png) no-repeat;
+  width: 164px;
+  height: 39px;
+}
+img.clock-out-icon {
+  background: url(/assets/Content/images/clock-clock-out-btn.png) no-repeat;
+  width: 164px;
+  height: 38px;
+}
+img.staff-timecard-icon {
+  background: url(/assets/Content/images/staff-time-card-tab.png) no-repeat;
+  width: 674px;
+  height: 215px;
+}
+
+img.notes-icon {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) -2px -65px
+    no-repeat;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+img.notes-icon-view {
+  background: url(/assets/Content/images/Spring2014/image-sprite-4.png) -2px -96px
+    no-repeat;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+}
+div.blink-alert-icon {
+  background: url(/assets/Content/images/Spring2014/YellowAlert.png) no-repeat;
+  width: 13px;
+  height: 13px;
+}
+div.bar-chart-icon {
+  background: url(/assets/Content/images/barchart.gif) no-repeat;
+  width: 25px;
+  height: 14px;
+}
+img.jr-tech-logo {
+  background: url(/assets/Content/images/JR_ClassTech_LogoOnly.png) no-repeat;
+  width: 144px;
+  height: 57px;
+}
+img.ezcare-logo {
+  background: url(/assets/Content/images/JRCare_logo_stacked.png) no-repeat;
+  width: 140px;
+  height: 53px;
+}
+img.jr-class-logo {
+  background: url(/assets/Content/images/class-logo.png) no-repeat;
+  width: 138px;
+  height: 58px;
+}
+
+div.horizontal-loader {
+  height: 25px;
+  width: 220px;
+  background: url(/assets/Content/images/horizontal-loader.gif) no-repeat;
+}
+
+img.globe-icon {
+  background: url(/assets/Content/images/Globe-icon-16px.png) no-repeat;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
+input.spinner-icon {
+  background: url(/assets/Content/images/spinner.gif) no-repeat right center;
+  background-size: 16px;
+}
+
+/* FONT AWESOME HELPERS */
+span.fa-jr-blue,
+i.fa-jr-blue {
+  color: #1998d5;
+}
+
+i.fa-height-fix {
+  position: relative;
+  top: -2px;
+}
+
+.fa-jr-green {
+  color: #0fb105;
+}
+
+.fa-jr-yellow {
+  color: #ffc300;
+}
+
+.fa-jr-red {
+  color: #cd2027;
+}
+
+span.fa-jr-button,
+i.fa-jr-button {
+  font-size: 1.5em;
+  color: #1998d5;
+  display: inline-block;
+  width: 100%;
+  cursor: pointer;
+}
+
+span.fa-jr-inline,
+i.fa-jr-inline {
+  font-size: 1.5em;
+  color: #1998d5;
+  display: inline-block;
+}
+
+i.fa-date-nav-icon {
+  position: relative;
+  top: 5px;
+  margin: 0 3px;
+  cursor: pointer;
+}
+
+div.ui-state-hover.fa-hover-fix {
+  margin: -1px;
+}
+
+span.fa-jr-button-icon,
+i.fa-jr-button-icon {
+  font-size: 0.75em;
+  color: #1998d5;
+  margin-right: 3px;
+}
+span.fa-jr-button-icon-right,
+i.fa-jr-button-icon-right {
+  font-size: 0.75em;
+  color: #1998d5;
+  margin-left: 3px;
+}
+
+img.internalsupport_ears {
+  background: url(/assets/Content/images/internalsupport_ears.jpg) no-repeat;
+  width: 32px;
+  height: 31px;
+}

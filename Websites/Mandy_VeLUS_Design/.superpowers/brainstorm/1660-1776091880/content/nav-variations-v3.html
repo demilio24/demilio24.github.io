@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nav Variations — Using Actual Logo</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family: 'Inter', -apple-system, sans-serif; background: #1a1a2e; color: #e0e0e0; padding: 32px; }
+  h1 { font-size: 28px; font-weight: 300; color: #fff; margin-bottom: 8px; text-align: center; }
+  .subtitle { font-size: 14px; color: #888; text-align: center; margin-bottom: 40px; }
+  .variation { margin-bottom: 36px; background: #222240; border-radius: 16px; overflow: hidden; border: 1px solid #333; cursor: pointer; transition: border-color .3s, box-shadow .3s; }
+  .variation:hover { border-color: #B89A6A; box-shadow: 0 0 24px rgba(184,154,106,.15); }
+  .variation.selected { border-color: #B89A6A; box-shadow: 0 0 32px rgba(184,154,106,.25); }
+  .var-label { display: flex; align-items: center; gap: 12px; padding: 14px 24px; border-bottom: 1px solid #333; }
+  .var-letter { width: 32px; height: 32px; border-radius: 50%; background: #B89A6A; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 700; flex-shrink: 0; }
+  .var-title { font-size: 15px; font-weight: 600; color: #fff; }
+  .var-desc { font-size: 13px; color: #999; padding: 12px 24px; line-height: 1.6; border-top: 1px solid #2a2a45; }
+  .selected .var-letter { background: #fff; color: #B89A6A; }
+</style>
+</head>
+<body>
+
+<h1>Navigation — All Using Her Actual Logo</h1>
+<p class="subtitle">Every option uses the real VELUS logo. Differences are: button style, logo filter, and overall vibe. Click to select.</p>
+
+<!-- A: Darkened logo + dark pill CTA -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">A</div><div class="var-title">Dark Pill CTA — Minimal</div></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:#FAF6F0;">
+    <img src="https://velusinteriors.com/wp-content/uploads/2022/10/main-logo.png" alt="VELUS" style="height:30px;filter:brightness(0.15);">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Portfolio</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Services</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Process</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Reviews</span>
+      <div style="padding:11px 28px;background:#3A241E;color:#F3EBDD;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border-radius:100px;">Get In Touch</div>
+    </div>
+  </div>
+  <div class="var-desc">Logo darkened to near-black. Fully rounded pill CTA. Clean and understated — the logo and button don't compete.</div>
+</div>
+
+<!-- B: Darkened logo + gold gradient CTA -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">B</div><div class="var-title">Gold Gradient CTA — Warm</div></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:#FAF6F0;">
+    <img src="https://velusinteriors.com/wp-content/uploads/2022/10/main-logo.png" alt="VELUS" style="height:30px;filter:brightness(0.15);">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Portfolio</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Services</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Process</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Reviews</span>
+      <div style="padding:11px 28px;background:linear-gradient(135deg,#9a6d1f,#B89A6A,#D4B87A);color:#fff;font-size:11px;letter-spacing:.1em;text-transform:uppercase;border-radius:10px;font-weight:500;box-shadow:0 4px 16px rgba(184,154,106,.25);">Get In Touch</div>
+    </div>
+  </div>
+  <div class="var-desc">Same darkened logo. Gold gradient CTA matches the hero button — creates consistency throughout the page. Rounded 10px corners. Warm, inviting.</div>
+</div>
+
+<!-- C: Darkened logo + outlined gold CTA -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">C</div><div class="var-title">Gold Outline CTA — Elegant</div></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:#FAF6F0;">
+    <img src="https://velusinteriors.com/wp-content/uploads/2022/10/main-logo.png" alt="VELUS" style="height:30px;filter:brightness(0.15);">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Portfolio</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Services</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Process</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Reviews</span>
+      <div style="padding:11px 28px;background:transparent;color:#B89A6A;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border-radius:10px;border:1.5px solid #B89A6A;">Get In Touch</div>
+    </div>
+  </div>
+  <div class="var-desc">Outline-only gold CTA — lighter, more refined. Doesn't compete with the hero's gold button. The nav feels quieter, letting the content below do the talking.</div>
+</div>
+
+<!-- D: Dark logo + dark rounded CTA with gold border accent -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">D</div><div class="var-title">Dark CTA + Gold Accent Border — Luxe</div></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:#FAF6F0;">
+    <img src="https://velusinteriors.com/wp-content/uploads/2022/10/main-logo.png" alt="VELUS" style="height:30px;filter:brightness(0.15);">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Portfolio</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Services</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Process</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Reviews</span>
+      <div style="padding:11px 28px;background:#3A241E;color:#F3EBDD;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border-radius:10px;border:1px solid rgba(184,154,106,.35);box-shadow:0 2px 8px rgba(58,36,30,.1);">Get In Touch</div>
+    </div>
+  </div>
+  <div class="var-desc">Dark brown CTA with subtle gold border and soft shadow. Feels solid and premium without being flashy. The gold border ties it to the design system without overwhelming.</div>
+</div>
+
+<!-- E: Sepia-toned logo + dark pill + gold underline links -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">E</div><div class="var-title">Sepia Logo + Gold Link Underlines — Editorial</div></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:#FAF6F0;">
+    <img src="https://velusinteriors.com/wp-content/uploads/2022/10/main-logo.png" alt="VELUS" style="height:30px;filter:brightness(0.25) sepia(0.4);">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;border-bottom:1px solid rgba(184,154,106,.3);padding-bottom:2px;">Portfolio</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;border-bottom:1px solid rgba(184,154,106,.3);padding-bottom:2px;">Services</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;border-bottom:1px solid rgba(184,154,106,.3);padding-bottom:2px;">Process</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;border-bottom:1px solid rgba(184,154,106,.3);padding-bottom:2px;">Reviews</span>
+      <div style="padding:11px 28px;background:#3A241E;color:#F3EBDD;font-size:11px;letter-spacing:.12em;text-transform:uppercase;border-radius:100px;">Get In Touch</div>
+    </div>
+  </div>
+  <div class="var-desc">Logo gets a warm sepia tone instead of pure black — feels vintage/editorial. Nav links get subtle gold underlines on hover. Pill CTA. Most distinctive and magazine-like.</div>
+</div>
+
+<!-- F: Darkened logo + no visible button, text CTA -->
+<div class="variation" onclick="sel(this)">
+  <div class="var-label"><div class="var-letter">F</div><div class="var-title">Text-Only CTA — Ultra Minimal</div></div>
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:18px 40px;background:#FAF6F0;">
+    <img src="https://velusinteriors.com/wp-content/uploads/2022/10/main-logo.png" alt="VELUS" style="height:30px;filter:brightness(0.15);">
+    <div style="display:flex;align-items:center;gap:32px;">
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Portfolio</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Services</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Process</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#7A6B62;">Reviews</span>
+      <span style="font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#B89A6A;font-weight:500;">Get In Touch →</span>
+    </div>
+  </div>
+  <div class="var-desc">No button at all — CTA is gold text with an arrow. Maximum restraint. Feels like a high-end architecture firm. The hero section does the heavy lifting for conversions instead.</div>
+</div>
+
+<script>
+function sel(el) {
+  document.querySelectorAll('.variation').forEach(v => { if(v !== el) v.classList.remove('selected'); });
+  el.classList.toggle('selected');
+}
+</script>
+
+</body>
+</html>
